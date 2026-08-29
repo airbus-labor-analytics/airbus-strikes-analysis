@@ -986,12 +986,11 @@ function initUnionShareChart() {
   if (unionShareChart) unionShareChart.destroy();
 
   const unionData = conflictData?.trade_union_representation?.current_shares || [
-    { union_code: "CCOO", name: "CCOO", pct: 36.8, color: "#dc2626" },
-    { union_code: "UGT", name: "UGT", pct: 24.2, color: "#ea580c" },
-    { union_code: "SIPA", name: "SIPA", pct: 18.5, color: "#0284c7" },
-    { union_code: "CGT", name: "CGT", pct: 9.4, color: "#16a34a" },
-    { union_code: "ATP", name: "ATP-SAE", pct: 7.1, color: "#9333ea" },
-    { union_code: "UTIL", name: "ÚTIL", pct: 4.0, color: "#f59e0b" }
+    { union_code: "CCOO", name: "CCOO", pct: 38.38, delegates: 76, color: "#dc2626" },
+    { union_code: "UGT", name: "UGT", pct: 18.18, delegates: 36, color: "#ea580c" },
+    { union_code: "ATP", name: "ATP-SAE", pct: 15.66, delegates: 31, color: "#9333ea" },
+    { union_code: "SIPA", name: "SIPA", pct: 15.15, delegates: 30, color: "#0284c7" },
+    { union_code: "CGT", name: "CGT", pct: 12.63, delegates: 25, color: "#16a34a" }
   ];
 
   const labels = unionData.map(u => u.name || u.union_code);
@@ -1047,7 +1046,7 @@ function initUnionEvolutionChart() {
     { period: "2010 - 2015", ccoo_pct: 46.5, ugt_pct: 34.0, sipa_pct: 0.0, cgt_pct: 11.5, atp_pct: 5.0, util_pct: 3.0 },
     { period: "2015 - 2019", ccoo_pct: 42.0, ugt_pct: 30.5, sipa_pct: 9.5, cgt_pct: 9.0, atp_pct: 6.0, util_pct: 3.0 },
     { period: "2019 - 2023", ccoo_pct: 38.2, ugt_pct: 26.0, sipa_pct: 16.0, cgt_pct: 8.8, atp_pct: 7.0, util_pct: 4.0 },
-    { period: "2023 - 2026", ccoo_pct: 36.8, ugt_pct: 24.2, sipa_pct: 18.5, cgt_pct: 9.4, atp_pct: 7.1, util_pct: 4.0 }
+    { period: "2023 - 2026", ccoo_pct: 38.38, ugt_pct: 18.18, atp_pct: 15.66, sipa_pct: 15.15, cgt_pct: 12.63, util_pct: 0.0 }
   ];
 
   const periods = history.map(h => h.period);

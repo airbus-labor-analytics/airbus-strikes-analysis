@@ -25,17 +25,16 @@ except ImportError:
 
 @dataclass
 class IndustrialParameters:
-    total_workers_spain: int = 15562
+    total_workers_spain: int = 14000  # Direct workforce in Airbus Spain (15,562 including auxiliary contractors)
     avg_annual_salary: float = 50000.0  # Euros
-    airbus_se_net_profit_2025: float = 5221000000.0  # 5.221 B€
-    airbus_se_ebit_adj_2025: float = 5838000000.0  # 5.838 B€
-    annual_delivery_target_2026: int = 870  # Aircraft
-    avg_aircraft_margin: float = 8500000.0  # 8.5 M€ gross profit per narrowbody/widebody delivery
-    daily_ebitda_burn_rate_strike: float = 18500000.0  # 18.5 M€/day average across European FALs
-    daily_delay_penalty_cost: float = 4200000.0  # 4.2 M€/day in late delivery penalties
-    getafe_htp_production_share: float = 1.00  # 100% of European HTPs produced in Getafe
-    fal_stock_buffer_hours: float = 60.0  # 48h to 72h buffer
-
+    airbus_se_net_profit_2025: float = 4960000000.0  # 4.960 B€ (Official Airbus FY2025 Results)
+    airbus_se_ebit_adj_2025: float = 7100000000.0  # 7.100 B€ (Official Airbus FY2025 Results)
+    annual_delivery_target_2026: int = 870  # Commercial Aircraft (Official Airbus 2026 Guidance)
+    avg_aircraft_margin: float = 8500000.0  # 8.5 M€ gross margin per delivery [Estimación / Supuesto Operativo]
+    daily_ebitda_burn_rate_strike: float = 18500000.0  # 18.5 M€/day European FALs cash burn [Estimación / Modelo Operativo]
+    daily_delay_penalty_cost: float = 4200000.0  # 4.2 M€/day delivery delay penalties [Estimación / Modelo Operativo]
+    getafe_htp_production_share: float = 1.00  # 100% of European HTPs for A320/A330/A350 in Getafe [Dato Verificado Primario]
+    fal_stock_buffer_hours: float = 60.0  # 48h to 72h JIT line-side buffer [Estimación / Modelo Operativo]
 
 class StrikeAnalysisEngine:
     def __init__(self, params: IndustrialParameters = None):
@@ -1132,35 +1131,36 @@ class StrikeAnalysisEngine:
             "pre_conflict_price_eur": 221.30,
             "ytd_high_price_eur": 221.30,
             "ytd_low_price_eur": 157.42,
-            "total_shares_outstanding": 792280000,
-            "current_market_cap_eur_m": 160872.5,
-            "pre_conflict_market_cap_eur_m": 175331.6,
-            "market_cap_lost_conflict_eur_m": 14459.1,
+            "total_shares_outstanding": 792300000,
+            "current_market_cap_eur_m": 160876.5,
+            "pre_conflict_market_cap_eur_m": 175336.0,
+            "market_cap_lost_conflict_eur_m": 14459.5,
             "conflict_price_change_pct": -8.25,
             "daily_change_pct": -0.85,
             "annual_union_demand_cost_eur_m": 118.0,
             "financial_asymmetry_ratio": 122.5,
             "dividends_2025_paid_eur_m": 2535.3,
-            "net_income_2025_eur_m": 5221.0,
+            "net_income_2025_eur_m": 4960.0,
+            "ebit_adjusted_2025_eur_m": 7100.0,
             "is_modeled": False,
             "daily_history_conflict": [
-                { "date": "2026-06-02", "price": 221.30, "event": "Pico bursátil: Anuncio oficial de guidance anual de 870 entregas [Euronext]", "volume_k": 1420 },
+                { "date": "2026-06-02", "price": 221.30, "event": "Pico bursátil: Anuncio oficial de guidance anual de 870 entregas [Euronext / Airbus IR]", "volume_k": 1420 },
                 { "date": "2026-06-09", "price": 220.10, "event": "Primeras asambleas informativas en Getafe e Illescas [Actas Sindicales]", "volume_k": 1380 },
-                { "date": "2026-06-16", "price": 218.50, "event": "Constitución de la mesa negociadora del VII Convenio en el SIMA [SIMA]", "volume_k": 1510 },
-                { "date": "2026-06-23", "price": 216.90, "event": "Ruptura de negociaciones por oferta inicial de la empresa (3.5%) [SIMA]", "volume_k": 1890 },
+                { "date": "2026-06-16", "price": 218.50, "event": "Constitución de la mesa negociadora del VII Convenio en el SIMA [Actas SIMA]", "volume_k": 1510 },
+                { "date": "2026-06-23", "price": 216.90, "event": "Ruptura de negociaciones por oferta inicial insuficiente (3,5%) [SIMA]", "volume_k": 1890 },
                 { "date": "2026-07-01", "price": 215.20, "event": "Paros parciales de 2h convocados por SIPA, UGT y CGT [Convocatoria]", "volume_k": 2150 },
                 { "date": "2026-07-08", "price": 214.60, "event": "Seguimiento masivo en factorías de Getafe, Sevilla e Illescas", "volume_k": 1720 },
                 { "date": "2026-07-16", "price": 213.80, "event": "Rechazo asambleario (95% NO) a la oferta patronal del 5%", "volume_k": 2100 },
                 { "date": "2026-07-23", "price": 211.50, "event": "Firma del preacuerdo de madrugada por CCOO, SIPA y ATP", "volume_k": 2350 },
-                { "date": "2026-07-24", "price": 208.90, "event": "Referéndum en urna física: 51,13% NO. Dimisión en bloque de SIPA", "volume_k": 3100 },
+                { "date": "2026-07-24", "price": 208.90, "event": "Referéndum en urna física: 49,15% NO vs 45,95% SÍ. Dimisión de SIPA [EFE / Cinco Días]", "volume_k": 3100 },
                 { "date": "2026-07-31", "price": 207.40, "event": "Cierre de julio: Rechazo definitivo al texto en asambleas de planta", "volume_k": 2400 },
                 { "date": "2026-08-05", "price": 206.20, "event": "FALs de Toulouse y Hamburgo alertan de riesgo de desabastecimiento de HTP", "volume_k": 2650 },
                 { "date": "2026-08-12", "price": 205.10, "event": "Suspensión preventiva de vuelos BelugaXL por ralentización en Getafe", "volume_k": 2800 },
                 { "date": "2026-08-18", "price": 204.80, "event": "Aerolíneas clientes solicitan reunión urgente con Guillaume Faury", "volume_k": 2950 },
-                { "date": "2026-08-24", "price": 204.20, "event": "Asambleas Generales de fábrica: Ratificación unánime de Huelga Indefinida", "volume_k": 3600 },
+                { "date": "2026-08-24", "price": 204.20, "event": "Asambleas Generales de fábrica: Ratificación de Huelga Indefinida", "volume_k": 3600 },
                 { "date": "2026-08-25", "price": 203.80, "event": "Huelga Día 1: Agotamiento buffer logístico de estabilizadores en FAL Toulouse", "volume_k": 3900 },
                 { "date": "2026-08-26", "price": 203.50, "event": "Huelga Día 2: Rechazo en bloque a amenazas patronales de deslocalización", "volume_k": 4200 },
-                { "date": "2026-08-27", "price": 203.20, "event": "Huelga Día 3: Presentación formal de la propuesta de 11 puntos del Comité en SIMA", "volume_k": 4800 },
+                { "date": "2026-08-27", "price": 203.20, "event": "Huelga Día 3: Presentación formal de los 11 puntos del Comité en SIMA", "volume_k": 4800 },
                 { "date": "2026-08-28", "price": 203.05, "event": "Huelga Día 4: Cierre semanal Euronext Paris a 203,05 € (-14.459 M€ en capitalización)", "volume_k": 5450 }
             ]
         }
@@ -1176,7 +1176,7 @@ class StrikeAnalysisEngine:
                 "primary_source": "Airbus SE Full-Year 2025 Financial Results Press Release (19 Feb 2026)",
                 "source_url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
                 "annual_revenue_2025_eur_m": 73400.0,
-                "net_income_2025_eur_m": 5221.0,
+                "net_income_2025_eur_m": 4960.0,
                 "ebit_adjusted_2025_eur_m": 7100.0,
                 "ebit_reported_2025_eur_m": 6100.0,
                 "free_cash_flow_2025_eur_m": 4600.0,
@@ -1191,27 +1191,29 @@ class StrikeAnalysisEngine:
                 "eps_reported_2025_eur": 6.61
             },
             "financial_history_2020_2026": [
-                { "year": "2020", "revenue_eur_m": 49912.0, "net_income_eur_m": -1133.0, "ebit_adj_eur_m": 1706.0, "deliveries": 566, "dividend_per_share": 0.00, "backlog_units": 7184, "source": "Airbus Annual Report 2020" },
-                { "year": "2021", "revenue_eur_m": 52149.0, "net_income_eur_m": 4213.0, "ebit_adj_eur_m": 4865.0, "deliveries": 611, "dividend_per_share": 1.50, "backlog_units": 7082, "source": "Airbus Annual Report 2021" },
-                { "year": "2022", "revenue_eur_m": 58763.0, "net_income_eur_m": 4247.0, "ebit_adj_eur_m": 5627.0, "deliveries": 661, "dividend_per_share": 1.80, "backlog_units": 7239, "source": "Airbus Annual Report 2022" },
-                { "year": "2023", "revenue_eur_m": 65446.0, "net_income_eur_m": 3789.0, "ebit_adj_eur_m": 5838.0, "deliveries": 735, "dividend_per_share": 2.80, "backlog_units": 8598, "source": "Airbus Annual Report 2023" },
-                { "year": "2024", "revenue_eur_m": 69200.0, "net_income_eur_m": 4232.0, "ebit_adj_eur_m": 5400.0, "deliveries": 766, "dividend_per_share": 2.80, "backlog_units": 8620, "source": "Airbus Annual Report 2024" },
-                { "year": "2025", "revenue_eur_m": 73400.0, "net_income_eur_m": 5221.0, "ebit_adj_eur_m": 7100.0, "deliveries": 793, "dividend_per_share": 3.20, "backlog_units": 8754, "source": "Airbus FY2025 Press Release (19 Feb 2026)" },
-                { "year": "2026 (Guidance)", "revenue_eur_m": 78000.0, "net_income_eur_m": 5800.0, "ebit_adj_eur_m": 7500.0, "deliveries": 870, "dividend_per_share": 3.50, "backlog_units": 8850, "source": "Airbus 2026 Full-Year Guidance [MODELADO / ESTIMACIÓN]" }
+                { "year": "2020", "revenue_eur_m": 49912.0, "net_income_eur_m": -1133.0, "ebit_adj_eur_m": 1706.0, "deliveries": 566, "dividend_per_share": 0.00, "backlog_units": 7184, "source": "Airbus Annual Report 2020", "source_url": "https://www.airbus.com/en/investors" },
+                { "year": "2021", "revenue_eur_m": 52149.0, "net_income_eur_m": 4213.0, "ebit_adj_eur_m": 4865.0, "deliveries": 611, "dividend_per_share": 1.50, "backlog_units": 7082, "source": "Airbus Annual Report 2021", "source_url": "https://www.airbus.com/en/investors" },
+                { "year": "2022", "revenue_eur_m": 58763.0, "net_income_eur_m": 4247.0, "ebit_adj_eur_m": 5627.0, "deliveries": 661, "dividend_per_share": 1.80, "backlog_units": 7239, "source": "Airbus Annual Report 2022", "source_url": "https://www.airbus.com/en/investors" },
+                { "year": "2023", "revenue_eur_m": 65446.0, "net_income_eur_m": 3789.0, "ebit_adj_eur_m": 5838.0, "deliveries": 735, "dividend_per_share": 2.80, "backlog_units": 8598, "source": "Airbus Annual Report 2023", "source_url": "https://www.airbus.com/en/investors" },
+                { "year": "2024", "revenue_eur_m": 69200.0, "net_income_eur_m": 4232.0, "ebit_adj_eur_m": 5400.0, "deliveries": 766, "dividend_per_share": 2.80, "backlog_units": 8620, "source": "Airbus Annual Report 2024", "source_url": "https://www.airbus.com/en/investors" },
+                { "year": "2025", "revenue_eur_m": 73400.0, "net_income_eur_m": 4960.0, "ebit_adj_eur_m": 7100.0, "deliveries": 793, "dividend_per_share": 3.20, "backlog_units": 8754, "source": "Airbus FY2025 Press Release (19 Feb 2026)", "source_url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results" },
+                { "year": "2026 (Guidance)", "revenue_eur_m": 78000.0, "net_income_eur_m": 5800.0, "ebit_adj_eur_m": 7500.0, "deliveries": 870, "dividend_per_share": 3.50, "backlog_units": 8850, "source": "Airbus 2026 Full-Year Guidance [Estimación / Modelo Oficial]", "source_url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results" }
             ],
             "shareholder_structure": [
-                { "entity": "SOGEPA (Estado Francés)", "pct": 10.9, "category": "Público Estatal", "color": "#3b82f6", "source": "Airbus Shareholder Structure 2026" },
-                { "entity": "GZBV (República Federal de Alemania)", "pct": 10.8, "category": "Público Estatal", "color": "#f59e0b", "source": "Airbus Shareholder Structure 2026" },
-                { "entity": "SEPI (Gobierno de España / Min. Hacienda)", "pct": 4.1, "category": "Público Estatal", "color": "#ef4444", "source": "Airbus Shareholder Structure 2026" },
-                { "entity": "Free Float (Inversores Institucionales y Minoritarios)", "pct": 74.2, "category": "Mercado Abierto", "color": "#10b981", "source": "Euronext Paris Float Data" }
+                { "entity": "SOGEPA (Estado Francés / APE)", "pct": 10.83, "category": "Público Estatal", "color": "#3b82f6", "source": "Airbus SE Share Capital 2026", "source_url": "https://www.airbus.com/en/investors/share-price-and-information" },
+                { "entity": "GZBV (República Federal de Alemania / KfW)", "pct": 10.82, "category": "Público Estatal", "color": "#f59e0b", "source": "Airbus SE Share Capital 2026", "source_url": "https://www.airbus.com/en/investors/share-price-and-information" },
+                { "entity": "SEPI (Gobierno de España / Min. Hacienda)", "pct": 4.08, "category": "Público Estatal", "color": "#ef4444", "source": "SEPI & Airbus IR 2026", "source_url": "https://www.sepi.es/en/press-room/news/" },
+                { "entity": "Autocartera (Treasury Shares)", "pct": 0.10, "category": "Corporativo", "color": "#64748b", "source": "Airbus IR 2026", "source_url": "https://www.airbus.com/en/investors/share-price-and-information" },
+                { "entity": "Free Float (Inversores Institucionales y Minoritarios)", "pct": 74.17, "category": "Mercado Abierto", "color": "#10b981", "source": "Euronext Paris Float Data", "source_url": "https://live.euronext.com/en/product/equities/NL0000235190-XPAR" }
             ],
             "dividend_vs_wage_mass_comparison": {
                 "annual_dividends_eur_m": 2535.3,
-                "spain_total_wage_mass_eur_m": 778.1,
+                "spain_total_wage_mass_eur_m": 700.0,
                 "union_platform_total_cost_eur_m": 118.0,
                 "dividend_coverage_years": 21.5,
                 "primary_source": "Memoria Financiera Airbus SE 2025 & Dossier Económico SIMA 2026",
-                "axiom_takeaway": "El reparto de dividendos aprobado para 2025 (2.535,3 M€ a razón de 3,20 €/acción) equivale a 21,5 años completos de la subida salarial exigida por los 15.562 trabajadores de Airbus en España (118,0 M€)."
+                "source_url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
+                "axiom_takeaway": "El reparto de dividendos aprobado para 2025 (2.535,3 M€ a razón de 3,20 €/acción) equivale a 21,5 años completos de la subida salarial exigida por los trabajadores de Airbus en España (118,0 M€)."
             }
         }
 
@@ -1219,97 +1221,121 @@ class StrikeAnalysisEngine:
         """Returns detailed trade union distribution, historical election evolution, delegate seats and social analysis."""
         return {
             "metadata": {
-                "electoral_scope": "Elecciones Sindicales Airbus España (Getafe, San Pablo, Tablada, Illescas, Puerto Real/Cádiz, Albacete, Barajas)",
-                "total_census_workers": 15562,
-                "total_delegates": 184,
-                "interempresas_seats": 13
+                "electoral_scope": "Elecciones Sindicales Estatales Airbus España (Getafe, San Pablo, Tablada, Illescas, Cádiz, Albacete, Barajas)",
+                "total_census_workers": 14000,
+                "total_delegates": 198,
+                "interempresas_seats": 13,
+                "primary_source": "Registro Oficial de Elecciones Sindicales / CCOO Industria / UGT FICA / Actas SIMA",
+                "source_url": "https://industria.ccoo.es/Aeroespacial"
             },
             "current_shares": [
                 {
                     "union_code": "CCOO",
                     "name": "CCOO (Comisiones Obreras - Industria)",
-                    "pct": 36.8,
-                    "delegates": 68,
+                    "pct": 38.38,
+                    "delegates": 76,
                     "interempresas_seats": 5,
                     "color": "#dc2626",
-                    "historical_trajectory": "Mayoría tradicional en la Comisión Negociadora. Firmante de los Convenios V (2015) y VI (2021) que causaron la pérdida del 20,9%-24,4% de poder adquisitivo.",
-                    "stance_conflict_2026": "Firmó el preacuerdo de madrugada del 23 de julio. Tras el 51,13% NO en referéndum, sus bases forzaron a la dirección sindical a secundar los paros.",
-                    "workplace_strength": "Fuerte en talleres de montaje, estructuras y logística en Getafe e Illescas."
+                    "source": "CCOO Industria Registro Oficial 2023-2026",
+                    "source_url": "https://industria.ccoo.es/Aeroespacial",
+                    "historical_trajectory": "Primera fuerza sindical en Airbus España con 76 delegados. Firmante de convenios anteriores y del preacuerdo del 23 de julio.",
+                    "stance_conflict_2026": "Firmó el preacuerdo de julio; tras la victoria del NO (49,15%) en referéndum, sus asambleas se sumaron al proceso de mediación en el SIMA.",
+                    "workplace_strength": "Líder en Illescas (12 delegados), Tablada (9 delegados), Albacete, Cádiz y presencia en Getafe y San Pablo."
                 },
                 {
                     "union_code": "UGT",
-                    "name": "UGT (FICA - Metal y Aeroespacial)",
-                    "pct": 24.2,
-                    "delegates": 45,
+                    "name": "UGT (UGT FICA - Metal y Aeroespacial)",
+                    "pct": 18.18,
+                    "delegates": 36,
                     "interempresas_seats": 3,
                     "color": "#ea580c",
-                    "historical_trajectory": "Segunda fuerza histórica. Cogestor tradicional de acuerdos marco; firmante histórico de los convenios del consorcio.",
-                    "stance_conflict_2026": "Co-convocante oficial de la huelga indefinida desde el 24 de agosto. Ruptura total con la dirección de RRHH por las amenazas de deslocalización.",
-                    "workplace_strength": "Predominio en Sevilla (San Pablo y Tablada) y factorías de Defensa y Espacio."
-                },
-                {
-                    "union_code": "SIPA",
-                    "name": "SIPA (Sindicato Independiente de Profesionales Aeronáuticos)",
-                    "pct": 18.5,
-                    "delegates": 34,
-                    "interempresas_seats": 2,
-                    "color": "#0284c7",
-                    "historical_trajectory": "Nacido de una escisión técnica en 2018; crecimiento acelerado entre personal de oficinas, ingeniería y programas comerciales.",
-                    "stance_conflict_2026": "Convocó los paros iniciales del 1 de julio. Firmó el preacuerdo patronal del 23 de julio, lo que provocó la dimisión en bloque de su ejecutiva tras el 51,13% NO. Sus bases se integraron plenamente en el Comité de Huelga.",
-                    "workplace_strength": "Mayoría en Ingeniería de Diseño, Gestión de Programas y Oficinas Centrales en Getafe y San Pablo."
-                },
-                {
-                    "union_code": "CGT",
-                    "name": "CGT (Confederación General del Trabajo - Sector Metal)",
-                    "pct": 9.4,
-                    "delegates": 17,
-                    "interempresas_seats": 1,
-                    "color": "#16a34a",
-                    "historical_trajectory": "Sindicato asambleario combativo. Votó en contra sistemáticamente de los convenios con pérdida de RSG; motor de la resistencia en Cádiz.",
-                    "stance_conflict_2026": "Co-convocante de la huelga indefinida. Impulsor del censo presencial (3.430 trabajadores censados en 48h) y garante del mandato asambleario de los 6 Filtros Innegociables.",
-                    "workplace_strength": "Gran influencia en talleres mecánicos, aeroestructuras de fibra en Illescas y Puerto Real/Cádiz."
+                    "source": "UGT FICA Actas Electorales 2023",
+                    "source_url": "https://www.ugt.es/",
+                    "historical_trajectory": "Segunda fuerza sindical histórica con 36 delegados en el conjunto de factorías.",
+                    "stance_conflict_2026": "Co-convocante oficial de la huelga indefinida desde el 24 de agosto y parte activa del Comité de Huelga.",
+                    "workplace_strength": "Fuerte implantación en Sevilla (Tablada y San Pablo) y factorías de Defensa."
                 },
                 {
                     "union_code": "ATP_SAE",
                     "name": "ATP-SAE (Asociación de Técnicos y Profesionales / Sindicato Aeronáutico Español)",
-                    "pct": 7.1,
-                    "delegates": 13,
-                    "interempresas_seats": 1,
+                    "pct": 15.66,
+                    "delegates": 31,
+                    "interempresas_seats": 2,
                     "color": "#9333ea",
-                    "historical_trajectory": "Sindicato corporativo de mandos intermedios, técnicos superiores y pilotos de pruebas.",
-                    "stance_conflict_2026": "Firmante del preacuerdo del 23 de julio. Muy criticado en las asambleas generales de fábrica por avalar la fragmentación de la subida salarial.",
-                    "workplace_strength": "Presencia en Ensayos en Vuelo, Control de Calidad y Mandos Intermedios."
+                    "source": "Comité Interempresas Airbus España",
+                    "source_url": "https://ccoo.app/airbus/",
+                    "historical_trajectory": "Tercera fuerza con 31 delegados, centrada en técnicos, mandos intermedios y personal cualificado.",
+                    "stance_conflict_2026": "Firmante del preacuerdo de julio de 2026.",
+                    "workplace_strength": "Presencia destacada en oficinas técnicas, ensayos en vuelo y programas comerciales."
+                },
+                {
+                    "union_code": "SIPA",
+                    "name": "SIPA (Sindicato Independiente de Profesionales Aeronáuticos)",
+                    "pct": 15.15,
+                    "delegates": 30,
+                    "interempresas_seats": 2,
+                    "color": "#0284c7",
+                    "source": "SIPA Sección Sindical Actas Electorales",
+                    "source_url": "https://www.sipa.es/",
+                    "historical_trajectory": "Cuarta fuerza estatal con 30 delegados. Primera fuerza en el centro neurálgico de Getafe (13 delegados).",
+                    "stance_conflict_2026": "Firmó el preacuerdo de julio; tras el rechazo en referéndum, dimitió su ejecutiva y sus bases respaldaron las movilizaciones.",
+                    "workplace_strength": "Primera fuerza en Getafe (13 delegados) y presencia relevante en San Pablo."
+                },
+                {
+                    "union_code": "CGT",
+                    "name": "CGT (Confederación General del Trabajo - Sector Metal)",
+                    "pct": 12.63,
+                    "delegates": 25,
+                    "interempresas_seats": 1,
+                    "color": "#16a34a",
+                    "source": "CGT Airbus España Actas Electorales",
+                    "source_url": "https://cgt.org.es/",
+                    "historical_trajectory": "Quinta fuerza con 25 delegados, sindicato asambleario.",
+                    "stance_conflict_2026": "Co-convocante de la huelga indefinida desde el 24 de agosto y garante de las resoluciones de asamblea.",
+                    "workplace_strength": "Talleres de montaje, composites en Illescas y plantas de Cádiz y Getafe."
                 },
                 {
                     "union_code": "UTIL",
                     "name": "ÚTIL (Unión de Trabajadores Independientes y Libres)",
-                    "pct": 4.0,
-                    "delegates": 7,
-                    "interempresas_seats": 1,
+                    "pct": 0.0,
+                    "delegates": 0,
+                    "interempresas_seats": 0,
                     "color": "#f59e0b",
-                    "historical_trajectory": "Sindicato de base asambleario surgido del descontento en factorías del sur.",
-                    "stance_conflict_2026": "Co-convocante de la huelga indefinida desde el 24 de agosto. Defensor a ultranza de la votación secreta en urna para cualquier acuerdo.",
-                    "workplace_strength": "Concentración en San Pablo Sur y subcontratas integradas en factoría."
+                    "source": "Convocatorias SIMA",
+                    "source_url": "https://www.sima-fasp.net/",
+                    "historical_trajectory": "Presencia minoritaria puntual en centros del sur sin delegados en Comité Interempresas.",
+                    "stance_conflict_2026": "Co-convocante testimonial en la mediación del SIMA.",
+                    "workplace_strength": "San Pablo Sur y áreas auxiliares."
                 }
             ],
             "historical_evolution": [
-                { "period": "2010 - 2015", "ccoo_pct": 46.5, "ugt_pct": 34.0, "sipa_pct": 0.0, "cgt_pct": 11.5, "atp_pct": 5.0, "util_pct": 3.0, "context": "Hegemonía absoluta del bipartidismo sindical CCOO-UGT (>80% de representatividad). Firma del V Convenio Colectivo." },
+                { "period": "2010 - 2015", "ccoo_pct": 46.5, "ugt_pct": 34.0, "sipa_pct": 0.0, "cgt_pct": 11.5, "atp_pct": 5.0, "util_pct": 3.0, "context": "Hegemonía tradicional del bipartidismo sindical CCOO-UGT (>80% de representatividad). Firma del V Convenio Colectivo." },
                 { "period": "2015 - 2019", "ccoo_pct": 42.0, "ugt_pct": 30.5, "sipa_pct": 9.5, "cgt_pct": 9.0, "atp_pct": 6.0, "util_pct": 3.0, "context": "Emergencia de SIPA en oficinas técnicas. Descontento inicial por pérdida de cláusulas de revisión salarial reales." },
-                { "period": "2019 - 2023", "ccoo_pct": 38.2, "ugt_pct": 26.0, "sipa_pct": 16.0, "cgt_pct": 8.8, "atp_pct": 7.0, "util_pct": 4.0, "context": "Cierre de la planta de Puerto Real (2021) y firma del VI Convenio. Ruptura de la cohesión sindical tradicional." },
-                { "period": "2023 - 2026", "ccoo_pct": 36.8, "ugt_pct": 24.2, "sipa_pct": 18.5, "cgt_pct": 9.4, "atp_pct": 7.1, "util_pct": 4.0, "context": "Máxima fragmentación. CCOO y UGT bajan por primera vez del 61% conjunto. Consolidación de sindicatos independientes y asamblearios." }
+                { "period": "2019 - 2023", "ccoo_pct": 38.2, "ugt_pct": 26.0, "sipa_pct": 16.0, "cgt_pct": 8.8, "atp_pct": 7.0, "util_pct": 4.0, "context": "Reorganización industrial de Puerto Real y firma del VI Convenio. Ruptura de la cohesión sindical tradicional." },
+                { "period": "2023 - 2026", "ccoo_pct": 38.38, "ugt_pct": 18.18, "atp_pct": 15.66, "sipa_pct": 15.15, "cgt_pct": 12.63, "util_pct": 0.0, "context": "Resultados Elecciones Sindicales 2023: CCOO 76 (38,38%), UGT 36 (18,18%), ATP 31 (15,66%), SIPA 30 (15,15%), CGT 25 (12,63%). Total 198 delegados." }
             ],
+            "referendum_2026": {
+                "date": "2026-07-24",
+                "total_census": 14000,
+                "turnout_pct": 81.44,
+                "reject_pct": 49.15,
+                "approve_pct": 45.95,
+                "blank_null_pct": 4.62,
+                "source": "Agencia EFE & Cinco Días (25/07/2026)",
+                "source_url": "https://cincodias.elpais.com/companias/2026-07-25/los-trabajadores-de-airbus-votan-en-contra-del-acuerdo-con-la-empresa-de-revision-salarial-y-teletrabajo.html"
+            },
             "social_breakdown_insights": [
                 {
-                    "title": "La Ruptura del Modelo de 'Paz Social Comprada'",
-                    "desc": "Durante dos décadas, la dirección de Airbus garantizaba la estabilidad productiva negociando exclusivamente con las cúpulas de CCOO y UGT. Este modelo colapsó definitivamente el 24 de julio de 2026, cuando el 51,13% de la plantilla en urna desautorizó el preacuerdo firmado de madrugada."
+                    "title": "La Ruptura del Modelo Tradicional de Concertación",
+                    "desc": "El rechazo en referéndum del 24 de julio de 2026 (49,15% NO frente al 45,95% SÍ) demostró que las asambleas de base exigen garantías vinculantes y cláusulas de revisión salarial reales en tablas."
                 },
                 {
                     "title": "El Canal Telegram (5.794 miembros) como Contrapoder Informativo",
-                    "desc": "El canal autogestionado 'EnfadadosconAirbus' ha neutralizado la censura y los comunicados corporativos, permitiendo que la plantilla audite en tiempo real cada documento del SIMA y coordine asambleas simultáneas en Getafe, San Pablo, Tablada e Illescas."
+                    "desc": "El canal autogestionado 'EnfadadosconAirbus' ha permitido que la plantilla audite en tiempo real cada propuesta del SIMA y coordine asambleas simultáneas en Getafe, San Pablo, Tablada e Illescas."
                 },
                 {
-                    "title": "Frente Único del Comité de Huelga (UGT + CGT + ÚTIL + Bases de SIPA y CCOO)",
-                    "desc": "La huelga indefinida no está dirigida por un sindicato individual, sino por el Comité de Huelga Unificado surgido de la asamblea masiva, lo que blinda la negociación contra pactos bilaterales secretos."
+                    "title": "Frente Único en el SIMA",
+                    "desc": "La mediación en el SIMA integra las demandas de la totalidad de las organizaciones representativas (CCOO, UGT, ATP, SIPA, CGT) en torno a la recuperación de poder adquisitivo y el teletrabajo garantizado."
                 }
             ]
         }

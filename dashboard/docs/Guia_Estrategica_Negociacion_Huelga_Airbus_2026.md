@@ -20,9 +20,8 @@ Airbus opera bajo un modelo de producción transnacional altamente integrado y l
    * La interrupción de la producción en el tercer trimestre destruye la ventana operativa para recuperar el retraso acumulado, activando penalizaciones millonarias por demoras con aerolíneas clientes y amenazando la valoración bursátil de Airbus SE `[Dossier Estratégico 2026, §2.1; Annual Report 2025, Risk Factors, p. 45]`.
 
 3. **Solvencia y Capacidad Financiera Récord:**
-   * Airbus SE registró beneficios netos récord de **5.221 millones de euros en 2025** y **2.243 millones en el primer semestre de 2026**, manteniendo un elevado reparto de dividendos (2,80 €/acción) `[Airbus SE Financial Statements 2025, Consolidated Income Statement, p. 124; Airbus SE H1 2026 Financial Report, p. 3]`.
+   * Airbus SE registró beneficios netos de **4.960 millones de euros en 2025** y un **EBIT Ajustado récord de 7.100 millones de euros** (con ingresos de 73.400 M€ y entregas de 793 aeronaves), manteniendo un elevado reparto de dividendos (3,20 €/acción, totalizando 2.535,3 M€) `[Airbus SE Press Release "Airbus reports Full-Year (FY) 2025 results", 19 Feb 2026; URL: https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results]`.
    * El coste anual total de la plataforma reivindicativa completa (subida salarial del 12%, fórmula IPC sin techo, 7.500 € de atrasos y blindajes sociales) representa menos del **2,8% del flujo de caja operativo anual** del grupo `[Dossier Recuperación Salarial v8, §5 "Capacidad Económica Airbus - Coste de Implementación", p. 18-22]`.
-
 ```mermaid
 flowchart TD
     subgraph España ["Factorías en España (Getafe, Illescas, Cádiz, Sevilla)"]
@@ -137,13 +136,12 @@ Convocada por SIPA con el respaldo de UGT, CGT y ÚTIL, articuló 5 ejes esencia
 
 ### A. Impacto Bursátil del Conflicto: Pérdida de Capitalización y Asimetría Financiera
 
-El impacto de la huelga indefinida y la parálisis de las factorías españolas se refleja de manera contundente en la cotización de **Airbus SE (Ticker: AIR.PA en Euronext París / ISIN NL0000235190)**:
+El impacto de la huelga indefinida y la parálisis de las factorías españolas se refleja de manera contundente en la cotización de **Airbus SE (Ticker: AIR.PA en Euronext París / ISIN NL0000235190)** `[Euronext Paris: https://live.euronext.com/en/product/equities/NL0000235190-XPAR]`:
 
-* **Cotización Oficial y Caída (-8,25%):** La acción de Airbus SE se sitúa en **203,05 €** al cierre semanal de 28 de agosto de 2026 en Euronext París (frente a su máximo previo de **221,30 €** alcanzado en junio de 2026 y un rango 52 semanas de 157,42 € – 221,30 €) `[Euronext Paris Official Market Data (AIR.PA); Airbus SE Investor Relations 2026]`.
-* **Variación de 14.459 M€ en Capitalización de Mercado:** Con un total de 792.280.000 de acciones en circulación, el valor de mercado de Airbus SE se sitúa en **160.872 M€** (frente a los 175.331 M€ de su máximo anual), acumulando una reducción de **14.459 millones de euros** durante las semanas de conflicto e incertidumbre logística `[Euronext Paris / BME Data Sheet 2026]`.
-* **Ratio de Destrucción Bursátil (122,5x):** Por cada **1 €** de mejora salarial anual que la dirección deniega a la plantilla en España (coste anual de la plataforma sindical: 118,0 M€ en tablas para 15.562 trabajadores), el mercado ha castigado la intransigencia patronal con una caída de **122,50 € en capitalización bursátil**.
+* **Cotización Oficial y Caída (-8,25%):** La acción de Airbus SE se sitúa en **203,05 €** al cierre semanal de 28 de agosto de 2026 en Euronext París (frente a su máximo previo de **221,30 €** alcanzado en junio de 2026 y un rango 52 semanas de 157,42 € – 221,30 €) `[Euronext Paris Official Market Data (AIR.PA); Airbus SE Investor Relations 2026: https://www.airbus.com/en/investors/share-price-and-information]`.
+* **Variación de 14.459 M€ en Capitalización de Mercado:** Con un total de 792.300.000 de acciones en circulación, el valor de mercado de Airbus SE se sitúa en **160.876 M€** (frente a los 175.336 M€ de su máximo anual), acumulando una reducción de **14.459 millones de euros** durante las semanas de conflicto e incertidumbre logística `[Euronext Paris / BME Data Sheet 2026]`.
+* **Ratio de Destrucción Bursátil (122,5x):** Por cada **1 €** de mejora salarial anual que la dirección deniega a la plantilla en España (coste anual de la plataforma sindical: 118,0 M€ en tablas para los trabajadores de factorías españolas), el mercado ha castigado la intransigencia patronal con una caída de **122,50 € en capitalización bursátil**.
 * **Riesgo Crítico de Entregas 2026:** El objetivo anual comprometido de 870 aviones exige entregar ~90 aeronaves al mes en el segundo semestre. La retención del 100% de los estabilizadores horizontales (HTP) en Getafe hace matemáticamente imposible alcanzar el *guidance* anual sin un acuerdo inmediato.
-
 ---
 
 ### B. Solvencia Global, Cartera de Pedidos (8.754 aviones) y Reparto de Dividendos
@@ -153,17 +151,17 @@ Frente al discurso de contención de costes, los datos contables auditados demue
 | Métrica Corporativa | Cifra Oficial Auditada | Crecimiento / Contexto Histórico | Implicación para la Negociación |
 | :--- | :---: | :---: | :--- |
 | **Ingresos Totales (2025)** | **73.400 M€** | +6,0% YoY vs 2024 (69.200 M€) y +47% vs 2020 | Facturación récord impulsada por la división comercial. |
-| **Beneficio Neto (2025)** | **5.221 M€** | +23,4% YoY (EBIT ajustado récord de **7.100 M€**) | Beneficio operativo superior a 19,5 M€ diarios (EPS: 6,61 €). |
+| **Beneficio Neto (2025)** | **4.960 M€** | Beneficio consolidado récord (EBIT ajustado de **7.100 M€**) | Beneficio operativo superior a 19,5 M€ diarios (EPS: 6,61 €). |
 | **Cartera de Pedidos Firme** | **8.754 aviones** | >11 años de producción asegurada | Valorada en más de 565.000 M€; producción vendida hasta 2037. |
 | **Tesorería Neta y Liquidez** | **10.700 M€** | Caja bruta de 25.400 M€ / FCF: 4.600 M€ | Grado de inversión fuerte (Rating A2/A) con solvencia total. |
 | **Dividendos Repartidos (2025)** | **2.535,3 M€** | 3,20 €/acción repartidos entre accionistas | **Los dividendos de 1 solo año pagan 21,5 años de la plataforma de España.** |
 
 **Estructura Accionarial de Airbus SE:**
-* **SOGEPA (Estado Francés):** 10,9% (86,4M acciones)
-* **GZBV / KfW (República Federal Alemana):** 10,8% (85,6M acciones)
-* **SEPI (Gobierno de España / Min. Hacienda):** 4,1% (32,5M acciones)
-* **Free Float (Fondos Institucionales y Minoritarios):** 74,2% (588,5M acciones)
-
+* **SOGEPA (Estado Francés / APE):** 10,83% (85,8M acciones) `[Fuente: Airbus IR: https://www.airbus.com/en/investors/share-price-and-information]`
+* **GZBV / KfW (República Federal Alemana):** 10,82% (85,7M acciones) `[Fuente: Airbus IR]`
+* **SEPI (Gobierno de España / Min. Hacienda):** 4,08% (32,3M acciones) `[Fuente: SEPI: https://www.sepi.es/en/press-room/news/]`
+* **Autocartera (Treasury Shares):** 0,10% (0,8M acciones)
+* **Free Float (Fondos Institucionales y Minoritarios):** 74,17% (587,7M acciones) `[Fuente: Euronext Paris]`
 ---
 
 ### C. Auditoría Actuarial del IPC y la Inflación a 5 Años: Por qué la Oferta Patronal es una Bajada Salarial
@@ -193,17 +191,16 @@ El análisis econométrico comparativo entre la oferta patronal fija (sin cláus
 
 ### A. Correlación de Fuerzas Actual y Distribución de Delegados en Airbus España
 
-El mapa de representatividad sindical en Airbus España (15.562 trabajadores en censo y 184 delegados en los comités de centro de Getafe, San Pablo, Tablada, Illescas, Cádiz/Puerto Real, Albacete y Barajas) refleja una profunda transformación sociopolítica `[Actas Electorales Oficiales SMAC/REGCON; Memorias Sindicales Airbus España 2023-2026]`:
+El mapa de representatividad sindical en Airbus España (~14.000 trabajadores en plantilla directa y 198 delegados en los comités de centro de Getafe, San Pablo, Tablada, Illescas, Cádiz/Puerto Real, Albacete y Barajas) refleja una profunda transformación sociopolítica `[Registro Oficial de Elecciones Sindicales / CCOO Industria / UGT FICA / SIPA / Actas SIMA: https://industria.ccoo.es/Aeroespacial]`:
 
-| Sección Sindical | % Votos / Delegados | Delegados (Total: 184) | Vocales Interempresas (13) | Posicionamiento en el Conflicto 2026 | Implantación Principal |
+| Sección Sindical | % Representatividad | Delegados Estatales (Total: 198) | Vocales Interempresas (13) | Posicionamiento en el Conflicto 2026 | Implantación Principal & Fuentes |
 | :--- | :---: | :---: | :---: | :--- | :--- |
-| **CCOO (Industria)** | **36,8%** | 68 delegados | 5 | Firmante del preacuerdo del 23-Jul. Tras el 51,13% NO, sus bases forzaron al sindicato a secundar los paros. | Montaje, Estructuras y Logística (Getafe, Illescas). |
-| **UGT (FICA)** | **24,2%** | 45 delegados | 3 | Co-convocante oficial de la huelga indefinida desde el 24-Ago. Ruptura total con la dirección de RRHH. | Sevilla (San Pablo y Tablada) y factorías de Defensa. |
-| **SIPA (Independientes)** | **18,5%** | 34 delegados | 2 | Convocó los paros iniciales del 1-Jul. Su cúpula dimitió tras el 51,13% NO; sus bases están en huelga activa. | Ingeniería de Diseño, Gestión de Programas y Oficinas. |
-| **CGT (Metal)** | **9,4%** | 17 delegados | 1 | Co-convocante de la huelga indefinida. Impulsó el censo de 3.430 firmas y defiende los 6 Filtros Innegociables. | Talleres de Fabricación, Fibra de Carbono (Illescas, Cádiz). |
-| **ATP-SAE** | **7,1%** | 13 delegados | 1 | Firmante del preacuerdo del 23-Jul. Representa a cuadros intermedios y técnicos superiores. | Ensayos en Vuelo, Certificación y Calidad. |
-| **ÚTIL** | **4,0%** | 7 delegados | 1 | Co-convocante de la huelga indefinida. Defiende la soberanía asamblearia y votación en urna obligatoria. | San Pablo Sur, Servicios Auxiliares y Líneas de Vuelo. |
-
+| **CCOO (Industria)** | **38,38%** | **76 delegados** | 5 | Primera fuerza. Firmó el preacuerdo de julio; tras el referéndum se sumó a la mediación en SIMA. | Illescas (12d), Tablada (9d), Cádiz, Albacete, Getafe `[CCOO Industria]` |
+| **UGT (FICA)** | **18,18%** | **36 delegados** | 3 | Segunda fuerza. Co-convocante oficial de la huelga indefinida desde el 24-Ago. | Sevilla (Tablada y San Pablo) y factorías de Defensa `[UGT FICA]` |
+| **ATP-SAE** | **15,66%** | **31 delegados** | 2 | Tercera fuerza. Representa a cuadros intermedios, técnicos superiores y pilotos de pruebas. | Ensayos en Vuelo, Certificación y Oficinas Técnicas `[Interempresas]` |
+| **SIPA (Independientes)** | **15,15%** | **30 delegados** | 2 | Cuarta fuerza estatal y primera fuerza en Getafe (13 delegados). Dimisión de ejecutiva tras el 49,15% NO en urna. | Ingeniería de Diseño, Gestión de Programas y Getafe `[SIPA]` |
+| **CGT (Metal)** | **12,63%** | **25 delegados** | 1 | Quinta fuerza. Co-convocante de la huelga indefinida y garante de los mandatos asamblearios. | Talleres de Fabricación, Fibra de Carbono (Illescas, Cádiz, Getafe) `[CGT]` |
+| **ÚTIL** | **Minoritario** | Presencia puntual | 0 | Co-convocante testimonial en mediación SIMA. Defiende votación en urna obligatoria. | San Pablo Sur y áreas auxiliares `[SIMA]` |
 ---
 
 ### B. Evolución Histórica: La Pérdida de la Hegemonía del Bipartidismo CCOO-UGT (2010 - 2026)
@@ -213,13 +210,12 @@ Durante más de dos décadas, Airbus articuló sus relaciones laborales mediante
 * **Periodo 2010 - 2015 (Hegemonía Absoluta):** CCOO y UGT sumaban el **80,5% de representatividad conjunta** (Firma del V Convenio Colectivo con cláusulas salariales vinculadas a objetivos corporativos).
 * **Periodo 2015 - 2019 (Emergencia de SIPA):** CCOO (42,0%) y UGT (30,5%) caen al 72,5% ante la irrupción de SIPA (9,5%) en ingeniería y oficinas por el descontento salarial.
 * **Periodo 2019 - 2023 (Crisis de Puerto Real y VI Convenio):** El cierre de la planta de Puerto Real (2021) y la pérdida acumulada de poder adquisitivo (-20,9% a -24,4%) erosionan la confianza en el pactismo. CCOO cae al 38,2% y UGT al 26,0%.
-* **Periodo 2023 - 2026 (Máxima Fragmentación y Poder Asambleario):** CCOO (36,8%) y UGT (24,2%) caen al **61,0% conjunto** (mínimo histórico), mientras el bloque crítico e independiente (SIPA + CGT + ATP + ÚTIL) alcanza un récord del **39,0%**.
-
+* **Periodo 2023 - 2026 (Elecciones Sindicales 2023 / Reconfiguración):** CCOO (38,38%) y UGT (18,18%) suman el **56,56% conjunto (112 delegados)**, mientras el bloque independiente y técnico (ATP 31 del., SIPA 30 del., CGT 25 del.) alcanza el **43,44% (86 delegados)**.
 ---
 
 ### C. El Punto de Inflexión del 24 de Julio de 2026: La Soberanía Asamblearia
 
-1. **Desautorización Histórica en Urnas:** En el referéndum general del 24 de julio, con una participación masiva del **81,44%** de la plantilla, el **51,13% votó NO** al preacuerdo firmado de madrugada por CCOO, SIPA y ATP. La base trabajadora rompió la disciplina sindical y desautorizó a las ejecutivas.
+1. **Desautorización Histórica en Urnas:** En el referéndum general del 24 de julio, con una participación masiva del **81,44%** de la plantilla, el **49,15% votó NO** al preacuerdo firmado de madrugada por CCOO, SIPA y ATP (frente al 45,95% a favor y 4,62% blanco/nulo) `[Agencia EFE / Cinco Días: https://cincodias.elpais.com/companias/2026-07-25/los-trabajadores-de-airbus-votan-en-contra-del-acuerdo-con-la-empresa-de-revision-salarial-y-teletrabajo.html]`. La base trabajadora rompió la disciplina sindical y desautorizó a las ejecutivas.
 2. **El Canal Telegram (5.794 miembros) como Herramienta de Transparencia:** El canal autogestionado *EnfadadosconAirbus* ha funcionado como contrapoder informativo, neutralizando la manipulación de comunicados corporativos y coordinando asambleas simultáneas en todas las factorías.
 3. **El Frente Único del Comité de Huelga:** La huelga indefinida desde el 24 de agosto opera bajo un mando colegiado y asambleario (UGT + CGT + ÚTIL con apoyo de bases de SIPA y CCOO), blindando la mesa del SIMA contra cualquier pacto bilateral a espaldas de la plantilla.
 
