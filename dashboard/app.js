@@ -2183,13 +2183,16 @@ function filterThermoFeed(category) {
 
   if (category === 'ALL') {
     document.getElementById('btn-feed-all')?.classList.add('bg-blue-600', 'text-white');
+    document.getElementById('btn-feed-all')?.classList.remove('bg-slate-800', 'text-slate-300');
     renderThermoFeed(thermoFeedData);
   } else if (category === 'BAD_FOR_AIRBUS') {
     document.getElementById('btn-feed-bad')?.classList.add('bg-rose-600', 'text-white');
-    renderThermoFeed(thermoFeedData.filter(i => i.impact === 'BAD_FOR_AIRBUS'));
+    document.getElementById('btn-feed-bad')?.classList.remove('bg-slate-800', 'text-slate-300');
+    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'BAD_FOR_AIRBUS' || i.impact === 'BAD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('+')))));
   } else if (category === 'GOOD_FOR_AIRBUS') {
     document.getElementById('btn-feed-good')?.classList.add('bg-emerald-600', 'text-white');
-    renderThermoFeed(thermoFeedData.filter(i => i.impact === 'GOOD_FOR_AIRBUS'));
+    document.getElementById('btn-feed-good')?.classList.remove('bg-slate-800', 'text-slate-300');
+    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'GOOD_FOR_AIRBUS' || i.impact === 'GOOD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('-')))));
   }
 }
 
@@ -2347,15 +2350,16 @@ function startBelugaLivePolling() {
 
 // ==================== SOURCES (ALL 269 SOURCES + MODAL VIEWER) ====================
 function normalizeCategory(cat) {
-  if (!cat) return 'Noticias & Medios';
+  if (!cat) return 'Prensa & Medios';
   if (cat.includes('Actas') || cat.includes('Legal')) return 'Actas SIMA & Legal';
-  if (cat.includes('Dossier') || cat.includes('Salarial')) return 'Dossiers Económicos';
+  if (cat.includes('Dossier') || cat.includes('Salarial') || cat.includes('Económico')) return 'Dossiers Económicos';
   if (cat.includes('Airbus SE') || cat.includes('Financier')) return 'Informes Airbus SE';
   if (cat.includes('Convenio') || cat.includes('BOE')) return 'Convenios & BOE';
   if (cat.includes('Comunicado') || cat.includes('Huelga')) return 'Comunicados Sindicales';
-  if (cat.includes('Cadena') || cat.includes('Logística') || cat.includes('JIT')) return 'Cadena JIT & Logística';
+  if (cat.includes('Cadena') || cat.includes('Logística') || cat.includes('JIT') || cat.includes('Suministro')) return 'Cadena JIT & Logística';
   if (cat.includes('Benchmark') || cat.includes('Internacional')) return 'Benchmark';
-  return 'Noticias & Medios';
+  if (cat.includes('Prensa') || cat.includes('Medios') || cat.includes('Noticia')) return 'Prensa & Medios';
+  return 'Prensa & Medios';
 }
 
 function initSources() {
@@ -2386,7 +2390,7 @@ function getFilteredSources() {
   
   return sourcesCatalogData.filter(s => {
     const normCat = normalizeCategory(s.category);
-    const matchesCat = (selectedSourceCategory === 'ALL') || (normCat === selectedSourceCategory);
+    const matchesCat = (selectedSourceCategory === 'ALL') || (normCat === selectedSourceCategory) || (s.category === selectedSourceCategory);
     
     if (!matchesCat) return false;
     if (!query) return true;
@@ -2577,6 +2581,15 @@ function initTelegramArchive() {
 
   renderTelegramDocs(telegramDocsData);
 }
+function normalizeTgCategory(cat) {
+  if (!cat) return 'Planes de Mantenimiento';
+  if (cat.includes('Minuta') || cat.includes('Asamblea') || cat.includes('Acta')) return 'Actas de Asamblea';
+  if (cat.includes('Comunicado') || cat.includes('Huelga') || cat.includes('Sindical')) return 'Comunicados & Huelga';
+  if (cat.includes('Dossier') || cat.includes('Tabla') || cat.includes('Económico') || cat.includes('Técnico')) return 'Dossiers & Tablas';
+  if (cat.includes('Legal') || cat.includes('SIMA') || cat.includes('Jurídico') || cat.includes('Sentencia')) return 'Jurídico & Sentencias';
+  if (cat.includes('Mantenimiento') || cat.includes('Plan') || cat.includes('General')) return 'Planes de Mantenimiento';
+  return 'Planes de Mantenimiento';
+}
 
 function setTgCategory(category) {
   selectedTgCategory = category;
@@ -2601,13 +2614,15 @@ function getFilteredTelegramDocs() {
   const query = document.getElementById('tg-doc-search')?.value.toLowerCase().trim() || '';
 
   return telegramDocsData.filter(d => {
-    const matchesCat = (selectedTgCategory === 'ALL') || (d.category === selectedTgCategory);
+    const normCat = normalizeTgCategory(d.category);
+    const matchesCat = (selectedTgCategory === 'ALL') || (normCat === selectedTgCategory) || (d.category === selectedTgCategory);
     if (!matchesCat) return false;
     if (!query) return true;
 
     return (d.title || '').toLowerCase().includes(query) || 
            (d.category || '').toLowerCase().includes(query) || 
-           (d.summary || '').toLowerCase().includes(query);
+           (d.summary || '').toLowerCase().includes(query) ||
+           normCat.toLowerCase().includes(query);
   });
 }
 

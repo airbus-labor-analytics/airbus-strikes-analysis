@@ -56,6 +56,7 @@ CURATED_COMMUNITY_FEEDS = [
         "date": "2026-08-29",
         "url": "https://www.reddit.com/r/aviation/comments/1f4airbus_beluga_getafe_strike_bottleneck/",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+24°C",
         "summary": "Analistas aeronáuticos explican cómo el monopolio del estabilizador horizontal (HTP) en Getafe paraliza las FALs de Toulouse y Hamburgo."
     },
@@ -67,6 +68,7 @@ CURATED_COMMUNITY_FEEDS = [
         "date": "2026-08-29",
         "url": "https://x.com/SindicatoSIPA/status/1828741029384910283",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+22°C",
         "summary": "Las asambleas de fábrica ratifican mantener el 100% de la movilización hasta que la empresa firme la cláusula técnica sin absorción."
     },
@@ -78,6 +80,7 @@ CURATED_COMMUNITY_FEEDS = [
         "date": "2026-08-27",
         "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+18°C",
         "summary": "Crónica de la mediación del SIMA: la plantilla mantiene los paros indefinidos mientras la dirección advierte del impacto en clientes."
     },
@@ -89,6 +92,7 @@ CURATED_COMMUNITY_FEEDS = [
         "date": "2026-08-28",
         "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+26°C",
         "summary": "Constatación del estrangulamiento de componentes hacia Toulouse. Asistencia masiva a los piquetes informativos."
     },
@@ -100,6 +104,7 @@ CURATED_COMMUNITY_FEEDS = [
         "date": "2026-08-27",
         "url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
         "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-15°C",
         "summary": "La dirección intenta proyectar normalidad y amenaza con congelar inversiones en plantas españolas."
     }
@@ -176,6 +181,7 @@ class DynamicSentimentThermometer:
                             "date": pub_date,
                             "url": link,
                             "category": classification,
+                            "impact": classification,
                             "pressure_impact": impact,
                             "summary": summary
                         })

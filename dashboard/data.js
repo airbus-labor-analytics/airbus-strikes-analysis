@@ -10381,7 +10381,7 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-08-29T22:07:47.012157+00:00",
+    "timestamp": "2026-08-29T22:13:24.994591+00:00",
     "temperature_celsius": 82.1,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
@@ -10412,6 +10412,7 @@ window.CONFLICT_DATA = {
         "date": "2026-08-29",
         "url": "https://www.reddit.com/r/aviation/comments/1f4airbus_beluga_getafe_strike_bottleneck/",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+24°C",
         "summary": "Analistas aeronáuticos explican cómo el monopolio del estabilizador horizontal (HTP) en Getafe paraliza las FALs de Toulouse y Hamburgo."
       },
@@ -10423,6 +10424,7 @@ window.CONFLICT_DATA = {
         "date": "2026-08-29",
         "url": "https://x.com/SindicatoSIPA/status/1828741029384910283",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+22°C",
         "summary": "Las asambleas de fábrica ratifican mantener el 100% de la movilización hasta que la empresa firme la cláusula técnica sin absorción."
       },
@@ -10434,6 +10436,7 @@ window.CONFLICT_DATA = {
         "date": "2026-08-27",
         "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+18°C",
         "summary": "Crónica de la mediación del SIMA: la plantilla mantiene los paros indefinidos mientras la dirección advierte del impacto en clientes."
       },
@@ -10445,6 +10448,7 @@ window.CONFLICT_DATA = {
         "date": "2026-08-28",
         "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+26°C",
         "summary": "Constatación del estrangulamiento de componentes hacia Toulouse. Asistencia masiva a los piquetes informativos."
       },
@@ -10456,6 +10460,7 @@ window.CONFLICT_DATA = {
         "date": "2026-08-27",
         "url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
         "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-15°C",
         "summary": "La dirección intenta proyectar normalidad y amenaza con congelar inversiones en plantas españolas."
       },
@@ -10467,6 +10472,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 29 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQ2hOZ2hCeDNHdzdyRmlMSjFyb3ZxcXhHQzg1Zk03d05HMzl3dFZKNnJ1Nm5yS0Y0QXZqRk5UUXdzSUxTUWQ2NE1MaGdzeDVEMTExMUJHUnFCWTRCSHhfNjVBTzJ1VlFNN1pEcmkzVVhnWkdXUEFjMlhDYVppUm9DYi0tYTZWZU0zbWRVeDVKcVpldkVWbTNQNk5EN3EteHFGRDVjYTRGZ3NselJ6Sk9lMnVkZFJLenV4VjdHRU16dXlob3dBbzVPYWNSZnNfaG11dXcyTE5VN2pPSnfSAeABQVVfeXFMTzFtY19MenVoanlZRUdRZkxwSmdVeVotakhvV051R0VZd01LdWhXbm9qZW54bVpZdzZneVZxZzhBV3dqZURQSWh2QWk5SUtsUkhKYUhOalRXTFVTMG9GNEExbEJzdXhFWG95U0VfMXFoU1J0cFVEeWczWjR4NEhzN1ptSUJPdjZYdTN4NmIweVNPamFSQlEzMm5sb0RtbC1LVXRvQWp3YkQ1SC03V3BtLXlFS3NpZ0RYNkdfZkVjdklIZU5obVRqTjZtOEs3MmdxT3FpTl82VHljSm1DbXU4TW0?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10478,6 +10484,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbWNVSkpHbzQ5TWwxMW1HOVEzTGMtRGQ3V3p0Smp4aW93ZktpT2xNTWhEVDlyS2ZNVzREejF0VlFUdzlYZG5UQ0J1UWx0QU9rMDdXeDRPajI1RVdvREYwRGhOOF91ZlRSb0U5dHVySk9MU3VZOU5DQTZvVDdCMG1WbNIBgAFBVV95cUxOQ1dseDByTVNfaWpRa3ZVMEFXNXViM3hmZlF3VFBPTXZWRG5sam5kMEZXVVlCd3JJS2d3ZjN2dXNJZlNXaUc1ME52SjhtUDlEUVhuRjJWNFc3WXFXMlowODdtSGkxd09RYVNoRXk2Mm5EYVgtLXdUamlrSk1VUzZ0aw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10489,6 +10496,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTFluaURGNXAxSWpvNHk0OGgwWjdWT0tvcTJwQTQyZHhGeVcyMVFGMGpJQkxZUkwyai1yaU5qM0FFeGdaU01JZUdlVDNzUjZITXZpMk53NnpweVpsZU1mbFJKODFxVlBudFdPOWFMVFBnVWpQUldJTXlqdFkzQUd6NkJSTjctSTlYRVBKdmxIUGRtWEFWUFBUcnIteW5XVjNjMko2bi14U0dtSDJkdy1CR9IBtgFBVV95cUxNVVBTNHFXb3hnWExQMHF6bkpfUVNlemIzOTNkaDJFM1RONmM2OFhSOURpUzVDSlk4OTcwVGxxODhMRWZhR3hhTjBsVmpUVEQ3REJ6ck1KZ3BZeEFKbHVRN1FZSi1xYzZrZnpLMDY2YlBfTUtFSm5aWEFGZXRaX1pNaFY3WEJyZWxRSVFjVFl3YXBMc1hpbjZjZ3U0LUN4T1R3YnZYRVZ6V1h2NkJHcjRlbjNfLXpBQQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10500,6 +10508,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 26 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10511,6 +10520,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNanphWGFnelBvOE9uOUk3cUxwY0NlLVlLZ29RWnNpRHctWlp6SFNWS1lHLXlnZnJlWkdZclFVb29ONlBDUlZTa1ZGSFpCRmJVeXMyVFpLRXJBLUt5RTFKUXVCaThucXhIbjZFT3RBQmVqT1UyTjZWaF82T1JLbzlHQ2xjZURFS3RI0gGIAUFVX3lxTE9kck9rV2J1TWdDcU9EdVN0ZTV4NVREeVJkanFuQzVLekowXzlPakUwNXFNcEs2LUhzZ3VKMl9STFBwazVsRm1HVS1BR2JFdHJlVUMySG84Z21yTDlzNnVlNmRrVjREdnJNMjFva0VMYnR1bFRoWkIyNnFCUjUwRjFSNVA0V1lkM1U?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10522,6 +10532,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc0pBbmQ1S09uaVdoZWd2RDdmUzVyN2FzTXBUZ1lleEtYR2JQSGVkRDZjbm1ZblA5Vll6X1BpenphQmhFNmhVMURqeGhOTnlqZnZTelpBcFl3SktIZE5fdC1CdVBhdmRKeEVWUDl1X3dWYy1FbS1QeXZfV2NvWGRtQ0IzSjFkMmh3Y3FOWmp6MVc5YWdSb0dXa9IBngFBVV95cUxNR29ZNjl4d0ZNa1NpeW9KSUFHYnZ4NDZsY3Z3ZjhLZmJwckthRDVJcFlhdXl6ejhMWDR0ZFViSnNsY0xFaWpobDRqWVFlb0FFMXBnc04wSEgyNHRwcm1qVk93Rl9YajBUdTJFbjRNT3k3cUVzbFJ4TDh5a0lmTUYtdHZnZUt3UVo5QlNfZU5BTWpQS1lHVVpMNWpvTUc5UQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10533,6 +10544,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 29 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPeC12M3JSMUpkQWZhNTNlNFJ2alVnVDBhUm5kS0tERi1pU1NyZXk4dTd4U2xVaWlybUF1eWZRTnBkSDRYakoyeE8wNnVKQnJHcWVLMjFadmUwS1lVUTZHdGR4THdrbkM1S2p2WHREcldkdURhZkZHNWpNXzNFenpuZXRNNi1UeWhiZGE2c2Rod2Y5Mm43OHJBUkxlSWc0cWhGRzg5OTNWN3VUaTE2cmdSNzdySFpxZ1JDUW9EczkwRVNiYlV5UzdUTVJkYlF6N3pZVEpRSXpvZ0hTS2ZrNHdRdnZRQkJuMVZCS19fM9IB8gFBVV95cUxQNjJ4NV8wTk8wVE42T3NxNjlmXzdPN3p0U0d0MUd0bVFfdkhNcHZkV29YYUtLNkVWNGlzYjhNYkNaVGVydFM1eDhzYjF6a1UxX3ZGbmJEY3lBbzBEOFlWeE1ZZ0NKUU05X2JjOUwxeGVCQTY2RjFYdEFDUTJMNldLNmtBTmk1azdtUkkwTTUyMkRmLXdPbVFEcmo2NHhSaFlUR2pWaFRNNGFVUDNLYjAwY2lKR1l4Y281bnRzbUcwdXhDSTBZZ1d1VEk4dUxUdFBvR3VaZGg2S2lBcnhscC1OMWFoUXdUMEhSN005T2pxOThsZw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10544,6 +10556,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 20 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10555,6 +10568,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 31 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPcHc4TUxlVzFhbVF5ejZHalFnZVZZSDVOdzh2cXYxYWEtWVNmUmtWRHBRU3h1ZFk1eGplV1h1TXFmM180VkFiY2M5UVRwaDFvaDBSU1NvcnJFc2hiU0lHYXlGbHNyZ0l2aGd2RnVUWXk5ZDNubFRsWHM1OUttcXhKQlFQUkhDdFNEbkl2dFNoR0JHcm9sU2RWT3NBek40STI2QTAybjJLeXFzWGxaLU0zay1PMkNhMmlYTUhCZm5BTHVIVlBrT2txT3YzODM?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+27°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10566,6 +10580,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxON2xaeDN1THlnanVkUFBnVnBKODR5c3NWUzF0TTVBWkJtTXRPSDhRZ0NoUEttNnE3QVNJZkhseUZQcXk1RWNGSi1iUk8yWEd0V1ZyZW9PeElfa2lycGJaOTRRZG9nQmM5aXZWWHM4SGJ2STZZVlc2OWwtaU1BWHN5QnZCZDN5LXpMOWIwcUdkSmF1VFNPNURFcERYQkRFam9fNTdycktRZWxucVVkM3p2b3YyUVJQYlRRVm9kaWVZUW5KYmlET1pBS0NWU1YyMFNseHNnQmk5NU9LZ9IB7gFBVV95cUxOM3ltMktUZHJJQ2sxSUpuZ19QVUo2NnZadTRTQXRnLXQyeDRpUTRKVHQxLTlkYThIN3hqVkNwZlhNOXUyM2ZRc1hvOVYyXy05Q3Y3OEV2TEhXcWRWWkNWRGxkempET3J2bzhJQlltcGw0bXhYODJIZldfOEFDRHMzTzFOM0dzYkNRT0JLN0pTVFFZMWUyekducGtsTzNkN2JtcGlBczJOMndNc28ycGoyS0lZNng2Q2JLU0NSTzZTNW0wU2dUU3VveUp6TnVBRkNiTDY3U3Q1VjN2T3hSUVlhODAxWHJ5YmYxRks1cDRR?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10577,6 +10592,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 21 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQdXo3NU8xbVFwQnJ2WUxSMUtRR3BpUGItTi1OMnNIdlBWaUY3ZklGSGdWbU54a2RGUDNvMk4tekNVZVl1djVGMUNVUHpXNEF3TG5JQnVxa1Nob2U3dzJ5ZzlxZmFzUlJGS0k3TTd1TW5qVVR5bEd0OW5UamdUVHJpYUZuV2Q5ZWY0bHo1NGk1MzFUQ1BLdnpESGtjcXRGZ3hnMWF5eEpydFhVMFJYbVVldDlHYzM4Z3JtMzVDZDlQVXdNM0xRd05jTXZTZTNCVjE5M1pZb1lsenFDaXNwUzRVWEt30gH2AUFVX3lxTFAyYkFrT20yRDlTZDVaY3prV081VjExRFYydjd6NXNlQW93QWszc0lFY0FDWXNYNTlKenc3U3UybERnVGJKZFg4R2RZOWZ1VEZFMHdGSHhCS3VvY3MxZUU4MmF2OWN6ejZRR2tvTjloQ3JlMi1rc0doVld6TkxCdXFzTGltdzBabVQ2ZndITERzOTlfeEFSR0J5QkdJSmp2NWlobG9hZnhHWktkUHFiNDJiQl9QaTd4VGx5Z0ItbWFibHh4d1IwWFdnVXloYTJWdDhNT1lBdXdILWNhXzlfcnhCWFhJU3lKZnFldDlFcUNJaDRtWmNTQQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10588,6 +10604,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 15 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNajdCcEVoQXllQzU4UmVScjFoMjNEZGZrNnFnTFdiUTBuTkFJdlp1Nmdia3BXdzA1SU54VHV2c1VqVTlzN1RwOGxmaV9PRklaeWpkMS02a3pZUkVhbWNVZXRvUW5yT2tnc2V1RzBiVnJHN0c2WDV6bVRZNkg2Zjc0Q1ZDUDBBMGw4SlpjWWVQTXRmSFFPdWRkSTNFc0tjWmd0NmFIWlo4UThjM3lVa1Q5enhJZlc?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10599,6 +10616,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 25 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPTXNxZElrQnpMb0lNcklqakhfWjlYWC1KaGJvVkRKYllEOU4tU2phc1NQd0ZraDJBU21JdU91LVhPNEdiWjliMEYwMy1fbVhIV0hSUEs2dFVjYnBPclFXVE1ZYTBUamtyRlFTWDJNcU1QazFNRU9GVjM4WmtBeDdZTmdXbzktTGlUV1NWSzczT0gtQnpxb3hwLUVudkVqM0RBN29FUnMxYWt5VWFCcTZVM2htYXV4UXpDZUF1a0tTT1Nfcms1aC1ZQzhKR0xZdw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10610,6 +10628,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 18 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVk9RWV9jYV9ub25faGwxZGtYQ3lOQkd1TVlwS09HMXotMzhUR1MzVlJEUTRqR09LaDhOMHFqdVNlWHU1YzZqa0R6UEtzank3ZEZwMDdJZGxGbXh1dWQ0LU1vcjhkWl8wblBGYUpqSXV0YjNDeWRJZGVrX09zeEljUlFqOHF2VGdKb2J4cWZyNVdlbmFIUnNzWFFvbFZ1aG0wU0ZaV3g1bw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10621,6 +10640,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 16 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcFJ1VU5Kbk8wQ0Q0RE5pR1JQbnJQc1I1bU9ycFE4bHliSkY5UVh4cGdiWm1mSlA4akwyT0NJNzFjcDVvamQtZU9JZlBIVHUtaXUzYllMOUZiRVBhYnFMRF9NeVpVRjlZM3lDVDliTk11MEFOTndnUUwyYWRBdDNvR1gyWDk1b1lYcnpwSW9vNkxqblAtbFVyTGNCcS1oTzRJRWdEOHlvMVhLR1NYdFHSAbMBQVVfeXFMTWw3aEpwMDV6NWhReWZ0UFhTb1NLWTRZWEowUjk4anZVdUE5NGxmbzFrcEZfMVdhR2c4YUJQdjRxWWh1SVR1ZjBEeGpVNDUtZEZacXBHaW5QZ1lwaTVkZHJpU0FpaG51OVp2LVo2SURkTnBvV0lJVG1YQy1EQTN5LWlFMXktRWdBeWdXY1ZkYkFvS09fVTVHVl90Q09IOWw3Zl9yNGNBQWJ0MHoxc0RTZnQ5aHM?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10632,6 +10652,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 25 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNblRkNkthc0FwWS1INW9DQ0hJdjU4U29rM3VkVlZraUcxeUlCb3BQVzR2cFdKeV9tTmd2dlV5ODZseGtNSVU0REllZjRQcFNSMF80TDFwSlVJcGxOVmV0WjlacFhZWFNnRXFkSHJHZW1uREcxazdFdGR4Wkx1ekdpaDFHQTI2clRHUFJfZ2Y1OXhJMGFNc2Njb3VYU0RuQ0toTTBNTnljMXVFYklWQ3JHUFg5YXExd3NKOE9uUGJNZlhBMzRxYzc1Tllpak04cUk2N0lCYlgyYW1KUdIB3wFBVV95cUxPUnVJOFZPLTBSMlhzenlnN2tQbVZ2ZFVQTlZSRUZRTW01QWpoNEgwbDV3YzZTQllJbEl3bFYzOEhiNlBPRDdDSnE3bHg5c0xhNG9CMGlGbDljdGc1bGNVVHhnZE5JeldDblEzZnkzNEZiTmhyM0lnVjc4bV9kU1dmT1dZSW1rYUhHU3drMHdaYnQ1SHVDcFRtb0tUNFV3aDFxZ2UwWTFXamhwUHgwUHREUXhJQlB1dlRSOG9BRS1rSG1EZm1IajlFLXlXTjVibG1DYnFRT1F2U3dxbWlqRWZV?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10643,6 +10664,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 21 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNVmZMTUROUERrb0s0UTFURHdZZHM3OF9UV19WOUNMMHJUV2hCQlhMamcwLTNoVTBMR2FpWnJDQnB5RkJCbEZBVFg0VWpqNVgxaW0tQ1BtZ1h1dGdiSk56N1BnMkoxZ2lvb2tRdVFPNTdWbnJEcVdDSnFRcHdjVkhJNXJVNWtOMlU0YVd1MTF4QW5QYXM0MU9JYXdmaHowX05ZZWJSNU41cUZ6Ul9WOHI0ZnNmVnRrM1hSS09FU3ltUVZNZHNUSWZfNDRSR0lDRk0xRGRYRWYzcHZkdHR2UzVHNVJHLVg2a0E1UXQtZFFMOUVBcTVt0gGIAkFVX3lxTFBBN0JaQ1NBMkdXN24yN2RXdDdTeENJaVBkeHVwMEp3a1pKVjlwY1VBQXoxUEdlS25sbVliLS1oSTNtbk9OY0JhOFVGMTJReVpvTjVKUi1VUmxMN1JlRlhXQUNORERLZHE1VUJLZHI3eGlxX3o0NldBUzRNOU1sRjNueE5lc01XN0p5Q3pINlM2dmZkVWo2V0F3MXFfYWg2U3R0Ykw5NWZCSUt1Q1NFT2tQUUdCWlpaQ25WeS02MGlCVnNja1cyNEVuTVMwYUVmSmFhU0NyT2JKWHZVNGRYOVZHSFZxY3hjemZ4c3BOaUxYdEpvWmdjVzFfM250QnE1bWp3MzUtYlFMQw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10654,6 +10676,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 23 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNd1A2LTIwb1BkNklYbGJNQTZ2N1NxOXR6RHh3XzJFLVdCSjdIbFdPZ2JWVWhJbk02MDRiaFZtQl9VS2pxNk4zMWQ4U2xYT1V3dURFQl83a2o3eER5cHFrWTJ6S2x0MTlzRFYyWTF1Y2VfR3pPd01Ha3FHUmRpZTlCdTdPdUNwd3Jv0gGIAUFVX3lxTE9QMXpUQncwOUdORjkyVU5oNExVVEk5akNJQ3hvdnhPcjFqUG1HS0loNlZRX3haRk1Gb0JtcVJHbE1FVXJCTzJoNG1pQ2ZPaGVFY2V0TW04R0hDTEc5R1I4djJsWWdMalREMFB6NWk2VEg4QmZDM2xuWGRwcE9EU2NDc3MxT3JoYmE?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10665,6 +10688,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 27 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORm9mOVoydGdqel9TQ1BwX3NvSjkySjFFS0M1ZTg3YTNPUlYyWldWNHdvZVR4bFMwc3J2ek5aNVZpUFpJX19BLUsySDdxTmRQVDhwVGFNRHZMYmpqR1U0T3U1NkJNZDZCbFR4TFA3Z3ZmVTQtWXZvY0R1MkxRTmpnQVNYaUcyOUV3QlZ3Ylc1X1J2bHhmOFNUbS1PaUVpM1RYWlZNWDV1cG5ib2NpeDZ0UXFDbmhFa055VEYxYTBVRnF5bHNFcGJpZkY3Q0o5THhPLUFxSEliVnhfa3RNejN2Y1Q0V0pEQk85a1hLRFNTbmvSAYQCQVVfeXFMTVpxV0RoYUc2NFRLYWpyRzVKVGlVVmtYWGJaVTk2b01lbXdnWUNuYlFTT0k2MG9kNlNGS2dlYWpFRFRYTDhZRjRScmZsbGFITzFPQ1IwY2FmNzZKMHlCNHNLRmxRWEZTTTdwdDlDNXdYTHRhR2tJNzNJUUljUzlRMTRxcUY5d0lqRzdMWmdFQVZZY09qWURfTXBwMGEzZWR4aFFHb2VndkdQaTJOaVE2cFliOGJ3elV4MXoxRXZ1ZHFqRHZMbno0UW05dEdwT09VRzZDWkpaS19ib0RaVy1Fc2h3SndrTFd3dE1IeTV3elpmQU1WNHlVOFdwVy1ONWZZN2ozaEI?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10676,6 +10700,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 23 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOT1hMVENpZFpnTFJCa1g4TUNwbUp0Z1hla1hfek4tTjVjTE9OYWcyN2ozYTJoREV3N3k0UW1nVTRPZF9yUXZndzhqMHBFcnlFR3BRTnd4VkhENmF4Rmw3SW9Od1Q1Z1ZaRnlGeVppMzlwQTh5ZUdsRU8yZnkybGh0elctYTkyYXREYlFrNzcxTHZHeE5sc2ZCYnh4OUlmQllUTF91MThhV1NNWENFZUFtc04yMU9XZTJRRzktMVJRQkwzZzAtM0Q0WmRDMU9lLXpTeEZWSTJSUU9IdVFGYmZpbm00a1RrZ9IB-gFBVV95cUxOR2FtRGpTMnk1T2tESTdRZ3QzZG42MzY0aUxRMVRhWnRaWnUzcHNGLVliREVOalhlX3pQcGIyMk82ekZuSEpaYlNmdUVTNENyRkVXd2Rvc2o3TVo0T3dKWnBQdmhVWGtyTGRHa09BWVFZakVoemdVZWdlLWM1SzRuYkRpZVZUM3BiMEhwdjRESXBGQUhQZ0liRVNlV0RfeUtGc1ZILUFpdHIyZ1dxX0s1WEhNcDNYRUZmTDctN2QwV0dna0tqS3hTcnVJeDVjLTViN1RhN1pUdzg5OHpSaU0zQVcyamJCb25KNVZjeENZS25BMFd3bEtaWXRn?oc=5",
         "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-13°C",
         "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cadena SER."
       },
@@ -10687,6 +10712,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 14 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10698,6 +10724,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 01 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Soy de Madrid. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10709,6 +10736,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNdnJ5TkViY0h5Qk1nQ2NDRHZBTi1LajF0RVppblRDRGJXX0hPUVdfTWxVSDFXRk8ySEZjeEJPNEwya3NFN0VXYWdWSUZCWkwyQlY3eGlEUXRGZm0yTnNTdU1MU2pManBad0hnM3ZnUTV0Nlh6MDdlSlFidG5DU1hmWtIBhgFBVV95cUxPTk1VZWE0MnMwNDNZODkxX01kRTluemZWd2lOVDA1S3FVLWxScFdteFhYTl9uN29sd1Z5OHR1eGU3Y0I3eXJwS0cxS3pJQmZOUGZPRFZOY1hmUGJjbWRfNlFta2pzREtfcUpxdkh1WDFKSDd4ZDBYR3JPeGJIVW9aRzNFcGFGQQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10720,6 +10748,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 02 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYm11VW1kaTF1V3dFR3RtdHVzcEJFSGpLMDRyUF9SZ2xIZDBJS3ljazdBNnZkcTFnVkFhNVcxc3lkZUNrTWozYnl3ZERNbXR5MjQ3UDMtTDF2Q1lobWNFQmJ1QUh5RnBaZDRta0JhY3NPVThTeXhiVWU2NlRwSmN6Wk9HVkZaamVNZ0c3UGxGR25femtF0gGaAUFVX3lxTFBnZ2tvRW5DLVdoVGZGQ3JQaXAxTzVFNThhZFRxZ2NVYWJfREpsUkYySjdMb0Y1UGg4SHhaLWZyNmtUWTloV1JvYm5fR0c0THg1b2lidU80M29IdmtXd255cXdpY3djU1l3RzBpZDRpSEg5cEkzV0lmZkFCQUNQbkczRzF5UFJ6aTlNaWZ2eGhrUEFlaHpCQUg3Wmc?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10731,6 +10760,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 14 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10742,6 +10772,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 23 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
         "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-13°C",
         "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
       },
@@ -10753,6 +10784,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 03 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPSUdYQ0V5eVV1WC1zQW4wc1pJRzMwRzRMMjZGZVItRkRFMVRoYkZEUGhNRERKaENqZW55YXlIdjZzeDhJeTR1S3RFU3hNS1I0elAxZ0kxUnNDQThueGpRWnJ3bjlPX2hTWGtqVmotcXU5amt5MlM4XzNwaHpqT1d0ZUtFSzFyQTREU2fSAY8BQVVfeXFMUEVpWmJuMWRxdVJkaldIU2kya1dlQi0zWU5LM1o4MVFlbVVDMnoyZXFwOTlKLU9JZWFqMGRMZTlsN1NGUGpzNGpXQVZRMDhSVWNHUjB2b3lScDJuU3BiYzNVMUdKVS1SMFNzTTNqc3U3U24xank3YVM3Z0pKRGt1TWNWZHN6XzYzdzM2V2dvYUE?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10764,6 +10796,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 27 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10775,6 +10808,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 03 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQNVRrTXBwejJxcXRjVVBFeHJ3dk9KTGNxZnVqdGRDREpKc3hvdGlqWXQ5VjcwT2xiby1ET3lhWGpsNS01X3NEVzZISU5yOXJYT1ItRGhLaUt2RXRjRHI5ZUJmV2d3Y3FXRlBCTzhTNTBZVVBxUUZwVHM0RG16RGlNVnRIRXJ0a0pBdURVM3FPaGdIMU5DWjNiSmJXYm5fSWw5SzBMTlJCNkgzeDhTb2hzM1VTUFVuT0dLVklHR0FQSUpKMG9FSllMSmdleWJBRnNQYU5j0gHYAUFVX3lxTE1xRV9KUVlITndoZ281RWRIUWZzcEE3dy1MTVdGUV9jVHFWNEZxc3hrVHR2WTNQNVBvMjNkenFLSjJPdzVZWVFxMEEwTERrX1Q2b1NGV1dTdXExZHo4cWxwaGJselZ0MTEyUjdpbWd4WjJzOEFXNGQzV0FXeDhrbzBYT295MF9pMTJhUkl0aHVTaW9JNW5BcHNIdU5iMldqcE5kWW4zT2hjdUlqbndBU2gyeXB4M2JpZ0NUMGcwbEJNVDlJSmxDQmdtYVVTYTV4SEhBc1l2cDBtSw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10786,6 +10820,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 16 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNa0FZcGFhSXNTc1RkMUZ5eHNpSmJpbnhqeDBJY0Rlb0gxcHV6TFBka1ctdHkzb1hmbUY5ZWRTQ0l6Snk0dUdMaXFOcFF6QmZpeGZqbldwSHQ5QWxlbmhJSW9lbk5MTGJRZkgtWC04XzhmdWc1YnZMSjlpZW9QdWhpaVA4SUlvaHVQeS00QVl2NFd6MHFZVE02V2l5b2EzZW1mUHBaR21icHhRR3VPTzlOYWd1V0NSaEx5V0xPR2dZcmExRllwb2twYWpXWGFKeGJ2YkNHY1p2RGwzNEhYVmh2aUZwcDVYYURkeHByYmczelp3Z9IBhgJBVV95cUxNZldtZVNxM3VJb0tJYTJIRlRWUE1yZ0FyTWE5a3ZiT3lycnZXejlqZUVmV2dzQUotV1hKd0luMW9qU3JuRlh5N1VrVlRtTWJwNEY1UXlpWGNwODA5M0VEV051QzZNbk5UbFhITUlVanhoUXRfQmpLUV9fVTdFSExBQ1Byb3hUM2Q1dDFnaER4U0cweVpzVzItZ3Bxa3NzYnlNZWFSNVAwWWNrTDVDWVdoR2FHMkZYb2ZXR2dkZWFFZzFzeGs5bHJTZFBfaUl4b1JvLXpvWElKREg3NUhkWXU4LTVOd01SeV9VMGxPbnVDRmMxaWozSG9IUzgtaG5PS3l5QjEwTTZ3?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10797,6 +10832,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 02 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNcktUZVRxT2g2THFOTkFpRndpSGpFcWxmanQ0RTVfUHA3V2dIc2pjUFNXdVQ0c0VxdGp0azV4YVlIemt6ZEtweHRGb201d2ZLM2J3OGNQUU1Nb3NFUTk2MXBka3NXV1liY1FmcVVCSG1yOFFuQXJQbmNUVG1tVkMtYkJ4TlRqSlBxSXhQV2hTd3FaWW45b0ZzS2pUczl1dlhrdlFPeXNENHVlRWZ1TFotaHRhVEJmMlVPeFY5NTNveUtFX3dmYVpJTXlIRjJ0dGo3RFE3WDZnVTBkZlFXQVJjckQyQlJjTmFjWVBFRUd4Zk1GZWZ3VE5haTJBQ3BVR0HSAf8BQVVfeXFMTW5WSHRQRkZaa3VsTndiajVoTjlfUjFCOHA5M055LU1HTWV1eDBZbXFBYTNhS2xnQVh2Sk01VjBOcng2X0ViRWtIa0lfQWdWY2JnNTJqMFVtVnJKaFFISGZSMjV2bVlzSVpHdXRycld5S0VZTGtuTzdxNnktOTJTQ2JRZHpCYUJzLXdYSmhoM0pXX05fck9VT2pTdS1Dem5QYVVteXlzV3hrTllfdEE1UTFaSEd4QXlZdkp6V2FNQ3ZsN3JKRWNMbXVqVlNqbEQ5YkhpS1RGbDhPTGZvQ0JjSFNtT1ZkRkVqSVNxUDVtcmdLaGE2Q09MY0lkc2c2eERJ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10808,6 +10844,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 01 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUTN2NXNYeXl3T2JLUmFTZzlBWGl0LWFvYUJ0bkJKajNIRjA5WmpXWGpITVR5X1BEd2FGSWRkODB1NVQzS2VDTHZvUEduTzJUbDA1U3RDYlF4S2xnNGdJU1lYa0ttUngwQlAxNGpEM0VRMmRTZVBqNWZSN2NBb3oxVTNmSDJ2UjVhblU5Z25qOFQ1d9IBlwFBVV95cUxNd0ZMZUp5eERTeHUzX3hqRlBIS2FtcmtFeHpZT3lzZndvNHo2bkJiWVdPb3F2dWRZSEs2TDV6UzY5bElIWlBDb1QzWWpfQ1VQY2MwYjR6WmJOUExOYjF3Tk1OcVQwalhjR3JMek0yeDkxSkl3c045bTBNSmdrTkE1VUlzWjF5S0VIZkFrdkxRU3VJaUlZYl9v?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Objective. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10819,6 +10856,7 @@ window.CONFLICT_DATA = {
         "date": "Tue, 14 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQR0d0NG1lYUpoMkU2V0FlYTVlZGpzd0U2WVd1bTk5bWFRZnBWSkw2elFwc1V2MF9ESzJQbHg4RF9KMjhNdkdIR0pOMTl3QklTV2lIM2dDLXlEQXhuMXJxTkxDWmhncGoycDI1Si1ZNnRDbHVncFVtNWtGTEpFa2RYQ2Z4VVE0RGFPZkJacEhUM3NIOEFpZnpBSVl5QVNvaVoxSEFJ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10830,6 +10868,7 @@ window.CONFLICT_DATA = {
         "date": "Sun, 19 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOblZZaUJleUR6Ym1jcE1uSUtUeURiaERkNEtnVC1wNmItajJrdzRDcGhNM1RxengzNHhZSlI3dlZMTVVPYWNfM09kSW5hY1h5T1NhWk1TbGpNNFNYNFZjY3A0TE02RWJ2aHZoQ3Z6My1TbV9Uai1CN1hfX1F3Z3JMVHFFWFVZRDgwR2REV3dyQmpMMDVKbGlERVpPR203R3pHM2pLN2I2cFpYbDNWak5qTXNVUFdXOXl4OEhWV0RsdV9hNHpBbVgtNXd0RjQ3R3VKaU1fWkU3Z3NGeExIV0JR0gHkAUFVX3lxTE5oTWgyUUFJak5McHVtUVh6UHNmd3lxVWgzY01YVzY5aFA3YkhVNk1IUW9BX281UWpwb196RGJUWUV4OXFCdDNfNlhLMjlEcnJwa0NrSmlUYkxyNGFmRjhKTGotcHV0SEs0Z3Vka0RHRnB4UkpRem1kV1FKRjlUQUc3Q1M0UmxnRWVqMFJyemRQTV9iREtXVVVrQXZETVRDU2k2ekhoWnpGUEY0OUNzWlI2NEYtbS1zc0VLZ3lwZ2xJdjA1dUFnYjVaWGdXVjF2ZFQ1Z084OEVrSWRoUWxjZXdqZVlxNw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10841,6 +10880,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 16 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMXR6NE9GQzc0OUJRYTVGM0U2WDFrSVVEU05lOWtJa1V2WTlLTkt5UXBkYk5SRU1fTGpLc0Z2S0ZBbDVuS1M2NXFFem1GTHkyd3JIMHIyRjI0bWxfOVBTX3JTbVRMSkdaT3JhSGlUaWxwcEhHOGxqVmtERUpQZEx6bG9OODFWeUVvTUFzcEcwMnczZjZPcTI4TktFU3ZlRXlNWUpHaTN0Z1RSaHFuZXNxbnV0QjBXMnlL?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+27°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hosteltur. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10852,6 +10892,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 10 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQ0dmN1BybWQ2dXRLR2NEQ0VScTN2QVpUcXZ6LUNzSkJ0Q3NZQmxZNzlNRXVabzNEYk1FNEs0RFkzYlNBbzFCN2hJRFlNSkN3VzdmY2xxeUEwLXEzZ3JYOWN5V2dmcmo2WWhzS3hyYkZtV3doclg5YUZIS3lMb2EtVUhyNWotaFVFRW02ODJ0ZFlnUk9rWGVUNG5QSHl5TnhVaDdXSldRYzJ5MUxLSXJBOVR0dnl2azJ0Z2lkY3lIZ3d1eUNIcmI3OA?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10863,6 +10904,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 01 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbjdMblo4cXYzMl9FOE1YRUtENnhGQ0pjTWJGZU5yRVV2emYxVzEwaE5peHVibGdLUk1vTVhneTRKWU1ubXpWbzV6dTdaYzZ1Tm5MN3hENzl4a0I3TFRNcl9sODVIcXI2d1FqNFRVaXhVOXZ5TDdtNGI2MlZpM19mTDh6ZEdDa3F4dU1qWGwyUEVNSGx3TkRjcXNXdy1zYktZZHhlMWJuUUVoSWJLNXfSAbMBQVVfeXFMTXh0RzVuZkloVmZweFZQR2N0bmtTdWxISWo2T3hsQnpRSFpMZ0lWb1E5bFltM2dzYTk0NGlmVmd5TzdJSkNRS19IWWhGelVnNVJyUmxTMWNxbkVqemJyLWZYZWJtZjVhc3RfRmN4eHdTZWtDcGcyT0RrcDdESmtjTG1nTjRVUmNxQ2Q2bDVGRjE4Z0swZXN5V0VERzNmX2lBcjY0Z2cwT3BhMTRrNFlWSTF0T28?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10874,6 +10916,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 17 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPQVJxWEEwaW1qODlQS2YtQ0tsLUExWVRUSjV5TzFsTGV6a3MyUE9fV1RiM0l0Q2xmVHQwdWo3VmRkLW1jLWV2c3VNT0lqS0haX0JhekZqRUNWRDlXVEE1cTE5TS1KMGFrRFBRa0k0SUdSZzFhRzItZTNBSXRfLW1WN2dXS0tlaW1vZWxCX0x5Q0ZJZE1yYmQxLVh2SmFEUGNHVnFHUTM5eUpSRnB1SDBkRlNTYlgzZWthZmtXQkUxNEF2SEt3OUpPUlp2TWzSAdIBQVVfeXFMUERrdngwamx4MXBjeGFKMHVsZndqTmRlWXAwZ1hfcmNOS2pSVzRTRGhhU2I5VEhYOTFaMmJHdkVFdk5NSG9qMmRGQTNYWmtyN0VLSmQ2dTl1ZjRlejg3LXR1cHhqOTVGcHdOWS1CMzhaM2ZGTmY0bXFQc0ItTmFhYnZTUDc5OHd1UzhSRE54RFZlQmtnYlpzZDNkZEY0clBFbE5IbG43YTI4NWI4RzBXOGlmWUxFYkdWMm1BVDdHVjduWEJCVjRNYTlDVXptUVYtU3F3?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10885,6 +10928,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 18 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR1hPanBkdzRaNERLWDFnSWhfOFJtRXV2T09RdVMtYlNwY3F3cmZucnBvWGNJVmMtR0ZTc1Z5RnNET2NtTG1ncTAtN0dOMTA0YmtGdjY1RDd0bmpEaVlLTjQ4eUNZa0tSaDV3TV81Tlo2WGpOM2RySnFKM2pVeDNWYlpTbU5DWmdrbzlTVEhuM1BjTkN0RlZWVHN0VG92Y1ppVkR4bU1hNVNvZHlDalRoX0pBcjl1MGx2eklRMVhkUG9XWVllZGhvLVBlcktRenVwTnUzWjhOTdIB8gFBVV95cUxQNDlyTDEyNzlCTnNGUGx2Zmx3WlJ4U2sxZElXOFZTX0xWRi1qN1hGZUZXcnhHOUozc1dZWHhSV0JzWHdyMFNyUjN3N3I0ekk0NXZFV1dzVlRyZm00bUdzbnJDQ2RRcmFTbkNTaUJlM2tSbE9MR1p4b2pZZGlhTWtZRzJRSnAtM2lrTEZJX0UwMHl5RWl4cVdfUHFQY3NfZkVGcUp1aUNZcDZadXJ1NUotbDdIZ25oNXlfUWFuNC1GX0M4ZW9kYmtzX2ttUHZka3RZVjZKamh4ZldMSjVwcUJLckE3Z29VTmd3ZTRRSHdFdlNEdw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10896,6 +10940,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 09 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOY21jZnJrY1ZGY19LX21kRmlra3p0cHNLNmF1djJUUDNNZk9VSW02aDZiN2Jfd2Nya1lxMGRDaXJKQjJxUFl5UEdvRkVNRFN1NTlZd0FqaUpROC1GQ3A2dnMxcGhUdkYwYmwwbV9CbUNHM1BRSi13RUYyN1JhTlBreXVxSFQ4U2VFYTRPNlpwMGdvNVYwODZKT1N1YTZsRm5ZMUNDWEpRS1FsRC1yQjJnTXhEQ2NfZ1AyN0hvSnhVMkJnNHMxWF9wOExQUElXZ9IB0wFBVV95cUxPS25jNEVzb2l0VmxiZDNXa1hhWlA3NjYzZHF6MHdfTm0tS3NuRHBfTjE0UUNGclAtaGsyYWFVUUx3eDFYS25RMWNTZzlvSkxvQTB3UjZmOHV3cXBHZ0RNQVY2bUdmRFF4dlZjNmNjczE5WXYxbHBaRjFrLVRVMm5Nc1ZQTGNCd3BkUWIyZ0pnZURINVRDallmdnd3NUVNQjQ1aG9VMWk0WFBZN1Y0RnJ1R0JSVy1MOFRKc2ZQQTlIdmx1TFdYa1N4a0I4WXpyV1plS0tN?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10907,6 +10952,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 24 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQNUl0MFBzbHYwZnBCQlAzWVItbXdjNG5sSVJoMkJ1VjdiRkRNaVhORWlhQkNNNzVpNFotVFJ4dDlYXzdzcG5wdkNIZC1jRDRBbjJoZDdxWTZpR05wWm9Jck5vaVhxRzl1bEJGOWZtbFpBeGNnOWFaenFoekZTOEw4aS1od203bFR6ME9XRTktekRFRmJJbjFTSjVyVzFFX0lGWDRHd1BhcExoR2M5Z3hER0xIRHg1S3d1N21IZFlqT2dvdWtWcmJ3bnl0eUJ3ZXBOUVpqNllR0gHbAUFVX3lxTFBIU2RtMGllUTdqVE10OTlMMXU4RXI0Q2x1bXFfZUNIekhyVGVRTXVEdjdpMDdwcVd1SXNTOGZYdHpOSHZTRXM5dDJuT21oSUp1WlBtSVoyQmRweW11aVlYcFV0bTlIaEhUNENDS2lTVWNPYXRBOW82Y2xyM2FaQ3hHbVVGVS1KWkowTUFoaFdGTk1VNkF2bThMRDZ4dnp6dE5tanIwVHQ0UnVhWHVzQ1BRTkg3QWJ6R0NiN3Q0S3FxUXEyUnI4SERuTXRvMUlxRG15SWdwS2Y5eWp3VQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10918,6 +10964,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 01 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPVWRnUjFvRzlZX0dWekVZUTB1SkNIUmZuZWpiVjc2UThsRHZiLWNtQUxfZmNwclEwZTltQ0plSDktNzRuMnAwV2tqMHVNSGR3NU1fZ2dvX3pPT0l5ZlNTTEpmTTJvVGFwR0tibGRoVmNjOEpyNUhOaXowSDB3MlhPRjEyWWlZMmhzU3hqbkN6LVFlZzhoZmlSTWEyaWhJUE1vaGxRVHJRaF9tMEMwMElQa0hlM20tN1FyMUcyUml0bnliQlBoWnpaTDdMaHBzbEJaVVU5WWd0MEU5T0tFMmfSAd4BQVVfeXFMUExOeGtTZGJwaVV2LWpfb2VLWkdlcHdCMXd6R2Z0ZlBFTzNUeWIydlljSTd2UGx6a1JSdldLZ1p4ZEFWX1paZzh5S2d0Vi1nNnhXT1l0MEtnbV90VFpURHNWNEdybUtvUldFeXZSNlJHODZkdU8yaEFLZDdzZUNhY2ZxcFdKZlRKSFVhVUdEUkJNX3FIaEJ3UWpsMGd4YkFSczNwX1FSaVdZNDVOZkRETW5tWFdzcXhScHZFeEViRVcxRnlNaFBVU2VkWG9vTzltbHNGT3FXMXBieDR5NndB?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10929,6 +10976,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 29 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9SVC1SWEl4ZkhCRzJ5V2FJVmdTTC1TT0VRUWJRWDF3OTdRZ25LWHd6Z1l0YVFyTUlrQXJFTmp4UmYxd2NfQ1hHZHdyQ0tuamh1NmFVSjlVRFk5eUJHTmplTFRjLUQtanBMb2lnQ216NA?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10940,6 +10988,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 24 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQT2JkNkQydGtmUmJFd3hwVlNOZnk0OEdOOFJUMEJBY3JZZUxBTVUwb05tQ3BobjQ0S1JFT21yUzVSUEpPdnBEOW1yV3ZLOXR5SDNDMnlJeWVqVUhrWWJKcjBZel8wY3ZGWTdvMUdEZi1uQS1hTElDUm9NcVVUODJUWnRJT2Y3SnYzMVc0akMxekdvNGRERHR2Ml9nc2RzNUcxQUVTV9IBqgFBVV95cUxOTlRId0dCVXhrcGJ2Y3ZJN3ZRSmtwTS11aVNKLWI2T2YwTjBENDZMS2xzZ0JNUndmLTRhRVd4LWdsUlUxZ2NQQWhhUjFVVTJhU1ZDR2NXT1d3ZEk0WWxYNkJTTFNhaGZJajZTendFY3ExeWZWYzdfM1BtdGRSOGFnNFRFMzk4YVU5a0ZXc2hLY1pvVW9ZMEpTQkFDaFJxQkFNWHU4NnRHTlpVUQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10951,6 +11000,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 13 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPalNkMFZrbW5NaEp2Z1E5and4TF9PTVM1ZzVud0xpMEotclRrRnVjcjVTT3E2X0dqODhRMXAwMzJqZDJkTVhPejdSZlBiYVREN3RfUGw0NndoSEkydDUySE5KY19fZmdyWDdrVUpvUC1uMENMR183NDZONmFoRlpnQS12bGpLSXVZWFJtZFdTeGRXb25zQW80TDd0dEJ0eUl3NENjOWp1UWZvN2tOZnRZbTJId1V5VHJxbVHSAb8BQVVfeXFMTTltN25LbFNTTmpqRTdpWlJ0eWdGWkFpQkJQV24ybnh2alJqYUR4bUZWR1BzVDVWdGR5cmVza2dlNUhYeUJ0T21NZlZyYVZWaXpvb0ZITHowelJTay1iZzFFbG1TRVdXbXR3SWZPQ2JrNzVmdTVPc1NtWEVJVDhpejlvc1pFV1lYb0tQRi1WVGF0ZFdSODhWaXJEVUlVMXZrdGpjSVpRVWhXeWZRcXdkQm9EN0VGMVdNZm5nSlZiTjg?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10962,6 +11012,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd0JRMXVvajRXazNGVGdfdHF2YndXdVlUS1hvYl8wdmItOXp3alhYSVdTS1hqTjdyc0NXV3ZCU0Zka0dYV3ZyMlVOZ3k5LTYtdFZ0MUZvVUtDaE42dl9jbkVVSHdoWDFMTWFWanoyd2wxcUNka3VnNHBVRFJYQVpxSjNDVHJZRm45?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10973,6 +11024,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 03 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOX1ozV1p6SHpKQzlmczE5d2h3S2JSRzNzMjlGX3lYTkpubC11TXdkc1ZFbjkwWmNxaFRiMzNGYlY1dkttR1JTMnRRU2lMOE1rNnZfTGM2VnpEVUNtTmtHZHFOTWNhbkF2YjIyYS1PZVUyZE80bmR4d21iRjJVQU92TE1MbWpjSVZjNHQyYUg3WGVLUzl0eVE0RV9DRU5LTUdoSmxDWk5HSjJ3ODVRRFlRdnF0R2RxWng4NGV6dzNuczVHekNCVDBVUXFR0gHPAUFVX3lxTFBLMGdUTi1JclNxVFB2b2FnTG8xSjJaSksta25iQi01bVAxQ0FRd2VDOGdsNmZfeEpmUFFRU3RuQjJha1RxWWxUNXdiZC1JcXUtaDgzd0tmbWtncGY0enU4THdBVVRHVEttUTZTOU91OWlvLU5Jb2treGkwTDF6eWhJWVdzczl5Q3hQRlJJd1ZhbEp5RWVrdDdMUmkweFVuN09PUzI4LTBXYXhWbmtEZHdlTjk3TVFEVWU4NDFtblZpalBRM2FnTUhPQmFSaVlGdw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
@@ -10984,6 +11036,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 25 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOTDg3SmlJYWpuQUJjaVdjMDlpblpTa09jT0JDSzE0LTJxTU5wODA1SEN6UWQ2WWl3b1Z0b3JCVS1jUnVzZkFnV0JpdGtacHFaQ2RsN1NDa19xUUNHNzZZd0NFalhJeWZOeEtNbVpvWW9TVTdDM3FwR252SUpjNDJuTmE2SGFRZEFwQ1lwbnZMbjJaeHhEVDQ2V0tLZkRyUnZrOWZuZUVzWmJrbVBxbHRKM3ZWVnlrLVdyclNqQklNaGxVanJqdlE0Sm9WSzVJTHFDaUJiYVFiMjBYVnVKTGlNeE5Iczc2d3ZRNG45cTBFQW_SAYQCQVVfeXFMTXRWVGFTT3k3NXV6UUNaTE9kMmFvb0NfYlBIM2w1RU1ldXJlYXZmNHlFWVl4RXRuQkFQa0h2UnRwWHVVdmV2RVdGV09fV1lfZ2RUYkRjclJmV2hLMW01dmhXNE5NUk16UWJVUG1nc3dla2cxaUFMVjlrVHlGWDdKRU54ZXdOUExVZ2VSQVJWQmZGSGQ4bXVfX0hQbmFhYmVCdGJBYllueHF6eVdNUTBZX3JGakZRX210elpSaGluSDhIVUNwTXQzbDVkakFWOGpvS0stQXV1NGJsR3F2Q05rdWVvRUZwa3dXQ1lKVE9PZ05HUjJQUW5KV0dtbUFRV2ZQZlRkWG4?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
       },
@@ -10995,6 +11048,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 09 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOMWpYdkUtd25MNXZOckxnY09iOWR2TDZkblkzTTJjamx5M1ZhM1p6MTQ3X3NmODlvbGdlWFEzMkpUNGpUVFp5RnJsMDdjTjc2aDFVODd3RFBDSnpEellOaHdhSkQ2WXRzMDk1SVBUQWFYTjRFOEhGOXJWTjVoSFNJbFBLSVJSaVRYOW0xbkZGcmx1eGhUcS1ldkVZaFdTd0Q4QlppS3dtUnNXVU5aU0N3ZUlCX2xmWmdvTEk0dGJxcTJuUnBHY0JVa0ZveXQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11006,6 +11060,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 20 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11017,6 +11072,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 17 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNVU5KcDNNci1QR01wcE5SMTl1Mk45STd4OGdXcjRRZXhjeThIam9CZFRmeDdZbmVxMi1zblZqRHZSS3VmNUhybnhSLTF6Y09Tc2pNMERMTWRYMzlJcFRzdVgwb05Dc1NYN0NuLUZUTHhsSmhLeHJUWjZEdWtkX0FmR1F0MXdNd3ZxNHVVUGlmZTVkMW9BOFM1Nkh0enpxQ1ZYVlM2SjZQeXdXaGF5SVdGSG1sOXE0MS1iOWdjN2NmXzN4UTBKYndnbXVVNEZEbDQ2VVVhdzY2c2gwYjlrb1hGSzJqc9IB6AFBVV95cUxPUW5EaURJZ21UU0wtWHl6bHo3UUJxaTNWaHk2UDVQeUZ6MTBwaUEzMDhPOWcxRnlKQU5KX2NwYU5pbUFoY1RiWDVqWkw5MWxaNFByazJiNExOMGRoVEtIWnVDU2pFSXoyTWFLelI1WUVsTE5LWGUwZTUycnVvVUpXX29yRUdob1BaNFBDb0JKcFlaNFhuOEttSUN2ZEtWblJFdGZoMXJiOEFqTFQ4WG91VnF3ekNqUl8tM2FMWFlQRnY1SnVwb1VzX2FrTWxZZDBwWUJuOGFmWmpCOUVRRTJZQzhlSW0yZU9S?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11028,6 +11084,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPdDhjOW5hVnM1aDE1amYtUjRrZGRzb1dmRmdnYzlsalZmU3o1Ni1DdGZ2bHMzRU95bW9IT2hrbzFxTzFVVS1idW12UjRDckgzSU5vUjYyQkVVVEc1S3VNNFZNMWhlQXhSTl9zYUVzWEJYcExSNDJocW5jLWhSZFdCN1Rld0tJUXhkVnpVb2EtTzFLc0FpNFdYZ3RKVWtMU29HbC1oNzVSQTMwV1VlTml3UTYwUlVfM3FXTUstSFd5bHZjXzh6c1Z2OHlzNWlSZWRaU0dKeUVMdGN3MFdnNFpWVDdfeUZEVDhyeHFSZDVmVHIyckdFZE9ObWd0cnVtMXBpMHREaGFhR0VzSkgz0gGSAkFVX3lxTE1CbGRKbm1oOU9OVTloZlFhT3B2Wm1USmFoaUoycGNKQW1OVzRsQTJjMExEenUwU0Y4M3g5NXREMGxRLXBpSXRfZmdQeEs5WElEbXNVNE4wSXpydDBHemprMHlRQlFEQ3djajZqS0hCV1JtVE5HMjhfU3BwMVNmbWFnV0pqNUhqQ0NNWDRXcE5NbDlId0hhLXJCeVVrYm0xcVZmMUFhRmFnU0xwU245eWZnajBqVlFFaUJIZXJFMkV0S2FMaU9qd0Nsb1ZEcmlSVE5sbHpfUjhXQ1FpdmpHTHBWU3lpdUpvWG5tQ1RwaEkwc1A0U0lCc0piVUJiYU9SR2M1RmJhQURId2llTjVNTjlKZEE?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11039,6 +11096,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 02 Nov 2022",
         "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNaE9RT2QyR0VVX19vX0szQTRoMWxlY2EwTUVRbzVYdDQ4cXg4cUdQYmR0LXE2X3NrTUdHRWxJbEhiXzB6UFVOTHVZaHdwbVNvRWlDZHhTMDF1eDFvS0lRSmlWbVZQQWF3OExlR2NGTnNKZXVRdTQyZmVfTGIydWgxNWRNOTdzQ3RjWEkwTy1teHZNMXNDZ196d0F6dlVweFBCallQb2ZhUkVQS3ZDM3cyUHczN2VTU2xGbGpxOEh3TGJZaVVHOGVZTDJ30gHeAUFVX3lxTE1najRHQUw4Y1doSHp0NHBzQ3I5SnM0NjJvSUVmdGhraWZReXBBRGdvM3lRWWppMDBuS3d6a0x4VFpvZE9pMXhpaDZuS095QWRseWx4blJCMlp5SHFsT09HeUhYY1R1eWRObktVUDZyblB3cVl6aklsbG01ZXFFQnpTSFUzRDJHQU9HbG5MQ0VCaVQ5a201dXhpc2U0ZnNzOUhSZmpDdEVNd1ROMDc0ZjZFTks2YVdtUDJuZUR3YXR5bWJlN1BOV1MyV05CMkNUN1dzT0I4SlVmRV9sc0pMZw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11050,6 +11108,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 23 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9XWl8tRy1nM1IzSkpsdnFaNWV2a1Q3SVRXSGFmQU9odUVlLVF2ZDNtNEJmamJRbUh4Wjg4bkpxck1pd1NlU3VhZFJyaWZ3a2FxMUpidmhoenRrZURsamJ0V3JlN2UyWWw1N1lZREt0cjE3dmVIOVVYVXpfUWlrTlU?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en InfoBaires24. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11061,6 +11120,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 18 Apr 2018",
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNYWZaRUlfcTFidG85SXRkVzZOZzJXVm1GRVV1UzRlSEhDNDU2dlZMUDEwTk5MX2xaLUV4ekQ2Y09ESXdXaWNwemQ5SUtJbWFyQ1ZCR1JzR1hDWnoyZEVGRDBZQzFuMGlEQVFmTzV3RlBjYlVoOXJMZ3E4M0FpWDQ3ck40eldGdW1jZ2ZzUnBISlFWNXdoUm9JUWR3ckNMeU5Da25uUVR4LWsway03Z1Qwc0YxYWpTbDAtdVdPNXpGbC12eTBQTVliNnp6ZDXSAdIBQVVfeXFMTnZacXhWdm51QXVDSWtiVXRJSkd3Q096NUhVQUduV2FSRHB1M0kzMExpU1NxTk5TbDlZSnFFVENEMVJXdkVtc3dqSjZzQ2RTNFNqM0dnTXRNbU1ScE5mSFh4NTdrd2FDSGNZc0hLUnl1VERhdDVRTnRyQWNZNjJ4RnVJcm1xWXByMGZTRFBmWUxiQk1NUDZBY2d5b2RTenVJalJZbzgyYkFfaE1NeG1DdnctcVpVd3BYRS1WdjhxMWRTQXllLWtVSGRnNEU2dE5tZ3ZB?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en OkDiario."
       },
@@ -11072,52 +11132,57 @@ window.CONFLICT_DATA = {
         "date": "Sat, 04 Apr 2026",
         "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
       },
       {
         "id": "rss-57",
-        "source": "Simple Flying",
-        "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-      },
-      {
-        "id": "rss-58",
         "source": "Crikey",
         "channel": "Aviation & Industry Press",
         "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
         "date": "Tue, 23 Jun 2026",
         "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
       },
       {
-        "id": "rss-59",
+        "id": "rss-58",
         "source": "Forecast International",
         "channel": "Aviation & Industry Press",
         "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
         "date": "Tue, 02 Jan 2024",
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdnF3emNlSFZvY1paNk94cVJOR2tIV1c3OGVGM3hPbENmOVNpVXE3bFRZWEpXNXQ5aU8xdVI0eTFOdVdVZVJkNjJqd2tiYmFUZXVzS1ktZjRmc2doR2diUTRnc0dSUmgyZGtESllLZ2RFZ2p3NW5tT3k1THZrejFzQWhnSjZEbTl3RGQ5aXpUQ2FxQTBjdVBoanBRdXBJMU1VNjgyREFncmJiaHZvcGpKeXdhZEFIWmYtNmxJNGRiMmk?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
-        "id": "rss-60",
+        "id": "rss-59",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Airbus warns customers of aircraft delivery delays: report",
         "date": "Tue, 18 Apr 2023",
         "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdlZZVE50a0hlNzFxRmlnNm5KYWhneU1abW5VOWtQT3EtNlRUdTRmRzU2Rk9JdDU1T1ZOdHEwSGd1NTRWZDI5Ykx6N01MX2VSVzJPcUhCLXFCVGFZVVR1MHctUEdiTzd1d29JeEh3RHBOVGI5S2RXWXA0LXFXaEZiSlZDeEZxcWRES2QwMXBvcUNyOTRkMEhB0gGcAUFVX3lxTFBVWFhPeEhUbEdTWktkTlZhdVV4MjZuMDJ0Vi1Iam9CRzJXZTFFN3RFUUpGZ3hiR2N2eFZYN0hrbGV2c3JOcFdROFBVNlhhWE9SWENuUmFkUjVNbkNHYVdzbzZUTGRNLWtlOXhKcTFCTjF0RVJGcDVGRGZUbGpTUnduc1F4ZlhlNnJ4UVN3cnVNVjIzTjBMcC0xak4tSw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-60",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "impact": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
         "id": "rss-61",
@@ -11127,6 +11192,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 14 Dec 2017",
         "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQUYtNHl6aDVSTVJ3eVU3TmlnN3F2YVZmSzFLX1hYX1RCTENfU3FxeF9JRVJab2xlWEktQ0p6WDN1UlFmenZVTHRBZ2tuc2FaNmlCS0o1NUhzanM?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
       },
@@ -11138,6 +11204,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 21 Feb 2025",
         "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOU0VZTEpwNmZfRnpnVGhjVDlJZng2NkI2M2JRcmo4UmIwZHF1aHY5LTRVN1dIdlNWZ3VMb3pDVUZrYTRycTloeUdteDkwbEIwcEpiNTZqN0Q4NzlNb1lwNFdyLVBWMHVqckRtOUtJQWxkajBnczVUVFB2OEJYRWZJTkpTV0fSAYoBQVVfeXFMTmE1ZndUMHJSR05FNF92UXVRdTlaZ2pkT0NaMlY4Mi01RmQwcngwbXVlNFFaLVo0WnpKZFNiRV81bzBSdl9HQ2ptNG1xSDE3bXhCZnJIOEU2Nm1tT1B2MVFmOC15dWNyWENLaFRaNktSb2QtelU3N0JCVDNzSHdZRWd1SVRfb1FQVmdn?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
       },
@@ -11149,6 +11216,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 08 Nov 2024",
         "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9neVIyUGQ0RjVwdVY5YWxzeVJFdDRiOGhsOU9aM1I4dXdSNHNSb3hMTVlGZ0hyVTR4ZDM5NThGTEI4eDQwRkZDUkVIN1ByanJqT2IweGdyZHg1aTNab1BfdGs3TnVWV2RMRXR2T3lJTjR2cmNKY1B3T1ZyZWFyZw?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
@@ -11160,6 +11228,7 @@ window.CONFLICT_DATA = {
         "date": "Sat, 29 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQd0Y3VmluRzd2eUxYSUtNVlA5SzhWOUpvS0E5U051MXdNS2MwOWNzSG9IaU9Pc0hrNUJuS2hZRmtselFkM1F3dEE4VERRendyUllPN3QzeGhoWnY3WXpBYkJjdTFqWTVYZUdsZGpPTVZVcE5OSHdQNll1WVJFbTBqbjRUSTFtNDBaRkpLNEpkNWNrSHNxeWdzZzBRMzd6N2tzMTNTYTJ5UFBnb1RUQlJN0gGvAUFVX3lxTFB3RjdWaW5HN3Z5TFhJS01WUDlLOFY5Sm9LQTlTTnUxd01LYzA5Y3NIb0hpT09zSGs1Qm5LaFlGa2x6UWQzUXd0QThURFF6d3JSWU83dDN4aGhadjdZekFiQmN1MWpZNVhlR2xkak9NVlVwTk5Id1A2WXVZUkVtMGpuNFRJMW00MFpGSks0SmQ1Y2tIc3F5Z3NnMFEzN3o3a3MxM1NhMnlQUGdvVFRCUk0?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11171,6 +11240,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 27 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxORlJnZUNkVm5SWDJPQ0dDQ0pXbmJJNWdWMWZNRGM3dUc3eWpkS0NfQ3NqeFNHTnliNVhDOEVNZEg0V09EdGNhNEkyMnlaVXM5NDNkSTNaM2YteTRydUkwbFctRElMTU9xR09YZHZ1RWZmZ090cDZ1TlZTLTVDTy11NzdUbTVSVjNULXp2Ukg0Q2N1R0dVb1czR2Rra290aW41Sk1GY0MtdXA3RkRYSDlIVm9yd3ZvQk5TMlVWblBQcG5rN2pjdXNwMzE5T3hPMmZpMWNHTkF3?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11182,6 +11252,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 28 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOd1YybUptdmx0UVVGakRmQUFKQ1kta21WY1dtSWM0ZVNOQWFpOVRsNXJVZm40ejdYZDd2MkkzWkRUMzJKYUdaRGtCMFhXbjBHaThHYXJzODYtSWlVSlJUSE5MSHJqeDJweXVkbmZGSkEzLVppRHZlRnlUZE9KN1ExOG1TYUNaY1VYREg4T1FUTHhiaUl3dE5POWRiU3NRWVBSVHJxNmVHMGowWng3eHg3VlpoMk1sSkt5am0yS0RKV3g4RjdIV2NMUnIxQzd4LU1ITHFKVzJCRnk4TXVZU28yS3kxU0laUzBMYXM40gHwAUFVX3lxTFBPaVJFM2pfc0pfWTVneHBnQmdkWXc3VjlMc3VQMk9OdzQyWnpFb09ac2ZKMXFJc05LOHVremJYTUtPWlpVY1RSM25DWllDc200eWVyZ2d2QlV6M0thYVpHbUdmdjJyMjZYbWE3SHN2TlptQlZxRFRDYzBhSXJGR0JiRWpETDZmUE5zTlFBbXhEckNRQXJmYXJEMlBBeDJHUm9lcXJBTlZVRnpyeEFpT1BTeFBYWkN2UEtBcUlVMXFBQ0pyMV94dnZWbkM1ZkhxaGp0MlY0R000R2NvR1h6VTRaenpfTzVGOHZXckp3emc4MA?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
       },
@@ -11193,6 +11264,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 28 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNdHNpekw1OUxadlVQTXRjMktSOE5DZlhkSmtieC1ENVZOYVVqenVyVVRFby1NZWFXM3l4RnlwT1pqOVV5QnlSSkxEdjhUSkVDX0RpQ0c2TzlGVkk1cUlkdm1VcnV4RVloTFMwazBjLURBSVYzUzZ3NU8xbUw4YzdRemZxX0V1MHVmcURnNzUxdlk3VlJFTnZBSDBMeHpKU2RtMzRYMGNLcXNkNDZoTFNEeEg2UUl4ZXlnV3ZBN3gxRzQ5bWwyNkt0ZDF6QWpIaE1PY1h4UWk2X0x6UXVJcGxoNVVaY1NFRVF1NGMxWnBqaEp4MW1SYWFJSFFaaFc3N1ZjbktoODFDY9IBhwJBVV95cUxNdHNpekw1OUxadlVQTXRjMktSOE5DZlhkSmtieC1ENVZOYVVqenVyVVRFby1NZWFXM3l4RnlwT1pqOVV5QnlSSkxEdjhUSkVDX0RpQ0c2TzlGVkk1cUlkdm1VcnV4RVloTFMwazBjLURBSVYzUzZ3NU8xbUw4YzdRemZxX0V1MHVmcURnNzUxdlk3VlJFTnZBSDBMeHpKU2RtMzRYMGNLcXNkNDZoTFNEeEg2UUl4ZXlnV3ZBN3gxRzQ5bWwyNkt0ZDF6QWpIaE1PY1h4UWk2X0x6UXVJcGxoNVVaY1NFRVF1NGMxWnBqaEp4MW1SYWFJSFFaaFc3N1ZjbktoODFDYw?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11204,6 +11276,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 28 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQWjJpVzZJU3haNmhDa1lpQ25ZYm5pckJKRWUxeThYSjhER3BWcVF0cmZWUWw0Z050Tm5kYlRRczRWMEFyMkhCenN6QXZ3dGprYzE1YWhnWV9fSFJ3c18zbzRHM0JvS09vZkJsdGtRX20zY19kZUNHN1VLUlQ1b3BMSkVNVjRZZ3BELVNMWjRTYlJ0cjZOcXdWWmsxOGxzYURYRVozUzZJdnVPNEtsZWkwaDRRTWh3N2RzWG0wZHd4azBUVXNjSDVKT1ViSnhsallCbjV0ZEZTOS1zY3NfY1lja0tPTnFSRnB4SE80Yl9R0gHzAUFVX3lxTFA1Zk95Qi1iNGxkR1NXcGlQQURfamNqcjU3b2tyeTNLX2d3MzkydmtZT1B2bXRPOS00Q2VUTzFLQ2xNdFZreUJ3TXdlWU9CRGkxNkxwRUlnVkJlM1lKa0Z0bkxhMGVydzVXaFBqc1Z0UEFJcTh5eklxeFluNzZmZW40QkFDczd4Sy15RU1Qc0JFOVFkc0JMZWt4Q2NWYWJrejBNOENETkVQblVYdEM1QncwbU4yOWlrRzJHVjVmVUpYeDViWUxyZjZBRExfcWZmY09zLVFSMHh1NE5oTUdEeUNRNlg1SEpHNVdBdnRFM09vZ2g2TQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11215,6 +11288,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbXFtT3h6S0Y5bW4waHg1SnBQam55dUJsbTYwVkNtdV83akp1c1k2S3pfQ3A5NUNBb213RG91bG1lM0xnc21Da0d0cG5UNVZWd1JKR0pwSFcxUVJkVTAtWEc5ZjJmbGl0bVJ5TFFHeVlDRHZpaWhabHgzeTM1RW8ySFRTR2JzemdaNFlTdjkwbkhDdEZ6cE9CUUxZT1lyUWduZnpJ0gGoAUFVX3lxTE5CYlF5LW5qeU52cUNMYXpSUzczaVloT2JjUk5ob0JjeG94V0dhS3BqWDQ5NHJ2NVFUNWl1MjVWS2lGSkY0WGhrRmgzakJ2TkZNNnpGNmxSamVhZFlEWHZOXzlIOWEtVDE3cDE1dnV6M3g3dEhDbGZ4TFczdDdDdVF3RkNYMjAySFR4UlhIVmdBeWFpcjhUSzUwWGFfemN1Q2c2UVJXS1F0SQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+27°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11226,6 +11300,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 28 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1vY2lMNktqdGNKOG9TWGliTzhkN1M2aGgwcnozYlVEckFZbzgwdDBNSkZHeDNacFl1dXRiNmNwOU1BQ3dwVFVUakltNFR0bTFyZ09yVGdkdVU?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Albaceteabierto."
       },
@@ -11237,6 +11312,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 30 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOd2NiU0VmS2RpdlZXWm9UcVVIc1N5cEozWkFpd0t2Mm1aODhuTWpscWpXbUNuSU04MmgzT1k4SmNhcGFta29ibl9ZOHN0TlBGc3NsbTNEVTVHdWRHTHlXS0ZndS1kN0FBemxWTVR5UENqc2NLczdkc3V5Y3JXMVpwRUdBRXJxZGw4dERfQ3RlUjJOUm51NEVCYTZjMUp0b1EydmtYRndmVWxOQ2JpNzdubVYtbmZFcTNpZnF3RlJLb29sY2kzaVI1TzY3MUxIX3NWeTBsbm5qbEctU2lNcTVMRVhBZXRoMWlQdmpDSTVqUURhdzllZTRVSXFQSlo3dmxYM0ZaQtIB7wFBVV95cUxOb25yZVp6UElOQTgySWZnTDV2TXVQQU8zZ1k5WnJQa0h3aHNvWnByT1VvWl9wTUF5VjYwZlpBNERtUG43TGNadXlnWUc2SmdHNy1aY1ZpN2h5N2Q3N1ZUZWV5SDJXNE9mODhJRXJacjNyZGhSNEpTd0F1X3ZKVkpDeV9PM0VXY1VxZ2JkSFh3M2drc2pNb2FTRWpLbVR5akJEdkRGLURtNEdoa184VkR5dUhKSkplTlRQZkZFUHY4QlVZSzRBVi01cGNuekV3Y29kdHFrckU4d0tHQlBqNE04SkRIYk9KS3RXUzByVG5TWQ?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11248,6 +11324,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 30 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNRGQ2bFB0Y2hQVFp0cGZ6VlBDLUNjeGstNThVaXVyU1IxaTBta083SHRGWkdBc0gxaUhCZDZ4SWVUY0kzcl9sVTF1RWk1TVEyZFBmcHNUQi1nVGVHR1hkbTF0cFVDbElCOXFudHFKSkdiSkMwaXBiNUlCdHBRdlRQVE9GWGYxSmJ6NUIxSmlpWmxOY0FzVUZtdm9KZkZ0MjFCeGZzRUwya0Rwd1hUQlN2NHQzd1JXbkVyNzdxQXBsUW5fOTNMb29ZNEFCVGxid1Z0aXFMU2NGM1l4MVVwY0oxamUyaTh0MWstOVE?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11259,6 +11336,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 31 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLTJadGhEVXJYYWN3d0NyU1o2azhCWXBMdkRmRVBKdC03b21iWE1XUy1rQWZKUDVMTEZaNDNpMWNsMnJVRzJKMU9ZSGE1ZUgyZ0xqRGp2TTZxMmNwdmdTYzIxMWZRc3ptRktzWWJXdElxMF9FTEZfU0dVX04yU1cxWU5Wb0dEM1hrc2tJMDNKZVprQlRSbDN6anRSMmE5cUpZczk4NHYzaEHSAa4BQVVfeXFMTk5ZcTlaRkp6Q2JyWWNQSWxxaUFYWmtTY3puUVF5QWpZSUtVOEUxOS1qY3p0ejNod2RfN1p4QWFKT1U2VGo3LTVWU3RFX1N2S0dCcXJEaW9JZUN5U21xdDVmM19YanI0MTI4RTRmQnZmM3NOblpJdnkzTFZKbktPSnhZM29vMG5vNFJGYm1kRF9PWnhDQW5ZS1MyVFA3WkZRZ2daY1N6c0FjeExrbE93?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11270,6 +11348,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 28 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSkNQYXJHWjR0TnRYcXQ5Snh0dl9CeGQ3RlhhZ0tnTFVxZWc3N3FXSFV2UDBUaF9KdTRsY0dlX0M1UlkzMmtBbm5DWGhlN2JvdGZ1b0xnZTFndTRHRzhabjVYeXh6NVhhSkZic1B3d0pQNVhBaU9FamxadlAxTVgxc0tZYkxrejlCNUtjd0luTUI5dGNGR3QwaFNqWjBWSkhjRjZXWnJITmt1ajdBNTA0ZnowQlnSAboBQVVfeXFMT2FiTld4M1B2YS1EYng5ZWUwUlZZbUJkU3dJZnRxTGNaWUt0VGZZdWxXTS1Vd2xvRjZmalpxNmdGTWhoSE81NUs1cFpmcEZ5Nkl5bDNoNXh1ZHN5UERJam1ScFE3ekliTngyb0tvd3NrZjZsVV8xS0Yxc01ldDQ3ZnI4X0c0SkdBQnFlUXNzbnpubXlxSFNVbm91cURrSEp6aUpDUnNSLS1mNDhkSGxhU3AwX2Z1cm40WTdB?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
       },
@@ -11281,6 +11360,7 @@ window.CONFLICT_DATA = {
         "date": "Mon, 24 Aug 2026",
         "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSUFHUy1wYVVRNmtBZTVwSWEyeWdhMzRtdW1jZ2xTZk5VZlg3eVB4aTBMWGpwVktBQ2xoNnF2Y25rd2RBc2NEVUZLVlYtb1RNV1pMenRfb0JZUnI1bFNKZkJkcEZPcTd6dWxFc280M2pGbUdheWRUNDB6am1DM29ZNWNFUUhFUGp2TDJoeHhpX0NOcmVvQ29RM0RLTnNxVldKaVRjRDFoYnItZnlYejNmcUVOZlNUbU5RZHhlNTdn0gHDAUFVX3lxTE5aclkwY19nVnNwUFYtV2l3aVZTeEdiZ1ZlTWVPaUw1UGg1SkJUV3duZWdjejB0TUU5V1FJbmt2U2RsTTBXaFc3LWpNUWhOOGhsckxWZUhMY1VzQUlVanZ4aGtjdjVlX25pbV94QnlFUWU1SmoxNFMtTU90aTFSUkJtakx6N0FnbFc1cEZqMXhvV2RSQW9aV21Ia0pUa0RrLWhwVE8tcnZJTk04U0FYZTRLVFAxN216ZE9RQm90WVdIbGtuNA?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11292,6 +11372,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 30 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQalY4Tm5JN2N4X3hCa1ZHMGViODEwVXAtU3RPemtWQTlNeDYtOWJTRDJRRElxdTF1c0VVY0puQXVsTW15R0hrdEh2bzRSMUk3UWFnbjFfQnFuV2laZ2ItMzMtcVVOWGJwOFo3blRnaGRvR3NuNHRPdWtqT2xwajFSamNyWEwwQ051NVdEbmdtVFRtRk9hZ0FRVzdjak1zSncteE4wVlAxazEtV2NoVHln0gG0AUFVX3lxTE1XQUg5UWJLZVo0ZWo3RmZUTE9weWMyQnFoaW0wREVqZXFVWko0WkFpTWpqcnd2aVpsTS1MV0lpdDUxcHJCbW1HVmFYbDR6ZUlUOWhKN29lQnFvYkEySVRSZkJBRjVLMjRCdXhYT2l6SDlGd2pxUF96anZNbERSRzNqQnhFUi1VbEMwMmxnWEpIX004UTVZUVFUVjZxM2NSbXZpaE8xRER2Y0NRbUFjd2xNUVBrYw?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
       },
@@ -11303,6 +11384,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 25 Aug 2022",
         "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdHpwUWpqa1pYaFN4a0FmU24zaEZHZGt4UldZakFyYXlMRXl1NWFHY2FPYldPd2JoaHhtbno0ZGJYeVdxa2tnRzJVU0ZocjU3YjZ3MzYtdGpCREtsb3NGbzlMV3ZBOGhqMklyQUg5UnVPaDRBM0hORkZGZEZwN2dmT1VJdU5hT3NqM2t0RFdlel9VcmRBNDdyQ29DRV8zaVlPNnpidTdzTUJUQllLcXpEQXZJNA?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cathay Pacific."
       },
@@ -11314,6 +11396,7 @@ window.CONFLICT_DATA = {
         "date": "Fri, 13 Oct 2023",
         "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE43eU9JZmRBTVpMbHRiQUpjMnBGM3RzYUYxLXQ2cjEyS0FmWktFQWNiYVFwbXRPQ0ZweW54Vms0V0ZDd3ptRVpacXltcG5QTkZ3QmpjRGQwR1VRZnV5eUNfeG5HZGVRWE0?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
@@ -11325,6 +11408,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 22 Jul 2015",
         "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTUVZS08wZTR3bTFaNjR0RnB3ZmpNZTlNcnd4R1V6Z3hvYzVvaHl3c2N3QmlVX1FUczNqZXQ3MFVoMjVSWlFMN2xreUluZWVvMUQxOTYtdHlqeldVUktUdG5IT2RXOXhEV0w2Z2ZfanhzcEM5RmRsUU11eVZ2TWpGaXpLQzJ4NkVqdjVwdHlrcU5USDDSAZgBQVVfeXFMTVN5MDdsRXBPdFZiWWdxWXluaDZrT21VdWZrOUEyOERjWGY0UzdlbU45b19PNGdCSTdxSmlOTGNaU1lIaTVvNWNDYmotbTdDZmJLbGxVV0pqQ1ZERkVhTkhyLTVwTnduUFp0MDRxUUR1LVRuaG9fcHIxdlJ0MTZpRnZEeHpIclBVRDlmS05SQnBlQVJxSlY1Z3A?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en North Wales Live. Incrementa la presión sobre Guillaume Faury."
       },
@@ -11336,6 +11420,7 @@ window.CONFLICT_DATA = {
         "date": "Thu, 06 Mar 2025",
         "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVWJNUVZ6d29pNE5ISGt5SnNyTXRkb3pYOEd4dWF3T0xuUHNJM1IwU0ItUWo4SkZTRHRyc2dWRUxKNk1XV1lKLTNBQlAxdlJtWV9CZXFQem9VOWo4MkloN0hRbHZ4ZDhXc1hOYUE1Rm1HcWdiV1ZXRTY2TnJzOEZ6WWVCSWwzZ01CSTRLYkZFa05OeGhq0gGaAUFVX3lxTFBxVmtDZURlSmJXa21DY0JyWDhUTlNNMDVVQ1FmbjJwcEotQ1FoaUxmMU8zVlc0ay1RT0Z3OG1nQXZBMVJzXzRSSGFFMnNZZjltODA1dzY2R2xYQ29VMmRFa1d3QmZnWHVVdWYtTDVfNmtKa0d4a3RCSFlBRXVBWlBRUmRqQzV3aHktZEp3cEhjalZibzBWMUZuOGc?oc=5",
         "category": "NEUTRAL",
+        "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en STAT Times."
       },
@@ -11347,6 +11432,7 @@ window.CONFLICT_DATA = {
         "date": "Wed, 09 Oct 2024",
         "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOYncwOE1teUpvYU1rcFFaXzEybFVpeENCX1NJU0pzQUh1TnBVRFFkQ2VrUzZiN3NIWTJWX3hnOEd1T19POWVqeEtKbzl2NFc4RE9pSFU2YWI1LVNWVzBVbzQwWnljaWVVWWlOZklKZnRWQ0tQLXotNU16RnVxM0J4UjlHMUVmeEhQa24xWlUxNTBOUUtaOFBZRDJFbnlBRkljc1Vub2p6bVNTMXBKUW1oM2xNSnUtQjJIVDAxVVNmSEZJX09KaVdrQmdWOF9lb2xDeVlkR3lPNWJreEVRV0hZU1BoTE7SAeoBQVVfeXFMT2NWM0U5dEVvandBZG1LcUctekRhNHoxNmlaUGl3TXpudndVY0k0QURfUnRsNi1GbUl1YTF6ckVadFBsb3hwSjJabDBpTjRnbjM3eVZLdDhJU1BfejJ4aGQwQTVObzZSUk9EVFljYjAtNjRKYUV0QmJHa296WnpkUk8tbnNOSU13TnV1SzQ3c2JhM3JwSWNOUjU2MGVkY2Q5NVlyYkNVaVNReHFRbXpuTjFzeG0tSUVBN24yMTdTSnBHR1JEeXhIUFNjY1hpWDFlNU8ycG81bWFQNDRKNGk5Y1NiZ29Ha2NCbWF3?oc=5",
         "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Times of India. Incrementa la presión sobre Guillaume Faury."
       }
