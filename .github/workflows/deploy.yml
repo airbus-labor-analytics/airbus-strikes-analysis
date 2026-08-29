@@ -3,8 +3,6 @@ name: Build and Deploy Airbus Strike Analytics
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch:
 
 permissions:
@@ -17,7 +15,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  validate-build-deploy:
+    name: Validate, Build & Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -35,43 +34,44 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
-          pip install -r requirements.txt || true
+          npm install || true
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Sync Telegram Channel Documents and Archive
+      - name: 1. Validate External Sources & Citations
         run: |
-          python3 src/telegram_channel_sync.py
+          python3 src/validate_sources.py
 
-      - name: Fetch Live Beluga Logistics Status
+      - name: 2. Validate Mathematical, Census & Financial Invariants
         run: |
-          python3 src/beluga_tracker.py
-      - name: Run Sentiment & Pressure Thermometer
-        run: |
-          python3 src/sentiment_thermometer.py
+          python3 src/validate_invariants.py
 
-      - name: Run Econometric Analysis Engine
+      - name: 3. Run Econometric Analysis Engine
         run: |
           python3 src/analysis_engine.py
 
-      - name: Run Automated Test Suite
+      - name: 4. Run Automated Test Suite
         run: |
           python3 -m unittest discover -s tests -p "test_*.py"
-      - name: Install Chromium for PDF Generation
+
+      - name: 5. Install Chromium for Publication PDF
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
 
-      - name: Compile Publication PDF
+      - name: 6. Compile Publication PDF
         run: |
-          python3 src/generate_pdf.py
+          python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
+          mkdir -p dashboard/docs
+          cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf dashboard/docs/
+          cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md dashboard/docs/
 
-      - name: Upload PDF Artifact
+      - name: 7. Upload PDF Guide Artifact
         uses: actions/upload-artifact@v4
         with:
           name: airbus-strike-guide-pdf
           path: docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
 
-      - name: Prepare static dashboard bundle
+      - name: 8. Prepare static dashboard bundle
         run: |
           mkdir -p _site
           cp -r dashboard/* _site/
@@ -79,8 +79,7 @@ jobs:
           cp -r data/* _site/data/ || true
           cp -r docs/* _site/docs/ || true
 
-      - name: Deploy to GitHub Pages (gh-pages branch)
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      - name: 9. Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

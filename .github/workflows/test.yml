@@ -1,0 +1,89 @@
+name: CI Test & Validation Suite
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  validate-and-test:
+    name: Test & Invariant Checks (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+        node-version: ['20']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          npm install || true
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: 1. Validate External Sources & Citations Integrity
+        run: |
+          python3 src/validate_sources.py
+
+      - name: 2. Validate Mathematical, Census, Electoral & Financial Invariants
+        run: |
+          python3 src/validate_invariants.py
+
+      - name: 3. Run Econometric & Analysis Engine
+        run: |
+          python3 src/analysis_engine.py
+
+      - name: 4. Run Unit Test Suite
+        run: |
+          python3 -m unittest discover -s tests -p "test_*.py"
+
+      - name: 5. Verify Static Assets & Dashboard Bundle
+        run: |
+          node -c dashboard/app.js
+          node -c dashboard/data.js
+          test -f dashboard/index.html
+          test -f data/conflict_metrics.json
+          test -f docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md
+
+  pdf-build-check:
+    name: PDF Compilation Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies & Chromium
+        run: |
+          npm install || true
+          sudo apt-get update
+          sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
+
+      - name: Compile PDF Guide
+        run: |
+          python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o /tmp/Guia_Test.pdf
+          test -s /tmp/Guia_Test.pdf
+          echo "PDF generated successfully: $(ls -lh /tmp/Guia_Test.pdf)"
