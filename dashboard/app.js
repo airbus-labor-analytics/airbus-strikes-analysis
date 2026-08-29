@@ -114,6 +114,59 @@ async function syncDataInBackground() {
   }
 }
 
+// Mobile Sidebar Toggle & Backdrop
+function toggleMobileSidebar() {
+  const sidebar = document.getElementById('sidebar-menu');
+  let backdrop = document.getElementById('sidebar-backdrop');
+  
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'sidebar-backdrop';
+    backdrop.className = 'fixed inset-0 bg-black/70 z-30 lg:hidden transition-opacity duration-300 opacity-0 pointer-events-none';
+    backdrop.onclick = toggleMobileSidebar;
+    document.body.appendChild(backdrop);
+  }
+  
+  if (sidebar) {
+    const isClosed = sidebar.classList.contains('-translate-x-full');
+    if (isClosed) {
+      sidebar.classList.remove('-translate-x-full');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100');
+    } else {
+      sidebar.classList.add('-translate-x-full');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+  }
+}
+
+// Live Refresh Beluga Action
+async function refreshBelugaLive(manual = true) {
+  const btn = document.querySelector('button[onclick*="refreshBelugaLive"]');
+  const icon = btn?.querySelector('i');
+  if (icon) icon.classList.add('animate-spin');
+
+  try {
+    const res = await fetch('data/beluga_status.json', { cache: 'no-store' });
+    if (res.ok) {
+      const data = await res.json();
+      if (conflictData) {
+        conflictData.beluga_logistics = data;
+        initThermometerAndBeluga();
+      }
+    }
+  } catch (e) {
+    console.warn('Beluga fetch offline, re-rendering cache:', e);
+    initThermometerAndBeluga();
+  } finally {
+    setTimeout(() => {
+      if (icon) icon.classList.remove('animate-spin');
+      if (window.lucide) lucide.createIcons();
+    }, 400);
+  }
+}
+
 // Tab Switcher
 function switchTab(tabId) {
   const normalizedTabId = tabId.startsWith('tab-') ? tabId : `tab-${tabId}`;
@@ -140,9 +193,15 @@ function switchTab(tabId) {
 
   // Close mobile drawer on item click
   const sidebar = document.getElementById('sidebar-menu');
+  const backdrop = document.getElementById('sidebar-backdrop');
   if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
     sidebar.classList.add('-translate-x-full');
+    if (backdrop) {
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
   }
+
   setTimeout(() => {
     if (normalizedTabId === 'tab-overview' || normalizedTabId === 'tab-kpis') {
       initAsymmetryChart();
@@ -152,17 +211,33 @@ function switchTab(tabId) {
       updateWageSimulation();
     } else if (normalizedTabId === 'tab-thermometer') {
       initBelugaHistoryChart();
+      initThermometerAndBeluga();
     } else if (normalizedTabId === 'tab-stock') {
       initAirbusStockChart();
     } else if (normalizedTabId === 'tab-company-health') {
       initCompanyHealthCharts();
     } else if (normalizedTabId === 'tab-unions') {
       initUnionCharts();
+    } else if (normalizedTabId === 'tab-historical-losses') {
+      initHistoricalLosses();
+    } else if (normalizedTabId === 'tab-negotiation') {
+      initNegotiationEvolution();
+    } else if (normalizedTabId === 'tab-workflows') {
+      initWorkflows();
+    } else if (normalizedTabId === 'tab-timeline') {
+      initTimeline();
+    } else if (normalizedTabId === 'tab-checklist') {
+      initChecklist();
+    } else if (normalizedTabId === 'tab-benchmarks') {
+      initBenchmarks();
+    } else if (normalizedTabId === 'tab-sources') {
+      initSources();
+    } else if (normalizedTabId === 'tab-telegram-archive') {
+      initTelegramArchive();
     }
     if (window.lucide) lucide.createIcons();
   }, 60);
 }
-
 // ==================== ASYMMETRY SIMULATOR ====================
 function setAsymmetryDays(days) {
   const slider = document.getElementById('slider-days');
