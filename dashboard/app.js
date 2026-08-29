@@ -102,10 +102,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   initBenchmarks();
   initSources();
   initWorkflows();
+  initHistoricalLosses();
+  initNegotiationEvolution();
   initTimeline();
-  initAsymmetryChart();
-  initWagesChart();
-  initBelugaHistoryChart();
+  initTelegramArchive();
   initThermometerAndBeluga();
   updateAsymmetrySimulation();
   updateWageSimulation();
@@ -499,7 +499,82 @@ function initWorkflows() {
   `).join('');
 }
 
-// ==================== TIMELINE (2021-2026) ====================
+// ==================== NEGOTIATION EVOLUTION & GAP ANALYSIS ====================
+function initNegotiationEvolution() {
+  const evo = conflictData?.negotiation_evolution;
+  if (!evo) return;
+
+  // 1. Render Initial Demands (July 1, 2026)
+  const initialGrid = document.getElementById('initial-demands-grid');
+  if (initialGrid && evo.initial_demands_july) {
+    initialGrid.innerHTML = evo.initial_demands_july.items.map(item => `
+      <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
+        <div>
+          <span class="text-xs font-bold text-sky-400 block">${item.topic}</span>
+          <p class="text-xs text-slate-300 mt-1 leading-relaxed">${item.demand}</p>
+        </div>
+        <div class="mt-2 pt-2 border-t border-slate-800/80 flex justify-between items-center text-[10px] text-slate-500">
+          <span>Reivindicación Base</span>
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sky-400"></i>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 2. Render Proposal Evolution Stages
+  const stagesContainer = document.getElementById('negotiation-stages-container');
+  if (stagesContainer && evo.proposal_evolution_stages) {
+    stagesContainer.innerHTML = evo.proposal_evolution_stages.map(st => `
+      <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl hover:border-slate-700 transition space-y-2.5">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1 border-b border-slate-800/80 pb-2">
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-black text-white font-mono bg-slate-800 px-2 py-0.5 rounded">${st.stage}</span>
+            <span class="text-xs font-bold text-slate-200">${st.event}</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 text-xs">
+          <div class="p-2.5 bg-rose-950/20 border border-rose-500/20 rounded-lg">
+            <span class="text-[10px] font-extrabold uppercase text-rose-400 block mb-1">Oferta / Postura Dirección Airbus:</span>
+            <p class="text-slate-300 leading-relaxed">${st.company_offer}</p>
+          </div>
+          <div class="p-2.5 bg-emerald-950/20 border border-emerald-500/20 rounded-lg">
+            <span class="text-[10px] font-extrabold uppercase text-emerald-400 block mb-1">Respuesta Sindical / Asambleas:</span>
+            <p class="text-slate-300 leading-relaxed">${st.union_response}</p>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 3. Render Gap Analysis Table
+  const gapTableBody = document.getElementById('gap-analysis-table-body');
+  if (gapTableBody && evo.current_gap_analysis) {
+    gapTableBody.innerHTML = evo.current_gap_analysis.map(gap => {
+      let badgeClass = "bg-rose-500/20 text-rose-300 border-rose-500/30";
+      if (gap.status.includes("Condicionado") || gap.status.includes("Acercamiento")) {
+        badgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/30";
+      } else if (gap.status.includes("Técnico")) {
+        badgeClass = "bg-sky-500/20 text-sky-300 border-sky-500/30";
+      }
+
+      return `
+        <tr class="hover:bg-slate-900/50 transition">
+          <td class="p-3.5 font-bold text-white align-top whitespace-nowrap">${gap.topic}</td>
+          <td class="p-3.5 text-slate-200 align-top bg-emerald-950/10 font-medium">${gap.union_position}</td>
+          <td class="p-3.5 text-slate-300 align-top bg-rose-950/10">${gap.company_position}</td>
+          <td class="p-3.5 text-amber-300 font-bold align-top bg-amber-950/10">${gap.gap}</td>
+          <td class="p-3.5 text-center align-top whitespace-nowrap">
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold border ${badgeClass}">
+              ${gap.status}
+            </span>
+          </td>
+        </tr>
+      `;
+    }).join('');
+  }
+}
+
+// ==================== TIMELINE & ASSEMBLY RECORDS (PRESENT -> PAST) ====================
 function initTimeline() {
   const container = document.getElementById('timeline-container');
   if (!container) return;
@@ -512,19 +587,39 @@ function initTimeline() {
       <!-- Dot on timeline -->
       <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-${item.badge_color}-500 shadow-lg shadow-${item.badge_color}-500/30"></div>
 
-      <div class="bg-slate-900/80 border border-slate-800 group-hover:border-slate-700 p-4 sm:p-5 rounded-2xl transition space-y-3">
-        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
-          <div class="flex items-center space-x-2">
-            <span class="text-xs font-black text-white font-mono bg-slate-800 px-2 py-0.5 rounded">${item.date}</span>
+      <div class="bg-slate-900/80 border border-slate-800 group-hover:border-slate-700 p-4 sm:p-5 rounded-2xl transition space-y-3.5">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-black text-white font-mono bg-slate-800 px-2.5 py-0.5 rounded-md border border-slate-700">${item.date}</span>
             <span class="text-xs text-slate-400 font-medium">• ${item.phase}</span>
+            ${item.time ? `<span class="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded">🕒 ${item.time}</span>` : ''}
           </div>
           <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${item.badge_color}-500/20 text-${item.badge_color}-400 border border-${item.badge_color}-500/30 self-start sm:self-auto">
             ${item.badge}
           </span>
         </div>
 
-        <h3 class="text-sm sm:text-base font-bold text-white">${item.title}</h3>
+        <div>
+          <h3 class="text-sm sm:text-base font-bold text-white">${item.title}</h3>
+          ${item.location ? `
+            <div class="flex items-center text-xs text-sky-400 mt-1 space-x-1.5">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sky-400 shrink-0"></i>
+              <span class="font-medium">${item.location}</span>
+            </div>
+          ` : ''}
+        </div>
+
         <p class="text-xs text-slate-300 leading-relaxed">${item.summary}</p>
+
+        ${item.census_and_votes ? `
+          <div class="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl flex items-start space-x-2 text-xs">
+            <i data-lucide="vote" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <div>
+              <span class="font-bold text-emerald-400 text-[11px] uppercase tracking-wider block">Censo, Votación & Quórum:</span>
+              <span class="text-slate-300 font-mono text-[11px]">${item.census_and_votes}</span>
+            </div>
+          </div>
+        ` : ''}
 
         <div class="flex flex-wrap gap-1.5 pt-1">
           ${item.actors.map(a => `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">${a}</span>`).join('')}
@@ -785,4 +880,131 @@ function showToast(msg) {
   toast.textContent = msg;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 3000);
+}
+
+// ==================== HISTORICAL AGREEMENTS & LOSSES ====================
+function initHistoricalLosses() {
+  const hist = conflictData?.historical_agreements_and_losses;
+  if (!hist) return;
+
+  // 1. Render Yearly Losses Table
+  const tableBody = document.getElementById('yearly-losses-table-body');
+  if (tableBody && hist.yearly_loss_metrics_table) {
+    tableBody.innerHTML = hist.yearly_loss_metrics_table.map(row => `
+      <tr class="hover:bg-slate-900/50 transition">
+        <td class="p-3.5 font-bold text-white whitespace-nowrap">${row.year}</td>
+        <td class="p-3.5 text-sky-400 font-mono font-bold">${row.cost_of_living_index.toFixed(1)}</td>
+        <td class="p-3.5 text-amber-400 font-mono font-bold">${row.airbus_rsg_index.toFixed(1)}</td>
+        <td class="p-3.5 text-rose-400 font-mono">${row.nominal_gross_loss_eur !== 0 ? `${row.nominal_gross_loss_eur.toLocaleString()} €` : '0 €'}</td>
+        <td class="p-3.5 text-emerald-400 font-mono font-bold">${row.one_off_payment_received_eur > 0 ? `+${row.one_off_payment_received_eur.toLocaleString()} €` : '-'}</td>
+        <td class="p-3.5 text-rose-300 font-mono font-black bg-rose-950/20">${row.updated_net_loss_eur !== 0 ? `${row.updated_net_loss_eur.toLocaleString()} €` : '0 €'}</td>
+        <td class="p-3.5 text-slate-300 text-[11px]">${row.notes}</td>
+      </tr>
+    `).join('');
+  }
+
+  // 2. Render BOE Collective Agreements History
+  const boeGrid = document.getElementById('boe-agreements-grid');
+  if (boeGrid && hist.boe_agreements_history) {
+    boeGrid.innerHTML = hist.boe_agreements_history.map(c => `
+      <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition">
+        <div class="flex justify-between items-start">
+          <span class="text-xs font-black text-white">${c.name}</span>
+          <span class="px-2 py-0.5 text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded">Oficial BOE</span>
+        </div>
+        <span class="text-[11px] text-sky-400 font-mono block">${c.boe_reference}</span>
+        <p class="text-xs text-slate-300 leading-relaxed mt-2"><strong class="text-slate-200">Firmantes:</strong> ${c.parties_signatory}</p>
+        <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-300">Cláusulas Clave:</strong> ${c.key_clauses}</p>
+        <div class="p-2 bg-rose-950/30 border border-rose-500/20 rounded-lg text-[11px] text-rose-300 mt-2">
+          <strong>Consecuencia Real:</strong> ${c.consequences}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // 3. Render Failed Pacts & Betrayals
+  const failedPactsContainer = document.getElementById('failed-pacts-container');
+  if (failedPactsContainer && hist.failed_pacts_and_betrayals) {
+    failedPactsContainer.innerHTML = hist.failed_pacts_and_betrayals.map(p => `
+      <div class="p-4 bg-slate-900/90 border border-amber-500/30 rounded-xl space-y-2 hover:border-amber-500/50 transition">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+          <h4 class="text-xs sm:text-sm font-black text-amber-300 flex items-center">
+            <i data-lucide="alert-triangle" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+            ${p.event}
+          </h4>
+          <span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-2 py-0.5 rounded">${p.actors}</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">${p.description}</p>
+        ${p.content_signed ? `<div class="text-xs text-slate-400"><strong class="text-slate-300">Contenido del Preacuerdo:</strong> ${p.content_signed}</div>` : ''}
+        ${p.assembly_reaction ? `<div class="text-xs text-rose-400"><strong class="text-rose-300">Respuesta de las Asambleas:</strong> ${p.assembly_reaction}</div>` : ''}
+        ${p.referendum_outcome ? `
+          <div class="p-2.5 bg-emerald-950/40 border border-emerald-500/30 rounded-lg text-xs text-emerald-300 font-bold flex items-center space-x-2 mt-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span>${p.referendum_outcome}</span>
+          </div>
+        ` : ''}
+        ${p.judicial_and_strike_outcome ? `
+          <div class="p-2.5 bg-sky-950/40 border border-sky-500/30 rounded-lg text-xs text-sky-300 font-medium mt-2">
+            <strong>Desenlace:</strong> ${p.judicial_and_strike_outcome}
+          </div>
+        ` : ''}
+      </div>
+    `).join('');
+  }
+}
+
+// ==================== TELEGRAM ARCHIVE EXPLORER ====================
+let telegramDocsData = [];
+
+function initTelegramArchive() {
+  const tg = conflictData?.telegram_archive;
+  if (!tg || !tg.documents) return;
+
+  telegramDocsData = tg.documents;
+  const countEl = document.getElementById('tg-docs-count');
+  if (countEl) countEl.textContent = `${telegramDocsData.length} archivos indexados`;
+
+  renderTelegramDocs(telegramDocsData);
+}
+
+function renderTelegramDocs(docs) {
+  const container = document.getElementById('telegram-docs-list');
+  if (!container) return;
+
+  if (docs.length === 0) {
+    container.innerHTML = `<div class="text-center py-8 text-xs text-slate-500">No se encontraron documentos con ese criterio de búsqueda.</div>`;
+    return;
+  }
+
+  container.innerHTML = docs.map(doc => `
+    <div class="p-3.5 bg-slate-900/80 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+      <div class="space-y-1">
+        <div class="flex items-center space-x-2">
+          <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">${doc.category}</span>
+          <span class="text-xs text-slate-400 font-mono">${doc.date}</span>
+          <span class="text-[10px] text-slate-500 font-mono">${(doc.size_chars/1000).toFixed(1)}k caracteres</span>
+        </div>
+        <h5 class="text-xs font-bold text-white">${doc.title}</h5>
+        <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">${doc.summary}</p>
+      </div>
+      <div class="flex items-center space-x-2 shrink-0">
+        <a href="${doc.file_path}" download class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center">
+          <i data-lucide="download" class="w-3.5 h-3.5 mr-1 text-sky-400"></i>
+          Descargar
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterTelegramDocs() {
+  const query = document.getElementById('tg-doc-search')?.value.toLowerCase() || '';
+  const filtered = telegramDocsData.filter(d => 
+    d.title.toLowerCase().includes(query) || 
+    d.category.toLowerCase().includes(query) || 
+    d.summary.toLowerCase().includes(query)
+  );
+  renderTelegramDocs(filtered);
 }

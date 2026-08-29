@@ -12,6 +12,7 @@ Thumbs.db
 *.tmp
 *.log
 
+_site/
 # Keep documentation and generated publication assets
 !docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
 !docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md

@@ -1,7 +1,7 @@
 # GUÍA ESTRATÉGICA Y TÁCTICA DE NEGOCIACIÓN: HUELGA AIRBUS ESPAÑA 2026
 
 **Documento Ejecutivo para la Acción Sindical, la Comisión Negociadora y la Plantilla**  
-*Fuentes y referencias validadas: Actas de Mediación en el SIMA (Julio-Agosto 2026), Dossier de Recuperación del Poder Adquisitivo en Airbus España (Métricas INE, BdE, BCE), Propuesta del Comité de Huelga del 27/08/2026, VI y VII Convenio Colectivo Interempresas, Informes Financieros Airbus SE (FY2024, FY2025 y H1-2026), Marco Normativo Laboral (Estatuto de los Trabajadores, RD-ley 17/1977, Ley 10/2021, Jurisprudencia del Tribunal Constitucional y Tribunal Supremo) y Análisis de Casos Reales de Huelgas y Pausas Tácticas (Spirit AeroSystems 2023, RMT Network Rail 2022-2023, Metal de Cádiz 2021, Boeing IAM 751 2024, SNCF 2018, Acerinox 2024).*
+*Fuentes y referencias validadas: Actas de Mediación en el SIMA (Julio-Agosto 2026), Dossier de Recuperación del Poder Adquisitivo en Airbus España (Métricas INE, BdE, BCE), Propuesta del Comité de Huelga del 27/08/2026, V y VI Convenios Colectivos Interempresas (BOE), Informes Financieros Airbus SE (FY2024, FY2025 y H1-2026), Marco Normativo Laboral (Estatuto de los Trabajadores, RD-ley 17/1977, Ley 10/2021, Jurisprudencia del Tribunal Constitucional y Tribunal Supremo), Archivo Oficial del Canal de Telegram "EnfadadosconAirbus" (5.794 miembros) y Análisis de Casos Reales de Huelgas y Pausas Tácticas (Spirit AeroSystems 2023, RMT Network Rail 2022-2023, Metal de Cádiz 2021, Boeing IAM 751 2024, SNCF 2018, Acerinox 2024).*
 
 ---
 
@@ -46,9 +46,94 @@ flowchart TD
 
 ---
 
-## 2. Cómo Avanzar en la Negociación: Estrategia y Justificación del Parón Táctico
+## 2. Histórico de Convenios Colectivos (BOE), Pérdidas Acumuladas y Traiciones de Despacho
 
-Para transformar la capacidad de bloqueo en un VII Convenio Colectivo vinculante que recupere el poder adquisitivo real y blinde derechos laborales, la acción sindical debe articularse sobre cinco ejes tácticos `[Propuesta Comité Huelga 27/08/2026; Dossier Recuperación Salarial v8; Actas SIMA 25 y 27 agosto 2026; RD-ley 17/1977]`:
+### A. Los Convenios Colectivos Anteriores Publicados en el BOE y el Problema Estructural de la RSG
+
+El origen de la depreciación salarial en Airbus España se encuentra en los pactos suscritos en los convenios colectivos anteriores, publicados oficialmente en el **Boletín Oficial del Estado (BOE)**:
+
+1. **VI Convenio Colectivo Interempresas del Grupo Airbus (2020-2023 / Ultraactividad 2024-2025):**
+   * **Publicación Oficial:** BOE núm. 297, de 11 de noviembre de 2021 (Resolución de la Dirección General de Trabajo / REGCON).
+   * **Firmantes:** Dirección de Airbus, CCOO y ATP.
+   * **Contenido Lesivo:** Estableció incrementos de Revisión Salarial General (RSG) fijos desvinculados del IPC real (1% en 2020, 1% en 2021, 1,5% en 2022 y 4,4% en 2023). Al estallar la crisis inflacionaria de 2021-2025 (+19,3% IPC general, +31,2% alimentos, +45% vivienda), las cláusulas de garantía resultaron totalmente ineficaces, provocando una **pérdida neta de poder adquisitivo del 20,9% al 24,4%**.
+   * **El Método Bradford:** Durante la vigencia de este convenio, la dirección impuso unilateralmente la fórmula matemática de Bradford para recortar complementos de Incapacidad Temporal (IT) en bajas médicas justificadas, judicializando el conflicto.
+
+2. **V Convenio Colectivo Interempresas de Airbus Group (2015-2019):**
+   * **Publicación Oficial:** BOE núm. 165, de 10 de julio de 2015 (Código de Convenio n.º 90100062012014).
+   * **Firmantes:** Dirección de Airbus, CCOO, SIPA y ATP.
+   * **Contenido Lesivo:** Introdujo esquemas de moderación salarial justificados por la integración de estructuras y flexibilidad de turnos, sentando las bases de la absorción de complementos personales.
+
+---
+
+### B. Tabla de Pérdida Salarial Año a Año (2020 - 2025)
+
+El estudio econométrico oficial del *Dossier de Recuperación Salarial (v8)*, basado en métricas del **INE (IPC, IPV y EPF 2025), Banco de España y BCE**, demuestra las cantidades brutas y netas dejadas de percibir por un trabajador tipo con salario base de 50.000 €:
+
+| Año | Índice Coste Vida Real *(0,65·IPC + 0,35·IPV)* | Índice RSG Aplicada Airbus | Pérdida Nominal Bruta (€) | Pago Único Recibido (€) | Diferencia Neta Actualizada (€) | Diagnóstico Económico Oficial |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **2020** | **100,0** *(Base)* | **100,0** | 0 € | 0 € | **0 €** | Año base normalizado (salario 50 K€). IPC: -0,5%, RSG: +1,0%. |
+| **2021** | **106,5** | **101,0** | -2.735 € | +600 € | **-2.462 €** | Repunte inflacionario (+6,5%). Airbus solo aplica +1%. Pérdida bruta: -5,2%. |
+| **2022** | **112,5** | **102,5** | -4.972 € | +1.500 € | **-3.788 €** | Crisis energética y alimentos (+15,7%). RSG en Airbus solo +1,5%. Pérdida: -8,9%. |
+| **2023** | **116,4** | **107,0** | -4.677 € | +1.000 € | **-3.891 €** | Inflación persistente. RSG insuficiente (+4,4%). Pérdida bruta: -8,1%. |
+| **2024** | **123,1** | **110,2** | -6.432 € | 0 € | **-6.617 €** | Coste de vida escala a 123,1 (+23,1%). Airbus aplica solo +3%. Pérdida: -10,5%. |
+| **2025** | **131,0** | **112,5** | -9.269 € | 0 € | **-9.269 €** | Coste de vida en 131,0 (+31%). Alimentos +31,2%, Vivienda +45%. Pérdida neta: -17% a -24,4%. |
+| **TOTAL** | **+31,0 % Acumulado** | **+12,5 % Acumulado** | **-28.085 €** | **+3.100 €** | **-26.030 €** | **PÉRDIDA TOTAL NETA: -26.030 € / TRABAJADOR (46,3% salario anual / 5,6 meses).** |
+
+* **Masa Salarial Absorbida en España:** Para los 15.562 empleados de Airbus en España, las cantidades no percibidas equivalen a **405,1 millones de euros** retenidos por la multinacional.
+
+---
+
+### C. Registro de Pactos de Despacho y Traiciones de Madrugada
+
+1. **La Traición de la Madrugada del 23 de Julio de 2026:**
+   * **Los Hechos:** Tras 23 jornadas de paros masivos en julio y con el 95% de las asambleas rechazando la oferta de la empresa, las cúpulas de **CCOO, SIPA y ATP** firmaron a las 02:00 am un preacuerdo a espaldas de los huelguistas.
+   * **El Contenido:** Aceptaba subidas fraccionadas del 5% en 2026 y 5% en abril de 2027 (con retardo de 4 meses), una paga única de solo 2.000 € en 2027 y revisión diferida a 2031 con techos de IPC. A cambio, acordaron desconvocar la huelga el 24 de julio para someter el pacto a referéndum.
+   * **La Rebelión Asamblearia:** En la pre-asamblea de Getafe (08:50h) y asamblea general (10:00h), CGT y ÚTIL denunciaron el pacto. SIPA se vio forzada a comprometer la dimisión de su ejecutiva si las bases votaban NO.
+   * **El Resultado del Referéndum (24 de julio):** Con un 81,44% de participación, **el 51,13% de la plantilla en urna TUMBÓ el preacuerdo**. La cúpula negociadora de SIPA dimitió en bloque y las bases retomaron el control del conflicto convocando la huelga indefinida para el 24/25 de agosto.
+
+2. **La Imposición y Caída del Método Bradford en IT:**
+   * La dirección recortó complementos salariales durante bajas médicas. Tras ser declarado nulo judicialmente, Airbus recurrió al Tribunal Supremo. La presión de la huelga indefinida forzó a Airbus en el SIMA (21-24 de agosto) a comprometer el desistimiento formal del recurso y la devolución de atrasos en nómina.
+
+---
+
+## 3. Evolución de las Negociaciones & Matriz de Brechas Actuales (Gap Analysis)
+
+### A. La Plataforma Reivindicativa Inicial (1 de Julio de 2026)
+Convocada por SIPA con el respaldo de UGT, CGT y ÚTIL, articuló 5 ejes esenciales:
+1. **Recuperación Salarial:** Subida de IPC real + 10% en tablas entre 2026 y 2027.
+2. **Teletrabajo Blindado:** Mínimo 40% (2 días/semana) con prórroga automática y sin recortes individuales.
+3. **Salud Laboral e IT:** Retirada definitiva de la fórmula Bradford y devolución íntegra de salarios descontados.
+4. **Proyecto Bromo (Espacio):** Blindaje estatutario para que el personal segregado permanezca bajo el Convenio de Airbus.
+5. **Vacaciones Flexibles:** Dos semanas de descanso de libre elección individual.
+
+---
+
+### B. Evolución de Propuestas en Fechas Clave
+
+* **16 de Julio de 2026 (Oferta de Cierre Patronal tras cita con Faury):** 5% en 2026 y 5% en 2027 (desde abril). Si IPC supera el 10%, comisión no vinculante. $\rightarrow$ **Rechazo del 95% en asambleas estatales el 17/07.**
+* **23-24 de Julio de 2026 (Preacuerdo de Cúpulas):** CCOO/SIPA/ATP pactan 12% global hasta 2027 + 2.000 € en 2027 con techos. $\rightarrow$ **Tumbado en referéndum por el 51,13% NO.**
+* **20-21 de Agosto de 2026 (SIMA previo a Huelga Indefinida):** Oferta patronal de 7,6% a 5 años (hasta 2030) y desistimiento en Bradford. $\rightarrow$ **Rechazado en asambleas del 24/08: SÍ masivo a la huelga indefinida.**
+* **25 de Agosto de 2026 (Huelga Día 1):** Amenazas de Carmen-Maja Rex de congelar contrataciones y deslocalizar carga. $\rightarrow$ **Rechazo unánime asambleario y aprobación de Marcha a los Ministerios.**
+* **27 de Agosto de 2026 (Propuesta Cuantificada del Comité de Huelga):** Entrega de los 11 puntos: 12% directo en tablas a 1/1/2026, 7.500 € atrasos, RSG = IPC+1,5% sin techo y 100% de días de huelga.
+
+---
+
+### C. Matriz Comparativa Punto por Punto: Comité de Huelga vs. Dirección de Airbus (SIMA 27/08/2026)
+
+| Materia Negociada | Posición Comité de Huelga (UGT/CGT/ÚTIL) | Posición Dirección Airbus SE | Brecha Directa (*Gap*) | Estatus / Línea Roja |
+| :--- | :--- | :--- | :--- | :---: |
+| **1. Incremento en Salario Base (Tablas)** | **+12% directo e inmediato** en tablas a 1 de enero de 2026. | **+5% fraccionado** (efecto abril) o 7,6% en 5 años (a 2030). | **Brecha de 7,0 puntos porcentuales** en salario consolidable. | 🔴 **Línea Roja Crítica** |
+| **2. Paga Única de Atrasos (2020-2025)** | Abono extraordinario de **7.500 €** no consolidable. | Paga única de **2.000 € brutos** aplazada a abril de 2027. | **Diferencia de 5.500 €** directos por trabajador. | 🔴 **Línea Roja Financiera** |
+| **3. Cláusula de Revisión Salarial (RSG)** | **RSG = IPC real + 1,5%** anual sin topes (*cap*) y suelo 0%. | Vinculación a IPC con **techo máximo (*cap*) del 4%**. | Riesgo de nueva devaluación salarial si repunta inflación. | 🔵 **Blindaje Técnico** |
+| **4. Horizonte Temporal del Convenio** | **Marco acotado a 2 años** (2026-2027). | **Marco de 5 años** (2026-2030) diferido. | Diferencia de 3 años de hipoteca contractual. | 🔴 **Línea Roja Temporal** |
+| **5. Régimen de Teletrabajo** | Mínimo **40% (2 días)** blindado por convenio colectivo. | 2 días en acuerdos individuales verbales revocables. | Falta de garantía estatutaria frente a cambios de RRHH. | 🟡 **Línea Roja Social** |
+| **6. Salud Laboral (Bradford)** | Retirada definitiva e ingreso de atrasos en **octubre 2026**. | Desistimiento del recurso en TS y pago diferido. | Concreción de plazos de liquidación en nómina. | 🟢 **Acercamiento Condicionado** |
+| **7. Garantías Proyecto Bromo** | Aplicación VIII Convenio, 6 años de empleo y retorno. | Convenio de origen condicionado y bolsa de movilidad. | Aval solidario de matriz Airbus contra despidos. | 🔴 **Línea Roja Empleo** |
+| **8. Días de Huelga y Paz Social** | **100% de abono** de jornadas y huelga activa en SIMA. | Exige desconvocatoria previa para entregar textos. | Bloqueo táctico: asambleas rechazan parar sin cifras. | 🔴 **Punto de Máxima Tensión** |
+
+---
+
+## 4. Cómo Avanzar en la Negociación: Estrategia y Justificación del Parón Táctico
 
 ```mermaid
 flowchart LR
@@ -62,25 +147,20 @@ flowchart LR
 ```
 
 ### A. Soberanía Asamblearia y Frente Único de Negociación
-* **Ratificación vinculante en urnas:** Ningún principio de acuerdo suscrito en el SIMA tendrá validez definitiva sin la aprobación mayoritaria de la plantilla en asambleas generales con voto secreto (lección del referéndum del 24 de julio, donde las bases rechazaron el preacuerdo de cúpulas con un 51,13% en contra) `[Acta Escrutinio Referéndum 24/07/2026; Comunicado Mayoría Sindical 17/07/2026]`.
-* **Unidad de la Comisión Negociadora del Convenio (CNC):** Exigir que todas las secciones sindicales (SIPA, UGT, CGT, ÚTIL, CCOO, ATP) actúen con una portavocía unificada basada en la plataforma del 27 de agosto, vetando cualquier intento patronal de firmar acuerdos de eficacia limitada por separado `[Acta SIMA 27/08/2026, p. 1-2]`.
-
-### B. El Dilema del Parón: Análisis Dialéctico de la Pausa Táctica (Argumentos a Favor vs. En Contra)
-
-Ante el ultimátum de la dirección corporativa de Recursos Humanos (*"no seguiremos negociando si no se cancela la huelga"*), la plantilla se enfrenta a un debate estratégico decisivo. Es fundamental distinguir entre **dos figuras jurídicas y operativas radicalmente distintas**:
-
-1. **La Desconvocatoria Total (Trampa Letal - RECHAZO ABSOLUTO):**
-   * Desconvocar formalmente extingue el marco legal del conflicto colectivo.
-   * Conforme al Real Decreto-ley 17/1977 (Art. 4.1 y 4.2), volver a convocar una huelga legal en España exige un **preaviso obligatorio mínimo de 5 días naturales** (y 10 días en sectores estratégicos/defensa) más una nueva mediación preceptiva en el SIMA.
-   * Durante esa ventana forzosa de 5 a 10 días, Airbus evacuaría piezas en los Beluga, rellenaría los almacenes de Toulouse y Hamburgo, y desarmaría totalmente la presión sindical. Desconvocar antes de tener el convenio firmado es una **rendición incondicional**.
-
-2. **La Suspensión Temporal Condicionada o "Pausa Táctica" de 72-120h (Art. 8.2 RD-ley 17/1977):**
-   * La convocatoria de huelga indefinida **se mantiene 100% registrada, legalmente válida y activa** ante la Autoridad Laboral y el SIMA.
-   * El Comité de Huelga únicamente congela transitoriamente la ejecución de los paros durante un plazo estricto de **3 a 5 días laborables (72h a 120h)** supeditado de forma exclusiva a la mesa del SIMA.
+* **Ratificación vinculante en urnas:** Ningún principio de acuerdo suscrito en el SIMA tendrá validez definitiva sin la aprobación mayoritaria de la plantilla en asambleas generales con voto secreto (lección del 24 de julio).
+* **Unidad de la Comisión Negociadora del Convenio (CNC):** Exigir que todas las secciones sindicales actúen con una portavocía unificada basada en la plataforma del 27 de agosto.
 
 ---
 
-#### Debate Asambleario: ¿Por qué SÍ o por qué NO aceptar la Pausa Táctica?
+### B. El Dilema del Parón: Análisis Dialéctico de la Pausa Táctica
+
+1. **La Desconvocatoria Total (Trampa Letal - RECHAZO ABSOLUTO):**
+   * Desconvocar formalmente extingue el marco legal del conflicto.
+   * Conforme al RD-ley 17/1977 (Art. 4), volver a convocar exige **5 días de preaviso ordinario** (y 10 días en defensa) más nueva mediación en el SIMA. Durante esa ventana forzosa, Airbus evacuaría piezas en los Beluga y rellenaría los almacenes de Toulouse y Hamburgo.
+
+2. **La Suspensión Temporal Condicionada o "Pausa Táctica" de 72-120h (Art. 8.2 RD-ley 17/1977):**
+   * La convocatoria de huelga indefinida **se mantiene 100% registrada, legalmente válida y activa**.
+   * El Comité de Huelga únicamente congela transitoriamente la ejecución de los paros durante un plazo estricto de **3 a 5 días laborables (72h a 120h)** supeditado de forma exclusiva a la mesa del SIMA.
 
 ```mermaid
 flowchart TD
@@ -102,227 +182,88 @@ flowchart TD
     E --> F["Solo autorizar si la huelga sigue 100% activa, con veto a salida de piezas y plazo improrrogable"]
 ```
 
-#### 1. Los 4 Argumentos a Favor del SÍ (Por qué beneficia a la negociación):
-* **Razón 1: Desarma la coartada patronal de victimización:** Airbus utiliza la huelga como pretexto ante el Ministerio de Industria, la SEPI y los clientes para no presentar redactados (*"no negociamos bajo coacción"*). Conceder 72h traslada toda la carga de la prueba a la dirección: si en ese plazo no ponen por escrito el 12% en tablas y el IPC, queda demostrado documentalmente en el SIMA que la empresa actúa de mala fe `[Acta SIMA 25/08/2026; Dossier Estratégico 2026, §3.4]`.
-* **Razón 2: Oxigena la economía familiar sin perder la asimetría industrial:** Un paro indefinido lineal prolongado desgasta económicamente a las familias (el factor que quebró a la plantilla en *Acerinox 2024* tras 135 días). Trabajar 3 o 4 días permite percibir salario y cotizaciones sin que Airbus recupere sus inventarios críticos (normalizar el *buffer* de HTP en Getafe requiere semanas de cadencia sostenida) `[Informe Huelga Acerinox Palmones 2024; Dossier Salarial v8, §1]`.
-* **Razón 3: Eficacia jurídica mediante actas vinculantes sesión a sesión:** Cada jornada de pausa se condiciona a la firma de un acta en el SIMA con valor de acuerdo extrajudicial vinculante (Art. 83.3 ET). Si en una sola sesión la empresa suspende la reunión o no avanza, la huelga se reanuda al siguiente turno sin trámite previo `[Estatuto de los Trabajadores, Art. 83.3; RD-ley 17/1977, Art. 8.2]`.
-* **Razón 4: Test de estrés resolutivo con plazo perentorio:** En lugar de un conflicto estancado sin interlocución, la pausa de 72-120h funciona como un **ultimátum sindical a la empresa**: *"Te damos 72h con mediadores del SIMA para plasmar los acuerdos; si al vencer el plazo no hay preacuerdo satisfactorio, los paros totales se reactivan de inmediato con mayor legitimidad y fuerza acumulada"* `[Real Decreto-ley 17/1977, Art. 8.2; IAM Local 839 Resolution Report 2023]`.
-
-#### 2. Los 4 Argumentos en Contra del NO (Riesgos reales que denuncia la plantilla):
-* **Riesgo 1: Peligro de desmovilización y enfriamiento de la tensión:** Volver al trabajo durante 3-5 días puede rebajar la tensión psicológica en las factorías, desarmar los piquetes informativos en los accesos y dificultar que la plantilla vuelva a salir a la huelga con la misma contundencia el lunes siguiente.
-* **Riesgo 2: Evacuación de piezas críticas en los aviones Beluga:** Aunque 3 días no normalicen el stock global, Airbus puede aprovechar esas 72-120h para despachar de urgencia los estabilizadores horizontales (HTP) y aeroestructuras ya terminadas que estaban bloqueadas en Getafe e Illescas, aliviando temporalmente el estrangulamiento de las FALs de Toulouse y Hamburgo.
-* **Riesgo 3: Maniobra dilatoria patronal para ganar tiempo:** La dirección puede emplear la pausa técnica para marear la mesa con debates metodológicos, presentar textos ambiguos sin cifras y ganar días vitales para acercarse al final del trimestre sin comprometerse por escrito en tablas salariales.
-* **Riesgo 4: Percepción de debilidad o cesión ante el ultimátum:** Si la empresa amenazó con *"no seguir negociando si no se para la huelga"*, suspender los paros puede interpretarse por la cúpula corporativa como un síntoma de agotamiento o debilidad sindical, incitándola a endurecer su postura y mantener ofertas regresivas.
-
 ---
 
-#### Síntesis Asamblearia: Las 4 Líneas Rojas para Neutralizar los Riesgos del NO
-
-Para que la asamblea pueda autorizar una pausa táctica sin caer en las trampas del "NO", es imprescindible exigir por escrito estas **4 salvaguardas innegociables**:
-
-1. **Convocatoria legalmente intacta:** No se firma ningún documento de desconvocatoria ante la Autoridad Laboral; la huelga sigue 100% activa `[RD-ley 17/1977, Art. 4; Art. 28.2 CE]`.
-2. **Plazo temporal improrrogable:** Fijar fecha y hora exacta de vencimiento por escrito en acta SIMA (ej. *"suspensión hasta el viernes a las 14:00h; si no hay preacuerdo satisfactorio, paros totales automáticos el lunes a las 00:00h"*) `[Acta SIMA 27/08/2026]`.
-3. **Compromiso expreso de no evacuación ni represalias:** La empresa debe firmar en la primera acta del SIMA el compromiso de no fletar Belugas adicionales para vaciar stock de seguridad, no subcontratar esquiroles externos y desbloquear los expedientes de jubilación parcial con contrato de relevo `[Estatuto de los Trabajadores, Art. 12.6; STC 11/1981, FJ 7]`.
-4. **Soberanía asamblearia y ratificación en urna:** La concesión de la pausa y su texto resultante final deben ser votados en asamblea general con voto secreto `[Acta Escrutinio Referéndum 24/07/2026]`.
-
-### C. Estructura Salarial: Tablas de Origen e Inflación sin Techo
-* **Consolidación en tablas salariales (Mínimo 12%):** La pérdida neta de poder adquisitivo acumulada (2020-2025) se sitúa entre el **20,9% y el 24,4%** (según métricas oficiales INE/BdE/BCE) `[Dossier Recuperación Salarial v8, §1 "Pérdida real de poder adquisitivo 2020-2025", p. 4-9; INE IPC 2020-2025; BdE Boletín Económico 2025]`. La recuperación debe impactar directamente sobre el salario base de tablas de 2025 con carácter retroactivo a 1 de enero de 2026, asegurando que incremente trienios, antigüedad, horas extras y turnicidad de por vida `[Propuesta Comité Huelga 27/08/2026, Concepto 2]`.
-* **Revisión Salarial General (RSG) sin techo:** Fórmula permanente **RSG = IPC + 1,5%** anual, con cláusula suelo en el 0% y **rechazo categórico de topes máximos (*caps*)** `[Propuesta Comité Huelga 27/08/2026, Concepto 2; Resumen Ejecutivo Convenio VII, §3]`.
-* **Paga de atrasos (7.500 €):** Mantener la compensación extraordinaria no consolidable como resarcimiento por el periodo 2020-2025, pero siempre como complemento y nunca como sustituto del incremento en tablas `[Propuesta Comité Huelga 27/08/2026, Concepto 2; Dossier Recuperación Salarial v8, §2]`.
-
-### D. Activación de la Palanca Política e Institucional
-* **Intervención del Ministerio de Industria y la SEPI:** El Estado español ostenta el **4,09% del capital social de Airbus SE** a través de la SEPI y es cliente estratégico de programas de defensa (A400M, Eurofighter, C295, SIRTAP) `[Airbus SE Annual Report 2025, "Shareholding Structure", p. 89; SEPI Informe Anual 2024]`.
-* **El precedente del sector industrial español (Renault 2026):** Frente a las amenazas patronales de congelar inversiones y desviar carga de trabajo, la mediación directa del Ministerio de Industria desbloqueó el convenio colectivo (IPC + 1%) y garantizó el Plan Industrial para las factorías de Palencia y Valladolid. La plantilla de Airbus debe exigir al Gobierno central un compromiso análogo que neutralice las amenazas de desvío de carga de trabajo `[Convenio Colectivo Renault 2026-2028, BOE 14/08/2026]`.
-
-### E. Blindaje de Derechos Sociales y Colectivos Críticos
-* **Teletrabajo Contractualizado (40% / 2 días a la semana):** Establecimiento universal de 2 días de trabajo a distancia semanales computados trimestralmente, con reversibilidad concedida exclusivamente a voluntad de la persona trabajadora y prórroga automática de los acuerdos individuales `[Propuesta Comité Huelga 27/08/2026, Concepto 3; Ley 10/2021 de Trabajo a Distancia, Art. 8 y 16]`.
-* **Devolución íntegra del Método Bradford (Incapacidad Temporal):** Abono en la nómina de octubre de 2026 de todas las retenciones practicadas indebidamente sobre el complemento de IT, tras el desistimiento formal de Airbus ante el Tribunal Supremo `[Propuesta Comité Huelga 27/08/2026, Concepto 1; STS Sala de lo Social, Auto de Desistimiento Recurso Casación Airbus Operaciones SL]`.
-* **Garantías Laborales para Proyecto Bromo (División Espacio):** Contractualización de condiciones bajo el Art. 44.1 del Estatuto de los Trabajadores, aplicación indefinida del Convenio de Airbus, cláusula anti-doble escala salarial para futuras contrataciones y **derecho de retorno/recolocación en el Grupo Airbus garantizado durante 6 años** `[Propuesta Comité Huelga 27/08/2026, Concepto 8; Estatuto de los Trabajadores, Art. 44.1]`.
-* **Talleres y Colectivos Especiales:** 1 hora de flexibilidad horaria en entrada y salida para personal de taller; gratuidad y universalidad del servicio de comedor en todos los centros; e inclusión dotada presupuestariamente en el catálogo de puestos tipo para LMAs (Licencias de Mantenimiento), Rodadores y grupo GP3-5R `[Propuesta Comité Huelga 27/08/2026, Conceptos 5, 6, 7 y 10; Plan de Acción Mantenimiento ASETMA/CCOO/UGT 11/08/2026]`.
-
----
-
-## 3. Análisis de Casos Reales de Huelgas y Pausas Tácticas: Éxitos vs. Fracasos
-
-El estudio comparado de conflictos laborales en el sector aeroespacial, ferroviario y metalúrgico permite identificar qué dinámicas tácticas conducen a la victoria sindical y cuáles derivan en trampas de desgaste o neutralización:
-
-```mermaid
-flowchart TD
-    subgraph Exitos ["Tácticas que Triunfan (Casos Reales)"]
-        S1["Spirit AeroSystems (2023): Paro relámpago 4 días + mediación federal intensiva"] --> S_RES["Aumento salarial sustancial y fin de copagos"]
-        S2["RMT Network Rail (2022-23): Paros de 48h + pausas técnicas negociadoras"] --> S_RES2["Subida del 9-14% y blindaje de no despidos"]
-        S3["Metal de Cádiz (2021): Huelga indefinida 9 días con bloqueo total"] --> S_RES3["Subida en tablas del 2% anual + IPC real final"]
-        S4["Boeing IAM 751 (2024): Firmeza en referéndum rechazando 25% y 35%"] --> S_RES4["Acuerdo final del 38% en tablas + 12.000 $ bonus"]
-    end
-
-    subgraph Fracasos ["Tácticas que Fracasan (Casos Reales)"]
-        F1["SNCF Grève Perlée (2018): Calendario fijo de 2 días de huelga cada 5"] --> F_RES["La empresa adaptó logística y desgastó salarios"]
-        F2["Acerinox Palmones (2024): 135 días de huelga lineal sin pausas ni caja"] --> F_RES2["Agotamiento financiero y concesión forzada de ERE"]
-        F3["Iberia Handling (2023-24): Paros en festivos con servicios mínimos 90%"] --> F_RES3["Huelga neutralizada sin avance en el SIMA"]
-    end
-```
-
-### Tabla Comparativa de Modelos de Huelga y Resultados
+## 5. Casos Reales Comparados y Desmontaje de Amenazas
 
 | Caso / Conflicto Real | Año y Sector | Táctica Empleada | ¿Éxito o Fracaso? | Causa Clave del Resultado | Lección Directa para Airbus España 2026 |
 | :--- | :---: | :--- | :---: | :--- | :--- |
-| **Spirit AeroSystems (IAM 839)** | 2023 (Aeroespacial, Wichita) | Paro total fulminante de 4 días tras rechazar oferta del 16% por un 79%; mediación federal inmediata del FMCS. | **ÉXITO** | El paro de 4 días bloqueó el suministro a Boeing y Airbus a la vez, forzando a la dirección a capitular y mejorar el contrato en 72 horas. | **Golpear en cuellos de botella neurálgicos (HTP en Getafe) fuerza acuerdos rápidos** si la empresa siente la urgencia antes de que normalice inventarios. |
-| **RMT Network Rail** | 2022–2023 (Ferrocarril, UK) | Paros intermitentes de 48h alternados con semanas de negociación técnica (*pausas tácticas sin retirar convocatoria*). | **ÉXITO** | Se preservó la economía de los afiliados, se evitó el ahogo financiero y se forzó una subida del 9% al 14% con blindaje de empleo. | **La pausa táctica de 72-120h oxigena a la plantilla** sin desactivar la amenaza legal de retomar los paros de forma inmediata. |
-| **Metal de Cádiz** | 2021 (Industria del Metal) | Huelga indefinida de 9 días con piquetes masivos y paralización industrial total; mediación en el CARL/SIMA. | **ÉXITO** | Unidad de acción sindical y contundencia en los accesos forzaron un incremento en tablas del 2% anual y consolidación del IPC real. | **La unidad de la Comisión Negociadora (CNC) y el control de accesos** son indispensables para obligar a la patronal a plasmar acuerdos. |
-| **Boeing (IAM 751)** | 2024 (Aeroespacial, Seattle) | Huelga continua de 53 días donde las bases rechazaron el 25% y el 35% en referéndum hasta lograr el 38% y 12.000 $ de bonus. | **ÉXITO** | La soberanía asamblearia y el voto en urna impidieron que las cúpulas firmaran preacuerdos a la baja. | **La ratificación obligatoria en urnas** es el único dique eficaz contra preacuerdos regresivos en el SIMA. |
-| **SNCF (*Grève Perlée*)** | 2018 (Ferrocarril, Francia) | Calendario preanunciado de "2 días de huelga cada 5 días" durante 3 meses. | **FRACASO** | La previsibilidad permitió a la dirección reorganizar trenes, almacenar cargas en días de trabajo y desgastar los salarios de la plantilla. | **NUNCA pactar calendarios de paros previsibles a largo plazo.** La pausa táctica debe ser corta (3-5 días) e impredecible para la empresa. |
-| **Acerinox Palmones** | 2024 (Siderurgia, Cádiz) | Huelga lineal ininterrumpida durante 135 días sin caja de resistencia suficiente ni pausas tácticas. | **FRACASO / CONCESIÓN** | Asfixia financiera de las familias tras 4 meses sin nómina, quiebra de la unidad sindical y aceptación de ERE con indemnizaciones mejoradas. | **El desgaste lineal prolongado sin modulación destruye la capacidad de resistencia.** La presión debe traducirse en firma antes de la atrición. |
-| **Iberia Handling** | 2023–2024 (Aviación, SIMA) | Huelga en Reyes convocada tras fracasar la mediación en el SIMA; servicios mínimos del 80%-90% dictados por Transportes. | **FRACASO** | Los servicios mínimos abusivos neutralizaron el daño operativo y la empresa no cedió en la mesa. | **Concentrar la fuerza en la fabricación industrial propia**, donde no existen servicios mínimos legales que neutralicen el impacto del paro. |
+| **Spirit AeroSystems (IAM 839)** | 2023 (Aeroespacial, Wichita) | Paro total de 4 días tras rechazar oferta del 16% por 79%; mediación federal FMCS. | **ÉXITO** | Bloqueo a Boeing y Airbus a la vez forzó a capitular a la patronal en 72 horas. | **Golpear cuellos de botella neurálgicos (HTP en Getafe) fuerza acuerdos rápidos.** |
+| **RMT Network Rail** | 2022–2023 (Ferrocarril, UK) | Paros de 48h alternados con pausas técnicas sin retirar papeleta. | **ÉXITO** | Se preservó la economía familiar y se forzó subida del 9% al 14% con blindaje de empleo. | **La pausa táctica de 72-120h oxigena a la plantilla sin perder la amenaza legal.** |
+| **Metal de Cádiz** | 2021 (Industria del Metal) | Huelga indefinida de 9 días con bloqueo total; mediación en CARL/SIMA. | **ÉXITO** | Unidad sindical y control de accesos forzaron subida en tablas y cláusula de IPC real. | **La unidad de la CNC y el control de accesos son indispensables.** |
+| **Boeing (IAM 751)** | 2024 (Aeroespacial, Seattle) | Huelga continua de 53 días rechazando 25% y 35% en urnas hasta lograr el 38%. | **ÉXITO** | Soberanía asamblearia impidió preacuerdos a la baja. | **La ratificación obligatoria en urnas es el único dique contra pactos regresivos.** |
+| **SNCF (*Grève Perlée*)** | 2018 (Ferrocarril, Francia) | Calendario fijo de "2 días de huelga cada 5" durante 3 meses. | **FRACASO** | La previsibilidad permitió a la empresa reorganizar suministros y desgastar nóminas. | **NUNCA pactar calendarios de paros previsibles a largo plazo.** |
+| **Acerinox Palmones** | 2024 (Siderurgia, Cádiz) | Huelga lineal ininterrumpida de 135 días sin pausas ni caja de resistencia. | **FRACASO** | Asfixia financiera de las familias tras 4 meses sin sueldo; fractura sindical y ERE. | **El desgaste lineal prolongado sin modulación destruye la resistencia.** |
 
 ---
 
-## 4. Desmontaje Técnico de Amenazas y Ultimátums Corporativos
+## 6. Línea Temporal Inversa & Minutas Detalladas de Asambleas de Fábrica (Presente HOY $\rightarrow$ Pasado 2021)
 
 ```mermaid
-graph TD
-    subgraph Amenazas ["Amenazas Corporativas (Dirección de RRHH)"]
-        T1["Amenaza 1: Deslocalización de cargas de trabajo a Francia o Alemania"]
-        T2["Amenaza 2: Congelación de nuevas contrataciones y prejubilaciones con relevo"]
-        T3["Amenaza 3: 'No seguimos negociando si no se cancela la huelga'"]
-    end
-
-    subgraph Realidad ["Realidad Técnica, Operativa y Jurídica"]
-        R1["Imposibilidad Técnica: Monopolio de utillajes y certificaciones EASA en Getafe/Illescas (12-24 meses de transferencia).<br>Esquirolaje transnacional ilegal (STC 11/1981 y STC 123/1992)."]
-        R2["Vulneración de Derechos: Coacción ilícita sobre un derecho fundamental (Art. 28.2 CE).<br>Airbus necesita relevo generacional para cumplir el ramp-up de 870 aviones."]
-        R3["Posición de Extrema Debilidad: Cada jornada de paro cuesta decenas de millones y acerca penalizaciones de clientes comerciales."]
-    end
-
-    subgraph Accion ["Respuesta Sindical y Asamblearia"]
-        A1["Mantener la producción bloqueada y exigir blindaje de carga de trabajo en acta SIMA."]
-        A2["Denuncia ante Inspección de Trabajo y exigir reactivación de prejubilaciones en el acuerdo."]
-        A3["Conceder pausa táctica de 72-120h condicionada en el SIMA sin retirar la convocatoria."]
-    end
-
-    T1 --> R1 --> A1
-    T2 --> R2 --> A2
-    T3 --> R3 --> A3
+timeline
+    title Cronología Inversa del Conflicto Airbus España 2026
+    29 Agosto (HOY) : Asambleas Generales de Factoría : Monitor de Presión en 82.2°C
+    28 Agosto : Bloqueo BelugaXL en Getafe : FALs de Toulouse y Hamburgo en Alerta
+    27 Agosto : Asamblea Getafe bajo la lluvia : Entrega Propuesta 11 Puntos en SIMA
+    26 Agosto : Rechazo asambleario a amenazas de deslocalización : Acercamiento a SIPA
+    25 Agosto : Huelga Indefinida Día 1 : Votación Marcha a los Ministerios
+    24 Agosto : Asambleas Nacionales : SÍ a la Huelga Indefinida en 100% de Factorías
+    24 Julio : Referéndum en Urna : El 51,13% NO tumba el preacuerdo patronal
+    23 Julio : Madrugada de Traición CCOO-SIPA-ATP : Asambleas de Rebelión
+    20-22 Julio : Censo Masivo Presencial : 3.430 trabajadores censados en 48h
+    16-17 Julio : Marcha al Ayuntamiento de Getafe : 95% Rechazo a la oferta de Airbus
+    01 Julio : Inicio de paros convocados por SIPA (UGT, CGT, ÚTIL)
+    2021-2025 : Pérdida acumulada del 20,9% al 24,4% de poder adquisitivo
 ```
 
-1. **Desmontando la amenaza de deslocalización:**
-   * La transferencia de líneas de montaje de aeroestructuras compuestas complejas (como el estabilizador horizontal) requiere duplicación de utillajes aeronáuticos y recertificación de procesos ante la Agencia Europea de Seguridad Aérea (EASA Part-21 Subpart G / Part-145), un proceso técnico que insume entre **12 y 24 meses** `[EASA Part-21 Regulations; Dossier Estratégico 2026, §1.3]`.
-   * A corto plazo, desviar piezas de centros en huelga a factorías de Hamburgo o Toulouse vulnera la legislación europea y española sobre **esquirolaje transnacional ilícito** (STC 11/1981, FJ 7 y STC 123/1992, FJ 4) `[STC 11/1981; STC 123/1992; RD-ley 17/1977, Art. 6.5]`.
+### Registro Exhaustivo de Asambleas y Resoluciones
 
-2. **Desmontando la congelación de contrataciones y jubilaciones con contrato de relevo:**
-   * Utilizar las prejubilaciones legalmente pactadas como mecanismo de chantaje constituye una vulneración de derechos fundamentales (coacción sobre el derecho de huelga, Art. 28.2 CE y Art. 12.6 ET) `[Constitución Española, Art. 28.2; Estatuto de los Trabajadores, Art. 12.6; LGSS, Art. 215]`.
-   * Airbus requiere incorporar personal técnico de forma urgente para atender la cadencia de producción de los modelos A321 y A350. Mantener la congelación perjudica gravemente sus propios programas de ingeniería y montaje `[Airbus SE H1 2026 Report, "Headcount and Production Ramp-up", p. 9]`.
-
-3. **Desmontando el ultimátum de "No negociamos con huelga":**
-   * Es una fórmula clásica de ruptura de presión. La respuesta asamblearia debe ser ofrecer una **suspensión temporal acotada a la mesa de mediación (3 a 5 días)**, forzando a la multinacional a plasmar sus propuestas económicas en un acta formal `[Acta SIMA 27/08/2026; RD-ley 17/1977, Art. 8.2]`.
-
----
-
-## 5. Escenarios de Desenlace y Probabilidad (Modelado Histórico Comparado)
-
-A partir de los precedentes del sector aeroespacial e industrial altamente integrado (Spirit AeroSystems 2023, Boeing IAM 751 2024, Metal de Cádiz 2021 y Renault España 2026), se modelan **cuatro escenarios de resolución** para el conflicto de Airbus España:
-
-```mermaid
-pie title Probabilidad de Escenarios de Resolución
-    "Escenario 1: Victoria Sindical Plena / Mediación Política Favorable (58%)" : 58
-    "Escenario 2: Pacto Transaccional Mixto por Desgaste Controlado (27%)" : 27
-    "Escenario 3: Bloqueo Prolongado y Arbitraje de Mediación (11%)" : 11
-    "Escenario 4: Fractura Asamblearia / Imposición Parcial (4%)" : 4
-```
-
-### Comparativa Detallada de Escenarios
-
-| Escenario | Probabilidad Estimada | Precedente Referente | Factores Clave y Desencadenantes | Resultado Proyectado para la Plantilla | Fuentes y Evidencias Justificativas |
-| :--- | :---: | :--- | :--- | :--- | :--- |
-| **1. Victoria Sindical Plena / Mediación Política Favorable** | **55% – 60%** *(Alta)* | **Spirit AeroSystems (2023)** (acuerdo en 4 días tras paro fulminante) y **Boeing IAM 751 (2024)** (38% en tablas tras mediación). | * Agotamiento del buffer de HTP en Getafe que paraliza FALs de Toulouse y Hamburgo.<br>* Amenaza inminente de no alcanzar las 870 entregas anuales.<br>* Intervención directa del Ministerio de Industria y la SEPI (4,09% de accionariado) para desbloquear la negociación. | * Subida consolidada en tablas del **9,5% al 12%** retroactiva a 2026.<br>* Revisión anual **RSG = IPC + 1% a 1,5%** sin techo.<br>* Paga compensatoria de atrasos de **5.000 € a 7.500 €**.<br>* Blindaje contractual del 40% de teletrabajo y devolución Bradford. | `[IAM Local 839 Ratification Report 2023; Boeing IAM 751 Resolution Report 2024; Convenio Renault BOE 14/08/2026; Dossier Estratégico 2026, §4.1]` |
-| **2. Pacto Transaccional Mixto por Desgaste Controlado** | **25% – 30%** *(Media)* | **Metal de Cádiz (2021)** y **Boeing IAM 751 (2008)** (15% en tablas y bonus tras 57 días). | * Resistencia patronal durante 2-3 semanas adicionales en el SIMA.<br>* La empresa incrementa la masa económica no consolidable (paga de 2.000 € a 4.000 €) para no comprometer masa salarial fija.<br>* Las asambleas aceptan una transacción equilibrada para evitar pérdida de nóminas. | * Subida en tablas del **7,5% al 9%**.<br>* Paga única extraordinaria no consolidable de **3.500 € a 5.000 €**.<br>* Revisión ligada a IPC con cláusula de salvaguarda.<br>* Teletrabajo blindado y restitución de prejubilaciones con contrato de relevo. | `[Convenio Metal Cádiz 2021-2023, BOP Cádiz; Boeing 2008 Strike Archives, IAM 751]` |
-| **3. Bloqueo Prolongado y Arbitraje / Mediación Vinculante** | **10% – 12%** *(Baja-Media)* | **Acerinox (Fase Final 2024)** y conflictos en sectores estratégicos estatales. | * Enconamiento de posturas en el SIMA y negativa de la dirección a ceder en tablas salariales.<br>* Impacto crítico sobre entregas de aviones militares OTAN (A400M, C295) y contratos de defensa del Ejército del Aire.<br>* El Gobierno promueve un arbitraje obligatorio o dictamen de mediación vinculante formal. | * Laudo o dictamen de mediación que fija subida intermedia alineada con el IPC y la media aeroespacial europea (8%–10%).<br>* Eliminación de techos abusivos de IPC y regulación del teletrabajo conforme a la Ley 10/2021. | `[Informe Mediación SERCLA - Acerinox 2024; RD-ley 17/1977, Art. 10 sobre Arbitraje Obligatorio]` |
-| **4. Fractura Asamblearia / Imposición Parcial Patronal** | **3% – 5%** *(Residual)* | **Acerinox Palmones (2024)** (135 días de paro con división intersindical y desgaste). | * Ruptura de la unidad entre secciones sindicales (desmarque unilateral de alguna central).<br>* Desmovilización paulatina de las bases por ahogo económico sin modulación de paros.<br>* Firma de acuerdos en minoría o de eficacia limitada. | * Pérdida de la subida en tablas (se impone oferta patronal del 5% al 7,6% hasta 2030 con techos de IPC).<br>* Mantenimiento de la conflictividad laboral y deterioro del clima social interno. | `[Informe Jurídico Huelga Acerinox 2024, SERCLA]` |
+1. **29 de agosto de 2026 (HOY):** Asambleas generales informativas en Getafe (Puerta Sur/Norte), San Pablo, Tablada, Illescas, Albacete y Cádiz. El Comité de Huelga ratifica el mandato de no votar ninguna propuesta que no supere los 6 Filtros Innegociables. El Termómetro de Presión alcanza los 82.2°C.
+2. **28 de agosto de 2026:** Bloqueo absoluto de vuelos BelugaXL en Getafe (LEGT). Cero vuelos operados. El 100% de los HTP de A320/A321/A350 retenidos. Alerta roja en FALs de Toulouse y Hamburgo.
+3. **27 de agosto de 2026 (Getafe Puerta Sur, 09:30h):** Huelga Día 3 bajo la lluvia. Entrega formal en el SIMA de la propuesta de 11 puntos (12% en tablas a 1/1/2026, 7.500 € atrasos, IPC+1,5% sin techo). Aprobado enviar carta factual al Gobierno de España denunciando coacciones.
+4. **26 de agosto de 2026 (Getafe Puerta Norte, 10:00h):** Huelga Día 2. Se informa de las amenazas de Carmen-Maja Rex (congelación de contrataciones y deslocalización). Votación: Aprobado por mayoría absoluta repudiar las amenazas y adelantar asambleas a las 09:30h. Acercamiento formal a SIPA.
+5. **25 de agosto de 2026 (Getafe Puerta Sur, 10:00h):** Huelga Día 1. Entre 1.200 y 2.000 trabajadores. Buffers de componentes de Operaciones agotados (parada de FAL A330). Votación: Aprobado organizar y financiar la Marcha a los Ministerios en Madrid con autobuses intercentros (San Pablo vota SÍ).
+6. **24 de agosto de 2026 (Asambleas Nacionales de Factoría):** Getafe (05:30h A5, 11:30h explanada P1-A1, 18:00h), San Pablo (10:00h Comedor Sur, 18:00h), Tablada (12:00h Salón Actos, 18:00h), Illescas (10:35h Autoclaves, 18:35h), Albacete (10:00h Edificio A, 17:00h). Informe del SIMA del 21/08 (compromiso de retirar Bradford). Votación: **Gana por Mayoría Absoluta el SÍ A LA HUELGA INDEFINIDA**.
+7. **29 de julio de 2026 (Getafe Puerta Norte, 09:51h):** Asamblea retribuida. Presentación formal de la papeleta de huelga indefinida registrada por CGT, ÚTIL y UGT para el regreso de vacaciones. Aprobado mantener fecha del 24 de agosto.
+8. **24 de julio de 2026 (Referéndum General en Urna):** Participación masiva del 81,44%. **Votos NO: 51,13%** (49,15% del censo total) vs. Votos SÍ: 48,87%. El preacuerdo patronal de CCOO-SIPA-ATP es TUMBADO en las urnas. Dimisión de la cúpula de SIPA.
+9. **23 de julio de 2026 (Getafe Puerta Sur, Pre-asamblea 08:50h / Asamblea 10:00h):** Indignación tras la firma de madrugada del preacuerdo. CGT y ÚTIL denuncian la traición de la mesa; SIPA compromete dimisiones si sale NO. La asamblea vota acudir en masa a las urnas a votar NO.
+10. **22 de julio de 2026 (Getafe Puerta Norte, 10:00h):** Confirmación de que Tablada, San Pablo e Illescas apoyan la papeleta. Presentación del manifiesto conjunto de 5 sindicatos. Aprobado mantener asambleas a las 10:00h.
+11. **21 de julio de 2026 (Getafe Puerta Sur, 10:00h):** Votación de la papeleta de huelga indefinida desde el 24 de agosto. Censo acumulado: 3.430 trabajadores censados en 48h (Getafe 1.921, San Pablo 724, Illescas 362, Tablada 263, Albacete 160).
+12. **20 de julio de 2026 (Getafe Puerta Norte, 10:00h):** Despliegue del censo presencial con badge y número Z (1.727 censados en día 1). Presentación del dossier financiero y canal Telegram. Aprobado presentar papeleta sin valores numéricos fijos cerrados.
+13. **17 de julio de 2026 (Asambleas Estatales Simultáneas, 09:00h - 11:00h):** Paradas operativas en Marignane y parada de vuelos Beluga a Toulouse. Votación a las 10:30h: **Rechazo rotundo (~95% NO)** a la oferta del 16 de julio. Constitución de Comité de Huelga de 10 miembros.
+14. **16 de julio de 2026 (Getafe Puerta Norte, 10:00h):** Marcha masiva al Ayuntamiento de Getafe y recepción por la alcaldesa. Intervención de Nacho Abascal (portavoz San Pablo) proclamando que "el punto de ruptura de la empresa está cerca".
+15. **14 de julio de 2026 (Tablada Sevilla, 06:00h):** Constitución de 4 grupos de trabajo autogestionados y enlace con San Pablo para la "voz común de Sevilla".
+16. **1 de julio de 2026:** Estallido de los primeros paros convocados por SIPA con apoyo de UGT, CGT y ÚTIL.
+17. **2021 - 2025 (Causa Raíz):** Pérdida acumulada del 20,9% al 24,4% de poder adquisitivo real por brecha entre el VI Convenio y la inflación oficial.
 
 ---
 
-## 6. Checklist de Verificación para la Asamblea General
+## 7. Checklist de Verificación para la Asamblea General (Auditor 6 Filtros)
 
-Antes de emitir el voto favorable en urna para ratificar el Convenio Colectivo VII, la plantilla debe verificar que el texto final cumpla íntegramente los siguientes **6 filtros innegociables** `[Estatuto de los Trabajadores, Art. 82-90; Propuesta Comité Huelga 27/08/2026; Dossier Salarial v8]`:
+Antes de emitir el voto favorable en urna para ratificar el Convenio Colectivo VII, la plantilla debe verificar que el texto final cumpla íntegramente los siguientes **6 filtros innegociables**:
 
-- [ ] **1. Consolidación Salarial en Tablas:** ¿El incremento salarial (12% retroactivo a 1 de enero de 2026) se aplica íntegramente sobre las tablas de 2025 y forma parte de la masa salarial fija consolidada (sin complementos absorbibles)? `[Propuesta Comité Huelga 27/08/2026, Concepto 2; Dossier Recuperación Salarial v8, §1]`
-- [ ] **2. Cláusula de Revisión Salarial sin Techo:** ¿La fórmula de revisión anual (**RSG = IPC + 1,5%**) carece de cláusula tope (*cap* del 4%) y cuenta con cláusula suelo del 0%? `[Propuesta Comité Huelga 27/08/2026, Concepto 2; Resumen Ejecutivo Convenio VII, §3]`
-- [ ] **3. Teletrabajo Universal y Blindado:** ¿Se reconoce por escrito el derecho al 40% de la jornada (2 días semanales) con reversibilidad exclusiva a criterio de la persona trabajadora y prórroga automática? `[Propuesta Comité Huelga 27/08/2026, Concepto 3; Ley 10/2021, Art. 8 y 16]`
-- [ ] **4. Devolución de Descuentos por IT (Bradford):** ¿Figura de forma explícita el abono en la nómina de octubre de 2026 de todas las cantidades descontadas indebidamente por Incapacidad Temporal? `[Propuesta Comité Huelga 27/08/2026, Concepto 1; STS Auto de Desistimiento Recurso Casación]`
-- [ ] **5. Blindaje del Proyecto Bromo (Espacio):** ¿Están recogidas la contractualización expresa (Art. 44.1 ET), la vinculación al Convenio de Airbus, la prohibición de doble escala salarial y el derecho de retorno al Grupo durante 6 años? `[Propuesta Comité Huelga 27/08/2026, Concepto 8; Estatuto de los Trabajadores, Art. 44.1]`
-- [ ] **6. Cláusula de Paz Social y Garantía de Indemnidad:** ¿La desconvocatoria definitiva de la huelga queda condicionada a la inscripción y registro oficial del convenio en el REGCON, asegurando la no adopción de represalias disciplinarias y la compensación o recuperación pactada de deducciones? `[Propuesta Comité Huelga 27/08/2026, Concepto 11; Estatuto de los Trabajadores, Art. 90]`
+- [ ] **1. Consolidación Salarial en Tablas:** ¿El incremento salarial (12% retroactivo a 1 de enero de 2026) se aplica íntegramente sobre las tablas de 2025 y forma parte de la masa salarial fija consolidada (sin complementos absorbibles)?
+- [ ] **2. Cláusula de Revisión Salarial sin Techo:** ¿La fórmula de revisión anual (**RSG = IPC + 1,5%**) carece de cláusula tope (*cap* del 4%) y cuenta con cláusula suelo del 0%?
+- [ ] **3. Teletrabajo Universal y Blindado:** ¿Se reconoce por escrito el derecho al 40% de la jornada (2 días semanales) con reversibilidad exclusiva a criterio de la persona trabajadora y prórroga automática?
+- [ ] **4. Devolución de Descuentos por IT (Bradford):** ¿Figura de forma explícita el abono en nómina de todas las cantidades descontadas indebidamente por Incapacidad Temporal?
+- [ ] **5. Blindaje del Proyecto Bromo (Espacio):** ¿Están recogidas la subrogación (Art. 44.1 ET), la vinculación al Convenio de Airbus, la prohibición de doble escala salarial y el derecho de retorno al Grupo durante 6 años?
+- [ ] **6. Cláusula de Paz Social y Garantía de Indemnidad:** ¿La desconvocatoria definitiva de la huelga queda condicionada a la inscripción oficial en el REGCON, asegurando la no adopción de represalias y la compensación de días de huelga?
 
 ---
 
-## 7. Anexo Documental y Fuentes Justificativas Validadas con Localización Exacta
+## 8. Descargas Directas, Archivo de Telegram y Fuentes Primarias
 
-A continuación se detalla el compendio exhaustivo de fuentes documentales, estadísticas, societarias, normativas y jurisprudenciales que respaldan cada sección de esta guía:
+Para facilitar el acceso y la transparencia informativa, toda la documentación oficial, datasets y archivos del canal de Telegram están disponibles para su descarga directa:
 
-### A. Documentación Primaria Interna de Airbus y Mesa del SIMA (2026)
-* `[Fuente 1]` **Dossier de Análisis Estratégico del Conflicto Airbus España (2026):**
-  * *Apartado 1.1 y 1.2 (p. 2-4):* Monopolio de ensamblaje del Horizontal Tail Plane (HTP) en Getafe para A320, A321XLR, A330 y A350; exclusividad de composites de fibra de carbono en Illescas y Cádiz.
-  * *Apartado 1.4 y 2.1 (p. 5-7):* Tiempos de parada en cascada de las FALs europeas (48-72h tras fin de buffer) y métricas de seguimiento de vuelos de la flota Beluga (ADS-B Tracker).
-  * *Apartado 3.2 y 3.4 (p. 10-12):* Justificación táctica de la suspensión temporal frente a la trampa de desconvocatoria y análisis de presiones sobre la Dirección.
-* `[Fuente 2]` **Dossier de Recuperación Salarial Airbus España (Convenio Colectivo VII 2024-2027, v8):**
-  * *Sección 1 (p. 4-9):* Cálculo econométrico de la pérdida real de poder adquisitivo acumulada (20,9% a 24,4%) sobre salario base tipo de 50.000 € y 15.562 trabajadores.
-  * *Sección 2 (p. 10-13):* Pérdida por cantidades no percibidas (equivalente al 46,3% del salario anual / 5,6 meses de nómina en régimen de atrasos).
-  * *Sección 5 (p. 18-22):* Estudio de capacidad económica y absorción del coste total de la plataforma (<2,8% del flujo de caja operativo anual de Airbus SE).
-* `[Fuente 3]` **Resumen Ejecutivo de Recuperación de Poder Adquisitivo en Airbus España:**
-  * *Punto 1 (p. 1):* Actualización salarial consolidable en tablas del 12%.
-  * *Punto 2 (p. 1):* Compensación extraordinaria de atrasos no consolidable (7.500 €).
-  * *Punto 3 (p. 2):* Fórmula permanente de blindaje futuro **RSG = IPC + 1,5%**.
-* `[Fuente 4]` **Propuesta Conjunta del Comité de Huelga en el SIMA (Documento 27/08/2026):**
-  * *Concepto 1:* Desistimiento formal de Airbus ante el TS, compromiso de no recortes en IT, restitución del texto del VI Convenio y devolución en nómina en octubre de 2026.
-  * *Concepto 2:* Paga única de 7.500 € no consolidable; incremento del 12% en tablas a 1 de enero de 2026; RSG 2026 y 2027 ligada a IPC + 1,5% sin cláusula techo y con suelo 0%.
-  * *Concepto 3:* Teletrabajo universal mínimo 40% de la jornada trimestral, vinculante y con reversibilidad detentada exclusivamente por el trabajador.
-  * *Concepto 4:* Régimen de vacaciones (2 semanas completas de descanso íntegro en calendario y 2 semanas de disfrute flexible).
-  * *Conceptos 5, 6 y 7:* Comedor universal y gratuito, mantenimiento íntegro de rutas de transporte colectivo con presupuesto adicional, y 1 hora de flexibilidad para personal de taller.
-  * *Concepto 8:* Garantías laborales Proyecto Bromo (subrogación Art. 44.1 ET, adhesión al Convenio Airbus, movilidad interna y garantía de no despidos objetivos/improcedentes durante 6 años).
-  * *Conceptos 9 y 10:* Plan de carga de trabajo e hitos para Airbus Cádiz y catálogo de puestos tipo para LMAs, Rodadores y grupo GP3-5R.
-  * *Concepto 11:* Compensación económica extraordinaria del 100% por los días de huelga de 2026.
-* `[Fuente 5]` **Actas Oficiales de Mediación en el SIMA (Sesiones de 25 y 27 de agosto de 2026):**
-  * *Acta SIMA 25/08/2026 (p. 1-3):* Comparecencia de Carmen-Maja Rex (CHRO de Airbus SE), manifestando que no se negociará con huelga activa y advirtiendo sobre congelación de contrataciones y prejubilaciones con contrato de relevo.
-  * *Acta SIMA 27/08/2026 (p. 1-2):* Formalización y entrega por el Comité de Huelga de la propuesta articulada de 11 conceptos económicos y sociales.
+### A. Enlaces de Descarga Directa
+* 📄 **Guía Oficial en PDF (8 páginas maquetadas A4):** `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf`
+* 📝 **Guía Completa en Formato Markdown:** `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md`
+* 📊 **Dataset Analítico Consolidado (JSON):** `data/conflict_metrics.json`
+* 📲 **Índice del Archivo Telegram "EnfadadosconAirbus" (JSON):** `data/telegram_archive/telegram_index.json`
+* ✈️ **Monitor de Vuelos BelugaXL en Vivo (JSON):** `data/beluga_status.json`
+* 🌡️ **Feed de Presión Mediática y Noticias (JSON):** `data/thermometer_data.json`
 
-### B. Fuentes Económicas y Estadísticas Oficiales
-* `[Fuente 6]` **Instituto Nacional de Estadística (INE), Banco de España (BdE) y Banco Central Europeo (BCE):**
-  * *INE (Boletín Estadístico 2021-2025):* Evolución del IPC general acumulado (+19,3%) e IPC de alimentación y bienes esenciales (+31,2%).
-  * *INE (Encuesta de Presupuestos Familiares EPF 2025 e Índice de Precios de Vivienda IPV):* Impacto diferencial de costes de alquiler y compra de vivienda en Madrid (+34%) y Andalucía (+26%).
-  * *Banco de España (Informe Anual 2024 / Boletín Económico 2025, Capítulo 3 "Salarios e Inflación en la Industria"):* Diagnóstico de devaluación salarial real en el sector industrial de media y alta tecnología.
-
-### C. Informes Financieros y Regulatorios Corporativos
-* `[Fuente 7]` **Airbus SE Annual Report (Ejercicios 2024 y 2025):**
-  * *Financial Statements 2025 (Consolidated Income Statement, p. 124):* Beneficio neto atribuible de 5.221 M€; EBIT Ajustado de 5.838 M€; Reparto de dividendo propuesto de 2,80 € por acción.
-  * *Board of Directors Report 2025 (p. 12):* Fijación del objetivo corporativo de entrega de 870 aeronaves comerciales en 2026.
-  * *Shareholding Structure (p. 89):* Participación del Estado español a través de la Sociedad Estatal de Participaciones Industriales (SEPI) fijada en el 4,09% del capital social.
-* `[Fuente 8]` **Airbus SE Half-Year 2026 Financial Results (Informe a 30 de junio de 2026):**
-  * *Interim Condensed Financial Statements (p. 3-6):* Beneficio neto semestral consolidado de 2.243 M€; Flujo de caja libre antes de fusiones y adquisiciones de 1.950 M€.
-  * *Commercial Aircraft Operations Overview (p. 7):* Necesidad declarada de alcanzar una cadencia de 90 entregas mensuales en el segundo semestre de 2026 para cumplir los compromisos comerciales con aerolíneas.
-* `[Fuente 9]` **Informes Sectoriales de Cadena de Suministro Aeroespacial:**
-  * *McKinsey Commercial Aerospace Supply Chain Review (2025, p. 14-18):* Análisis de cuellos de botella e interdependencia logística just-in-time en la fabricación de aeroestructuras compuestas.
-  * *IATA Aerospace Bottleneck Reports (Diciembre 2025 / 2026):* Estudio sobre retrasos en entregas y penalizaciones comerciales en flotas comerciales europeas.
-
-### D. Marco Normativo Laboral y Jurisprudencia Aplicable
-* `[Fuente 10]` **Legislación Laboral Española y Jurisprudencia Constitucional y de Casación:**
-  * *Constitución Española:* Art. 28.2 (Derecho fundamental a la huelga) y Art. 37.1 (Derecho a la negociación colectiva vinculante).
-  * *Real Decreto-ley 17/1977, de 4 de marzo (Relaciones de Trabajo):* Art. 4.1 y 4.2 (Preaviso obligatorio de 5 días naturales ordinarios y 10 días en servicios de afección esencial/defensa); Art. 6.5 (Prohibición expresa de sustitución de trabajadores huelguistas); Art. 8.2 (Facultades del Comité de Huelga para suspender transitoriamente paros); Art. 10 (Régimen de arbitraje obligatorio estatal).
-  * *Real Decreto Legislativo 2/2015 (Estatuto de los Trabajadores):* Art. 12.6 (Contrato de relevo y jubilación parcial); Art. 44.1 (Garantías de sucesión de empresa y contractualización obligatoria de condiciones para segregación a filiales como Bromo); Art. 82.3 y 86-90 (Eficacia general de convenios estatutarios, ultraactividad y registro en REGCON).
-  * *Ley General de la Seguridad Social (LGSS, RD Legislativo 8/2015):* Art. 215 (Requisitos y acceso a la jubilación parcial vinculada a contrato de relevo).
-  * *Tribunal Constitucional:* STC 11/1981, de 8 de abril (Fundamento Jurídico 7: límites patronales durante el ejercicio de huelga) y STC 123/1992, de 28 de septiembre (Fundamento Jurídico 4: tipificación del esquirolaje ilícito interno y transnacional).
-  * *Tribunal Supremo (Sala de lo Social):* Auto de Desistimiento formal de Airbus Operaciones SL en el Recurso de Casación interpuesto contra la anulación de la supresión del complemento de IT por el Método Bradford.
-* `[Fuente 11]` **Ley 10/2021, de 9 de julio, de trabajo a distancia:**
-  * *Art. 8:* Formalización por escrito del acuerdo individual de trabajo a distancia.
-  * *Art. 11 y 12:* Derecho a la dotación suficiente de medios, compensación de gastos y prevención de riesgos laborales.
-  * *Art. 16:* Voluntariedad y reversibilidad exclusiva a instancia de la persona trabajadora conforme a lo pactado en convenio colectivo.
-
-### E. Precedentes y Benchmarks de Negociación Comparada
-* `[Fuente 12]` **Huelga de Spirit AeroSystems / IAM Local 839 (Junio 2023, Wichita, EE.UU.):**
-  * *Informe de Ratificación del Contrato Colectivo IAM Local 839 (29 de junio de 2023):* Tras el rechazo del 79% a una oferta inicial del 16% y un paro fulminante de 4 días que detuvo las entregas de fuselajes para Boeing y Airbus, la mediación federal intensiva del FMCS forzó un preacuerdo mejorado con incremento salarial y eliminación de copagos en prescripciones médicas, ratificado masivamente.
-* `[Fuente 13]` **Huelga Ferroviaria de RMT en Network Rail (2022–2023, Reino Unido):**
-  * *Dossier de Acción Sindical RMT Union (2023):* Estrategia de paros intermitentes de 48h alternados con pausas técnicas de negociación sin retirar el mandato general de huelga, evitando el ahogo financiero de los afiliados y logrando subidas salariales del 9% al 14% con garantías de empleo sin despidos obligatorios.
-* `[Fuente 14]` **Huelga del Sector del Metal de Cádiz (Noviembre 2021):**
-  * *Convenio Colectivo de la Pequeña y Mediana Industria del Metal de la Provincia de Cádiz (BOP Cádiz 2021):* Tras 9 días de huelga indefinida con paralización industrial de accesos a astilleros y plantas aeroespaciales, la mediación en el CARL/SIMA culminó en la firma de un convenio con subida del 2% en tablas anuales y cláusula de revisión ligada al IPC real a final de convenio.
-* `[Fuente 15]` **Huelga de Maquinistas de Boeing / IAM District 751 (2024, Seattle, EE.UU.):**
-  * *Acuerdo de Ratificación de 4 de noviembre de 2024 (SEC Form 10-K Boeing FY2024, Item 8 "Labor Relations"):* Finalización de huelga ininterrumpida de 53 días donde el rechazo de las bases en urnas a ofertas del 25% y 35% forzó la mediación federal a elevar la propuesta al 38% en tablas (43,65% compuesto), 12.000 $ de bonus y compromiso de producción local.
-* `[Fuente 16]` **Huelga de Acerinox Palmones (2024, Los Barrios, Cádiz):**
-  * *Actas de Mediación SERCLA y Consejería de Empleo de la Junta de Andalucía (Junio 2024):* Caso de estudio sobre los riesgos de desgaste extremo tras 135 días de paro lineal ininterrumpido sin modulación táctica, derivando en quiebra de la unidad sindical y aceptación de ERE con indemnizaciones mejoradas.
-* `[Fuente 17]` **Huelga de la SNCF (*Grève Perlée*, 2018, Francia):**
-  * *Análisis de Relaciones Laborales en el Transporte Francés (2018):* Caso de estudio sobre el fracaso de calendarios fijos y predecibles ("2 días de huelga cada 5"), que permitieron a la empresa reorganizar turnos y suministros en días intermedios sin colapsar el sistema.
+### B. Repositorio Documental y Canal de Telegram
+* **Canal Oficial de Asambleas:** `https://t.me/+MnuqJDCAAgYyMGQ0` (*5.794 miembros activos*)
+* **Panel Web Interactivo en Vivo:** `https://sergiomh499.github.io/airbus-strikes-analysis/`
+* **Código Fuente y Automatización:** `https://github.com/sergiomh499/airbus-strikes-analysis`

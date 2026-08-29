@@ -38,10 +38,13 @@ jobs:
           npm install
           pip install -r requirements.txt || true
 
+      - name: Sync Telegram Channel Documents and Archive
+        run: |
+          python3 src/telegram_channel_sync.py
+
       - name: Fetch Live Beluga Logistics Status
         run: |
           python3 src/beluga_tracker.py
-
       - name: Run Sentiment & Pressure Thermometer
         run: |
           python3 src/sentiment_thermometer.py
@@ -49,7 +52,6 @@ jobs:
       - name: Run Econometric Analysis Engine
         run: |
           python3 src/analysis_engine.py
-
       - name: Install Chromium for PDF Generation
         run: |
           sudo apt-get update
