@@ -426,8 +426,7 @@ function updateWageSimulation() {
   const badgeEl = document.getElementById('sim-salary-badge');
   if (badgeEl) badgeEl.textContent = `${curSalary.toLocaleString()} €`;
 
-  const trienios = parseInt(document.getElementById('sim-trienios')?.value || '2', 10);
-  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
+  const quinquenios = parseInt(document.getElementById('sim-quinquenios')?.value || document.getElementById('sim-trienios')?.value || '1', 10);
   const teleworkDays = parseInt(document.getElementById('sim-telework')?.value || '2', 10);
   const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
   const pensionRate = parseFloat(document.getElementById('sim-pension-rate')?.value || '4.5') / 100.0;
@@ -437,8 +436,8 @@ function updateWageSimulation() {
   // Update IPC Audit Rate label
   setText('ipc-audit-rate-label', `${(ipcRate * 100).toFixed(1).replace('.', ',')}%`);
 
-  // Seniority: approx 3.2% of base per trienio in Airbus
-  const seniorityPct = trienios * 0.032;
+  // Seniority: approx 5.0% of base per quinquenio in Airbus
+  const seniorityPct = quinquenios * 0.05;
   const curSeniority = curSalary * seniorityPct;
 
   // Shift plus rates

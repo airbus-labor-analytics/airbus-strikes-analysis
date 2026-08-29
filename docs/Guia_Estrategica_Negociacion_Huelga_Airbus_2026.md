@@ -188,7 +188,7 @@ El análisis econométrico comparativo entre la oferta patronal fija (sin cláus
   * Con una inflación media estándar del **2,5% anual** (objetivo BCE + diferencial), el IPC acumulado a 5 años es del **+10,4%** `[Fuente: BCE Proyecciones Macroeconómicas: https://www.ecb.europa.eu/]`.
   * En un escenario de reactivación inflacionaria del **5,5% anual**, la inflación acumulada a 5 años alcanza el **+23,9%** `[Fuente: Banco de España - Boletín Económico: https://www.bde.es/]`.
 
-* **Trayectoria y Comparativa Salarial Bruta y Neta (Salario Base de 50.000 €, Tipo Efectivo IRPF+SS: 28%):**
+* **Trayectoria y Comparativa Salarial Bruta y Neta (Salario Base de 50.000 €, 1 Quinquenio / 5-9 años, Tipo Efectivo IRPF+SS: 28%):**
 
 | Variable / Concepto Retributivo | Situación Actual (Sin Convenio) | Oferta Empresa (+5% Fracc. + 1% débil) | Plataforma Comité (+12% Tablas + IPC+1,5% RSG) | Ganancia / Ventaja para la Plantilla | Fuente de Proyección |
 | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -213,7 +213,7 @@ El análisis econométrico comparativo entre la oferta patronal fija (sin cláus
 │ 2. Ajuste Efecto Abril (Q1 perdido)    │   -450,00 €            │      0,00 € (Blindado) │
 │ 3. Paga Única / Atrasos Netos          │ +1.440,00 € (2.000 €)  │ +5.400,00 € (7.500 €)  │
 │ 4. Mejora Aportación Plan Pensiones    │   +112,50 €            │   +830,00 €            │
-│ 5. Mejora Plus Antigüedad (2 trienios) │   +160,00 €            │   +384,00 €            │
+│ 5. Mejora Plus Antigüedad (1 quinquenio)│   +125,00 €            │   +300,00 €            │
 │ 6. Compensación Teletrabajo Universal  │      0,00 €            │   +720,00 €            │
 │ 7. Devolución Bradford IT Estimada     │      0,00 €            │   +850,00 €            │
 ├────────────────────────────────────────┼────────────────────────┼────────────────────────┤
