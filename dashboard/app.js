@@ -82,14 +82,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (window.lucide) lucide.createIcons();
 
   try {
-    const res = await fetch('../data/conflict_metrics.json');
+    let res = await fetch('data/conflict_metrics.json');
+    if (!res.ok) {
+      res = await fetch('../data/conflict_metrics.json');
+    }
     if (res.ok) {
       conflictData = await res.json();
     } else {
       conflictData = fallbackData;
     }
   } catch (e) {
-    conflictData = fallbackData;
+    try {
+      const res2 = await fetch('../data/conflict_metrics.json');
+      conflictData = res2.ok ? await res2.json() : fallbackData;
+    } catch (e2) {
+      conflictData = fallbackData;
+    }
   }
 
   initChecklist();
