@@ -1,75 +1,13921 @@
-// Airbus Spain 2026 Strike: Strategic & Financial Analytics Dashboard Controller (v2)
+// Airbus Spain 2026 Strike: Strategic & Financial Analytics Dashboard Controller (v3)
+// Full offline & online support, 269+ Sources Catalog, Interactive Reader Modal & Econometric Engines
 
-let conflictData = null;
+let conflictData = window.CONFLICT_DATA || null;
+let sourcesCatalogData = window.SOURCES_DATA || [];
+let telegramDocsData = [];
 let asymmetryChart = null;
 let wagesChart = null;
 let belugaHistoryChart = null;
 let thermoFeedData = [];
 let belugaPollingInterval = null;
+let selectedSourceCategory = 'ALL';
+let selectedTgCategory = 'ALL';
+let currentModalSource = null;
 
-// Embedded baseline fallback data
-const fallbackData = {
-  parameters: {
-    total_workers_spain: 15562,
-    avg_annual_salary: 50000,
-    daily_ebitda_burn_rate_strike: 18500000,
-    daily_delay_penalty_cost: 4200000,
-    airbus_se_net_profit_2025: 5221000000
+// Embedded baseline fallback data (guarantees 100% offline & local file:// functionality)
+const fallbackConflictData = {
+  "metadata": {
+    "project": "Airbus Spain 2026 Strike Analysis Engine",
+    "target_company": "Airbus SE / Airbus Operations S.L.U. / Airbus Defence and Space",
+    "scope": "Spanish Plants (Getafe, Illescas, Puerto Real, Sevilla San Jerónimo/Tablada)",
+    "generated_at": "2026-08-29T19:00:00Z"
   },
-  benchmarks: [
+  "parameters": {
+    "total_workers_spain": 15562,
+    "avg_annual_salary": 50000.0,
+    "airbus_se_net_profit_2025": 5221000000.0,
+    "airbus_se_ebit_adj_2025": 5838000000.0,
+    "annual_delivery_target_2026": 870,
+    "avg_aircraft_margin": 8500000.0,
+    "daily_ebitda_burn_rate_strike": 18500000.0,
+    "daily_delay_penalty_cost": 4200000.0,
+    "getafe_htp_production_share": 1.0,
+    "fal_stock_buffer_hours": 60.0
+  },
+  "platform_cost": {
+    "total_workers": 15562,
+    "annual_wage_mass_spain_eur": 778100000.0,
+    "cost_12pct_increase_eur": 93372000.0,
+    "cost_one_time_payment_eur": 116715000.0,
+    "total_first_year_impact_eur": 239032320.0,
+    "annualized_recurrent_cost_eur": 122317320.0,
+    "pct_of_annual_net_profit": 4.58,
+    "pct_of_annual_ebit": 4.09,
+    "feasibility_assessment": "Fully absorbable within operating cash flow (<2.8% of annual free cash flow)."
+  },
+  "strike_timeline_30d": [
     {
-      case: "Boeing IAM 751 (2024)",
-      badge: "+38% en Tablas",
-      badgeColor: "emerald",
-      sector: "Aeroespacial Comercial",
-      duration: "53 días",
-      result: "38% subida en tablas + 12.000$ bono de firma + IPC protegido.",
-      lesson: "El rechazo asambleario en dos ocasiones forzó a la dirección a doblar la oferta inicial."
+      "day": 1,
+      "hours_elapsed": 24,
+      "buffer_status": "Consuming stock buffer (48-72h)",
+      "fal_disruption_pct": 14.0,
+      "daily_airbus_loss_eur": 6500000.0,
+      "cumulative_airbus_loss_eur": 6500000.0,
+      "worker_net_loss_per_person_eur": 98.63,
+      "cumulative_payroll_saved_airbus_eur": 2131780.82,
+      "asymmetry_ratio": 3.0
     },
     {
-      case: "Spirit AeroSystems (2023)",
-      badge: "+20,5% en Tablas",
-      badgeColor: "emerald",
-      sector: "Aeroestructuras / Fuselajes",
-      duration: "7 días",
-      result: "20,5% en tablas + Retirada íntegra de recortes de descansos.",
-      lesson: "Pausa táctica de 7 días con huelga viva forzó la capitulación patronal al estrangular la cadena de Boeing."
+      "day": 2,
+      "hours_elapsed": 48,
+      "buffer_status": "Consuming stock buffer (48-72h)",
+      "fal_disruption_pct": 28.0,
+      "daily_airbus_loss_eur": 6500000.0,
+      "cumulative_airbus_loss_eur": 13000000.0,
+      "worker_net_loss_per_person_eur": 197.26,
+      "cumulative_payroll_saved_airbus_eur": 4263561.64,
+      "asymmetry_ratio": 3.0
     },
     {
-      case: "RMT Network Rail (2022-23)",
-      badge: "9% a 14% en Tablas",
-      badgeColor: "blue",
-      sector: "Infraestructuras Ferroviarias",
-      duration: "Paros rotatorios",
-      result: "9% a 14,4% consolidado con blindaje contra despidos forzosos.",
-      lesson: "La alternancia de paros y negociaciones en SIMA británico evitó la asfixia salarial de las familias."
+      "day": 3,
+      "hours_elapsed": 72,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 29650000.0,
+      "worker_net_loss_per_person_eur": 295.89,
+      "cumulative_payroll_saved_airbus_eur": 6395342.47,
+      "asymmetry_ratio": 4.6
     },
     {
-      case: "Acerinox Palmones (2024)",
-      badge: "Asfixia Financiera",
-      badgeColor: "rose",
-      sector: "Siderurgia",
-      duration: "135 días",
-      result: "Acuerdo a la baja con desmovilización por asfixia financiera familiar.",
-      lesson: "La falta de asimetría crítica en JIT y la ausencia de caja de resistencia agotaron a las bases."
+      "day": 4,
+      "hours_elapsed": 96,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 46300000.0,
+      "worker_net_loss_per_person_eur": 394.52,
+      "cumulative_payroll_saved_airbus_eur": 8527123.29,
+      "asymmetry_ratio": 5.4
+    },
+    {
+      "day": 5,
+      "hours_elapsed": 120,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 62950000.0,
+      "worker_net_loss_per_person_eur": 493.15,
+      "cumulative_payroll_saved_airbus_eur": 10658904.11,
+      "asymmetry_ratio": 5.9
+    },
+    {
+      "day": 6,
+      "hours_elapsed": 144,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 85650000.0,
+      "worker_net_loss_per_person_eur": 591.78,
+      "cumulative_payroll_saved_airbus_eur": 12790684.93,
+      "asymmetry_ratio": 6.7
+    },
+    {
+      "day": 7,
+      "hours_elapsed": 168,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 108350000.0,
+      "worker_net_loss_per_person_eur": 690.41,
+      "cumulative_payroll_saved_airbus_eur": 14922465.75,
+      "asymmetry_ratio": 7.3
+    },
+    {
+      "day": 8,
+      "hours_elapsed": 192,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 131050000.0,
+      "worker_net_loss_per_person_eur": 789.04,
+      "cumulative_payroll_saved_airbus_eur": 17054246.58,
+      "asymmetry_ratio": 7.7
+    },
+    {
+      "day": 9,
+      "hours_elapsed": 216,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 153750000.0,
+      "worker_net_loss_per_person_eur": 887.67,
+      "cumulative_payroll_saved_airbus_eur": 19186027.4,
+      "asymmetry_ratio": 8.0
+    },
+    {
+      "day": 10,
+      "hours_elapsed": 240,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 176450000.0,
+      "worker_net_loss_per_person_eur": 986.3,
+      "cumulative_payroll_saved_airbus_eur": 21317808.22,
+      "asymmetry_ratio": 8.3
+    },
+    {
+      "day": 11,
+      "hours_elapsed": 264,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 199150000.0,
+      "worker_net_loss_per_person_eur": 1084.93,
+      "cumulative_payroll_saved_airbus_eur": 23449589.04,
+      "asymmetry_ratio": 8.5
+    },
+    {
+      "day": 12,
+      "hours_elapsed": 288,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 221850000.0,
+      "worker_net_loss_per_person_eur": 1183.56,
+      "cumulative_payroll_saved_airbus_eur": 25581369.86,
+      "asymmetry_ratio": 8.7
+    },
+    {
+      "day": 13,
+      "hours_elapsed": 312,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 244550000.0,
+      "worker_net_loss_per_person_eur": 1282.19,
+      "cumulative_payroll_saved_airbus_eur": 27713150.68,
+      "asymmetry_ratio": 8.8
+    },
+    {
+      "day": 14,
+      "hours_elapsed": 336,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 267250000.0,
+      "worker_net_loss_per_person_eur": 1380.82,
+      "cumulative_payroll_saved_airbus_eur": 29844931.51,
+      "asymmetry_ratio": 9.0
+    },
+    {
+      "day": 15,
+      "hours_elapsed": 360,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 289950000.0,
+      "worker_net_loss_per_person_eur": 1479.45,
+      "cumulative_payroll_saved_airbus_eur": 31976712.33,
+      "asymmetry_ratio": 9.1
+    },
+    {
+      "day": 16,
+      "hours_elapsed": 384,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 312650000.0,
+      "worker_net_loss_per_person_eur": 1578.08,
+      "cumulative_payroll_saved_airbus_eur": 34108493.15,
+      "asymmetry_ratio": 9.2
+    },
+    {
+      "day": 17,
+      "hours_elapsed": 408,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 335350000.0,
+      "worker_net_loss_per_person_eur": 1676.71,
+      "cumulative_payroll_saved_airbus_eur": 36240273.97,
+      "asymmetry_ratio": 9.3
+    },
+    {
+      "day": 18,
+      "hours_elapsed": 432,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 358050000.0,
+      "worker_net_loss_per_person_eur": 1775.34,
+      "cumulative_payroll_saved_airbus_eur": 38372054.79,
+      "asymmetry_ratio": 9.3
+    },
+    {
+      "day": 19,
+      "hours_elapsed": 456,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 380750000.0,
+      "worker_net_loss_per_person_eur": 1873.97,
+      "cumulative_payroll_saved_airbus_eur": 40503835.62,
+      "asymmetry_ratio": 9.4
+    },
+    {
+      "day": 20,
+      "hours_elapsed": 480,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 403450000.0,
+      "worker_net_loss_per_person_eur": 1972.6,
+      "cumulative_payroll_saved_airbus_eur": 42635616.44,
+      "asymmetry_ratio": 9.5
+    },
+    {
+      "day": 21,
+      "hours_elapsed": 504,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 426150000.0,
+      "worker_net_loss_per_person_eur": 2071.23,
+      "cumulative_payroll_saved_airbus_eur": 44767397.26,
+      "asymmetry_ratio": 9.5
+    },
+    {
+      "day": 22,
+      "hours_elapsed": 528,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 448850000.0,
+      "worker_net_loss_per_person_eur": 2169.86,
+      "cumulative_payroll_saved_airbus_eur": 46899178.08,
+      "asymmetry_ratio": 9.6
+    },
+    {
+      "day": 23,
+      "hours_elapsed": 552,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 471550000.0,
+      "worker_net_loss_per_person_eur": 2268.49,
+      "cumulative_payroll_saved_airbus_eur": 49030958.9,
+      "asymmetry_ratio": 9.6
+    },
+    {
+      "day": 24,
+      "hours_elapsed": 576,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 494250000.0,
+      "worker_net_loss_per_person_eur": 2367.12,
+      "cumulative_payroll_saved_airbus_eur": 51162739.73,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 25,
+      "hours_elapsed": 600,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 516950000.0,
+      "worker_net_loss_per_person_eur": 2465.75,
+      "cumulative_payroll_saved_airbus_eur": 53294520.55,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 26,
+      "hours_elapsed": 624,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 539650000.0,
+      "worker_net_loss_per_person_eur": 2564.38,
+      "cumulative_payroll_saved_airbus_eur": 55426301.37,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 27,
+      "hours_elapsed": 648,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 562350000.0,
+      "worker_net_loss_per_person_eur": 2663.01,
+      "cumulative_payroll_saved_airbus_eur": 57558082.19,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 28,
+      "hours_elapsed": 672,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 585050000.0,
+      "worker_net_loss_per_person_eur": 2761.64,
+      "cumulative_payroll_saved_airbus_eur": 59689863.01,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 29,
+      "hours_elapsed": 696,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 607750000.0,
+      "worker_net_loss_per_person_eur": 2860.27,
+      "cumulative_payroll_saved_airbus_eur": 61821643.84,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 30,
+      "hours_elapsed": 720,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 630450000.0,
+      "worker_net_loss_per_person_eur": 2958.9,
+      "cumulative_payroll_saved_airbus_eur": 63953424.66,
+      "asymmetry_ratio": 9.9
     }
   ],
-  sources: [
-    { id: "Fuente 1", title: "Dossier de Análisis Estratégico del Conflicto Airbus España (2026)", section: "Monopolio HTP Getafe y seguimiento Beluga (pp. 2-7)" },
-    { id: "Fuente 2", title: "Dossier de Recuperación Salarial Airbus España (Convenio VII, v8)", section: "Cálculo de pérdida de poder adquisitivo 20,9%-24,4% (pp. 4-22)" },
-    { id: "Fuente 3", title: "Resumen Ejecutivo de Recuperación de Poder Adquisitivo", section: "12% en tablas + 7.500€ atrasos + RSG = IPC + 1,5% (pp. 1-2)" },
-    { id: "Fuente 4", title: "Propuesta Conjunta del Comité de Huelga en el SIMA (27/08/2026)", section: "Plataforma formalizada de 11 conceptos económicos y sociales" },
-    { id: "Fuente 5", title: "Actas Oficiales de Mediación en el SIMA (25 y 27 de agosto 2026)", section: "Comparecencia de la CHRO y formalización de huelga" },
-    { id: "Fuente 6", title: "INE, Banco de España y Banco Central Europeo (2021-2025)", section: "IPC general (+19,3%) e IPC alimentos (+31,2%)" },
-    { id: "Fuente 7", title: "Airbus SE Annual Report (Ejercicios 2024 y 2025)", section: "Beneficio neto 5.221 M€ y objetivo de 870 aeronaves (p. 124)" },
-    { id: "Fuente 8", title: "Airbus SE Half-Year 2026 Financial Results", section: "Beneficio semestral 2.243 M€ y FCF de 1.950 M€ (pp. 3-6)" },
-    { id: "Fuente 9", title: "Convenio Colectivo Interempresas de Airbus (VI Convenio, REGCON)", section: "Artículos 44, 45 y Anexos Salariales" },
-    { id: "Fuente 10", title: "Real Decreto-ley 17/1977, sobre Relaciones de Trabajo", section: "Artículos 4, 8.2 y 11 (Suspensión temporal vs Desconvocatoria)" },
-    { id: "Fuente 11", title: "Estatuto de los Trabajadores (RD Legislativo 2/2015)", section: "Art. 4.1.e, 28.2, 44, 83.3, 84 y 90" },
-    { id: "Fuente 12", title: "Jurisprudencia del Tribunal Constitucional (STC 11/1981)", section: "Doctrina de esquirolaje ilícito tecnológico e interno" },
-    { id: "Fuente 13", title: "Reglamento EASA Part-21 (Subpart G)", section: "Requisitos de trazabilidad de firmas y cualificaciones técnicas" }
-  ]
+  "purchasing_power_model": {
+    "historical_cpi_general_pct": 20.9,
+    "historical_cpi_essentials_pct": 31.2,
+    "historical_consolidated_wage_pct": 4.8,
+    "net_purchasing_power_loss_pct": -13.3,
+    "projection_years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026 (Proj)",
+      "2027 (Proj)",
+      "2028 (Proj)"
+    ],
+    "cpi_index": [
+      100.0,
+      106.5,
+      110.2,
+      114.1,
+      120.9,
+      124.5,
+      127.6,
+      130.8
+    ],
+    "company_offer_real_wage_index": [
+      100.0,
+      95.3,
+      93.3,
+      90.7,
+      86.7,
+      86.7,
+      87.1,
+      87.5
+    ],
+    "union_platform_real_wage_index": [
+      100.0,
+      95.3,
+      93.3,
+      90.7,
+      86.7,
+      94.3,
+      95.7,
+      97.0
+    ]
+  },
+  "resolution_scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Victoria Sindical Plena",
+      "probability_pct": 58,
+      "description": "Incremento del 10% al 12% en tablas retroactivo + Cláusula IPC sin techo + 7.500€ atrasos.",
+      "duration_days_estimated": "5 - 12 días",
+      "trigger": "Impacto crítico en FALs europeas + Riesgo de incumplir el objetivo anual de 870 entregas.",
+      "historical_precedent": "Boeing IAM 751 (2024: +38% en tablas) / Spirit AeroSystems (2023: +20,5% en tablas)",
+      "confidence_level": "Alta"
+    },
+    {
+      "id": "scenario_2",
+      "name": "Pacto Transaccional Mixto",
+      "probability_pct": 27,
+      "description": "Incremento del 7,5% al 9% en tablas + Paga única de 3.500€ a 5.000€ + IPC con revisión diferida.",
+      "duration_days_estimated": "12 - 20 días",
+      "trigger": "Negociación de desgaste con intervención de mediación reforzada en SIMA.",
+      "historical_precedent": "RMT Network Rail (2023: 9% - 14,4% con cambios organizativos)",
+      "confidence_level": "Media"
+    },
+    {
+      "id": "scenario_3",
+      "name": "Arbitraje / Mediación Obligatoria",
+      "probability_pct": 11,
+      "description": "Propuesta vinculante dictada por árbitro independiente con subidas del 8% al 9% e IPC con fórmula media.",
+      "duration_days_estimated": "20 - 35 días",
+      "trigger": "Intervención de Gobierno central/SEPI por impacto en defensa y seguridad nacional.",
+      "historical_precedent": "Conflictos en sector estratégico aeroportuario (Enaire/Aena)",
+      "confidence_level": "Baja"
+    },
+    {
+      "id": "scenario_4",
+      "name": "Fractura Asamblearia / Imposición",
+      "probability_pct": 4,
+      "description": "Aceptación forzosa de oferta empresarial a la baja (5% a 7,6% plurianual con techos de IPC).",
+      "duration_days_estimated": ">45 días",
+      "trigger": "Agotamiento financiero de la plantilla sin fondo de resistencia ni apoyo social.",
+      "historical_precedent": "Acerinox Palmones (2024: 135 días de huelga con asfixia financiera)",
+      "confidence_level": "Muy Baja"
+    }
+  ],
+  "benchmarks": [
+    {
+      "case": "Boeing IAM 751 (2024)",
+      "sector": "Aeroespacial Comercial",
+      "strike_duration_days": 53,
+      "initial_offer": "25% en 4 años",
+      "final_agreement": "38% en tablas + 12.000$ bono de firma + IPC protegido",
+      "key_lesson": "El control asambleario rechazó ofertas intermedias hasta doblar el coste para la empresa."
+    },
+    {
+      "case": "Spirit AeroSystems IAM 839 (2023)",
+      "sector": "Aeroestructuras / Fuselajes",
+      "strike_duration_days": 7,
+      "initial_offer": "16% con recortes de descansos",
+      "final_agreement": "+20,5% en tablas + Retirada de recortes de jornada",
+      "key_lesson": "La pausa táctica de 7 días forzó a la dirección a capitular por el estrangulamiento de la cadena de Boeing."
+    },
+    {
+      "case": "Acerinox Palmones (2024)",
+      "sector": "Siderurgia",
+      "strike_duration_days": 135,
+      "initial_offer": "Convenio con flexibilización",
+      "final_agreement": "Acuerdo a la baja por agotamiento financiero",
+      "key_lesson": "Sin asimetría crítica en JIT ni solvencia familiar, el conflicto largo desgasta a la plantilla."
+    }
+  ],
+  "timeline": [
+    {
+      "id": "milestone-14-today",
+      "date": "29 de agosto de 2026 (HOY)",
+      "phase": "Fase Decisiva / Asambleas",
+      "title": "Asambleas Generales de Factoría y Activación del Monitor de Presión",
+      "badge": "HOY / EN CURSO",
+      "badge_color": "rose",
+      "location": "Getafe (Puerta Sur/Norte), San Pablo, Tablada, Illescas, Albacete, Cádiz, Barajas",
+      "time": "Turnos continuos y reuniones de coordinación",
+      "census_and_votes": "15.562 trabajadores en seguimiento del conflicto",
+      "summary": "Asambleas informativas masivas en todos los centros de trabajo. El Comité de Huelga ratifica el mandato asambleario de no someter a votación ninguna propuesta patronal que no supere los 6 Filtros Innegociables. El Termómetro de Presión alcanza los 82.2°C (Presión Crítica sobre la Dirección).",
+      "actors": [
+        "Asambleas de Plantilla (15.562 trabajadores)",
+        "Comité de Huelga Soberano"
+      ],
+      "source_ref": "Canales Oficiales Telegram & Comités de Planta",
+      "strategic_takeaway": "Vigencia plena del mandato asambleario: Solo se firmará un acuerdo blindado con el 12% consolidado en tablas a 1 de enero de 2026."
+    },
+    {
+      "id": "milestone-13-beluga-choke",
+      "date": "28 de agosto de 2026",
+      "phase": "Estrangulamiento Logístico JIT",
+      "title": "Bloqueo de Rutas BelugaXL en Getafe (LEGT) y Alerta Roja en FALs Europeas",
+      "badge": "Cuello de Botella JIT",
+      "badge_color": "rose",
+      "location": "Pista y Hangares Airbus Getafe (LEGT) ➔ FAL Toulouse (LFBO) / Hamburgo (EDHI)",
+      "time": "00:00 h - 23:59 h",
+      "census_and_votes": "0 vuelos operados (100% de HTP retenidos)",
+      "summary": "Cero vuelos BelugaXL conectan con Getafe. El 100% de los estabilizadores horizontales (HTP) de A320, A321XLR y A350 permanecen retenidos en fábrica. Las líneas de ensamblaje final en Francia y Alemania activan protocolos de contingencia con stock buffer inferior a 48 horas.",
+      "actors": [
+        "Airbus Transport International (ATI)",
+        "FALs Toulouse & Hamburg"
+      ],
+      "source_ref": "OpenSky Network / BelugaWatch API",
+      "strategic_takeaway": "La asimetría crítica 185x entra en su fase máxima de impacto financiero: 22,7 M€/día de coste directo para Airbus SE."
+    },
+    {
+      "id": "milestone-12-assembly-27ago",
+      "date": "27 de agosto de 2026",
+      "phase": "Huelga Indefinida Día 3",
+      "title": "Asamblea en Getafe bajo la Lluvia y Entrega de Propuesta de 11 Puntos en el SIMA",
+      "badge": "Propuesta 11 Puntos",
+      "badge_color": "emerald",
+      "location": "Airbus Getafe (Puerta Sur) & Sede del SIMA en Madrid",
+      "time": "09:30 h (Asamblea de fábrica)",
+      "census_and_votes": "Piquetes desde las 05:30 h. Aprobación por unanimidad de la propuesta enviada al SIMA.",
+      "summary": "Desarrollo de asamblea masiva en la Puerta Sur bajo la lluvia. El Comité de Huelga entrega en el SIMA su propuesta económica cuantificada de 11 puntos: 12% en tablas a 1/1/2026, 7.500 € de atrasos, IPC+1,5% sin techo, y 100% abono de días de huelga. Se acuerda enviar carta factual al Gobierno de España denunciando coacciones de la dirección.",
+      "actors": [
+        "Comité de Huelga (UGT, CGT, ÚTIL)",
+        "Dirección RRHH Airbus (Carmen-Maja Rex)",
+        "Asamblea Getafe"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 27/08/2026 & Propuesta SIMA 27/08/2026",
+      "strategic_takeaway": "La plantilla formaliza una plataforma técnica inatacable y blindada legalmente frente a la intransigencia empresarial."
+    },
+    {
+      "id": "milestone-11-assembly-26ago",
+      "date": "26 de agosto de 2026",
+      "phase": "Huelga Indefinida Día 2",
+      "title": "Asamblea en Getafe (Puerta Norte): Rechazo Rotundo a las Amenazas de Deslocalización",
+      "badge": "Firmeza Sindical",
+      "badge_color": "amber",
+      "location": "Airbus Getafe (Puerta Norte)",
+      "time": "10:00 h",
+      "census_and_votes": "Aprobado por Mayoría Absoluta: 1) Adelantar asamblea a 09:30h, 2) Rechazo formal a amenazas patronales.",
+      "summary": "Se informa de las amenazas vertidas por Carmen-Maja Rex en el SIMA sobre congelación de contrataciones y traslado de paquetes de trabajo a Francia o Alemania. La asamblea aprueba por mayoría absoluta repudiar las amenazas y adelantar el horario a las 09:30 h para coordinar votaciones con el resto de centros. Acercamiento formal a SIPA.",
+      "actors": [
+        "Asamblea de Getafe",
+        "SIPA",
+        "Comité de Huelga"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 26/08/2026",
+      "strategic_takeaway": "El chantaje patronal es desmontado técnicamente por la saturación de las plantas francesas y alemanas."
+    },
+    {
+      "id": "milestone-10-assembly-25ago",
+      "date": "25 de agosto de 2026",
+      "phase": "Huelga Indefinida Día 1",
+      "title": "Asamblea Masiva en Getafe (Puerta Sur) y Votación de Marcha a los Ministerios",
+      "badge": "Inicio Huelga Indefinida",
+      "badge_color": "rose",
+      "location": "Airbus Getafe (Puerta Sur)",
+      "time": "10:00 h",
+      "census_and_votes": "1.200 a 2.000 trabajadores asistentes. Aprobado por Mayoría organizar Marcha a Madrid (San Pablo vota SÍ).",
+      "summary": "Piquetes masivos desde las 05:30 h. Se confirma el agotamiento de los buffers de componentes en Airbus Operaciones que paralizan la FAL A330. La asamblea vota a favor de organizar y financiar colectivamente la Marcha a los Ministerios en Madrid con autobuses intercentros. Intervención solidaria de un compañero de Toulouse.",
+      "actors": [
+        "Plantilla de Getafe",
+        "Comité de San Pablo",
+        "Delegación de Toulouse"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 25/08/2026",
+      "strategic_takeaway": "Comienza la asfixia industrial de Airbus: El impacto llega de forma inmediata a las líneas de ensamblaje en Francia."
+    },
+    {
+      "id": "milestone-09-assemblies-24ago",
+      "date": "24 de agosto de 2026",
+      "phase": "Asambleas Generales Nacionales",
+      "title": "Asambleas Generales en Todas las Factorías: SÍ A LA HUELGA INDEFINIDA",
+      "badge": "Mandato Absoluto",
+      "badge_color": "purple",
+      "location": "Getafe (Vestuarios A5 / Explanada P1-A1), San Pablo (Comedor Sur), Tablada (Salón Actos), Illescas (Autoclaves), Albacete (Edificio A)",
+      "time": "Turnos de mañana, tarde y noche (05:30 h, 10:00 h, 11:30 h, 18:00 h)",
+      "census_and_votes": "Mayoría Absoluta en el 100% de centros consultados a favor de Huelga Indefinida desde el 25 de agosto.",
+      "summary": "Informe del SIMA del 21/08 sobre el compromiso de la empresa de retirar el recurso de casación en IT (método Bradford). UGT, CGT y ÚTIL intervienen en fábrica. La plantilla rechaza la tregua patronal y vota abrumadoramente por iniciar la Huelga Indefinida.",
+      "actors": [
+        "Plantilla Estatal (Getafe, San Pablo, Tablada, Illescas, Albacete, Cádiz)",
+        "UGT, CGT, ÚTIL"
+      ],
+      "source_ref": "Actas Asambleas 24/08/2026 & Guía de Huelga",
+      "strategic_takeaway": "Respaldo total de la plantilla a la confrontación directa para recuperar el salario real."
+    },
+    {
+      "id": "milestone-08-assembly-29jul",
+      "date": "29 de julio de 2026",
+      "phase": "Asamblea Retribuida",
+      "title": "Asamblea Retribuida en Getafe (Puerta Norte): Presentación de la Papeleta de Agosto",
+      "badge": "Papeleta Legal",
+      "badge_color": "sky",
+      "location": "Airbus Getafe (Puerta Norte)",
+      "time": "09:51 h",
+      "census_and_votes": "Asamblea masiva. Votación a mano alzada para mantener la fecha del 24 de agosto de 2026.",
+      "summary": "Presentación de la convocatoria formal de huelga indefinida para el regreso de vacaciones de verano registrada por CGT, ÚTIL y respaldada por UGT. Se acuerda ratificar la asamblea general de paro para el 24 de agosto.",
+      "actors": [
+        "Plantilla de Getafe",
+        "CGT, ÚTIL, UGT"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 29/07/2026",
+      "strategic_takeaway": "Estrategia de continuidad: El conflicto no se apaga durante las vacaciones obligatorias de agosto."
+    },
+    {
+      "id": "milestone-07-referendum-24jul",
+      "date": "24 de julio de 2026",
+      "phase": "Referéndum en Urna Histórico",
+      "title": "Referéndum General de la Plantilla: El 51,13% de los Votos Tumba el Preacuerdo Patronal",
+      "badge": "Victoria de las Bases",
+      "badge_color": "emerald",
+      "location": "Urnas en todos los centros de trabajo de Airbus España",
+      "time": "Jornada electoral completa",
+      "census_and_votes": "Participación: 81,44%. Votos NO: 51,13% (49,15% censo). Votos SÍ: 48,87% (45,95% censo).",
+      "summary": "En votación secreta en urna, las bases de Airbus desautorizan a las cúpulas de CCOO, SIPA y ATP y rechazan el preacuerdo de subidas fraccionadas del 3%. Tras la derrota en las urnas, la cúpula negociadora de SIPA dimite.",
+      "actors": [
+        "Plantilla de Fábrica (15.562 trabajadores)",
+        "Comité Interempresas"
+      ],
+      "source_ref": "Actas Electorales Oficiales del Referéndum 24/07/2026",
+      "strategic_takeaway": "Punto de inflexión histórico: La soberanía obrera recupera el control de las negociaciones frente al pactismo."
+    },
+    {
+      "id": "milestone-06-assembly-23jul",
+      "date": "23 de julio de 2026",
+      "phase": "Asamblea de Emergencia",
+      "title": "Asamblea en Getafe (Puerta Sur): Rebelión contra el Preacuerdo de Madrugada",
+      "badge": "Rebelión en Fábrica",
+      "badge_color": "rose",
+      "location": "Airbus Getafe (Puerta Sur)",
+      "time": "Pre-asamblea 08:50 h / Asamblea General 10:00 h",
+      "census_and_votes": "Rechazo tajante por Mayoría al preacuerdo CCOO-SIPA-ATP. Aprobado votar NO masivo en urna el 24/07.",
+      "summary": "Madrugada de indignación tras la firma del preacuerdo por CCOO, SIPA y ATP. CGT y ÚTIL denuncian la traición de la mesa de negociación. SIPA se compromete a dimitir si la plantilla vota NO en urna. La asamblea vota acudir en masa a las urnas a tumbar el pacto.",
+      "actors": [
+        "Asamblea de Getafe",
+        "CGT, ÚTIL, SIPA, CCOO, ATP"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 23/07/2026",
+      "strategic_takeaway": "La asamblea se convierte en el contrapoder efectivo frente a las componendas de despacho."
+    },
+    {
+      "id": "milestone-05-assembly-22jul",
+      "date": "22 de julio de 2026",
+      "phase": "Unidad de Plantas",
+      "title": "Asamblea en Getafe (Puerta Norte): Ratificación de Apoyo de Tablada, San Pablo e Illescas",
+      "badge": "Unidad Intercentros",
+      "badge_color": "sky",
+      "location": "Airbus Getafe (Puerta Norte)",
+      "time": "10:00 h",
+      "census_and_votes": "Aprobado por mayoría mantener horario de asambleas a las 10:00 h.",
+      "summary": "Confirmación de que las asambleas de Tablada, San Pablo e Illescas votaron a favor de la papeleta e huelga indefinida desde el 24 de agosto. Presentación del manifiesto conjunto firmado por cinco sindicatos (SIPA, UGT, CGT, ATP, ÚTIL).",
+      "actors": [
+        "Asambleas Intercentros",
+        "Grupos de Trabajo de Documentación y Huelga"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 22/07/2026",
+      "strategic_takeaway": "Coordinación federal de la lucha obrera en toda la geografía española."
+    },
+    {
+      "id": "milestone-04-assembly-21jul",
+      "date": "21 de julio de 2026",
+      "phase": "Aprobación de la Huelga",
+      "title": "Asamblea en Getafe (Puerta Sur): Votación de Huelga Indefinida y Censo de 3.430 Trabajadores",
+      "badge": "Huelga Aprobada",
+      "badge_color": "purple",
+      "location": "Airbus Getafe (Puerta Sur)",
+      "time": "10:00 h",
+      "census_and_votes": "Censo acumulado: 3.430 personas (Getafe 1.921, San Pablo 724, Illescas 362, Tablada 263, Albacete 160).",
+      "summary": "Informe de que en la reunión del CNC del 20/07 la empresa reiteró su oferta sin mejoras. Votaciones: 1) Aprobación de reivindicaciones, 2) Huelga Indefinida por mayoría, 3) Inicio el 24 de agosto de 2026. Licitación para reforzar piquetes a las 05:00 am.",
+      "actors": [
+        "Asamblea de Getafe",
+        "WG Comité de Huelga",
+        "WG Logística"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 21/07/2026",
+      "strategic_takeaway": "La fuerza asamblearia se dota de un censo formal propio para blindar las decisiones democráticas."
+    },
+    {
+      "id": "milestone-03-assembly-20jul",
+      "date": "20 de julio de 2026",
+      "phase": "Despliegue del Censo",
+      "title": "Asamblea en Getafe (Puerta Norte): Presentación del Dossier Financiero y Censo con Badge",
+      "badge": "Censo Presencial",
+      "badge_color": "sky",
+      "location": "Airbus Getafe (Puerta Norte)",
+      "time": "10:00 h",
+      "census_and_votes": "Día 1 del censo: 1.727 censados (Getafe 829, San Pablo 396, Illescas 217, Tablada 175, Albacete 96).",
+      "summary": "Explicación del procedimiento de censo presencial mediante lectura de badge y número Z. Presentación del Dossier Financiero de recuperación salarial con 3 escenarios. Votación: Aprobado presentar la papeleta sin valores fijos cerrados para no topar la negociación.",
+      "actors": [
+        "Asamblea de Getafe",
+        "WG Documentación",
+        "WG Comunicaciones (Canal Telegram)"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 20/07/2026",
+      "strategic_takeaway": "Rigor técnico y transparencia informativa para toda la masa social de la empresa."
+    },
+    {
+      "id": "milestone-02-assemblies-17jul",
+      "date": "17 de julio de 2026",
+      "phase": "Asambleas Simultáneas Nacionales",
+      "title": "Asambleas Simultáneas Estatales: Rechazo Rotundo (~95% NO) a la Propuesta de Airbus",
+      "badge": "95% NO Nacional",
+      "badge_color": "rose",
+      "location": "Getafe (Puerta Norte), Illescas, Tablada, San Pablo, Cádiz, Albacete",
+      "time": "09:00 h - 11:00 h (Votación a las 10:30 h)",
+      "census_and_votes": "~95% de votos en contra en el conjunto de factorías. Fijación de Comité de Huelga de 10 miembros.",
+      "summary": "Informes de piquetes confirmando impacto operativo inmediato: Parada inminente en la factoría francesa de Marignane y suspensión de vuelos del avión Beluga a Toulouse por falta de estabilizadores HTP. Votación masiva en todas las plantas rechazando la oferta enviada por email por RRHH el 16 de julio.",
+      "actors": [
+        "Asambleas Simultáneas Estatales",
+        "Delegados de Planta"
+      ],
+      "source_ref": "Minutas Asambleas Estatales 17/07/2026",
+      "strategic_takeaway": "Primera confirmación de que la huelga en España paraliza la logística europea de Airbus SE."
+    },
+    {
+      "id": "milestone-01b-assembly-march-16jul",
+      "date": "16 de julio de 2026",
+      "phase": "Marcha Histórica al Ayuntamiento",
+      "title": "Marcha al Ayuntamiento de Getafe y Asambleas de Fábrica: 'El Punto de Ruptura está Cerca'",
+      "badge": "Marcha Obrera",
+      "badge_color": "amber",
+      "location": "Airbus Getafe (Puerta Norte) ➔ Plaza del Ayuntamiento de Getafe",
+      "time": "10:00 h",
+      "census_and_votes": "Miles de manifestantes. Recepción oficial por la alcaldesa de Getafe.",
+      "summary": "Informe de la reunión de la CNC y del Proyecto Bromo. Intervención de Nacho Abascal (portavoz de San Pablo) destacando la unidad de Sevilla, Cádiz, Illescas y Albacete. Marcha masiva al Ayuntamiento y recepción institucional. Se acuerda la votación decisiva para el 17 de julio.",
+      "actors": [
+        "Plantilla de Getafe",
+        "Portavoces de San Pablo y Centros",
+        "Alcaldía de Getafe"
+      ],
+      "source_ref": "Minuta Asamblea Getafe 16/07/2026",
+      "strategic_takeaway": "Alianza social e institucional con el municipio de Getafe en defensa del empleo de calidad."
+    },
+    {
+      "id": "milestone-01-assembly-14jul",
+      "date": "14 de julio de 2026",
+      "phase": "Asamblea de Tablada",
+      "title": "Asamblea en Tablada (Sevilla): Creación de Grupos Autogestionados y 'Voz Común de Sevilla'",
+      "badge": "Autoorganización",
+      "badge_color": "sky",
+      "location": "Airbus Tablada (Sevilla)",
+      "time": "06:00 h",
+      "census_and_votes": "Aprobación de 4 Grupos de Trabajo (Coordinación, Logística, Huelga, Documentación).",
+      "summary": "Se constituyen los cuatro grupos autogestionados para organizar la huelga en Sevilla. Se acuerda enlace directo con San Pablo para una 'voz común de Sevilla' y coordinación con CBC Cádiz. Apoyo a la marcha a la Subdelegación del Gobierno el 23 de julio y a ministerios en Madrid.",
+      "actors": [
+        "Plantilla de Tablada",
+        "Portavoces de San Pablo y Cádiz"
+      ],
+      "source_ref": "Minuta Asamblea Tablada 14/07/2026",
+      "strategic_takeaway": "Estructura organizativa asamblearia de base que descentraliza y potencia el movimiento."
+    },
+    {
+      "id": "milestone-00b-strike-start",
+      "date": "1 de julio de 2026",
+      "phase": "Estallido de la Huelga",
+      "title": "Inicio de las Movilizaciones y Paros Parciales Convocados por SIPA (UGT, CGT, ÚTIL)",
+      "badge": "Inicio del Conflicto",
+      "badge_color": "amber",
+      "location": "Todas las factorías de Airbus Operations y Airbus Defence & Space en España",
+      "time": "Turnos rotativos de producción",
+      "census_and_votes": "23-24 jornadas de paros acumuladas a lo largo del mes de julio.",
+      "summary": "SIPA inicia las primeras jornadas de huelga y paros parciales en respuesta al bloqueo del VII Convenio. Reivindicaciones iniciales: Subida salarial de IPC + 10%, blindaje de teletrabajo (40%), eliminación del sistema Bradford en IT y protección en Proyecto Bromo.",
+      "actors": [
+        "Sindicato SIPA",
+        "UGT",
+        "CGT",
+        "ÚTIL",
+        "Dirección Airbus"
+      ],
+      "source_ref": "Nota de Prensa SIPA 30/06/2026 & Convocatoria Oficial",
+      "strategic_takeaway": "Ruptura del statu quo tras años de moderación salarial frente a beneficios récord de 5.221 M€ en Airbus SE."
+    },
+    {
+      "id": "milestone-00-origin",
+      "date": "2021 - 2025",
+      "phase": "Erosión Estructural",
+      "title": "Origen: Pérdida Acumulada del 20,9% al 24,4% de Poder Adquisitivo",
+      "badge": "Causa Estructural",
+      "badge_color": "slate",
+      "location": "Ámbito Estatal (Convenio Colectivo VI de Airbus España)",
+      "time": "Periodo de vigencia del VI Convenio Colectivo",
+      "census_and_votes": "15.562 trabajadores afectados en toda España",
+      "summary": "La inflación acumulada en España (IPC general +19,3%, IPC alimentos +31,2%) supera con creces los incrementos pactados en el VI Convenio, provocando un empobrecimiento real de la plantilla en contraste con los beneficios históricos de la multinacional.",
+      "actors": [
+        "Plantilla Airbus España",
+        "INE",
+        "Banco de España",
+        "BCE"
+      ],
+      "source_ref": "Dossier Económico de Pérdida de Poder Adquisitivo (v8)",
+      "strategic_takeaway": "La exigencia del 12% en tablas es la recuperación imprescindible del salario real absorbido."
+    }
+  ],
+  "negotiation_evolution": {
+    "initial_demands_july": {
+      "title": "Plataforma Reivindicativa Inicial (1 de Julio de 2026)",
+      "promoters": "SIPA con respaldo de UGT, CGT y ÚTIL",
+      "items": [
+        {
+          "topic": "Salario e Inflación",
+          "demand": "Subida general de IPC real + 10% repartida entre 2026 y 2027."
+        },
+        {
+          "topic": "Teletrabajo",
+          "demand": "Mínimo 40% (2 días/semana) con prórrogas automáticas y sin modificaciones individuales."
+        },
+        {
+          "topic": "Absentismo e IT",
+          "demand": "Abolición inmediata del sistema estadístico Bradford y retirada del recurso ante el Tribunal Supremo con devolución de salarios."
+        },
+        {
+          "topic": "Proyecto Bromo",
+          "demand": "Garantía de que el personal segregado de Espacio mantenga íntegramente el convenio de Airbus."
+        },
+        {
+          "topic": "Flexibilidad",
+          "demand": "Dos semanas de vacaciones de libre elección y compensación para puestos presenciales."
+        }
+      ]
+    },
+    "proposal_evolution_stages": [
+      {
+        "stage": "16 de Julio de 2026",
+        "event": "Propuesta de Cierre de la Empresa tras Reunión con Faury",
+        "company_offer": "5% en 2026 y 5% en 2027 (desde abril). Si IPC supera el 10%, comisión de revisión no vinculante. Mantenimiento del recurso en IT.",
+        "union_response": "Rechazo unánime en asambleas simultáneas de Getafe, San Pablo, Illescas, Tablada, Albacete y Cádiz."
+      },
+      {
+        "stage": "23-24 de Julio de 2026",
+        "event": "Preacuerdo CCOO / SIPA / ATP y Referéndum",
+        "company_offer": "12% global a 2027 (5%+5% + 0,5% RSI + 0,5% promociones) + 2.000 € bono en abril 2027 + cláusula de revisión hasta 2031.",
+        "union_response": "El 51,13% de la plantilla en urna tumba el preacuerdo por no garantizar subida real en tablas a 1/1/2026 ni atrasos justos."
+      },
+      {
+        "stage": "25 de Agosto de 2026",
+        "event": "Sesión SIMA 1 y Reanudación de Huelga Indefinida",
+        "company_offer": "Reedición del borrador de julio con primas variables atadas a objetivos EBIT y amenazas de trasladar carga a Francia y Alemania.",
+        "union_response": "Rechazo del Comité de Huelga: Huelga indefinida total en fábrica."
+      },
+      {
+        "stage": "27 de Agosto de 2026 (ACTUAL)",
+        "event": "Entrega de la Propuesta Formal de 11 Puntos en el SIMA",
+        "company_offer": "Oferta del 7,6% a 5 años (hasta 2030) + 2.000 € aplazados a 2027. Sin consolidar el 12% a 1/1/2026.",
+        "union_response": "Exigencia formal de los 11 Puntos Innegociables aprobados por la plantilla."
+      }
+    ],
+    "current_gap_analysis": [
+      {
+        "topic": "1. Incremento en Salario Base (Tablas)",
+        "union_position": "12% consolidado en tablas a 1 de enero de 2026.",
+        "company_position": "5% en 2026 fraccionado o 7,6% en 5 años (hasta 2030).",
+        "gap": "Brecha de 7,0% de salario consolidable directo en 2026.",
+        "status": "Línea Roja Crítica"
+      },
+      {
+        "topic": "2. Compensación Extraordinaria por Atrasos",
+        "union_position": "Pago único no consolidable de 7.500 € inmediatos.",
+        "company_position": "Paga de 2.000 € brutos aplazada a abril de 2027.",
+        "gap": "Diferencia de 5.500 € netos/brutos por trabajador.",
+        "status": "Línea Roja Financiera"
+      },
+      {
+        "topic": "3. Cláusula de Revisión Salarial Real (RSG)",
+        "union_position": "RSG anual = IPC real + 1,5% con suelo 0%, sin topes ni absorción.",
+        "company_position": "Revisiones condicionadas con techos y fórmulas de absorción.",
+        "gap": "Riesgo de nueva pérdida de poder adquisitivo si repunta la inflación.",
+        "status": "Blindaje Técnico"
+      },
+      {
+        "topic": "4. Incapacidad Temporal (Bradford)",
+        "union_position": "Desistimiento formal del recurso ante el Tribunal Supremo y reintegro íntegro de salarios descontados.",
+        "company_position": "Acepta desistir pero dilata los pagos de regularización.",
+        "gap": "Concreción de fechas de abono en nómina inmediata.",
+        "status": "Acercamiento Condicionado"
+      },
+      {
+        "topic": "5. Teletrabajo y Jornada",
+        "union_position": "Mínimo 40% (2 días/semana) garantizado por convenio colectivo.",
+        "company_position": "Mantenimiento verbal en acuerdos individuales revocables.",
+        "gap": "Falta de garantía estatutaria vinculante frente a cambios de RRHH.",
+        "status": "Línea Roja Social"
+      },
+      {
+        "topic": "6. Prejubilaciones y Contrato de Relevo",
+        "union_position": "Firma obligatoria con contratación indefinida al 100% de la jornada.",
+        "company_position": "Condicionado a la discrecionalidad de la empresa y volumen de carga.",
+        "gap": "Bloqueo del relevo generacional y estabilidad de plantilla joven.",
+        "status": "Línea Roja Empleo"
+      }
+    ]
+  },
+  "historical_agreements_and_losses": {
+    "boe_agreements_history": [
+      {
+        "name": "VI Convenio Colectivo Interempresas del Grupo Airbus (2020-2023 / Ultraactividad 2024-2025)",
+        "boe_reference": "BOE núm. 297, de 11 de noviembre de 2021 (Resolución DGT / REGCON)",
+        "parties_signatory": "Dirección de Airbus, CCOO y ATP (con exclusión/crítica de sindicatos de clase)",
+        "key_clauses": "Incrementos fijos anuales desvinculados de la inflación real (1% en 2020, 1% en 2021, 1,5% en 2022, 4,4% en 2023). Congelación de complementos y cláusulas de revisión descafeinadas.",
+        "consequences": "Provocó una pérdida real neta acumulada de poder adquisitivo del 20,9% al 24,4% ante el estallido inflacionario de 2021-2025.",
+        "bradford_method": "Imposición unilateral patronal del sistema Bradford para penalizar ausencias e IT descontando complementos en nómina."
+      },
+      {
+        "name": "V Convenio Colectivo Interempresas de Airbus Group (2015-2019)",
+        "boe_reference": "BOE núm. 165, de 10 de julio de 2015 / Código de Convenio 90100062012014",
+        "parties_signatory": "Dirección de Airbus, CCOO, SIPA y ATP",
+        "key_clauses": "Pactos de moderación salarial justificados por consolidación de fuselajes y digitalización. Cláusulas de flexibilidad de jornada.",
+        "consequences": "Sentó las bases de la absorción de complementos y la falta de blindaje frente a repuntes de precios."
+      }
+    ],
+    "yearly_loss_metrics_table": [
+      {
+        "year": "2020 (Año Base)",
+        "cost_of_living_index": 100.0,
+        "airbus_rsg_index": 100.0,
+        "nominal_gross_loss_eur": 0,
+        "one_off_payment_received_eur": 0,
+        "updated_net_loss_eur": 0,
+        "notes": "Año base normalizado (salario base tipo 50.000 €). Inflación oficial -0,5%, RSG +1,0%."
+      },
+      {
+        "year": "2021",
+        "cost_of_living_index": 106.5,
+        "airbus_rsg_index": 101.0,
+        "nominal_gross_loss_eur": -2735,
+        "one_off_payment_received_eur": 600,
+        "updated_net_loss_eur": -2462,
+        "notes": "Comienza el repunte de precios (+6,5% coste de vida). Airbus solo aplica +1% en RSG. Pérdida bruta -5,2%."
+      },
+      {
+        "year": "2022",
+        "cost_of_living_index": 112.5,
+        "airbus_rsg_index": 102.5,
+        "nominal_gross_loss_eur": -4972,
+        "one_off_payment_received_eur": 1500,
+        "updated_net_loss_eur": -3788,
+        "notes": "Crisis de energía e IPC desbocado (+5,7% IPC, +15,7% alimentos). RSG en Airbus solo +1,5%. Pérdida bruta -8,9%."
+      },
+      {
+        "year": "2023",
+        "cost_of_living_index": 116.4,
+        "airbus_rsg_index": 107.0,
+        "nominal_gross_loss_eur": -4677,
+        "one_off_payment_received_eur": 1000,
+        "updated_net_loss_eur": -3891,
+        "notes": "Inflación acumulada no compensada. RSG +4,4%. Pérdida bruta acumulada -8,1%."
+      },
+      {
+        "year": "2024",
+        "cost_of_living_index": 123.1,
+        "airbus_rsg_index": 110.2,
+        "nominal_gross_loss_eur": -6432,
+        "one_off_payment_received_eur": 0,
+        "updated_net_loss_eur": -6617,
+        "notes": "Coste de vida escala a 123,1 (+23,1%). Airbus aplica solo +3%. Pérdida bruta acumulada -10,5%."
+      },
+      {
+        "year": "2025",
+        "cost_of_living_index": 131.0,
+        "airbus_rsg_index": 112.5,
+        "nominal_gross_loss_eur": -9269,
+        "one_off_payment_received_eur": 0,
+        "updated_net_loss_eur": -9269,
+        "notes": "Coste de vida real en 131,0 (+31%). Alimentos +31,2%, Vivienda +45%. Pérdida bruta -14,1%, Pérdida neta real -17,0% a -24,4%."
+      }
+    ],
+    "summary_total_loss": {
+      "total_nominal_loss_eur": -28085,
+      "total_one_off_received_eur": 3100,
+      "net_accumulated_loss_per_worker_eur": -26030,
+      "months_of_net_salary_lost": 5.6,
+      "pct_of_annual_salary_lost": 46.3,
+      "total_collective_payroll_lost_spain_meur": 405.1
+    },
+    "failed_pacts_and_betrayals": [
+      {
+        "event": "La Traición de la Madrugada del 23 de Julio de 2026",
+        "actors": "Cúpulas de CCOO, SIPA y ATP con la Dirección de Airbus",
+        "description": "Tras semanas de huelgas y asambleas donde el 95% de los trabajadores rechazó la oferta patronal, CCOO, SIPA y ATP firmaron un preacuerdo a espaldas de las bases a las 02:00 am del 23 de julio.",
+        "content_signed": "Incremento de solo el 5% en 2026 y 5% en abril de 2027 (con retardo), paga única de 2.000 € en 2027 y cláusula de revisión hasta 2031 con techos.",
+        "assembly_reaction": "Indignación general en la pre-asamblea de Getafe (08:50h). CGT y ÚTIL denuncian la traición; SIPA se compromete a dimitir si las bases votan NO.",
+        "referendum_outcome": "El 24 de julio, con 81,44% de participación, el 51,13% de la plantilla en urna TUMBÓ el preacuerdo. Dimisión en bloque de la cúpula de SIPA."
+      },
+      {
+        "event": "Imposición Punitiva del Método Bradford en Bajas Médicas",
+        "actors": "Dirección de Recursos Humanos de Airbus",
+        "description": "Aplicación unilateral de una fórmula matemática para recortar complementos de IT por ausencias reiteradas justificadas.",
+        "judicial_and_strike_outcome": "Declarado nulo por los tribunales. Tras la huelga indefinida, Airbus tuvo que comprometerse en el SIMA el 21/24 de agosto a desistir de su recurso ante el Tribunal Supremo y devolver las cantidades retenidas."
+      },
+      {
+        "event": "Amenazas de Deslocalización y Ruptura de Mesa SIMA (25-26 de Agosto de 2026)",
+        "actors": "Carmen-Maja Rex (CHRO Global de Airbus SE)",
+        "description": "Amenazas públicas de congelar contrataciones, bloquear prejubilaciones con relevo y trasladar paquetes de trabajo a Francia y Alemania.",
+        "assembly_reaction": "Las asambleas de Getafe, San Pablo, Illescas, Tablada, Albacete y Cádiz votaron por unanimidad repudiar el chantaje y continuar la huelga indefinida."
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "id": "workflow-sima-offer",
+      "title": "Workflow 1: Recepción de Nueva Oferta en Mesa SIMA",
+      "category": "Negociación",
+      "badge": "Protocolo Asambleario",
+      "color": "blue",
+      "objective": "Garantizar que ninguna oferta insuficiente se vote en urna sin filtro previo del Comité de Huelga.",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Recepción Formal del Texto Escrito en SIMA",
+          "condition": "Exigir documento oficial firmado por la dirección con números desglosados en tablas (prohibido someter a asamblea propuestas verbales o intenciones).",
+          "gate": "Mandatorio"
+        },
+        {
+          "step": 2,
+          "title": "Auditoría Técnica de los 6 Filtros Innegociables",
+          "condition": "El Comité de Huelga coteja si cumple: 1) 12% base, 2) RSG IPC+1,5% sin topes, 3) 7.500€ atrasos, 4) Retirada Bradford, 5) Blindaje Relevo, 6) Paz condicionada.",
+          "gate": "Filtro Técnico"
+        },
+        {
+          "step": 3,
+          "title": "Bifurcación de Decisión",
+          "condition": "Si cumple < 4 filtros $\\rightarrow$ Rechazo inmediato en mesa sin desgastar a las bases.\nSi cumple $\\ge$ 5 filtros $\\rightarrow$ Traslado a Asamblea General y referéndum vinculante.",
+          "gate": "Decisión Comité"
+        },
+        {
+          "step": 4,
+          "title": "Votación en Urna y Ratificación",
+          "condition": "Votación secreta individual en fábrica. Si aprueba > 50% $\\rightarrow$ Firma condicionada a REGCON. Si rechaza $\\rightarrow$ Huelga indefinida automática.",
+          "gate": "Voto Soberano"
+        }
+      ]
+    },
+    {
+      "id": "workflow-tactical-pause",
+      "title": "Workflow 2: Propuesta de Suspensión Temporal / Pausa Táctica",
+      "category": "Táctica",
+      "badge": "Blindaje Jurídico",
+      "color": "amber",
+      "objective": "Evitar la trampa legal de desconvocar la huelga antes de tener las firmas vinculantes en el BOE/REGCON.",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Diferenciación Legal Estricta (RD-ley 17/1977 Art. 8.2)",
+          "condition": "Una 'Pausa Temporal de Negociación' NO es una desconvocatoria. La huelga permanece viva jurídicamente.",
+          "gate": "Mandatorio"
+        },
+        {
+          "step": 2,
+          "title": "Plazo Improrrogable Acotado por Escrito",
+          "condition": "Fijar un máximo estricto de 3 a 5 días laborables en sede SIMA. Si vence el plazo sin acuerdo completo, la huelga se reanuda de inmediato.",
+          "gate": "Condición Temporal"
+        },
+        {
+          "step": 3,
+          "title": "Papeleta de Huelga Activa al 100%",
+          "condition": "Mantener los piquetes informativos y la logística de resistencia preparados para reactivar el bloqueo de Beluga en el minuto 1 tras vencer el plazo.",
+          "gate": "Operatividad"
+        }
+      ]
+    },
+    {
+      "id": "workflow-full-strike",
+      "title": "Workflow 3: Huelga Indefinida Continuada & Bloqueo JIT",
+      "category": "Presión Industrial",
+      "badge": "Máxima Asimetría 185x",
+      "color": "rose",
+      "objective": "Maximizar el estrangulamiento de las FALs europeas mientras se protege jurídicamente a los trabajadores.",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Control del Monopolio HTP en Getafe (LEGT)",
+          "condition": "Retención del 100% de estabilizadores de cola en factoría. Agotamiento del stock buffer de Toulouse y Hamburgo en 48-72h.",
+          "gate": "Palanca Crítica"
+        },
+        {
+          "step": 2,
+          "title": "Escudo contra Esquirolaje Ilícito (EASA Part-21 & STC 11/1981)",
+          "condition": "Vigilancia de firmas técnicas y certificaciones de aeronavegabilidad. Denuncia inmediata ante Inspección de Trabajo ante desvíos de carga.",
+          "gate": "Escudo Legal"
+        },
+        {
+          "step": 3,
+          "title": "Escalada de Presión Política sobre la SEPI y Gobierno",
+          "condition": "Exigir al Ministerio de Industria la protección de programas estratégicos de Defensa (Eurofighter, A400M, C295, SIRTAP) forzando a Faury a pactar.",
+          "gate": "Palanca Política"
+        }
+      ]
+    },
+    {
+      "id": "workflow-arbitration",
+      "title": "Workflow 4: Intento Patronal de Laudo Arbitral o Mediación Forzosa",
+      "category": "Defensa Jurídica",
+      "badge": "Doctrina Constitucional",
+      "color": "purple",
+      "objective": "Neutralizar intentos de arbitraje obligatorio que cercenen el derecho fundamental de huelga.",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Inaplicabilidad de Servicios Esenciales",
+          "condition": "Las líneas comerciales de Airbus SE son mercantiles privadas, no servicios públicos de primera necesidad (Art. 10 RD-ley 17/1977).",
+          "gate": "Defensa Legal"
+        },
+        {
+          "step": 2,
+          "title": "Recurso de Amparo ante la Audiencia Nacional",
+          "condition": "Impugnación inmediata ante cualquier intento de imposición ministerial sin consentimiento expreso del Comité de Huelga.",
+          "gate": "Vía Judicial"
+        }
+      ]
+    }
+  ],
+  "beluga_logistics": {
+    "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
+    "timestamp": "2026-08-29T17:52:24+00:00",
+    "fleet_count": 6,
+    "airborne_count": 0,
+    "tracked_count": 3,
+    "getafe_connected_aircraft": [],
+    "other_airborne_aircraft": [],
+    "grounded_aircraft": [
+      {
+        "id": "BXL-01",
+        "name": "BelugaXL 1",
+        "registration": "F-GXLG",
+        "callsign": "BGA131G",
+        "status": "En Tierra",
+        "current_site": "Toulouse",
+        "location_label": "At Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.626,
+        "lon": 1.3588,
+        "altitude_ft": null,
+        "speed_kt": 0,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
+      {
+        "id": "BXL-02",
+        "name": "BelugaXL 2",
+        "registration": "F-GXLH",
+        "callsign": "BGA121H",
+        "status": "En Tierra",
+        "current_site": "Toulouse",
+        "location_label": "At Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.6296,
+        "lon": 1.3611,
+        "altitude_ft": null,
+        "speed_kt": 51,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
+      {
+        "id": "BXL-06",
+        "name": "BelugaXL 6",
+        "registration": "F-GXLO",
+        "callsign": "BGA231R",
+        "status": "En Tierra",
+        "current_site": "Toulouse",
+        "location_label": "At Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.6248,
+        "lon": 1.3578,
+        "altitude_ft": null,
+        "speed_kt": 5,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      }
+    ],
+    "all_aircraft": [
+      {
+        "id": "BXL-01",
+        "name": "BelugaXL 1",
+        "registration": "F-GXLG",
+        "icao24": "395d66",
+        "callsign": "BGA131G",
+        "generation": "BelugaXL",
+        "currentSite": "Toulouse",
+        "locationLabel": "At Toulouse",
+        "routeLabel": "At Toulouse",
+        "routeFrom": null,
+        "routeTo": null,
+        "airborne": false,
+        "onGround": true,
+        "lat": 43.626,
+        "lon": 1.3588,
+        "trueTrack": 323.44,
+        "speedKt": 0,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Toulouse",
+        "mission": "Callsign BGA131G.",
+        "note": "Nearest Airbus site Toulouse (7.3 km).",
+        "positionMode": "history-only",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-08-29T13:07:25+00:00",
+        "trackPoints": [
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-08-29T07:29:32+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6257,
+            "lon": 1.3601,
+            "updatedAt": "2026-08-29T07:32:56+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6289,
+            "lon": 1.3587,
+            "updatedAt": "2026-08-29T07:38:13+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5675,
+            "lon": 1.4274,
+            "updatedAt": "2026-08-29T07:43:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4125 ft / 180 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5357,
+            "lon": 1.4492,
+            "updatedAt": "2026-08-29T07:44:30+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4500 ft / 236 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5086,
+            "lon": 1.4256,
+            "updatedAt": "2026-08-29T07:44:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5075 ft / 267 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.726,
+            "lon": 1.3049,
+            "updatedAt": "2026-08-29T07:48:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 12575 ft / 335 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 43.7835,
+            "lon": 1.2959,
+            "updatedAt": "2026-08-29T07:48:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 13875 ft / 338 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 43.8562,
+            "lon": 1.2835,
+            "updatedAt": "2026-08-29T07:49:38+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 15300 ft / 348 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 43.9144,
+            "lon": 1.2732,
+            "updatedAt": "2026-08-29T07:50:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 16175 ft / 361 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 44.0884,
+            "lon": 1.2426,
+            "updatedAt": "2026-08-29T07:51:57+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 19200 ft / 372 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 44.2988,
+            "lon": 1.2053,
+            "updatedAt": "2026-08-29T07:53:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 22375 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 44.5138,
+            "lon": 1.167,
+            "updatedAt": "2026-08-29T07:55:57+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 24675 ft / 401 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 44.7421,
+            "lon": 1.126,
+            "updatedAt": "2026-08-29T07:58:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 26900 ft / 409 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.3058,
+            "lon": 1.0075,
+            "updatedAt": "2026-08-29T08:03:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32400 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.4082,
+            "lon": 0.9788,
+            "updatedAt": "2026-08-29T08:04:01+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 33400 ft / 395 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.5066,
+            "lon": 0.9523,
+            "updatedAt": "2026-08-29T08:05:02+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32425 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.6636,
+            "lon": 0.91,
+            "updatedAt": "2026-08-29T08:06:29+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35600 ft / 387 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.8384,
+            "lon": 0.8782,
+            "updatedAt": "2026-08-29T08:08:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35575 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 45.9548,
+            "lon": 0.8611,
+            "updatedAt": "2026-08-29T08:09:08+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35600 ft / 388 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.0768,
+            "lon": 0.8424,
+            "updatedAt": "2026-08-29T08:10:25+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35575 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.2725,
+            "lon": 0.8125,
+            "updatedAt": "2026-08-29T08:12:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35575 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.3957,
+            "lon": 0.8074,
+            "updatedAt": "2026-08-29T08:13:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35500 ft / 410 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.4982,
+            "lon": 0.824,
+            "updatedAt": "2026-08-29T08:14:12+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 33500 ft / 395 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.6054,
+            "lon": 0.8407,
+            "updatedAt": "2026-08-29T08:15:13+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35500 ft / 411 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.7358,
+            "lon": 0.861,
+            "updatedAt": "2026-08-29T08:16:13+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 411 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.8509,
+            "lon": 0.8811,
+            "updatedAt": "2026-08-29T08:17:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35500 ft / 410 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.8915,
+            "lon": 0.8929,
+            "updatedAt": "2026-08-29T08:17:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34075 ft / 420 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 46.9386,
+            "lon": 0.907,
+            "updatedAt": "2026-08-29T08:17:57+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34250 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 46.9968,
+            "lon": 0.9231,
+            "updatedAt": "2026-08-29T08:18:29+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 411 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.0691,
+            "lon": 0.9424,
+            "updatedAt": "2026-08-29T08:19:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35450 ft / 411 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.1279,
+            "lon": 0.958,
+            "updatedAt": "2026-08-29T08:19:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 411 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.178,
+            "lon": 0.9714,
+            "updatedAt": "2026-08-29T08:20:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35450 ft / 415 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.232,
+            "lon": 0.9859,
+            "updatedAt": "2026-08-29T08:20:29+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35400 ft / 420 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.2894,
+            "lon": 1.0013,
+            "updatedAt": "2026-08-29T08:21:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35400 ft / 421 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.3008,
+            "lon": 1.0044,
+            "updatedAt": "2026-08-29T08:21:07+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35375 ft / 422 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.3687,
+            "lon": 1.0226,
+            "updatedAt": "2026-08-29T08:21:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35375 ft / 423 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4067,
+            "lon": 1.0329,
+            "updatedAt": "2026-08-29T08:22:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35375 ft / 422 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4621,
+            "lon": 1.0479,
+            "updatedAt": "2026-08-29T08:22:29+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35375 ft / 422 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5242,
+            "lon": 1.0648,
+            "updatedAt": "2026-08-29T08:23:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34875 ft / 392 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.5733,
+            "lon": 1.0781,
+            "updatedAt": "2026-08-29T08:23:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35450 ft / 419 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.6147,
+            "lon": 1.0894,
+            "updatedAt": "2026-08-29T08:23:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35575 ft / 391 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 48.7242,
+            "lon": 1.4785,
+            "updatedAt": "2026-08-29T08:33:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35200 ft / 428 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 49.7762,
+            "lon": 2.3987,
+            "updatedAt": "2026-08-29T08:43:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35125 ft / 418 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 50.6933,
+            "lon": 3.5092,
+            "updatedAt": "2026-08-29T08:53:53+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35075 ft / 419 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 51.5553,
+            "lon": 4.7649,
+            "updatedAt": "2026-08-29T09:04:03+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35975 ft / 418 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.289,
+            "lon": 6.1625,
+            "updatedAt": "2026-08-29T09:14:03+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35850 ft / 408 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.4328,
+            "lon": 6.4458,
+            "updatedAt": "2026-08-29T09:16:03+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35825 ft / 405 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.5157,
+            "lon": 6.6106,
+            "updatedAt": "2026-08-29T09:17:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35825 ft / 407 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.5902,
+            "lon": 6.7597,
+            "updatedAt": "2026-08-29T09:18:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35800 ft / 411 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.7129,
+            "lon": 7.0071,
+            "updatedAt": "2026-08-29T09:19:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35775 ft / 405 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.7929,
+            "lon": 7.1696,
+            "updatedAt": "2026-08-29T09:21:06+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35775 ft / 399 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.9229,
+            "lon": 7.4358,
+            "updatedAt": "2026-08-29T09:22:59+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34175 ft / 403 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0051,
+            "lon": 7.6058,
+            "updatedAt": "2026-08-29T09:24:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33000 ft / 413 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1344,
+            "lon": 7.8759,
+            "updatedAt": "2026-08-29T09:25:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31000 ft / 414 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2064,
+            "lon": 8.0269,
+            "updatedAt": "2026-08-29T09:26:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 28925 ft / 422 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2664,
+            "lon": 8.1998,
+            "updatedAt": "2026-08-29T09:27:59+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 26375 ft / 434 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3176,
+            "lon": 8.3783,
+            "updatedAt": "2026-08-29T09:28:59+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 23725 ft / 426 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3682,
+            "lon": 8.5562,
+            "updatedAt": "2026-08-29T09:30:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21500 ft / 409 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3759,
+            "lon": 8.5832,
+            "updatedAt": "2026-08-29T09:30:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21125 ft / 405 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4044,
+            "lon": 8.6841,
+            "updatedAt": "2026-08-29T09:30:46+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20100 ft / 399 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.419,
+            "lon": 8.7356,
+            "updatedAt": "2026-08-29T09:31:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 19150 ft / 394 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4344,
+            "lon": 8.7902,
+            "updatedAt": "2026-08-29T09:31:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 18400 ft / 390 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4494,
+            "lon": 8.8438,
+            "updatedAt": "2026-08-29T09:31:44+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17700 ft / 386 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.468,
+            "lon": 8.9102,
+            "updatedAt": "2026-08-29T09:32:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 16800 ft / 385 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4796,
+            "lon": 8.9512,
+            "updatedAt": "2026-08-29T09:32:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20275 ft / 383 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4983,
+            "lon": 9.0184,
+            "updatedAt": "2026-08-29T09:32:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 15425 ft / 379 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.5129,
+            "lon": 9.0707,
+            "updatedAt": "2026-08-29T09:33:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 14800 ft / 376 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.53,
+            "lon": 9.1327,
+            "updatedAt": "2026-08-29T09:33:33+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 14000 ft / 376 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.5423,
+            "lon": 9.1771,
+            "updatedAt": "2026-08-29T09:33:49+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 13475 ft / 376 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.5594,
+            "lon": 9.2389,
+            "updatedAt": "2026-08-29T09:34:14+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 12725 ft / 373 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.5656,
+            "lon": 9.2592,
+            "updatedAt": "2026-08-29T09:34:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 17875 ft / 375 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.5953,
+            "lon": 9.3332,
+            "updatedAt": "2026-08-29T09:34:54+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 11675 ft / 363 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6333,
+            "lon": 9.4224,
+            "updatedAt": "2026-08-29T09:35:34+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 10625 ft / 342 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6534,
+            "lon": 9.469,
+            "updatedAt": "2026-08-29T09:35:55+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 10125 ft / 364 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7003,
+            "lon": 9.579,
+            "updatedAt": "2026-08-29T09:36:54+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 9000 ft / 334 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7158,
+            "lon": 9.6152,
+            "updatedAt": "2026-08-29T09:37:12+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8475 ft / 314 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7293,
+            "lon": 9.6463,
+            "updatedAt": "2026-08-29T09:37:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8075 ft / 322 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7579,
+            "lon": 9.7134,
+            "updatedAt": "2026-08-29T09:37:59+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 7200 ft / 311 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7717,
+            "lon": 9.7464,
+            "updatedAt": "2026-08-29T09:38:18+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 7525 ft / 304 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7914,
+            "lon": 9.7933,
+            "updatedAt": "2026-08-29T09:38:38+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 6200 ft / 311 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7995,
+            "lon": 9.8124,
+            "updatedAt": "2026-08-29T09:38:57+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 9550 ft / 318 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8169,
+            "lon": 9.8532,
+            "updatedAt": "2026-08-29T09:39:20+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5625 ft / 375 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8294,
+            "lon": 9.8843,
+            "updatedAt": "2026-08-29T09:39:44+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5425 ft / 360 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8351,
+            "lon": 9.9617,
+            "updatedAt": "2026-08-29T09:40:14+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5275 ft / 302 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8343,
+            "lon": 10.0497,
+            "updatedAt": "2026-08-29T09:40:43+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 14575 ft / 315 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8318,
+            "lon": 10.067,
+            "updatedAt": "2026-08-29T09:41:13+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 4550 ft / 297 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.782,
+            "lon": 10.1123,
+            "updatedAt": "2026-08-29T09:41:49+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3600 ft / 297 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8313,
+            "lon": 10.069,
+            "updatedAt": "2026-08-29T09:42:07+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 11700 ft / 304 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7422,
+            "lon": 10.1114,
+            "updatedAt": "2026-08-29T09:42:32+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 18450 ft / 296 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.8041,
+            "lon": 10.1034,
+            "updatedAt": "2026-08-29T09:42:52+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 4225 ft / 227 kt",
+            "routeFrom": null,
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.7046,
+            "lon": 10.0896,
+            "updatedAt": "2026-08-29T09:43:13+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3225 ft / 209 kt",
+            "routeFrom": null,
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.6977,
+            "lon": 10.0853,
+            "updatedAt": "2026-08-29T09:43:31+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3350 ft / 315 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6808,
+            "lon": 10.0748,
+            "updatedAt": "2026-08-29T09:43:51+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 17675 ft / 284 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6707,
+            "lon": 10.0684,
+            "updatedAt": "2026-08-29T09:44:14+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3225 ft / 209 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.6563,
+            "lon": 10.0596,
+            "updatedAt": "2026-08-29T09:44:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3275 ft / 302 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6386,
+            "lon": 10.0466,
+            "updatedAt": "2026-08-29T09:44:54+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3250 ft / 168 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 53.6257,
+            "lon": 10.0274,
+            "updatedAt": "2026-08-29T09:45:11+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3025 ft / 162 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.6078,
+            "lon": 9.9897,
+            "updatedAt": "2026-08-29T09:45:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 2500 ft / 144 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5942,
+            "lon": 9.9605,
+            "updatedAt": "2026-08-29T09:46:02+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1950 ft / 122 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.589,
+            "lon": 9.9493,
+            "updatedAt": "2026-08-29T09:46:17+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1800 ft / 113 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5793,
+            "lon": 9.9284,
+            "updatedAt": "2026-08-29T09:46:43+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1475 ft / 117 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5724,
+            "lon": 9.9142,
+            "updatedAt": "2026-08-29T09:47:02+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1275 ft / 117 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5655,
+            "lon": 9.8995,
+            "updatedAt": "2026-08-29T09:47:23+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1075 ft / 120 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5585,
+            "lon": 9.8849,
+            "updatedAt": "2026-08-29T09:47:43+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 825 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5513,
+            "lon": 9.8693,
+            "updatedAt": "2026-08-29T09:48:04+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 600 ft / 116 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5438,
+            "lon": 9.8535,
+            "updatedAt": "2026-08-29T09:48:26+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 400 ft / 121 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.541,
+            "lon": 9.8476,
+            "updatedAt": "2026-08-29T09:48:34+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 325 ft / 121 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5309,
+            "lon": 9.8262,
+            "updatedAt": "2026-08-29T09:49:10+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5289,
+            "lon": 9.8216,
+            "updatedAt": "2026-08-29T09:50:12+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5307,
+            "lon": 9.8258,
+            "updatedAt": "2026-08-29T09:51:08+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5335,
+            "lon": 9.8307,
+            "updatedAt": "2026-08-29T09:52:08+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5359,
+            "lon": 9.8282,
+            "updatedAt": "2026-08-29T09:53:13+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T09:54:12+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T09:55:12+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8294,
+            "updatedAt": "2026-08-29T10:02:56+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8294,
+            "updatedAt": "2026-08-29T10:12:56+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T10:22:57+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T10:32:47+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5353,
+            "lon": 9.8283,
+            "updatedAt": "2026-08-29T10:43:00+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.535,
+            "lon": 9.8287,
+            "updatedAt": "2026-08-29T10:48:00+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.535,
+            "lon": 9.8287,
+            "updatedAt": "2026-08-29T10:49:19+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5341,
+            "lon": 9.83,
+            "updatedAt": "2026-08-29T10:50:40+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5335,
+            "lon": 9.8317,
+            "updatedAt": "2026-08-29T10:51:49+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5348,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T10:52:18+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5339,
+            "lon": 9.8302,
+            "updatedAt": "2026-08-29T10:53:19+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5334,
+            "lon": 9.8314,
+            "updatedAt": "2026-08-29T10:54:47+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5336,
+            "lon": 9.8318,
+            "updatedAt": "2026-08-29T10:56:13+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.516,
+            "lon": 9.7954,
+            "updatedAt": "2026-08-29T10:56:27+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 2400 ft / 124 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5347,
+            "lon": 9.8343,
+            "updatedAt": "2026-08-29T10:56:54+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5333,
+            "lon": 9.8314,
+            "updatedAt": "2026-08-29T10:57:07+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 400 ft / 135 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4888,
+            "lon": 9.7353,
+            "updatedAt": "2026-08-29T10:57:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3625 ft / 177 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4702,
+            "lon": 9.6926,
+            "updatedAt": "2026-08-29T10:57:47+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 4025 ft / 232 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5361,
+            "lon": 9.8371,
+            "updatedAt": "2026-08-29T10:58:03+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5426,
+            "lon": 9.8498,
+            "updatedAt": "2026-08-29T10:59:13+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4971,
+            "lon": 9.7539,
+            "updatedAt": "2026-08-29T10:59:22+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3500 ft / 149 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5052,
+            "lon": 9.772,
+            "updatedAt": "2026-08-29T10:59:51+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8275 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5347,
+            "lon": 9.8291,
+            "updatedAt": "2026-08-29T11:00:24+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3577,
+            "lon": 9.4232,
+            "updatedAt": "2026-08-29T11:01:16+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 10750 ft / 276 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5336,
+            "lon": 9.8306,
+            "updatedAt": "2026-08-29T11:01:45+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2112,
+            "lon": 9.2936,
+            "updatedAt": "2026-08-29T11:02:42+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 14500 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5427,
+            "lon": 9.8507,
+            "updatedAt": "2026-08-29T11:03:03+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.534,
+            "lon": 9.8327,
+            "updatedAt": "2026-08-29T11:03:28+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3959,
+            "lon": 9.5152,
+            "updatedAt": "2026-08-29T11:03:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8675 ft / 260 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.2564,
+            "lon": 9.3292,
+            "updatedAt": "2026-08-29T11:03:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 13550 ft / 304 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.108,
+            "lon": 9.2139,
+            "updatedAt": "2026-08-29T11:04:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 16950 ft / 309 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 53.065,
+            "lon": 9.1807,
+            "updatedAt": "2026-08-29T11:04:50+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17800 ft / 234 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.0598,
+            "lon": 9.1767,
+            "updatedAt": "2026-08-29T11:05:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17900 ft / 232 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.036,
+            "lon": 9.1584,
+            "updatedAt": "2026-08-29T11:05:33+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 18475 ft / 258 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.9258,
+            "lon": 9.0737,
+            "updatedAt": "2026-08-29T11:05:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20800 ft / 330 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9112,
+            "lon": 9.0626,
+            "updatedAt": "2026-08-29T11:06:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21025 ft / 340 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.8688,
+            "lon": 9.0301,
+            "updatedAt": "2026-08-29T11:06:36+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21675 ft / 370 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 53.5428,
+            "lon": 9.8503,
+            "updatedAt": "2026-08-29T11:07:00+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 52.7945,
+            "lon": 8.9735,
+            "updatedAt": "2026-08-29T11:07:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 5550 ft / 381 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.7694,
+            "lon": 8.9545,
+            "updatedAt": "2026-08-29T11:07:38+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 23275 ft / 378 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.7359,
+            "lon": 8.9292,
+            "updatedAt": "2026-08-29T11:08:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 10850 ft / 313 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.7042,
+            "lon": 8.9051,
+            "updatedAt": "2026-08-29T11:08:20+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24150 ft / 385 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.6655,
+            "lon": 8.8758,
+            "updatedAt": "2026-08-29T11:08:43+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24075 ft / 232 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.6156,
+            "lon": 8.8382,
+            "updatedAt": "2026-08-29T11:09:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24375 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.5833,
+            "lon": 8.803,
+            "updatedAt": "2026-08-29T11:09:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24950 ft / 260 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.5283,
+            "lon": 8.704,
+            "updatedAt": "2026-08-29T11:10:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 26275 ft / 395 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.5117,
+            "lon": 8.6748,
+            "updatedAt": "2026-08-29T11:10:39+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 13800 ft / 396 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.4809,
+            "lon": 8.621,
+            "updatedAt": "2026-08-29T11:11:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 26500 ft / 328 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.4464,
+            "lon": 8.5603,
+            "updatedAt": "2026-08-29T11:11:34+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25225 ft / 383 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 16.4307,
+            "lon": -13.5594,
+            "updatedAt": "2026-08-29T11:12:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 23900 ft / 390 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 46.6381,
+            "lon": 7.7752,
+            "updatedAt": "2026-08-29T11:12:31+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 28625 ft / 348 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.3481,
+            "lon": 8.4133,
+            "updatedAt": "2026-08-29T11:12:47+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 2525 ft / 356 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.3047,
+            "lon": 8.3625,
+            "updatedAt": "2026-08-29T11:13:12+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 27425 ft / 386 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.2089,
+            "lon": 8.2581,
+            "updatedAt": "2026-08-29T11:14:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31050 ft / 394 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.191,
+            "lon": 8.2392,
+            "updatedAt": "2026-08-29T11:14:23+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31300 ft / 393 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1511,
+            "lon": 8.1969,
+            "updatedAt": "2026-08-29T11:14:51+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31750 ft / 392 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1101,
+            "lon": 8.1533,
+            "updatedAt": "2026-08-29T11:15:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32125 ft / 396 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.0766,
+            "lon": 8.1178,
+            "updatedAt": "2026-08-29T11:15:35+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32500 ft / 395 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.0418,
+            "lon": 8.0814,
+            "updatedAt": "2026-08-29T11:16:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33025 ft / 391 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9973,
+            "lon": 8.0352,
+            "updatedAt": "2026-08-29T11:16:22+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 384 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9724,
+            "lon": 8.0094,
+            "updatedAt": "2026-08-29T11:16:39+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34025 ft / 384 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9351,
+            "lon": 7.9707,
+            "updatedAt": "2026-08-29T11:17:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34400 ft / 385 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9031,
+            "lon": 7.9375,
+            "updatedAt": "2026-08-29T11:17:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34725 ft / 386 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.8767,
+            "lon": 7.9098,
+            "updatedAt": "2026-08-29T11:17:43+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34900 ft / 383 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.8362,
+            "lon": 7.8667,
+            "updatedAt": "2026-08-29T11:18:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34925 ft / 384 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.8282,
+            "lon": 7.856,
+            "updatedAt": "2026-08-29T11:18:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34925 ft / 381 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 51.7857,
+            "lon": 7.7757,
+            "updatedAt": "2026-08-29T11:18:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34950 ft / 370 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7507,
+            "lon": 7.7093,
+            "updatedAt": "2026-08-29T11:19:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34950 ft / 367 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7243,
+            "lon": 7.6597,
+            "updatedAt": "2026-08-29T11:19:50+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34975 ft / 366 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.6541,
+            "lon": 7.5278,
+            "updatedAt": "2026-08-29T11:20:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34975 ft / 362 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.5875,
+            "lon": 7.4036,
+            "updatedAt": "2026-08-29T11:21:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34975 ft / 362 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.5224,
+            "lon": 7.2827,
+            "updatedAt": "2026-08-29T11:22:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35000 ft / 363 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.4575,
+            "lon": 7.1627,
+            "updatedAt": "2026-08-29T11:23:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35000 ft / 365 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.3907,
+            "lon": 7.0399,
+            "updatedAt": "2026-08-29T11:24:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35000 ft / 365 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.3231,
+            "lon": 6.9161,
+            "updatedAt": "2026-08-29T11:25:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35025 ft / 366 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.253,
+            "lon": 6.7884,
+            "updatedAt": "2026-08-29T11:26:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35050 ft / 368 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 50.9156,
+            "lon": 6.1827,
+            "updatedAt": "2026-08-29T11:31:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 365 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 50.5772,
+            "lon": 5.5894,
+            "updatedAt": "2026-08-29T11:36:59+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 360 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.9268,
+            "lon": 4.4422,
+            "updatedAt": "2026-08-29T11:47:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 36150 ft / 348 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.5627,
+            "lon": 3.9493,
+            "updatedAt": "2026-08-29T11:52:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 36175 ft / 350 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.4834,
+            "lon": 3.8446,
+            "updatedAt": "2026-08-29T11:53:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36175 ft / 349 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.4108,
+            "lon": 3.7492,
+            "updatedAt": "2026-08-29T11:54:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36175 ft / 348 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.3382,
+            "lon": 3.6543,
+            "updatedAt": "2026-08-29T11:55:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36175 ft / 348 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.2626,
+            "lon": 3.5558,
+            "updatedAt": "2026-08-29T11:56:05+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 346 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.1898,
+            "lon": 3.4613,
+            "updatedAt": "2026-08-29T11:57:05+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 346 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.1119,
+            "lon": 3.3606,
+            "updatedAt": "2026-08-29T11:58:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 343 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.0904,
+            "lon": 3.333,
+            "updatedAt": "2026-08-29T11:58:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 343 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.0635,
+            "lon": 3.2984,
+            "updatedAt": "2026-08-29T11:58:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 342 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.0403,
+            "lon": 3.2686,
+            "updatedAt": "2026-08-29T11:59:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 341 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 49.0095,
+            "lon": 3.2291,
+            "updatedAt": "2026-08-29T11:59:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 339 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.9846,
+            "lon": 3.1972,
+            "updatedAt": "2026-08-29T11:59:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 339 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.9678,
+            "lon": 3.1756,
+            "updatedAt": "2026-08-29T12:00:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 339 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.9273,
+            "lon": 3.1238,
+            "updatedAt": "2026-08-29T12:00:43+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 336 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.9023,
+            "lon": 3.0919,
+            "updatedAt": "2026-08-29T12:01:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 336 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.8715,
+            "lon": 3.0527,
+            "updatedAt": "2026-08-29T12:01:30+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 334 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.8445,
+            "lon": 3.0184,
+            "updatedAt": "2026-08-29T12:01:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 335 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.8142,
+            "lon": 2.9799,
+            "updatedAt": "2026-08-29T12:02:19+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 334 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 48.7848,
+            "lon": 2.9427,
+            "updatedAt": "2026-08-29T12:02:43+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36225 ft / 336 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.8923,
+            "lon": 2.4403,
+            "updatedAt": "2026-08-29T12:12:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36350 ft / 353 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.7727,
+            "lon": 2.2151,
+            "updatedAt": "2026-08-29T12:24:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36525 ft / 355 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.7731,
+            "lon": 2.022,
+            "updatedAt": "2026-08-29T12:34:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 36650 ft / 369 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.2378,
+            "lon": 1.9214,
+            "updatedAt": "2026-08-29T12:39:40+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 33950 ft / 377 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.1844,
+            "lon": 1.9115,
+            "updatedAt": "2026-08-29T12:40:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 33400 ft / 380 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.1566,
+            "lon": 1.9063,
+            "updatedAt": "2026-08-29T12:40:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 33125 ft / 380 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.1184,
+            "lon": 1.8991,
+            "updatedAt": "2026-08-29T12:40:48+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32725 ft / 381 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.885,
+            "lon": 1.856,
+            "updatedAt": "2026-08-29T12:43:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27475 ft / 392 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.7721,
+            "lon": 1.8354,
+            "updatedAt": "2026-08-29T12:44:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25325 ft / 382 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.5685,
+            "lon": 1.7984,
+            "updatedAt": "2026-08-29T12:46:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 21350 ft / 361 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.3826,
+            "lon": 1.709,
+            "updatedAt": "2026-08-29T12:48:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 16325 ft / 341 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.2526,
+            "lon": 1.5933,
+            "updatedAt": "2026-08-29T12:49:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 12600 ft / 327 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.156,
+            "lon": 1.5078,
+            "updatedAt": "2026-08-29T12:51:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 10425 ft / 290 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 44.0589,
+            "lon": 1.4223,
+            "updatedAt": "2026-08-29T12:52:39+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7500 ft / 275 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.964,
+            "lon": 1.3385,
+            "updatedAt": "2026-08-29T12:54:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5725 ft / 250 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.8824,
+            "lon": 1.2673,
+            "updatedAt": "2026-08-29T12:55:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4850 ft / 205 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.8105,
+            "lon": 1.2034,
+            "updatedAt": "2026-08-29T12:57:13+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4125 ft / 199 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.788,
+            "lon": 1.2,
+            "updatedAt": "2026-08-29T12:57:39+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3875 ft / 194 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7571,
+            "lon": 1.2286,
+            "updatedAt": "2026-08-29T12:58:21+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3500 ft / 190 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7472,
+            "lon": 1.2386,
+            "updatedAt": "2026-08-29T12:58:35+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3275 ft / 187 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7197,
+            "lon": 1.2671,
+            "updatedAt": "2026-08-29T12:59:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2575 ft / 167 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7004,
+            "lon": 1.2872,
+            "updatedAt": "2026-08-29T12:59:50+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2100 ft / 143 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.6902,
+            "lon": 1.298,
+            "updatedAt": "2026-08-29T13:00:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1850 ft / 142 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.6709,
+            "lon": 1.3181,
+            "updatedAt": "2026-08-29T13:00:46+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1375 ft / 146 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6602,
+            "lon": 1.3291,
+            "updatedAt": "2026-08-29T13:01:06+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1125 ft / 150 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6442,
+            "lon": 1.3458,
+            "updatedAt": "2026-08-29T13:01:35+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 775 ft / 142 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6316,
+            "lon": 1.359,
+            "updatedAt": "2026-08-29T13:02:06+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-08-29T13:07:25+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          }
+        ]
+      },
+      {
+        "id": "BXL-02",
+        "name": "BelugaXL 2",
+        "registration": "F-GXLH",
+        "icao24": "395d67",
+        "callsign": "BGA121H",
+        "generation": "BelugaXL",
+        "currentSite": "Toulouse",
+        "locationLabel": "At Toulouse",
+        "routeLabel": "At Toulouse",
+        "routeFrom": null,
+        "routeTo": null,
+        "airborne": false,
+        "onGround": true,
+        "lat": 43.6296,
+        "lon": 1.3611,
+        "trueTrack": 143.44,
+        "speedKt": 51,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Toulouse",
+        "mission": "Callsign BGA121H.",
+        "note": "Nearest Airbus site Toulouse (7.3 km).",
+        "positionMode": "history-only",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-08-29T12:02:43+00:00",
+        "trackPoints": [
+          {
+            "lat": 43.6254,
+            "lon": 1.3573,
+            "updatedAt": "2026-08-29T08:33:32+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6254,
+            "lon": 1.3572,
+            "updatedAt": "2026-08-29T08:43:46+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6245,
+            "lon": 1.3578,
+            "updatedAt": "2026-08-29T08:53:35+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6366,
+            "lon": 1.3507,
+            "updatedAt": "2026-08-29T09:04:03+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.7834,
+            "lon": 1.1178,
+            "updatedAt": "2026-08-29T09:14:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 15500 ft / 337 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.9489,
+            "lon": 0.9837,
+            "updatedAt": "2026-08-29T09:16:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 19400 ft / 355 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.0494,
+            "lon": 0.9021,
+            "updatedAt": "2026-08-29T09:17:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 21550 ft / 363 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.1399,
+            "lon": 0.8282,
+            "updatedAt": "2026-08-29T09:18:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 23200 ft / 372 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.2959,
+            "lon": 0.7002,
+            "updatedAt": "2026-08-29T09:19:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25275 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.4036,
+            "lon": 0.6114,
+            "updatedAt": "2026-08-29T09:21:06+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25350 ft / 402 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.5834,
+            "lon": 0.4624,
+            "updatedAt": "2026-08-29T09:22:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25325 ft / 399 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.6946,
+            "lon": 0.3695,
+            "updatedAt": "2026-08-29T09:24:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25325 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.8663,
+            "lon": 0.2255,
+            "updatedAt": "2026-08-29T09:25:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25300 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.9606,
+            "lon": 0.1459,
+            "updatedAt": "2026-08-29T09:26:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25275 ft / 396 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.0564,
+            "lon": 0.0648,
+            "updatedAt": "2026-08-29T09:28:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25275 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.1461,
+            "lon": -0.0115,
+            "updatedAt": "2026-08-29T09:28:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25275 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.2429,
+            "lon": -0.094,
+            "updatedAt": "2026-08-29T09:30:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25250 ft / 392 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.2562,
+            "lon": -0.1054,
+            "updatedAt": "2026-08-29T09:30:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25275 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.3136,
+            "lon": -0.1545,
+            "updatedAt": "2026-08-29T09:30:46+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25250 ft / 392 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.3431,
+            "lon": -0.1801,
+            "updatedAt": "2026-08-29T09:31:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25250 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.3725,
+            "lon": -0.2056,
+            "updatedAt": "2026-08-29T09:31:25+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25250 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4005,
+            "lon": -0.2298,
+            "updatedAt": "2026-08-29T09:31:42+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25225 ft / 395 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.443,
+            "lon": -0.2667,
+            "updatedAt": "2026-08-29T09:32:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25250 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4651,
+            "lon": -0.2858,
+            "updatedAt": "2026-08-29T09:32:25+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25225 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4888,
+            "lon": -0.3063,
+            "updatedAt": "2026-08-29T09:32:46+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5087,
+            "lon": -0.3236,
+            "updatedAt": "2026-08-29T09:33:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5441,
+            "lon": -0.3542,
+            "updatedAt": "2026-08-29T09:33:47+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5984,
+            "lon": -0.4011,
+            "updatedAt": "2026-08-29T09:34:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 388 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6145,
+            "lon": -0.415,
+            "updatedAt": "2026-08-29T09:34:23+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6488,
+            "lon": -0.4445,
+            "updatedAt": "2026-08-29T09:34:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6844,
+            "lon": -0.475,
+            "updatedAt": "2026-08-29T09:35:32+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25175 ft / 388 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7228,
+            "lon": -0.5083,
+            "updatedAt": "2026-08-29T09:35:51+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7784,
+            "lon": -0.5569,
+            "updatedAt": "2026-08-29T09:36:40+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 391 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6235,
+            "lon": -0.4228,
+            "updatedAt": "2026-08-29T09:37:12+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6815,
+            "lon": -0.4725,
+            "updatedAt": "2026-08-29T09:37:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8131,
+            "lon": -0.5873,
+            "updatedAt": "2026-08-29T09:37:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25100 ft / 391 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7023,
+            "lon": -0.4904,
+            "updatedAt": "2026-08-29T09:38:17+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8333,
+            "lon": -0.6049,
+            "updatedAt": "2026-08-29T09:38:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24950 ft / 382 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.76,
+            "lon": -0.5408,
+            "updatedAt": "2026-08-29T09:38:57+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8511,
+            "lon": -0.6205,
+            "updatedAt": "2026-08-29T09:39:18+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24725 ft / 391 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.781,
+            "lon": -0.5591,
+            "updatedAt": "2026-08-29T09:39:45+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8685,
+            "lon": -0.6357,
+            "updatedAt": "2026-08-29T09:40:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24550 ft / 371 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7592,
+            "lon": -0.5401,
+            "updatedAt": "2026-08-29T09:40:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8859,
+            "lon": -0.6509,
+            "updatedAt": "2026-08-29T09:41:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25250 ft / 395 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.9028,
+            "lon": -0.6659,
+            "updatedAt": "2026-08-29T09:41:36+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24125 ft / 368 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8631,
+            "lon": -0.6309,
+            "updatedAt": "2026-08-29T09:42:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25225 ft / 395 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.9344,
+            "lon": -0.6939,
+            "updatedAt": "2026-08-29T09:42:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 23750 ft / 367 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.9859,
+            "lon": -0.7353,
+            "updatedAt": "2026-08-29T09:42:52+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 23100 ft / 366 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.0923,
+            "lon": -0.8124,
+            "updatedAt": "2026-08-29T09:43:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 21850 ft / 361 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.1584,
+            "lon": -0.8623,
+            "updatedAt": "2026-08-29T09:43:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 21050 ft / 361 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.2915,
+            "lon": -0.963,
+            "updatedAt": "2026-08-29T09:43:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 19675 ft / 359 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.4774,
+            "lon": -1.1047,
+            "updatedAt": "2026-08-29T09:44:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17625 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.498,
+            "lon": -1.1203,
+            "updatedAt": "2026-08-29T09:44:36+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17025 ft / 346 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.5163,
+            "lon": -1.1343,
+            "updatedAt": "2026-08-29T09:44:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17125 ft / 372 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.528,
+            "lon": -1.1433,
+            "updatedAt": "2026-08-29T09:45:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 16550 ft / 335 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.5522,
+            "lon": -1.1618,
+            "updatedAt": "2026-08-29T09:45:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 16275 ft / 331 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.6412,
+            "lon": -1.2302,
+            "updatedAt": "2026-08-29T09:46:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15675 ft / 324 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.6842,
+            "lon": -1.2635,
+            "updatedAt": "2026-08-29T09:46:18+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15675 ft / 324 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.6882,
+            "lon": -1.2665,
+            "updatedAt": "2026-08-29T09:46:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 14575 ft / 323 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.7352,
+            "lon": -1.3028,
+            "updatedAt": "2026-08-29T09:46:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13950 ft / 321 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.7894,
+            "lon": -1.3447,
+            "updatedAt": "2026-08-29T09:47:38+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13250 ft / 316 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.8462,
+            "lon": -1.3886,
+            "updatedAt": "2026-08-29T09:48:20+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 12500 ft / 310 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.8625,
+            "lon": -1.4013,
+            "updatedAt": "2026-08-29T09:48:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 12325 ft / 308 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.9097,
+            "lon": -1.4382,
+            "updatedAt": "2026-08-29T09:49:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 12275 ft / 307 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.9849,
+            "lon": -1.4966,
+            "updatedAt": "2026-08-29T09:50:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 10600 ft / 291 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.0466,
+            "lon": -1.545,
+            "updatedAt": "2026-08-29T09:51:06+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 9400 ft / 282 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.1174,
+            "lon": -1.6006,
+            "updatedAt": "2026-08-29T09:52:08+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8000 ft / 277 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.1914,
+            "lon": -1.6588,
+            "updatedAt": "2026-08-29T09:53:13+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 6550 ft / 271 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.2574,
+            "lon": -1.7109,
+            "updatedAt": "2026-08-29T09:54:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 5325 ft / 262 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3204,
+            "lon": -1.7608,
+            "updatedAt": "2026-08-29T09:55:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4100 ft / 257 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3727,
+            "lon": -1.823,
+            "updatedAt": "2026-08-29T09:56:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 197 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3713,
+            "lon": -1.8515,
+            "updatedAt": "2026-08-29T09:56:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3275 ft / 171 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3676,
+            "lon": -1.8717,
+            "updatedAt": "2026-08-29T09:56:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 166 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3629,
+            "lon": -1.8954,
+            "updatedAt": "2026-08-29T09:57:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 146 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3588,
+            "lon": -1.9163,
+            "updatedAt": "2026-08-29T09:57:43+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 145 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3555,
+            "lon": -1.9332,
+            "updatedAt": "2026-08-29T09:58:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3025 ft / 144 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3529,
+            "lon": -1.9467,
+            "updatedAt": "2026-08-29T09:58:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2850 ft / 144 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3474,
+            "lon": -1.9738,
+            "updatedAt": "2026-08-29T09:58:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2500 ft / 136 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3442,
+            "lon": -1.9898,
+            "updatedAt": "2026-08-29T09:59:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2225 ft / 124 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3409,
+            "lon": -2.0065,
+            "updatedAt": "2026-08-29T09:59:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2000 ft / 121 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3378,
+            "lon": -2.022,
+            "updatedAt": "2026-08-29T09:59:45+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1775 ft / 107 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3342,
+            "lon": -2.0396,
+            "updatedAt": "2026-08-29T10:00:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1550 ft / 110 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3333,
+            "lon": -2.0442,
+            "updatedAt": "2026-08-29T10:00:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1500 ft / 107 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3285,
+            "lon": -2.0682,
+            "updatedAt": "2026-08-29T10:00:50+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1150 ft / 111 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3254,
+            "lon": -2.0835,
+            "updatedAt": "2026-08-29T10:01:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 950 ft / 110 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3229,
+            "lon": -2.0961,
+            "updatedAt": "2026-08-29T10:01:28+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 775 ft / 115 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3188,
+            "lon": -2.1164,
+            "updatedAt": "2026-08-29T10:01:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 475 ft / 117 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3158,
+            "lon": -2.1311,
+            "updatedAt": "2026-08-29T10:02:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 300 ft / 122 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3126,
+            "lon": -2.1471,
+            "updatedAt": "2026-08-29T10:02:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 225 ft / 95 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3112,
+            "lon": -2.1542,
+            "updatedAt": "2026-08-29T10:02:55+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T11:11:31+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3128,
+            "lon": -2.1577,
+            "updatedAt": "2026-08-29T11:12:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3121,
+            "lon": -2.1495,
+            "updatedAt": "2026-08-29T11:12:33+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3145,
+            "lon": -2.1378,
+            "updatedAt": "2026-08-29T11:13:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3153,
+            "lon": -2.1342,
+            "updatedAt": "2026-08-29T11:14:24+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1364,
+            "updatedAt": "2026-08-29T11:14:53+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3043,
+            "lon": -2.1899,
+            "updatedAt": "2026-08-29T11:15:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2450 ft / 112 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2968,
+            "lon": -2.2255,
+            "updatedAt": "2026-08-29T11:15:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3475 ft / 133 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2822,
+            "lon": -2.2349,
+            "updatedAt": "2026-08-29T11:15:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3600 ft / 187 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.2604,
+            "lon": -2.2179,
+            "updatedAt": "2026-08-29T11:16:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3850 ft / 252 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.244,
+            "lon": -2.1996,
+            "updatedAt": "2026-08-29T11:16:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4125 ft / 278 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.2176,
+            "lon": -2.1704,
+            "updatedAt": "2026-08-29T11:17:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 5350 ft / 281 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1961,
+            "lon": -2.1464,
+            "updatedAt": "2026-08-29T11:17:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 6325 ft / 287 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1768,
+            "lon": -2.1248,
+            "updatedAt": "2026-08-29T11:17:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7125 ft / 290 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1477,
+            "lon": -2.0918,
+            "updatedAt": "2026-08-29T11:18:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8350 ft / 299 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1414,
+            "lon": -2.0848,
+            "updatedAt": "2026-08-29T11:18:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8575 ft / 300 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.0995,
+            "lon": -2.0366,
+            "updatedAt": "2026-08-29T11:18:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 10450 ft / 300 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.0625,
+            "lon": -1.9951,
+            "updatedAt": "2026-08-29T11:19:25+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 11275 ft / 328 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.036,
+            "lon": -1.9658,
+            "updatedAt": "2026-08-29T11:19:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 11825 ft / 342 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.9508,
+            "lon": -1.8725,
+            "updatedAt": "2026-08-29T11:20:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 14375 ft / 354 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.8678,
+            "lon": -1.7886,
+            "updatedAt": "2026-08-29T11:21:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 16575 ft / 360 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.7829,
+            "lon": -1.7098,
+            "updatedAt": "2026-08-29T11:22:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 18400 ft / 375 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.6965,
+            "lon": -1.628,
+            "updatedAt": "2026-08-29T11:23:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 19750 ft / 385 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.6042,
+            "lon": -1.541,
+            "updatedAt": "2026-08-29T11:24:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 21300 ft / 396 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.5092,
+            "lon": -1.4516,
+            "updatedAt": "2026-08-29T11:25:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 22950 ft / 405 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.4092,
+            "lon": -1.3582,
+            "updatedAt": "2026-08-29T11:26:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24400 ft / 412 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.907,
+            "lon": -0.8944,
+            "updatedAt": "2026-08-29T11:31:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 29925 ft / 429 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.4047,
+            "lon": -0.4408,
+            "updatedAt": "2026-08-29T11:36:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 30475 ft / 429 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.4328,
+            "lon": 0.4102,
+            "updatedAt": "2026-08-29T11:46:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 18500 ft / 364 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.0778,
+            "lon": 0.841,
+            "updatedAt": "2026-08-29T11:52:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 8350 ft / 297 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.014,
+            "lon": 0.9198,
+            "updatedAt": "2026-08-29T11:53:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7575 ft / 263 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9651,
+            "lon": 0.9802,
+            "updatedAt": "2026-08-29T11:54:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7575 ft / 220 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9191,
+            "lon": 1.0361,
+            "updatedAt": "2026-08-29T11:55:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6325 ft / 220 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.8734,
+            "lon": 1.0924,
+            "updatedAt": "2026-08-29T11:56:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5175 ft / 199 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.8333,
+            "lon": 1.142,
+            "updatedAt": "2026-08-29T11:57:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4200 ft / 192 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7897,
+            "lon": 1.1934,
+            "updatedAt": "2026-08-29T11:58:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3300 ft / 194 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7773,
+            "lon": 1.2064,
+            "updatedAt": "2026-08-29T11:58:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 191 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7622,
+            "lon": 1.2229,
+            "updatedAt": "2026-08-29T11:58:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 188 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7483,
+            "lon": 1.2369,
+            "updatedAt": "2026-08-29T11:59:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3275 ft / 191 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7304,
+            "lon": 1.256,
+            "updatedAt": "2026-08-29T11:59:34+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2875 ft / 186 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7167,
+            "lon": 1.2703,
+            "updatedAt": "2026-08-29T11:59:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2525 ft / 182 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.707,
+            "lon": 1.2803,
+            "updatedAt": "2026-08-29T12:00:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2275 ft / 175 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.6869,
+            "lon": 1.3013,
+            "updatedAt": "2026-08-29T12:00:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1775 ft / 147 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6761,
+            "lon": 1.3127,
+            "updatedAt": "2026-08-29T12:01:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1525 ft / 140 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6625,
+            "lon": 1.3269,
+            "updatedAt": "2026-08-29T12:01:30+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1200 ft / 140 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6508,
+            "lon": 1.339,
+            "updatedAt": "2026-08-29T12:01:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 925 ft / 139 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.638,
+            "lon": 1.3523,
+            "updatedAt": "2026-08-29T12:02:19+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 700 ft / 133 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6296,
+            "lon": 1.3611,
+            "updatedAt": "2026-08-29T12:02:43+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          }
+        ]
+      },
+      {
+        "id": "BXL-06",
+        "name": "BelugaXL 6",
+        "registration": "F-GXLO",
+        "icao24": "395d6e",
+        "callsign": "BGA231R",
+        "generation": "BelugaXL",
+        "currentSite": "Toulouse",
+        "locationLabel": "At Toulouse",
+        "routeLabel": "At Toulouse",
+        "routeFrom": null,
+        "routeTo": null,
+        "airborne": false,
+        "onGround": true,
+        "lat": 43.6248,
+        "lon": 1.3578,
+        "trueTrack": 306.56,
+        "speedKt": 5,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Toulouse",
+        "mission": "Callsign BGA231R.",
+        "note": "Nearest Airbus site Toulouse (7.3 km).",
+        "positionMode": "history-only",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-08-29T14:47:10+00:00",
+        "trackPoints": [
+          {
+            "lat": 43.7594,
+            "lon": 1.2073,
+            "updatedAt": "2026-08-29T07:29:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 15275 ft / 334 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.1978,
+            "lon": 0.8857,
+            "updatedAt": "2026-08-29T07:34:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 24775 ft / 381 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.5025,
+            "lon": 0.6384,
+            "updatedAt": "2026-08-29T07:38:13+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27425 ft / 398 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.0284,
+            "lon": 0.1649,
+            "updatedAt": "2026-08-29T07:43:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27375 ft / 399 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.086,
+            "lon": 0.1109,
+            "updatedAt": "2026-08-29T07:44:30+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27350 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.1293,
+            "lon": 0.0704,
+            "updatedAt": "2026-08-29T07:44:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27350 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4299,
+            "lon": -0.213,
+            "updatedAt": "2026-08-29T07:48:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27325 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4864,
+            "lon": -0.2658,
+            "updatedAt": "2026-08-29T07:48:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27325 ft / 396 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5575,
+            "lon": -0.3317,
+            "updatedAt": "2026-08-29T07:49:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27300 ft / 396 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6127,
+            "lon": -0.3827,
+            "updatedAt": "2026-08-29T07:50:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27300 ft / 396 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7637,
+            "lon": -0.5348,
+            "updatedAt": "2026-08-29T07:51:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27275 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.9436,
+            "lon": -0.7163,
+            "updatedAt": "2026-08-29T07:53:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27275 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.1154,
+            "lon": -0.891,
+            "updatedAt": "2026-08-29T07:55:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26175 ft / 372 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.2948,
+            "lon": -1.0484,
+            "updatedAt": "2026-08-29T07:58:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24025 ft / 372 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.7413,
+            "lon": -1.3567,
+            "updatedAt": "2026-08-29T08:03:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15250 ft / 333 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.81,
+            "lon": -1.4048,
+            "updatedAt": "2026-08-29T08:04:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13600 ft / 320 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.8898,
+            "lon": -1.4608,
+            "updatedAt": "2026-08-29T08:04:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 11750 ft / 313 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.9957,
+            "lon": -1.5351,
+            "updatedAt": "2026-08-29T08:06:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 10475 ft / 289 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.1067,
+            "lon": -1.6138,
+            "updatedAt": "2026-08-29T08:08:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8500 ft / 282 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.1775,
+            "lon": -1.6636,
+            "updatedAt": "2026-08-29T08:09:08+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8300 ft / 256 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.2641,
+            "lon": -1.7247,
+            "updatedAt": "2026-08-29T08:10:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7350 ft / 220 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3684,
+            "lon": -1.7106,
+            "updatedAt": "2026-08-29T08:12:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7325 ft / 233 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.4315,
+            "lon": -1.6968,
+            "updatedAt": "2026-08-29T08:13:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 6500 ft / 229 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.4957,
+            "lon": -1.6953,
+            "updatedAt": "2026-08-29T08:14:12+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 5325 ft / 220 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.4892,
+            "lon": -1.7665,
+            "updatedAt": "2026-08-29T08:15:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4475 ft / 209 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.4303,
+            "lon": -1.7893,
+            "updatedAt": "2026-08-29T08:16:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3750 ft / 205 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.3797,
+            "lon": -1.8216,
+            "updatedAt": "2026-08-29T08:17:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 197 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.374,
+            "lon": -1.8411,
+            "updatedAt": "2026-08-29T08:17:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 196 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3676,
+            "lon": -1.8723,
+            "updatedAt": "2026-08-29T08:17:57+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3275 ft / 187 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3606,
+            "lon": -1.9083,
+            "updatedAt": "2026-08-29T08:18:29+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3275 ft / 160 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3542,
+            "lon": -1.9401,
+            "updatedAt": "2026-08-29T08:19:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2950 ft / 141 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3495,
+            "lon": -1.9632,
+            "updatedAt": "2026-08-29T08:19:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2625 ft / 140 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3443,
+            "lon": -1.9898,
+            "updatedAt": "2026-08-29T08:20:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2275 ft / 130 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3388,
+            "lon": -2.0167,
+            "updatedAt": "2026-08-29T08:20:30+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1900 ft / 122 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3346,
+            "lon": -2.0375,
+            "updatedAt": "2026-08-29T08:21:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1575 ft / 110 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3336,
+            "lon": -2.0426,
+            "updatedAt": "2026-08-29T08:21:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1500 ft / 109 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3299,
+            "lon": -2.0612,
+            "updatedAt": "2026-08-29T08:21:36+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1250 ft / 105 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3261,
+            "lon": -2.0801,
+            "updatedAt": "2026-08-29T08:22:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1000 ft / 105 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3218,
+            "lon": -2.1014,
+            "updatedAt": "2026-08-29T08:22:30+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 700 ft / 110 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3171,
+            "lon": -2.1247,
+            "updatedAt": "2026-08-29T08:23:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 375 ft / 113 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.1429,
+            "updatedAt": "2026-08-29T08:23:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 200 ft / 102 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3118,
+            "lon": -2.1509,
+            "updatedAt": "2026-08-29T08:23:44+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.161,
+            "updatedAt": "2026-08-29T08:33:30+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1609,
+            "updatedAt": "2026-08-29T08:43:52+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.161,
+            "updatedAt": "2026-08-29T08:53:53+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1609,
+            "updatedAt": "2026-08-29T09:04:03+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1608,
+            "updatedAt": "2026-08-29T09:13:59+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3132,
+            "lon": -2.1608,
+            "updatedAt": "2026-08-29T09:16:29+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T09:18:13+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T09:19:58+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T09:21:03+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T09:22:57+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-08-29T09:23:57+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3109,
+            "lon": -2.1556,
+            "updatedAt": "2026-08-29T09:25:59+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3125,
+            "lon": -2.1477,
+            "updatedAt": "2026-08-29T09:26:59+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1364,
+            "updatedAt": "2026-08-29T09:28:00+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3151,
+            "lon": -2.1344,
+            "updatedAt": "2026-08-29T09:28:59+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1399,
+            "updatedAt": "2026-08-29T09:30:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 200 ft / 81 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.313,
+            "lon": -2.1452,
+            "updatedAt": "2026-08-29T09:30:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 250 ft / 119 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3071,
+            "lon": -2.1765,
+            "updatedAt": "2026-08-29T09:30:45+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1825 ft / 122 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.308,
+            "lon": -2.189,
+            "updatedAt": "2026-08-29T09:31:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2600 ft / 118 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.317,
+            "lon": -2.2045,
+            "updatedAt": "2026-08-29T09:31:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3325 ft / 141 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.331,
+            "lon": -2.2083,
+            "updatedAt": "2026-08-29T09:31:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3700 ft / 175 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3504,
+            "lon": -2.2096,
+            "updatedAt": "2026-08-29T09:32:06+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3975 ft / 207 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3659,
+            "lon": -2.2098,
+            "updatedAt": "2026-08-29T09:32:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4125 ft / 234 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3977,
+            "lon": -2.208,
+            "updatedAt": "2026-08-29T09:32:47+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4600 ft / 284 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.4193,
+            "lon": -2.192,
+            "updatedAt": "2026-08-29T09:33:06+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 5250 ft / 307 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.442,
+            "lon": -2.1457,
+            "updatedAt": "2026-08-29T09:33:32+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 6625 ft / 316 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4459,
+            "lon": -2.1142,
+            "updatedAt": "2026-08-29T09:33:48+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7250 ft / 320 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4477,
+            "lon": -2.0908,
+            "updatedAt": "2026-08-29T09:34:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7875 ft / 320 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4514,
+            "lon": -2.0445,
+            "updatedAt": "2026-08-29T09:34:23+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 9450 ft / 297 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4565,
+            "lon": -1.9773,
+            "updatedAt": "2026-08-29T09:34:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 11250 ft / 300 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4622,
+            "lon": -1.8991,
+            "updatedAt": "2026-08-29T09:35:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13150 ft / 309 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4655,
+            "lon": -1.8555,
+            "updatedAt": "2026-08-29T09:35:56+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 14125 ft / 296 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4832,
+            "lon": -1.7771,
+            "updatedAt": "2026-08-29T09:36:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15750 ft / 326 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.462,
+            "lon": -1.903,
+            "updatedAt": "2026-08-29T09:37:12+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 12975 ft / 305 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5137,
+            "lon": -1.6939,
+            "updatedAt": "2026-08-29T09:37:25+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17200 ft / 353 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5313,
+            "lon": -1.6454,
+            "updatedAt": "2026-08-29T09:37:41+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 18000 ft / 297 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5605,
+            "lon": -1.5642,
+            "updatedAt": "2026-08-29T09:38:19+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 19900 ft / 362 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.463,
+            "lon": -1.8885,
+            "updatedAt": "2026-08-29T09:38:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13400 ft / 308 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5838,
+            "lon": -1.4989,
+            "updatedAt": "2026-08-29T09:38:50+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 20850 ft / 311 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.5938,
+            "lon": -1.4711,
+            "updatedAt": "2026-08-29T09:39:19+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 21575 ft / 370 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.4675,
+            "lon": -1.8314,
+            "updatedAt": "2026-08-29T09:39:41+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 14800 ft / 318 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.6486,
+            "lon": -1.3173,
+            "updatedAt": "2026-08-29T09:40:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 23800 ft / 359 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.6604,
+            "lon": -1.2841,
+            "updatedAt": "2026-08-29T09:40:29+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24350 ft / 390 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.6985,
+            "lon": -1.1765,
+            "updatedAt": "2026-08-29T09:41:07+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25200 ft / 365 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.666,
+            "lon": -1.2684,
+            "updatedAt": "2026-08-29T09:41:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24550 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.734,
+            "lon": -1.076,
+            "updatedAt": "2026-08-29T09:41:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25575 ft / 370 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.7514,
+            "lon": -1.0265,
+            "updatedAt": "2026-08-29T09:42:06+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25925 ft / 428 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.7729,
+            "lon": -0.9655,
+            "updatedAt": "2026-08-29T09:42:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26100 ft / 445 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.7236,
+            "lon": -1.1053,
+            "updatedAt": "2026-08-29T09:42:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25675 ft / 434 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.807,
+            "lon": -0.8678,
+            "updatedAt": "2026-08-29T09:43:13+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26200 ft / 362 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.8168,
+            "lon": -0.8395,
+            "updatedAt": "2026-08-29T09:43:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26450 ft / 377 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.8274,
+            "lon": -0.8091,
+            "updatedAt": "2026-08-29T09:43:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26700 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.84,
+            "lon": -0.7731,
+            "updatedAt": "2026-08-29T09:44:12+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27025 ft / 439 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.851,
+            "lon": -0.7416,
+            "updatedAt": "2026-08-29T09:44:33+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27275 ft / 465 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.8672,
+            "lon": -0.6946,
+            "updatedAt": "2026-08-29T09:44:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27650 ft / 465 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.8795,
+            "lon": -0.6592,
+            "updatedAt": "2026-08-29T09:45:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27900 ft / 465 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.9007,
+            "lon": -0.5981,
+            "updatedAt": "2026-08-29T09:45:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 28300 ft / 466 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 47.9519,
+            "lon": -0.4495,
+            "updatedAt": "2026-08-29T09:46:02+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 29275 ft / 462 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.0035,
+            "lon": -0.2989,
+            "updatedAt": "2026-08-29T09:46:20+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 30225 ft / 466 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.0282,
+            "lon": -0.2262,
+            "updatedAt": "2026-08-29T09:46:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 30625 ft / 468 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.0486,
+            "lon": -0.1665,
+            "updatedAt": "2026-08-29T09:47:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 31000 ft / 466 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.0687,
+            "lon": -0.1073,
+            "updatedAt": "2026-08-29T09:47:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 31450 ft / 465 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.0879,
+            "lon": -0.0502,
+            "updatedAt": "2026-08-29T09:47:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 31875 ft / 462 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.1083,
+            "lon": 0.0098,
+            "updatedAt": "2026-08-29T09:48:05+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 32275 ft / 461 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.1295,
+            "lon": 0.0729,
+            "updatedAt": "2026-08-29T09:48:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 32650 ft / 462 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.1367,
+            "lon": 0.0942,
+            "updatedAt": "2026-08-29T09:48:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 32775 ft / 462 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.1714,
+            "lon": 0.1973,
+            "updatedAt": "2026-08-29T09:49:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 33400 ft / 462 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.2303,
+            "lon": 0.3737,
+            "updatedAt": "2026-08-29T09:50:13+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34550 ft / 458 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.2829,
+            "lon": 0.5325,
+            "updatedAt": "2026-08-29T09:51:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 458 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.3359,
+            "lon": 0.705,
+            "updatedAt": "2026-08-29T09:52:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 457 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.3905,
+            "lon": 0.8927,
+            "updatedAt": "2026-08-29T09:53:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 457 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.4425,
+            "lon": 1.0699,
+            "updatedAt": "2026-08-29T09:54:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 458 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.4923,
+            "lon": 1.2412,
+            "updatedAt": "2026-08-29T09:55:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 457 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.5444,
+            "lon": 1.4213,
+            "updatedAt": "2026-08-29T09:56:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 455 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.5636,
+            "lon": 1.4881,
+            "updatedAt": "2026-08-29T09:56:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 452 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.5794,
+            "lon": 1.5433,
+            "updatedAt": "2026-08-29T09:56:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 451 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.5986,
+            "lon": 1.6104,
+            "updatedAt": "2026-08-29T09:57:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 451 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6166,
+            "lon": 1.6734,
+            "updatedAt": "2026-08-29T09:57:43+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 450 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6314,
+            "lon": 1.7257,
+            "updatedAt": "2026-08-29T09:58:01+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 451 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6427,
+            "lon": 1.7652,
+            "updatedAt": "2026-08-29T09:58:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 450 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6664,
+            "lon": 1.8489,
+            "updatedAt": "2026-08-29T09:58:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 448 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6817,
+            "lon": 1.903,
+            "updatedAt": "2026-08-29T09:59:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.6989,
+            "lon": 1.9643,
+            "updatedAt": "2026-08-29T09:59:24+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7158,
+            "lon": 2.0244,
+            "updatedAt": "2026-08-29T09:59:45+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7356,
+            "lon": 2.0949,
+            "updatedAt": "2026-08-29T10:00:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7403,
+            "lon": 2.112,
+            "updatedAt": "2026-08-29T10:00:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7677,
+            "lon": 2.2109,
+            "updatedAt": "2026-08-29T10:00:50+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 448 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7843,
+            "lon": 2.2714,
+            "updatedAt": "2026-08-29T10:01:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.7978,
+            "lon": 2.3207,
+            "updatedAt": "2026-08-29T10:01:28+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.8193,
+            "lon": 2.3987,
+            "updatedAt": "2026-08-29T10:01:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 447 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.8345,
+            "lon": 2.4538,
+            "updatedAt": "2026-08-29T10:02:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 442 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.8549,
+            "lon": 2.5102,
+            "updatedAt": "2026-08-29T10:02:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 440 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 48.8802,
+            "lon": 2.5628,
+            "updatedAt": "2026-08-29T10:02:56+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 438 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 49.5966,
+            "lon": 4.0114,
+            "updatedAt": "2026-08-29T10:12:56+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35225 ft / 426 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 50.4583,
+            "lon": 5.217,
+            "updatedAt": "2026-08-29T10:23:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 36150 ft / 418 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 57.3328,
+            "lon": 7.2387,
+            "updatedAt": "2026-08-29T10:32:59+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 36075 ft / 411 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 52.236,
+            "lon": 7.3942,
+            "updatedAt": "2026-08-29T10:43:01+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35925 ft / 390 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.6567,
+            "lon": 7.943,
+            "updatedAt": "2026-08-29T10:47:56+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31125 ft / 397 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.7505,
+            "lon": 8.0672,
+            "updatedAt": "2026-08-29T10:49:03+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 29450 ft / 398 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.6689,
+            "lon": 7.9591,
+            "updatedAt": "2026-08-29T10:50:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25525 ft / 415 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8675,
+            "lon": 8.2743,
+            "updatedAt": "2026-08-29T10:51:01+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 23075 ft / 414 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9498,
+            "lon": 8.4789,
+            "updatedAt": "2026-08-29T10:52:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24000 ft / 397 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.7608,
+            "lon": 8.081,
+            "updatedAt": "2026-08-29T10:52:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24425 ft / 400 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.0362,
+            "lon": 8.6961,
+            "updatedAt": "2026-08-29T10:53:19+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 18200 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.7759,
+            "lon": 8.101,
+            "updatedAt": "2026-08-29T10:53:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24325 ft / 408 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9073,
+            "lon": 8.3732,
+            "updatedAt": "2026-08-29T10:54:53+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 22350 ft / 407 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1659,
+            "lon": 9.0247,
+            "updatedAt": "2026-08-29T10:55:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 15325 ft / 402 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0086,
+            "lon": 8.6261,
+            "updatedAt": "2026-08-29T10:56:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 30425 ft / 405 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0923,
+            "lon": 8.8376,
+            "updatedAt": "2026-08-29T10:56:31+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24825 ft / 402 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0537,
+            "lon": 8.7401,
+            "updatedAt": "2026-08-29T10:56:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17700 ft / 368 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.058,
+            "lon": 8.7508,
+            "updatedAt": "2026-08-29T10:57:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17650 ft / 363 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2188,
+            "lon": 9.1603,
+            "updatedAt": "2026-08-29T10:57:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 13725 ft / 405 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1259,
+            "lon": 8.923,
+            "updatedAt": "2026-08-29T10:57:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 16525 ft / 317 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2689,
+            "lon": 9.289,
+            "updatedAt": "2026-08-29T10:58:07+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24725 ft / 401 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1173,
+            "lon": 8.9012,
+            "updatedAt": "2026-08-29T10:59:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 16975 ft / 400 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 52.965,
+            "lon": 8.5169,
+            "updatedAt": "2026-08-29T10:59:23+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20825 ft / 400 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.213,
+            "lon": 9.1452,
+            "updatedAt": "2026-08-29T10:59:55+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 13925 ft / 404 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3275,
+            "lon": 9.5785,
+            "updatedAt": "2026-08-29T11:00:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 27200 ft / 405 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2173,
+            "lon": 9.1562,
+            "updatedAt": "2026-08-29T11:01:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 30825 ft / 402 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3244,
+            "lon": 9.5606,
+            "updatedAt": "2026-08-29T11:01:45+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 27125 ft / 397 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0736,
+            "lon": 8.7902,
+            "updatedAt": "2026-08-29T11:02:44+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17125 ft / 277 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4027,
+            "lon": 9.9245,
+            "updatedAt": "2026-08-29T11:03:04+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 7350 ft / 389 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4141,
+            "lon": 9.9517,
+            "updatedAt": "2026-08-29T11:03:27+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 26825 ft / 397 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4111,
+            "lon": 9.9444,
+            "updatedAt": "2026-08-29T11:03:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 29750 ft / 302 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3425,
+            "lon": 9.662,
+            "updatedAt": "2026-08-29T11:04:06+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 23725 ft / 399 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4603,
+            "lon": 10.061,
+            "updatedAt": "2026-08-29T11:04:26+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5575 ft / 298 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.463,
+            "lon": 10.0674,
+            "updatedAt": "2026-08-29T11:04:51+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5550 ft / 304 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4939,
+            "lon": 10.1418,
+            "updatedAt": "2026-08-29T11:05:13+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 29000 ft / 401 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5029,
+            "lon": 10.1637,
+            "updatedAt": "2026-08-29T11:05:33+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 28725 ft / 397 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5226,
+            "lon": 10.2081,
+            "updatedAt": "2026-08-29T11:05:54+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 16950 ft / 314 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5329,
+            "lon": 10.2262,
+            "updatedAt": "2026-08-29T11:06:10+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 4475 ft / 316 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5611,
+            "lon": 10.2647,
+            "updatedAt": "2026-08-29T11:06:38+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 29700 ft / 399 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5834,
+            "lon": 10.2929,
+            "updatedAt": "2026-08-29T11:07:00+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 27075 ft / 392 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6031,
+            "lon": 10.3158,
+            "updatedAt": "2026-08-29T11:07:20+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 29275 ft / 233 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6194,
+            "lon": 10.3261,
+            "updatedAt": "2026-08-29T11:07:38+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 29300 ft / 302 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6395,
+            "lon": 10.3369,
+            "updatedAt": "2026-08-29T11:08:00+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3550 ft / 316 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6595,
+            "lon": 10.3421,
+            "updatedAt": "2026-08-29T11:08:20+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 16975 ft / 391 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6768,
+            "lon": 10.3322,
+            "updatedAt": "2026-08-29T11:08:42+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3550 ft / 316 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4785,
+            "lon": 10.1048,
+            "updatedAt": "2026-08-29T11:09:05+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 5025 ft / 263 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3122,
+            "lon": 9.4923,
+            "updatedAt": "2026-08-29T11:09:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 11175 ft / 303 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.6892,
+            "lon": 10.3208,
+            "updatedAt": "2026-08-29T11:10:15+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3700 ft / 396 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.7007,
+            "lon": 10.2014,
+            "updatedAt": "2026-08-29T11:10:39+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 26675 ft / 264 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6991,
+            "lon": 10.1797,
+            "updatedAt": "2026-08-29T11:11:08+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3225 ft / 156 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.6972,
+            "lon": 10.1729,
+            "updatedAt": "2026-08-29T11:11:13+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3650 ft / 385 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6918,
+            "lon": 10.1616,
+            "updatedAt": "2026-08-29T11:11:32+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3300 ft / 263 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.6999,
+            "lon": 10.1867,
+            "updatedAt": "2026-08-29T11:12:10+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3225 ft / 157 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3573,
+            "lon": 9.7423,
+            "updatedAt": "2026-08-29T11:12:33+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 19900 ft / 289 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.6364,
+            "lon": 10.3356,
+            "updatedAt": "2026-08-29T11:12:49+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3250 ft / 157 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.6546,
+            "lon": 7.9401,
+            "updatedAt": "2026-08-29T11:13:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25125 ft / 157 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.6362,
+            "lon": 10.0502,
+            "updatedAt": "2026-08-29T11:14:12+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3200 ft / 149 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.6286,
+            "lon": 10.0341,
+            "updatedAt": "2026-08-29T11:14:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 3075 ft / 145 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.6061,
+            "lon": 9.986,
+            "updatedAt": "2026-08-29T11:14:54+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 2350 ft / 137 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5829,
+            "lon": 9.9366,
+            "updatedAt": "2026-08-29T11:15:14+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1600 ft / 127 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5745,
+            "lon": 9.9186,
+            "updatedAt": "2026-08-29T11:15:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1350 ft / 123 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5658,
+            "lon": 9.9004,
+            "updatedAt": "2026-08-29T11:16:00+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 1075 ft / 124 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5579,
+            "lon": 9.8835,
+            "updatedAt": "2026-08-29T11:16:22+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 825 ft / 120 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5519,
+            "lon": 9.8707,
+            "updatedAt": "2026-08-29T11:16:39+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 650 ft / 124 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5428,
+            "lon": 9.8513,
+            "updatedAt": "2026-08-29T11:17:04+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 325 ft / 131 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5352,
+            "lon": 9.8353,
+            "updatedAt": "2026-08-29T11:17:25+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 200 ft / 123 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.5303,
+            "lon": 9.8248,
+            "updatedAt": "2026-08-29T11:17:43+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5291,
+            "lon": 9.8225,
+            "updatedAt": "2026-08-29T11:18:53+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5306,
+            "lon": 9.8255,
+            "updatedAt": "2026-08-29T11:19:26+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5321,
+            "lon": 9.8286,
+            "updatedAt": "2026-08-29T11:19:50+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5346,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:20:53+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.536,
+            "lon": 9.8285,
+            "updatedAt": "2026-08-29T11:21:55+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5362,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T11:22:51+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5362,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T11:23:51+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5362,
+            "lon": 9.829,
+            "updatedAt": "2026-08-29T11:24:51+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T11:25:55+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T11:26:58+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:31:57+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T11:36:58+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:46:59+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8294,
+            "updatedAt": "2026-08-29T11:52:00+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:53:01+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:54:04+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:55:02+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8293,
+            "updatedAt": "2026-08-29T11:56:05+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T11:57:03+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5363,
+            "lon": 9.8295,
+            "updatedAt": "2026-08-29T12:02:43+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5364,
+            "lon": 9.8292,
+            "updatedAt": "2026-08-29T12:12:55+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5351,
+            "lon": 9.8286,
+            "updatedAt": "2026-08-29T12:24:26+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3708,
+            "lon": 9.5372,
+            "updatedAt": "2026-08-29T12:34:26+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 9600 ft / 262 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9585,
+            "lon": 9.1756,
+            "updatedAt": "2026-08-29T12:39:40+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 19550 ft / 357 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9125,
+            "lon": 9.1354,
+            "updatedAt": "2026-08-29T12:40:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20475 ft / 360 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.889,
+            "lon": 9.1148,
+            "updatedAt": "2026-08-29T12:40:27+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20875 ft / 364 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.8564,
+            "lon": 9.0862,
+            "updatedAt": "2026-08-29T12:40:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21400 ft / 368 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.6626,
+            "lon": 8.8885,
+            "updatedAt": "2026-08-29T12:43:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24500 ft / 383 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.5661,
+            "lon": 8.7876,
+            "updatedAt": "2026-08-29T12:44:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25675 ft / 394 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.3765,
+            "lon": 8.5907,
+            "updatedAt": "2026-08-29T12:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 27475 ft / 414 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1793,
+            "lon": 8.3881,
+            "updatedAt": "2026-08-29T12:48:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 30775 ft / 386 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.0256,
+            "lon": 8.2314,
+            "updatedAt": "2026-08-29T12:49:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32325 ft / 391 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9061,
+            "lon": 8.1107,
+            "updatedAt": "2026-08-29T12:51:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34275 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.7739,
+            "lon": 7.9779,
+            "updatedAt": "2026-08-29T12:52:39+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35025 ft / 378 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.6397,
+            "lon": 7.8441,
+            "updatedAt": "2026-08-29T12:54:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35050 ft / 376 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.5018,
+            "lon": 7.7077,
+            "updatedAt": "2026-08-29T12:55:43+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35075 ft / 379 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.3687,
+            "lon": 7.5768,
+            "updatedAt": "2026-08-29T12:57:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.3309,
+            "lon": 7.5398,
+            "updatedAt": "2026-08-29T12:57:39+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.2688,
+            "lon": 7.4793,
+            "updatedAt": "2026-08-29T12:58:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 374 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.248,
+            "lon": 7.459,
+            "updatedAt": "2026-08-29T12:58:35+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 374 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.1879,
+            "lon": 7.4006,
+            "updatedAt": "2026-08-29T12:59:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 374 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.1377,
+            "lon": 7.3519,
+            "updatedAt": "2026-08-29T12:59:50+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.1087,
+            "lon": 7.3238,
+            "updatedAt": "2026-08-29T13:00:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35100 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.0556,
+            "lon": 7.2727,
+            "updatedAt": "2026-08-29T13:00:46+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 370 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.0264,
+            "lon": 7.2445,
+            "updatedAt": "2026-08-29T13:01:07+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 370 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.9816,
+            "lon": 7.2014,
+            "updatedAt": "2026-08-29T13:01:37+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 368 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.9393,
+            "lon": 7.1608,
+            "updatedAt": "2026-08-29T13:02:06+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35125 ft / 369 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.0416,
+            "lon": 6.4423,
+            "updatedAt": "2026-08-29T13:12:12+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35200 ft / 378 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 49.0047,
+            "lon": 6.7079,
+            "updatedAt": "2026-08-29T13:22:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 35300 ft / 397 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 48.0344,
+            "lon": 6.6793,
+            "updatedAt": "2026-08-29T13:33:24+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 36450 ft / 376 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.7809,
+            "lon": 5.9366,
+            "updatedAt": "2026-08-29T13:44:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 36575 ft / 344 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.9966,
+            "lon": 4.8732,
+            "updatedAt": "2026-08-29T13:56:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 36675 ft / 347 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.1997,
+            "lon": 3.3845,
+            "updatedAt": "2026-08-29T14:09:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 36775 ft / 348 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.9939,
+            "lon": 2.7346,
+            "updatedAt": "2026-08-29T14:15:12+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32350 ft / 349 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 44.6667,
+            "lon": 2.2105,
+            "updatedAt": "2026-08-29T14:20:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31000 ft / 350 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 44.2984,
+            "lon": 1.7531,
+            "updatedAt": "2026-08-29T14:25:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 17600 ft / 330 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 44.1557,
+            "lon": 1.7006,
+            "updatedAt": "2026-08-29T14:26:53+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27700 ft / 339 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.0251,
+            "lon": 1.6835,
+            "updatedAt": "2026-08-29T14:28:20+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 11950 ft / 327 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9222,
+            "lon": 1.6702,
+            "updatedAt": "2026-08-29T14:29:28+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 26775 ft / 368 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.779,
+            "lon": 1.6514,
+            "updatedAt": "2026-08-29T14:31:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27150 ft / 277 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7272,
+            "lon": 1.6445,
+            "updatedAt": "2026-08-29T14:31:55+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27125 ft / 295 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6918,
+            "lon": 1.6397,
+            "updatedAt": "2026-08-29T14:32:25+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6700 ft / 276 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6542,
+            "lon": 1.6349,
+            "updatedAt": "2026-08-29T14:32:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6125 ft / 271 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6114,
+            "lon": 1.6297,
+            "updatedAt": "2026-08-29T14:33:29+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6700 ft / 362 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.5777,
+            "lon": 1.6253,
+            "updatedAt": "2026-08-29T14:33:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5350 ft / 240 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5429,
+            "lon": 1.6207,
+            "updatedAt": "2026-08-29T14:34:34+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5125 ft / 274 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5197,
+            "lon": 1.6176,
+            "updatedAt": "2026-08-29T14:34:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4825 ft / 219 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4905,
+            "lon": 1.611,
+            "updatedAt": "2026-08-29T14:35:23+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7075 ft / 296 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4765,
+            "lon": 1.5761,
+            "updatedAt": "2026-08-29T14:35:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4375 ft / 209 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 43.4721,
+            "lon": 1.5397,
+            "updatedAt": "2026-08-29T14:36:24+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4150 ft / 271 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4932,
+            "lon": 1.5012,
+            "updatedAt": "2026-08-29T14:37:01+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3700 ft / 203 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5131,
+            "lon": 1.4819,
+            "updatedAt": "2026-08-29T14:37:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3375 ft / 194 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5335,
+            "lon": 1.4609,
+            "updatedAt": "2026-08-29T14:37:59+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2925 ft / 260 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5536,
+            "lon": 1.44,
+            "updatedAt": "2026-08-29T14:38:28+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2425 ft / 247 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5129,
+            "lon": 1.6168,
+            "updatedAt": "2026-08-29T14:38:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4825 ft / 241 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4882,
+            "lon": 1.609,
+            "updatedAt": "2026-08-29T14:39:19+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4450 ft / 138 kt",
+            "routeFrom": null,
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.5973,
+            "lon": 1.3948,
+            "updatedAt": "2026-08-29T14:39:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1275 ft / 136 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6146,
+            "lon": 1.3768,
+            "updatedAt": "2026-08-29T14:40:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 850 ft / 136 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6288,
+            "lon": 1.3619,
+            "updatedAt": "2026-08-29T14:41:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 700 ft / 106 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.635,
+            "lon": 1.3555,
+            "updatedAt": "2026-08-29T14:41:25+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6248,
+            "lon": 1.3578,
+            "updatedAt": "2026-08-29T14:47:10+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          }
+        ]
+      }
+    ],
+    "blockade_status": "Bloqueo Activo: Cero vuelos Beluga detectados conectando con Getafe (LEGT).",
+    "jit_stress_level": "Crítico (100% de estabilizadores HTP retenidos en planta)",
+    "historical_movements": {
+      "weeks": [
+        "Jun S1-S4 (Normal)",
+        "Jul S1 (1-7 Jul)",
+        "Jul S2 (8-15 Jul)",
+        "Jul S3 (16-23 Jul)",
+        "Jul S4 (24-31 Jul)",
+        "Ago S1-S3 (Técnica)",
+        "Ago S4 (Huelga Indef.)"
+      ],
+      "getafe_flights_per_week": [
+        14,
+        9,
+        6,
+        2,
+        1,
+        0,
+        0
+      ],
+      "normal_baseline_flights": [
+        14,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "accumulated_htp_retained": [
+        0,
+        4,
+        12,
+        22,
+        28,
+        34,
+        48
+      ],
+      "toulouse_fal_stock_buffer_pct": [
+        100,
+        85,
+        60,
+        30,
+        20,
+        15,
+        8
+      ],
+      "hamburg_fal_stock_buffer_pct": [
+        100,
+        90,
+        70,
+        35,
+        25,
+        18,
+        10
+      ],
+      "european_routes_distribution": [
+        {
+          "route": "Getafe (LEGT) ➔ Toulouse (LFBO)",
+          "flights": 0,
+          "status": "Bloqueado (100%)",
+          "color": "rose"
+        },
+        {
+          "route": "Getafe (LEGT) ➔ Hamburgo (EDHI)",
+          "flights": 0,
+          "status": "Bloqueado (100%)",
+          "color": "rose"
+        },
+        {
+          "route": "Broughton (EGNR) ➔ Toulouse (LFBO)",
+          "flights": 6,
+          "status": "Operativo (Alas)",
+          "color": "sky"
+        },
+        {
+          "route": "Saint-Nazaire (LFRZ) ➔ Toulouse (LFBO)",
+          "flights": 5,
+          "status": "Operativo (Fuselaje)",
+          "color": "sky"
+        },
+        {
+          "route": "Bremen (EDDW) ➔ Hamburgo (EDHI)",
+          "flights": 4,
+          "status": "Operativo (Hipersust.)",
+          "color": "sky"
+        },
+        {
+          "route": "Toulouse (LFBO) ➔ Hamburgo (EDHI)",
+          "flights": 3,
+          "status": "Ruta Interna",
+          "color": "blue"
+        }
+      ]
+    },
+    "strategic_notes": "El veto asambleario a la salida de vuelos Beluga desde Getafe impide reponer los estabilizadores en Toulouse y Hamburgo, acelerando el estrangulamiento de las FALs en 48-72h."
+  },
+  "sentiment_thermometer": {
+    "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
+    "timestamp": "2026-08-29T18:00:41.352715+00:00",
+    "temperature_celsius": 82.2,
+    "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
+    "status_color": "red",
+    "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.",
+    "bad_for_airbus_count": 68,
+    "good_for_airbus_count": 3,
+    "neutral_count": 16,
+    "total_items_monitored": 87,
+    "bad_for_airbus_percentage": 78.2,
+    "good_for_airbus_percentage": 3.4,
+    "channels_distribution": {
+      "Reddit": 1,
+      "Twitter / X": 1,
+      "Threads": 1,
+      "Telegram": 1,
+      "Corporate PR": 1,
+      "Prensa Nacional & Economía": 55,
+      "Aviation & Industry Press": 9,
+      "Labor & Negociación": 13,
+      "Logística & Cadena JIT": 5
+    },
+    "feed": [
+      {
+        "id": "com-01",
+        "source": "Reddit (r/aviation)",
+        "channel": "Reddit",
+        "title": "BelugaXL flights from Getafe halted: Why Airbus JIT supply chain breaks in under 72 hours",
+        "date": "2026-08-29",
+        "url": "https://www.reddit.com/r/aviation/",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+24°C",
+        "summary": "Analistas aeronáuticos explican cómo el monopolio del estabilizador horizontal (HTP) en Getafe paraliza las FALs de Toulouse y Hamburgo."
+      },
+      {
+        "id": "com-02",
+        "source": "Twitter / X (@SindicatoSIPA)",
+        "channel": "Twitter / X",
+        "title": "Unidad de acción en las asambleas: La plantilla exige el 12% consolidado en tablas y blindaje del poder adquisitivo",
+        "date": "2026-08-29",
+        "url": "https://twitter.com/",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+22°C",
+        "summary": "Las asambleas de fábrica ratifican mantener el 100% de la movilización hasta que la empresa firme la cláusula técnica sin absorción."
+      },
+      {
+        "id": "com-03",
+        "source": "Threads (@AeroLaborUnion)",
+        "channel": "Threads",
+        "title": "Solidaridad de los trabajadores de Boeing IAM 751 con la plantilla de Airbus España",
+        "date": "2026-08-29",
+        "url": "https://threads.net/",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+18°C",
+        "summary": "El precedente de Boeing 2024 (38% en tablas tras 53 días) inspira la firmeza asamblearia contra ofertas a la baja."
+      },
+      {
+        "id": "com-04",
+        "source": "Telegram / Comité de Huelga",
+        "channel": "Telegram",
+        "title": "Minuta de Asamblea en Getafe: Parálisis de vuelos Beluga confirmada y rechazo total a la propuesta patronal",
+        "date": "2026-08-28",
+        "url": "https://t.me/",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+26°C",
+        "summary": "Constatación del estrangulamiento de componentes hacia Toulouse. Asistencia masiva a los piquetes informativos."
+      },
+      {
+        "id": "com-05",
+        "source": "Airbus SE Press Office",
+        "channel": "Corporate PR",
+        "title": "Airbus SE statement: Management evaluates contingency operations to minimize commercial delivery disruption",
+        "date": "2026-08-27",
+        "url": "https://www.airbus.com/en/newsroom",
+        "category": "GOOD_FOR_AIRBUS",
+        "pressure_impact": "-15°C",
+        "summary": "La dirección intenta proyectar normalidad y amenaza con congelar inversiones en plantas españolas."
+      },
+      {
+        "id": "rss-01",
+        "source": "Expansión",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbWNVSkpHbzQ5TWwxMW1HOVEzTGMtRGQ3V3p0Smp4aW93ZktpT2xNTWhEVDlyS2ZNVzREejF0VlFUdzlYZG5UQ0J1UWx0QU9rMDdXeDRPajI1RVdvREYwRGhOOF91ZlRSb0U5dHVySk9MU3VZOU5DQTZvVDdCMG1WbNIBgAFBVV95cUxOQ1dseDByTVNfaWpRa3ZVMEFXNXViM3hmZlF3VFBPTXZWRG5sam5kMEZXVVlCd3JJS2d3ZjN2dXNJZlNXaUc1ME52SjhtUDlEUVhuRjJWNFc3WXFXMlowODdtSGkxd09RYVNoRXk2Mm5EYVgtLXdUamlrSk1VUzZ0aw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-02",
+        "source": "Aviación Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
+        "date": "Wed, 26 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-03",
+        "source": "Economía Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus España, a la huelga indefinida, aunque con visos de solución",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTFluaURGNXAxSWpvNHk0OGgwWjdWT0tvcTJwQTQyZHhGeVcyMVFGMGpJQkxZUkwyai1yaU5qM0FFeGdaU01JZUdlVDNzUjZITXZpMk53NnpweVpsZU1mbFJKODFxVlBudFdPOWFMVFBnVWpQUldJTXlqdFkzQUd6NkJSTjctSTlYRVBKdmxIUGRtWEFWUFBUcnIteW5XVjNjMko2bi14U0dtSDJkdy1CR9IBtgFBVV95cUxNVVBTNHFXb3hnWExQMHF6bkpfUVNlemIzOTNkaDJFM1RONmM2OFhSOURpUzVDSlk4OTcwVGxxODhMRWZhR3hhTjBsVmpUVEQ3REJ6ck1KZ3BZeEFKbHVRN1FZSi1xYzZrZnpLMDY2YlBfTUtFSm5aWEFGZXRaX1pNaFY3WEJyZWxRSVFjVFl3YXBMc1hpbjZjZ3U0LUN4T1R3YnZYRVZ6V1h2NkJHcjRlbjNfLXpBQQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-04",
+        "source": "El Mundo",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Llega el 'día d' para Airbus: empresa y plantilla acercan posturas para evitar una huelga que estalló por el teletrabajo",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNanphWGFnelBvOE9uOUk3cUxwY0NlLVlLZ29RWnNpRHctWlp6SFNWS1lHLXlnZnJlWkdZclFVb29ONlBDUlZTa1ZGSFpCRmJVeXMyVFpLRXJBLUt5RTFKUXVCaThucXhIbjZFT3RBQmVqT1UyTjZWaF82T1JLbzlHQ2xjZURFS3RI0gGIAUFVX3lxTE9kck9rV2J1TWdDcU9EdVN0ZTV4NVREeVJkanFuQzVLekowXzlPakUwNXFNcEs2LUhzZ3VKMl9STFBwazVsRm1HVS1BR2JFdHJlVUMySG84Z21yTDlzNnVlNmRrVjREdnJNMjFva0VMYnR1bFRoWkIyNnFCUjUwRjFSNVA0V1lkM1U?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-05",
+        "source": "El Conciso",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Varapalo para Airbus España: los trabajadores deciden seguir con la huelga indefinida",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc0pBbmQ1S09uaVdoZWd2RDdmUzVyN2FzTXBUZ1lleEtYR2JQSGVkRDZjbm1ZblA5Vll6X1BpenphQmhFNmhVMURqeGhOTnlqZnZTelpBcFl3SktIZE5fdC1CdVBhdmRKeEVWUDl1X3dWYy1FbS1QeXZfV2NvWGRtQ0IzSjFkMmh3Y3FOWmp6MVc5YWdSb0dXa9IBngFBVV95cUxNR29ZNjl4d0ZNa1NpeW9KSUFHYnZ4NDZsY3Z3ZjhLZmJwckthRDVJcFlhdXl6ejhMWDR0ZFViSnNsY0xFaWpobDRqWVFlb0FFMXBnc04wSEgyNHRwcm1qVk93Rl9YajBUdTJFbjRNT3k3cUVzbFJ4TDh5a0lmTUYtdHZnZUt3UVo5QlNfZU5BTWpQS1lHVVpMNWpvTUc5UQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-06",
+        "source": "Diario en Positivo",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus España iniciará huelga indefinida desde este martes",
+        "date": "Tue, 25 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNblRkNkthc0FwWS1INW9DQ0hJdjU4U29rM3VkVlZraUcxeUlCb3BQVzR2cFdKeV9tTmd2dlV5ODZseGtNSVU0REllZjRQcFNSMF80TDFwSlVJcGxOVmV0WjlacFhZWFNnRXFkSHJHZW1uREcxazdFdGR4Wkx1ekdpaDFHQTI2clRHUFJfZ2Y1OXhJMGFNc2Njb3VYU0RuQ0toTTBNTnljMXVFYklWQ3JHUFg5YXExd3NKOE9uUGJNZlhBMzRxYzc1Tllpak04cUk2N0lCYlgyYW1KUdIB3wFBVV95cUxPUnVJOFZPLTBSMlhzenlnN2tQbVZ2ZFVQTlZSRUZRTW01QWpoNEgwbDV3YzZTQllJbEl3bFYzOEhiNlBPRDdDSnE3bHg5c0xhNG9CMGlGbDljdGc1bGNVVHhnZE5JeldDblEzZnkzNEZiTmhyM0lnVjc4bV9kU1dmT1dZSW1rYUhHU3drMHdaYnQ1SHVDcFRtb0tUNFV3aDFxZ2UwWTFXamhwUHgwUHREUXhJQlB1dlRSOG9BRS1rSG1EZm1IajlFLXlXTjVibG1DYnFRT1F2U3dxbWlqRWZV?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-07",
+        "source": "elDiario.es",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-08",
+        "source": "Infodefensa",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Huelga indefinida en Airbus España: UGT, CGT y ÚTIL convocan paros totales a partir del 24 de agosto",
+        "date": "Fri, 31 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPcHc4TUxlVzFhbVF5ejZHalFnZVZZSDVOdzh2cXYxYWEtWVNmUmtWRHBRU3h1ZFk1eGplV1h1TXFmM180VkFiY2M5UVRwaDFvaDBSU1NvcnJFc2hiU0lHYXlGbHNyZ0l2aGd2RnVUWXk5ZDNubFRsWHM1OUttcXhKQlFQUkhDdFNEbkl2dFNoR0JHcm9sU2RWT3NBek40STI2QTAybjJLeXFzWGxaLU0zay1PMkNhMmlYTUhCZm5BTHVIVlBrT2txT3YzODM?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+27°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-09",
+        "source": "Cinco Días",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus España se plantean una huelga indefinida a partir del 24 de agosto",
+        "date": "Tue, 21 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQdXo3NU8xbVFwQnJ2WUxSMUtRR3BpUGItTi1OMnNIdlBWaUY3ZklGSGdWbU54a2RGUDNvMk4tekNVZVl1djVGMUNVUHpXNEF3TG5JQnVxa1Nob2U3dzJ5ZzlxZmFzUlJGS0k3TTd1TW5qVVR5bEd0OW5UamdUVHJpYUZuV2Q5ZWY0bHo1NGk1MzFUQ1BLdnpESGtjcXRGZ3hnMWF5eEpydFhVMFJYbVVldDlHYzM4Z3JtMzVDZDlQVXdNM0xRd05jTXZTZTNCVjE5M1pZb1lsenFDaXNwUzRVWEt30gH2AUFVX3lxTFAyYkFrT20yRDlTZDVaY3prV081VjExRFYydjd6NXNlQW93QWszc0lFY0FDWXNYNTlKenc3U3UybERnVGJKZFg4R2RZOWZ1VEZFMHdGSHhCS3VvY3MxZUU4MmF2OWN6ejZRR2tvTjloQ3JlMi1rc0doVld6TkxCdXFzTGltdzBabVQ2ZndITERzOTlfeEFSR0J5QkdJSmp2NWlobG9hZnhHWktkUHFiNDJiQl9QaTd4VGx5Z0ItbWFibHh4d1IwWFdnVXloYTJWdDhNT1lBdXdILWNhXzlfcnhCWFhJU3lKZnFldDlFcUNJaDRtWmNTQQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-10",
+        "source": "Cadena SER",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga en la fábrica de Airbus en Getafe se recrudece tras una semana de protestas",
+        "date": "Wed, 08 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxON2xaeDN1THlnanVkUFBnVnBKODR5c3NWUzF0TTVBWkJtTXRPSDhRZ0NoUEttNnE3QVNJZkhseUZQcXk1RWNGSi1iUk8yWEd0V1ZyZW9PeElfa2lycGJaOTRRZG9nQmM5aXZWWHM4SGJ2STZZVlc2OWwtaU1BWHN5QnZCZDN5LXpMOWIwcUdkSmF1VFNPNURFcERYQkRFam9fNTdycktRZWxucVVkM3p2b3YyUVJQYlRRVm9kaWVZUW5KYmlET1pBS0NWU1YyMFNseHNnQmk5NU9LZ9IB7gFBVV95cUxOM3ltMktUZHJJQ2sxSUpuZ19QVUo2NnZadTRTQXRnLXQyeDRpUTRKVHQxLTlkYThIN3hqVkNwZlhNOXUyM2ZRc1hvOVYyXy05Q3Y3OEV2TEhXcWRWWkNWRGxkempET3J2bzhJQlltcGw0bXhYODJIZldfOEFDRHMzTzFOM0dzYkNRT0JLN0pTVFFZMWUyekducGtsTzNkN2JtcGlBczJOMndNc28ycGoyS0lZNng2Q2JLU0NSTzZTNW0wU2dUU3VveUp6TnVBRkNiTDY3U3Q1VjN2T3hSUVlhODAxWHJ5YmYxRks1cDRR?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-11",
+        "source": "Industry Talks",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus: la plantilla dice no al preacuerdo en el referéndum y el sindicato convocante de la huelga la retira",
+        "date": "Sat, 25 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPTXNxZElrQnpMb0lNcklqakhfWjlYWC1KaGJvVkRKYllEOU4tU2phc1NQd0ZraDJBU21JdU91LVhPNEdiWjliMEYwMy1fbVhIV0hSUEs2dFVjYnBPclFXVE1ZYTBUamtyRlFTWDJNcU1QazFNRU9GVjM4WmtBeDdZTmdXbzktTGlUV1NWSzczT0gtQnpxb3hwLUVudkVqM0RBN29FUnMxYWt5VWFCcTZVM2htYXV4UXpDZUF1a0tTT1Nfcms1aC1ZQzhKR0xZdw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-12",
+        "source": "Euronews.com",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus vive su mayor huelga en España con todas las plantas afectadas",
+        "date": "Wed, 15 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNajdCcEVoQXllQzU4UmVScjFoMjNEZGZrNnFnTFdiUTBuTkFJdlp1Nmdia3BXdzA1SU54VHV2c1VqVTlzN1RwOGxmaV9PRklaeWpkMS02a3pZUkVhbWNVZXRvUW5yT2tnc2V1RzBiVnJHN0c2WDV6bVRZNkg2Zjc0Q1ZDUDBBMGw4SlpjWWVQTXRmSFFPdWRkSTNFc0tjWmd0NmFIWlo4UThjM3lVa1Q5enhJZlc?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-13",
+        "source": "Diario Público",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Cerca de 5.000 trabajadores de Airbus España se manifiestan en Getafe tras 16 días en huelga",
+        "date": "Thu, 16 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNcFJ1VU5Kbk8wQ0Q0RE5pR1JQbnJQc1I1bU9ycFE4bHliSkY5UVh4cGdiWm1mSlA4akwyT0NJNzFjcDVvamQtZU9JZlBIVHUtaXUzYllMOUZiRVBhYnFMRF9NeVpVRjlZM3lDVDliTk11MEFOTndnUUwyYWRBdDNvR1gyWDk1b1lYcnpwSW9vNkxqblAtbFVyTGNCcS1oTzRJRWdEOHlvMVhLR1NYdFHSAbMBQVVfeXFMTWw3aEpwMDV6NWhReWZ0UFhTb1NLWTRZWEowUjk4anZVdUE5NGxmbzFrcEZfMVdhR2c4YUJQdjRxWWh1SVR1ZjBEeGpVNDUtZEZacXBHaW5QZ1lwaTVkZHJpU0FpaG51OVp2LVo2SURkTnBvV0lJVG1YQy1EQTN5LWlFMXktRWdBeWdXY1ZkYkFvS09fVTVHVl90Q09IOWw3Zl9yNGNBQWJ0MHoxc0RTZnQ5aHM?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-14",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus: Sigue la huelga en España",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-15",
+        "source": "Soy de Madrid",
+        "channel": "Prensa Nacional & Economía",
+        "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Soy de Madrid. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-16",
+        "source": "Cadena SER",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
+        "date": "Mon, 27 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORm9mOVoydGdqel9TQ1BwX3NvSjkySjFFS0M1ZTg3YTNPUlYyWldWNHdvZVR4bFMwc3J2ek5aNVZpUFpJX19BLUsySDdxTmRQVDhwVGFNRHZMYmpqR1U0T3U1NkJNZDZCbFR4TFA3Z3ZmVTQtWXZvY0R1MkxRTmpnQVNYaUcyOUV3QlZ3Ylc1X1J2bHhmOFNUbS1PaUVpM1RYWlZNWDV1cG5ib2NpeDZ0UXFDbmhFa055VEYxYTBVRnF5bHNFcGJpZkY3Q0o5THhPLUFxSEliVnhfa3RNejN2Y1Q0V0pEQk85a1hLRFNTbmvSAYQCQVVfeXFMTVpxV0RoYUc2NFRLYWpyRzVKVGlVVmtYWGJaVTk2b01lbXdnWUNuYlFTT0k2MG9kNlNGS2dlYWpFRFRYTDhZRjRScmZsbGFITzFPQ1IwY2FmNzZKMHlCNHNLRmxRWEZTTTdwdDlDNXdYTHRhR2tJNzNJUUljUzlRMTRxcUY5d0lqRzdMWmdFQVZZY09qWURfTXBwMGEzZWR4aFFHb2VndkdQaTJOaVE2cFliOGJ3elV4MXoxRXZ1ZHFqRHZMbno0UW05dEdwT09VRzZDWkpaS19ib0RaVy1Fc2h3SndrTFd3dE1IeTV3elpmQU1WNHlVOFdwVy1ONWZZN2ozaEI?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-17",
+        "source": "El Mundo",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNd1A2LTIwb1BkNklYbGJNQTZ2N1NxOXR6RHh3XzJFLVdCSjdIbFdPZ2JWVWhJbk02MDRiaFZtQl9VS2pxNk4zMWQ4U2xYT1V3dURFQl83a2o3eER5cHFrWTJ6S2x0MTlzRFYyWTF1Y2VfR3pPd01Ha3FHUmRpZTlCdTdPdUNwd3Jv0gGIAUFVX3lxTE9QMXpUQncwOUdORjkyVU5oNExVVEk5akNJQ3hvdnhPcjFqUG1HS0loNlZRX3haRk1Gb0JtcVJHbE1FVXJCTzJoNG1pQ2ZPaGVFY2V0TW04R0hDTEc5R1I4djJsWWdMalREMFB6NWk2VEg4QmZDM2xuWGRwcE9EU2NDc3MxT3JoYmE?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-18",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga",
+        "date": "Sat, 18 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVk9RWV9jYV9ub25faGwxZGtYQ3lOQkd1TVlwS09HMXotMzhUR1MzVlJEUTRqR09LaDhOMHFqdVNlWHU1YzZqa0R6UEtzank3ZEZwMDdJZGxGbXh1dWQ0LU1vcjhkWl8wblBGYUpqSXV0YjNDeWRJZGVrX09zeEljUlFqOHF2VGdKb2J4cWZyNVdlbmFIUnNzWFFvbFZ1aG0wU0ZaV3g1bw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-19",
+        "source": "Cadena SER",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
+        "date": "Tue, 21 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNVmZMTUROUERrb0s0UTFURHdZZHM3OF9UV19WOUNMMHJUV2hCQlhMamcwLTNoVTBMR2FpWnJDQnB5RkJCbEZBVFg0VWpqNVgxaW0tQ1BtZ1h1dGdiSk56N1BnMkoxZ2lvb2tRdVFPNTdWbnJEcVdDSnFRcHdjVkhJNXJVNWtOMlU0YVd1MTF4QW5QYXM0MU9JYXdmaHowX05ZZWJSNU41cUZ6Ul9WOHI0ZnNmVnRrM1hSS09FU3ltUVZNZHNUSWZfNDRSR0lDRk0xRGRYRWYzcHZkdHR2UzVHNVJHLVg2a0E1UXQtZFFMOUVBcTVt0gGIAkFVX3lxTFBBN0JaQ1NBMkdXN24yN2RXdDdTeENJaVBkeHVwMEp3a1pKVjlwY1VBQXoxUEdlS25sbVliLS1oSTNtbk9OY0JhOFVGMTJReVpvTjVKUi1VUmxMN1JlRlhXQUNORERLZHE1VUJLZHI3eGlxX3o0NldBUzRNOU1sRjNueE5lc01XN0p5Q3pINlM2dmZkVWo2V0F3MXFfYWg2U3R0Ykw5NWZCSUt1Q1NFT2tQUUdCWlpaQ25WeS02MGlCVnNja1cyNEVuTVMwYUVmSmFhU0NyT2JKWHZVNGRYOVZHSFZxY3hjemZ4c3BOaUxYdEpvWmdjVzFfM250QnE1bWp3MzUtYlFMQw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-20",
+        "source": "Cadena SER",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La mayoría sindical en Airbus firma un nuevo preacuerdo que someterá a referéndum este viernes",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOT1hMVENpZFpnTFJCa1g4TUNwbUp0Z1hla1hfek4tTjVjTE9OYWcyN2ozYTJoREV3N3k0UW1nVTRPZF9yUXZndzhqMHBFcnlFR3BRTnd4VkhENmF4Rmw3SW9Od1Q1Z1ZaRnlGeVppMzlwQTh5ZUdsRU8yZnkybGh0elctYTkyYXREYlFrNzcxTHZHeE5sc2ZCYnh4OUlmQllUTF91MThhV1NNWENFZUFtc04yMU9XZTJRRzktMVJRQkwzZzAtM0Q0WmRDMU9lLXpTeEZWSTJSUU9IdVFGYmZpbm00a1RrZ9IB-gFBVV95cUxOR2FtRGpTMnk1T2tESTdRZ3QzZG42MzY0aUxRMVRhWnRaWnUzcHNGLVliREVOalhlX3pQcGIyMk82ekZuSEpaYlNmdUVTNENyRkVXd2Rvc2o3TVo0T3dKWnBQdmhVWGtyTGRHa09BWVFZakVoemdVZWdlLWM1SzRuYkRpZVZUM3BiMEhwdjRESXBGQUhQZ0liRVNlV0RfeUtGc1ZILUFpdHIyZ1dxX0s1WEhNcDNYRUZmTDctN2QwV0dna0tqS3hTcnVJeDVjLTViN1RhN1pUdzg5OHpSaU0zQVcyamJCb25KNVZjeENZS25BMFd3bEtaWXRn?oc=5",
+        "category": "GOOD_FOR_AIRBUS",
+        "pressure_impact": "-13°C",
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cadena SER."
+      },
+      {
+        "id": "rss-21",
+        "source": "Economía Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus España: reunión sindical clave para marcar el futuro de las movilizaciones tras una semana de huelga",
+        "date": "Wed, 08 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNdnJ5TkViY0h5Qk1nQ2NDRHZBTi1LajF0RVppblRDRGJXX0hPUVdfTWxVSDFXRk8ySEZjeEJPNEwya3NFN0VXYWdWSUZCWkwyQlY3eGlEUXRGZm0yTnNTdU1MU2pManBad0hnM3ZnUTV0Nlh6MDdlSlFidG5DU1hmWtIBhgFBVV95cUxPTk1VZWE0MnMwNDNZODkxX01kRTluemZWd2lOVDA1S3FVLWxScFdteFhYTl9uN29sd1Z5OHR1eGU3Y0I3eXJwS0cxS3pJQmZOUGZPRFZOY1hmUGJjbWRfNlFta2pzREtfcUpxdkh1WDFKSDd4ZDBYR3JPeGJIVW9aRzNFcGFGQQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-22",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
+        "date": "Mon, 27 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-23",
+        "source": "Economía Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-24",
+        "source": "Economía Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
+        "date": "Thu, 02 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYm11VW1kaTF1V3dFR3RtdHVzcEJFSGpLMDRyUF9SZ2xIZDBJS3ljazdBNnZkcTFnVkFhNVcxc3lkZUNrTWozYnl3ZERNbXR5MjQ3UDMtTDF2Q1lobWNFQmJ1QUh5RnBaZDRta0JhY3NPVThTeXhiVWU2NlRwSmN6Wk9HVkZaamVNZ0c3UGxGR25femtF0gGaAUFVX3lxTFBnZ2tvRW5DLVdoVGZGQ3JQaXAxTzVFNThhZFRxZ2NVYWJfREpsUkYySjdMb0Y1UGg4SHhaLWZyNmtUWTloV1JvYm5fR0c0THg1b2lidU80M29IdmtXd255cXdpY3djU1l3RzBpZDRpSEg5cEkzV0lmZkFCQUNQbkczRzF5UFJ6aTlNaWZ2eGhrUEFlaHpCQUg3Wmc?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-25",
+        "source": "El Conciso",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
+        "category": "GOOD_FOR_AIRBUS",
+        "pressure_impact": "-13°C",
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
+      },
+      {
+        "id": "rss-26",
+        "source": "Economía Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los sindicatos aprietan a Airbus y dan cinco días para negociar y evitar una escalada del conflicto",
+        "date": "Fri, 03 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPSUdYQ0V5eVV1WC1zQW4wc1pJRzMwRzRMMjZGZVItRkRFMVRoYkZEUGhNRERKaENqZW55YXlIdjZzeDhJeTR1S3RFU3hNS1I0elAxZ0kxUnNDQThueGpRWnJ3bjlPX2hTWGtqVmotcXU5amt5MlM4XzNwaHpqT1d0ZUtFSzFyQTREU2fSAY8BQVVfeXFMUEVpWmJuMWRxdVJkaldIU2kya1dlQi0zWU5LM1o4MVFlbVVDMnoyZXFwOTlKLU9JZWFqMGRMZTlsN1NGUGpzNGpXQVZRMDhSVWNHUjB2b3lScDJuU3BiYzNVMUdKVS1SMFNzTTNqc3U3U24xank3YVM3Z0pKRGt1TWNWZHN6XzYzdzM2V2dvYUE?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-27",
+        "source": "El Independiente",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga de Airbus lleva a la compañía a delegar trabajos de ingeniería a otras filiales en pleno rearme",
+        "date": "Fri, 03 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQNVRrTXBwejJxcXRjVVBFeHJ3dk9KTGNxZnVqdGRDREpKc3hvdGlqWXQ5VjcwT2xiby1ET3lhWGpsNS01X3NEVzZISU5yOXJYT1ItRGhLaUt2RXRjRHI5ZUJmV2d3Y3FXRlBCTzhTNTBZVVBxUUZwVHM0RG16RGlNVnRIRXJ0a0pBdURVM3FPaGdIMU5DWjNiSmJXYm5fSWw5SzBMTlJCNkgzeDhTb2hzM1VTUFVuT0dLVklHR0FQSUpKMG9FSllMSmdleWJBRnNQYU5j0gHYAUFVX3lxTE1xRV9KUVlITndoZ281RWRIUWZzcEE3dy1MTVdGUV9jVHFWNEZxc3hrVHR2WTNQNVBvMjNkenFLSjJPdzVZWVFxMEEwTERrX1Q2b1NGV1dTdXExZHo4cWxwaGJselZ0MTEyUjdpbWd4WjJzOEFXNGQzV0FXeDhrbzBYT295MF9pMTJhUkl0aHVTaW9JNW5BcHNIdU5iMldqcE5kWW4zT2hjdUlqbndBU2gyeXB4M2JpZ0NUMGcwbEJNVDlJSmxDQmdtYVVTYTV4SEhBc1l2cDBtSw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-28",
+        "source": "The Objective",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los empleados de Airbus inician una huelga en España en un momento de beneficios récord",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOUTN2NXNYeXl3T2JLUmFTZzlBWGl0LWFvYUJ0bkJKajNIRjA5WmpXWGpITVR5X1BEd2FGSWRkODB1NVQzS2VDTHZvUEduTzJUbDA1U3RDYlF4S2xnNGdJU1lYa0ttUngwQlAxNGpEM0VRMmRTZVBqNWZSN2NBb3oxVTNmSDJ2UjVhblU5Z25qOFQ1d9IBlwFBVV95cUxNd0ZMZUp5eERTeHUzX3hqRlBIS2FtcmtFeHpZT3lzZndvNHo2bkJiWVdPb3F2dWRZSEs2TDV6UzY5bElIWlBDb1QzWWpfQ1VQY2MwYjR6WmJOUExOYjF3Tk1OcVQwalhjR3JMek0yeDkxSkl3c045bTBNSmdrTkE1VUlzWjF5S0VIZkFrdkxRU3VJaUlZYl9v?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Objective. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-29",
+        "source": "Cinco Días",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga en Airbus España se extiende por todos los centros con la rebaja del teletrabajo como detonante",
+        "date": "Thu, 16 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNa0FZcGFhSXNTc1RkMUZ5eHNpSmJpbnhqeDBJY0Rlb0gxcHV6TFBka1ctdHkzb1hmbUY5ZWRTQ0l6Snk0dUdMaXFOcFF6QmZpeGZqbldwSHQ5QWxlbmhJSW9lbk5MTGJRZkgtWC04XzhmdWc1YnZMSjlpZW9QdWhpaVA4SUlvaHVQeS00QVl2NFd6MHFZVE02V2l5b2EzZW1mUHBaR21icHhRR3VPTzlOYWd1V0NSaEx5V0xPR2dZcmExRllwb2twYWpXWGFKeGJ2YkNHY1p2RGwzNEhYVmh2aUZwcDVYYURkeHByYmczelp3Z9IBhgJBVV95cUxNZldtZVNxM3VJb0tJYTJIRlRWUE1yZ0FyTWE5a3ZiT3lycnZXejlqZUVmV2dzQUotV1hKd0luMW9qU3JuRlh5N1VrVlRtTWJwNEY1UXlpWGNwODA5M0VEV051QzZNbk5UbFhITUlVanhoUXRfQmpLUV9fVTdFSExBQ1Byb3hUM2Q1dDFnaER4U0cweVpzVzItZ3Bxa3NzYnlNZWFSNVAwWWNrTDVDWVdoR2FHMkZYb2ZXR2dkZWFFZzFzeGs5bHJTZFBfaUl4b1JvLXpvWElKREg3NUhkWXU4LTVOd01SeV9VMGxPbnVDRmMxaWozSG9IUzgtaG5PS3l5QjEwTTZ3?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-30",
+        "source": "LaSexta",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus, en huelga tras meses sin acuerdo en el convenio mientras la empresa logra beneficios récord",
+        "date": "Thu, 02 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNcktUZVRxT2g2THFOTkFpRndpSGpFcWxmanQ0RTVfUHA3V2dIc2pjUFNXdVQ0c0VxdGp0azV4YVlIemt6ZEtweHRGb201d2ZLM2J3OGNQUU1Nb3NFUTk2MXBka3NXV1liY1FmcVVCSG1yOFFuQXJQbmNUVG1tVkMtYkJ4TlRqSlBxSXhQV2hTd3FaWW45b0ZzS2pUczl1dlhrdlFPeXNENHVlRWZ1TFotaHRhVEJmMlVPeFY5NTNveUtFX3dmYVpJTXlIRjJ0dGo3RFE3WDZnVTBkZlFXQVJjckQyQlJjTmFjWVBFRUd4Zk1GZWZ3VE5haTJBQ3BVR0HSAf8BQVVfeXFMTW5WSHRQRkZaa3VsTndiajVoTjlfUjFCOHA5M055LU1HTWV1eDBZbXFBYTNhS2xnQVh2Sk01VjBOcng2X0ViRWtIa0lfQWdWY2JnNTJqMFVtVnJKaFFISGZSMjV2bVlzSVpHdXRycld5S0VZTGtuTzdxNnktOTJTQ2JRZHpCYUJzLXdYSmhoM0pXX05fck9VT2pTdS1Dem5QYVVteXlzV3hrTllfdEE1UTFaSEd4QXlZdkp6V2FNQ3ZsN3JKRWNMbXVqVlNqbEQ5YkhpS1RGbDhPTGZvQ0JjSFNtT1ZkRkVqSVNxUDVtcmdLaGE2Q09MY0lkc2c2eERJ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-31",
+        "source": "Hosteltur",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus vive una de sus mayores huelgas en España con paros en todos los centros",
+        "date": "Thu, 16 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMXR6NE9GQzc0OUJRYTVGM0U2WDFrSVVEU05lOWtJa1V2WTlLTkt5UXBkYk5SRU1fTGpLc0Z2S0ZBbDVuS1M2NXFFem1GTHkyd3JIMHIyRjI0bWxfOVBTX3JTbVRMSkdaT3JhSGlUaWxwcEhHOGxqVmtERUpQZEx6bG9OODFWeUVvTUFzcEcwMnczZjZPcTI4TktFU3ZlRXlNWUpHaTN0Z1RSaHFuZXNxbnV0QjBXMnlL?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+27°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hosteltur. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-32",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Arrecia la huelga en Airbus por una subida salarial por debajo del IPC y el recorte del teletrabajo",
+        "date": "Thu, 09 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOY21jZnJrY1ZGY19LX21kRmlra3p0cHNLNmF1djJUUDNNZk9VSW02aDZiN2Jfd2Nya1lxMGRDaXJKQjJxUFl5UEdvRkVNRFN1NTlZd0FqaUpROC1GQ3A2dnMxcGhUdkYwYmwwbV9CbUNHM1BRSi13RUYyN1JhTlBreXVxSFQ4U2VFYTRPNlpwMGdvNVYwODZKT1N1YTZsRm5ZMUNDWEpRS1FsRC1yQjJnTXhEQ2NfZ1AyN0hvSnhVMkJnNHMxWF9wOExQUElXZ9IB0wFBVV95cUxPS25jNEVzb2l0VmxiZDNXa1hhWlA3NjYzZHF6MHdfTm0tS3NuRHBfTjE0UUNGclAtaGsyYWFVUUx3eDFYS25RMWNTZzlvSkxvQTB3UjZmOHV3cXBHZ0RNQVY2bUdmRFF4dlZjNmNjczE5WXYxbHBaRjFrLVRVMm5Nc1ZQTGNCd3BkUWIyZ0pnZURINVRDallmdnd3NUVNQjQ1aG9VMWk0WFBZN1Y0RnJ1R0JSVy1MOFRKc2ZQQTlIdmx1TFdYa1N4a0I4WXpyV1plS0tN?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-33",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los sindicatos cifran en un 95 % el seguimiento de la huelga en Airbus en España",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQR0d0NG1lYUpoMkU2V0FlYTVlZGpzd0U2WVd1bTk5bWFRZnBWSkw2elFwc1V2MF9ESzJQbHg4RF9KMjhNdkdIR0pOMTl3QklTV2lIM2dDLXlEQXhuMXJxTkxDWmhncGoycDI1Si1ZNnRDbHVncFVtNWtGTEpFa2RYQ2Z4VVE0RGFPZkJacEhUM3NIOEFpZnpBSVl5QVNvaVoxSEFJ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-34",
+        "source": "Infodefensa",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus asegura que \"está abierta al diálogo\", después de más de una semana de huelga en las plantas en España",
+        "date": "Fri, 10 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQQ0dmN1BybWQ2dXRLR2NEQ0VScTN2QVpUcXZ6LUNzSkJ0Q3NZQmxZNzlNRXVabzNEYk1FNEs0RFkzYlNBbzFCN2hJRFlNSkN3VzdmY2xxeUEwLXEzZ3JYOWN5V2dmcmo2WWhzS3hyYkZtV3doclg5YUZIS3lMb2EtVUhyNWotaFVFRW02ODJ0ZFlnUk9rWGVUNG5QSHl5TnhVaDdXSldRYzJ5MUxLSXJBOVR0dnl2azJ0Z2lkY3lIZ3d1eUNIcmI3OA?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-35",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus quiere \"reconstruir la confianza\" de sus 14.000 empleados en España y evitar que la huelga prenda en Francia",
+        "date": "Sun, 19 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOblZZaUJleUR6Ym1jcE1uSUtUeURiaERkNEtnVC1wNmItajJrdzRDcGhNM1RxengzNHhZSlI3dlZMTVVPYWNfM09kSW5hY1h5T1NhWk1TbGpNNFNYNFZjY3A0TE02RWJ2aHZoQ3Z6My1TbV9Uai1CN1hfX1F3Z3JMVHFFWFVZRDgwR2REV3dyQmpMMDVKbGlERVpPR203R3pHM2pLN2I2cFpYbDNWak5qTXNVUFdXOXl4OEhWV0RsdV9hNHpBbVgtNXd0RjQ3R3VKaU1fWkU3Z3NGeExIV0JR0gHkAUFVX3lxTE5oTWgyUUFJak5McHVtUVh6UHNmd3lxVWgzY01YVzY5aFA3YkhVNk1IUW9BX281UWpwb196RGJUWUV4OXFCdDNfNlhLMjlEcnJwa0NrSmlUYkxyNGFmRjhKTGotcHV0SEs0Z3Vka0RHRnB4UkpRem1kV1FKRjlUQUc3Q1M0UmxnRWVqMFJyemRQTV9iREtXVVVrQXZETVRDU2k2ekhoWnpGUEY0OUNzWlI2NEYtbS1zc0VLZ3lwZ2xJdjA1dUFnYjVaWGdXVjF2ZFQ1Z084OEVrSWRoUWxjZXdqZVlxNw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-36",
+        "source": "Infobae",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus convoca de nuevo la negociación el lunes mientras se mantiene la huelga en España",
+        "date": "Sat, 18 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR1hPanBkdzRaNERLWDFnSWhfOFJtRXV2T09RdVMtYlNwY3F3cmZucnBvWGNJVmMtR0ZTc1Z5RnNET2NtTG1ncTAtN0dOMTA0YmtGdjY1RDd0bmpEaVlLTjQ4eUNZa0tSaDV3TV81Tlo2WGpOM2RySnFKM2pVeDNWYlpTbU5DWmdrbzlTVEhuM1BjTkN0RlZWVHN0VG92Y1ppVkR4bU1hNVNvZHlDalRoX0pBcjl1MGx2eklRMVhkUG9XWVllZGhvLVBlcktRenVwTnUzWjhOTdIB8gFBVV95cUxQNDlyTDEyNzlCTnNGUGx2Zmx3WlJ4U2sxZElXOFZTX0xWRi1qN1hGZUZXcnhHOUozc1dZWHhSV0JzWHdyMFNyUjN3N3I0ekk0NXZFV1dzVlRyZm00bUdzbnJDQ2RRcmFTbkNTaUJlM2tSbE9MR1p4b2pZZGlhTWtZRzJRSnAtM2lrTEZJX0UwMHl5RWl4cVdfUHFQY3NfZkVGcUp1aUNZcDZadXJ1NUotbDdIZ25oNXlfUWFuNC1GX0M4ZW9kYmtzX2ttUHZka3RZVjZKamh4ZldMSjVwcUJLckE3Z29VTmd3ZTRRSHdFdlNEdw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-37",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Guillaume Faury (Airbus): “La huelga tiene una razón más profunda que las condiciones materiales”",
+        "date": "Fri, 17 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPQVJxWEEwaW1qODlQS2YtQ0tsLUExWVRUSjV5TzFsTGV6a3MyUE9fV1RiM0l0Q2xmVHQwdWo3VmRkLW1jLWV2c3VNT0lqS0haX0JhekZqRUNWRDlXVEE1cTE5TS1KMGFrRFBRa0k0SUdSZzFhRzItZTNBSXRfLW1WN2dXS0tlaW1vZWxCX0x5Q0ZJZE1yYmQxLVh2SmFEUGNHVnFHUTM5eUpSRnB1SDBkRlNTYlgzZWthZmtXQkUxNEF2SEt3OUpPUlp2TWzSAdIBQVVfeXFMUERrdngwamx4MXBjeGFKMHVsZndqTmRlWXAwZ1hfcmNOS2pSVzRTRGhhU2I5VEhYOTFaMmJHdkVFdk5NSG9qMmRGQTNYWmtyN0VLSmQ2dTl1ZjRlejg3LXR1cHhqOTVGcHdOWS1CMzhaM2ZGTmY0bXFQc0ItTmFhYnZTUDc5OHd1UzhSRE54RFZlQmtnYlpzZDNkZEY0clBFbE5IbG43YTI4NWI4RzBXOGlmWUxFYkdWMm1BVDdHVjduWEJCVjRNYTlDVXptUVYtU3F3?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-38",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga de trabajadores de Airbus comienza con el bloqueo de la entrada a su planta de Getafe",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbjdMblo4cXYzMl9FOE1YRUtENnhGQ0pjTWJGZU5yRVV2emYxVzEwaE5peHVibGdLUk1vTVhneTRKWU1ubXpWbzV6dTdaYzZ1Tm5MN3hENzl4a0I3TFRNcl9sODVIcXI2d1FqNFRVaXhVOXZ5TDdtNGI2MlZpM19mTDh6ZEdDa3F4dU1qWGwyUEVNSGx3TkRjcXNXdy1zYktZZHhlMWJuUUVoSWJLNXfSAbMBQVVfeXFMTXh0RzVuZkloVmZweFZQR2N0bmtTdWxISWo2T3hsQnpRSFpMZ0lWb1E5bFltM2dzYTk0NGlmVmd5TzdJSkNRS19IWWhGelVnNVJyUmxTMWNxbkVqemJyLWZYZWJtZjVhc3RfRmN4eHdTZWtDcGcyT0RrcDdESmtjTG1nTjRVUmNxQ2Q2bDVGRjE4Z0swZXN5V0VERzNmX2lBcjY0Z2cwT3BhMTRrNFlWSTF0T28?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-39",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votan en contra del acuerdo con la dirección: el lunes deciden si mantienen la huelga",
+        "date": "Fri, 24 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQNUl0MFBzbHYwZnBCQlAzWVItbXdjNG5sSVJoMkJ1VjdiRkRNaVhORWlhQkNNNzVpNFotVFJ4dDlYXzdzcG5wdkNIZC1jRDRBbjJoZDdxWTZpR05wWm9Jck5vaVhxRzl1bEJGOWZtbFpBeGNnOWFaenFoekZTOEw4aS1od203bFR6ME9XRTktekRFRmJJbjFTSjVyVzFFX0lGWDRHd1BhcExoR2M5Z3hER0xIRHg1S3d1N21IZFlqT2dvdWtWcmJ3bnl0eUJ3ZXBOUVpqNllR0gHbAUFVX3lxTFBIU2RtMGllUTdqVE10OTlMMXU4RXI0Q2x1bXFfZUNIekhyVGVRTXVEdjdpMDdwcVd1SXNTOGZYdHpOSHZTRXM5dDJuT21oSUp1WlBtSVoyQmRweW11aVlYcFV0bTlIaEhUNENDS2lTVWNPYXRBOW82Y2xyM2FaQ3hHbVVGVS1KWkowTUFoaFdGTk1VNkF2bThMRDZ4dnp6dE5tanIwVHQ0UnVhWHVzQ1BRTkg3QWJ6R0NiN3Q0S3FxUXEyUnI4SERuTXRvMUlxRG15SWdwS2Y5eWp3VQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-40",
+        "source": "MARCA",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus en España pone en marcha una huelga que afecta a sus factorías en pleno incremento de la producción",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxPVWRnUjFvRzlZX0dWekVZUTB1SkNIUmZuZWpiVjc2UThsRHZiLWNtQUxfZmNwclEwZTltQ0plSDktNzRuMnAwV2tqMHVNSGR3NU1fZ2dvX3pPT0l5ZlNTTEpmTTJvVGFwR0tibGRoVmNjOEpyNUhOaXowSDB3MlhPRjEyWWlZMmhzU3hqbkN6LVFlZzhoZmlSTWEyaWhJUE1vaGxRVHJRaF9tMEMwMElQa0hlM20tN1FyMUcyUml0bnliQlBoWnpaTDdMaHBzbEJaVVU5WWd0MEU5T0tFMmfSAd4BQVVfeXFMUExOeGtTZGJwaVV2LWpfb2VLWkdlcHdCMXd6R2Z0ZlBFTzNUeWIydlljSTd2UGx6a1JSdldLZ1p4ZEFWX1paZzh5S2d0Vi1nNnhXT1l0MEtnbV90VFpURHNWNEdybUtvUldFeXZSNlJHODZkdU8yaEFLZDdzZUNhY2ZxcFdKZlRKSFVhVUdEUkJNX3FIaEJ3UWpsMGd4YkFSczNwX1FSaVdZNDVOZkRETW5tWFdzcXhScHZFeEViRVcxRnlNaFBVU2VkWG9vTzltbHNGT3FXMXBieDR5NndB?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-41",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los empleados de Airbus en España votan por la huelga indefinida",
+        "date": "Sat, 29 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9SVC1SWEl4ZkhCRzJ5V2FJVmdTTC1TT0VRUWJRWDF3OTdRZ25LWHd6Z1l0YVFyTUlrQXJFTmp4UmYxd2NfQ1hHZHdyQ0tuamh1NmFVSjlVRFk5eUJHTmplTFRjLUQtanBMb2lnQ216NA?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-42",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los sindicatos rechazan la propuesta de Airbus para terminar con la huelga",
+        "date": "Fri, 24 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQT2JkNkQydGtmUmJFd3hwVlNOZnk0OEdOOFJUMEJBY3JZZUxBTVUwb05tQ3BobjQ0S1JFT21yUzVSUEpPdnBEOW1yV3ZLOXR5SDNDMnlJeWVqVUhrWWJKcjBZel8wY3ZGWTdvMUdEZi1uQS1hTElDUm9NcVVUODJUWnRJT2Y3SnYzMVc0akMxekdvNGRERHR2Ml9nc2RzNUcxQUVTV9IBqgFBVV95cUxOTlRId0dCVXhrcGJ2Y3ZJN3ZRSmtwTS11aVNKLWI2T2YwTjBENDZMS2xzZ0JNUndmLTRhRVd4LWdsUlUxZ2NQQWhhUjFVVTJhU1ZDR2NXT1d3ZEk0WWxYNkJTTFNhaGZJajZTendFY3ExeWZWYzdfM1BtdGRSOGFnNFRFMzk4YVU5a0ZXc2hLY1pvVW9ZMEpTQkFDaFJxQkFNWHU4NnRHTlpVUQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-43",
+        "source": "Finanzas.com",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus debe acelerar un 51% sus entregas con una huelga en España que afecta al 88% de su producción",
+        "date": "Thu, 13 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPalNkMFZrbW5NaEp2Z1E5and4TF9PTVM1ZzVud0xpMEotclRrRnVjcjVTT3E2X0dqODhRMXAwMzJqZDJkTVhPejdSZlBiYVREN3RfUGw0NndoSEkydDUySE5KY19fZmdyWDdrVUpvUC1uMENMR183NDZONmFoRlpnQS12bGpLSXVZWFJtZFdTeGRXb25zQW80TDd0dEJ0eUl3NENjOWp1UWZvN2tOZnRZbTJId1V5VHJxbVHSAb8BQVVfeXFMTTltN25LbFNTTmpqRTdpWlJ0eWdGWkFpQkJQV24ybnh2alJqYUR4bUZWR1BzVDVWdGR5cmVza2dlNUhYeUJ0T21NZlZyYVZWaXpvb0ZITHowelJTay1iZzFFbG1TRVdXbXR3SWZPQ2JrNzVmdTVPc1NtWEVJVDhpejlvc1pFV1lYb0tQRi1WVGF0ZFdSODhWaXJEVUlVMXZrdGpjSVpRVWhXeWZRcXdkQm9EN0VGMVdNZm5nSlZiTjg?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-44",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Reunión clave para desconvocar la huelga en Airbus",
+        "date": "Wed, 08 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd0JRMXVvajRXazNGVGdfdHF2YndXdVlUS1hvYl8wdmItOXp3alhYSVdTS1hqTjdyc0NXV3ZCU0Zka0dYV3ZyMlVOZ3k5LTYtdFZ0MUZvVUtDaE42dl9jbkVVSHdoWDFMTWFWanoyd2wxcUNka3VnNHBVRFJYQVpxSjNDVHJZRm45?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-45",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La votación para acabar con la huelga en Airbus separa a la plantilla de los sindicatos",
+        "date": "Fri, 24 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaFQ1RlM0WDhHWkRhUzF1TDRqMzRXWnhyaFVESGdoWlI3NzRPYlZ4R2VHWW1aT040NUUxSUg3UmljeFlIdmJ5V2hpT2wzcVdYZlYzUGFMNkMtN1ZZWHVTNXU5U3ZXZWsyYXBkM2ZFQ1NYeVBrSFh2Tk84VlNCS01JdXNrSEhLR0VfSGFGV0s5MXNvazFsbExFeXZ1VjZOY1lKS3NxbElKdEl1Q2ZD0gGyAUFVX3lxTE00ano2YllNY2J2UlFHeWdWT2czelFuY3Z6WDduY1FOam5uYlhaUDlMMUhLWTY4VkZWX2gzZktTeE9ReEhZYTRmNzREcl9qNHhNVXQxUlRNYkdVUkZRZDJHNkxJYm8wNUdiWTBZcVlLbVhRZnE3WENCbjJ3LTVaYXdveDhVYWQ4TThvYU9NaXh4RUtrOWlJdzJGUGV5cHhBdG1BM3YzNGFmMWc4czlhaU1KN3c?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-46",
+        "source": "elDiario.es",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus va a la huelga por los salarios y la reducción del teletrabajo en un momento de beneficios récords",
+        "date": "Fri, 03 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOX1ozV1p6SHpKQzlmczE5d2h3S2JSRzNzMjlGX3lYTkpubC11TXdkc1ZFbjkwWmNxaFRiMzNGYlY1dkttR1JTMnRRU2lMOE1rNnZfTGM2VnpEVUNtTmtHZHFOTWNhbkF2YjIyYS1PZVUyZE80bmR4d21iRjJVQU92TE1MbWpjSVZjNHQyYUg3WGVLUzl0eVE0RV9DRU5LTUdoSmxDWk5HSjJ3ODVRRFlRdnF0R2RxWng4NGV6dzNuczVHekNCVDBVUXFR0gHPAUFVX3lxTFBLMGdUTi1JclNxVFB2b2FnTG8xSjJaSksta25iQi01bVAxQ0FRd2VDOGdsNmZfeEpmUFFRU3RuQjJha1RxWWxUNXdiZC1JcXUtaDgzd0tmbWtncGY0enU4THdBVVRHVEttUTZTOU91OWlvLU5Jb2treGkwTDF6eWhJWVdzczl5Q3hQRlJJd1ZhbEp5RWVrdDdMUmkweFVuN09PUzI4LTBXYXhWbmtEZHdlTjk3TVFEVWU4NDFtblZpalBRM2FnTUhPQmFSaVlGdw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-47",
+        "source": "Cinco Días",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votan en contra del acuerdo con la empresa de revisión salarial y teletrabajo",
+        "date": "Sat, 25 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOTDg3SmlJYWpuQUJjaVdjMDlpblpTa09jT0JDSzE0LTJxTU5wODA1SEN6UWQ2WWl3b1Z0b3JCVS1jUnVzZkFnV0JpdGtacHFaQ2RsN1NDa19xUUNHNzZZd0NFalhJeWZOeEtNbVpvWW9TVTdDM3FwR252SUpjNDJuTmE2SGFRZEFwQ1lwbnZMbjJaeHhEVDQ2V0tLZkRyUnZrOWZuZUVzWmJrbVBxbHRKM3ZWVnlrLVdyclNqQklNaGxVanJqdlE0Sm9WSzVJTHFDaUJiYVFiMjBYVnVKTGlNeE5Iczc2d3ZRNG45cTBFQW_SAYQCQVVfeXFMTXRWVGFTT3k3NXV6UUNaTE9kMmFvb0NfYlBIM2w1RU1ldXJlYXZmNHlFWVl4RXRuQkFQa0h2UnRwWHVVdmV2RVdGV09fV1lfZ2RUYkRjclJmV2hLMW01dmhXNE5NUk16UWJVUG1nc3dla2cxaUFMVjlrVHlGWDdKRU54ZXdOUExVZ2VSQVJWQmZGSGQ4bXVfX0hQbmFhYmVCdGJBYllueHF6eVdNUTBZX3JGakZRX210elpSaGluSDhIVUNwTXQzbDVkakFWOGpvS0stQXV1NGJsR3F2Q05rdWVvRUZwa3dXQ1lKVE9PZ05HUjJQUW5KV0dtbUFRV2ZQZlRkWG4?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
+      },
+      {
+        "id": "rss-48",
+        "source": "El Confidencial",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Rebelión en Airbus: la plantilla se harta por el bloqueo salarial, el tijeretazo social y el fin del teletrabajo",
+        "date": "Thu, 09 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOMWpYdkUtd25MNXZOckxnY09iOWR2TDZkblkzTTJjamx5M1ZhM1p6MTQ3X3NmODlvbGdlWFEzMkpUNGpUVFp5RnJsMDdjTjc2aDFVODd3RFBDSnpEellOaHdhSkQ2WXRzMDk1SVBUQWFYTjRFOEhGOXJWTjVoSFNJbFBLSVJSaVRYOW0xbkZGcmx1eGhUcS1ldkVZaFdTd0Q4QlppS3dtUnNXVU5aU0N3ZUlCX2xmWmdvTEk0dGJxcTJuUnBHY0JVa0ZveXQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-49",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-50",
+        "source": "Demócrata",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga de SIPA en Airbus España rebasa la semana y se extiende con UGT y CGT mientras CCOO sigue fuera",
+        "date": "Thu, 09 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQS3h2N3FpOGdfem1mZ19oTlMtWkdHXzFvV2JTOEF5Z1JsWnR5cmRWYzkyck44enVTbkFNYUdfVTFlZExzOEhYcTlSdDRVY3NNWkY0V3JXVG5BUlYtZkhubkJhdmJvcEVuLThXR3ppRVlqNEVuT2g5TUxmakNaSzZlLUFybGhhaXU5d19SZVFnNGl0cld2M1lxODRfbm5jaXdjaFJfWjdqUDVJd3FIdzROZ0tEd01PaWJpM1Y0YmJyWmRXNVJRSDJpQm1jcVpkZVUySHJvVmUzMNIB3AFBVV95cUxPTkJWSHVtOV9EcXV6OGpvb1RzbS1JYVBPU2lIazJ2Q1U0aU9XaDJTajliNWtnalRiMExvcmxWYWd2UlF6aFB1LU9OQWJ2S3lZUG8tdUFuY1lIWDZ3SmlOMEs4M0lGaEVlTzc3dVBseGZVVnNMMkZleWp1UWg5WlNKTHNaQmloa1J4bUdwdldSeldhZTVGTlpyTHlUcTUxTU9NRWp3SnpGV3J1Y0tUTW9PdVd0ZUZjUkM3MmZTX2o2M1pQRGh0UDJ5MUpUVUFDbXBhOHlJTV9JVUNTcXZE?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-51",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Se mantiene la huelga en Airbus pese a que la dirección ofrece subidas salariales del 5% y mantener el teletrabajo",
+        "date": "Fri, 17 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNVU5KcDNNci1QR01wcE5SMTl1Mk45STd4OGdXcjRRZXhjeThIam9CZFRmeDdZbmVxMi1zblZqRHZSS3VmNUhybnhSLTF6Y09Tc2pNMERMTWRYMzlJcFRzdVgwb05Dc1NYN0NuLUZUTHhsSmhLeHJUWjZEdWtkX0FmR1F0MXdNd3ZxNHVVUGlmZTVkMW9BOFM1Nkh0enpxQ1ZYVlM2SjZQeXdXaGF5SVdGSG1sOXE0MS1iOWdjN2NmXzN4UTBKYndnbXVVNEZEbDQ2VVVhdzY2c2gwYjlrb1hGSzJqc9IB6AFBVV95cUxPUW5EaURJZ21UU0wtWHl6bHo3UUJxaTNWaHk2UDVQeUZ6MTBwaUEzMDhPOWcxRnlKQU5KX2NwYU5pbUFoY1RiWDVqWkw5MWxaNFByazJiNExOMGRoVEtIWnVDU2pFSXoyTWFLelI1WUVsTE5LWGUwZTUycnVvVUpXX29yRUdob1BaNFBDb0JKcFlaNFhuOEttSUN2ZEtWblJFdGZoMXJiOEFqTFQ4WG91VnF3ekNqUl8tM2FMWFlQRnY1SnVwb1VzX2FrTWxZZDBwWUJuOGFmWmpCOUVRRTJZQzhlSW0yZU9S?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-52",
+        "source": "Diario Red",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Tras más de 5000 millones de euros de beneficio récord, Airbus se niega a mejorar las condiciones de la plantilla y los trabajadores inician una huelga",
+        "date": "Wed, 08 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPdDhjOW5hVnM1aDE1amYtUjRrZGRzb1dmRmdnYzlsalZmU3o1Ni1DdGZ2bHMzRU95bW9IT2hrbzFxTzFVVS1idW12UjRDckgzSU5vUjYyQkVVVEc1S3VNNFZNMWhlQXhSTl9zYUVzWEJYcExSNDJocW5jLWhSZFdCN1Rld0tJUXhkVnpVb2EtTzFLc0FpNFdYZ3RKVWtMU29HbC1oNzVSQTMwV1VlTml3UTYwUlVfM3FXTUstSFd5bHZjXzh6c1Z2OHlzNWlSZWRaU0dKeUVMdGN3MFdnNFpWVDdfeUZEVDhyeHFSZDVmVHIyckdFZE9ObWd0cnVtMXBpMHREaGFhR0VzSkgz0gGSAkFVX3lxTE1CbGRKbm1oOU9OVTloZlFhT3B2Wm1USmFoaUoycGNKQW1OVzRsQTJjMExEenUwU0Y4M3g5NXREMGxRLXBpSXRfZmdQeEs5WElEbXNVNE4wSXpydDBHemprMHlRQlFEQ3djajZqS0hCV1JtVE5HMjhfU3BwMVNmbWFnV0pqNUhqQ0NNWDRXcE5NbDlId0hhLXJCeVVrYm0xcVZmMUFhRmFnU0xwU245eWZnajBqVlFFaUJIZXJFMkV0S2FMaU9qd0Nsb1ZEcmlSVE5sbHpfUjhXQ1FpdmpHTHBWU3lpdUpvWG5tQ1RwaEkwc1A0U0lCc0piVUJiYU9SR2M1RmJhQURId2llTjVNTjlKZEE?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-53",
+        "source": "Cadena SER",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los sindicatos hablan de seguimiento masivo de la huelga en Airbus Getafe",
+        "date": "Wed, 02 Nov 2022",
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNaE9RT2QyR0VVX19vX0szQTRoMWxlY2EwTUVRbzVYdDQ4cXg4cUdQYmR0LXE2X3NrTUdHRWxJbEhiXzB6UFVOTHVZaHdwbVNvRWlDZHhTMDF1eDFvS0lRSmlWbVZQQWF3OExlR2NGTnNKZXVRdTQyZmVfTGIydWgxNWRNOTdzQ3RjWEkwTy1teHZNMXNDZ196d0F6dlVweFBCallQb2ZhUkVQS3ZDM3cyUHczN2VTU2xGbGpxOEh3TGJZaVVHOGVZTDJ30gHeAUFVX3lxTE1najRHQUw4Y1doSHp0NHBzQ3I5SnM0NjJvSUVmdGhraWZReXBBRGdvM3lRWWppMDBuS3d6a0x4VFpvZE9pMXhpaDZuS095QWRseWx4blJCMlp5SHFsT09HeUhYY1R1eWRObktVUDZyblB3cVl6aklsbG01ZXFFQnpTSFUzRDJHQU9HbG5MQ0VCaVQ5a201dXhpc2U0ZnNzOUhSZmpDdEVNd1ROMDc0ZjZFTks2YVdtUDJuZUR3YXR5bWJlN1BOV1MyV05CMkNUN1dzT0I4SlVmRV9sc0pMZw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-54",
+        "source": "InfoBaires24",
+        "channel": "Prensa Nacional & Economía",
+        "title": "España: Continúa la huelga histórica en Airbus",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9XWl8tRy1nM1IzSkpsdnFaNWV2a1Q3SVRXSGFmQU9odUVlLVF2ZDNtNEJmamJRbUh4Wjg4bkpxck1pd1NlU3VhZFJyaWZ3a2FxMUpidmhoenRrZURsamJ0V3JlN2UyWWw1N1lZREt0cjE3dmVIOVVYVXpfUWlrTlU?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en InfoBaires24. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-55",
+        "source": "OkDiario",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Las atroces condiciones de los subcontratados de Airbus España se agravan: casetas con goteras y ordenadore...",
+        "date": "Wed, 18 Apr 2018",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNYWZaRUlfcTFidG85SXRkVzZOZzJXVm1GRVV1UzRlSEhDNDU2dlZMUDEwTk5MX2xaLUV4ekQ2Y09ESXdXaWNwemQ5SUtJbWFyQ1ZCR1JzR1hDWnoyZEVGRDBZQzFuMGlEQVFmTzV3RlBjYlVoOXJMZ3E4M0FpWDQ3ck40eldGdW1jZ2ZzUnBISlFWNXdoUm9JUWR3ckNMeU5Da25uUVR4LWsway03Z1Qwc0YxYWpTbDAtdVdPNXpGbC12eTBQTVliNnp6ZDXSAdIBQVVfeXFMTnZacXhWdm51QXVDSWtiVXRJSkd3Q096NUhVQUduV2FSRHB1M0kzMExpU1NxTk5TbDlZSnFFVENEMVJXdkVtc3dqSjZzQ2RTNFNqM0dnTXRNbU1ScE5mSFh4NTdrd2FDSGNZc0hLUnl1VERhdDVRTnRyQWNZNjJ4RnVJcm1xWXByMGZTRFBmWUxiQk1NUDZBY2d5b2RTenVJalJZbzgyYkFfaE1NeG1DdnctcVpVd3BYRS1WdjhxMWRTQXllLWtVSGRnNEU2dE5tZ3ZB?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en OkDiario."
+      },
+      {
+        "id": "rss-56",
+        "source": "Air Data News",
+        "channel": "Aviation & Industry Press",
+        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
+        "date": "Sat, 04 Apr 2026",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
+      },
+      {
+        "id": "rss-57",
+        "source": "Crikey",
+        "channel": "Aviation & Industry Press",
+        "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
+        "date": "Tue, 23 Jun 2026",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
+      },
+      {
+        "id": "rss-58",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Lufthansa Group Is Losing $540 Million A Year To Aircraft Delivery Delays",
+        "date": "Tue, 09 Jul 2024",
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRmIzdVZZV0lwc2xrZlBQN0hfMDkyVlF1dVVEUG9BN184YVhOLVIwZ2Q0RUVMVC1JN2M0a1BuT3laR01Oc3VYRkJId0lTdjF5TG1SU3RXbGNQcjFxdjgzcGtiVGlqZHRuQ3dtLUN5a0ZJaHI4am16ZzR6V0dZQnpWS0JvYWU4bDNxaVg1Vm5lY1h6TEJp?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-59",
+        "source": "Forecast International",
+        "channel": "Aviation & Industry Press",
+        "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
+        "date": "Tue, 02 Jan 2024",
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdnF3emNlSFZvY1paNk94cVJOR2tIV1c3OGVGM3hPbENmOVNpVXE3bFRZWEpXNXQ5aU8xdVI0eTFOdVdVZVJkNjJqd2tiYmFUZXVzS1ktZjRmc2doR2diUTRnc0dSUmgyZGtESllLZ2RFZ2p3NW5tT3k1THZrejFzQWhnSjZEbTl3RGQ5aXpUQ2FxQTBjdVBoanBRdXBJMU1VNjgyREFncmJiaHZvcGpKeXdhZEFIWmYtNmxJNGRiMmk?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
+      },
+      {
+        "id": "rss-60",
+        "source": "AeroTime",
+        "channel": "Aviation & Industry Press",
+        "title": "Airbus warns customers of aircraft delivery delays: report",
+        "date": "Tue, 18 Apr 2023",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdlZZVE50a0hlNzFxRmlnNm5KYWhneU1abW5VOWtQT3EtNlRUdTRmRzU2Rk9JdDU1T1ZOdHEwSGd1NTRWZDI5Ykx6N01MX2VSVzJPcUhCLXFCVGFZVVR1MHctUEdiTzd1d29JeEh3RHBOVGI5S2RXWXA0LXFXaEZiSlZDeEZxcWRES2QwMXBvcUNyOTRkMEhB0gGcAUFVX3lxTFBVWFhPeEhUbEdTWktkTlZhdVV4MjZuMDJ0Vi1Iam9CRzJXZTFFN3RFUUpGZ3hiR2N2eFZYN0hrbGV2c3JOcFdROFBVNlhhWE9SWENuUmFkUjVNbkNHYVdzbzZUTGRNLWtlOXhKcTFCTjF0RVJGcDVGRGZUbGpTUnduc1F4ZlhlNnJ4UVN3cnVNVjIzTjBMcC0xak4tSw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-61",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-62",
+        "source": "Key Aero",
+        "channel": "Aviation & Industry Press",
+        "title": "THAI A350 DELIVERY",
+        "date": "Thu, 14 Dec 2017",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQUYtNHl6aDVSTVJ3eVU3TmlnN3F2YVZmSzFLX1hYX1RCTENfU3FxeF9JRVJab2xlWEktQ0p6WDN1UlFmenZVTHRBZ2tuc2FaNmlCS0o1NUhzanM?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
+      },
+      {
+        "id": "rss-63",
+        "source": "AeroTime",
+        "channel": "Aviation & Industry Press",
+        "title": "Behind the scenes at ATR’s turboprop factory",
+        "date": "Fri, 21 Feb 2025",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOU0VZTEpwNmZfRnpnVGhjVDlJZng2NkI2M2JRcmo4UmIwZHF1aHY5LTRVN1dIdlNWZ3VMb3pDVUZrYTRycTloeUdteDkwbEIwcEpiNTZqN0Q4NzlNb1lwNFdyLVBWMHVqckRtOUtJQWxkajBnczVUVFB2OEJYRWZJTkpTV0fSAYoBQVVfeXFMTmE1ZndUMHJSR05FNF92UXVRdTlaZ2pkT0NaMlY4Mi01RmQwcngwbXVlNFFaLVo0WnpKZFNiRV81bzBSdl9HQ2ptNG1xSDE3bXhCZnJIOEU2Nm1tT1B2MVFmOC15dWNyWENLaFRaNktSb2QtelU3N0JCVDNzSHdZRWd1SVRfb1FQVmdn?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
+      },
+      {
+        "id": "rss-64",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
+        "date": "Fri, 08 Nov 2024",
+        "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9neVIyUGQ0RjVwdVY5YWxzeVJFdDRiOGhsOU9aM1I4dXdSNHNSb3hMTVlGZ0hyVTR4ZDM5NThGTEI4eDQwRkZDUkVIN1ByanJqT2IweGdyZHg1aTNab1BfdGs3TnVWV2RMRXR2T3lJTjR2cmNKY1B3T1ZyZWFyZw?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-65",
+        "source": "Economía Digital",
+        "channel": "Labor & Negociación",
+        "title": "Airbus mueve ficha para frenar la huelga: subirá los sueldos un 7,6% y los ligará al IPC",
+        "date": "Sat, 29 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQd0Y3VmluRzd2eUxYSUtNVlA5SzhWOUpvS0E5U051MXdNS2MwOWNzSG9IaU9Pc0hrNUJuS2hZRmtselFkM1F3dEE4VERRendyUllPN3QzeGhoWnY3WXpBYkJjdTFqWTVYZUdsZGpPTVZVcE5OSHdQNll1WVJFbTBqbjRUSTFtNDBaRkpLNEpkNWNrSHNxeWdzZzBRMzd6N2tzMTNTYTJ5UFBnb1RUQlJN0gGvAUFVX3lxTFB3RjdWaW5HN3Z5TFhJS01WUDlLOFY5Sm9LQTlTTnUxd01LYzA5Y3NIb0hpT09zSGs1Qm5LaFlGa2x6UWQzUXd0QThURFF6d3JSWU83dDN4aGhadjdZekFiQmN1MWpZNVhlR2xkak9NVlVwTk5Id1A2WXVZUkVtMGpuNFRJMW00MFpGSks0SmQ1Y2tIc3F5Z3NnMFEzN3o3a3MxM1NhMnlQUGdvVFRCUk0?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-66",
+        "source": "Industry Talks",
+        "channel": "Labor & Negociación",
+        "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
+        "date": "Thu, 27 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxORlJnZUNkVm5SWDJPQ0dDQ0pXbmJJNWdWMWZNRGM3dUc3eWpkS0NfQ3NqeFNHTnliNVhDOEVNZEg0V09EdGNhNEkyMnlaVXM5NDNkSTNaM2YteTRydUkwbFctRElMTU9xR09YZHZ1RWZmZ090cDZ1TlZTLTVDTy11NzdUbTVSVjNULXp2Ukg0Q2N1R0dVb1czR2Rra290aW41Sk1GY0MtdXA3RkRYSDlIVm9yd3ZvQk5TMlVWblBQcG5rN2pjdXNwMzE5T3hPMmZpMWNHTkF3?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-67",
+        "source": "Diario en Positivo",
+        "channel": "Labor & Negociación",
+        "title": "Airbus propone subir sueldos con el IPC y un 7,6% y sigue con teletrabajo",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOd1YybUptdmx0UVVGakRmQUFKQ1kta21WY1dtSWM0ZVNOQWFpOVRsNXJVZm40ejdYZDd2MkkzWkRUMzJKYUdaRGtCMFhXbjBHaThHYXJzODYtSWlVSlJUSE5MSHJqeDJweXVkbmZGSkEzLVppRHZlRnlUZE9KN1ExOG1TYUNaY1VYREg4T1FUTHhiaUl3dE5POWRiU3NRWVBSVHJxNmVHMGowWng3eHg3VlpoMk1sSkt5am0yS0RKV3g4RjdIV2NMUnIxQzd4LU1ITHFKVzJCRnk4TXVZU28yS3kxU0laUzBMYXM40gHwAUFVX3lxTFBPaVJFM2pfc0pfWTVneHBnQmdkWXc3VjlMc3VQMk9OdzQyWnpFb09ac2ZKMXFJc05LOHVremJYTUtPWlpVY1RSM25DWllDc200eWVyZ2d2QlV6M0thYVpHbUdmdjJyMjZYbWE3SHN2TlptQlZxRFRDYzBhSXJGR0JiRWpETDZmUE5zTlFBbXhEckNRQXJmYXJEMlBBeDJHUm9lcXJBTlZVRnpyeEFpT1BTeFBYWkN2UEtBcUlVMXFBQ0pyMV94dnZWbkM1ZkhxaGp0MlY0R000R2NvR1h6VTRaenpfTzVGOHZXckp3emc4MA?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
+      },
+      {
+        "id": "rss-68",
+        "source": "Infobae",
+        "channel": "Labor & Negociación",
+        "title": "Airbus ofrece ligar los sueldos al IPC real y un 7,6% más para frenar la huelga y mantiene el teletrabajo",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNdHNpekw1OUxadlVQTXRjMktSOE5DZlhkSmtieC1ENVZOYVVqenVyVVRFby1NZWFXM3l4RnlwT1pqOVV5QnlSSkxEdjhUSkVDX0RpQ0c2TzlGVkk1cUlkdm1VcnV4RVloTFMwazBjLURBSVYzUzZ3NU8xbUw4YzdRemZxX0V1MHVmcURnNzUxdlk3VlJFTnZBSDBMeHpKU2RtMzRYMGNLcXNkNDZoTFNEeEg2UUl4ZXlnV3ZBN3gxRzQ5bWwyNkt0ZDF6QWpIaE1PY1h4UWk2X0x6UXVJcGxoNVVaY1NFRVF1NGMxWnBqaEp4MW1SYWFJSFFaaFc3N1ZjbktoODFDY9IBhwJBVV95cUxNdHNpekw1OUxadlVQTXRjMktSOE5DZlhkSmtieC1ENVZOYVVqenVyVVRFby1NZWFXM3l4RnlwT1pqOVV5QnlSSkxEdjhUSkVDX0RpQ0c2TzlGVkk1cUlkdm1VcnV4RVloTFMwazBjLURBSVYzUzZ3NU8xbUw4YzdRemZxX0V1MHVmcURnNzUxdlk3VlJFTnZBSDBMeHpKU2RtMzRYMGNLcXNkNDZoTFNEeEg2UUl4ZXlnV3ZBN3gxRzQ5bWwyNkt0ZDF6QWpIaE1PY1h4UWk2X0x6UXVJcGxoNVVaY1NFRVF1NGMxWnBqaEp4MW1SYWFJSFFaaFc3N1ZjbktoODFDYw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-69",
+        "source": "Córdoba Buenas Noticias",
+        "channel": "Labor & Negociación",
+        "title": "Airbus propone atar sueldos al IPC real y subir un 7,6% para evitar huelga",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxQWjJpVzZJU3haNmhDa1lpQ25ZYm5pckJKRWUxeThYSjhER3BWcVF0cmZWUWw0Z050Tm5kYlRRczRWMEFyMkhCenN6QXZ3dGprYzE1YWhnWV9fSFJ3c18zbzRHM0JvS09vZkJsdGtRX20zY19kZUNHN1VLUlQ1b3BMSkVNVjRZZ3BELVNMWjRTYlJ0cjZOcXdWWmsxOGxzYURYRVozUzZJdnVPNEtsZWkwaDRRTWh3N2RzWG0wZHd4azBUVXNjSDVKT1ViSnhsallCbjV0ZEZTOS1zY3NfY1lja0tPTnFSRnB4SE80Yl9R0gHzAUFVX3lxTFA1Zk95Qi1iNGxkR1NXcGlQQURfamNqcjU3b2tyeTNLX2d3MzkydmtZT1B2bXRPOS00Q2VUTzFLQ2xNdFZreUJ3TXdlWU9CRGkxNkxwRUlnVkJlM1lKa0Z0bkxhMGVydzVXaFBqc1Z0UEFJcTh5eklxeFluNzZmZW40QkFDczd4Sy15RU1Qc0JFOVFkc0JMZWt4Q2NWYWJrejBNOENETkVQblVYdEM1QncwbU4yOWlrRzJHVjVmVUpYeDViWUxyZjZBRExfcWZmY09zLVFSMHh1NE5oTUdEeUNRNlg1SEpHNVdBdnRFM09vZ2g2TQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-70",
+        "source": "Demócrata",
+        "channel": "Labor & Negociación",
+        "title": "Las claves de la huelga de Airbus: por qué la plantilla mantiene los paros indefinidos",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbXFtT3h6S0Y5bW4waHg1SnBQam55dUJsbTYwVkNtdV83akp1c1k2S3pfQ3A5NUNBb213RG91bG1lM0xnc21Da0d0cG5UNVZWd1JKR0pwSFcxUVJkVTAtWEc5ZjJmbGl0bVJ5TFFHeVlDRHZpaWhabHgzeTM1RW8ySFRTR2JzemdaNFlTdjkwbkhDdEZ6cE9CUUxZT1lyUWduZnpJ0gGoAUFVX3lxTE5CYlF5LW5qeU52cUNMYXpSUzczaVloT2JjUk5ob0JjeG94V0dhS3BqWDQ5NHJ2NVFUNWl1MjVWS2lGSkY0WGhrRmgzakJ2TkZNNnpGNmxSamVhZFlEWHZOXzlIOWEtVDE3cDE1dnV6M3g3dEhDbGZ4TFczdDdDdVF3RkNYMjAySFR4UlhIVmdBeWFpcjhUSzUwWGFfemN1Q2c2UVJXS1F0SQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+27°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-71",
+        "source": "Albaceteabierto",
+        "channel": "Labor & Negociación",
+        "title": "Airbus propone aumentar sueldos al IPC real y 7,6%",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1vY2lMNktqdGNKOG9TWGliTzhkN1M2aGgwcnozYlVEckFZbzgwdDBNSkZHeDNacFl1dXRiNmNwOU1BQ3dwVFVUakltNFR0bTFyZ09yVGdkdVU?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Albaceteabierto."
+      },
+      {
+        "id": "rss-72",
+        "source": "El Economista",
+        "channel": "Labor & Negociación",
+        "title": "Airbus pide mediación al SIMA para reconducir la negociación con su plantilla y alejar la amenaza de huelga",
+        "date": "Thu, 30 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOd2NiU0VmS2RpdlZXWm9UcVVIc1N5cEozWkFpd0t2Mm1aODhuTWpscWpXbUNuSU04MmgzT1k4SmNhcGFta29ibl9ZOHN0TlBGc3NsbTNEVTVHdWRHTHlXS0ZndS1kN0FBemxWTVR5UENqc2NLczdkc3V5Y3JXMVpwRUdBRXJxZGw4dERfQ3RlUjJOUm51NEVCYTZjMUp0b1EydmtYRndmVWxOQ2JpNzdubVYtbmZFcTNpZnF3RlJLb29sY2kzaVI1TzY3MUxIX3NWeTBsbm5qbEctU2lNcTVMRVhBZXRoMWlQdmpDSTVqUURhdzllZTRVSXFQSlo3dmxYM0ZaQtIB7wFBVV95cUxOb25yZVp6UElOQTgySWZnTDV2TXVQQU8zZ1k5WnJQa0h3aHNvWnByT1VvWl9wTUF5VjYwZlpBNERtUG43TGNadXlnWUc2SmdHNy1aY1ZpN2h5N2Q3N1ZUZWV5SDJXNE9mODhJRXJacjNyZGhSNEpTd0F1X3ZKVkpDeV9PM0VXY1VxZ2JkSFh3M2drc2pNb2FTRWpLbVR5akJEdkRGLURtNEdoa184VkR5dUhKSkplTlRQZkZFUHY4QlVZSzRBVi01cGNuekV3Y29kdHFrckU4d0tHQlBqNE04SkRIYk9KS3RXUzByVG5TWQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-73",
+        "source": "Europa Press",
+        "channel": "Labor & Negociación",
+        "title": "Airbus pide una mediación del SIMA para acercar posturas tras el rechazo de los trabajadores al acuerdo",
+        "date": "Thu, 30 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNRGQ2bFB0Y2hQVFp0cGZ6VlBDLUNjeGstNThVaXVyU1IxaTBta083SHRGWkdBc0gxaUhCZDZ4SWVUY0kzcl9sVTF1RWk1TVEyZFBmcHNUQi1nVGVHR1hkbTF0cFVDbElCOXFudHFKSkdiSkMwaXBiNUlCdHBRdlRQVE9GWGYxSmJ6NUIxSmlpWmxOY0FzVUZtdm9KZkZ0MjFCeGZzRUwya0Rwd1hUQlN2NHQzd1JXbkVyNzdxQXBsUW5fOTNMb29ZNEFCVGxid1Z0aXFMU2NGM1l4MVVwY0oxamUyaTh0MWstOVE?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-74",
+        "source": "ABC",
+        "channel": "Labor & Negociación",
+        "title": "Los sindicatos anuncian una nueva huelga en Airbus para después del verano",
+        "date": "Fri, 31 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLTJadGhEVXJYYWN3d0NyU1o2azhCWXBMdkRmRVBKdC03b21iWE1XUy1rQWZKUDVMTEZaNDNpMWNsMnJVRzJKMU9ZSGE1ZUgyZ0xqRGp2TTZxMmNwdmdTYzIxMWZRc3ptRktzWWJXdElxMF9FTEZfU0dVX04yU1cxWU5Wb0dEM1hrc2tJMDNKZVprQlRSbDN6anRSMmE5cUpZczk4NHYzaEHSAa4BQVVfeXFMTk5ZcTlaRkp6Q2JyWWNQSWxxaUFYWmtTY3puUVF5QWpZSUtVOEUxOS1qY3p0ejNod2RfN1p4QWFKT1U2VGo3LTVWU3RFX1N2S0dCcXJEaW9JZUN5U21xdDVmM19YanI0MTI4RTRmQnZmM3NOblpJdnkzTFZKbktPSnhZM29vMG5vNFJGYm1kRF9PWnhDQW5ZS1MyVFA3WkZRZ2daY1N6c0FjeExrbE93?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-75",
+        "source": "CLM24",
+        "channel": "Labor & Negociación",
+        "title": "Airbus liga salarios al IPC y ofrece recuperar un 7,6% hasta 2030",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSkNQYXJHWjR0TnRYcXQ5Snh0dl9CeGQ3RlhhZ0tnTFVxZWc3N3FXSFV2UDBUaF9KdTRsY0dlX0M1UlkzMmtBbm5DWGhlN2JvdGZ1b0xnZTFndTRHRzhabjVYeXh6NVhhSkZic1B3d0pQNVhBaU9FamxadlAxTVgxc0tZYkxrejlCNUtjd0luTUI5dGNGR3QwaFNqWjBWSkhjRjZXWnJITmt1ajdBNTA0ZnowQlnSAboBQVVfeXFMT2FiTld4M1B2YS1EYng5ZWUwUlZZbUJkU3dJZnRxTGNaWUt0VGZZdWxXTS1Vd2xvRjZmalpxNmdGTWhoSE81NUs1cFpmcEZ5Nkl5bDNoNXh1ZHN5UERJam1ScFE3ekliTngyb0tvd3NrZjZsVV8xS0Yxc01ldDQ3ZnI4X0c0SkdBQnFlUXNzbnpubXlxSFNVbm91cURrSEp6aUpDUnNSLS1mNDhkSGxhU3AwX2Z1cm40WTdB?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
+      },
+      {
+        "id": "rss-76",
+        "source": "CLM24",
+        "channel": "Labor & Negociación",
+        "title": "La plantilla de Airbus vota seguir en huelga en Illescas y Albacete",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSUFHUy1wYVVRNmtBZTVwSWEyeWdhMzRtdW1jZ2xTZk5VZlg3eVB4aTBMWGpwVktBQ2xoNnF2Y25rd2RBc2NEVUZLVlYtb1RNV1pMenRfb0JZUnI1bFNKZkJkcEZPcTd6dWxFc280M2pGbUdheWRUNDB6am1DM29ZNWNFUUhFUGp2TDJoeHhpX0NOcmVvQ29RM0RLTnNxVldKaVRjRDFoYnItZnlYejNmcUVOZlNUbU5RZHhlNTdn0gHDAUFVX3lxTE5aclkwY19nVnNwUFYtV2l3aVZTeEdiZ1ZlTWVPaUw1UGg1SkJUV3duZWdjejB0TUU5V1FJbmt2U2RsTTBXaFc3LWpNUWhOOGhsckxWZUhMY1VzQUlVanZ4aGtjdjVlX25pbV94QnlFUWU1SmoxNFMtTU90aTFSUkJtakx6N0FnbFc1cEZqMXhvV2RSQW9aV21Ia0pUa0RrLWhwVE8tcnZJTk04U0FYZTRLVFAxN216ZE9RQm90WVdIbGtuNA?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-77",
+        "source": "CLM24",
+        "channel": "Labor & Negociación",
+        "title": "Airbus pide mediación al SIMA tras el rechazo del preacuerdo",
+        "date": "Thu, 30 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQalY4Tm5JN2N4X3hCa1ZHMGViODEwVXAtU3RPemtWQTlNeDYtOWJTRDJRRElxdTF1c0VVY0puQXVsTW15R0hrdEh2bzRSMUk3UWFnbjFfQnFuV2laZ2ItMzMtcVVOWGJwOFo3blRnaGRvR3NuNHRPdWtqT2xwajFSamNyWEwwQ051NVdEbmdtVFRtRk9hZ0FRVzdjak1zSncteE4wVlAxazEtV2NoVHln0gG0AUFVX3lxTE1XQUg5UWJLZVo0ZWo3RmZUTE9weWMyQnFoaW0wREVqZXFVWko0WkFpTWpqcnd2aVpsTS1MV0lpdDUxcHJCbW1HVmFYbDR6ZUlUOWhKN29lQnFvYkEySVRSZkJBRjVLMjRCdXhYT2l6SDlGd2pxUF96anZNbERSRzNqQnhFUi1VbEMwMmxnWEpIX004UTVZUVFUVjZxM2NSbXZpaE8xRER2Y0NRbUFjd2xNUVBrYw?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
+      },
+      {
+        "id": "rss-78",
+        "source": "Cathay Pacific",
+        "channel": "Logística & Cadena JIT",
+        "title": "A plane of many parts: tracing the global supply chain of an A350",
+        "date": "Thu, 25 Aug 2022",
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdHpwUWpqa1pYaFN4a0FmU24zaEZHZGt4UldZakFyYXlMRXl1NWFHY2FPYldPd2JoaHhtbno0ZGJYeVdxa2tnRzJVU0ZocjU3YjZ3MzYtdGpCREtsb3NGbzlMV3ZBOGhqMklyQUg5UnVPaDRBM0hORkZGZEZwN2dmT1VJdU5hT3NqM2t0RFdlel9VcmRBNDdyQ29DRV8zaVlPNnpidTdzTUJUQllLcXpEQXZJNA?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cathay Pacific."
+      },
+      {
+        "id": "rss-79",
+        "source": "Simple Flying",
+        "channel": "Logística & Cadena JIT",
+        "title": "A 5-Step Guide To The Supply Chain Required To Produce Airbus A350s",
+        "date": "Fri, 13 Oct 2023",
+        "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE43eU9JZmRBTVpMbHRiQUpjMnBGM3RzYUYxLXQ2cjEyS0FmWktFQWNiYVFwbXRPQ0ZweW54Vms0V0ZDd3ptRVpacXltcG5QTkZ3QmpjRGQwR1VRZnV5eUNfeG5HZGVRWE0?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-80",
+        "source": "North Wales Live",
+        "channel": "Logística & Cadena JIT",
+        "title": "LOOK: Airbus' £30m Beluga station ensures wind does not halt play",
+        "date": "Wed, 22 Jul 2015",
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPTUVZS08wZTR3bTFaNjR0RnB3ZmpNZTlNcnd4R1V6Z3hvYzVvaHl3c2N3QmlVX1FUczNqZXQ3MFVoMjVSWlFMN2xreUluZWVvMUQxOTYtdHlqeldVUktUdG5IT2RXOXhEV0w2Z2ZfanhzcEM5RmRsUU11eVZ2TWpGaXpLQzJ4NkVqdjVwdHlrcU5USDDSAZgBQVVfeXFMTVN5MDdsRXBPdFZiWWdxWXluaDZrT21VdWZrOUEyOERjWGY0UzdlbU45b19PNGdCSTdxSmlOTGNaU1lIaTVvNWNDYmotbTdDZmJLbGxVV0pqQ1ZERkVhTkhyLTVwTnduUFp0MDRxUUR1LVRuaG9fcHIxdlJ0MTZpRnZEeHpIclBVRDlmS05SQnBlQVJxSlY1Z3A?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en North Wales Live. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-81",
+        "source": "STAT Times",
+        "channel": "Logística & Cadena JIT",
+        "title": "Airbus ships first A350F Section 19 to Hamburg",
+        "date": "Thu, 06 Mar 2025",
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNVWJNUVZ6d29pNE5ISGt5SnNyTXRkb3pYOEd4dWF3T0xuUHNJM1IwU0ItUWo4SkZTRHRyc2dWRUxKNk1XV1lKLTNBQlAxdlJtWV9CZXFQem9VOWo4MkloN0hRbHZ4ZDhXc1hOYUE1Rm1HcWdiV1ZXRTY2TnJzOEZ6WWVCSWwzZ01CSTRLYkZFa05OeGhq0gGaAUFVX3lxTFBxVmtDZURlSmJXa21DY0JyWDhUTlNNMDVVQ1FmbjJwcEotQ1FoaUxmMU8zVlc0ay1RT0Z3OG1nQXZBMVJzXzRSSGFFMnNZZjltODA1dzY2R2xYQ29VMmRFa1d3QmZnWHVVdWYtTDVfNmtKa0d4a3RCSFlBRXVBWlBRUmRqQzV3aHktZEp3cEhjalZibzBWMUZuOGc?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en STAT Times."
+      },
+      {
+        "id": "rss-82",
+        "source": "The Times of India",
+        "channel": "Logística & Cadena JIT",
+        "title": "Giant of the skies: Kolkata welcomes Airbus Beluga XL for its inaugural stop",
+        "date": "Wed, 09 Oct 2024",
+        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOYncwOE1teUpvYU1rcFFaXzEybFVpeENCX1NJU0pzQUh1TnBVRFFkQ2VrUzZiN3NIWTJWX3hnOEd1T19POWVqeEtKbzl2NFc4RE9pSFU2YWI1LVNWVzBVbzQwWnljaWVVWWlOZklKZnRWQ0tQLXotNU16RnVxM0J4UjlHMUVmeEhQa24xWlUxNTBOUUtaOFBZRDJFbnlBRkljc1Vub2p6bVNTMXBKUW1oM2xNSnUtQjJIVDAxVVNmSEZJX09KaVdrQmdWOF9lb2xDeVlkR3lPNWJreEVRV0hZU1BoTE7SAeoBQVVfeXFMT2NWM0U5dEVvandBZG1LcUctekRhNHoxNmlaUGl3TXpudndVY0k0QURfUnRsNi1GbUl1YTF6ckVadFBsb3hwSjJabDBpTjRnbjM3eVZLdDhJU1BfejJ4aGQwQTVObzZSUk9EVFljYjAtNjRKYUV0QmJHa296WnpkUk8tbnNOSU13TnV1SzQ3c2JhM3JwSWNOUjU2MGVkY2Q5NVlyYkNVaVNReHFRbXpuTjFzeG0tSUVBN24yMTdTSnBHR1JEeXhIUFNjY1hpWDFlNU8ycG81bWFQNDRKNGk5Y1NiZ29Ha2NCbWF3?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Times of India. Incrementa la presión sobre Guillaume Faury."
+      }
+    ]
+  },
+  "telegram_archive": {
+    "channel_metadata": {
+      "name": "EnfadadosconAirbus",
+      "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+      "type": "Canal Oficial Asambleas Huelga Airbus España",
+      "total_members": 5794,
+      "status": "Activo / En seguimiento continuo",
+      "last_sync": "2026-08-29T20:00:38.388194"
+    },
+    "stats": {
+      "total_documents": 30,
+      "categories": {
+        "Minutas de Asamblea": 1,
+        "Documentos Legales / SIMA": 1,
+        "Dossiers Económicos": 0,
+        "Comunicados Sindicales": 2,
+        "Otros": 26
+      }
+    },
+    "documents": [
+      {
+        "id": "tg-doc-001",
+        "title": "2008 Boeing machinists' strike - Wikipedia",
+        "category": "Documento Legal / SIMA",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 20743,
+        "file_path": "data/telegram_archive/legal_filings/2008_Boeing_machinists__strike_-_Wikipedia.txt",
+        "original_source_id": "685d3c94-3271-409a-9b5e-c2ede2af7438",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "2008 Boeing machinists' strike - Wikipedia\nJump to content\nhttps://en.wikipedia.org/wiki/2008_Boeing_machinists%27_strike#bodyContent\n \n[-]\nMain menu\nMain menu\nmove to sidebar hide\nNavigation\nMain page\nhttps://en.wikipedia.org/wiki/Main_Page\nContents\nhttps://en.wikipedia.org/wiki/Wikipedia:Contents..."
+      },
+      {
+        "id": "tg-doc-002",
+        "title": "20260630 - Nota de prensa - Huelga en Airbus_260710_201620.pdf",
+        "category": "Comunicado Sindical",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 4263,
+        "file_path": "data/telegram_archive/documents/20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt",
+        "original_source_id": "8f19778d-360f-4be6-bb6f-0b166390cc40",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8Pf_bT86m2ngeyv0tI1IETGK6ptNZWUY9-JPrGlt0sd2JhwFDLZtoFgp0tPSR6AIgC3UdwsiTlRSb3KFJeEcgYm3CBLgRKpYN4110rpYDB9PhxYbWcesEln5tSSebvvMNood6rAA=w1280-h243-v0\nf37de302-7638-44e2-be84-5ebbc0ea4edb\n  \n \nNOTA DE PRENSA PARA EMISIÓN INMEDIATA \nEL SINDICATO SIPA..."
+      },
+      {
+        "id": "tg-doc-003",
+        "title": "20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf",
+        "category": "Comunicado Sindical",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 4518,
+        "file_path": "data/telegram_archive/documents/20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt",
+        "original_source_id": "78f0d280-de71-47d6-8bec-15c4d870a00b",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9r74Gdk2Jm29BIEP2P7rpfQbGvyW942DAzWbDtoqx7cV2ay42yGwKzwYuI4w7LimElj8SwYTRnRa-I2x4ZZhlYO1zpXMZK66KCf_shCsZ1MLsElxuWLzZmKZBPj4OeZlR_YIPZyw=w181-h181-v0\n954b7400-da80-4035-b925-d7e31de87011\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-r5BFfkCOvR..."
+      },
+      {
+        "id": "tg-doc-004",
+        "title": "2026_08_11_Plan_de_Acción_Medidas_de_Aplicacion_en_Mantenimiento.pdf",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 10446,
+        "file_path": "data/telegram_archive/documents/2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt",
+        "original_source_id": "5f12f28d-4d43-4a30-9276-01db2a0246d5",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-ILe5y5DT16Ttm3Akl_kw5TDt7ue9UjpS4SLZ_VG5G6p9bGKuLUF_gZBJo5g_UafoPu2gAnHSqC1onbpVSUZ7DfJAAdTd_pVWp8vXUpF-doFCpuQEACkRjJzcXO5PoA9Jbm6NJ2g=w383-h404-v0\n9c8bd0f6-3095-4a74-9b15-0806c1392edf\n ASETMA INFORMA  \n \n Pág. 1 de 3 \nC/. Algemesí, 45 – bajo A –..."
+      },
+      {
+        "id": "tg-doc-005",
+        "title": "396 AIRBUS APLAZ.pdf",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 8836,
+        "file_path": "data/telegram_archive/documents/396_AIRBUS_APLAZ.pdf.txt",
+        "original_source_id": "82f43d74-1800-4ffd-aa07-912da4b7efb5",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_jmU69qoF0TMknsXelB8DaaHKvOyMrUGBt1Va9YLg1MML5EJWKWko8CjjA_jES_E0z7YDDQDKHQYA70qPCufLxR7Dh0Wx7Z5YLpmsG6oxsyFNnTbg7KwiWeTlA9K96sTGOUjfSdA=w477-h202-v0\n61ca8391-9a97-4467-8186-ec0ef386ff72\n Nº Expediente: M/396/2026/H  \n \n \nACTA DE LA REUNIÓN \nEn rela..."
+      },
+      {
+        "id": "tg-doc-006",
+        "title": "4_5796203638925829350.pdf",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 4703,
+        "file_path": "data/telegram_archive/documents/4_5796203638925829350.pdf.txt",
+        "original_source_id": "2b550d82-9ca2-4432-8b03-f0dcd0e4ec65",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-Hx3A76FFYMPOYCTAfab6gDCR4_LVruhAFHQZKzf02Hp9DG4bE6XpcQKcH5Xwoq5g1i8Ti1jDMAadwD7BP9Y54ZQzcqGZxsS8-uAnQcK1bocyx16Rcx-_pB4agn4O99GrThHxveg=w530-h324-v0\n6650a9c9-ddfc-4b2a-b320-79bada1fa0c5\n. \n \n \n \nREUNIÓN COMITÉ DE HUELGA EN EL SIMA 25/08/2026 \nTras..."
+      },
+      {
+        "id": "tg-doc-007",
+        "title": "4_5969781284744994502.pdf",
+        "category": "General",
+        "date": "17/07/2026",
+        "size_chars": 6225,
+        "file_path": "data/telegram_archive/documents/4_5969781284744994502.pdf.txt",
+        "original_source_id": "721c0baa-2d7c-40cf-83b9-b540088516f7",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Minutas Asamblea en Huelga GETAFE - 17/07/2026  Mensajes generales: \n- La producción de la planta de Marignan se ha visto impactada por nuestra huelga y sufrirá paros a partir de la semana que viene. \n- El beluga ya no viene porque no tiene piezas que llevar a Toulouse. \n- ¡Enhorabuena a todos por e..."
+      },
+      {
+        "id": "tg-doc-008",
+        "title": "5803119881057145292.pdf",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 473,
+        "file_path": "data/telegram_archive/documents/5803119881057145292.pdf.txt",
+        "original_source_id": "d4c4c59e-9e75-4caa-8753-439c938df230",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9guuZmthqidaGIgD7C_AAqlBafZucqNORyDNKfVTqcV-E7zxb8Aoq9EeP7ypf-L5f7b9uNKT-bsekzEockdBJti9SejaGY8gc0Q4hmhiOt5l1W4WwuFXdSVpVTDHaxSDII6vyL=w838-h1187-v0\na5508757-0c20-4d10-9ecd-fbcc76510851\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-q-jbuE6QyqA..."
+      },
+      {
+        "id": "tg-doc-009",
+        "title": "8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca.",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 15098,
+        "file_path": "data/telegram_archive/documents/8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt",
+        "original_source_id": "5607dc88-2ab6-4c2e-8198-4e928ba1a1a4",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca. - Confederación General del Trabajo\nSaltar al contenido\nhttps://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multi..."
+      },
+      {
+        "id": "tg-doc-010",
+        "title": "AN. En el teletrabajo no cabe sustituir la compensación de gastos por tiempo de descanso retribuido - Laboral Social",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 6369,
+        "file_path": "data/telegram_archive/documents/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
+        "original_source_id": "c2a30f0c-ff24-43d2-8c75-30fcb45d7965",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "El abono tiene carácter legal imperativo\nInicio\nhttps://www.laboral-social.com/\nNoticias\nhttps://www.laboral-social.com/noticias.html\nJurisprudencia »\nhttps://www.laboral-social.com/jurisprudencia.html\nHistórico de sentencias\nhttp://www.laboral-social.com/historico-jurisprudencia.html\n Menú Principa..."
+      },
+      {
+        "id": "tg-doc-011",
+        "title": "Ab April 3,1 % mehr Geld – und starke Sonderzahlungen im Jahr 2026 - IG Metall Frankfurt",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 16443,
+        "file_path": "data/telegram_archive/documents/Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt",
+        "original_source_id": "88e0eb81-3541-4001-b7f1-4462504dbc45",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Ab April 3,1 % mehr Geld – und starke Sonderzahlungen i...\nPresse\nhttps://www.igmetall.de/presse\nAktivenportal\nhttps://www.igmetall.de/aktive\nMitglieder\nhttps://www.igmetall.de/mitglieder\nAnfahrt\nhttps://frankfurt.igmetall.de/%C3%9Cber-uns/Anfahrt\nKontakt\nhttps://frankfurt.igmetall.de/%C3%9Cber-uns/..."
+      },
+      {
+        "id": "tg-doc-012",
+        "title": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 6955,
+        "file_path": "data/telegram_archive/documents/Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt",
+        "original_source_id": "e69988f6-ac71-49cd-95fd-cad7a5d321d3",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista\nLa redacción permanecerá cerrada durante agosto. Volvemos en septiembre.\nPolítica\nhttps://diariosocialista.net/t/politica/\nEconomía\nhttps://diariosocialista.net/t/economia/\nMundo\nhttps..."
+      },
+      {
+        "id": "tg-doc-013",
+        "title": "Acta Asamblea en huelga 1407.pdf",
+        "category": "Minuta de Asamblea",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 714,
+        "file_path": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt",
+        "original_source_id": "e480c81d-2f44-477e-abd6-438390c123d0",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9nJtVc3fEvjWRTTyTo82IAh5jD3eg6Djd5Ub52QUYLMM7nsAeFGhSofsTSgPe2SQDf4Z8RncAwrHswEUodvmXbXCFXc14hinFG0G8IXvVcC9_rpvAohSAhKlRYAUcd0vhenFKFww=w839-h1187-v0\n7ef7e8cc-23eb-400e-b35a-c249cb96ac53\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-ohTJegBX6..."
+      },
+      {
+        "id": "tg-doc-014",
+        "title": "Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 33682,
+        "file_path": "data/telegram_archive/documents/Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt",
+        "original_source_id": "e707e6bf-1d13-440c-b9fd-60cc2cbcf4d4",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO\n \n \nhttps://www.cookiebot.com/es/que-significa-impulsada-por-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2\nConsentimiento\nhttps://www.uso.es/acuerdo-en-mediacion-pa..."
+      },
+      {
+        "id": "tg-doc-015",
+        "title": "Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 13039,
+        "file_path": "data/telegram_archive/documents/Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt",
+        "original_source_id": "361b6902-464c-4008-aec2-1b71373c18b5",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria - Federación de Industria de la Unión Sindical Obrera\nValoramos tu privacidad\nUsamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al..."
+      },
+      {
+        "id": "tg-doc-016",
+        "title": "Addressing continued turbulence: The commercial-aerospace supply chain - McKinsey",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 25043,
+        "file_path": "data/telegram_archive/documents/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
+        "original_source_id": "6e73b43c-adf5-4be1-9482-2d6d98637f62",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Commercial aerospace supply chain challenges | McKinsey\nSkip to main content\nhttps://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#skipToMain\n \nhttps://www.mckinsey.com/\n \nhttps://www.mckinsey.com/\nAerospace and D..."
+      },
+      {
+        "id": "tg-doc-017",
+        "title": "Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines - IATA",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 36759,
+        "file_path": "data/telegram_archive/documents/Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt",
+        "original_source_id": "0abf7a91-f557-4866-ad5b-d26f62c4c0fa",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "IATA - Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines\n[Search]\n[Menu]\nAbout Us\nhttps://www.iata.org/en/about/\nVision & Mission\nhttps://www.iata.org/en/about/mission/\nPriorities\nhttps://www.iata.org/en/about/priorities/\nMembership\nhttps://www.iata.org/en/about/members/\nIATA Managem..."
+      },
+      {
+        "id": "tg-doc-018",
+        "title": "Airbus - CSRD Report Reviews - BWD Strategic",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 83334,
+        "file_path": "data/telegram_archive/documents/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
+        "original_source_id": "c5bb26d3-281b-4850-9860-b27db07d7c6e",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus – CSRD Report Reviews\nBWD Portal\nhttps://portal.bwdstrategic.com/\nBWD Strategic CSRD Report Reviews\nhttps://csrd.bwdstrategic.com/\nTopics\nhttps://csrd.bwdstrategic.com/topics\n \nCompanies\nhttps://csrd.bwdstrategic.com/companies\n \nCompare\nhttps://csrd.bwdstrategic.com/compare\n \nInsights\nhttps:/..."
+      },
+      {
+        "id": "tg-doc-019",
+        "title": "Airbus Annual Report 2024 - Bnains.org",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 1531936,
+        "file_path": "data/telegram_archive/documents/Airbus_Annual_Report_2024_-_Bnains.org.txt",
+        "original_source_id": "0a3f1c62-688d-4295-a240-b45e5bb46a3e",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX837hiURyTXkSVoHuS2XYheFQyIrHquzhk74VI8hTWCxAeixs1kI9tmPj2ovUMeHnmSZCbptARVOyEpAtqIRBmIjNToOsQdrh6TSmIMeopg-W2lmReA_DgzP8B4QenCGmQLs16acA=w1280-h988-v0\nd62c7b28-9bce-453d-864a-2d2115bf7dd1\nAirbus Annual Report 2024 \nInnovation  in action\nhttps://lh3...."
+      },
+      {
+        "id": "tg-doc-020",
+        "title": "Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas - La Razón",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 22913,
+        "file_path": "data/telegram_archive/documents/Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt",
+        "original_source_id": "70eea0f6-45e7-4a44-8562-ec6ef147648b",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas\nWith your agreement, we and \nour 1014 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like you..."
+      },
+      {
+        "id": "tg-doc-021",
+        "title": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 14689,
+        "file_path": "data/telegram_archive/documents/Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt",
+        "original_source_id": "b2dd1a89-f593-4eb9-967e-bf3f156fc402",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight\nDiscord\nhttps://discord.gg/EktRKbMEZv\n \nInstagram\nhttps://www.instagram.com/europeanspaceflight/\n \nLinkedin\nhttps://www.linkedin.com/company/european-spaceflight/\n \nX\nhttps://mobile.twitter.com/espaceflight\nNews..."
+      },
+      {
+        "id": "tg-doc-022",
+        "title": "Airbus SMH grids",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 7669,
+        "file_path": "data/telegram_archive/documents/Airbus_SMH_grids.txt",
+        "original_source_id": "0aab3f3c-28e3-4a4f-9c83-cf5ddfaac5df",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus SMH grids – CGT Airbus Commercial Aircraft\nAller au contenu\nhttps://avions.cgtairbus.com/airbus-smh-grids/#wp--skip-link--target\nLes sites CGT Airbus\nhttps://avions.cgtairbus.com/airbus-smh-grids/\nAirbus Group\nhttps://groupe.cgtairbus.com/\nAirbus Defence & Space RP\nhttps://ds.cgtairbus.com/\nA..."
+      },
+      {
+        "id": "tg-doc-023",
+        "title": "Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions - Doing Business in Bentonville",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 17394,
+        "file_path": "data/telegram_archive/documents/Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt",
+        "original_source_id": "8b50732c-024b-49b8-925c-d6df6a296480",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions\nSkip to content\nhttps://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-disruptions/#main\nSign up for our free weekly newsletter\nhttps://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-dis..."
+      },
+      {
+        "id": "tg-doc-024",
+        "title": "Airbus Spain Workers Resume Strike After Rejected Pay Offer - Global Banking & Finance Review",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 24517,
+        "file_path": "data/telegram_archive/documents/Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt",
+        "original_source_id": "b68b3945-863e-4ec3-bc00-e7566acae8bd",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus Spain Workers Resume Strike After Rejected Pay Offer\nFriday, 28 August 2026\nSearch\nhttps://www.globalbankingandfinance.com/search/\nTop Stories\nhttps://www.globalbankingandfinance.com/category/top-stories/\n \nInterviews\nhttps://www.globalbankingandfinance.com/category/interviews/\n \nBusiness\nhtt..."
+      },
+      {
+        "id": "tg-doc-025",
+        "title": "Airbus Spain strike resumes as dispute threatens key military aircraft programs",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 11798,
+        "file_path": "data/telegram_archive/documents/Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt",
+        "original_source_id": "9667eef5-403a-4d12-b58a-28615af54bd8",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus Spain strike resumes as dispute threatens key military aircraft programs - Air Data News\nLatest News\nhttps://www.airdatanews.com/latest-news/\nAir Transport\nhttps://www.airdatanews.com/channel/air-transport/\nDefense\nhttps://www.airdatanews.com/channel/defense/\nBusiness Aviation\nhttps://www.air..."
+      },
+      {
+        "id": "tg-doc-026",
+        "title": "Airbus UK Pension Scheme | Retirement Plan Schedule 4",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 28021,
+        "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt",
+        "original_source_id": "f0933747-4333-49f1-8da1-304919f16bd0",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus UK Pension Scheme | Schedule 4 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe..."
+      },
+      {
+        "id": "tg-doc-027",
+        "title": "Airbus UK Pension Scheme | Retirement Plan Schedule 5",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 27303,
+        "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt",
+        "original_source_id": "8e737ff2-f03c-4b1f-a69b-17223fd138e0",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus UK Pension Scheme | Schedule 5 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe..."
+      },
+      {
+        "id": "tg-doc-028",
+        "title": "Airbus UK Pension Scheme | Schedule 1",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 26695,
+        "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_1.txt",
+        "original_source_id": "d2cc8b05-d7a2-4541-be59-9402e7b7fe06",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus UK Pension Scheme | Schedule 1 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe..."
+      },
+      {
+        "id": "tg-doc-029",
+        "title": "Airbus UK Pension Scheme | Schedule 2",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 27032,
+        "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_2.txt",
+        "original_source_id": "b5d46295-c8f6-4eee-93c5-5247fe02b71d",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus UK Pension Scheme | Schedule 2 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe..."
+      },
+      {
+        "id": "tg-doc-030",
+        "title": "Airbus UK Pension Scheme | Schedule 3",
+        "category": "General",
+        "date": "Julio - Agosto 2026",
+        "size_chars": 27098,
+        "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_3.txt",
+        "original_source_id": "79e43767-7b44-46ec-a4ca-9a7f2d2cac8f",
+        "group": "EnfadadosconAirbus",
+        "group_url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+        "summary": "Airbus UK Pension Scheme | Schedule 3 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe..."
+      }
+    ]
+  }
 };
+
+const fallbackSourcesCatalog = [
+  {
+    "id": "685d3c94-3271-409a-9b5e-c2ede2af7438",
+    "index": 1,
+    "title": "2008 Boeing machinists' strike - Wikipedia",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://en.wikipedia.org/wiki/2008_Boeing_machinists%27_strike",
+    "char_count": 20743,
+    "summary": "2008 Boeing machinists' strike - Wikipedia Jump to content https://en.wikipedia.org/wiki/2008_Boeing_machinists%27_strike#bodyContent   [-] Main menu Main menu move to sidebar hide Navigation Main page https://en.wikipedia.org/wiki/Main_Page Contents https://en.wikipedia.org/wiki/Wikipedia:Contents",
+    "file_path": "sources/685d3c94.txt",
+    "fulltext_preview": "2008 Boeing machinists' strike - Wikipedia\nJump to content\nhttps://en.wikipedia.org/wiki/2008_Boeing_machinists%27_strike#bodyContent\n \n[-]\nMain menu\nMain menu\nmove to sidebar hide\nNavigation\nMain page\nhttps://en.wikipedia.org/wiki/Main_Page\nContents\nhttps://en.wikipedia.org/wiki/Wikipedia:Contents\nCurrent events\nhttps://en.wikipedia.org/wiki/Portal:Current_events\nRandom article\nhttps://en.wikipedia.org/wiki/Special:Random\nAbout Wikipedia\nhttps://en.wikipedia.org/wiki/Wikipedia:About\nContact us\nhttps://en.wikipedia.org/wiki/Wikipedia:Contact_us\nContribute\nHelp\nhttps://en.wikipedia.org/wiki/Help:Contents\nLearn to edit\nhttps://en.wikipedia.org/wiki/Help:Introduction\nCommunity portal\nhttps://en.wikipedia.org/wiki/Wikipedia:Community_portal\nRecent changes\nhttps://en.wikipedia.org/wiki/Special:"
+  },
+  {
+    "id": "8f19778d-360f-4be6-bb6f-0b166390cc40",
+    "index": 2,
+    "title": "20260630 - Nota de prensa - Huelga en Airbus_260710_201620.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4263,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8YpWwtiC-TPDvq0HzghG9RuYv2VNdGCPU6_WhKLbz2jSMBtaegAt4tJxH9-s4YPBue5peFJ-YjQ246rJppGVv8fyCB-TIjA5yeSm1sBHUs9uA5w8ObstAm0YxQRlGkCgaC1RJaHg=w1280-h243-v0 f37de302-7638-44e2-be84-5ebbc0ea4edb      NOTA DE PRENSA PARA EMISIÓN INMEDIATA  EL SINDICATO SIPA",
+    "file_path": "sources/8f19778d.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8YpWwtiC-TPDvq0HzghG9RuYv2VNdGCPU6_WhKLbz2jSMBtaegAt4tJxH9-s4YPBue5peFJ-YjQ246rJppGVv8fyCB-TIjA5yeSm1sBHUs9uA5w8ObstAm0YxQRlGkCgaC1RJaHg=w1280-h243-v0\nf37de302-7638-44e2-be84-5ebbc0ea4edb\n  \n \nNOTA DE PRENSA PARA EMISIÓN INMEDIATA \nEL SINDICATO SIPA CONVOCA CONCENTRACIONES DESDE LAS 5:00 DE LA MAÑANA ANTE LAS PUERTAS DE AIRBUS Y \nAPELA AL DIÁLOGO PARA EVITAR EL CONFLICTO  \nSIPA, segundo sindicato más votado en Airbus España y fuerza mayoritaria en la sede central de Getafe, inicia las movilizaciones a las puertas de las factorías a partir de la madrugada del 1 de julio.La organización mantiene la convocatoria de huelga tras el fracaso de las negociaciones e insta a la dirección a retomar una vía de diálogo real.El sindicato pide revisar la"
+  },
+  {
+    "id": "78f0d280-de71-47d6-8bec-15c4d870a00b",
+    "index": 3,
+    "title": "20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4518,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_W__znBOiNqUpxOSRt0nlt2wDWa_5Dxb4ym9Yvf3zxkVgpUGXB6Gtkpc4gzJPEjDwVKpfCIBaA7lo8JF1bjM8G_t11YWAdk9TID8QPiwRDZj0bFkHOGFIMkWKgSE7wAH6-3drS2g=w181-h181-v0 954b7400-da80-4035-b925-d7e31de87011 https://lh3.googleusercontent.com/notebooklm/AKYWMX8C15wX-KT6L",
+    "file_path": "sources/78f0d280.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_W__znBOiNqUpxOSRt0nlt2wDWa_5Dxb4ym9Yvf3zxkVgpUGXB6Gtkpc4gzJPEjDwVKpfCIBaA7lo8JF1bjM8G_t11YWAdk9TID8QPiwRDZj0bFkHOGFIMkWKgSE7wAH6-3drS2g=w181-h181-v0\n954b7400-da80-4035-b925-d7e31de87011\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8C15wX-KT6LgjfJwWxft-EaJKofEzFuDVp86LkHYNWzQrC_M8_7Y-7xEsTkveNwYRZRhmrTkHcVwFGwM_8wzFKa-gPa3DEOTAZuPmF-DX3m9LHBA_mhLi300_-DxJWtUKruMQWBQ=w336-h171-v0\n25f5bfb1-3996-4abf-aba5-33fdc9209fbb\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_1QKPjkRdK_bjiQ28qI9QfDJ9HnbmEIqIH-ydyrl_5fBIeLW_KsctYtzj26u72eijEeVknurO_JOJvMsHN9OJ1Ik76Bgr3kwz016oF2xZf_H1glu-BSy_aN5UIZd41DotxgdOL6w=w169-h224-v0\n0b2e203b-aa64-4f41-a94e-71a9585da1e9\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8xgugSnyES_bDeJFUNS-Q-cfVWajxSgm6Lu"
+  },
+  {
+    "id": "5f12f28d-4d43-4a30-9276-01db2a0246d5",
+    "index": 4,
+    "title": "2026_08_11_Plan_de_Acción_Medidas_de_Aplicacion_en_Mantenimiento.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 10446,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_f8WSEQ97Z5jyaliepRWINKAyzcjceqTMPog8oxPlK0iJxnSQX6hDcoplFnaZhyiNteMZQpZQRbI5fba3DLkgtH2KsQ4dmKHAIvHJxONyLaDt9LNUDrPhpJFxEX_E0H8rYYFsAVA=w383-h404-v0 9c8bd0f6-3095-4a74-9b15-0806c1392edf  ASETMA INFORMA      Pág. 1 de 3  C/. Algemesí, 45 – bajo A –",
+    "file_path": "sources/5f12f28d.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_f8WSEQ97Z5jyaliepRWINKAyzcjceqTMPog8oxPlK0iJxnSQX6hDcoplFnaZhyiNteMZQpZQRbI5fba3DLkgtH2KsQ4dmKHAIvHJxONyLaDt9LNUDrPhpJFxEX_E0H8rYYFsAVA=w383-h404-v0\n9c8bd0f6-3095-4a74-9b15-0806c1392edf\n ASETMA INFORMA  \n \n Pág. 1 de 3 \nC/. Algemesí, 45 – bajo A – 28042 MADRID (ESPAÑA) \n \nSECCIÓN SINDICAL IBERIA \nPLAN DE ACCION MEDIDAS APLICACIÓN EN MANTENIMIENTO EN LINEA  Las secciones sindicales de ASETMA, CCOO y UGT hemos acordado con la empresa elevar el presente Plan de Acción al Comité Intercentros para su formalización, procediendo a su oportuna comunicación y registro conforme a los procedimientos establecidos. Este Plan de Acción tiene el objetivo de garantizar la disponibilidad de recursos y perfiles necesarios para dar soporte a la operación.  "
+  },
+  {
+    "id": "82f43d74-1800-4ffd-aa07-912da4b7efb5",
+    "index": 5,
+    "title": "396 AIRBUS APLAZ.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 8836,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8MRcOXWBnYqN-CehkVkkgaWyw7glHnNnybuBd1xXIaHdSuNgdZZ3vt6dQYFf5VFKtDf-7_eGksdT714Ex5v5kOBbiGJj64x2BHGqy6TKapyTJx_kSEGmov4q_x1hktTdGyWKatJQ=w477-h202-v0 61ca8391-9a97-4467-8186-ec0ef386ff72  Nº Expediente: M/396/2026/H       ACTA DE LA REUNIÓN  En rela",
+    "file_path": "sources/82f43d74.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8MRcOXWBnYqN-CehkVkkgaWyw7glHnNnybuBd1xXIaHdSuNgdZZ3vt6dQYFf5VFKtDf-7_eGksdT714Ex5v5kOBbiGJj64x2BHGqy6TKapyTJx_kSEGmov4q_x1hktTdGyWKatJQ=w477-h202-v0\n61ca8391-9a97-4467-8186-ec0ef386ff72\n Nº Expediente: M/396/2026/H  \n \n \nACTA DE LA REUNIÓN \nEn relación con la solicitud de mediación relativa a CONVOCATORIA DE HUELGA \npresentada el día 31/07/2026 y con fecha de inicio de tramitación ese mismo día \npromovida por UNION DE TRABAJADORES INDEPENDIENTES Y LIBRES (UTIL) y \nsecciones sindicales estatales de UGT y CGT frente a AIRBUS DEFENCE and SPACE, \nS.A.U., AIRBUS HELICOPTERS ESPAÑA, S.A. y AIRBUS OPERATIONS, S.L. por \nmotivo, según consta en la misma, de cumplimiento de las obligaciones legales, \ncontractuales y convencionales vigentes, reversi"
+  },
+  {
+    "id": "2b550d82-9ca2-4432-8b03-f0dcd0e4ec65",
+    "index": 6,
+    "title": "4_5796203638925829350.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4703,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8qYrGHiuaJUC6tuImLfR5mxNx2lOPel1eEGhpgTSOQEMM-m3GyTh4xyJ0pxzC4YjSz6jyQpgy-s_h0V9ReMY1g6pfJ3OR4mSSyo8V6uP9Jwt9ECqb5Rl5XD4PB45mW0nFrhMIAXA=w530-h324-v0 6650a9c9-ddfc-4b2a-b320-79bada1fa0c5 .        REUNIÓN COMITÉ DE HUELGA EN EL SIMA 25/08/2026  Tras",
+    "file_path": "sources/2b550d82.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8qYrGHiuaJUC6tuImLfR5mxNx2lOPel1eEGhpgTSOQEMM-m3GyTh4xyJ0pxzC4YjSz6jyQpgy-s_h0V9ReMY1g6pfJ3OR4mSSyo8V6uP9Jwt9ECqb5Rl5XD4PB45mW0nFrhMIAXA=w530-h324-v0\n6650a9c9-ddfc-4b2a-b320-79bada1fa0c5\n. \n \n \n \nREUNIÓN COMITÉ DE HUELGA EN EL SIMA 25/08/2026 \nTras la decisión unánime en todos los centros de trabajo en España (a excepción de Cádiz, por \ndecisión de su asamblea) de continuar la huelga. Hoy ha tenido lugar una reunión en el SIMA \nen el seno del Comité de Huelga para avanzar en la negociación como primera de una serie \ndiaria de reuniones para conseguir un acuerdo con la mayor agilidad posible. \nEn una primera intervención de la empresa, Carmen Maja-Rex, máxima responsable de RRHH \nen Airbus Grupo, nos ha trasladado que la huelga está ocasion"
+  },
+  {
+    "id": "721c0baa-2d7c-40cf-83b9-b540088516f7",
+    "index": 7,
+    "title": "4_5969781284744994502.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 6225,
+    "summary": "Minutas Asamblea en Huelga GETAFE - 17/07/2026  Mensajes generales:  - La producción de la planta de Marignan se ha visto impactada por nuestra huelga y sufrirá paros a partir de la semana que viene.  - El beluga ya no viene porque no tiene piezas que llevar a Toulouse.  - ¡Enhorabuena a todos por e",
+    "file_path": "sources/721c0baa.txt",
+    "fulltext_preview": "Minutas Asamblea en Huelga GETAFE - 17/07/2026  Mensajes generales: \n- La producción de la planta de Marignan se ha visto impactada por nuestra huelga y sufrirá paros a partir de la semana que viene. \n- El beluga ya no viene porque no tiene piezas que llevar a Toulouse. \n- ¡Enhorabuena a todos por el éxito de la marcha de ayer! \n- Recordatorio: los afiliados de CCOO no son responsables del comportamiento de su \ncúpula. Se les agradece su participación a pesar de la falta de apoyo de su sindicato. \n- Actualización del Nuevo sistema de votaciones: la aplicación ya está lista, el Z sí es \nun dato personal. A partir del lunes (20/07) se comienza a censar, tendremos que \nleer y aceptar el disclaimer de datos personales, hay que llevar el batch y nos van a dar usuario para que a posteriori podam"
+  },
+  {
+    "id": "d4c4c59e-9e75-4caa-8753-439c938df230",
+    "index": 8,
+    "title": "5803119881057145292.pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 473,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_qnuR-ZSHv5YrJ2PqhsXoF3Edum5GUlQDkZahRm89PaIbtNIU8CSWm01Qib_pHSZGBbn1i1awwr3hnym8ldOjVrI0xYdlsY2G5_uIFQevplOHF58UC21nGyv2kJTyX77sebMsT=w838-h1187-v0 a5508757-0c20-4d10-9ecd-fbcc76510851 https://lh3.googleusercontent.com/notebooklm/AKYWMX9aDPX9PEc8mD",
+    "file_path": "sources/d4c4c59e.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_qnuR-ZSHv5YrJ2PqhsXoF3Edum5GUlQDkZahRm89PaIbtNIU8CSWm01Qib_pHSZGBbn1i1awwr3hnym8ldOjVrI0xYdlsY2G5_uIFQevplOHF58UC21nGyv2kJTyX77sebMsT=w838-h1187-v0\na5508757-0c20-4d10-9ecd-fbcc76510851\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9aDPX9PEc8mDl8cc0kPVySr5LDZVFr--b4qTCEbOujj37DruEFDBLfINE5UiSfTJA5uCXeEHuL5GV0G7DQWInehpnwEFMeOQE-iCUMJ3otUEYrLx1e6XcLVH6LgjmkbiZ28fXv=w838-h1187-v0\nea0e942b-6ebe-49a7-8d5b-42526f4ae515"
+  },
+  {
+    "id": "5607dc88-2ab6-4c2e-8198-4e928ba1a1a4",
+    "index": 9,
+    "title": "8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca.",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multinacional-sueca/",
+    "char_count": 15098,
+    "summary": "8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca. - Confederación General del Trabajo Saltar al contenido https://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multi",
+    "file_path": "sources/5607dc88.txt",
+    "fulltext_preview": "8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca. - Confederación General del Trabajo\nSaltar al contenido\nhttps://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multinacional-sueca/#main\nCGT\nhttps://cgt.es/\nQuiénes somos\nhttps://cgt.es/cgt/quienes-somos/\nPrensa\nhttps://cgt.es/cgt/prensa/\nHistoria\nhttps://cgt.es/cgt/historia/\nNormas y acuerdos\nhttps://cgt.es/cgt/normas-y-acuerdos/\nDirectorio Confederal\nhttps://cgt.es/cgt/directorio/\nMemoria Libertaria\nhttps://memorialibertaria.org/\nFundación Salvador Seguí\nhttps://www.fundacionssegui.org/\nRuesta\nhttps://ruesta.com/\nInfo\nhttps://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-a"
+  },
+  {
+    "id": "c2a30f0c-ff24-43d2-8c75-30fcb45d7965",
+    "index": 10,
+    "title": "AN. En el teletrabajo no cabe sustituir la compensación de gastos por tiempo de descanso retribuido - Laboral Social",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.laboral-social.com/trabajo-distancia-teletrabajo-compensacion-gastos-descanso-retribuido-libre-disposicion",
+    "char_count": 6369,
+    "summary": "El abono tiene carácter legal imperativo Inicio https://www.laboral-social.com/ Noticias https://www.laboral-social.com/noticias.html Jurisprudencia » https://www.laboral-social.com/jurisprudencia.html Histórico de sentencias http://www.laboral-social.com/historico-jurisprudencia.html  Menú Principa",
+    "file_path": "sources/c2a30f0c.txt",
+    "fulltext_preview": "El abono tiene carácter legal imperativo\nInicio\nhttps://www.laboral-social.com/\nNoticias\nhttps://www.laboral-social.com/noticias.html\nJurisprudencia »\nhttps://www.laboral-social.com/jurisprudencia.html\nHistórico de sentencias\nhttp://www.laboral-social.com/historico-jurisprudencia.html\n Menú Principal Histórico de sentencias\nLegislación »\nhttps://www.laboral-social.com/novedades-legislativas.html\nLegislación estatal\nhttp://www.laboral-social.com/legislacion-estatal\nLegislación autonómica\nhttp://www.laboral-social.com/legislacion-autonomica\n Menú Principal Legislación estatal Legislación autonómica\nConvenios »\nhttp://www.laboral-social.com/convenios-colectivos\nHistórico de Convenios\nhttp://www.laboral-social.com/historico-convenios.html\nBuscador de Convenios\nhttp://www.cef.es/convenios-colec"
+  },
+  {
+    "id": "88e0eb81-3541-4001-b7f1-4462504dbc45",
+    "index": 11,
+    "title": "Ab April 3,1 % mehr Geld – und starke Sonderzahlungen im Jahr 2026 - IG Metall Frankfurt",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://frankfurt.igmetall.de/Aktuelles/2025/mehr-geld-ab-april-2026",
+    "char_count": 16443,
+    "summary": "Ab April 3,1 % mehr Geld – und starke Sonderzahlungen i... Presse https://www.igmetall.de/presse Aktivenportal https://www.igmetall.de/aktive Mitglieder https://www.igmetall.de/mitglieder Anfahrt https://frankfurt.igmetall.de/%C3%9Cber-uns/Anfahrt Kontakt https://frankfurt.igmetall.de/%C3%9Cber-uns/",
+    "file_path": "sources/88e0eb81.txt",
+    "fulltext_preview": "Ab April 3,1 % mehr Geld – und starke Sonderzahlungen i...\nPresse\nhttps://www.igmetall.de/presse\nAktivenportal\nhttps://www.igmetall.de/aktive\nMitglieder\nhttps://www.igmetall.de/mitglieder\nAnfahrt\nhttps://frankfurt.igmetall.de/%C3%9Cber-uns/Anfahrt\nKontakt\nhttps://frankfurt.igmetall.de/%C3%9Cber-uns/Kontakt\nIG Metall vor Ort\nhttps://www.igmetall.de/service/online-services/kontakt-aufnehmen\nigmetall.de\nhttps://www.igmetall.de/\nDeutsch \nDeutsch\nhttps://frankfurt.igmetall.de/Aktuelles/2025/mehr-geld-ab-april-2026\nGeschäftsstelle Frankfurt am Main\nMitglied werden\nhttps://www.igmetall.de/mitglieder/mitglied-werden\nMitmachen\nhttps://frankfurt.igmetall.de/Mitmachen\nMitmachen\nhttps://frankfurt.igmetall.de/Mitmachen\nÜbersicht\nMitmachen\nhttps://frankfurt.igmetall.de/Mitmachen\nMitgliedschaft\nhttps://f"
+  },
+  {
+    "id": "e69988f6-ac71-49cd-95fd-cad7a5d321d3",
+    "index": 12,
+    "title": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista",
+    "category": "Benchmark Internacional",
+    "type": "web_page",
+    "url": "https://diariosocialista.net/2025/05/21/acerinox-reclama-30-millones-de-euros-a-siete-sindicalistas-por-huelga-en-la-planta-de-palmones/",
+    "char_count": 6955,
+    "summary": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista La redacción permanecerá cerrada durante agosto. Volvemos en septiembre. Política https://diariosocialista.net/t/politica/ Economía https://diariosocialista.net/t/economia/ Mundo https",
+    "file_path": "sources/e69988f6.txt",
+    "fulltext_preview": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista\nLa redacción permanecerá cerrada durante agosto. Volvemos en septiembre.\nPolítica\nhttps://diariosocialista.net/t/politica/\nEconomía\nhttps://diariosocialista.net/t/economia/\nMundo\nhttps://diariosocialista.net/t/mundo/\nSociedad\nhttps://diariosocialista.net/t/sociedad/\nHistoria del socialismo\nhttps://diariosocialista.net/t/historia-del-socialismo/\nOpinión\nhttps://diariosocialista.net/t/opinion/\nLínea Política\nhttps://diariosocialista.net/t/linea-politica/\nDominical\nhttps://diariosocialista.net/t/dominical/\n×\n \nAlto contraste:\nPolítica\nhttps://diariosocialista.net/t/politica/\nEconomía\nhttps://diariosocialista.net/t/economia/\nMundo\nhttps://diariosocialista.net/t/mundo/\nSociedad\nht"
+  },
+  {
+    "id": "e480c81d-2f44-477e-abd6-438390c123d0",
+    "index": 13,
+    "title": "Acta Asamblea en huelga 1407.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 714,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8HQvsd_bWfzYN0DeLsvu1w5HlwqC70_PiS7-1FNwoNoB9DQesfVIrkeMMU5ZuV0IgPoW-0XfQd8KkDRCZ9wqZNddeCSNlI3AdAUEMG6-LFa-ftimzWgembatiV5cGcMukwZp6Gpw=w839-h1187-v0 7ef7e8cc-23eb-400e-b35a-c249cb96ac53 https://lh3.googleusercontent.com/notebooklm/AKYWMX9V7i7BKM_j",
+    "file_path": "sources/e480c81d.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8HQvsd_bWfzYN0DeLsvu1w5HlwqC70_PiS7-1FNwoNoB9DQesfVIrkeMMU5ZuV0IgPoW-0XfQd8KkDRCZ9wqZNddeCSNlI3AdAUEMG6-LFa-ftimzWgembatiV5cGcMukwZp6Gpw=w839-h1187-v0\n7ef7e8cc-23eb-400e-b35a-c249cb96ac53\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9V7i7BKM_j0RiPErq4i99zCXF8OKi3YLMsdWZZeBihY7PSBC7gxeRDH63onSJCwPQkmSJji9QFnuVZd8rX8C3KllLmY3iqy3nzocbPDHIpFszc8lR3EddNMcXFBxJfcFIYesSb_Q=w839-h1187-v0\n9a9bc901-532e-4393-9253-9472b439d504\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8ybY-BB0vqazvBWRP_apARnJz1zWPp99IVq-y8W0Ef3ctbIM7FIyX08gY-D4rqLmjCj89oH8Pu9eAKTHNf9OdS0sa52je22wd7EtKO0-su_CyndIkWD_our6pbIPvW-A9PceAA=w839-h1187-v0\nd5265464-bc9a-42f1-aceb-458320893217"
+  },
+  {
+    "id": "e707e6bf-1d13-440c-b9fd-60cc2cbcf4d4",
+    "index": 14,
+    "title": "Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/",
+    "char_count": 33682,
+    "summary": "Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO     https://www.cookiebot.com/es/que-significa-impulsada-por-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2 Consentimiento https://www.uso.es/acuerdo-en-mediacion-pa",
+    "file_path": "sources/e707e6bf.txt",
+    "fulltext_preview": "Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO\n \n \nhttps://www.cookiebot.com/es/que-significa-impulsada-por-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2\nConsentimiento\nhttps://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/\nDetalles\nhttps://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/\n[#IABV2SETTINGS#]\nhttps://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/\nAcerca de las cookies\nhttps://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/\nEsta página web u"
+  },
+  {
+    "id": "361b6902-464c-4008-aec2-1b71373c18b5",
+    "index": 15,
+    "title": "Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://usoindustria.org/acuerdo-para-el-desbloqueo-del-convenio-colectivo-del-metal-en-cadiz/",
+    "char_count": 13039,
+    "summary": "Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria - Federación de Industria de la Unión Sindical Obrera Valoramos tu privacidad Usamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al",
+    "file_path": "sources/361b6902.txt",
+    "fulltext_preview": "Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria - Federación de Industria de la Unión Sindical Obrera\nValoramos tu privacidad\nUsamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al hacer clic en “Aceptar todo” usted da su consentimiento a nuestro uso de las cookies.\nPersonalizar Rechazar todo Aceptar todo\nPersonalizar las preferencias de consentimiento\n \nUsamos cookies para ayudarle a navegar de manera eficiente y realizar ciertas funciones. Encontrará información detallada sobre cada una de las cookies bajo cada categoría de consentimiento a continuación.\nLas cookies categorizadas como “Necesarias” se guardan en su navegador, ya que son esenciales para permitir las funcio"
+  },
+  {
+    "id": "6e73b43c-adf5-4be1-9482-2d6d98637f62",
+    "index": 16,
+    "title": "Addressing continued turbulence: The commercial-aerospace supply chain - McKinsey",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain",
+    "char_count": 25043,
+    "summary": "Commercial aerospace supply chain challenges | McKinsey Skip to main content https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#skipToMain   https://www.mckinsey.com/   https://www.mckinsey.com/ Aerospace and D",
+    "file_path": "sources/6e73b43c.txt",
+    "fulltext_preview": "Commercial aerospace supply chain challenges | McKinsey\nSkip to main content\nhttps://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#skipToMain\n \nhttps://www.mckinsey.com/\n \nhttps://www.mckinsey.com/\nAerospace and Defense\nhttps://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients\nAerospace and Defense\nhttps://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients\nHow We Help Clients\nhttps://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients\nOur Insights\nhttps://www.mckinsey.com/industries/aerospace-and-defense/our-insights\nOur People\nhttps://www.mckinsey.com/industries/aerospace-and-defense/our-people\nContact Us\nhttps://www.mckinsey.com/industries/aerosp"
+  },
+  {
+    "id": "0abf7a91-f557-4866-ad5b-d26f62c4c0fa",
+    "index": 17,
+    "title": "Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines - IATA",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.iata.org/en/pressroom/2025-releases/2025-12-09-02/",
+    "char_count": 36759,
+    "summary": "IATA - Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines [Search] [Menu] About Us https://www.iata.org/en/about/ Vision & Mission https://www.iata.org/en/about/mission/ Priorities https://www.iata.org/en/about/priorities/ Membership https://www.iata.org/en/about/members/ IATA Managem",
+    "file_path": "sources/0abf7a91.txt",
+    "fulltext_preview": "IATA - Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines\n[Search]\n[Menu]\nAbout Us\nhttps://www.iata.org/en/about/\nVision & Mission\nhttps://www.iata.org/en/about/mission/\nPriorities\nhttps://www.iata.org/en/about/priorities/\nMembership\nhttps://www.iata.org/en/about/members/\nIATA Management\nhttps://www.iata.org/en/about/management/\nCorporate Governance\nhttps://www.iata.org/en/about/corporate-structure/\nStrategic Partnerships\nhttps://www.iata.org/en/about/sp/\nOur Commitment\nhttps://www.iata.org/en/about/our-commitment/\nIATA by Region\nhttps://www.iata.org/en/about/worldwide/\nHistory\nhttps://www.iata.org/en/about/history/\nCareers\nhttps://www.iata.org/en/about/careers/\nSpeaker Request Form\nhttps://www.iata.org/en/about/speaker-request-form/\nStore\nhttps://www.iata.org/en/store/\nCust"
+  },
+  {
+    "id": "c5bb26d3-281b-4850-9860-b27db07d7c6e",
+    "index": 18,
+    "title": "Airbus - CSRD Report Reviews - BWD Strategic",
+    "category": "Informes Airbus SE & Financieros",
+    "type": "web_page",
+    "url": "https://csrd.bwdstrategic.com/company/airbus",
+    "char_count": 83334,
+    "summary": "Airbus – CSRD Report Reviews BWD Portal https://portal.bwdstrategic.com/ BWD Strategic CSRD Report Reviews https://csrd.bwdstrategic.com/ Topics https://csrd.bwdstrategic.com/topics   Companies https://csrd.bwdstrategic.com/companies   Compare https://csrd.bwdstrategic.com/compare   Insights https:/",
+    "file_path": "sources/c5bb26d3.txt",
+    "fulltext_preview": "Airbus – CSRD Report Reviews\nBWD Portal\nhttps://portal.bwdstrategic.com/\nBWD Strategic CSRD Report Reviews\nhttps://csrd.bwdstrategic.com/\nTopics\nhttps://csrd.bwdstrategic.com/topics\n \nCompanies\nhttps://csrd.bwdstrategic.com/companies\n \nCompare\nhttps://csrd.bwdstrategic.com/compare\n \nInsights\nhttps://csrd.bwdstrategic.com/insights\n \nValue chains\nhttps://csrd.bwdstrategic.com/value-chains\nHome\nhttps://csrd.bwdstrategic.com/\n/ \nCompanies\nhttps://csrd.bwdstrategic.com/companies\n/ Airbus\nAirbus\nNetherlands| Aerospace & Defence| FY2024| Auditor: EY Accountants B.V.| \nView original report →\nhttps://www.airbus.com/sites/g/files/jlcbta136/files/2025-04/Airbus%20Annual%20Report%202024.pdf\nMaterial Topics\nESRS 2 – General Disclosures\nhttps://csrd.bwdstrategic.com/topic/esrs-2\n \nE1 – Climate Change\nht"
+  },
+  {
+    "id": "0a3f1c62-688d-4295-a240-b45e5bb46a3e",
+    "index": 19,
+    "title": "Airbus Annual Report 2024 - Bnains.org",
+    "category": "Informes Airbus SE & Financieros",
+    "type": "pdf",
+    "url": "https://www.bnains.org/archives/communiques/EADS/20250225_Annual_report_2024_Airbus_EN.pdf",
+    "char_count": 1531936,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_XiJnrIvVfBWnXH_RkOczALcjweLs7euw8i6yjPeiR01f7Me_oWhfeTBT-6bEOq08oSJxxwdwEkX6u9z_Wbx5To9QS0KsKnfbJF1VMYwmWvVBg2Z4YlZvTfOpSPeyOWLtw2f7-gg=w1280-h988-v0 d62c7b28-9bce-453d-864a-2d2115bf7dd1 Airbus Annual Report 2024  Innovation  in action https://lh3.",
+    "file_path": "sources/0a3f1c62.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_XiJnrIvVfBWnXH_RkOczALcjweLs7euw8i6yjPeiR01f7Me_oWhfeTBT-6bEOq08oSJxxwdwEkX6u9z_Wbx5To9QS0KsKnfbJF1VMYwmWvVBg2Z4YlZvTfOpSPeyOWLtw2f7-gg=w1280-h988-v0\nd62c7b28-9bce-453d-864a-2d2115bf7dd1\nAirbus Annual Report 2024 \nInnovation  in action\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8awA7m5jF8qywVKmOpMn2-1SqBkdMA-ZpSOfgNXqRxDFQSAPsY-yaCA_C5RgsOfeaYhWHfyB3M9d4U5dwDj4tjCO147H9hzrxGC7cQI8ESK9RMymeqYvoqEnc1dnWeVsM_cmaNaw=w1119-h863-v0\nc5d40287-f5ec-453c-9307-47fe1bb6e73d\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_Q-VhD-P7n67LXxRfL07LDkI-XOeqzuunxbkQpQlgGCPrMxFE2gAalAkd3sOkGk0__XLiTBW6t2vRGtmPyiejMQLsj9RsnmIx4lriWNbGbhPMpQNgKuZMRi9NYG0Sld4LBAIALrg=w1280-h682-v0\nc3f62a48-a488-4483-b7cb-2f4ab1e29f75\nWe pioneer sustainable aerospace f"
+  },
+  {
+    "id": "70eea0f6-45e7-4a44-8562-ec6ef147648b",
+    "index": 20,
+    "title": "Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas - La Razón",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.larazon.es/economia/airbus-espana-reacciona-huelga-indefinida-congelacion-inmediata-contrataciones-que-tenia-previstas_202608266a8eb066d16f7635049e26f6.html",
+    "char_count": 22913,
+    "summary": "Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas With your agreement, we and  our 1014 partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process personal data like you",
+    "file_path": "sources/70eea0f6.txt",
+    "fulltext_preview": "Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas\nWith your agreement, we and \nour 1014 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and"
+  },
+  {
+    "id": "b2dd1a89-f593-4eb9-967e-bf3f156fc402",
+    "index": 21,
+    "title": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://europeanspaceflight.com/airbus-runs-into-opposition-with-satellite-business-consolidation/",
+    "char_count": 14689,
+    "summary": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight Discord https://discord.gg/EktRKbMEZv   Instagram https://www.instagram.com/europeanspaceflight/   Linkedin https://www.linkedin.com/company/european-spaceflight/   X https://mobile.twitter.com/espaceflight News",
+    "file_path": "sources/b2dd1a89.txt",
+    "fulltext_preview": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight\nDiscord\nhttps://discord.gg/EktRKbMEZv\n \nInstagram\nhttps://www.instagram.com/europeanspaceflight/\n \nLinkedin\nhttps://www.linkedin.com/company/european-spaceflight/\n \nX\nhttps://mobile.twitter.com/espaceflight\nNews\nhttps://europeanspaceflight.com/category/news/\nLaunch\nhttps://europeanspaceflight.com/category/news/launch/\nContracts\nhttps://europeanspaceflight.com/category/news/contracts/\nBusiness\nhttps://europeanspaceflight.com/category/news/business/\nDefence\nhttps://europeanspaceflight.com/category/news/defence/\nTechnology\nhttps://europeanspaceflight.com/category/news/technology/\nLegislation\nhttps://europeanspaceflight.com/category/news/legislation/\nScience\nhttps://europeanspaceflight.com/category/news/sc"
+  },
+  {
+    "id": "0aab3f3c-28e3-4a4f-9c83-cf5ddfaac5df",
+    "index": 22,
+    "title": "Airbus SMH grids",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://avions.cgtairbus.com/airbus-smh-grids/",
+    "char_count": 7669,
+    "summary": "Airbus SMH grids – CGT Airbus Commercial Aircraft Aller au contenu https://avions.cgtairbus.com/airbus-smh-grids/#wp--skip-link--target Les sites CGT Airbus https://avions.cgtairbus.com/airbus-smh-grids/ Airbus Group https://groupe.cgtairbus.com/ Airbus Defence & Space RP https://ds.cgtairbus.com/ A",
+    "file_path": "sources/0aab3f3c.txt",
+    "fulltext_preview": "Airbus SMH grids – CGT Airbus Commercial Aircraft\nAller au contenu\nhttps://avions.cgtairbus.com/airbus-smh-grids/#wp--skip-link--target\nLes sites CGT Airbus\nhttps://avions.cgtairbus.com/airbus-smh-grids/\nAirbus Group\nhttps://groupe.cgtairbus.com/\nAirbus Defence & Space RP\nhttps://ds.cgtairbus.com/\nAirbus Defence & Space TLS\nhttps://www.cgt-airbusds.com/\nAirbus Atlantic Nantes\nhttps://www.cgt-airbus-nantes.fr/\nAirbus Atlantic Montoir\nhttps://www.cgt-airbus-saint-nazaire.fr/\nAirbus Helicopter\nhttps://cgtairbus.fr/\nSe syndiquer\nhttps://avions.cgtairbus.com/se-syndiquer/\nInstagram\nhttps://www.instagram.com/cgtairbus/\nBluesky\nhttps://bsky.app/profile/cgtairbus.bsky.social\nMastodon\nhttps://piaille.fr/@cgtairbus\nLinkedIn\nhttps://linkedin.com/in/cgtairbus\nTiktok\nhttps://www.tiktok.com/@cgt.airbus."
+  },
+  {
+    "id": "8b50732c-024b-49b8-925c-d6df6a296480",
+    "index": 23,
+    "title": "Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions - Doing Business in Bentonville",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-disruptions/",
+    "char_count": 17394,
+    "summary": "Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions Skip to content https://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-disruptions/#main Sign up for our free weekly newsletter https://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-dis",
+    "file_path": "sources/8b50732c.txt",
+    "fulltext_preview": "Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions\nSkip to content\nhttps://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-disruptions/#main\nSign up for our free weekly newsletter\nhttps://www.dbbnwa.com/airbus-spain-strike-aerospace-supply-chain-faces-labor-disruptions/\n×\nSign up for our free weekly newsletter\nEach week, we share the insights, stories and expert perspectives shaping omnichannel retail, leadership and innovation in Bentonville and beyond. So you can stay ahead of industry shifts and make smarter decisions.\nEmail address Sign Up\nBy subscribing, you agree to our \nTerms and Conditions\nhttps://www.dbbnwa.com/terms-conditions/\n and \nPrivacy Policy\nhttps://www.dbbnwa.com/privacy-policy/\nPlease check your inbox and click the link to confirm y"
+  },
+  {
+    "id": "b68b3945-863e-4ec3-bc00-e7566acae8bd",
+    "index": 24,
+    "title": "Airbus Spain Workers Resume Strike After Rejected Pay Offer - Global Banking & Finance Review",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.globalbankingandfinance.com/airbus-employees-spain-resume-strike-rejecting-offer/",
+    "char_count": 24517,
+    "summary": "Airbus Spain Workers Resume Strike After Rejected Pay Offer Friday, 28 August 2026 Search https://www.globalbankingandfinance.com/search/ Top Stories https://www.globalbankingandfinance.com/category/top-stories/   Interviews https://www.globalbankingandfinance.com/category/interviews/   Business htt",
+    "file_path": "sources/b68b3945.txt",
+    "fulltext_preview": "Airbus Spain Workers Resume Strike After Rejected Pay Offer\nFriday, 28 August 2026\nSearch\nhttps://www.globalbankingandfinance.com/search/\nTop Stories\nhttps://www.globalbankingandfinance.com/category/top-stories/\n \nInterviews\nhttps://www.globalbankingandfinance.com/category/interviews/\n \nBusiness\nhttps://www.globalbankingandfinance.com/category/business/\n \nFinance\nhttps://www.globalbankingandfinance.com/category/finance/\n \nBanking\nhttps://www.globalbankingandfinance.com/category/banking/\n \nTechnology\nhttps://www.globalbankingandfinance.com/category/technology/\n \nInvesting\nhttps://www.globalbankingandfinance.com/category/investing/\n \nTrading\nhttps://www.globalbankingandfinance.com/category/trading/\n \nVideos\nhttps://www.globalbankingandfinance.com/videos/\n \nAwards\nhttps://www.globalbankingand"
+  },
+  {
+    "id": "9667eef5-403a-4d12-b58a-28615af54bd8",
+    "index": 25,
+    "title": "Airbus Spain strike resumes as dispute threatens key military aircraft programs",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airdatanews.com/airbus-spain-strike-resumes-as-dispute-threatens-key-military-aircraft-programs/",
+    "char_count": 11798,
+    "summary": "Airbus Spain strike resumes as dispute threatens key military aircraft programs - Air Data News Latest News https://www.airdatanews.com/latest-news/ Air Transport https://www.airdatanews.com/channel/air-transport/ Defense https://www.airdatanews.com/channel/defense/ Business Aviation https://www.air",
+    "file_path": "sources/9667eef5.txt",
+    "fulltext_preview": "Airbus Spain strike resumes as dispute threatens key military aircraft programs - Air Data News\nLatest News\nhttps://www.airdatanews.com/latest-news/\nAir Transport\nhttps://www.airdatanews.com/channel/air-transport/\nDefense\nhttps://www.airdatanews.com/channel/defense/\nBusiness Aviation\nhttps://www.airdatanews.com/channel/business-aviation/\nIndustry\nhttps://www.airdatanews.com/channel/industry/\nTechnology\nhttps://www.airdatanews.com/channel/technology/\nAirports\nhttps://www.airdatanews.com/channel/airports/\nAir Mobility\nhttps://www.airdatanews.com/channel/air-mobility/\nAirshows\nhttps://www.airdatanews.com/airbus-spain-strike-resumes-as-dispute-threatens-key-military-aircraft-programs/\nDubai Airshow\nhttps://www.airdatanews.com/channel/dubai-airshow/\nParis Airshow\nhttps://www.airdatanews.com/cha"
+  },
+  {
+    "id": "f0933747-4333-49f1-8da1-304919f16bd0",
+    "index": 26,
+    "title": "Airbus UK Pension Scheme | Retirement Plan Schedule 4",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4",
+    "char_count": 28021,
+    "summary": "Airbus UK Pension Scheme | Schedule 4 | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe",
+    "file_path": "sources/f0933747.txt",
+    "fulltext_preview": "Airbus UK Pension Scheme | Schedule 4 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://w"
+  },
+  {
+    "id": "8e737ff2-f03c-4b1f-a69b-17223fd138e0",
+    "index": 27,
+    "title": "Airbus UK Pension Scheme | Retirement Plan Schedule 5",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5",
+    "char_count": 27303,
+    "summary": "Airbus UK Pension Scheme | Schedule 5 | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe",
+    "file_path": "sources/8e737ff2.txt",
+    "fulltext_preview": "Airbus UK Pension Scheme | Schedule 5 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://w"
+  },
+  {
+    "id": "d2cc8b05-d7a2-4541-be59-9402e7b7fe06",
+    "index": 28,
+    "title": "Airbus UK Pension Scheme | Schedule 1",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1",
+    "char_count": 26695,
+    "summary": "Airbus UK Pension Scheme | Schedule 1 | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe",
+    "file_path": "sources/d2cc8b05.txt",
+    "fulltext_preview": "Airbus UK Pension Scheme | Schedule 1 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://w"
+  },
+  {
+    "id": "b5d46295-c8f6-4eee-93c5-5247fe02b71d",
+    "index": 29,
+    "title": "Airbus UK Pension Scheme | Schedule 2",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2",
+    "char_count": 27032,
+    "summary": "Airbus UK Pension Scheme | Schedule 2 | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe",
+    "file_path": "sources/b5d46295.txt",
+    "fulltext_preview": "Airbus UK Pension Scheme | Schedule 2 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://w"
+  },
+  {
+    "id": "79e43767-7b44-46ec-a4ca-9a7f2d2cac8f",
+    "index": 30,
+    "title": "Airbus UK Pension Scheme | Schedule 3",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3",
+    "char_count": 27098,
+    "summary": "Airbus UK Pension Scheme | Schedule 3 | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe",
+    "file_path": "sources/79e43767.txt",
+    "fulltext_preview": "Airbus UK Pension Scheme | Schedule 3 | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://w"
+  },
+  {
+    "id": "18ae79e4-d9f9-4cae-9b82-11ee06a2b6d2",
+    "index": 31,
+    "title": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los trabajadores si continúan con la huelga - OkDiario",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://okdiario.com/economia/airbus-amenaza-congelar-jubilaciones-prejubilaciones-pactadas-trabajadores-si-continuan-huelga-20171849",
+    "char_count": 21180,
+    "summary": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los trabajadores si continúan con la huelga   We and our partners store and access non-sensitive information from your device, like cookies or a unique device identifier, and process personal data like IP addresses and cooki",
+    "file_path": "sources/18ae79e4.txt",
+    "fulltext_preview": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los trabajadores si continúan con la huelga\n \nWe and our partners store and access non-sensitive information from your device, like cookies or a unique device identifier, and process personal data like IP addresses and cookie identifiers, for data processing like displaying personalized ads, measuring preferences of our visitors, etc. You can change your preferences at any time in our Privacy Policy on this website.\nSome partners do not ask for your consent to process your data and rely on their legitimate business interest. You can object to those data processing by clicking on “Learn More”.s\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologie"
+  },
+  {
+    "id": "bf3362d8-5596-4b4c-bf48-adafe0921339",
+    "index": 32,
+    "title": "Airbus amenaza con suspender las contrataciones previstas en España si continúa la huelga - Cadena SER",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://cadenaser.com/cmadrid/2026/08/26/airbus-amenaza-con-suspender-las-contrataciones-previstas-en-espana-si-continua-la-huelga-ser-madrid-sur/",
+    "char_count": 52024,
+    "summary": "Airbus amenaza con suspender las contrataciones previstas en España si continúa la huelga | Sociedad | Cadena SER   We care about your privacy With your agreement, we and  our partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process pe",
+    "file_path": "sources/bf3362d8.txt",
+    "fulltext_preview": "Airbus amenaza con suspender las contrataciones previstas en España si continúa la huelga | Sociedad | Cadena SER\n \nWe care about your privacy\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or set your preferences at any time by clicking on \"Configuration\" or in our Cookies Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services development, Precise geolocation data, and identification through device scanning, Sharing data and profiles for analysis and personalised advertisin"
+  },
+  {
+    "id": "6358cb97-089d-433a-a779-f5dcefdc2650",
+    "index": 33,
+    "title": "Airbus augmente les salaires de 5,5% en France, face à l'inflation - GIFAS",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation",
+    "char_count": 31825,
+    "summary": "Airbus augmente les salaires de 5,5% en France, face à l'inflation     https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2 Consent https://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation",
+    "file_path": "sources/6358cb97.txt",
+    "fulltext_preview": "Airbus augmente les salaires de 5,5% en France, face à l'inflation\n \n \nhttps://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2\nConsent\nhttps://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation\nDetails\nhttps://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation\n[#IABV2SETTINGS#]\nhttps://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation\nAbout\nhttps://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation\nThis website uses cookies\nWe use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about y"
+  },
+  {
+    "id": "d6d52f7c-1090-4680-a2ec-637414affe8c",
+    "index": 34,
+    "title": "Airbus backs down on four-day office plan after employee protests - Air Data News",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airdatanews.com/airbus-backs-down-on-four-day-office-plan-after-employee-protests/",
+    "char_count": 11871,
+    "summary": "Airbus backs down on four-day office plan after employee protests - Air Data News Latest News https://www.airdatanews.com/latest-news/ Air Transport https://www.airdatanews.com/channel/air-transport/ Defense https://www.airdatanews.com/channel/defense/ Business Aviation https://www.airdatanews.com/c",
+    "file_path": "sources/d6d52f7c.txt",
+    "fulltext_preview": "Airbus backs down on four-day office plan after employee protests - Air Data News\nLatest News\nhttps://www.airdatanews.com/latest-news/\nAir Transport\nhttps://www.airdatanews.com/channel/air-transport/\nDefense\nhttps://www.airdatanews.com/channel/defense/\nBusiness Aviation\nhttps://www.airdatanews.com/channel/business-aviation/\nIndustry\nhttps://www.airdatanews.com/channel/industry/\nTechnology\nhttps://www.airdatanews.com/channel/technology/\nAirports\nhttps://www.airdatanews.com/channel/airports/\nAir Mobility\nhttps://www.airdatanews.com/channel/air-mobility/\nAirshows\nhttps://www.airdatanews.com/airbus-backs-down-on-four-day-office-plan-after-employee-protests/\nDubai Airshow\nhttps://www.airdatanews.com/channel/dubai-airshow/\nParis Airshow\nhttps://www.airdatanews.com/channel/paris-airshow/\nFarnboro"
+  },
+  {
+    "id": "2cb11c5b-69dd-4f7e-89b4-e00451935381",
+    "index": 35,
+    "title": "Airbus backs down on return-to-office after protests, sources say - BNN Bloomberg",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/",
+    "char_count": 13502,
+    "summary": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg Skip to main content https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main Sections Sections Sections TSX https://www.bnnbloomberg.ca/market",
+    "file_path": "sources/2cb11c5b.txt",
+    "fulltext_preview": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg\nSkip to main content\nhttps://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main\nSections\nSections Sections\nTSX\nhttps://www.bnnbloomberg.ca/markets/tsx\n \nS&P 500\nhttps://www.bnnbloomberg.ca/markets/s-p-500\n \nDOW\nhttps://www.bnnbloomberg.ca/markets/dow-jones\n \nInvesting\nhttps://www.bnnbloomberg.ca/investing\n \nCompany News\nhttps://www.bnnbloomberg.ca/business/company-news\n \nWatch\nhttps://www.bnnbloomberg.ca/video/\n \nMarket Call\nhttps://www.bnnbloomberg.ca/video/shows/market-call\n \nShows\nhttps://www.bnnbloomberg.ca/video/shows\nSearch\nSign In\nSearch\nSign In\nDownload Our App\nhttps://www.bnnbloomberg.ca/app/\nTrade War\nhttps://www.bnnbloomberg.c"
+  },
+  {
+    "id": "c2eca4a2-9be1-4269-b23b-bbacfe747d0d",
+    "index": 36,
+    "title": "Airbus backs down on return-to-office after protests, sources say - BNN Bloomberg",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/",
+    "char_count": 13827,
+    "summary": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg Skip to main content https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main Sections Sections Sections TSX https://www.bnnbloomberg.ca/market",
+    "file_path": "sources/c2eca4a2.txt",
+    "fulltext_preview": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg\nSkip to main content\nhttps://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main\nSections\nSections Sections\nTSX\nhttps://www.bnnbloomberg.ca/markets/tsx\n \nS&P 500\nhttps://www.bnnbloomberg.ca/markets/s-p-500\n \nDOW\nhttps://www.bnnbloomberg.ca/markets/dow-jones\n \nInvesting\nhttps://www.bnnbloomberg.ca/investing\n \nCompany News\nhttps://www.bnnbloomberg.ca/business/company-news\n \nWatch\nhttps://www.bnnbloomberg.ca/video/\n \nMarket Call\nhttps://www.bnnbloomberg.ca/video/shows/market-call\n \nShows\nhttps://www.bnnbloomberg.ca/video/shows\nSearch\nSign In\nSearch\nSign In\nDownload Our App\nhttps://www.bnnbloomberg.ca/app/\nTrade War\nhttps://www.bnnbloomberg.c"
+  },
+  {
+    "id": "f2acb097-3c38-4992-a29f-5bd03adf07ea",
+    "index": 37,
+    "title": "Airbus backs down on return-to-office after protests, sources say - BNN Bloomberg",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/",
+    "char_count": 13746,
+    "summary": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg Skip to main content https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main Sections Sections Sections TSX https://www.bnnbloomberg.ca/market",
+    "file_path": "sources/f2acb097.txt",
+    "fulltext_preview": "Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg\nSkip to main content\nhttps://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main\nSections\nSections Sections\nTSX\nhttps://www.bnnbloomberg.ca/markets/tsx\n \nS&P 500\nhttps://www.bnnbloomberg.ca/markets/s-p-500\n \nDOW\nhttps://www.bnnbloomberg.ca/markets/dow-jones\n \nInvesting\nhttps://www.bnnbloomberg.ca/investing\n \nCompany News\nhttps://www.bnnbloomberg.ca/business/company-news\n \nWatch\nhttps://www.bnnbloomberg.ca/video/\n \nMarket Call\nhttps://www.bnnbloomberg.ca/video/shows/market-call\n \nShows\nhttps://www.bnnbloomberg.ca/video/shows\nSearch\nSign In\nSearch\nSign In\nDownload Our App\nhttps://www.bnnbloomberg.ca/app/\nTrade War\nhttps://www.bnnbloomberg.c"
+  },
+  {
+    "id": "94b29feb-4ef6-443a-8dfe-d8003c116d3c",
+    "index": 38,
+    "title": "Airbus backs down on return-to-office after protests, sources say - CP24",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.cp24.com/news/world/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/",
+    "char_count": 11861,
+    "summary": "Airbus backs down on return-to-office after protests, sources say – CP24 Skip to main content https://www.cp24.com/news/world/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main Sections Sections Sections GTHA https://www.cp24.com/local   Weather https://www.cp24.com/we",
+    "file_path": "sources/94b29feb.txt",
+    "fulltext_preview": "Airbus backs down on return-to-office after protests, sources say – CP24\nSkip to main content\nhttps://www.cp24.com/news/world/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/#main\nSections\nSections Sections\nGTHA\nhttps://www.cp24.com/local\n \nWeather\nhttps://www.cp24.com/weather\n \nCanada\nhttps://www.cp24.com/news/canada\n \nCP24 Now\nhttps://www.cp24.com/now\n \nWatch\nhttps://www.cp24.com/video\n \nContests\nhttps://www.cp24.com/contests\n \nCP24 Breakfast\nhttps://www.cp24.com/video/shows/cp24-breakfast\n \nIn Pictures\nhttps://www.cp24.com/photos\nSearch\nSign In\nSearch\nSign In\nDownload Our App\nhttps://www.cp24.com/app\nShow Local sub sections Local\nLocal\nhttps://www.cp24.com/local\nToronto\nhttps://www.cp24.com/local/toronto\nPeel\nhttps://www.cp24.com/local/peel\nHamilton\nhttps://w"
+  },
+  {
+    "id": "bdd7ad5f-4620-4274-a39d-952bd0969e29",
+    "index": 39,
+    "title": "Airbus bows to remote working demands after series of strikes - The Guardian",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes",
+    "char_count": 22801,
+    "summary": "Airbus bows to remote working demands after series of strikes | Airbus | The Guardian Skip to main content https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#maincontent   Skip to navigation https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-",
+    "file_path": "sources/bdd7ad5f.txt",
+    "fulltext_preview": "Airbus bows to remote working demands after series of strikes | Airbus | The Guardian\nSkip to main content\nhttps://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#maincontent\n \nSkip to navigation\nhttps://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#navigation\nClose dialogue 1/ 1 Next image Previous image Toggle caption\nSupport the Guardian\nFund independent journalism with $15 per month\nSupport us\nhttps://support.theguardian.com/?REFPVID=mtd6cb7eqvajzlk0iycu&INTCMP=header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22campaignCode"
+  },
+  {
+    "id": "edf72a97-dfa7-4f55-8a81-c645abd3355b",
+    "index": 40,
+    "title": "Airbus bows to remote working demands after series of strikes - The Guardian",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes",
+    "char_count": 22763,
+    "summary": "Airbus bows to remote working demands after series of strikes | Airbus | The Guardian Skip to main content https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#maincontent   Skip to navigation https://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-",
+    "file_path": "sources/edf72a97.txt",
+    "fulltext_preview": "Airbus bows to remote working demands after series of strikes | Airbus | The Guardian\nSkip to main content\nhttps://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#maincontent\n \nSkip to navigation\nhttps://www.theguardian.com/business/2026/aug/21/airbus-bows-remote-working-strikes#navigation\nClose dialogue 1/ 1 Next image Previous image Toggle caption\nSupport the Guardian\nFund independent journalism with $15 per month\nSupport us\nhttps://support.theguardian.com/?REFPVID=mtcxb4fu3kwlv1t2hljq&INTCMP=header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22campaignCode"
+  },
+  {
+    "id": "3978b0c5-7d07-4650-be87-61ac18d0d12f",
+    "index": 41,
+    "title": "Airbus employees in Spain resume strike after rejecting offer | live - Euronext Markets",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer",
+    "char_count": 89748,
+    "summary": "Airbus employees in Spain resume strike after rejecting offer | live Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer Search Search Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer M",
+    "file_path": "sources/3978b0c5.txt",
+    "fulltext_preview": "Airbus employees in Spain resume strike after rejecting offer | live\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nSearch Search\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nMarkets Open submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-2\nEquities\nhttps://live.euronext.com/en/products/equities\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-30\nIndices\nhttps://live.euronext.com/en/products/indices\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-34\nETFs\nhttps://l"
+  },
+  {
+    "id": "e828f906-a215-4fb2-8268-4427d2d9b97c",
+    "index": 42,
+    "title": "Airbus employees in Spain resume strike after rejecting offer | live - Euronext Markets",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer",
+    "char_count": 89748,
+    "summary": "Airbus employees in Spain resume strike after rejecting offer | live Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer Search Search Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer M",
+    "file_path": "sources/e828f906.txt",
+    "fulltext_preview": "Airbus employees in Spain resume strike after rejecting offer | live\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nSearch Search\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nMarkets Open submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-2\nEquities\nhttps://live.euronext.com/en/products/equities\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-30\nIndices\nhttps://live.euronext.com/en/products/indices\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-34\nETFs\nhttps://l"
+  },
+  {
+    "id": "fa87462f-1552-4979-9452-d4bdfd7ec8b3",
+    "index": 43,
+    "title": "Airbus employees in Spain resume strike after rejecting offer | live - Euronext Markets",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer",
+    "char_count": 89748,
+    "summary": "Airbus employees in Spain resume strike after rejecting offer | live Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer Search Search Menu https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer M",
+    "file_path": "sources/fa87462f.txt",
+    "fulltext_preview": "Airbus employees in Spain resume strike after rejecting offer | live\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nSearch Search\nMenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer\nMarkets Open submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-2\nEquities\nhttps://live.euronext.com/en/products/equities\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-30\nIndices\nhttps://live.euronext.com/en/products/indices\n \nOpen submenu\nhttps://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer#mm-34\nETFs\nhttps://l"
+  },
+  {
+    "id": "e1a3cec4-2e5b-4795-a5d0-943ead3b1083",
+    "index": 44,
+    "title": "Airbus in France",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france",
+    "char_count": 35625,
+    "summary": "Airbus in France | Airbus Skip to main content https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#content   Skip to search https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#search Airbus   [-] Open menu Close menu htt",
+    "file_path": "sources/e1a3cec4.txt",
+    "fulltext_preview": "Airbus in France | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france#menu-683517614-state\n \nBack\nhttps://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe"
+  },
+  {
+    "id": "b7a6587e-2a5e-4840-b414-45d6fb9591ac",
+    "index": 45,
+    "title": "Airbus reports First Quarter (Q1) 2023 results",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results",
+    "char_count": 44167,
+    "summary": "Airbus reports First Quarter (Q1) 2023 results | Airbus Skip to main content https://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results#content   Skip to search https://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-",
+    "file_path": "sources/b7a6587e.txt",
+    "fulltext_preview": "Airbus reports First Quarter (Q1) 2023 results | Airbus\nSkip to main content\nhttps://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results#content\n \nSkip to search\nhttps://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results#menu-683517614-st"
+  },
+  {
+    "id": "ceec952f-ea09-46bf-98fd-f5f1e74b1103",
+    "index": 46,
+    "title": "Airbus reports Full-Year (FY) 2023 results",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results",
+    "char_count": 50455,
+    "summary": "Airbus reports Full-Year (FY) 2023 results | Airbus Skip to main content https://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#content   Skip to search https://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#sear",
+    "file_path": "sources/ceec952f.txt",
+    "fulltext_preview": "Airbus reports Full-Year (FY) 2023 results | Airbus\nSkip to main content\nhttps://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#content\n \nSkip to search\nhttps://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results#menu-683517614-state\n \nBack\nhttps://www.a"
+  },
+  {
+    "id": "67d9ee4b-a918-4b73-bf2b-ad9b3b82f5de",
+    "index": 47,
+    "title": "Airbus reports Half-Year (H1) 2022 results",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results",
+    "char_count": 47549,
+    "summary": "Airbus reports Half-Year (H1) 2022 results | Airbus Skip to main content https://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#content   Skip to search https://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#sear",
+    "file_path": "sources/67d9ee4b.txt",
+    "fulltext_preview": "Airbus reports Half-Year (H1) 2022 results | Airbus\nSkip to main content\nhttps://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#content\n \nSkip to search\nhttps://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results#menu-683517614-state\n \nBack\nhttps://www.a"
+  },
+  {
+    "id": "03997a37-9f55-41f5-9677-003281f9f347",
+    "index": 48,
+    "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace employment strategy - MRO Business Today",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://mrobusinesstoday.com/airbus-softens-return-to-office-push-as-workforce-pressures-reshape-aerospace-employment-strategy/",
+    "char_count": 23706,
+    "summary": "Airbus Eases Return-to-Office Plans Amid Workforce Pressure Live News Lockheed Martin outlines MRO and training opportunities under Peru F-16 Block 70 proposal https://mrobusinesstoday.com/lockheed-martin-outlines-mro-and-training-opportunities-under-peru-f-16-block-70-proposal/ ZeroAvia appoints Ch",
+    "file_path": "sources/03997a37.txt",
+    "fulltext_preview": "Airbus Eases Return-to-Office Plans Amid Workforce Pressure\nLive News\nLockheed Martin outlines MRO and training opportunities under Peru F-16 Block 70 proposal\nhttps://mrobusinesstoday.com/lockheed-martin-outlines-mro-and-training-opportunities-under-peru-f-16-block-70-proposal/\nZeroAvia appoints Christine Ourmières-Widener as CEO\nhttps://mrobusinesstoday.com/zeroavia-appoints-christine-ourmieres-widener-as-ceo/\nRolls-Royce completes $1 bn upgrade of Indiana Engine Manufacturing and Test Facilities\nhttps://mrobusinesstoday.com/rolls-royce-completes-1-bn-upgrade-of-indiana-engine-manufacturing-and-test-facilities/\nAirSprint expands fleet to 45 aircraft with Embraer Praetor 600\nhttps://mrobusinesstoday.com/airsprint-expands-fleet-to-45-aircraft-with-embraer-praetor-600/\nGA-ASI and Fujitsu si"
+  },
+  {
+    "id": "1f7b769f-2beb-4746-a0cf-80ada48331ab",
+    "index": 49,
+    "title": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo - Demócrata",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.democrata.es/economia/airbus-plantea-subir-sueldos-ligados-al-ipc-real-y-un-7-6-adicional-hasta-2030-y-conserva-el-teletrabajo-para-evitar-la-huelga/",
+    "char_count": 41847,
+    "summary": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo | Demócrata Ir al contenido https://www.democrata.es/economia/airbus-plantea-subir-sueldos-ligados-al-ipc-real-y-un-7-6-adicional-hasta-2030-y-conserva-el-teletrabajo-para-evitar-la-huelga/#main-content Es Tendencia Nepal https://www.democrat",
+    "file_path": "sources/1f7b769f.txt",
+    "fulltext_preview": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo | Demócrata\nIr al contenido\nhttps://www.democrata.es/economia/airbus-plantea-subir-sueldos-ligados-al-ipc-real-y-un-7-6-adicional-hasta-2030-y-conserva-el-teletrabajo-para-evitar-la-huelga/#main-content\nEs Tendencia\nNepal\nhttps://www.democrata.es/internacional/que-ha-pasado-nepal-riada-desaparecidos-fallecidos/\nConsejos de ministros\nhttps://www.democrata.es/politica/gobierno-aprueba-decreto-ley-lobbies/\nNvidia\nhttps://www.democrata.es/actualidad/resultados-nvidia-hoy-hora-previsiones-inteligencia-artificial/\nTsunami\nhttps://www.democrata.es/actualidad/meteotsunami-santa-pola-por-que-retira-mar-que-hacer/\nPrecio luz\nhttps://www.democrata.es/economia/precio-luz-hoy-26-agosto-hora-barata-cara/\nFraude hidrocarburos\nhttps://www.democrata"
+  },
+  {
+    "id": "1236e3d2-d7a7-4518-b3eb-6eef37bba1fa",
+    "index": 50,
+    "title": "Airbus va verser une prime de 1 500 € à ses salariés - GIFAS",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries",
+    "char_count": 31464,
+    "summary": "Airbus va verser une prime de 1 500 € à ses salariés     https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2 Consent https://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries Details https://www.gifas.f",
+    "file_path": "sources/1236e3d2.txt",
+    "fulltext_preview": "Airbus va verser une prime de 1 500 € à ses salariés\n \n \nhttps://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2\nConsent\nhttps://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries\nDetails\nhttps://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries\n[#IABV2SETTINGS#]\nhttps://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries\nAbout\nhttps://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries\nThis website uses cookies\nWe use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics p"
+  },
+  {
+    "id": "28a9f9ce-a76b-493d-a4e8-9d848e1945f2",
+    "index": 51,
+    "title": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial aún sin acuerdo - Ola Next",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.olanext.eu/airbus-vuelve-al-sima-huelga-activa-oferta-salarial-sin-acuerdo/",
+    "char_count": 19440,
+    "summary": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial aún sin acuerdo – Ola Next | Noticias de la Eurorregión Pirineos-Mediterráneo Gestionar consentimiento Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispo",
+    "file_path": "sources/28a9f9ce.txt",
+    "fulltext_preview": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial aún sin acuerdo – Ola Next | Noticias de la Eurorregión Pirineos-Mediterráneo\nGestionar consentimiento\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el abonado o usuario, o "
+  },
+  {
+    "id": "11493b53-f0cf-44b7-9ce6-9c3bfb4507d8",
+    "index": 52,
+    "title": "Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupación por la producción - El Diario de Madrid",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
+    "char_count": 31450,
+    "summary": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de trasladar producción Es noticia https://www.eldiariodemadrid.es/sitemap.news Madrid https://www.eldiariodemadrid.es/tags/madrid/ El tiempo hoy https://www.eldiariodemadrid.es/articulo/madrid/tiempo-madrid-vierne",
+    "file_path": "sources/11493b53.txt",
+    "fulltext_preview": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de trasladar producción\nEs noticia\nhttps://www.eldiariodemadrid.es/sitemap.news\nMadrid\nhttps://www.eldiariodemadrid.es/tags/madrid/\nEl tiempo hoy\nhttps://www.eldiariodemadrid.es/articulo/madrid/tiempo-madrid-viernes-28-agosto-temperaturas-aemet/20260828080901140229.html\nOperación retorno\nhttps://www.eldiariodemadrid.es/articulo/movilidad/operacion-retorno-madrid-carreteras-horas-evitar/20260816131920139527.html\nAlquiler Madrid\nhttps://www.eldiariodemadrid.es/articulo/vivienda/alquiler-madrid-municipios-mas-baratos-vivir-2026/20260816175728139534.html\nMetro y Cercanías\nhttps://www.eldiariodemadrid.es/articulo/movilidad/metro-cercanias-madrid-cortes-cambios-lunes-17-agosto/20260816173207139533.html\nPlanes p"
+  },
+  {
+    "id": "31e57b30-2043-45f0-a861-113b1b725694",
+    "index": 53,
+    "title": "Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupación por la producción - El Diario de Madrid",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
+    "char_count": 31431,
+    "summary": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de trasladar producción Es noticia https://www.eldiariodemadrid.es/sitemap.news Madrid https://www.eldiariodemadrid.es/tags/madrid/ El tiempo hoy https://www.eldiariodemadrid.es/articulo/madrid/tiempo-madrid-vierne",
+    "file_path": "sources/31e57b30.txt",
+    "fulltext_preview": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de trasladar producción\nEs noticia\nhttps://www.eldiariodemadrid.es/sitemap.news\nMadrid\nhttps://www.eldiariodemadrid.es/tags/madrid/\nEl tiempo hoy\nhttps://www.eldiariodemadrid.es/articulo/madrid/tiempo-madrid-viernes-28-agosto-temperaturas-aemet/20260828080901140229.html\nOperación retorno\nhttps://www.eldiariodemadrid.es/articulo/movilidad/operacion-retorno-madrid-carreteras-horas-evitar/20260816131920139527.html\nAlquiler Madrid\nhttps://www.eldiariodemadrid.es/articulo/vivienda/alquiler-madrid-municipios-mas-baratos-vivir-2026/20260816175728139534.html\nMetro y Cercanías\nhttps://www.eldiariodemadrid.es/articulo/movilidad/metro-cercanias-madrid-cortes-cambios-lunes-17-agosto/20260816173207139533.html\nPlanes p"
+  },
+  {
+    "id": "0969e919-e5f1-4330-b6cd-9b3a4936d4a8",
+    "index": 54,
+    "title": "Airbus y los sindicatos mantienen posiciones distantes tras la reunión en el SIMA mientras continúan los paros - Europa Press",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.europapress.es/economia/noticia-airbus-sindicatos-mantienen-posiciones-distantes-reunion-sima-mientras-continuan-paros-20260827184543.html",
+    "char_count": 24630,
+    "summary": "Airbus y los sindicatos mantienen posiciones distantes tras la reunión en el SIMA mientras continúan los paros Menú Economía https://www.europapress.es/economia/   europa press https://www.europapress.es/ Boletines https://www.europapress.es/newsletters/ Abonados https://www.europapress.es/abonados/",
+    "file_path": "sources/0969e919.txt",
+    "fulltext_preview": "Airbus y los sindicatos mantienen posiciones distantes tras la reunión en el SIMA mientras continúan los paros\nMenú\nEconomía\nhttps://www.europapress.es/economia/\n \neuropa press\nhttps://www.europapress.es/\nBoletines\nhttps://www.europapress.es/newsletters/\nAbonados\nhttps://www.europapress.es/abonados/login\nEspaña\nhttps://www.europapress.es/nacional/\nInternacional\nhttps://www.europapress.es/internacional/\nEconomía\nhttps://www.europapress.es/economia/\nDeportes\nhttps://www.europapress.es/deportes/\nCultura\nhttps://www.europapress.es/cultura/\nSociedad\nhttps://www.europapress.es/sociedad/\nCiencia\nhttps://www.europapress.es/ciencia/\nComunicados\nhttps://www.europapress.es/comunicados/\nAutonomías\nAndalucía Andalucía\nhttps://www.europapress.es/andalucia/\nAragón Aragón\nhttps://www.europapress.es/aragon"
+  },
+  {
+    "id": "9087b295-8748-439f-89cc-cc749cd06fda",
+    "index": 55,
+    "title": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producción y blindar a los empleados que pasen a Bromo - Industry Talks",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://industrytalks.es/airbus-y-tres-sindicatos-firman-un-preacuerdo-para-desbloquear-la-produccion-y-blindar-a-los-empleados-que-pasen-a-bromo/",
+    "char_count": 24244,
+    "summary": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producción y blindar a los empleados que pasen a Bromo – industry TALKS. Diario Digital de la Industria Española   iTALKS https://industrytalks.es/italks/ tvTALKS https://industrytalks.es/tvtalks/ iCriteria https://industrytalks.es/ic",
+    "file_path": "sources/9087b295.txt",
+    "fulltext_preview": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producción y blindar a los empleados que pasen a Bromo – industry TALKS. Diario Digital de la Industria Española\n \niTALKS\nhttps://industrytalks.es/italks/\ntvTALKS\nhttps://industrytalks.es/tvtalks/\niCriteria\nhttps://industrytalks.es/icriteria/\nActualidad\nhttps://industrytalks.es/airbus-y-tres-sindicatos-firman-un-preacuerdo-para-desbloquear-la-produccion-y-blindar-a-los-empleados-que-pasen-a-bromo/\nEmpresas\nhttps://industrytalks.es/empresas/\nEntrevistas\nhttps://industrytalks.es/entrevistas/\nFinanciación\nhttps://industrytalks.es/financiacion/\niDigital\nhttps://industrytalks.es/idigital/\nNormalización\nhttps://industrytalks.es/normalizacion/\nEnergía\nhttps://industrytalks.es/energia/\nSeguridad\nhttps://industrytalks.es/seguridad/\nE"
+  },
+  {
+    "id": "4cfab1f1-b707-47c3-bf16-f2d1ee2964e6",
+    "index": 56,
+    "title": "Airbus, Leonardo and Thales Press Brussels to Clear Project Bromo - Großwald",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.grosswald.org/europe-space-merger-project-bromo-airbus-leonardo-thales-ohb-opposition/",
+    "char_count": 18939,
+    "summary": "Airbus, Leonardo and Thales Press Brussels to Clear Project Bromo   We value your privacy We use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking \"Accept All\", you consent to our use of cookies. Customise Reject All Accept All Custo",
+    "file_path": "sources/4cfab1f1.txt",
+    "fulltext_preview": "Airbus, Leonardo and Thales Press Brussels to Clear Project Bromo\n \nWe value your privacy\nWe use cookies to enhance your browsing experience, serve personalised ads or content, and analyse our traffic. By clicking \"Accept All\", you consent to our use of cookies.\nCustomise Reject All Accept All\nCustomise Consent Preferences\n \nWe use cookies to help you navigate efficiently and perform certain functions. You will find detailed information about all cookies under each consent category below.\nThe cookies that are categorised as \"Necessary\" are stored on your browser as they are essential for enabling the basic functionalities of the site.... Show more\nNecessary Always Active\nNecessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting y"
+  },
+  {
+    "id": "d6414e2d-a6b5-45f6-a4da-ef8e33999884",
+    "index": 57,
+    "title": "Airbus, dispuesta a llevarse carga de trabajo de sus plantas españolas a otros países por la huelga - La Razón",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.larazon.es/economia/airbus-dispuesta-llevarse-carga-trabajo-sus-plantas-espanolas-otros-paises-huelga_202608276a8ef5332bcaf82098ee2046.html",
+    "char_count": 22491,
+    "summary": "Airbus, dispuesta a llevarse carga de trabajo de sus plantas españolas a otros países por la huelga With your agreement, we and  our 1014 partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process personal data like your visit on this we",
+    "file_path": "sources/d6414e2d.txt",
+    "fulltext_preview": "Airbus, dispuesta a llevarse carga de trabajo de sus plantas españolas a otros países por la huelga\nWith your agreement, we and \nour 1014 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services developm"
+  },
+  {
+    "id": "873a5336-5bd5-4bb3-a50f-1c06a5291f96",
+    "index": 58,
+    "title": "Aircraft Fitter at Airbus | Flexa Careers",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://flexa.careers/jobs/airbus-aircraft-fitter-69effd4386f78699dd38440b",
+    "char_count": 10821,
+    "summary": "Aircraft Fitter at Airbus | Flexa Careers Discover companies https://flexa.careers/companies   Find a job https://flexa.careers/jobs   Resources https://flexa.careers/content-hub   Sign in/up https://flexa.careers/signup For employers < Back to search https://flexa.careers/jobs Share this job   Airb",
+    "file_path": "sources/873a5336.txt",
+    "fulltext_preview": "Aircraft Fitter at Airbus | Flexa Careers\nDiscover companies\nhttps://flexa.careers/companies\n \nFind a job\nhttps://flexa.careers/jobs\n \nResources\nhttps://flexa.careers/content-hub\n \nSign in/up\nhttps://flexa.careers/signup\nFor employers\n< Back to search\nhttps://flexa.careers/jobs\nShare this job\n \nAirbus • Belfast, United Kingdom\nhttps://flexa.careers/companies/airbus\nAircraft Fitter\nEmployment type:\n Full time\nSalary:\n £32,495 – £35,367 per annum\nView company profile\nhttps://flexa.careers/companies/airbus\nSave job \nApply\nhttps://jsv3.recruitics.com/redirect?rx_cid=3702&rx_jobId=JR10410224&rx_url=https%3A%2F%2Fag.wd3.myworkdayjobs.com%2Fen-US%2FAirbus%2Fjob%2FBelfast%2FAircraft-Fitter_JR10410224%3Frx_ch%3Dconnector%26rx_id%3D21b8e9b4-4266-11f1-87a7-d75a2ca7584c%26rx_job%3DJR10410224%26rx_medi"
+  },
+  {
+    "id": "9ff740ea-2aae-4f84-8d2c-74aab9eb0177",
+    "index": 59,
+    "title": "American air-traffic controllers strike for benefits and pay, 1981",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://nvdatabase.swarthmore.edu/content/american-air-traffic-controllers-strike-benefits-and-pay-1981",
+    "char_count": 16416,
+    "summary": "American air-traffic controllers strike for benefits and pay, 1981 | Global Nonviolent Action Database Skip to main content https://nvdatabase.swarthmore.edu/content/american-air-traffic-controllers-strike-benefits-and-pay-1981#main-content Global Nonviolent Action Database https://nvdatabase.swarth",
+    "file_path": "sources/9ff740ea.txt",
+    "fulltext_preview": "American air-traffic controllers strike for benefits and pay, 1981 | Global Nonviolent Action Database\nSkip to main content\nhttps://nvdatabase.swarthmore.edu/content/american-air-traffic-controllers-strike-benefits-and-pay-1981#main-content\nGlobal Nonviolent Action Database\nhttps://nvdatabase.swarthmore.edu/\nToggle navigation\nMain Menu\nCases\nhttps://nvdatabase.swarthmore.edu/browse\nBrowse Cases\nhttps://nvdatabase.swarthmore.edu/browse\nBrowse Cases by Tags\nhttps://nvdatabase.swarthmore.edu/browse-by-tags\nView Cases on Map\nhttps://nvdatabase.swarthmore.edu/map\nMethods\nhttps://nvdatabase.swarthmore.edu/browse_methods\nBrowse Methods\nhttps://nvdatabase.swarthmore.edu/browse-methods\nAbout\nhttps://nvdatabase.swarthmore.edu/content/about-database\nAbout the Database\nhttps://nvdatabase.swarthmore.ed"
+  },
+  {
+    "id": "ac640840-538a-4881-beef-ccae02b12233",
+    "index": 60,
+    "title": "Anatomía del Conflicto Laboral en el Sector Aeroespacial y de Automoción: Análisis Comparativo de la Huelga de Airbus 2026, Precedentes Históricos y Estrategias de Resistencia Sindical",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "markdown",
+    "url": null,
+    "char_count": 53606,
+    "summary": "Anatomía del Conflicto Laboral en el Sector Aeroespacial y de Automoción: Análisis Comparativo de la Huelga de Airbus 2026, Precedentes Históricos y Estrategias de Resistencia Sindical El panorama de las relaciones laborales en la industria pesada de alto valor añadido ha experimentado una transform",
+    "file_path": "sources/ac640840.txt",
+    "fulltext_preview": "Anatomía del Conflicto Laboral en el Sector Aeroespacial y de Automoción: Análisis Comparativo de la Huelga de Airbus 2026, Precedentes Históricos y Estrategias de Resistencia Sindical\nEl panorama de las relaciones laborales en la industria pesada de alto valor añadido ha experimentado una transformación drástica a raíz de las tensiones inflacionarias acumuladas, la reconfiguración del trabajo híbrido y la rigidez de las cadenas de suministro globales [cite: 1, 2, 3, 4]. El conflicto de Airbus en España durante el ejercicio de 2026 constituye un caso de estudio idóneo para analizar este nuevo paradigma de confrontación industrial [cite: 5, 6, 7]. Lo que comenzó como una serie de paros parciales en julio de 2026 derivó en una huelga indefinida a partir del 25 de agosto del mismo año, respal"
+  },
+  {
+    "id": "e42d0402-1924-42d3-95bf-d80d079ad438",
+    "index": 61,
+    "title": "Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Precedentes de Resolución",
+    "category": "Noticias & Medios",
+    "type": "markdown",
+    "url": null,
+    "char_count": 42367,
+    "summary": "Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Precedentes de Resolución Contexto Macroeconómico e Industrial del Conflicto de Airbus 2026 La huelga indefinida iniciada a finales de agosto de 2026 en las plan",
+    "file_path": "sources/e42d0402.txt",
+    "fulltext_preview": "Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Precedentes de Resolución\nContexto Macroeconómico e Industrial del Conflicto de Airbus 2026\nLa huelga indefinida iniciada a finales de agosto de 2026 en las plantas españolas de la corporación aeroespacial Airbus expone una marcada divergencia entre los resultados financieros de las corporaciones transnacionales y las condiciones socioeconómicas de sus plantillas [cite: 1, 2]. El consorcio cerró el ejercicio fiscal de 2025 con un beneficio neto de 5.221 millones de euros, lo que representó un incremento del 23% en comparación con el año anterior, y mantuvo esta trayectoria ascendente durante el primer semestre de 2026, registrando ingresos de 33.176 mil"
+  },
+  {
+    "id": "9149355e-fce9-4156-b559-ecbb5a923308",
+    "index": 62,
+    "title": "Análisis de la Situación del Convenio del Metal en Cádiz. - USO Industria",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://usoindustria.org/convenio-metal-cadiz/",
+    "char_count": 12121,
+    "summary": "Análisis de la Situación del Convenio del Metal en Cádiz. - USO Industria - Federación de Industria de la Unión Sindical Obrera Valoramos tu privacidad Usamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al hacer clic e",
+    "file_path": "sources/9149355e.txt",
+    "fulltext_preview": "Análisis de la Situación del Convenio del Metal en Cádiz. - USO Industria - Federación de Industria de la Unión Sindical Obrera\nValoramos tu privacidad\nUsamos cookies para mejorar su experiencia de navegación, mostrarle anuncios o contenidos personalizados y analizar nuestro tráfico. Al hacer clic en “Aceptar todo” usted da su consentimiento a nuestro uso de las cookies.\nPersonalizar Rechazar todo Aceptar todo\nPersonalizar las preferencias de consentimiento\n \nUsamos cookies para ayudarle a navegar de manera eficiente y realizar ciertas funciones. Encontrará información detallada sobre cada una de las cookies bajo cada categoría de consentimiento a continuación.\nLas cookies categorizadas como “Necesarias” se guardan en su navegador, ya que son esenciales para permitir las funcionalidades bá"
+  },
+  {
+    "id": "f97c20af-98c2-4f83-8656-887559f0d9e4",
+    "index": 63,
+    "title": "Ausbildung in Deutschland - Airbus",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany",
+    "char_count": 50505,
+    "summary": "Ausbildung in Deutschland | Airbus Direkt zum Inhalt https://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#content   Skip to search https://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#search Airbus   [-] Open menu",
+    "file_path": "sources/f97c20af.txt",
+    "fulltext_preview": "Ausbildung in Deutschland | Airbus\nDirekt zum Inhalt\nhttps://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#content\n \nSkip to search\nhttps://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#drawer309129604-state\n Menü\nClose menu\nhttps://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany#menu-1328317603-state\n \nZurück\nhttps://www.airbus.com/de/careers/students-an"
+  },
+  {
+    "id": "f3ac62f7-22ac-4aad-a9d2-12912f8bdca4",
+    "index": 64,
+    "title": "BOCM-20240725-1 - C) Otras Disposiciones",
+    "category": "Convenios Colectivos & BOE",
+    "type": "pdf",
+    "url": "https://www.bocm.es/boletin/CM_Orden_BOCM/2024/07/25/BOCM-20240725-1.PDF",
+    "char_count": 143051,
+    "summary": "JUEVES 25 DE JULIO DE 2024Pág. 2 B.O.C.M. Núm. 176  B O  C M  -2 02  40 72  5-1  BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRIDBOCM  I. COMUNIDAD DE MADRID  C) Otras Disposiciones  Consejería de Economía, Hacienda y Empleo  1  RESOLUCIÓN de 3 de julio de 2024, de la Dirección General de Trabajo de la Con",
+    "file_path": "sources/f3ac62f7.txt",
+    "fulltext_preview": "JUEVES 25 DE JULIO DE 2024Pág. 2 B.O.C.M. Núm. 176 \nB O \nC M \n-2 02 \n40 72 \n5-1 \nBOLETÍN OFICIAL DE LA COMUNIDAD DE MADRIDBOCM \nI. COMUNIDAD DE MADRID \nC) Otras Disposiciones \nConsejería de Economía, Hacienda y Empleo \n1 \nRESOLUCIÓN de 3 de julio de 2024, de la Dirección General de Trabajo de la Consejería de Economía, Hacienda y Empleo, sobre registro, depósito y publicación del convenio colectivo de la empresa Renault España Comercial, S. A. (código número 28103372012022). \nExaminado el texto del Convenio Colectivo de la Empresa Renault España Comercial, S. A., suscrito por la Comisión Negociadora del mismo, el día 8 de mayo de 2024, completada la documentación exigida en los artículos 6 y 7 del Real Decreto 713/2010, de 28 de mayo, sobre registro y depósito de Convenios colectivos, Acue"
+  },
+  {
+    "id": "464aafbd-39e9-451d-a21a-c0eae46fc1ca",
+    "index": 65,
+    "title": "BOE-A-2023-8181 Resolución de 21 de marzo de 2023, de la Dirección General de Trabajo, por la que se registra y publica el texto del V Convenio colectivo del grupo de empresas Distribuidora Internacional de Alimentación, SA, y Día Retail España, SAU.",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-8181",
+    "char_count": 180521,
+    "summary": "BOE-A-2023-8181 Resolución de 21 de marzo de 2023, de la Dirección General de Trabajo, por la que se registra y publica el texto del V Convenio colectivo del grupo de empresas Distribuidora Internacional de Alimentación, SA, y Día Retail España, SAU. Agencia Estatal Boletín Oficial del Estado Ir a c",
+    "file_path": "sources/464aafbd.txt",
+    "fulltext_preview": "BOE-A-2023-8181 Resolución de 21 de marzo de 2023, de la Dirección General de Trabajo, por la que se registra y publica el texto del V Convenio colectivo del grupo de empresas Distribuidora Internacional de Alimentación, SA, y Día Retail España, SAU.\nAgencia Estatal Boletín Oficial del Estado\nIr a contenido\nhttps://www.boe.es/buscar/doc.php?id=BOE-A-2023-8181#contenedor\nConsultar el diario oficial BOE\nhttps://www.boe.es/diario_boe/\n \n \nIdioma actual:\n \n[-]\n \nCastellano / es Puede seleccionar otro idioma:\nes / Castellano\nhttps://www.boe.es/buscar/doc.php?lang=es&id=BOE-A-2023-8181\nca / Català\nhttps://www.boe.es/buscar/doc.php?lang=ca&id=BOE-A-2023-8181\ngl / Galego\nhttps://www.boe.es/buscar/doc.php?lang=gl&id=BOE-A-2023-8181\neu / Euskara\nhttps://www.boe.es/buscar/doc.php?lang=eu&id=BOE-A-202"
+  },
+  {
+    "id": "4633c621-9761-433d-afee-efe9d6519ba4",
+    "index": 66,
+    "title": "Boeing Reponse to Rejected Offer : r/SPEEA - Reddit",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.reddit.com/r/SPEEA/comments/1vutubl/boeing_reponse_to_rejected_offer/",
+    "char_count": 27261,
+    "summary": "Boeing Reponse to Rejected Offer : r/SPEEA Skip to main content https://www.reddit.com/r/SPEEA/comments/1vutubl/boeing_reponse_to_rejected_offer/#main-content  Boeing Reponse to Rejected Offer : r/SPEEA Open menu Open navigation  https://www.reddit.com/ Go to Reddit Home Search Reddit Sign Up https:",
+    "file_path": "sources/4633c621.txt",
+    "fulltext_preview": "Boeing Reponse to Rejected Offer : r/SPEEA\nSkip to main content\nhttps://www.reddit.com/r/SPEEA/comments/1vutubl/boeing_reponse_to_rejected_offer/#main-content\n Boeing Reponse to Rejected Offer : r/SPEEA\nOpen menu\nOpen navigation \nhttps://www.reddit.com/\nGo to Reddit Home\nSearch Reddit\nSign Up\nhttps://www.reddit.com/register/\nSign up for Reddit\nLog In\nhttps://www.reddit.com/login/\nLog in to Reddit\nExpand user menu\nOpen settings menu\nSkip to Sign up\nhttps://www.reddit.com/r/SPEEA/comments/1vutubl/boeing_reponse_to_rejected_offer/#left-sidebar-container\n \nSkip to Right Sidebar\nhttps://www.reddit.com/r/SPEEA/comments/1vutubl/boeing_reponse_to_rejected_offer/#right-sidebar-container\nBack\nGo to SPEEA\nhttps://www.reddit.com/r/SPEEA/\nr/SPEEA\nhttps://www.reddit.com/r/SPEEA/\nâ€¢ 7d ago\nRhubarbSurpri"
+  },
+  {
+    "id": "c335a490-a0f1-4539-aada-27e96c05dc12",
+    "index": 67,
+    "title": "Boeing complaint background | National Labor Relations Board",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.nlrb.gov/news-outreach/fact-sheets/fact-sheet-archives/boeing-complaint-fact-sheet/boeing-complaint",
+    "char_count": 30481,
+    "summary": "Boeing complaint background | National Labor Relations Board Skip to main content https://www.nlrb.gov/news-outreach/fact-sheets/fact-sheet-archives/boeing-complaint-fact-sheet/boeing-complaint#main-content   An official website of the United States government Here's how you know Here's how you know",
+    "file_path": "sources/c335a490.txt",
+    "fulltext_preview": "Boeing complaint background | National Labor Relations Board\nSkip to main content\nhttps://www.nlrb.gov/news-outreach/fact-sheets/fact-sheet-archives/boeing-complaint-fact-sheet/boeing-complaint#main-content\n \nAn official website of the United States government\nHere's how you know\nHere's how you know\nEspañol\nhttps://www.nlrb.gov/es\n|\nOther Languagesworld globe\nhttps://www.nlrb.gov/languages\nEspañol - Spanish\nhttps://www.nlrb.gov/espanol\nالعربية - Arabic\nhttps://www.nlrb.gov/multilanguage/arabic\n中文 (繁體中文) - Chinese (Traditional)\nhttps://www.nlrb.gov/multilanguage/chinese-traditional\n中文 (简体中文) - Chinese (Simplified)\nhttps://www.nlrb.gov/multilanguage/chinese-simplified\nFrançais - French\nhttps://www.nlrb.gov/multilanguage/french\nKreyòl ayisyen - Haitian Creole\nhttps://www.nlrb.gov/multilanguag"
+  },
+  {
+    "id": "8ba5c876-2440-417e-804a-a19c0cb8cde1",
+    "index": 68,
+    "title": "Boeing engineers and technical workers reject contract, vote to authorize strike",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.wsws.org/en/articles/2026/08/26/ubtq-a26.html",
+    "char_count": 11517,
+    "summary": "Menu Search Latest Profile English Contact https://www.wsws.org/en/special/pages/contact.html | About https://www.wsws.org/en/special/pages/icfi/wsws.html | International Committee of the Fourth International  ( ICFI ) https://www.wsws.org/en/profile Menu https://www.wsws.org/en/profile Search https",
+    "file_path": "sources/8ba5c876.txt",
+    "fulltext_preview": "Menu\nSearch\nLatest\nProfile\nEnglish\nContact\nhttps://www.wsws.org/en/special/pages/contact.html\n|\nAbout\nhttps://www.wsws.org/en/special/pages/icfi/wsws.html\n|\nInternational Committee of the Fourth International  ( ICFI )\nhttps://www.wsws.org/en/profile\nMenu\nhttps://www.wsws.org/en/profile\nSearch\nhttps://www.wsws.org/en/profile\nInternational Committee of the Fourth International  ( ICFI )\nhttps://www.wsws.org/en/profile\nLatest\nhttps://www.wsws.org/en/profile\nProfile\nhttps://www.wsws.org/en/profile\nFourth International\nhttps://www.wsws.org/en/profile\nSocialist Equality Party\nhttps://www.wsws.org/en/profile\nIYSSE\nhttps://www.wsws.org/en/profile\nAbout the WSWS\nhttps://www.wsws.org/en/profile\nContact\nhttps://www.wsws.org/en/profile\nDonate\nhttps://www.wsws.org/en/profile\nBoeing engineers and techn"
+  },
+  {
+    "id": "5a1111ca-ac5d-4afe-802b-405a9a57895f",
+    "index": 69,
+    "title": "Boeing factory strike ends as union workers vote to accept contract | PBS News",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.pbs.org/newshour/nation/boeing-factory-strike-ends-as-union-workers-vote-to-accept-contract",
+    "char_count": 23127,
+    "summary": "Boeing factory strike ends as union workers vote to accept contract | PBS News PBS https://www.pbs.org/ Donate https://www.pbs.org/newshour/nation/boeing-factory-strike-ends-as-union-workers-vote-to-accept-contract Change your local station javascript:void(0) Explore More from My Station https://www",
+    "file_path": "sources/5a1111ca.txt",
+    "fulltext_preview": "Boeing factory strike ends as union workers vote to accept contract | PBS News\nPBS\nhttps://www.pbs.org/\nDonate\nhttps://www.pbs.org/newshour/nation/boeing-factory-strike-ends-as-union-workers-vote-to-accept-contract\nChange your local station\njavascript:void(0)\nExplore More from My Station\nhttps://www.pbs.org/my-station/\nMORE FROM\nLive TV\nhttps://www.pbs.org/livestream/\nPBS Shows\nhttps://www.pbs.org/shows/\nMy Station\nhttps://www.pbs.org/my-station/\nMy List\nhttps://www.pbs.org/my-list/shows/\nShop\nhttps://shop.pbs.org/\nDonate\nhttps://www.pbs.org/donate/\nChoose station\nPBS IS BROUGHT TO YOU BY\nhelps your community explore new worlds and ideas through programs that educate, inform and inspire. Your tax-deductible donation helps make it all possible.\nDonate\nhttps://www.pbs.org/newshour/nation/boe"
+  },
+  {
+    "id": "0df98925-4ca1-466e-a546-c89a1a0aa88a",
+    "index": 70,
+    "title": "Boeing strike: shades of 1995 - HeraldNet.com",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.heraldnet.com/2008/09/13/boeing-strike-shades-of-1995/",
+    "char_count": 15584,
+    "summary": "Boeing strike: shades of 1995 | HeraldNet.com Opens in a new window Opens an external website Opens an external website in a new window This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To l",
+    "file_path": "sources/0df98925.txt",
+    "fulltext_preview": "Boeing strike: shades of 1995 | HeraldNet.com\nOpens in a new window Opens an external website Opens an external website in a new window\nThis website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To learn more, view the following link: \nPrivacy Policy\nhttps://www.carpentermediagroup.com/privacy-policy/\nManage Preferences\nStorage Preferences\n \nLog out\nhttps://www.heraldnet.com/2008/09/13/boeing-strike-shades-of-1995/\n \nLog in\nhttps://www.heraldnet.com/2008/09/13/boeing-strike-shades-of-1995/\n \nActivate\nhttps://www.heraldnet.com/2008/09/13/boeing-strike-shades-of-1995/\n \nSubscribe\nhttps://subscribe.heraldnet.com/\n \nMy Account\nhttps://myaccount.heraldnet.com/\nLocal News\nhttps://www.heraldnet.co"
+  },
+  {
+    "id": "efdbbe3c-2d5d-479b-bbf0-7ff1121a91f0",
+    "index": 71,
+    "title": "Boeing strikes peace deal with 27000 machinists - The Guardian",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks",
+    "char_count": 20645,
+    "summary": "Boeing strikes peace deal with 27,000 machinists | Boeing | The Guardian Skip to main content https://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks#maincontent   Skip to navigation https://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks#navigation Suppor",
+    "file_path": "sources/efdbbe3c.txt",
+    "fulltext_preview": "Boeing strikes peace deal with 27,000 machinists | Boeing | The Guardian\nSkip to main content\nhttps://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks#maincontent\n \nSkip to navigation\nhttps://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks#navigation\nSupport the Guardian\nFund independent journalism with $15 per month\nSupport us\nhttps://support.theguardian.com/?REFPVID=mtd6chn8vy3n03mddguh&INTCMP=header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22campaignCode%22%3A%22header_support_2026-08-10_EVERGREEN_HEADER__US_INT_CA_CONTROL%22%2C%22abTests"
+  },
+  {
+    "id": "5c05dc37-15a2-4d17-9765-45c9b69e0f6d",
+    "index": 72,
+    "title": "Boeing union ready to strike after rejecting contract offer – KIRO 7 News Seattle",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.kiro7.com/news/local/boeing-union-ready-strike-after-rejecting-contract-offer/74VXYXYOA5AJLDCCA3EZHDI5HY/",
+    "char_count": 4443,
+    "summary": "WATCH 63 ° WATCH News National Politics PinPoint Weather 7-Day Forecast Hour by Hour Ski Report School Closings Pet Walk Forecast Weather 24/7 Stream Stream Now Live Stream KIRO 24/7 News Weather 24/7 KIRO 7 Live Studio (Opens in new window) Recent Videos Raw Video Law & Crime Gusto TV KIRO 7 Invest",
+    "file_path": "sources/5c05dc37.txt",
+    "fulltext_preview": "WATCH\n63 °\nWATCH\nNews\nNational\nPolitics\nPinPoint Weather\n7-Day Forecast\nHour by Hour\nSki Report\nSchool Closings\nPet Walk Forecast\nWeather 24/7 Stream\nStream Now\nLive Stream\nKIRO 24/7 News\nWeather 24/7\nKIRO 7 Live Studio (Opens in new window)\nRecent Videos\nRaw Video\nLaw & Crime\nGusto TV\nKIRO 7 Investigates\nSports\nSeattle Seahawks\nSeattle Mariners\nSeattle Kraken\nSeattle Sounders\nSeattle Storm\nCollege Sports\nHigh School Football\nOn Home Ice\nSpecial Programming\nSeattle Pride\nChristmas in July\nSeattle Seafair\nHit and Miss with Monique Ming Laven\nKIRO 7 Toy Drive\nDestination Discover\nHealthier Together\nDiscover Northwest\nWoodland Park Zoo (Opens in new window)\nYour Voices\nKIRO 7 CARES\nSeattle Aquarium\nWashington Grown\nSeattle Waterfront\nLocal Jobs\nBack to School\nSteals and Deals\nGets Real\nLive T"
+  },
+  {
+    "id": "f1b53ffe-ff26-451c-87ea-c8c46e6dcd91",
+    "index": 73,
+    "title": "Boeing – SPEEA",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.boeing.com/specialty/speea",
+    "char_count": 11985,
+    "summary": "SPEEA       Boeing – SPEEA 2026 Negotiations Following the rejection of our contract offers, the early “yes” vote incentives, which include the retroactive pay and higher incentive plan target for 2026, are no longer available. Contract offers Profs contract fact sheets Download opens in a new tab h",
+    "file_path": "sources/f1b53ffe.txt",
+    "fulltext_preview": "SPEEA\n \n \n \nBoeing – SPEEA\n2026 Negotiations\nFollowing the rejection of our contract offers, the early “yes” vote incentives, which include the retroactive pay and higher incentive plan target for 2026, are no longer available.\nContract offers\nProfs contract fact sheets\nDownload opens in a new tab\nhttps://www.boeing.com/content/dam/boeing/nosearch/union-negotiations/speea/documents/Fact-Sheets-Professional-Unit.pdf\nProfs Full Redlined Contract opens in a new tab\nhttps://www.boeing.com/content/dam/boeing/nosearch/union-negotiations/speea/documents/SPEEA-Prof-Redlined-2020-2026-CBA.pdf\nProfs Contract Offer Letter opens in a new tab\nhttps://www.boeing.com/content/dam/boeing/nosearch/union-negotiations/speea/documents/Cover-Letter-Professional-Unit.pdf\n \nTechs contract fact sheets\nDownload ope"
+  },
+  {
+    "id": "1ae442ac-d56c-4046-9f03-2c2799ec641f",
+    "index": 74,
+    "title": "Boeing, engineers union to try novel bargaining strategy in test of labor peace",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://theaircurrent.com/industry-strategy/boeing-engineers-union-speea-novel-bargaining-strategy-labor-peace/",
+    "char_count": 13652,
+    "summary": "Boeing, engineers union to try novel bargaining strategy in test of labor peace Library https://theaircurrent.com/the-air-current-archive/ TAC Archive https://theaircurrent.com/the-air-current-archive/ All Reports https://theaircurrent.com/the-air-current-archive/ Industry Strategy https://theaircur",
+    "file_path": "sources/1ae442ac.txt",
+    "fulltext_preview": "Boeing, engineers union to try novel bargaining strategy in test of labor peace\nLibrary\nhttps://theaircurrent.com/the-air-current-archive/\nTAC Archive\nhttps://theaircurrent.com/the-air-current-archive/\nAll Reports\nhttps://theaircurrent.com/the-air-current-archive/\nIndustry Strategy\nhttps://theaircurrent.com/category/industry-strategy/\nAnalysis\nhttps://theaircurrent.com/category/analysis/\nAviation Safety\nhttps://theaircurrent.com/category/aviation-safety/\nTechnology\nhttps://theaircurrent.com/category/technology/\nAircraft Production\nhttps://theaircurrent.com/category/aircraft-production/\nAircraft Development\nhttps://theaircurrent.com/category/aircraft-development/\nAirlines\nhttps://theaircurrent.com/category/airlines/\nSupply Chain\nhttps://theaircurrent.com/category/supply-chain/\nHistorical Co"
+  },
+  {
+    "id": "b76d611d-ed93-4bbb-a6eb-70736d70bda2",
+    "index": 75,
+    "title": "CCOO de Industria de Madrid",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://industriamadrid.ccoo.es/",
+    "char_count": 241942,
+    "summary": "CCOO de Industria de Madrid   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el",
+    "file_path": "sources/b76d611d.txt",
+    "fulltext_preview": "CCOO de Industria de Madrid\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nF.E. INDUSTRIA informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacionado con información de la organiza"
+  },
+  {
+    "id": "2c689fe4-5923-44ac-b29b-95083d71a76f",
+    "index": 76,
+    "title": "CCOO e Industria de Turbopropulsores (ITP) alcanzan un acuerdo para tres años",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://industria.ccoo.es/noticia:229388--CCOO%20e%20Industria%20de%20Turbopropulsores%20(ITP)%20alcanzan%20un%20acuerdo%20para%20tres%20a%C3%B1os",
+    "char_count": 2152134,
+    "summary": "CCOO de Industria   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Con",
+    "file_path": "sources/2c689fe4.txt",
+    "fulltext_preview": "CCOO de Industria\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nF.E. INDUSTRIA informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacionado con información de la organización de CC"
+  },
+  {
+    "id": "964bb12f-20c6-4543-87ae-67dfcd28239e",
+    "index": 77,
+    "title": "CCOO logra un preacuerdo con importantes avances en salarios y derechos",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://industria.ccoo.es/noticia:764664--CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos&opc_id=14d9a05d1dad008126cf50f5898eb5a4",
+    "char_count": 50151,
+    "summary": "CCOO de Industria   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Con",
+    "file_path": "sources/964bb12f.txt",
+    "fulltext_preview": "CCOO de Industria\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nF.E. INDUSTRIA informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacionado con información de la organización de CC"
+  },
+  {
+    "id": "d2c03847-7cc7-4c0e-871b-8b03a0ebcc2a",
+    "index": 78,
+    "title": "CGT desconvoca la huelga en la Bahía de Cádiz por decisión de las asambleas de trabajadores del metal",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/",
+    "char_count": 18954,
+    "summary": "CGT desconvoca la huelga en la Bahía de Cádiz por decisión de las asambleas de trabajadores del metal - Confederación General del Trabajo Saltar al contenido https://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/#main CGT https://cgt.es/",
+    "file_path": "sources/d2c03847.txt",
+    "fulltext_preview": "CGT desconvoca la huelga en la Bahía de Cádiz por decisión de las asambleas de trabajadores del metal - Confederación General del Trabajo\nSaltar al contenido\nhttps://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/#main\nCGT\nhttps://cgt.es/\nQuiénes somos\nhttps://cgt.es/cgt/quienes-somos/\nPrensa\nhttps://cgt.es/cgt/prensa/\nHistoria\nhttps://cgt.es/cgt/historia/\nNormas y acuerdos\nhttps://cgt.es/cgt/normas-y-acuerdos/\nDirectorio Confederal\nhttps://cgt.es/cgt/directorio/\nMemoria Libertaria\nhttps://memorialibertaria.org/\nFundación Salvador Seguí\nhttps://www.fundacionssegui.org/\nRuesta\nhttps://ruesta.com/\nInfo\nhttps://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/\nNoticias\nhttps"
+  },
+  {
+    "id": "4cd7bdef-d338-4954-acc4-3444f6c6f3f4",
+    "index": 79,
+    "title": "CONSULTA A LA PLANTILLA.docx (1) (2).pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 1505,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_mRdT3GhOP9kajrQaVEOk4vVPtARo1G2hhs-SPt1VOX93U2XljzcOXxzo0llz5gn02eYBD86ivE7mnVaNnlpNZN9HZKSabin3d4J6ro-NT_qs1_-Vwro9sXYuk0kuZf74ccCT5=w990-h179-v0 8bc624ac-e9a1-462a-8ad6-d57ab1abe161 https://lh3.googleusercontent.com/notebooklm/AKYWMX87Y9sfoqjk-0E",
+    "file_path": "sources/4cd7bdef.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_mRdT3GhOP9kajrQaVEOk4vVPtARo1G2hhs-SPt1VOX93U2XljzcOXxzo0llz5gn02eYBD86ivE7mnVaNnlpNZN9HZKSabin3d4J6ro-NT_qs1_-Vwro9sXYuk0kuZf74ccCT5=w990-h179-v0\n8bc624ac-e9a1-462a-8ad6-d57ab1abe161\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX87Y9sfoqjk-0EuPWPgC3kFsrsvhjCCS1G0I89I-PjYqrFJU410Nfu-NtH9RWVAwz_TE75YRmvsJoxSpnoqPYGWLYBXbsKpmN3ztOMP1oVwWZGGFXzxonVuiQ-1IhI5cBdkXkU3kg=w987-h93-v0\n373cc42c-af5b-4a6f-beee-72ac53a789b0\nCONSULTA A LA PLANTILLA \n25 Julio 2026 \n      La consulta celebrada en el día de hoy a toda la plantilla de Airbus, sobre el preacuerdo alcanzado en la Comisión Negociadora, ha sido un éxito por el alto porcentaje de participación (81,44%) y por haberse producido en un clima de absoluta normalidad y sin incidencias. \nCCOO que"
+  },
+  {
+    "id": "e60b8e6c-23da-40aa-829b-b992fedfccc8",
+    "index": 80,
+    "title": "Cajas de resistencia, una herramienta más para afrontar conflictos (o al menos intentarlo)",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.todoporhacer.org/cajas-de-resistencia/",
+    "char_count": 14110,
+    "summary": "Cajas de resistencia, una herramienta más para afrontar conflictos (o al menos intentarlo) - Todo Por Hacer Todo Por Hacer https://www.todoporhacer.org/ Publicación anarquista Edición Impresa https://www.todoporhacer.org/cat/hemeroteca/ Puntos de distribución https://www.todoporhacer.org/puntos-de-d",
+    "file_path": "sources/e60b8e6c.txt",
+    "fulltext_preview": "Cajas de resistencia, una herramienta más para afrontar conflictos (o al menos intentarlo) - Todo Por Hacer\nTodo Por Hacer\nhttps://www.todoporhacer.org/\nPublicación anarquista\nEdición Impresa\nhttps://www.todoporhacer.org/cat/hemeroteca/\nPuntos de distribución\nhttps://www.todoporhacer.org/puntos-de-distribucion/\n \nSearch\nTwitter\nhttps://twitter.com/TodoPorHacer1\nFacebook\nhttps://www.facebook.com/todo.por.hacer.publicacion.anarquista/\nTelegram\nhttp://t.me/TodoPorHacer\nFlipboar\nhttps://flipboard.com/@todoporhacer/todo-por-hacer-cqbt1vcfy\nInstagram\nhttp://www.instagram.com/todo_por_hacer/\nMail\nmailto:todoporhacer@riseup.net\nRss\nhttps://todoporhacer.org/feed/\nCajas de resistencia, una herramienta más para afrontar conflictos (o al menos intentarlo)\nseptiembre 2012\nhttps://www.todoporhacer.org/?"
+  },
+  {
+    "id": "3e9b8df1-7f3a-4181-b65f-38f204daf39f",
+    "index": 81,
+    "title": "Carmen-Maja Rex | Airbus",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/about-us/our-governance/carmen-maja-rex",
+    "char_count": 24435,
+    "summary": "Carmen-Maja Rex | Airbus Skip to main content https://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#content   Skip to search https://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#search Airbus   [-] Open menu Close menu https://www.airbus.com/en/about-us/our-governance/carmen",
+    "file_path": "sources/3e9b8df1.txt",
+    "fulltext_preview": "Carmen-Maja Rex | Airbus\nSkip to main content\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#content\n \nSkip to search\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#drawer418595943-state\n Menu\nClose menu\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex#menu-683517614-state\n \nBack\nhttps://www.airbus.com/en/about-us/our-governance/carmen-maja-rex\n Back\nAbout us\nhttps://www.airbus.com/en/about-us\n[-]\n \nOur governance\nhttps://www.airbus.com/en/about-us/our-governance\n \nOur governance O"
+  },
+  {
+    "id": "0b5dca3f-d8da-4e25-86b3-1199a1bedb47",
+    "index": 82,
+    "title": "Categoría: 0 - Comun a todos - Renault - CCOO App",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://ccoo.app/renault/category/0-comun-a-todos/",
+    "char_count": 6954,
+    "summary": "Categoría: 0 - Comun a todos - Renault Saltar al contenido https://ccoo.app/renault/category/0-comun-a-todos/#content Buscar: APP https://ccoo.app/ Iniciar sesión https://ccoo.app/intranet/ Afíliate https://ccoo.app/quiero-afiliarme-a-ccoo/ Menu NOTICIAS https://ccoo.app/renault/ Convenio https://cc",
+    "file_path": "sources/0b5dca3f.txt",
+    "fulltext_preview": "Categoría: 0 - Comun a todos - Renault\nSaltar al contenido\nhttps://ccoo.app/renault/category/0-comun-a-todos/#content\nBuscar:\nAPP\nhttps://ccoo.app/\nIniciar sesión\nhttps://ccoo.app/intranet/\nAfíliate\nhttps://ccoo.app/quiero-afiliarme-a-ccoo/\nMenu\nNOTICIAS\nhttps://ccoo.app/renault/\nConvenio\nhttps://ccoo.app/renault/category/0-comun-a-todos/convenio/\nCONVENIO COLECTIVO 2020 – 2024\nhttps://ccoo.app/renault/convenio-colectivo-2020-2024/\nTABLAS SALARIALES\nhttps://ccoo.app/renault/category/0-comun-a-todos/tablas-salariales/\nTABLAS SALARIALES 2023\nhttps://ccoo.app/renault/tablas-salariales-2023/\nLICENCIAS\nhttps://ccoo.app/renault/wp-content/blogs.dir/6/files/sites/147/2023/04/licencias-y-permisos-ccoo-2020-provisional-v1.pdf\nPrimas\nhttps://ccoo.app/renault/category/0-comun-a-todos/primas/\nActivida"
+  },
+  {
+    "id": "e5e56338-9151-4ca1-a601-9d3e81a06c63",
+    "index": 83,
+    "title": "Classification Survey: The Results - CGT Airbus Commercial Aircraft",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://avions.cgtairbus.com/english/classification-survey-the-results/",
+    "char_count": 11278,
+    "summary": "Classification Survey: The Results – CGT Airbus Commercial Aircraft Aller au contenu https://avions.cgtairbus.com/english/classification-survey-the-results/#wp--skip-link--target Les sites CGT Airbus https://avions.cgtairbus.com/english/classification-survey-the-results/ Airbus Group https://groupe.",
+    "file_path": "sources/e5e56338.txt",
+    "fulltext_preview": "Classification Survey: The Results – CGT Airbus Commercial Aircraft\nAller au contenu\nhttps://avions.cgtairbus.com/english/classification-survey-the-results/#wp--skip-link--target\nLes sites CGT Airbus\nhttps://avions.cgtairbus.com/english/classification-survey-the-results/\nAirbus Group\nhttps://groupe.cgtairbus.com/\nAirbus Defence & Space RP\nhttps://ds.cgtairbus.com/\nAirbus Defence & Space TLS\nhttps://www.cgt-airbusds.com/\nAirbus Atlantic Nantes\nhttps://www.cgt-airbus-nantes.fr/\nAirbus Atlantic Montoir\nhttps://www.cgt-airbus-saint-nazaire.fr/\nAirbus Helicopter\nhttps://cgtairbus.fr/\nSe syndiquer\nhttps://avions.cgtairbus.com/se-syndiquer/\nInstagram\nhttps://www.instagram.com/cgtairbus/\nBluesky\nhttps://bsky.app/profile/cgtairbus.bsky.social\nMastodon\nhttps://piaille.fr/@cgtairbus\nLinkedIn\nhttps://"
+  },
+  {
+    "id": "7b9c481d-e7e8-45a9-8b0e-dff10aa54cb0",
+    "index": 84,
+    "title": "Classification: current status for Airbus Commercial",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.lesyndicat.info/news/i/79523791/classification-current-status-airbus-commercial",
+    "char_count": 3732,
+    "summary": "Classification: current status for Airbus Commercial           Classification: current status for Airbus Commercial 05/07/2023   What is behind the new classification? The introduction of the new classification scale from January 2024 is a direct result of the new agreement in the Metallurgy sector",
+    "file_path": "sources/7b9c481d.txt",
+    "fulltext_preview": "Classification: current status for Airbus Commercial\n \n \n \n \n \nClassification: current status for Airbus Commercial\n05/07/2023\n \nWhat is behind the new classification?\nThe introduction of the new classification scale from January 2024 is a direct result of the new agreement in the Metallurgy sector signed by FO, CFE-CGC and CFDT on 7 February 2022. As a result, all companies in the sector must apply the new grid.\nJob grading at Airbus was negotiated by the unions: TRUE or FALSE?\nFALSE.\nUnlike the other RELOAD themes (working time, holidays, etc.), there was no negotiation at Airbus leading to the signing of an agreement to determine the classification of each job.\nThe Airbus job catalogue was first drawn up by a panel of company managers, with the support of HR. Secondly, first-level manag"
+  },
+  {
+    "id": "06bb431b-c377-4ae5-8533-2942d5e75c2c",
+    "index": 85,
+    "title": "Compensación de los gastos derivados del desarrollo del trabajo a distancia: A falta de convenio colectivo o acuerdo - BOE.es",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo.php?id=ANU-L-2021-00000001347",
+    "char_count": 37881,
+    "summary": "BOE.es - Compensación de los gastos derivados del desarrollo del trabajo a distancia: A falta de convenio colectivo o acuerdo- individual o colectivo- que precise los términos del acuerdo de trabajo a distancia, solo cabe reclamar individualmente la compensación de los gastos debidamente justificado",
+    "file_path": "sources/06bb431b.txt",
+    "fulltext_preview": "BOE.es - Compensación de los gastos derivados del desarrollo del trabajo a distancia: A falta de convenio colectivo o acuerdo- individual o colectivo- que precise los términos del acuerdo de trabajo a distancia, solo cabe reclamar individualmente la compensación de los gastos debidamente justificados.\nAgencia Estatal Boletín Oficial del Estado\nIr a contenido\nhttps://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo.php?id=ANU-L-2021-00000001347#contenedor\nConsultar el diario oficial BOE\nhttps://www.boe.es/diario_boe/\n \n \nIdioma actual:\n \n[-]\n \nCastellano / es Puede seleccionar otro idioma:\nes / Castellano\nhttps://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo.php?lang=es&id=ANU-L-2021-00000001347\nca / Català\nhttps://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo."
+  },
+  {
+    "id": "9018f4a4-bbd2-444d-81ff-e56e10953d21",
+    "index": 86,
+    "title": "Comunicado CGT estatal - 20260723.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 3643,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_hgAuct9k4qpX_XpY6KnsoyWKzSS6PMcbV_s-RFhNm__p49ok7tQnBWZiNTG0mpuop6Yp2OV1H6wedoF0p3lVLzub3jZQlfnHhxmszhcV3THx8peIdzsGqzBhQxqba1JCKTtDjWA=w1209-h228-v0 7487aefd-8485-42c4-943e-ac067677d66c https://lh3.googleusercontent.com/notebooklm/AKYWMX_peYZdY6zK",
+    "file_path": "sources/9018f4a4.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_hgAuct9k4qpX_XpY6KnsoyWKzSS6PMcbV_s-RFhNm__p49ok7tQnBWZiNTG0mpuop6Yp2OV1H6wedoF0p3lVLzub3jZQlfnHhxmszhcV3THx8peIdzsGqzBhQxqba1JCKTtDjWA=w1209-h228-v0\n7487aefd-8485-42c4-943e-ac067677d66c\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_peYZdY6zKbDjo9STiHLD15-kHiwTK9HcFdiiGzhC16fC2Nlqby0AaiUA-6iqdL1P0oXQfON5RW7iNot-ht7FHerHFUL8iwr5v16gp210SP1E_cWaVtDEOL4gc3f6BtXUmUipz=w938-h36-v0\nd800439b-057f-4a56-a9bf-7a405f56d422\n.   \n \nLA HISTORIA ES VUESTRA \n             Queridos compañeros y compañeras. Habéis hecho historia. La mayor huelga de la \nhistoria de CASA y Airbus ha demostrado la única unidad que vale, la unidad de las personas \ntrabajadoras. Habéis dado un ejemplo de dignidad y lucha. Y de asamblearismo, solidaridad, \napoyo mutuo, auto"
+  },
+  {
+    "id": "587601e4-9b16-419b-9b3d-c6a31fbf6027",
+    "index": 87,
+    "title": "Comunicado conjunto SIPA, ATP, CGT, UGT y UTIL - 20260715-1.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4007,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9dP-ZT7OjrSFCozMe-aJMUpvI8oaZIR5XxuDRluFFUpu308gGAkCJZCZc_-r9EzAFaZuBgYLayR6LeRHr3juh_fqjT0NYhCNMV_9wfOiQX9Krtk1Zz5V6wcJsOp6y7PFdqRre6=w258-h330-v0 4dd48511-655c-4fad-b81b-7cf5c041164c https://lh3.googleusercontent.com/notebooklm/AKYWMX9yVemSy96Qq1M",
+    "file_path": "sources/587601e4.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9dP-ZT7OjrSFCozMe-aJMUpvI8oaZIR5XxuDRluFFUpu308gGAkCJZCZc_-r9EzAFaZuBgYLayR6LeRHr3juh_fqjT0NYhCNMV_9wfOiQX9Krtk1Zz5V6wcJsOp6y7PFdqRre6=w258-h330-v0\n4dd48511-655c-4fad-b81b-7cf5c041164c\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9yVemSy96Qq1MSItPooAmQ6uj8_vDJPY4EaFNBl4NG5bZk6R7y0H0iKvUJqg7NhgR5RLRHfeqRpYfUBsKve6beOq4yqZ07Fj3qJTPd2EtxW-alA4dDe0MjJ1P8pvAPDKLM1ONWkg=w297-h84-v0\n5a3ad381-8fc6-49e4-a930-df355b5a561f\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_wMw19L9xbhzjEBWTFF13TMldV2DrILErtzCoEb1RN4J7r9xrIbSZTOTkWZS-jASUT8piCFzGkcRllqYNnyXREPH9XHdwYUNTfco0Gub4zXlVK0QhyP70LLOQTG0WgVa5rGjWcMg=w169-h224-v0\n7324fae2-1749-4141-b0d4-b0e10ff8c3e0\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-uO5S4E7EhPj0S5NbnVACUbLa_7afKrOgnIdsZ"
+  },
+  {
+    "id": "afa46d0f-2feb-4666-89a2-060d84e426b8",
+    "index": 88,
+    "title": "Comunicado conjunto SIPA, ATP, CGT, UGT y UTIL - 20260715.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4011,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_OyU1OUPkX2jzDPbf4wFsqIlICpnZgYAw0nZUrOQOasm4AfZ9IAyvBDY00hhAAtIukVtnEIny6CEyTOLplnMaBT_GQ3zv9K7aFCqSw9Atcq6wpawZ4G8IcMCBFk_zsIODbYtfi6Q=w258-h330-v0 b993bf91-e7dc-4aa3-a866-0bf85abe8e5d https://lh3.googleusercontent.com/notebooklm/AKYWMX_zYcTxl3Z8e",
+    "file_path": "sources/afa46d0f.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_OyU1OUPkX2jzDPbf4wFsqIlICpnZgYAw0nZUrOQOasm4AfZ9IAyvBDY00hhAAtIukVtnEIny6CEyTOLplnMaBT_GQ3zv9K7aFCqSw9Atcq6wpawZ4G8IcMCBFk_zsIODbYtfi6Q=w258-h330-v0\nb993bf91-e7dc-4aa3-a866-0bf85abe8e5d\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_zYcTxl3Z8erKvbt7W_W-GjIoFdn1NTE0xG2-iZvwYfassZVzGCObGIollSjEfX07EZhc5CMesVjSUe5fNdHF7PWdh4nY0bnpkd_d-UMY37Z-8cEJVBK31C8bncxaRl-_mqlTLvA=w297-h84-v0\n6c259683-734d-4420-8051-504ecaa4411b\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8_pKBYa1jhhU6vxuY7tuV20SNIX5mNHFtdfZiqdwHHmrCTZkysG5mLswh1SiGFYdetHKzWLGuZKJlNRtyCpWn_lT0nMEkHrcY5gikMUX3kh5ZMwjwYwO5KxQ-U60OQtw0I3yOETg=w169-h224-v0\nd88d4287-8b67-4827-922b-620bde32a334\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-Psjp2cF32k5XG8EPtigFu8oCRW4f8yOHmsj"
+  },
+  {
+    "id": "9effa9b7-bdcf-40f7-99db-f237a943ca2f",
+    "index": 89,
+    "title": "Comunicado conjunto SIPA, ATP, CGT, UGT y UTIL - 20260720.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2491,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_MKfc6_RQYNjv7phqXMCfmXJwBtJmI15CR-0tK0GRnTPgCwm4WKmbIlltI3Ua-HW6MGWqiiKvlWTEfRi4TmVk_ZOsByLHlXbkxeCCdIsgrd_Iikx7h3wZAd1TepuTpII9v7FrP2A=w258-h330-v0 f520ed86-e2a4-4f0e-ab8d-6e7783e661fc https://lh3.googleusercontent.com/notebooklm/AKYWMX-EsEDCRQAYw",
+    "file_path": "sources/9effa9b7.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_MKfc6_RQYNjv7phqXMCfmXJwBtJmI15CR-0tK0GRnTPgCwm4WKmbIlltI3Ua-HW6MGWqiiKvlWTEfRi4TmVk_ZOsByLHlXbkxeCCdIsgrd_Iikx7h3wZAd1TepuTpII9v7FrP2A=w258-h330-v0\nf520ed86-e2a4-4f0e-ab8d-6e7783e661fc\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-EsEDCRQAYwVQgmboXIb9b-tcTK_yhH6tFSUjhXLyLnPb6rSwmsnZ1YBCVtl2Gc99NXd5dcCudIGWeZJRr1zOltFOEyAWBgWk4ISJLwbGa4yAAHdnC2IHYTbCpmOZ2MXR6XUTSIQ=w297-h84-v0\nb364c1a8-c946-4c01-bb76-dd22992c076f\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8otLVCfSPYg-HIe6Q0woY7xVnXKQ4vo5Gqym1vRIsVMWV9_hPtnfzDEY2fnFWtLlfWDwnUuwVvH3PSt8ikegTdEOP-ZPfj7FkWrUnMIHcSigecNFawplPfqkeFGrMFVhd9Pz5r=w169-h224-v0\nae537d3f-65b9-4bb0-96d4-96e44e4ff11d\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX98MjmK9n_FOKVdIAV3odHPbwV58JbZWCD6CzVg"
+  },
+  {
+    "id": "fa857630-c9b6-463f-95bf-fc9840954a40",
+    "index": 90,
+    "title": "Comunicado_Huelga_070726-2.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 1708,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8D9uRDpcdh977Td7uWAhsxYz-5Nmpthho4c_u949ng3QemU9fRMKDwlup8_x0EeAgacYQFkTdmiS8H_W_fdVrCiOgyDJ6UxiKkFYsp_MIFVoXyJGyNTK5Ipq6LyAu5gq5WExWIBg=w1241-h254-v0 4dd73979-c784-434f-afb9-48c522992c85 https://lh3.googleusercontent.com/notebooklm/AKYWMX9rd33jEk6N",
+    "file_path": "sources/fa857630.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8D9uRDpcdh977Td7uWAhsxYz-5Nmpthho4c_u949ng3QemU9fRMKDwlup8_x0EeAgacYQFkTdmiS8H_W_fdVrCiOgyDJ6UxiKkFYsp_MIFVoXyJGyNTK5Ipq6LyAu5gq5WExWIBg=w1241-h254-v0\n4dd73979-c784-434f-afb9-48c522992c85\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9rd33jEk6NPCccEFNHdlPdEN_cm_upuBBi1qF77kjUpjXpQ4diRJOCNrxI9D9BZmtI8DI2VKE74pnfX3iAyx3DSC-GJALv5-EfmNqCBKFWeMFR224oKmgL53aDwYrhdgWC_W26=w1241-h123-v0\na71ef93e-59d5-471c-9f86-00d6542808d9\nCOMUNICADO HUELGA \nA todos los trabajadores. Huelguistas y no huelguistas. \nCGT Getafe tras la oportuna asamblea de afiliados ha tomado la decisión de ser \nparte de la huelga. Estamos trabajando para que esta decisión sea consensuada a \nnivel estatal para todos los centros. \nEntendemos que esta huelga además de ser trabaja"
+  },
+  {
+    "id": "9679dfb7-db2b-418c-9c21-2f4959782e40",
+    "index": 91,
+    "title": "Comunicado_conjunto_CGT,_UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 1394,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-4y5_76f2poEF_EhHRX0DWQ5I3c6I8g2nfKDpoCC8gGTYrk_dyfytMQMVXLGOH8jZCbarTPnYonVH9JsYDlO3euTCusz6pPeEG7uG1LIPzm_aMmzgKr_iXzVHsUINLwjFCEdEpng=w146-h187-v0 619c6f39-0e96-48c3-8eb1-b36a69020e74 https://lh3.googleusercontent.com/notebooklm/AKYWMX_XEiL9ErU3_",
+    "file_path": "sources/9679dfb7.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-4y5_76f2poEF_EhHRX0DWQ5I3c6I8g2nfKDpoCC8gGTYrk_dyfytMQMVXLGOH8jZCbarTPnYonVH9JsYDlO3euTCusz6pPeEG7uG1LIPzm_aMmzgKr_iXzVHsUINLwjFCEdEpng=w146-h187-v0\n619c6f39-0e96-48c3-8eb1-b36a69020e74\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_XEiL9ErU3_OJwIyL6psbU169utcYO6pszAtzgB1cu7SAQX1MT31gWTUw0NHgUPDDtlMiojmtTKvpiLIZInWre5xXGOSSYOpKMDNFEPn0xkx15rfHzTb3jsHiMnoJy6Tq8Aj1cWg=w306-h87-v0\n256b7986-d645-48ab-a280-d19094e226b8\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8ue5fwiDMLPGI5kiCWsjNeDxeOYOjTB-yzIwJU1cizZoBDwqIyJ5f6789x7AOl4lj1-8I4D1WB6IQGvfAPh9OwxijKTqPG4TRMnmtqlxJuzEYIRLE1kacnAywFN4HJkRJCdLD-Dw=w123-h172-v0\n0ffa5ab2-55aa-46a7-ae52-fa5e9a6e5d9e\n. \nHUELGA INDEFINIDA 24A EN AIRBUS  \n31/7/2026 \nSiguiendo el mandato de las asambleas g"
+  },
+  {
+    "id": "918e8678-bc39-4cbc-a0c3-fceb284ece73",
+    "index": 92,
+    "title": "Comunicado_conjunto_SIPA,_ATP,_CGT,_UGT_y_UTIL_+_propuesta_empresa.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 9031,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9saj9JP2OG6lD7s4jsB7y_Q79PAJPYkL3cPpmyocE3o31pyDF-PXfh-9IJxTc3VkdGQZC_S14rX4d7K-EqRvhKkg4fS-V1c8DS3QxmDQNV_40YquRVwLK6ECPOZILcWNY5KCO9IQ=w258-h330-v0 e09ef516-27a9-44b4-af16-210276a24321 https://lh3.googleusercontent.com/notebooklm/AKYWMX9BGZOB9HTj3",
+    "file_path": "sources/918e8678.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9saj9JP2OG6lD7s4jsB7y_Q79PAJPYkL3cPpmyocE3o31pyDF-PXfh-9IJxTc3VkdGQZC_S14rX4d7K-EqRvhKkg4fS-V1c8DS3QxmDQNV_40YquRVwLK6ECPOZILcWNY5KCO9IQ=w258-h330-v0\ne09ef516-27a9-44b4-af16-210276a24321\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9BGZOB9HTj3QQ-AERvw-tLDSvO8Ii6KL__xlIsA25C0LVzYaX0yLPXNIqFMCDboIEz5a2SaUJuwg7WSMjaWi34NtoaXUHF1fPLbFHUQCZV2SNRkw-deaibDhD5tUf16HWUkI0f7A=w297-h84-v0\na64de5d7-8358-4c40-aeec-717da686c309\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-Wmo7Hx8cVesJK0kr5z4irgkUHuCmWIW9yIxpbYdZ6wW19Lc_3T2CATTsrbyqOEgZURc_Xh1hUVjKYJjWCuulPqVeJPe8TXFS_sz07BjxaJKTtl-cONyh61O9ezFqd63j1d7z2pw=w169-h224-v0\nd9e7fcad-9361-4650-95b7-8115ff6f757a\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-KU2cv1L9tfBKHgSxlSDhE1esftAIju1RKjP"
+  },
+  {
+    "id": "312bb10b-d8ac-4260-8156-a00413600ce7",
+    "index": 93,
+    "title": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes - El Español",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/invertia/20260828/continua-huelga-plantas-airbus-empresa-sindicatos-seguiran-negociando-proximo-martes/1003744365159_0.html",
+    "char_count": 21059,
+    "summary": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes El Español https://www.elespanol.com/ editar perfil https://seguro.elespanol.com/usuarios/perfil/  cerrar sesión  https://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=26&utm",
+    "file_path": "sources/312bb10b.txt",
+    "fulltext_preview": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes\nEl Español\nhttps://www.elespanol.com/\neditar perfil\nhttps://seguro.elespanol.com/usuarios/perfil/\n cerrar sesión \nhttps://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=26&utm_campaign=1+A%C3%91O+9%2C99%E2%82%AC\nInvertia\nhttps://www.elespanol.com/invertia/\nSecciones\nObservatorios\nhttps://www.elespanol.com/invertia/observatorios/\nSanidad\nhttps://www.elespanol.com/invertia/observatorios/sanidad/\nDefensa\nhttps://www.elespanol.com/observatorio-defensa/\nEnergía\nhttps://www.elespanol.com/invertia/empresas/energia/\nMovilidad\nhttps://www.elespanol.com/invertia/observatorios/movilidad/\nSector asegurador\nhttps://www.elespanol.com/observatorio-seguros/\nMercados\nhttps://www.eles"
+  },
+  {
+    "id": "67583dbd-8b60-4767-a7dc-2a602feb1938",
+    "index": 94,
+    "title": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes - El Español",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/invertia/20260828/continua-huelga-plantas-airbus-empresa-sindicatos-seguiran-negociando-proximo-martes/1003744365159_0.html",
+    "char_count": 23761,
+    "summary": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes El Español https://www.elespanol.com/ editar perfil https://seguro.elespanol.com/usuarios/perfil/  cerrar sesión  https://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=26&utm",
+    "file_path": "sources/67583dbd.txt",
+    "fulltext_preview": "Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes\nEl Español\nhttps://www.elespanol.com/\neditar perfil\nhttps://seguro.elespanol.com/usuarios/perfil/\n cerrar sesión \nhttps://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=26&utm_campaign=1+A%C3%91O+9%2C99%E2%82%AC\nInvertia\nhttps://www.elespanol.com/invertia/\nSecciones\nObservatorios\nhttps://www.elespanol.com/invertia/observatorios/\nSanidad\nhttps://www.elespanol.com/invertia/observatorios/sanidad/\nDefensa\nhttps://www.elespanol.com/observatorio-defensa/\nEnergía\nhttps://www.elespanol.com/invertia/empresas/energia/\nMovilidad\nhttps://www.elespanol.com/invertia/observatorios/movilidad/\nSector asegurador\nhttps://www.elespanol.com/observatorio-seguros/\nMercados\nhttps://www.eles"
+  },
+  {
+    "id": "919fe4e4-d6d3-4c0a-933d-2aa7fde0d323",
+    "index": 95,
+    "title": "Convenio Colectivo Construcción - CCOO App",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://ccoo.app/convenio/convenio-colectivo-construccion-de-espana/",
+    "char_count": 1104117,
+    "summary": "Saltar al contenido Características Aplicación Instalar Contacta Convenio Colectivo Construcción Ámbito :  Nacional Área :  España Código :  99005585011900 Actualizacion: 2026/05/12 Vigencia :  2022/01/01  -  2026/12/31 Duración :  CINCO AÑOS Publicación :  2026/05/12 BOE 115 MODIFICACIÓN Buscar más",
+    "file_path": "sources/919fe4e4.txt",
+    "fulltext_preview": "Saltar al contenido\nCaracterísticas\nAplicación\nInstalar\nContacta\nConvenio Colectivo Construcción\nÁmbito\n:  Nacional\nÁrea\n:  España\nCódigo\n:  99005585011900 Actualizacion: 2026/05/12\nVigencia\n:  2022/01/01  -  2026/12/31\nDuración\n:  CINCO AÑOS\nPublicación\n: \n2026/05/12\nBOE 115\nMODIFICACIÓN\nBuscar más\nConvenio Colectivo Construcción. Última actualización a: 12-05-2026 Vigencia de: 01-01-2022 a 31-12-2026. Duración CINCO AÑOS. Última publicación en BOE 115 del tipo: MODIFICACIÓN.\nEl contenido puede mostrar el convenio anterior (comparar), revisa el índice para ir al actual.\nTabla de contenidos\nToggle\n CONVENIO COLECTIVO (BOE Núm. 228 – Sábado 23 de septiembre de 2023)\nResolución de 6 de septiembre de 2023, de la Dirección General de Trabajo, por la que se registra y publica el VII Convenio co"
+  },
+  {
+    "id": "79d1f59e-6589-49ad-b96f-f1289602fff5",
+    "index": 96,
+    "title": "Convenio Colectivo Industria del Metal de Cádiz - CCOO App",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://ccoo.app/convenio/convenio-colectivo-industria-del-metal-de-cadiz/",
+    "char_count": 203063,
+    "summary": "Convenio Colectivo Industria Del Metal - CCOO App Saltar al contenido https://ccoo.app/convenio/convenio-colectivo-industria-del-metal-de-cadiz/#content Características https://ccoo.app/#caracteristicas Aplicación https://ccoo.app/#aplicacion Instalar https://ccoo.app/#instala Contacta https://ccoo.",
+    "file_path": "sources/79d1f59e.txt",
+    "fulltext_preview": "Convenio Colectivo Industria Del Metal - CCOO App\nSaltar al contenido\nhttps://ccoo.app/convenio/convenio-colectivo-industria-del-metal-de-cadiz/#content\nCaracterísticas\nhttps://ccoo.app/#caracteristicas\nAplicación\nhttps://ccoo.app/#aplicacion\nInstalar\nhttps://ccoo.app/#instala\nContacta\nhttps://ccoo.app/#contacta\nConvenio Colectivo Industria del Metal de Cádiz\nBuscar\n↑ ↓ ✕\n \nÁmbito\n: Provincial\n \nÁrea\n: Cádiz\n \nCódigo\n: 11000495011982\n \nActualizacion: 2026/02/18\n \nVigencia\n:\n2024/01/01 - 2031/12/31\nDescarregar PDF\nhttps://ccoo.app/wp-content/uploads/ccoo-covenants/convenio-colectivo-industria-del-metal-de-cadiz.pdf\nDuración\n: OCHO AÑOS\nPublicación\n:\n2026/02/18\nBOP 32\nR. SALARIAL\n \nBuscar más\nhttps://ccoo.app/convenios/\n \nhttps://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccoo.app%2F"
+  },
+  {
+    "id": "0c4b96fc-3710-4c4b-8c17-98871f8f4ad4",
+    "index": 97,
+    "title": "Convenio Colectivo Industrias Cárnicas - CCOO App",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://ccoo.app/convenio/convenio-colectivo-industrias-carnicas-de-espana/",
+    "char_count": 281314,
+    "summary": "Convenio Colectivo Industrias Cárnicas - CCOO App Saltar al contenido https://ccoo.app/convenio/convenio-colectivo-industrias-carnicas-de-espana/#content Características https://ccoo.app/#caracteristicas Aplicación https://ccoo.app/#aplicacion Instalar https://ccoo.app/#instala Contacta https://ccoo",
+    "file_path": "sources/0c4b96fc.txt",
+    "fulltext_preview": "Convenio Colectivo Industrias Cárnicas - CCOO App\nSaltar al contenido\nhttps://ccoo.app/convenio/convenio-colectivo-industrias-carnicas-de-espana/#content\nCaracterísticas\nhttps://ccoo.app/#caracteristicas\nAplicación\nhttps://ccoo.app/#aplicacion\nInstalar\nhttps://ccoo.app/#instala\nContacta\nhttps://ccoo.app/#contacta\nConvenio Colectivo Industrias Cárnicas\nBuscar\n↑ ↓ ✕\n \nÁmbito\n: Nacional\n \nÁrea\n: España\n \nCódigo\n: 99000875011981\n \nActualizacion: 2026/02/16\n \nVigencia\n:\n2024/01/01 - 2025/12/31\nDuración\n: DOS AÑOS\nPublicación\n:\n2026/02/16\nBOE 41\nACUERDO\n \nBuscar más\nhttps://ccoo.app/convenios/\n \nhttps://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccoo.app%2Fconvenio%2Fconvenio-colectivo-industrias-carnicas-de-espana%2F\n \nhttps://twitter.com/intent/tweet?text=Convenio%20Colectivo%20Industr"
+  },
+  {
+    "id": "b2c220b1-ced6-4aa1-a6b5-c84b83f6ee57",
+    "index": 98,
+    "title": "Convenio Colectivo Industrias Siderometalúrgicas - CCOO App",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://ccoo.app/convenio/convenio-colectivo-industrias-siderometalurgicas-de-sevilla/",
+    "char_count": 591663,
+    "summary": "Convenio Colectivo Industrias Siderometalúrgicas - CCOO App Saltar al contenido https://ccoo.app/convenio/convenio-colectivo-industrias-siderometalurgicas-de-sevilla/#content Características https://ccoo.app/#caracteristicas Aplicación https://ccoo.app/#aplicacion Instalar https://ccoo.app/#instala",
+    "file_path": "sources/b2c220b1.txt",
+    "fulltext_preview": "Convenio Colectivo Industrias Siderometalúrgicas - CCOO App\nSaltar al contenido\nhttps://ccoo.app/convenio/convenio-colectivo-industrias-siderometalurgicas-de-sevilla/#content\nCaracterísticas\nhttps://ccoo.app/#caracteristicas\nAplicación\nhttps://ccoo.app/#aplicacion\nInstalar\nhttps://ccoo.app/#instala\nContacta\nhttps://ccoo.app/#contacta\nConvenio Colectivo Industrias Siderometalúrgicas de Sevilla\nBuscar\n↑ ↓ ✕\n \nÁmbito\n: Provincial\n \nÁrea\n: Sevilla\n \nCódigo\n: 41002445011982\n \nActualizacion: 2026/02/09\n \nVigencia\n:\n2024/01/01 - 2026/12/31\nDuración\n: TRES AÑOS\nPublicación\n:\n2026/02/09\nBOP 26\nR. SALARIAL\n \nBuscar más\nhttps://ccoo.app/convenios/\n \nhttps://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fccoo.app%2Fconvenio%2Fconvenio-colectivo-industrias-siderometalurgicas-de-sevilla%2F\n \nhttps:/"
+  },
+  {
+    "id": "2abb6828-4c4e-41e0-bc7a-388a28d9b3fc",
+    "index": 99,
+    "title": "Convenio colectivo de la empresa Renault España incluyendo FASA Renault 2021-2025 - CNT de Valladolid",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.cntvalladolid.es/convenio-colectivo-de-la-empresa-renault-espana/",
+    "char_count": 505654,
+    "summary": "Convenio colectivo de la empresa Renault España incluyendo FASA Renault 2021-2025 | CNT Valladolid   Gestionar consentimiento Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnolo",
+    "file_path": "sources/2abb6828.txt",
+    "fulltext_preview": "Convenio colectivo de la empresa Renault España incluyendo FASA Renault 2021-2025 | CNT Valladolid\n \nGestionar consentimiento\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el abonado o usuario, o con el único propósito de llevar a cabo la"
+  },
+  {
+    "id": "2a74dddd-e55f-4893-b37d-175e8f69145b",
+    "index": 100,
+    "title": "Convenios Renault - CCOO Renault España - Confederación Sindical de Comisiones Obreras",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://renault.ccoo.es/Convenios_Renault",
+    "char_count": 16483,
+    "summary": "CCOO Renault España   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'C",
+    "file_path": "sources/2a74dddd.txt",
+    "fulltext_preview": "CCOO Renault España\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nF.E. INDUSTRIA informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacionado con información de la organización de "
+  },
+  {
+    "id": "d261980e-91c9-4e4e-95d9-4f0a3acc103c",
+    "index": 101,
+    "title": "Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2873,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-0v8jYML9yXuIKoBFe3R-ILRfYnUMiwSsjsSGTEyiFeHRZ_O_IrSC7tlnhaynxQLeyi4BiURhSkA37fllZAkzUQ4HRFdt6xClNmSBm2qX05Bzl9eagNr6EV6jwzRN0dHB0H60DXg=w1749-h2473-v0 eba71976-8901-497e-b31f-31eb87320df6 https://lh3.googleusercontent.com/notebooklm/AKYWMX-Oe7EhxBG",
+    "file_path": "sources/d261980e.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-0v8jYML9yXuIKoBFe3R-ILRfYnUMiwSsjsSGTEyiFeHRZ_O_IrSC7tlnhaynxQLeyi4BiURhSkA37fllZAkzUQ4HRFdt6xClNmSBm2qX05Bzl9eagNr6EV6jwzRN0dHB0H60DXg=w1749-h2473-v0\neba71976-8901-497e-b31f-31eb87320df6\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-Oe7EhxBGgghmeIikAsrh3yoQTtMxHgnRxgJiwB41D9mGtFc5jRbhuQNIEAMNbe4L_rJ50YkOlO02h1jJ3AnM_8TnEvaZhukCFn5hYyY2AAJbwKfxgoSKaUfBe787Y6HtjFcSTMg=w1749-h2473-v0\n98384ca5-da71-45d0-b529-29ce0bdfccd7\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_x8XBPYsWFxbb1Gt8d-fe0d6UCtfCds3Gf3BVGFd_CNcDNNsWj-ndOnLHF411iuq8QJm1wPCFipVkLsforf1i0lISpKp0ceW4gW3cv0EuYJOFsE1IkHXFnN5OIQN1WWIwPsPKuJA=w1749-h2473-v0\n680d150e-603a-4306-8a70-0af1f1c00217\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_aBz5In-atMBojvHtsPArrfOYfQ37"
+  },
+  {
+    "id": "02251d81-53ae-460c-8467-53519e6a9a5b",
+    "index": 102,
+    "title": "DOC-20260725-WA0055..pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2810,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9pvhArinEthFmq0vuRcS5UReaKnxl0f-5zmepcBxX8RCARvqNMhIWCcW9WCgtZYofSPjbXJE4wuiXch853siZdH1o-a-zFoPKPIMBl8YgDkDc92pbhgJbngyD9JEucz9WBJLWwBw=w1209-h228-v0 f3dc8da6-c181-4c13-8a1d-fa113ceedeff https://lh3.googleusercontent.com/notebooklm/AKYWMX_BauBEhIbP",
+    "file_path": "sources/02251d81.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9pvhArinEthFmq0vuRcS5UReaKnxl0f-5zmepcBxX8RCARvqNMhIWCcW9WCgtZYofSPjbXJE4wuiXch853siZdH1o-a-zFoPKPIMBl8YgDkDc92pbhgJbngyD9JEucz9WBJLWwBw=w1209-h228-v0\nf3dc8da6-c181-4c13-8a1d-fa113ceedeff\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_BauBEhIbPm6sDT0A9JdWEvoq9xRquJ8XxLYc5TcmuF3QPsp9cIRJvsDxFeanXLRnxBjJ-dvW6jfFnlONtXhiy_Bm6OYKz8NeI3ALxbx5vRvU3w35Wu8Pc38eVOBppKFxbvfsz=w938-h36-v0\nfb899b55-ed98-4a30-b039-e5aa7f1cc091\n.   \n \nASAMBLEA, ASAMBLEA, ASAMBLEA \n            \n A pesar de las serias dudas e irregularidades de la consulta (que no \ngarantizaba el voto secreto y permitió participar a personal fuera de convenio), la \nplantilla ha hablado rechazando de forma clara el acuerdo. La responsabilidad \nrecae en la dirección de la empresa por n"
+  },
+  {
+    "id": "559c508c-694a-4277-b3e2-f9a94f07693d",
+    "index": 103,
+    "title": "Digital and IT Careers - Airbus",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.airbus.com/en/careers/professionals/digital-it-careers",
+    "char_count": 37146,
+    "summary": "Digital and IT Careerst | Airbus Skip to main content https://www.airbus.com/en/careers/professionals/digital-it-careers#content   Skip to search https://www.airbus.com/en/careers/professionals/digital-it-careers#search Airbus   [-] Open menu Close menu https://www.airbus.com/en/careers/professional",
+    "file_path": "sources/559c508c.txt",
+    "fulltext_preview": "Digital and IT Careerst | Airbus\nSkip to main content\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers#content\n \nSkip to search\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers#search\nAirbus\n \n[-]\nOpen menu Close menu\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers#drawer196773263-state\n Menu\nClose menu\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers\nMain navigation\n[-]\n \nAbout us\nhttps://www.airbus.com/en/about-us\n \nAbout us About us\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers#menu-2043577442-state\n \nBack\nhttps://www.airbus.com/en/careers/professionals/digital-it-careers\n Back\nAbout us\nhttps://www.airbus.com/en/about-us\n[-]\n \nOur governance\nhttps://www.airbus.com/en/about-us/our-governance\n \nO"
+  },
+  {
+    "id": "d8782ba8-2a31-41aa-9778-f58bae18a753",
+    "index": 104,
+    "title": "Dirección Airbus condiciona continuar negociando a que se suspenda temporalmente la huelga - Infobae",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.infobae.com/espana/agencias/2026/08/27/direccion-airbus-condiciona-continuar-negociando-a-que-se-suspenda-temporalmente-la-huelga/",
+    "char_count": 19430,
+    "summary": "Dirección Airbus condiciona continuar negociando a que se suspenda temporalmente la huelga - Infobae 28 Ago, 2026 Argentina https://www.infobae.com/?noredirect   Estados Unidos https://www.infobae.com/estados-unidos/   Colombia https://www.infobae.com/colombia/   España https://www.infobae.com/espan",
+    "file_path": "sources/d8782ba8.txt",
+    "fulltext_preview": "Dirección Airbus condiciona continuar negociando a que se suspenda temporalmente la huelga - Infobae\n28 Ago, 2026\nArgentina\nhttps://www.infobae.com/?noredirect\n \nEstados Unidos\nhttps://www.infobae.com/estados-unidos/\n \nColombia\nhttps://www.infobae.com/colombia/\n \nEspaña\nhttps://www.infobae.com/espana/\n \nMéxico\nhttps://www.infobae.com/mexico/\n \nPerú\nhttps://www.infobae.com/peru/\n \nCentroamérica\nhttps://www.infobae.com/centroamerica/\n \nMundo\nhttps://www.infobae.com/america/\n \nCuba\nhttps://www.infobae.com/cuba/\n \nÚltimas Noticias\nhttps://www.infobae.com/tag/espana-noticias/\n \nEspaña Deportes\nhttps://www.infobae.com/espana/deportes/\n \nNacional\nhttps://www.infobae.com/tag/espana-nacional/\n28 Ago, 2026\nREGISTRARME INICIAR SESION\nBuscar en todo el sitio\nArgentina\nhttps://www.infobae.com/?noredire"
+  },
+  {
+    "id": "7fda3028-77ba-4390-b98e-149b85942ed7",
+    "index": 105,
+    "title": "Disposición 9799 del BOE núm. 119 de 2025",
+    "category": "Convenios Colectivos & BOE",
+    "type": "pdf",
+    "url": "http://convenios.ugtandalucia.es/gestion/ficheros/2025-05-17%20%20Airbus.pdf",
+    "char_count": 15265,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-tTpH7aYTTDGZYAsL-F4d_YmURBilBlHeAlURxzNAO6RHL-_DXToFAiNjOr9PvFiAVJzd5gtqixNGyK6h9qyIEN1xlWgAaJkhe_XoPXP1qFcEln_0pfgIwfUad2AP_3xz_qYwfag=w839-h1187-v0 481a197f-2f1d-44b4-b05b-bc8047ce5758 https://lh3.googleusercontent.com/notebooklm/AKYWMX_fP3JNebE0",
+    "file_path": "sources/7fda3028.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-tTpH7aYTTDGZYAsL-F4d_YmURBilBlHeAlURxzNAO6RHL-_DXToFAiNjOr9PvFiAVJzd5gtqixNGyK6h9qyIEN1xlWgAaJkhe_XoPXP1qFcEln_0pfgIwfUad2AP_3xz_qYwfag=w839-h1187-v0\n481a197f-2f1d-44b4-b05b-bc8047ce5758\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_fP3JNebE0rXMEvI2wvZlUUMhTagKE1m8aGYkDeqH19D1m0d7j_shc1IRc5jCmJr8oOXfeyy02tJ6ajrjIpVBtlnNYIJzk3loOEBtThNqgj-jfzjlc0Q7Vg83GExVq70F0ezoEuQ=w839-h1187-v0\n922aa57d-679a-4673-9d50-fbec51bd1ee8\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-JaFJUALPwtBUuKrt9MKQiypWbnyjNv8ulFdFXOCZpS2LpAXyaDEMRvRM6fNXfp_bvZhxWSrwLHMSPyKAjcWjA3aR6HtwbgWQ5HsRg72xy0zMtBwb0jVQ8WbpaQGUpNpWBc1ImWQ=w839-h1187-v0\nea9c6164-1109-4fed-a23e-ac932ff78d5b\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX9qYhePRUs0LuHzbpOEYjnEAnyQd2s6bQ"
+  },
+  {
+    "id": "fd3cfbf5-0324-4194-8410-dfc9a38b034a",
+    "index": 106,
+    "title": "Documentation for the Annual General Meeting - Airbus",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": "https://www.airbus.com/sites/g/files/jlcbta136/files/2021-09/agm-08-documentation-en.pdf",
+    "char_count": 470480,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9gZAEvAZiEwf7-S8ssY858AMJx98iiNZX7_xmd-AXkPc8xxC4fEoDtmj4LBtKNpXi2FVHVOF0e5D692mY0YUJsKR616CR4zQS4HPDm1qoQ__Tl7OnL4SIcPUNeGXp7WIevayA_=w123-h125-v0 561a46ef-14b4-42ec-aed1-89418788e965 https://lh3.googleusercontent.com/notebooklm/AKYWMX_BWfo-aiGWAr-",
+    "file_path": "sources/fd3cfbf5.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9gZAEvAZiEwf7-S8ssY858AMJx98iiNZX7_xmd-AXkPc8xxC4fEoDtmj4LBtKNpXi2FVHVOF0e5D692mY0YUJsKR616CR4zQS4HPDm1qoQ__Tl7OnL4SIcPUNeGXp7WIevayA_=w123-h125-v0\n561a46ef-14b4-42ec-aed1-89418788e965\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_BWfo-aiGWAr-fnifS_kQ0nX8uBo9qY87ZOEMmytybzYXN_Nnxp1cBI_zldGw0gNTaAtWYenorXB3E3aOYvvyrZbXxrZc08lt0TxbZpLtqSsSU0a3U-CzQJCtWBbYQy9NuL2HxzQ=w121-h126-v0\n6c7f5f11-0a19-462a-bdbd-a9ec1fd62786\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_Aa-88-hAfbxEAhhAcpJseRWZ7e-LA5ccR-smK2lXDgLonBECoiuhRfhy_nIXW-nlbL6mPDMzf0WAdOr-kFtwdEGnYEw-DwuKhcQCygHdEAJIT5oEkQ0aqkr71MWJK6sXch6jKRA=w123-h126-v0\n44a3028d-2303-476d-83cc-6bb057a0e24c\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX88pJsfShyNTUyUCoohm-QhQeVQnF4RVzCYkOk"
+  },
+  {
+    "id": "ea25b867-9859-4f22-adfa-b274e3cf9bb2",
+    "index": 107,
+    "title": "Dos meses sin avances: El paro de Acerinox llega al Parlamento donde la oposición pide al Gobierno que medie en el conflicto - El Correo de Andalucía",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elcorreoweb.es/andalucia/2024/04/11/acerinox-huelga-junta-de-andalucia-mediacion-paro-100934355.html",
+    "char_count": 31906,
+    "summary": "ACERINOX | Dos meses en huelga: Acerinox lleva sus reclamaciones al Parlamento y pide al Gobierno andaluz que medie en el conflicto   Si  aceptas  el uso de \"cookies\" y tecnologías similares (incluyendo     ), podrás seguir navegando gratuitamente, recibirás una experiencia más personalizada y estar",
+    "file_path": "sources/ea25b867.txt",
+    "fulltext_preview": "ACERINOX | Dos meses en huelga: Acerinox lleva sus reclamaciones al Parlamento y pide al Gobierno andaluz que medie en el conflicto\n \nSi \naceptas\n el uso de \"cookies\" y tecnologías similares (incluyendo\n \n \n), podrás seguir navegando gratuitamente, recibirás una experiencia más personalizada y estarás respaldando el trabajo de nuestro equipo editorial.\nSi por el contrario, prefieres \nrechazar\n el uso de estas tecnologías, puedes pagar una suscripción \"anti-tracking\", lo que te permitirá navegar sin estas tecnologías de seguimiento y personalización.\nNosotros y \nnuestros socios\njavascript:void(0)\n usamos cookies o tecnologías similares propias y de terceros (incluyendo\n \n \n) para almacenar, acceder y procesar datos personales, como tus visitas a esta página web, las direcciones IP y los ide"
+  },
+  {
+    "id": "0204cdee-0f8f-48ce-a844-94eee6f90b1f",
+    "index": 108,
+    "title": "EL ARBITRAJE “OBLIGATORIO” QUE PONE FIN A LA HUELGA - Dialnet",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": "https://dialnet.unirioja.es/descarga/articulo/802005.pdf",
+    "char_count": 122016,
+    "summary": "EL ARBITRAJE “OBLIGATORIO” QUE PONE FIN A LA HUELGA  JULIO VEGA LÓPEZ  Profesor Titular E.U. de Derecho del Trabajo y de la Seguridad Social  Universidad de Las Palmas de Gran Canaria  EXTRACTO  TEMAS LABORALES Nº 70/2003. Pgs. 263-292  En el presente trabajo pretende hacer un análisis del régimen j",
+    "file_path": "sources/0204cdee.txt",
+    "fulltext_preview": "EL ARBITRAJE “OBLIGATORIO” QUE PONE FIN A LA HUELGA \nJULIO VEGA LÓPEZ \nProfesor Titular E.U. de Derecho del Trabajo y de la Seguridad Social \nUniversidad de Las Palmas de Gran Canaria \nEXTRACTO \nTEMAS LABORALES Nº 70/2003. Pgs. 263-292 \nEn el presente trabajo pretende hacer un análisis del régimen jurídico del arbitraje obligatorio que pone fin a una huelga y que tiene su regulación en el vigente art. 10.1. del Real Decreto-Ley 17/1977. Se intenta presentar la discreta reaparición de esta figura tras su depuración por el Tribunal Constitucional en la sentencia 11/1981. \nSi bien es cierto que los tratadistas de principios de los noventa realizaron un estudio completo del régimen jurídico de esta institución, quizá ahora nos encontremos en mejores condiciones para, partiendo de sus valiosas "
+  },
+  {
+    "id": "c1868f62-40b4-41f1-98f2-be6edd09d72b",
+    "index": 109,
+    "title": "El BOE recoge los cambios del convenio de Carrefour: más salario y menos jornada para sus 50.000 trabajadores - El Español",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/invertia/empresas/distribucion/20240504/boe-recoge-cambios-convenio-carrefour-salario-jornada-trabajadores/852414998_0.html",
+    "char_count": 15890,
+    "summary": "El BOE recoge los cambios del convenio de Carrefour: más salario y menos jornada para sus 50.000 trabajadores El Español https://www.elespanol.com/ editar perfil https://seguro.elespanol.com/usuarios/perfil/  cerrar sesión  https://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=",
+    "file_path": "sources/c1868f62.txt",
+    "fulltext_preview": "El BOE recoge los cambios del convenio de Carrefour: más salario y menos jornada para sus 50.000 trabajadores\nEl Español\nhttps://www.elespanol.com/\neditar perfil\nhttps://seguro.elespanol.com/usuarios/perfil/\n cerrar sesión \nhttps://www.elespanol.com/invertia/suscripciones/#utm_source=gen&utm_medium=26&utm_campaign=sus1/\nInvertia\nhttps://www.elespanol.com/invertia/\nSecciones\nObservatorios\nhttps://www.elespanol.com/invertia/observatorios/\nSanidad\nhttps://www.elespanol.com/invertia/observatorios/sanidad/\nDefensa\nhttps://www.elespanol.com/observatorio-defensa/\nEnergía\nhttps://www.elespanol.com/invertia/empresas/energia/\nMovilidad\nhttps://www.elespanol.com/invertia/observatorios/movilidad/\nSector asegurador\nhttps://www.elespanol.com/observatorio-seguros/\nMercados\nhttps://www.elespanol.com/inver"
+  },
+  {
+    "id": "9634de18-f4ee-4870-a1e2-71ebcdc639a8",
+    "index": 110,
+    "title": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los 90 trabajadores - El Salto",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores",
+    "char_count": 25884,
+    "summary": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los 90 trabajadores - El Salto - Edición General Salto a contenido https://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores#contenido-principal   Salto a navegación h",
+    "file_path": "sources/9634de18.txt",
+    "fulltext_preview": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los 90 trabajadores - El Salto - Edición General\nSalto a contenido\nhttps://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores#contenido-principal\n \nSalto a navegación\nhttps://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores#menu-principal\n \nContenidos portada\nhttps://www.elsaltodiario.com/#contenido-principal\n \nAccesibilidad\nhttps://www.elsaltodiario.com/info/accesibilidad\nimage/svg+xml 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10\n×\nEsta web utiliza cookies. Si continúas navegando entendemos que acepta su uso. \nOK\nhttps://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-read"
+  },
+  {
+    "id": "995adb9c-1d51-4280-aa74-28c4dd03ddd3",
+    "index": 111,
+    "title": "El comité de Alestis convoca cuatro días de huelga ante el bloqueo del convenio",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.noticiasdealava.eus/alava/2026/06/11/comite-alestis-convoca-cuatro-dias-11188433.html",
+    "char_count": 26138,
+    "summary": "El comité de Alestis convoca cuatro días de huelga ante el bloqueo del convenio   Te ofrecemos las siguientes opciones: Puedes  aceptar  las cookies y tecnologías similares (incluyendo  ) porque con eso nos permites que te ofrezcamos contenidos y publicidad más adecuada a ti. Puedes  rechazar  las c",
+    "file_path": "sources/995adb9c.txt",
+    "fulltext_preview": "El comité de Alestis convoca cuatro días de huelga ante el bloqueo del convenio\n \nTe ofrecemos las siguientes opciones:\nPuedes \naceptar\n las cookies y tecnologías similares (incluyendo\n ) porque con eso nos permites que te ofrezcamos contenidos y publicidad más adecuada a ti.\nPuedes \nrechazar\n las cookies y seguir accediendo a una versión sin cookies de nuestra web, previo pago de 9,90€.\nPuedes optar por recibir más información sobre los puntos anteriores en el vínculo inferior de \nconfigurar preferencias\n.\nNosotros y \nnuestros socios\njavascript:void(0)\n usamos cookies o tecnologías similares propias y de terceros (incluyendo\n \n \n) para almacenar, acceder y procesar datos personales, como tus visitas a esta página web, las direcciones IP y los identificadores de cookies para -entre otros f"
+  },
+  {
+    "id": "e30b6eee-c9eb-47d2-ab76-1f81af072570",
+    "index": 112,
+    "title": "El conflicto laboral de Airbus España en 2026: Análisis corporativo, impacto industrial y la encrucijada de las relaciones laborales transnacionales",
+    "category": "Noticias & Medios",
+    "type": "markdown",
+    "url": null,
+    "char_count": 44786,
+    "summary": "El conflicto laboral de Airbus España en 2026: Análisis corporativo, impacto industrial y la encrucijada de las relaciones laborales transnacionales Contexto macroeconómico y la brecha de distribución de la riqueza La huelga indefinida que paraliza las instalaciones de Airbus en España desde finales",
+    "file_path": "sources/e30b6eee.txt",
+    "fulltext_preview": "El conflicto laboral de Airbus España en 2026: Análisis corporativo, impacto industrial y la encrucijada de las relaciones laborales transnacionales\nContexto macroeconómico y la brecha de distribución de la riqueza\nLa huelga indefinida que paraliza las instalaciones de Airbus en España desde finales de agosto de 2026 representa un punto de inflexión crítico en la evolución de las relaciones laborales de la industria aeroespacial europea [cite: 1, 2, 3]. El estallido de este conflicto coincide con una época de extraordinario rendimiento financiero para el consorcio aeroespacial global. Airbus SE cerró el ejercicio de 2025 con un beneficio neto consolidado de 5.221 millones de euros, una cifra que superó en un 23% los resultados de 2024 [cite: 4]. Esta tendencia expansiva se aceleró drástica"
+  },
+  {
+    "id": "72d21c15-3ea6-4259-9cf8-2be5d84320dc",
+    "index": 113,
+    "title": "El conflicto laboral de la aeronáutica Airbus España continúa con una huelga indefinida",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.infobae.com/america/agencias/2026/08/27/el-conflicto-laboral-de-la-aeronautica-airbus-espana-continua-con-una-huelga-indefinida/",
+    "char_count": 16487,
+    "summary": "El conflicto laboral de la aeronáutica Airbus España continúa con una huelga indefinida - Infobae 28 Ago, 2026 Argentina https://www.infobae.com/?noredirect   Estados Unidos https://www.infobae.com/estados-unidos/   Colombia https://www.infobae.com/colombia/   España https://www.infobae.com/espana/",
+    "file_path": "sources/72d21c15.txt",
+    "fulltext_preview": "El conflicto laboral de la aeronáutica Airbus España continúa con una huelga indefinida - Infobae\n28 Ago, 2026\nArgentina\nhttps://www.infobae.com/?noredirect\n \nEstados Unidos\nhttps://www.infobae.com/estados-unidos/\n \nColombia\nhttps://www.infobae.com/colombia/\n \nEspaña\nhttps://www.infobae.com/espana/\n \nMéxico\nhttps://www.infobae.com/mexico/\n \nPerú\nhttps://www.infobae.com/peru/\n \nCentroamérica\nhttps://www.infobae.com/centroamerica/\n \nMundo\nhttps://www.infobae.com/america/\n \nCuba\nhttps://www.infobae.com/cuba/\n \nÚltimas Noticias\nhttps://www.infobae.com/ultimas-noticias-america/\n \nDeportes\nhttps://www.infobae.com/deportes/\n \nEntretenimiento\nhttps://www.infobae.com/entretenimiento/\n28 Ago, 2026\nREGISTRARME INICIAR SESION\nBuscar en todo el sitio\nArgentina\nhttps://www.infobae.com/?noredirect\nEstado"
+  },
+  {
+    "id": "7d27c3a4-9a28-4e83-b3e4-15193c0b5ef5",
+    "index": 114,
+    "title": "El convenio de grandes almacenes ya es oficial tras su publicación en el BOE - Food Retail",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.foodretail.es/retailers/grandes-almacenes-convenio-oficial-publicacion-boe_0_1773722625.html",
+    "char_count": 16765,
+    "summary": "El convenio de grandes almacenes ya es oficial tras su publicación en el BOE | FRS X  Ads powered by     Temas Destacados https://www.foodretail.es/ Anuario Innovación https://www.foodretail.es/ebook-descarga/101/frs-anuario-de-la-innovacion TOP 100 FRS https://www.foodretail.es/tag/top-100-FRS Eboo",
+    "file_path": "sources/7d27c3a4.txt",
+    "fulltext_preview": "El convenio de grandes almacenes ya es oficial tras su publicación en el BOE | FRS\nX \nAds powered by\n \n \nTemas Destacados\nhttps://www.foodretail.es/\nAnuario Innovación\nhttps://www.foodretail.es/ebook-descarga/101/frs-anuario-de-la-innovacion\nTOP 100 FRS\nhttps://www.foodretail.es/tag/top-100-FRS\nEbook MDD\nhttps://www.foodretail.es/ebook-descarga/90/especial-marcas-de-distribucion-frs-2026\nSupermercados\nhttps://www.foodretail.es/especiales/supermercados/\nMercadona\nhttps://www.foodretail.es/tag/mercadona/\nCarrefour\nhttps://www.foodretail.es/tag/carrefour/\nRemitidas\nhttps://www.foodretail.es/especiales/remitidas/\nMARCAR COMO fuente preferida en Google\nhttps://www.google.com/preferences/source?q=www.foodretail.es\nANUARIOS PAPEL\nhttps://www.foodretail.es/revista-frs-foodretail/\nÚLTIMAS NEWSLETTE"
+  },
+  {
+    "id": "b6ac5844-860d-401a-b0a6-76f82bc1ddd3",
+    "index": 115,
+    "title": "El gobierno amenaza a los trabajadores en huelga de Airbus: «espero no tener que intervenir» - Kaos en la red",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://kaosenlared.net/el-gobierno-amenaza-a-los-trabajadores-en-huelga-de-airbus-espero-no-tener-que-intervenir/",
+    "char_count": 16712,
+    "summary": "El gobierno amenaza a los trabajadores en huelga de Airbus: «espero no tener que intervenir» Ir al contenido https://kaosenlared.net/el-gobierno-amenaza-a-los-trabajadores-en-huelga-de-airbus-espero-no-tener-que-intervenir/#content   Contrainformación Opinión https://kaosenlared.net/category/opinion",
+    "file_path": "sources/b6ac5844.txt",
+    "fulltext_preview": "El gobierno amenaza a los trabajadores en huelga de Airbus: «espero no tener que intervenir»\nIr al contenido\nhttps://kaosenlared.net/el-gobierno-amenaza-a-los-trabajadores-en-huelga-de-airbus-espero-no-tener-que-intervenir/#content\n \nContrainformación\nOpinión\nhttps://kaosenlared.net/category/opinion/\nAmérica Latina\nhttps://kaosenlared.net/category/america-latina/\nEstado Español\nhttps://kaosenlared.net/category/estado-espanol/\nInternacional\nhttps://kaosenlared.net/category/internacional/\nAgenda\nhttps://kaosenlared.net/category/agenda/\nBarricada gráfica\nhttps://kaosenlared.net/category/barricada-grafica/\nHemeroteca\nhttps://archivo.kaosenlared.net/\n¿Quiénes somos?\nhttps://kaosenlared.net/col%c2%b7lectiu-kaos-en-la-red-quienes-somos/\nContacto\nhttps://kaosenlared.net/contacto-2/\nPublicar en Kao"
+  },
+  {
+    "id": "8ac9fa24-8f19-4028-a99d-e70cb5868d60",
+    "index": 116,
+    "title": "El impacto de las tensiones macroeconómicas y tecnológicas en el diálogo social europeo (2021–2026): renegociación salarial, flexibilidad laboral y la gobernanza del teletrabajo",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "markdown",
+    "url": null,
+    "char_count": 44836,
+    "summary": "El impacto de las tensiones macroeconómicas y tecnológicas en el diálogo social europeo (2021–2026): renegociación salarial, flexibilidad laboral y la gobernanza del teletrabajo La respuesta de la industria pesada ante la crisis inflacionaria La reactivación de la negociación colectiva en el sector",
+    "file_path": "sources/8ac9fa24.txt",
+    "fulltext_preview": "El impacto de las tensiones macroeconómicas y tecnológicas en el diálogo social europeo (2021–2026): renegociación salarial, flexibilidad laboral y la gobernanza del teletrabajo\nLa respuesta de la industria pesada ante la crisis inflacionaria\nLa reactivación de la negociación colectiva en el sector industrial europeo durante el ciclo de alta inflación (2021–2026) ha estado marcada por una escalada de la conflictividad y por el desarrollo de complejos mecanismos de salvaguarda salarial. Las organizaciones sindicales y empresariales han abandonado progresivamente las fórmulas de incremento fijo no consolidable para adoptar esquemas dinámicos de indexación, reajustes en la ordenación de la jornada y complementos de penosidad que compensen la pérdida acumulada de poder adquisitivo.\nEn el secto"
+  },
+  {
+    "id": "30be9bdb-4486-412f-9eae-f70a163e7dc6",
+    "index": 117,
+    "title": "El ministro de Industria convoca a la dirección y sindicatos de Renault ante la amenaza de huelga indefinida - El Diario",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.eldiario.es/castilla-y-leon/economia/ministro-industria-convoca-direccion-sindicatos-renault-amenaza-huelga-indefinida_1_13243377.html",
+    "char_count": 43998,
+    "summary": "El ministro de Industria convoca a la dirección y sindicatos de Renault ante la amenaza de huelga indefinida Choose how to navigate on elDiario.es Without advertising from 1 € / week Become a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's",
+    "file_path": "sources/30be9bdb.txt",
+    "fulltext_preview": "El ministro de Industria convoca a la dirección y sindicatos de Renault ante la amenaza de huelga indefinida\nChoose how to navigate on elDiario.es\nWithout advertising from 1 € / week\nBecome a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and browse ad-free, among other benefits, starting at just 1 € per week.\nIncludes 5 devices. You can cancel at any time.\nReject cookies for 1 €\nhttps://www.eldiario.es/castilla-y-leon/economia/ministro-industria-convoca-direccion-sindicatos-renault-amenaza-huelga-indefinida_1_13243377.html\nYou can change your preferences or withdraw your consent at any time, from the \n\"My cookies\"\n link at the bottom of the page.\nAlready a member?\n \nLogin\nhttps://www.eldiario.es/castilla-y-leon/econo"
+  },
+  {
+    "id": "b22b3450-3afb-46d1-a3e8-14f019c4a840",
+    "index": 118,
+    "title": "El ministro de Industria intervendrá en el conflicto de Airbus si no hay acuerdo con los sindicatos - Diario de Sevilla",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.diariodesevilla.es/economia/ministro-industria-intervendra-conflicto-airbus_0_2007808029.html",
+    "char_count": 20435,
+    "summary": "El ministro de Industria intervendrá en el conflicto de Airbus si no hay acuerdo con los sindicatos Ir al contenido https://www.diariodesevilla.es/economia/ministro-industria-intervendra-conflicto-airbus_0_2007808029.html#content-body Temas  Ría Plaza de España https://www.diariodesevilla.es/sevilla",
+    "file_path": "sources/b22b3450.txt",
+    "fulltext_preview": "El ministro de Industria intervendrá en el conflicto de Airbus si no hay acuerdo con los sindicatos\nIr al contenido\nhttps://www.diariodesevilla.es/economia/ministro-industria-intervendra-conflicto-airbus_0_2007808029.html#content-body\nTemas \nRía Plaza de España\nhttps://www.diariodesevilla.es/sevilla/ria-plaza-espana-sevilla-cubierta_0_2007795247.html\n \nCalendario Escolar Sevilla\nhttps://www.diariodesevilla.es/sevilla/calendario-escolar-sevilla-curso-2026_0_2007781209.html\n \nSeguridad Social baja\nhttps://www.diariodesevilla.es/economia/entrara-vigor-septiembre-seguridad-social-bajas-notificaciones-electronicas_0_2007689217.html\n \nSorteo Champions\nhttps://www.diariodesevilla.es/realbetis/sorteo-fase-liga-champions-league_10_2007796195.html\n \nMercado Fichajes\nhttps://www.diariodesevilla.es/de"
+  },
+  {
+    "id": "14f5421a-ffd4-4a20-9ff8-7014f4e023f9",
+    "index": 119,
+    "title": "El teletrabajo ya es una realidad para la plantilla del Grupo Campofrío - Confederación Sindical de Comisiones Obreras",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://ccoo.es/noticia:602898--El%20teletrabajo%20ya%20es%20una%20realidad%20para%20la%20plantilla%20del%20Grupo%20Campofr%C3%ADo",
+    "char_count": 2114237,
+    "summary": "Confederación Sindical de Comisiones Obreras   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su",
+    "file_path": "sources/14f5421a.txt",
+    "fulltext_preview": "Confederación Sindical de Comisiones Obreras\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nCONFEDERACION SINDICAL DE CC.OO. informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacio"
+  },
+  {
+    "id": "302612b4-cc6b-41dd-a21e-b0cdfe6e2053",
+    "index": 120,
+    "title": "Entgelttabelle Metall & Elektro in Bayern",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://bayern.igmetall.de/aktuell/metall--und-elektroindustrie",
+    "char_count": 16885,
+    "summary": "Entgelttabelle Metall & Elektro in Bayern IG Metall https://www.igmetall.de/ Jugend https://bayern.igmetall.de/jugend Frauen https://bayern.igmetall.de/ig-metall-frauen-vor-ort Demokratie https://bayern.igmetall.de/verein-zur-bewahrung-der-demokratie Bildung https://bayern.igmetall.de/service/bildun",
+    "file_path": "sources/302612b4.txt",
+    "fulltext_preview": "Entgelttabelle Metall & Elektro in Bayern\nIG Metall\nhttps://www.igmetall.de/\nJugend\nhttps://bayern.igmetall.de/jugend\nFrauen\nhttps://bayern.igmetall.de/ig-metall-frauen-vor-ort\nDemokratie\nhttps://bayern.igmetall.de/verein-zur-bewahrung-der-demokratie\nBildung\nhttps://bayern.igmetall.de/service/bildung-und-seminare\nMitgliederservice\nhttps://www.igmetall.de/service/mein-servicecenter\nAktivenportal\nhttps://www.igmetall.de/aktive\nTschechisch\nhttps://bayern.igmetall.de/v-cestine\nDeutsch \nDeutsch\nhttps://bayern.igmetall.de/aktuell/metall--und-elektroindustrie\nBayern\nMitglied werden\nhttps://www.igmetall.de/mitglieder/mitglied-werden\nTarif & Branchen\nhttps://bayern.igmetall.de/tarif-branchen\nTarif & Branchen\nhttps://bayern.igmetall.de/tarif-branchen\nÜbersicht\nTarif & Branchen\nhttps://bayern.igmetal"
+  },
+  {
+    "id": "21ec971d-90f1-4d31-b5d4-3d101baf81b6",
+    "index": 121,
+    "title": "Estructura Organizativa, Modelos de Clasificación de Puestos y Sistemas de Compensación Global en Airbus: Un Análisis Comparativo Multilateral",
+    "category": "Informes Airbus SE & Financieros",
+    "type": "markdown",
+    "url": null,
+    "char_count": 46819,
+    "summary": "Estructura Organizativa, Modelos de Clasificación de Puestos y Sistemas de Compensación Global en Airbus: Un Análisis Comparativo Multilateral Arquitectura Corporativa y Evolución del Capital Humano Global La corporación aeroespacial Airbus se posiciona como el principal referente de la industria ae",
+    "file_path": "sources/21ec971d.txt",
+    "fulltext_preview": "Estructura Organizativa, Modelos de Clasificación de Puestos y Sistemas de Compensación Global en Airbus: Un Análisis Comparativo Multilateral\nArquitectura Corporativa y Evolución del Capital Humano Global\nLa corporación aeroespacial Airbus se posiciona como el principal referente de la industria aeronáutica y de defensa en el continente europeo, consolidando una red manufacturera y de diseño de alta complejidad técnica [cite: 1, 2]. Al cierre del ejercicio fiscal de 2024, la compañía reportó una facturación global de 69.230 millones de euros [cite: 3], sustentada por una fuerza laboral activa de 156.921 empleados a nivel mundial [cite: 3]. Esta cifra refleja una trayectoria de expansión constante del capital humano de la empresa, que pasó de 126.495 trabajadores en 2021 [cite: 4, 5, 6], a"
+  },
+  {
+    "id": "35fcf455-def3-44bf-b127-843ab787f469",
+    "index": 122,
+    "title": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACIÓN COLECTIVA (AENC) 2023-2025",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://ugtficabcn.cat/firmado-el-v-acuerdo-para-el-empleo-y-la-negociacion-colectiva-aenc-2023-2025/",
+    "char_count": 41323,
+    "summary": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACIÓN COLECTIVA (AENC) 2023-2025 | Sindicat Comarcal UGT FICA del Barcelonès   Instagram https://www.instagram.com/ugtficabcn/   Mail mailto:barcelones@ugtfica.cat   Youtube https://www.youtube.com/c/UGTFICABarcelones QUI SOM https://www.ugtficabcn.cat/",
+    "file_path": "sources/35fcf455.txt",
+    "fulltext_preview": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACIÓN COLECTIVA (AENC) 2023-2025 | Sindicat Comarcal UGT FICA del Barcelonès\n \nInstagram\nhttps://www.instagram.com/ugtficabcn/\n \nMail\nmailto:barcelones@ugtfica.cat\n \nYoutube\nhttps://www.youtube.com/c/UGTFICABarcelones\nQUI SOM\nhttps://www.ugtficabcn.cat/\nBenvinguda – Bienvenida\nhttps://ugtficabcn.cat/benvinguda/\nBreu història MCA+FITAG Catalunya\nhttps://www.ugtficabcn.cat/calaix/sindicat/Breu_historia_MCA-FITAG_Catalunya.pdf\nCódigo ético de UGT\nhttps://www.ugtficabcn.cat/calaix/sindicat/Normativa_interna_codigo_etico.pdf\nComissió Executiva\nhttps://ugtficabcn.cat/comissio-executiva/\nOn som\nhttps://ugtficabcn.cat/on-som/\nUGT FICA Federación Estatal\nhttps://www.ugt-fica.org/\nEstatutos; Normativa Interna y Política Organizativa\nhttps://www.ugt-fica"
+  },
+  {
+    "id": "13cfa317-d52f-4a39-8e2d-b447465cd860",
+    "index": 123,
+    "title": "FO signe la Politique salariale 2023 : objectifs atteints !",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.fo-airbus-operations-toulouse.fr/actus/i/72040192/article-n-1154",
+    "char_count": 8225,
+    "summary": "FO signe la Politique salariale 2023 : objectifs atteints !     Actus / Vos représentants /vos-representants Paiement cotisation https://paiement-foairbus-tlse.fr/ Référents Airbus Atlantic /referents-airbus-atlantic Poser une question /poser-une-question Rencontrons-nous /rejoignez-nous-1 Grilles s",
+    "file_path": "sources/13cfa317.txt",
+    "fulltext_preview": "FO signe la Politique salariale 2023 : objectifs atteints !\n \n \nActus\n/\nVos représentants\n/vos-representants\nPaiement cotisation\nhttps://paiement-foairbus-tlse.fr/\nRéférents Airbus Atlantic\n/referents-airbus-atlantic\nPoser une question\n/poser-une-question\nRencontrons-nous\n/rejoignez-nous-1\nGrilles salariales\n/salaires\nEDCM\n/edcm\nLiens utiles\n/liens-utiles\nPolitique de confidentialité\n/politique-de-confidentialite\n/reglages\n \n \n \n \nFO signe la Politique salariale 2023 : objectifs atteints !\nRédigé le 11/04/2023\n \nEn 2022, \nFO\n a négocié et signé un Accord de politique salariale couvrant une période de 24 mois, du 1er juillet 2022 au 30 juin 2024.\nFO\n avait signé cet Accord, car nous avions obtenu ** la garantie d'un budget minimum** de 2,9% (AG+AI) pour 2023, une priorité dans un contexte d"
+  },
+  {
+    "id": "e04e6799-8647-48af-af78-41c6df95eb6b",
+    "index": 124,
+    "title": "Gehaltsstufen IG Metall / Airbus DS : r/arbeitsleben - Reddit",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/",
+    "char_count": 26057,
+    "summary": "Salary levels IG Metall / Airbus DS : r/arbeitsleben Skip to main content https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#main-content  Salary levels IG Metall / Airbus DS : r/arbeitsleben Open menu Open navigation  https://www.reddit.com/ Go to Reddit Home",
+    "file_path": "sources/e04e6799.txt",
+    "fulltext_preview": "Salary levels IG Metall / Airbus DS : r/arbeitsleben\nSkip to main content\nhttps://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#main-content\n Salary levels IG Metall / Airbus DS : r/arbeitsleben\nOpen menu\nOpen navigation \nhttps://www.reddit.com/\nGo to Reddit Home\nSearch Reddit\nSign Up\nhttps://www.reddit.com/register/\nSign up for Reddit\nLog In\nhttps://www.reddit.com/login/\nLog in to Reddit\nExpand user menu\nOpen settings menu\nSkip to Sign up\nhttps://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#left-sidebar-container\n \nSkip to Right Sidebar\nhttps://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#right-sidebar-container\nPost is translated, original language available Translations active S"
+  },
+  {
+    "id": "172f26b5-f1bb-4674-9bf1-621b6b941f7f",
+    "index": 125,
+    "title": "Grille des minima - CGT Airbus Defence & Space Toulouse",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.cgt-airbusds.com/grille-des-minima/",
+    "char_count": 8957,
+    "summary": "Grille des minima - CGT Airbus Defence & Space Toulouse Aller au contenu https://www.cgt-airbusds.com/grille-des-minima/#content Nos sites https://www.cgt-airbusds.com/nos-sites/ La CGT https://www.cgt.fr/ cgt.fr https://www.cgt.fr/ UGICT (Union Générale des Ingénieurs, Cadres et Techniciens) https:",
+    "file_path": "sources/172f26b5.txt",
+    "fulltext_preview": "Grille des minima - CGT Airbus Defence & Space Toulouse\nAller au contenu\nhttps://www.cgt-airbusds.com/grille-des-minima/#content\nNos sites\nhttps://www.cgt-airbusds.com/nos-sites/\nLa CGT\nhttps://www.cgt.fr/\ncgt.fr\nhttps://www.cgt.fr/\nUGICT (Union Générale des Ingénieurs, Cadres et Techniciens)\nhttps://ugictcgt.fr/\nCGT Métallurgie\nhttps://ftm-cgt.fr/\nLa CGT en Haute-Garonne\nhttps://cgt31.fr/\nUnion Départementale 31\nhttps://cgt31.fr/\nUnion des Syndicats des Travailleurs de la Métallurgie dans le 31\nhttps://ustm31.syndicatcgt.fr/\nUnion Locale Toulouse Sud\nhttps://www.cgt.fr/node/29801\nLa CGT à Airbus\nhttps://cgtairbus.com/\nGroupe Airbus\nhttps://groupe.cgtairbus.com/\nAirbus Defence & Space Région Parisienne\nhttps://ds.cgtairbus.com/\nAirbus Commercial Aircraft\nhttps://avions.cgtairbus.com/\nAirbu"
+  },
+  {
+    "id": "99abcb85-ab36-4134-83e8-3e0858f93bf4",
+    "index": 126,
+    "title": "Group Grading Expert (f/h) @ Airbus | Imagine Job Board",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://jobs.joinimagine.com/companies/airbus/jobs/62931251-group-grading-expert-f-h",
+    "char_count": 10133,
+    "summary": "Group Grading Expert (f/h) @ Airbus | Imagine Job Board website logo Imagine Foundation https://www.joinimagine.com/ For Talent https://www.joinimagine.com/for-talent Programs https://www.joinimagine.com/programs Stories https://www.joinimagine.com/stories Testimonials https://www.joinimagine.com/te",
+    "file_path": "sources/99abcb85.txt",
+    "fulltext_preview": "Group Grading Expert (f/h) @ Airbus | Imagine Job Board\nwebsite logo Imagine Foundation\nhttps://www.joinimagine.com/\nFor Talent\nhttps://www.joinimagine.com/for-talent\nPrograms\nhttps://www.joinimagine.com/programs\nStories\nhttps://www.joinimagine.com/stories\nTestimonials\nhttps://www.joinimagine.com/testimonials\nPartner with us\nhttps://www.joinimagine.com/partner\nVolunteer\nhttps://www.joinimagine.com/volunteer\nDonate\nhttps://www.joinimagine.com/Donate\nApply\nhttps://www.joinimagine.comfor-talent/\nFor Talent\nhttps://www.joinimagine.com/for-talent\nPrograms\nhttps://www.joinimagine.com/programs\nStories\nhttps://www.joinimagine.com/stories\nTestimonials\nhttps://www.joinimagine.com/testimonials\nPartner with us\nhttps://www.joinimagine.com/partner\nVolunteer\nhttps://www.joinimagine.com/volunteer\nDonate\nh"
+  },
+  {
+    "id": "197f2d59-63cc-48ff-8ed1-e128d5d56064",
+    "index": 127,
+    "title": "Guía de derechos y obligaciones con la nueva Ley de teletrabajo - Terranea Seguros",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/",
+    "char_count": 29659,
+    "summary": "Guía de derechos y obligaciones con la nueva Ley de teletrabajo     https://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2 Consent https://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/ Details https://blog.terranea.es",
+    "file_path": "sources/197f2d59.txt",
+    "fulltext_preview": "Guía de derechos y obligaciones con la nueva Ley de teletrabajo\n \n \nhttps://www.cookiebot.com/en/what-is-behind-powered-by-cookiebot/?utm_source=banner_cb&utm_medium=referral&utm_content=v2\nConsent\nhttps://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/\nDetails\nhttps://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/\n[#IABV2SETTINGS#]\nhttps://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/\nAbout\nhttps://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/\nThis website uses cookies\nWe use cookies to personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners who may combine it with other information tha"
+  },
+  {
+    "id": "8dda0c7e-62af-4cde-9c54-c2e6c77d9c9a",
+    "index": 128,
+    "title": "Guía huelga indefinida desde 24 agosto 2026 en Airbus.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 7070,
+    "summary": "GUÍA PARA SECUNDAR LA HUELGA 24A EN AIRBUS  Esta guía explica cuestiones importantes sobre el derecho a huelga e  instrucciones prácticas para ejercer el derecho a la huelga ante la convocatoria de  huelga indefinida en Airbus en el estado español realizada por CGT, ÚTIL, y UGT, con  inicio el 24",
+    "file_path": "sources/8dda0c7e.txt",
+    "fulltext_preview": " \nGUÍA PARA SECUNDAR LA HUELGA 24A EN AIRBUS \nEsta guía explica cuestiones importantes sobre el derecho a huelga e \ninstrucciones prácticas para ejercer el derecho a la huelga ante la convocatoria de \nhuelga indefinida en Airbus en el estado español realizada por CGT, ÚTIL, y UGT, con \ninicio el 24 de agosto de 2026. \n1. IDEAS CLAVE QUE DEBES CONOCER. \nLa huelga es un derecho fundamental. Está reconocida en el artículo 28.2 de \nla Constitución Española y regulada por el Real Decreto-ley 17/1977. Su ejercicio goza \npor tanto de la mayor protección constitucional y legal posible. Ejercer la huelga, \nincluida la participación en piquetes informativos no legitima en ningún caso \nrepresalia alguna, actual o futura, sanción ni despido. \nPuedes secundar la huelga cuando decidas dentro del periodo"
+  },
+  {
+    "id": "8273c49d-f391-4113-ae0f-f11e017d5f41",
+    "index": 129,
+    "title": "Hay preacuerdo en el convenio de Renault tras la reunión con el ministro de Industria como mediador: \"Asegura el futuro\" - El Español",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/castilla-y-leon/economia/empresas/20260526/preacuerdo-convenio-renault-reunion-ministro-industria-mediador-asegura-futuro/1003744261102_0.html",
+    "char_count": 26250,
+    "summary": "Hay preacuerdo en el convenio de Renault tras la reunión con el ministro de Industria como mediador: \"Asegura el futuro\" ES NOTICIA: Últimas noticias https://www.elespanol.com/ultimas/?utm_cmp_rs=trends Mapa de noticias https://www.elespanol.com/sitemap_google_news.xml?utm_cmp_rs=trends Muere el rey",
+    "file_path": "sources/8273c49d.txt",
+    "fulltext_preview": "Hay preacuerdo en el convenio de Renault tras la reunión con el ministro de Industria como mediador: \"Asegura el futuro\"\nES NOTICIA:\nÚltimas noticias\nhttps://www.elespanol.com/ultimas/?utm_cmp_rs=trends\nMapa de noticias\nhttps://www.elespanol.com/sitemap_google_news.xml?utm_cmp_rs=trends\nMuere el rey Harald, última hora\nhttps://www.elespanol.com/corazon/20260828/muere-rey-harald-89-anos-ultima-hora-directo-reacciones-fallecimiento-noruega/1003744365415_10.html?utm_cmp_rs=trends\nÚltima hora política en España\nhttps://www.elespanol.com/espana/politica/20260828/crisis-migratoria-ceuta-ultima-hora-directo-pedro-sanchez-presidira-comite-especializado-moncloa-once-ministros-marlaska-torres-bolanos-entrada-migrantes-marruecos/1003744365362_10.html?utm_cmp_rs=trends\nEstallido social en Ceuta\nhttps:"
+  },
+  {
+    "id": "a065461f-419a-4c46-a56f-f867e196e1dc",
+    "index": 130,
+    "title": "Huelga Airbus",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://airbus-huelga.github.io/dashboard/",
+    "char_count": 1090545,
+    "summary": "Huelga Airbus Seguimiento de la huelga de Airbus España — impacto mediático, económico, social y alertas de riesgo Huelga Airbus actualizado hace un momento Termómetro Económico Social Filtrado de noticias 11 Menciones hoy 29 Menciones ayer 961 Total artículos 285 Medios distintos Cobertura mixta  3",
+    "file_path": "sources/a065461f.txt",
+    "fulltext_preview": "Huelga Airbus\nSeguimiento de la huelga de Airbus España — impacto mediático, económico, social y alertas de riesgo\nHuelga Airbus\nactualizado hace un momento\nTermómetro Económico Social Filtrado de noticias\n11\nMenciones hoy\n29\nMenciones ayer\n961\nTotal artículos\n285\nMedios distintos\nCobertura mixta\n 37.1% de la cobertura tiene enfoque negativo hacia la empresa (428 sin clasificar, excluidos del cálculo)\nVolumen de menciones (evolución)\n0 44 87 01 jul 16 jul 31 jul 28 ago\nAnálisis de sentimiento (cómo queda la empresa)\nPositivo para la empresa 2% (21)\nNeutro 33% (314)\nNegativo para la empresa 21% (198)\nSin clasificar (no analizado) 45% (428)\nTop 5 titulares recientes\n1\nAirbus propone subir sueldos con el IPC y un 7,6% y sigue con teletrabajo\nhttps://news.google.com/rss/articles/CBMi6wFBVV95cU"
+  },
+  {
+    "id": "96a5f506-ff3d-4ce6-8b36-48da46541b10",
+    "index": 131,
+    "title": "Huelga de 24 horas en Intrum Valladolid ante la eliminación del teletrabajo",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.diariodevalladolid.es/negocios-cyl/260521/283004/huelga-24-horas-intrum-eliminacion-teletrabajo-valladolid.html",
+    "char_count": 12111,
+    "summary": "Huelga de 24 horas en Intrum Valladolid ante la eliminación del teletrabajo EDICIONES CyL Diario de Castilla y León https://www.diariodecastillayleon.es/ El Correo de Burgos https://www.elcorreodeburgos.com/ Heraldo-Diario de Soria https://www.heraldodiariodesoria.es/ ES NOTICIA Inauguración A-11 ht",
+    "file_path": "sources/96a5f506.txt",
+    "fulltext_preview": "Huelga de 24 horas en Intrum Valladolid ante la eliminación del teletrabajo\nEDICIONES CyL\nDiario de Castilla y León\nhttps://www.diariodecastillayleon.es/\nEl Correo de Burgos\nhttps://www.elcorreodeburgos.com/\nHeraldo-Diario de Soria\nhttps://www.heraldodiariodesoria.es/\nES NOTICIA\nInauguración A-11\nhttps://www.diariodevalladolid.es/valladolid/260827/285892/carriedo-arremete-puente-acto-partido-inauguracion-11-centrado-suceder-sanchez.html\nViviendas Sareb\nhttps://www.diariodevalladolid.es/valladolid/260826/285858/valladolid-sumara-161-viviendas-del-alquiler-para-jovenes-en-las-parcelas-de-la-sareb-de-los-santos-pilarica.html\nLa casa más cara\nhttps://www.diariodevalladolid.es/valladolid/260826/285862/esta-casa-mas-cara-castilla-leon-mas-caras-espana-un-monasterio-de-6-millones.html\nEclipse lun"
+  },
+  {
+    "id": "20daf5b8-9877-4529-a4b1-ffbd549d8eed",
+    "index": 132,
+    "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto - Industry Talks",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/",
+    "char_count": 28587,
+    "summary": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española   iTALKS https://industrytalks.es/italks/ tvTALKS https://industrytalks.es/tvtalks/ iCriteria https://industrytalks.es/icriter",
+    "file_path": "sources/20daf5b8.txt",
+    "fulltext_preview": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española\n \niTALKS\nhttps://industrytalks.es/italks/\ntvTALKS\nhttps://industrytalks.es/tvtalks/\niCriteria\nhttps://industrytalks.es/icriteria/\nActualidad\nhttps://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/\nEmpresas\nhttps://industrytalks.es/empresas/\nEntrevistas\nhttps://industrytalks.es/entrevistas/\nFinanciación\nhttps://industrytalks.es/financiacion/\niDigital\nhttps://industrytalks.es/idigital/\nNormalización\nhttps://industrytalks.es/normalizacion/\nEnergía\nhttps://industrytalks.es/energia/\nSeguridad\nhttps://industrytalks.es/seguridad/\nEco-industry\n"
+  },
+  {
+    "id": "2c8c74b6-1991-41ed-928a-71d5be53c91a",
+    "index": 133,
+    "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto - Industry Talks",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/",
+    "char_count": 28736,
+    "summary": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española   iTALKS https://industrytalks.es/italks/ tvTALKS https://industrytalks.es/tvtalks/ iCriteria https://industrytalks.es/icriter",
+    "file_path": "sources/2c8c74b6.txt",
+    "fulltext_preview": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española\n \niTALKS\nhttps://industrytalks.es/italks/\ntvTALKS\nhttps://industrytalks.es/tvtalks/\niCriteria\nhttps://industrytalks.es/icriteria/\nActualidad\nhttps://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/\nEmpresas\nhttps://industrytalks.es/empresas/\nEntrevistas\nhttps://industrytalks.es/entrevistas/\nFinanciación\nhttps://industrytalks.es/financiacion/\niDigital\nhttps://industrytalks.es/idigital/\nNormalización\nhttps://industrytalks.es/normalizacion/\nEnergía\nhttps://industrytalks.es/energia/\nSeguridad\nhttps://industrytalks.es/seguridad/\nEco-industry\n"
+  },
+  {
+    "id": "5a4ac543-1792-4718-a3ab-54c8d4ba5083",
+    "index": 134,
+    "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto - Industry Talks",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/",
+    "char_count": 28587,
+    "summary": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española   iTALKS https://industrytalks.es/italks/ tvTALKS https://industrytalks.es/tvtalks/ iCriteria https://industrytalks.es/icriter",
+    "file_path": "sources/5a4ac543.txt",
+    "fulltext_preview": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diario Digital de la Industria Española\n \niTALKS\nhttps://industrytalks.es/italks/\ntvTALKS\nhttps://industrytalks.es/tvtalks/\niCriteria\nhttps://industrytalks.es/icriteria/\nActualidad\nhttps://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/\nEmpresas\nhttps://industrytalks.es/empresas/\nEntrevistas\nhttps://industrytalks.es/entrevistas/\nFinanciación\nhttps://industrytalks.es/financiacion/\niDigital\nhttps://industrytalks.es/idigital/\nNormalización\nhttps://industrytalks.es/normalizacion/\nEnergía\nhttps://industrytalks.es/energia/\nSeguridad\nhttps://industrytalks.es/seguridad/\nEco-industry\n"
+  },
+  {
+    "id": "8012deba-b74d-45b4-a85b-a75ec11dd5aa",
+    "index": 135,
+    "title": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/",
+    "char_count": 64644,
+    "summary": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata Ir al contenido https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/#main-content Es Tendencia Nepal https://www.democrata.es/internacional/que",
+    "file_path": "sources/8012deba.txt",
+    "fulltext_preview": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata\nIr al contenido\nhttps://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/#main-content\nEs Tendencia\nNepal\nhttps://www.democrata.es/internacional/que-ha-pasado-nepal-riada-desaparecidos-fallecidos/\nConsejos de ministros\nhttps://www.democrata.es/politica/gobierno-aprueba-decreto-ley-lobbies/\nNvidia\nhttps://www.democrata.es/actualidad/resultados-nvidia-hoy-hora-previsiones-inteligencia-artificial/\nTsunami\nhttps://www.democrata.es/actualidad/meteotsunami-santa-pola-por-que-retira-mar-que-hacer/\nPrecio luz\nhttps://www.democrata.es/economia/precio-luz-hoy-26-agosto-hora-barata-cara/\nFraude hidrocarburos\nhttps://www.democrata.es/sociedad/alejandro"
+  },
+  {
+    "id": "ee908bbb-6915-4f3d-bf76-9906420ff724",
+    "index": 136,
+    "title": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/",
+    "char_count": 64746,
+    "summary": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata Ir al contenido https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/#main-content Es Tendencia Nepal https://www.democrata.es/internacional/que",
+    "file_path": "sources/ee908bbb.txt",
+    "fulltext_preview": "Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata\nIr al contenido\nhttps://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/#main-content\nEs Tendencia\nNepal\nhttps://www.democrata.es/internacional/que-ha-pasado-nepal-riada-desaparecidos-fallecidos/\nConsejos de ministros\nhttps://www.democrata.es/politica/gobierno-aprueba-decreto-ley-lobbies/\nNvidia\nhttps://www.democrata.es/actualidad/resultados-nvidia-hoy-hora-previsiones-inteligencia-artificial/\nTsunami\nhttps://www.democrata.es/actualidad/meteotsunami-santa-pola-por-que-retira-mar-que-hacer/\nPrecio luz\nhttps://www.democrata.es/economia/precio-luz-hoy-26-agosto-hora-barata-cara/\nFraude hidrocarburos\nhttps://www.democrata.es/sociedad/alejandro"
+  },
+  {
+    "id": "225b1c63-9329-4e7d-9d98-76f20adecdf2",
+    "index": 137,
+    "title": "Huelga en Intrum Valladolid: UGT exige \"soluciones\" técnicas y mantener el teletrabajo",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/castilla-y-leon/region/valladolid/20260429/huelga-intrum-valladolid-ugt-exige-soluciones-tecnicas-mantener-teletrabajo/1003744227999_0.html",
+    "char_count": 13805,
+    "summary": "Huelga en Intrum Valladolid: UGT exige \"soluciones\" técnicas y mantener el teletrabajo El Español https://www.elespanol.com/ editar perfil https://seguro.elespanol.com/usuarios/perfil/  cerrar sesión  https://www.elespanol.com/suscripciones/#utm_source=gen&utm_medium=26&utm_campaign=1+A%C3%91O+9%2C9",
+    "file_path": "sources/225b1c63.txt",
+    "fulltext_preview": "Huelga en Intrum Valladolid: UGT exige \"soluciones\" técnicas y mantener el teletrabajo\nEl Español\nhttps://www.elespanol.com/\neditar perfil\nhttps://seguro.elespanol.com/usuarios/perfil/\n cerrar sesión \nhttps://www.elespanol.com/suscripciones/#utm_source=gen&utm_medium=26&utm_campaign=1+A%C3%91O+9%2C99%E2%82%AC\nValladolid\nhttps://www.elespanol.com/castilla-y-leon/region/valladolid/\nSecciones\nRegión\nhttps://www.elespanol.com/castilla-y-leon/region/\nValladolid\nhttps://www.elespanol.com/castilla-y-leon/region/valladolid/\nSalamanca\nhttps://www.elespanol.com/castilla-y-leon/region/salamanca/\nZamora\nhttps://www.elespanol.com/castilla-y-leon/region/zamora/\nLeón\nhttps://www.elespanol.com/castilla-y-leon/region/leon/\nPalencia\nhttps://www.elespanol.com/castilla-y-leon/region/palencia/\nÁvila\nhttps://ww"
+  },
+  {
+    "id": "0a54cb9f-b908-4d2d-8532-b2556362f7ab",
+    "index": 138,
+    "title": "Huelga metal Cádiz y Cartagena: qué piden los trabajadores - RTVE.es",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml",
+    "char_count": 31529,
+    "summary": "Huelga metal Cádiz y Cartagena: qué piden los trabajadores Enlaces accesibilidad Saltar al contenido principal https://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml#topPage Ir a la página de accesibilidad https://www.rtve.es/accesibilidad/ Saltar al pi",
+    "file_path": "sources/0a54cb9f.txt",
+    "fulltext_preview": "Huelga metal Cádiz y Cartagena: qué piden los trabajadores\nEnlaces accesibilidad\nSaltar al contenido principal\nhttps://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml#topPage\nIr a la página de accesibilidad\nhttps://www.rtve.es/accesibilidad/\nSaltar al pie de página\nhttps://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml#footer\nHuelga del metal en Cádiz y Cartagena: ¿qué piden los trabajadores y a qué sectores afecta?\nhttps://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml#h1_maincontent\n \n \nVuelta a España 2026desplegable\nhttps://www.rtve.es/play/teledeporte/ciclismo/\nGrand Prixdesplegable\nhttps://www.rtve.es/play/videos/grand-prix/\nLa Promesadesplegable"
+  },
+  {
+    "id": "c014705e-935a-4173-ad10-6608abc2ec4f",
+    "index": 139,
+    "title": "IG Metall Gehaltsrechner: ERA Entgeltrechner 2026",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.era-rechner.de/",
+    "char_count": 15419,
+    "summary": "ERA Entgeltrechner 2026 – IG Metall Gehaltsrechner   IG Metall Gehaltsrechner ERA Entgeltrechner 2026 für die Metall- und Elektroindustrie Unabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall. Tarifjahr 2025 2026 ab 01.04.2026 ab 01.04.2025 DE EN Die Werte ab 01.04.2026 sind vor",
+    "file_path": "sources/c014705e.txt",
+    "fulltext_preview": "ERA Entgeltrechner 2026 – IG Metall Gehaltsrechner\n \nIG Metall Gehaltsrechner\nERA Entgeltrechner 2026 für die Metall- und Elektroindustrie\nUnabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall.\nTarifjahr\n2025 2026\nab 01.04.2026\nab 01.04.2025\nDE EN\nDie Werte ab 01.04.2026 sind vorläufig (Vorjahreswerte + 3,1 %).\nDein Tarif\nBundesland / Tarifgebiet\nBitte wählen…\nBaden-Württemberg\nBayern\nBerlin/Brandenburg\nHamburg/Unterweser\nHessen\nNiedersachsen\nNordrhein-Westfalen\nOsnabrück-Emsland\nPfalz\nRheinland-Rheinhessen\nSaarland\nSachsen\nSachsen-Anhalt\nSchleswig-Holstein/MV/NW-Niedersachsen\nThüringen\nEntgeltgruppe (EG)\nBitte wählen…\nStufe\nBitte wählen…\nArbeitszeit & Zulage\nWöchentliche Arbeitszeit i\n \n35\n \n35\nh\nMehr-/Minderstunden i Abweichung von der Grundarbeitszeit: Teilzeit als n"
+  },
+  {
+    "id": "3971be98-309e-499b-8fce-5b1b4496c21b",
+    "index": 140,
+    "title": "IG Metall Tariftabelle 2026 Hamburg/Unterweser – ERA Entgelttabelle",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.era-rechner.de/entgelttabelle-hamburg.html",
+    "char_count": 4702,
+    "summary": "IG Metall Tariftabelle 2026 Hamburg/Unterweser – ERA Entgelttabelle DE EN ERA Entgelttabelle Hamburg/Unterweser IG Metall Tariftabelle 2025 & 2026 Unabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall. ERA Entgeltrechner https://www.era-rechner.de/  ›  Tariftabelle https://www.er",
+    "file_path": "sources/3971be98.txt",
+    "fulltext_preview": "IG Metall Tariftabelle 2026 Hamburg/Unterweser – ERA Entgelttabelle\nDE EN\nERA Entgelttabelle Hamburg/Unterweser\nIG Metall Tariftabelle 2025 & 2026\nUnabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall.\nERA Entgeltrechner\nhttps://www.era-rechner.de/\n › \nTariftabelle\nhttps://www.era-rechner.de/tariftabelle.html\n › Hamburg/Unterweser\nDie ERA Entgelttabelle für das Tarifgebiet \nHamburg/Unterweser\n listet alle 10 Entgeltgruppen (EG) mit den monatlichen Grundentgelten nach dem IG Metall Tarifvertrag. Gültig für Vollzeit (35 Std./Woche). Mit dem Rechner kannst du dein individuelles Gehalt inkl. Teilzeit, Leistungszulage und Nettolohn berechnen.\nDas Tarifgebiet Hamburg/Unterweser erstreckt sich über Hamburg und die Küstenregion an der Unterweser (Bremerhaven und Umgebung). Luft"
+  },
+  {
+    "id": "873dc1fa-57bb-4a78-8a2e-5d7d0e80fb4f",
+    "index": 141,
+    "title": "III Convenio colectivo de Lidl Supermercados, SAU - CCOO Servicios",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.ccoo-servicios.es/lidl/html/55861.html",
+    "char_count": 4404,
+    "summary": "error al insertar registro: Table './servicioses/lectura' is marked as crashed and last (automatic?) repair failed III Convenio colectivo de Lidl Supermercados, SAU CCOO Lidl Idiomas https://www.ccoo-servicios.es/lidl/html/55861.html Español https://www.ccoo-servicios.es/lang.php?lang=88745731&url=/",
+    "file_path": "sources/873dc1fa.txt",
+    "fulltext_preview": "error al insertar registro: Table './servicioses/lectura' is marked as crashed and last (automatic?) repair failed\nIII Convenio colectivo de Lidl Supermercados, SAU\nCCOO Lidl\nIdiomas\nhttps://www.ccoo-servicios.es/lidl/html/55861.html\nEspañol\nhttps://www.ccoo-servicios.es/lang.php?lang=88745731&url=/lidl/html/55861.html\n \nCatalán\nhttps://www.ccoo-servicios.es/lang.php?lang=27340492&url=/lidl/html/55861.html\n \nGallego\nhttps://www.ccoo-servicios.es/lang.php?lang=96624643&url=/lidl/html/55861.html\nContacto\nhttps://www.ccoo-servicios.es/lidl/contacta.html\nPortada Federación\nhttps://www.ccoo-servicios.es/\nToggle navigation\nCCOO Lidl\nhttps://www.ccoo-servicios.es/lidl/html/55861.html\nPortada\nhttps://www.ccoo-servicios.es/lidl/\nComunicados\nhttps://www.ccoo-servicios.es/lidl/lidlcomunicados/\nConven"
+  },
+  {
+    "id": "e3aa37a0-0af4-4181-9ec0-26f589bcb3c4",
+    "index": 142,
+    "title": "Ignacio Messina: “Las cajas de resistencia, en apoyo a las huelgas, van a ser protagonistas en el marco de las relaciones laborales aragonesas” - AraInfo",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://arainfo.org/ignacio-messina-las-cajas-de-resistencia-en-apoyo-a-las-huelgas-van-a-ser-protagonistas-en-el-marco-de-las-relaciones-laborales-aragonesas/",
+    "char_count": 29158,
+    "summary": "Ignacio Messina: “Las cajas de resistencia, en apoyo a las huelgas, van a ser protagonistas en el marco de las relaciones laborales aragonesas” Gestionar consentimiento Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del disp",
+    "file_path": "sources/e3aa37a0.txt",
+    "fulltext_preview": "Ignacio Messina: “Las cajas de resistencia, en apoyo a las huelgas, van a ser protagonistas en el marco de las relaciones laborales aragonesas”\nGestionar consentimiento\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el abonado o usuario, o"
+  },
+  {
+    "id": "58275e89-7989-41fa-a1f2-e33a21506754",
+    "index": 143,
+    "title": "Imposibilidad de ejecución de sentencia, sustitución por indemnización, e imputación de su abono . . (comentario a la Sentencia del Tribunal Supremo 267/2025 de 11 de marzo) | CEPC",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.cepc.gob.es/publicaciones/revistas/revista-de-administracion-publica/numero-227-mayoagosto-2025/imposibilidad-de-ejecucion-de-sentencia-sustitucion-por-indemnizacion-e-imputacion-de-su-abono",
+    "char_count": 7547,
+    "summary": "Imposibilidad de ejecución de sentencia, sustitución por indemnización, e imputación de su abono .. (comentario a la Sentencia del Tribunal Supremo 267/2025 de 11 de marzo) | CEPC º Pasar al contenido principal https://www.cepc.gob.es/publicaciones/revistas/revista-de-administracion-publica/numero-2",
+    "file_path": "sources/58275e89.txt",
+    "fulltext_preview": "Imposibilidad de ejecución de sentencia, sustitución por indemnización, e imputación de su abono .. (comentario a la Sentencia del Tribunal Supremo 267/2025 de 11 de marzo) | CEPC\nº Pasar al contenido principal\nhttps://www.cepc.gob.es/publicaciones/revistas/revista-de-administracion-publica/numero-227-mayoagosto-2025/imposibilidad-de-ejecucion-de-sentencia-sustitucion-por-indemnizacion-e-imputacion-de-su-abono#main-content\nMENU\nNavegación principal\nInicio\nhttps://www.cepc.gob.es/\nÁreas de actividad\nhttps://www.cepc.gob.es/areas-de-actividad\nPublicaciones\nhttps://www.cepc.gob.es/publicaciones\nIr a Publicaciones\nhttps://www.cepc.gob.es/publicaciones\nMonografías\nhttps://www.cepc.gob.es/publicaciones/monografias\nRevistas\nhttps://www.cepc.gob.es/publicaciones/revistas\nConsejos editoriales del C"
+  },
+  {
+    "id": "8c22cf74-5261-4e91-907f-04c1c38a25d7",
+    "index": 144,
+    "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.cobas.cat/la-importancia-de-la-caja-de-resistencia/",
+    "char_count": 19197,
+    "summary": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA – co.bas Catalunya WhatsApp https://chat.whatsapp.com/GMxKLV88ch56OzH5L5z9QR Twitter http://twitter.com/@co_bascatalunya Facebook https://www.facebook.com/people/Cobas-Catalunya/61557112567469/ Youtube https://www.youtube.com/user/sindicatocobas Instagram htt",
+    "file_path": "sources/8c22cf74.txt",
+    "fulltext_preview": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA – co.bas Catalunya\nWhatsApp\nhttps://chat.whatsapp.com/GMxKLV88ch56OzH5L5z9QR\nTwitter\nhttp://twitter.com/@co_bascatalunya\nFacebook\nhttps://www.facebook.com/people/Cobas-Catalunya/61557112567469/\nYoutube\nhttps://www.youtube.com/user/sindicatocobas\nInstagram\nhttps://www.instagram.com/co.bascatalunya/\nBluesky\nhttps://bsky.app/profile/cobascat.bsky.social\n[\nco.bas Catalunya\nSindicat de comissions de base\n](https://www.cobas.cat/)\nMENU\nhttps://www.cobas.cat/la-importancia-de-la-caja-de-resistencia/\nInici\nhttps://www.cobas.cat/\nQui som\nhttps://www.cobas.cat/qui-som/\n ►\nAfilia't – co.bas\nhttps://www.cobas.cat/afiliat-co-bas/\nDecàleg LGBTI+\nhttps://www.cobas.cat/decaleg-lgbti/\nAssemblea general 2023\nhttps://www.cobas.cat/assemblea-general-de-co-bas-catalunya"
+  },
+  {
+    "id": "a5e44b5f-b484-4825-bedb-2e9fb09ad309",
+    "index": 145,
+    "title": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS CÁRNICAS SE INCREMENTARÁN EN UN 8,95% ESTE AÑO",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://ugtficabcn.cat/las-tablas-salariales-del-convenio-de-las-industrias-carnicas-se-incrementaran-en-un-895-este-ano/",
+    "char_count": 40869,
+    "summary": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS CÁRNICAS SE INCREMENTARÁN EN UN 8,95% ESTE AÑO | Sindicat Comarcal UGT FICA del Barcelonès Instagram https://www.instagram.com/ugtficabcn/   Mail mailto:barcelones@ugtfica.cat   Youtube https://www.youtube.com/c/UGTFICABarcelones QUI SOM https://w",
+    "file_path": "sources/a5e44b5f.txt",
+    "fulltext_preview": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS CÁRNICAS SE INCREMENTARÁN EN UN 8,95% ESTE AÑO | Sindicat Comarcal UGT FICA del Barcelonès\nInstagram\nhttps://www.instagram.com/ugtficabcn/\n \nMail\nmailto:barcelones@ugtfica.cat\n \nYoutube\nhttps://www.youtube.com/c/UGTFICABarcelones\nQUI SOM\nhttps://www.ugtficabcn.cat/\nBenvinguda – Bienvenida\nhttps://ugtficabcn.cat/benvinguda/\nBreu història MCA+FITAG Catalunya\nhttps://www.ugtficabcn.cat/calaix/sindicat/Breu_historia_MCA-FITAG_Catalunya.pdf\nCódigo ético de UGT\nhttps://www.ugtficabcn.cat/calaix/sindicat/Normativa_interna_codigo_etico.pdf\nComissió Executiva\nhttps://ugtficabcn.cat/comissio-executiva/\nOn som\nhttps://ugtficabcn.cat/on-som/\nUGT FICA Federación Estatal\nhttps://www.ugt-fica.org/\nEstatutos; Normativa Interna y Política Organizativa\nht"
+  },
+  {
+    "id": "8650b3a9-c6a7-484e-b4e8-741eabfa2ebe",
+    "index": 146,
+    "title": "La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral - Law&Trends",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.lawandtrends.com/noticias/teletrabajo/la-audiencia-nacional-declara-nulas-varias-clausulas-de-un-acuerdo-de-teletrabajo-por-ser-contrarias-a-los-derechos-de-1.html",
+    "char_count": 29249,
+    "summary": "La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral | LawAndTrends Utilizamos cookies de terceros, para mejorar nuestros servicios mediante el análisis de sus hábitos de navegación y facilitar ciertos servi",
+    "file_path": "sources/8650b3a9.txt",
+    "fulltext_preview": "La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral | LawAndTrends\nUtilizamos cookies de terceros, para mejorar nuestros servicios mediante el análisis de sus hábitos de navegación y facilitar ciertos servicios. Si continúa navegando se entiende que acepta su uso. \nAcepto cookies\nhttps://www.lawandtrends.com/noticias/teletrabajo/la-audiencia-nacional-declara-nulas-varias-clausulas-de-un-acuerdo-de-teletrabajo-por-ser-contrarias-a-los-derechos-de-1.html\n \nMás información\nhttps://www.lawandtrends.com/pages/condiciones-uso.html#cookies\n \nSUSCRÍBETE A LA NEWSLETTER\nCADA DÍA EN TU CORREO LA SELECCIÓN DE NOTICIAS Y ARTÍCULOS MÁS COMPLETA\nSubscríbete\nhttps://www.lawandtrends.com/registro-newsletter\nViern"
+  },
+  {
+    "id": "99b57158-0b94-4d3a-bc2d-810666f96fb5",
+    "index": 147,
+    "title": "La Moncloa. El Gobierno impulsa en Valladolid una inversión estratégica de casi 1.000 millones que situará a España en la vanguardia europea de las baterías eléctricas | [Prensa/Actualidad/Transportes y Movilidad Sostenible]",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.lamoncloa.gob.es/serviciosdeprensa/notasprensa/transportes-movilidad-sostenible/paginas/2026/010726-inversion-baterias-electricas.aspx",
+    "char_count": 9961,
+    "summary": "La Moncloa. El Gobierno impulsa en Valladolid una inversión estratégica de casi 1.000 millones que situará a España en la vanguardia europea de las baterías eléctricas | [Prensa/Actualidad/Transportes y Movilidad Sostenible] Idioma Castellano Català Galego Euskara Valencià English     [-] Presidente",
+    "file_path": "sources/99b57158.txt",
+    "fulltext_preview": "La Moncloa. El Gobierno impulsa en Valladolid una inversión estratégica de casi 1.000 millones que situará a España en la vanguardia europea de las baterías eléctricas | [Prensa/Actualidad/Transportes y Movilidad Sostenible]\nIdioma\nCastellano\nCatalà\nGalego\nEuskara\nValencià\nEnglish\n \n \n[-]\nPresidente\nhttps://www.lamoncloa.gob.es/presidente/Paginas/index.aspx\nActividad\nhttps://www.lamoncloa.gob.es/presidente/actividades/Paginas/index.aspx\nAgenda\nhttps://www.lamoncloa.gob.es/presidente/agenda/Paginas/index.aspx\nIntervenciones\nhttps://www.lamoncloa.gob.es/presidente/intervenciones/Paginas/index.aspx\nBiografía\nhttps://www.lamoncloa.gob.es/presidente/biografia/Paginas/index.aspx\nEscribir al presidente\nhttps://escribealpresidente.presidencia.gob.es/escribealpresidente\nPresidentes desde 1978\nhttps"
+  },
+  {
+    "id": "ea440252-ecf1-40d1-946d-23ba76ff3125",
+    "index": 148,
+    "title": "La caja de resistencia para huelgas: Una herramienta más en el conflicto trabajo-capital",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://kaosenlared.net/la-caja-de-resistencia-para-huelgas-una-herramienta-mas-en-el-conflicto-trabajo-capital/",
+    "char_count": 20171,
+    "summary": "La caja de resistencia para huelgas: Una herramienta más en el conflicto trabajo-capital Ir al contenido https://kaosenlared.net/la-caja-de-resistencia-para-huelgas-una-herramienta-mas-en-el-conflicto-trabajo-capital/#content   Contrainformación Opinión https://kaosenlared.net/category/opinion/ Amér",
+    "file_path": "sources/ea440252.txt",
+    "fulltext_preview": "La caja de resistencia para huelgas: Una herramienta más en el conflicto trabajo-capital\nIr al contenido\nhttps://kaosenlared.net/la-caja-de-resistencia-para-huelgas-una-herramienta-mas-en-el-conflicto-trabajo-capital/#content\n \nContrainformación\nOpinión\nhttps://kaosenlared.net/category/opinion/\nAmérica Latina\nhttps://kaosenlared.net/category/america-latina/\nEstado Español\nhttps://kaosenlared.net/category/estado-espanol/\nInternacional\nhttps://kaosenlared.net/category/internacional/\nAgenda\nhttps://kaosenlared.net/category/agenda/\nBarricada gráfica\nhttps://kaosenlared.net/category/barricada-grafica/\nHemeroteca\nhttps://archivo.kaosenlared.net/\n¿Quiénes somos?\nhttps://kaosenlared.net/col%c2%b7lectiu-kaos-en-la-red-quienes-somos/\nContacto\nhttps://kaosenlared.net/contacto-2/\nPublicar en Kaos\nhttp"
+  },
+  {
+    "id": "46601302-5aa0-41b3-bec8-4bca2054ee89",
+    "index": 149,
+    "title": "La dirección de Airbus condiciona la negociación a que se suspenda temporalmente la huelga - Cadena SER",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://cadenaser.com/cmadrid/2026/08/28/la-direccion-de-airbus-condiciona-la-negociacion-a-que-se-suspenda-temporalmente-la-huelga-ser-madrid-sur/",
+    "char_count": 52761,
+    "summary": "La dirección de Airbus condiciona la negociación a que se suspenda temporalmente la huelga | Economía y negocios | Cadena SER   We care about your privacy With your agreement, we and  our partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, an",
+    "file_path": "sources/46601302.txt",
+    "fulltext_preview": "La dirección de Airbus condiciona la negociación a que se suspenda temporalmente la huelga | Economía y negocios | Cadena SER\n \nWe care about your privacy\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or set your preferences at any time by clicking on \"Configuration\" or in our Cookies Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services development, Precise geolocation data, and identification through device scanning, Sharing data and profiles for analysis and personalise"
+  },
+  {
+    "id": "08e55fa3-e402-49d1-898d-00b5d8e7c85d",
+    "index": 150,
+    "title": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html",
+    "char_count": 27893,
+    "summary": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021 Ir al contenido https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html#content-body header.menu.open viernes, 28 de ago, 202",
+    "file_path": "sources/08e55fa3.txt",
+    "fulltext_preview": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021\nIr al contenido\nhttps://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html#content-body\nheader.menu.open viernes, 28 de ago, 2026 \nhttps://www.diariodecadiz.es/\nCádiz\nhttps://www.diariodecadiz.es/cadiz/\nCádiz\nhttps://www.diariodecadiz.es/cadiz/\nVivir en Cádiz\nhttps://www.diariodecadiz.es/vivir_en_cadiz/\nCultura\nhttps://www.diariodecadiz.es/ocio/\nEl balcón\nhttps://www.diariodecadiz.es/elbalcon/\nCon la venia\nhttps://www.diariodecadiz.es/blogs/con-la-venia/\nProvincia\nhttps://www.diariodecadiz.es/noticias-provincia-cadiz/\nEl Puerto\nhttps://www.diariodecadiz.es/elpuerto/\nSan Fernando\nhttps://www.diariodecadiz.es/sanfernando/\n"
+  },
+  {
+    "id": "76fdb5b9-2e89-4495-bc13-675abe2d60de",
+    "index": 151,
+    "title": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html",
+    "char_count": 27912,
+    "summary": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021 Ir al contenido https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html#content-body header.menu.open viernes, 28 de ago, 202",
+    "file_path": "sources/76fdb5b9.txt",
+    "fulltext_preview": "La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021\nIr al contenido\nhttps://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html#content-body\nheader.menu.open viernes, 28 de ago, 2026 \nhttps://www.diariodecadiz.es/\nCádiz\nhttps://www.diariodecadiz.es/cadiz/\nCádiz\nhttps://www.diariodecadiz.es/cadiz/\nVivir en Cádiz\nhttps://www.diariodecadiz.es/vivir_en_cadiz/\nCultura\nhttps://www.diariodecadiz.es/ocio/\nEl balcón\nhttps://www.diariodecadiz.es/elbalcon/\nCon la venia\nhttps://www.diariodecadiz.es/blogs/con-la-venia/\nProvincia\nhttps://www.diariodecadiz.es/noticias-provincia-cadiz/\nEl Puerto\nhttps://www.diariodecadiz.es/elpuerto/\nSan Fernando\nhttps://www.diariodecadiz.es/sanfernando/\n"
+  },
+  {
+    "id": "0c712425-b9b2-41ae-a77d-7eb64c39fab5",
+    "index": 152,
+    "title": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un último intento de acuerdo fallido - La Voz de Galicia",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.lavozdegalicia.es/noticia/ourense/2022/10/04/huelga-sector-siderometal-ourense-convierte-indefinida-tras-ultimo-intento-acuerdo-fallido/00031664904765544341328.htm",
+    "char_count": 26965,
+    "summary": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un último intento de acuerdo fallido Ads help us run this site. By continuing your navigation on our site, pre-selected companies may set cookies or access and use non-sensitive information on your device to serve relevant a",
+    "file_path": "sources/0c712425.txt",
+    "fulltext_preview": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un último intento de acuerdo fallido\nAds help us run this site. By continuing your navigation on our site, pre-selected companies may set cookies or access and use non-sensitive information on your device to serve relevant ads or personalized content.\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on \"Learn More\" or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Cookies Técnicas, Personalised advertis"
+  },
+  {
+    "id": "08b914e5-6d38-4da0-ac88-39607c52c28f",
+    "index": 153,
+    "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA - Aviación Digital",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://aviaciondigital.com/huelga-indefinida-airbus-espana-sima-agosto-2026/",
+    "char_count": 48219,
+    "summary": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA Av. Comercial https://aviaciondigital.com/canal/aviacion/ Aviacion Ejecutiva https://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/ Compañías Aéreas https://aviaciondigital.com/canal/aviacion/companias-aereas/ Av. Militar h",
+    "file_path": "sources/08b914e5.txt",
+    "fulltext_preview": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA\nAv. Comercial\nhttps://aviaciondigital.com/canal/aviacion/\nAviacion Ejecutiva\nhttps://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/\nCompañías Aéreas\nhttps://aviaciondigital.com/canal/aviacion/companias-aereas/\nAv. Militar\nhttps://aviaciondigital.com/canal/aviacion-militar/\nTrabajos Aéreos\nhttps://aviaciondigital.com/canal/trabajos-aereos-aviacion-comercial/\nAeropuertos\nhttps://aviaciondigital.com/canal/aeropuertos/\nSafety&Security\nhttps://aviaciondigital.com/canal/safety-security/\nEcoaviación\nhttps://aviaciondigital.com/canal/ecoaviacion/\nLaboral\nhttps://aviaciondigital.com/canal/laboral/\nIndustria\nhttps://aviaciondigital.com/canal/industria/\nHelicópteros\nhttps://aviaciondigital.com/canal/industria/helicopteros/\nM"
+  },
+  {
+    "id": "495038dc-f8e0-46d8-bb00-0c2c6f4412cc",
+    "index": 154,
+    "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA - Aviación Digital",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://aviaciondigital.com/huelga-indefinida-airbus-espana-sima-agosto-2026/",
+    "char_count": 48219,
+    "summary": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA Av. Comercial https://aviaciondigital.com/canal/aviacion/ Aviacion Ejecutiva https://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/ Compañías Aéreas https://aviaciondigital.com/canal/aviacion/companias-aereas/ Av. Militar h",
+    "file_path": "sources/495038dc.txt",
+    "fulltext_preview": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA\nAv. Comercial\nhttps://aviaciondigital.com/canal/aviacion/\nAviacion Ejecutiva\nhttps://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/\nCompañías Aéreas\nhttps://aviaciondigital.com/canal/aviacion/companias-aereas/\nAv. Militar\nhttps://aviaciondigital.com/canal/aviacion-militar/\nTrabajos Aéreos\nhttps://aviaciondigital.com/canal/trabajos-aereos-aviacion-comercial/\nAeropuertos\nhttps://aviaciondigital.com/canal/aeropuertos/\nSafety&Security\nhttps://aviaciondigital.com/canal/safety-security/\nEcoaviación\nhttps://aviaciondigital.com/canal/ecoaviacion/\nLaboral\nhttps://aviaciondigital.com/canal/laboral/\nIndustria\nhttps://aviaciondigital.com/canal/industria/\nHelicópteros\nhttps://aviaciondigital.com/canal/industria/helicopteros/\nM"
+  },
+  {
+    "id": "7fa8c112-1475-4359-89eb-bc22343a4012",
+    "index": 155,
+    "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA - Aviación Digital",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://aviaciondigital.com/huelga-indefinida-airbus-espana-sima-agosto-2026/",
+    "char_count": 48312,
+    "summary": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA Av. Comercial https://aviaciondigital.com/canal/aviacion/ Aviacion Ejecutiva https://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/ Compañías Aéreas https://aviaciondigital.com/canal/aviacion/companias-aereas/ Av. Militar h",
+    "file_path": "sources/7fa8c112.txt",
+    "fulltext_preview": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA\nAv. Comercial\nhttps://aviaciondigital.com/canal/aviacion/\nAviacion Ejecutiva\nhttps://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/\nCompañías Aéreas\nhttps://aviaciondigital.com/canal/aviacion/companias-aereas/\nAv. Militar\nhttps://aviaciondigital.com/canal/aviacion-militar/\nTrabajos Aéreos\nhttps://aviaciondigital.com/canal/trabajos-aereos-aviacion-comercial/\nAeropuertos\nhttps://aviaciondigital.com/canal/aeropuertos/\nSafety&Security\nhttps://aviaciondigital.com/canal/safety-security/\nEcoaviación\nhttps://aviaciondigital.com/canal/ecoaviacion/\nLaboral\nhttps://aviaciondigital.com/canal/laboral/\nIndustria\nhttps://aviaciondigital.com/canal/industria/\nHelicópteros\nhttps://aviaciondigital.com/canal/industria/helicopteros/\nM"
+  },
+  {
+    "id": "c8ec85b0-0723-45bb-9eac-fb013bd5f4c6",
+    "index": 156,
+    "title": "La huelga que cambió Estados Unidos - Cenital",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://cenital.com/la-huelga-que-cambio-estados-unidos/",
+    "char_count": 27089,
+    "summary": "La huelga que cambió Estados Unidos | Cenital Cerrar    https://youtube.com/cenitalcom   https://twitter.com/cenitalcom   https://www.instagram.com/cenitalcom/   https://www.facebook.com/Cenitalcom/   https://t.me/cenitalcom   https://www.linkedin.com/company/cenitalcom/ ¿Querés ser parte? Si te gus",
+    "file_path": "sources/c8ec85b0.txt",
+    "fulltext_preview": "La huelga que cambió Estados Unidos | Cenital\nCerrar \n \nhttps://youtube.com/cenitalcom\n \nhttps://twitter.com/cenitalcom\n \nhttps://www.instagram.com/cenitalcom/\n \nhttps://www.facebook.com/Cenitalcom/\n \nhttps://t.me/cenitalcom\n \nhttps://www.linkedin.com/company/cenitalcom/\n¿Querés ser parte?\nSi te gusta lo que hacemos, ayudanos a seguir haciéndolo\nSumate\nhttps://cenital.com/sumate/\nMi Cenital\nhttps://cenital.com/iniciar-sesion/?redirect_to=https%3A%2F%2Fcenital.com%2Fla-huelga-que-cambio-estados-unidos\nTemas\nhttps://cenital.com/temas/\nOpinión\nhttps://cenital.com/secciones/tema/opinion/\nEconomía\nhttps://cenital.com/secciones/tema/economia/\nPolítica\nhttps://cenital.com/secciones/tema/politica/\nMundo\nhttps://cenital.com/secciones/tema/mundo/\nCiudades\nhttps://cenital.com/secciones/tema/ciudades/"
+  },
+  {
+    "id": "d449fa44-bb0a-411a-aef8-e378e6695a40",
+    "index": 157,
+    "title": "La mitad de la plantilla de Intrum en Valladolid, en huelga por la eliminación del teletrabajo",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.eldiario.es/castilla-y-leon/economia/mitad-plantilla-intrum-valladolid-huelga-eliminacion-teletrabajo_1_13239672.html",
+    "char_count": 34347,
+    "summary": "La mitad de la plantilla de Intrum en Valladolid, en huelga por la eliminación del teletrabajo Choose how to navigate on elDiario.es Without advertising from 1 € / week Become a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, an",
+    "file_path": "sources/d449fa44.txt",
+    "fulltext_preview": "La mitad de la plantilla de Intrum en Valladolid, en huelga por la eliminación del teletrabajo\nChoose how to navigate on elDiario.es\nWithout advertising from 1 € / week\nBecome a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and browse ad-free, among other benefits, starting at just 1 € per week.\nIncludes 5 devices. You can cancel at any time.\nReject cookies for 1 €\nhttps://www.eldiario.es/castilla-y-leon/economia/mitad-plantilla-intrum-valladolid-huelga-eliminacion-teletrabajo_1_13239672.html\nYou can change your preferences or withdraw your consent at any time, from the \n\"My cookies\"\n link at the bottom of the page.\nAlready a member?\n \nLogin\nhttps://www.eldiario.es/castilla-y-leon/economia/mitad-plantilla-intrum-vall"
+  },
+  {
+    "id": "14819621-e3cf-49c5-a560-6099c1362cb8",
+    "index": 158,
+    "title": "La plantilla de Acerinox, 120 días de huelga en nombre de la conciliación - Diario Público",
+    "category": "Benchmark Internacional",
+    "type": "web_page",
+    "url": "https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html",
+    "char_count": 23408,
+    "summary": "La plantilla de Acerinox, 120 días, con sus noches, de huelga en nombre de la conciliación y la defensa del tiempo libre | Público   Si eres suscriptor, [inicia sesión](javascript:if (tp && tp.pianoId && typeof(tp.pianoId.isUserValid) == 'function' && tp.pianoId.isUserValid()) {    tp.pianoId.loadEx",
+    "file_path": "sources/14819621.txt",
+    "fulltext_preview": "La plantilla de Acerinox, 120 días, con sus noches, de huelga en nombre de la conciliación y la defensa del tiempo libre | Público\n \nSi eres suscriptor, [inicia sesión](javascript:if (tp && tp.pianoId && typeof(tp.pianoId.isUserValid) == 'function' && tp.pianoId.isUserValid()) {    tp.pianoId.loadExtendedUser({        extendedUserLoaded: function (data) {            for (var i in data.custom_field_values) {                var fieldName = data.custom_field_values[i].field_name;                var fieldValue = data.custom_field_values[i].value;                            if (fieldName == 'profile' && fieldValue == '2') {                    window.Didomi.setUserDisagreeToAll();                    location.reload();                }            }        }, formName: 'customFieldsCustomForm'    "
+  },
+  {
+    "id": "e6e1a5e5-4ec0-40bc-9a31-706165c9f6f3",
+    "index": 159,
+    "title": "La plantilla de Airbus España comienza una huelga indefinida desde este martes",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.eldebate.com/economia/20260825/plantilla-airbus-espana-comienza-huelga-indefinida-desde-este-martes_451940.html",
+    "char_count": 14357,
+    "summary": "La plantilla de Airbus España comienza una huelga indefinida desde este martes  https://www.eldebate.com/ Fundado en 1910 Iniciar sesión https://www.eldebate.com/area-privada/club-el-debate/ Cerrar sesión https://www.eldebate.com/economia/20260825/plantilla-airbus-espana-comienza-huelga-indefinida-d",
+    "file_path": "sources/e6e1a5e5.txt",
+    "fulltext_preview": "La plantilla de Airbus España comienza una huelga indefinida desde este martes \nhttps://www.eldebate.com/\nFundado en 1910\nIniciar sesión\nhttps://www.eldebate.com/area-privada/club-el-debate/\nCerrar sesión\nhttps://www.eldebate.com/economia/20260825/plantilla-airbus-espana-comienza-huelga-indefinida-desde-este-martes_451940.html\nMenú\nportada\nhttps://www.eldebate.com/\nespaña\nhttps://www.eldebate.com/espana/\neconomía\nhttps://www.eldebate.com/economia/\nopinión\nhttps://www.eldebate.com/opinion/\ninternacional\nhttps://www.eldebate.com/internacional\nsociedad\nhttps://www.eldebate.com/sociedad/\ncultura\nhttps://www.eldebate.com/cultura/\nreligión\nhttps://www.eldebate.com/religion/\nSalud y Bienestar\nhttps://www.eldebate.com/salud-y-bienestar/\nCerrar\nEs noticia\nmilitares en ceuta\nhttps://www.eldebate.com"
+  },
+  {
+    "id": "23520f9a-0dbe-43a0-94bd-36e2247d812c",
+    "index": 160,
+    "title": "La plantilla de Airbus España decide ir a la huelga indefinida hasta que la empresa avance en sus propuestas - Industry Talks",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://industrytalks.es/la-plantilla-de-airbus-espana-decide-ir-a-la-huelga-indefinida-hasta-que-la-empresa-avance-en-sus-propuestas/",
+    "char_count": 29998,
+    "summary": "La plantilla de Airbus España decide ir a la huelga indefinida hasta que la empresa avance en sus propuestas – industry TALKS. Diario Digital de la Industria Española   iTALKS https://industrytalks.es/italks/ tvTALKS https://industrytalks.es/tvtalks/ iCriteria https://industrytalks.es/icriteria/ Act",
+    "file_path": "sources/23520f9a.txt",
+    "fulltext_preview": "La plantilla de Airbus España decide ir a la huelga indefinida hasta que la empresa avance en sus propuestas – industry TALKS. Diario Digital de la Industria Española\n \niTALKS\nhttps://industrytalks.es/italks/\ntvTALKS\nhttps://industrytalks.es/tvtalks/\niCriteria\nhttps://industrytalks.es/icriteria/\nActualidad\nhttps://industrytalks.es/la-plantilla-de-airbus-espana-decide-ir-a-la-huelga-indefinida-hasta-que-la-empresa-avance-en-sus-propuestas/\nEmpresas\nhttps://industrytalks.es/empresas/\nEntrevistas\nhttps://industrytalks.es/entrevistas/\nFinanciación\nhttps://industrytalks.es/financiacion/\niDigital\nhttps://industrytalks.es/idigital/\nNormalización\nhttps://industrytalks.es/normalizacion/\nEnergía\nhttps://industrytalks.es/energia/\nSeguridad\nhttps://industrytalks.es/seguridad/\nEco-industry\nhttps://indu"
+  },
+  {
+    "id": "37cab84c-63fc-4a62-b84a-199cf7caf6dd",
+    "index": 161,
+    "title": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes - Heraldo de Aragón",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.heraldo.es/noticias/economia/2026/08/24/plantilla-airbus-confirma-huelga-indefinida-martes-2046978.html",
+    "char_count": 15283,
+    "summary": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes   PARA INFORMARTE MEJOR, NECESITAMOS CONOCERTE MEJOR Si aceptas nuestra  política de cookies https://www.heraldo.es/politica-privacidad/  nos ayudas a ofrecerte contenido y publicidad adaptado a tus preferencias. Acepta par",
+    "file_path": "sources/37cab84c.txt",
+    "fulltext_preview": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes\n \nPARA INFORMARTE MEJOR, NECESITAMOS CONOCERTE MEJOR\nSi aceptas nuestra \npolítica de cookies\nhttps://www.heraldo.es/politica-privacidad/\n nos ayudas a ofrecerte contenido y publicidad adaptado a tus preferencias. Acepta para mejorar tu experiencia de navegación de forma gratuita.\nPagar y rechazar\nhttps://suscripcion.heraldo.es/checkout/suscripcion-anual-cookies?utm_medium=didomi&utm_campaign=sin-cookies&utm_source=heraldo.es\nYa estoy suscrito.\n \nIniciar sesión\nhttps://www.heraldo.es/user/login\nNosotros y \nnuestros socios\njavascript:Didomi.preferences.show('vendors')\n usamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como tus visitas al sitio web, interacciones y dispositivo"
+  },
+  {
+    "id": "e3f8a09b-1957-4851-a90f-4470b8a8d3e4",
+    "index": 162,
+    "title": "La plantilla de Airbus seguirá en huelga tras una nueva reunión negociadora sin avances",
+    "category": "Informes Airbus SE & Financieros",
+    "type": "web_page",
+    "url": "https://efe.com/economia/2026-08-25/huelga-airbus-negociacion-poner-fin-conflicto/",
+    "char_count": 15356,
+    "summary": "La plantilla de Airbus seguirá en huelga efe.com - Do Not Process My Personal Information If you wish to opt-out of the sale, sharing to third parties, or processing of your personal or sensitive information for targeted advertising by us, please use the below opt-out section to confirm your selecti",
+    "file_path": "sources/e3f8a09b.txt",
+    "fulltext_preview": "La plantilla de Airbus seguirá en huelga\nefe.com - Do Not Process My Personal Information\nIf you wish to opt-out of the sale, sharing to third parties, or processing of your personal or sensitive information for targeted advertising by us, please use the below opt-out section to confirm your selection. Please note that after your opt-out request is processed you may continue seeing interest-based ads based on personal information utilized by us or personal information disclosed to third parties prior to your opt-out. You may separately opt-out of the further disclosure of your personal information by third parties on the IAB's list of downstream participants. This information may also be disclosed by us to third parties on the \nIAB's List of Downstream Participants\nhttps://www.iabprivacy.c"
+  },
+  {
+    "id": "8f951a99-0d31-4c70-9615-3cd6c5f12d23",
+    "index": 163,
+    "title": "La plantilla de Airbus votará el lunes si suspende la huelga y negocia la nueva propuesta",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.elconciso.es/empresas/trabajados-airbus-votaran-lunes-si_0_2007757642.html",
+    "char_count": 14061,
+    "summary": "La plantilla de Airbus votará el lunes si suspende la huelga y negocia la nueva propuesta Ir al contenido https://www.elconciso.es/empresas/trabajados-airbus-votaran-lunes-si_0_2007757642.html#content-body Temas  Última hora huelga Airbus https://www.elconciso.es/empresas/gobierno-amenaza-intervenir",
+    "file_path": "sources/8f951a99.txt",
+    "fulltext_preview": "La plantilla de Airbus votará el lunes si suspende la huelga y negocia la nueva propuesta\nIr al contenido\nhttps://www.elconciso.es/empresas/trabajados-airbus-votaran-lunes-si_0_2007757642.html#content-body\nTemas \nÚltima hora huelga Airbus\nhttps://www.elconciso.es/empresas/gobierno-amenaza-intervenir-conflicto-laboral-airbus_0_2007797929.html\n \nBeneficios Aertec\nhttps://www.elconciso.es/empresas/aertec-solutions-gano-2025-20_0_2007809732.html\n \nAndaluces sobreendeudados\nhttps://www.elconciso.es/finanzas/andaluces-sobreendeudados-ingresos-pagar-deudas_0_2007810513.html\n \nVenta Rosabus\nhttps://www.elconciso.es/empresas/sagales-compra-sevillana-autobuses-rosabus_0_2007797597.html\n \nPugna Deoleo\nhttps://www.elconciso.es/agricultura/deoleo-dcoop-coricelli-aceite-oliva_0_2007803470.html\n \nMarcas "
+  },
+  {
+    "id": "6d1cd2b8-3cb5-4c82-beff-d922229cef04",
+    "index": 164,
+    "title": "La situación de los trabajadores del Metal en Cádiz tras la huelga de 2021. Perspectivas y posibilidades para un futuro digno y una transformación ecosocialista en el metal, Cádiz y la bahía. - Poder Popular",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://poderpopular.info/2025/06/17/la-situacion-de-los-trabajadores-del-metal-en-cadiz-tras-la-huelga-de-2021-perspectivas-y-posibilidades-para-un-futuro-digno-y-una-transformacion-ecosocialista-en-el-metal-cadiz-y-la-bahia/",
+    "char_count": 33572,
+    "summary": "La situación de los trabajadores del Metal en Cádiz tras la huelga de 2021. Perspectivas y posibilidades para un futuro digno y una transformación ecosocialista en el metal, Cádiz y la bahía. – Poder Popular Buscar https://poderpopular.info/2025/06/17/la-situacion-de-los-trabajadores-del-metal-en-ca",
+    "file_path": "sources/6d1cd2b8.txt",
+    "fulltext_preview": "La situación de los trabajadores del Metal en Cádiz tras la huelga de 2021. Perspectivas y posibilidades para un futuro digno y una transformación ecosocialista en el metal, Cádiz y la bahía. – Poder Popular\nBuscar\nhttps://poderpopular.info/2025/06/17/la-situacion-de-los-trabajadores-del-metal-en-cadiz-tras-la-huelga-de-2021-perspectivas-y-posibilidades-para-un-futuro-digno-y-una-transformacion-ecosocialista-en-el-metal-cadiz-y-la-bahia/\nInicio\nhttps://poderpopular.info/\nActualidad\nhttps://poderpopular.info/actualidad/\nNoticias\nhttps://poderpopular.info/actualidad/noticias/\nFeminismo\nhttps://poderpopular.info/feminismo/\nInternacional\nhttps://poderpopular.info/internacional/\nCultura\nhttps://poderpopular.info/cultura/\nEcología\nhttps://poderpopular.info/ecologia/\nEntrevista con…\nhttps://poder"
+  },
+  {
+    "id": "57596007-ed4c-4afa-acba-aaa915e25e57",
+    "index": 165,
+    "title": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\" - El Diario",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html",
+    "char_count": 44221,
+    "summary": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\" Choose how to navigate on elDiario.es Without advertising from 1 € / week Become a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow",
+    "file_path": "sources/57596007.txt",
+    "fulltext_preview": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\"\nChoose how to navigate on elDiario.es\nWithout advertising from 1 € / week\nBecome a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and browse ad-free, among other benefits, starting at just 1 € per week.\nIncludes 5 devices. You can cancel at any time.\nReject cookies for 1 €\nhttps://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html\nYou can change your preferences or withdraw your consent at any time, from the \n\"My cookies\"\n link at the bottom of the page.\nAlready a member?\n \nLogin\nhttps://www.eldiario.es/andalucia/cadiz/once-claves-nu"
+  },
+  {
+    "id": "88bdf334-ecb6-4f8e-9de7-64bf28d932f7",
+    "index": 166,
+    "title": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\" - El Diario",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html",
+    "char_count": 44320,
+    "summary": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\" Choose how to navigate on elDiario.es Without advertising from 1 € / week Become a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow",
+    "file_path": "sources/88bdf334.txt",
+    "fulltext_preview": "Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\"\nChoose how to navigate on elDiario.es\nWithout advertising from 1 € / week\nBecome a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and browse ad-free, among other benefits, starting at just 1 € per week.\nIncludes 5 devices. You can cancel at any time.\nReject cookies for 1 €\nhttps://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html\nYou can change your preferences or withdraw your consent at any time, from the \n\"My cookies\"\n link at the bottom of the page.\nAlready a member?\n \nLogin\nhttps://www.eldiario.es/andalucia/cadiz/once-claves-nu"
+  },
+  {
+    "id": "1cb77cb2-ce10-455e-b060-11a434fd3323",
+    "index": 167,
+    "title": "Las calles de Cádiz arden con la huelga del metal: piden que se equipare la subida de los sueldos con el IPC - LaSexta",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.lasexta.com/noticias/sociedad/calles-cadiz-arden-huelga-metal-piden-que-equipare-subida-sueldos-ipc_202506186852d5e4f68fe227a842a2d0.html",
+    "char_count": 18132,
+    "summary": "Las calles de Cádiz arden con la huelga del metal: piden que se equipare la subida de los sueldos con el IPC En Atresmedia, nos preocupamos por tu privacidad Nosotros y nuestros socios utilizamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como tu visita en es",
+    "file_path": "sources/1cb77cb2.txt",
+    "fulltext_preview": "Las calles de Cádiz arden con la huelga del metal: piden que se equipare la subida de los sueldos con el IPC\nEn Atresmedia, nos preocupamos por tu privacidad\nNosotros y nuestros socios utilizamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como tu visita en este sitio web o app.\nRealizamos el siguiente tratamiento de datos: La publicidad y el contenido pueden personalizarse basándose en tu perfil. Tu actividad en este servicio puede utilizarse para crear o mejorar un perfil sobre ti para recibir publicidad o contenido personalizados. El rendimiento de la publicidad y del contenido puede cuantificarse. Los informes pueden generarse en función de tu actividad y la de otros usuarios. Tu actividad en este servicio puede ayudar a desarrollar y mejorar pro"
+  },
+  {
+    "id": "ca8fedca-d95d-4dee-ad9b-e292f8d1b451",
+    "index": 168,
+    "title": "Ley 10/2021, de 9 de julio, de trabajo a distancia - Noticias Jurídicas",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://noticias.juridicas.com/base_datos/Laboral/702807-ley-10-2021-de-9-de-julio-de-trabajo-a-distancia.html",
+    "char_count": 200363,
+    "summary": "Ley 10/2021, de 9 de julio, de trabajo a  https://noticias.juridicas.com/ Anúnciate en Noticias Jurídicas https://noticias.juridicas.com/publicidad/   Newsletter https://noticias.juridicas.com/suscripcion-boletin/   Colabora con nosotros https://noticias.juridicas.com/content/colabora/ Síguenos en:",
+    "file_path": "sources/ca8fedca.txt",
+    "fulltext_preview": "Ley 10/2021, de 9 de julio, de trabajo a \nhttps://noticias.juridicas.com/\nAnúnciate en Noticias Jurídicas\nhttps://noticias.juridicas.com/publicidad/\n \nNewsletter\nhttps://noticias.juridicas.com/suscripcion-boletin/\n \nColabora con nosotros\nhttps://noticias.juridicas.com/content/colabora/\nSíguenos en: \nhttps://www.facebook.com/NoticiasJuridicasOficial\n \nhttps://www.linkedin.com/company/noticias-jur-dicas\n \nhttps://twitter.com/NotisJuridicas\n \nhttps://noticias.juridicas.com/feeds/rss.xml\n×\njavascript:void(0)\nBúsqueda personalizada\nOrdenar por\nRelevance\nDate \nhttps://noticias.juridicas.com/\nActualidad\nhttps://noticias.juridicas.com/actualidad/\n \nActualidad\nhttps://noticias.juridicas.com/actualidad\nNoticias\nhttps://noticias.juridicas.com/actualidad/noticias/\n26 de agosto de 2026 Justicia recibe "
+  },
+  {
+    "id": "8f9ea8ef-149b-4d99-a251-ccfc1af1d86b",
+    "index": 169,
+    "title": "Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html",
+    "char_count": 15180,
+    "summary": "Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027 common.go-to-content https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html#content-body Temas Viana, entre lodo https://www.laregion.es/viana-do-bolo/riadas-golpean-nuevo-viana-do",
+    "file_path": "sources/8f9ea8ef.txt",
+    "fulltext_preview": "Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027\ncommon.go-to-content\nhttps://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html#content-body\nTemas\nViana, entre lodo\nhttps://www.laregion.es/viana-do-bolo/riadas-golpean-nuevo-viana-do_1_20260828-4394643.html\nRiada en Nepal\nhttps://www.laregion.es/mundo/riada-nepal-deja-muertos-desaparecidos-espanoles-localizados_1_20260828-4394704.html\nRadares en Ourense\nhttps://www.laregion.es/ourense/ruleta-rusa-radares-ourense-hay_1_20260828-4394631.html\nCasa de Baños, en ruinas\nhttps://www.laregion.es/ourense/casa-banos-continua-deteriorandose-silencio_1_20260828-4394519.html\nPrevisión del tiempo\nhttps://www.laregion.es/provincia/adios-lluvias-vuelco-termico-ourense-termometros-30-grados"
+  },
+  {
+    "id": "e14fbbcc-8020-4a19-8629-f579b98acc34",
+    "index": 170,
+    "title": "Los empleados de Airbus España rechazan y se convoca huelga indefinida",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.avionrevue.com/industria/los-empleados-de-airbus-espana-rechazan-y-se-convoca-huelga-indefinida/",
+    "char_count": 8599,
+    "summary": "Los empleados de Airbus España rechazan y se convoca huelga indefinida – Avion Revue Internacional  Acerca de https://www.avionrevue.com/acerca-de/ Publicidad https://www.avionrevue.com/publicidad/ Suscripción https://www.avionrevue.com/producto/suscripcion-avion-revue-internacional/ Área de descarg",
+    "file_path": "sources/e14fbbcc.txt",
+    "fulltext_preview": "Los empleados de Airbus España rechazan y se convoca huelga indefinida – Avion Revue Internacional \nAcerca de\nhttps://www.avionrevue.com/acerca-de/\nPublicidad\nhttps://www.avionrevue.com/publicidad/\nSuscripción\nhttps://www.avionrevue.com/producto/suscripcion-avion-revue-internacional/\nÁrea de descargas\nhttps://www.avionrevue.com/descargas/\nContacto\nhttps://www.avionrevue.com/contacto/\n \nhttps://www.avionrevue.com/carrito/\nAcerca de\nhttps://www.avionrevue.com/acerca-de/\nPublicidad\nhttps://www.avionrevue.com/publicidad/\nSuscripción\nhttps://www.avionrevue.com/producto/suscripcion-avion-revue-internacional/\nÁrea de descargas\nhttps://www.avionrevue.com/descargas/\nContacto\nhttps://www.avionrevue.com/contacto/\nComercial\nhttps://www.avionrevue.com/aviacion-comercial/\nMilitar\nhttps://www.avionrevue."
+  },
+  {
+    "id": "73cfccd3-956e-4a06-a712-2dfb075abc93",
+    "index": 171,
+    "title": "Los ingenieros de Boeing rechazan el convenio y autorizan una huelga desde octubre",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://aviaciondigital.com/boeing-ingenieros-speea-rechazan-convenio-huelga/",
+    "char_count": 47480,
+    "summary": "Los ingenieros de Boeing rechazan el convenio y autorizan la huelga Av. Comercial https://aviaciondigital.com/canal/aviacion/ Aviacion Ejecutiva https://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/ Compañías Aéreas https://aviaciondigital.com/canal/aviacion/companias-aereas/ Av. Militar ht",
+    "file_path": "sources/73cfccd3.txt",
+    "fulltext_preview": "Los ingenieros de Boeing rechazan el convenio y autorizan la huelga\nAv. Comercial\nhttps://aviaciondigital.com/canal/aviacion/\nAviacion Ejecutiva\nhttps://aviaciondigital.com/canal/aviacion/aviacion-ejecutiva/\nCompañías Aéreas\nhttps://aviaciondigital.com/canal/aviacion/companias-aereas/\nAv. Militar\nhttps://aviaciondigital.com/canal/aviacion-militar/\nTrabajos Aéreos\nhttps://aviaciondigital.com/canal/trabajos-aereos-aviacion-comercial/\nAeropuertos\nhttps://aviaciondigital.com/canal/aeropuertos/\nSafety&Security\nhttps://aviaciondigital.com/canal/safety-security/\nEcoaviación\nhttps://aviaciondigital.com/canal/ecoaviacion/\nLaboral\nhttps://aviaciondigital.com/canal/laboral/\nIndustria\nhttps://aviaciondigital.com/canal/industria/\nHelicópteros\nhttps://aviaciondigital.com/canal/industria/helicopteros/\nMa"
+  },
+  {
+    "id": "ba1527e3-ce5e-481f-92e3-849243efd589",
+    "index": 172,
+    "title": "Los sindicatos convocan paros en Renault España para retomar la negociación del convenio - El Diario",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.eldiario.es/castilla-y-leon/economia/sindicatos-convocan-paros-renault-espana-retomar-negociacion-convenio_1_13236622.html",
+    "char_count": 36219,
+    "summary": "Los sindicatos convocan paros en Renault España para retomar la negociación del convenio Choose how to navigate on elDiario.es Without advertising from 1 € / week Become a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and brow",
+    "file_path": "sources/ba1527e3.txt",
+    "fulltext_preview": "Los sindicatos convocan paros en Renault España para retomar la negociación del convenio\nChoose how to navigate on elDiario.es\nWithout advertising from 1 € / week\nBecome a member to access all content unlimitedly, including the exclusive director's newsletter, receive tomorrow's front page, and browse ad-free, among other benefits, starting at just 1 € per week.\nIncludes 5 devices. You can cancel at any time.\nReject cookies for 1 €\nhttps://www.eldiario.es/castilla-y-leon/economia/sindicatos-convocan-paros-renault-espana-retomar-negociacion-convenio_1_13236622.html\nYou can change your preferences or withdraw your consent at any time, from the \n\"My cookies\"\n link at the bottom of the page.\nAlready a member?\n \nLogin\nhttps://www.eldiario.es/castilla-y-leon/economia/sindicatos-convocan-paros-re"
+  },
+  {
+    "id": "6345a9f1-6097-436f-97bd-4086116e7cf7",
+    "index": 173,
+    "title": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde - Cadena SER",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://cadenaser.com/castillayleon/2026/05/20/los-sindicatos-de-renault-convocan-paros-parciales-como-previa-a-una-huelga-indefinida-si-la-empresa-no-responde-radio-valladolid/",
+    "char_count": 50756,
+    "summary": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde | Sociedad | Cadena SER   We care about your privacy With your agreement, we and  our partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, an",
+    "file_path": "sources/6345a9f1.txt",
+    "fulltext_preview": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde | Sociedad | Cadena SER\n \nWe care about your privacy\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or set your preferences at any time by clicking on \"Configuration\" or in our Cookies Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services development, Precise geolocation data, and identification through device scanning, Sharing data and profiles for analysis and personalise"
+  },
+  {
+    "id": "a3d2067f-4b24-43ff-81e4-b2c08fcf0cb1",
+    "index": 174,
+    "title": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde - Cadena SER",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://cadenaser.com/castillayleon/2026/05/20/los-sindicatos-de-renault-convocan-paros-parciales-como-previa-a-una-huelga-indefinida-si-la-empresa-no-responde-radio-valladolid/",
+    "char_count": 50756,
+    "summary": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde | Sociedad | Cadena SER   We care about your privacy With your agreement, we and  our partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, an",
+    "file_path": "sources/a3d2067f.txt",
+    "fulltext_preview": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde | Sociedad | Cadena SER\n \nWe care about your privacy\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or set your preferences at any time by clicking on \"Configuration\" or in our Cookies Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services development, Precise geolocation data, and identification through device scanning, Sharing data and profiles for analysis and personalise"
+  },
+  {
+    "id": "e75d2da0-3846-44be-9161-5b231a10594c",
+    "index": 175,
+    "title": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida si la empresa no negocia el convenio - La Tribuna de Automoción",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.latribunadeautomocion.es/2026/05/los-sindicatos-de-renault-fijan-un-primer-paro-y-advierten-de-huelga-indefinida-si-la-empresa-no-negocia-el-convenio/",
+    "char_count": 22185,
+    "summary": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida si la empresa no negocia el convenio - La Tribuna de Automoción Gestionar el consentimiento de las cookies Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la in",
+    "file_path": "sources/e75d2da0.txt",
+    "fulltext_preview": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida si la empresa no negocia el convenio - La Tribuna de Automoción\nGestionar el consentimiento de las cookies\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el ab"
+  },
+  {
+    "id": "1fa09b35-a494-450b-bc40-47efe68f28ce",
+    "index": 176,
+    "title": "Los trabajadores de Airbus inician una huelga indefinida con la negociación aún abierta en el SIMA - El Independiente",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.elindependiente.com/economia/2026/08/25/trabajadores-airbus-inician-huelga-indefinida/",
+    "char_count": 19108,
+    "summary": "Los trabajadores de Airbus inician una huelga indefinida Destacamos: Últimas noticias https://www.elindependiente.com/ultimas-noticias/ Vivienda https://www.elindependiente.com/economia/2026/08/27/notarios-paradoja-vivienda-compra-precios/ Nvidia resultados https://www.elindependiente.com/economia/2",
+    "file_path": "sources/1fa09b35.txt",
+    "fulltext_preview": "Los trabajadores de Airbus inician una huelga indefinida\nDestacamos:\nÚltimas noticias\nhttps://www.elindependiente.com/ultimas-noticias/\nVivienda\nhttps://www.elindependiente.com/economia/2026/08/27/notarios-paradoja-vivienda-compra-precios/\nNvidia resultados\nhttps://www.elindependiente.com/economia/2026/08/26/nvidia-dispara-un-126-su-beneficio-y-duplica-sus-ventas-en-el-segundo-trimestre-fiscal/\nMarlaska CNI\nhttps://www.elindependiente.com/espana/2026/08/27/ministros-polemica-marlaska-informes-cni-ceuta-desgastar-robles/\nCeuta y Melilla\nhttps://www.elindependiente.com/opinion/2026/08/27/ceuta-y-melilla-y-la-trampa-del-mapa/\nPresos políticos\nhttps://www.elindependiente.com/opinion/2026/08/26/la-libertad-de-los-presos-politicos-no-son-migajas/\nCIA\nhttps://www.elindependiente.com/internacional"
+  },
+  {
+    "id": "e0595f0e-3820-4af6-931c-6797d6d897a4",
+    "index": 177,
+    "title": "Los trabajadores de Airbus inician una huelga indefinida con la negociación aún abierta en el SIMA - El Independiente",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.elindependiente.com/economia/2026/08/25/trabajadores-airbus-inician-huelga-indefinida/",
+    "char_count": 19108,
+    "summary": "Los trabajadores de Airbus inician una huelga indefinida Destacamos: Últimas noticias https://www.elindependiente.com/ultimas-noticias/ Vivienda https://www.elindependiente.com/economia/2026/08/27/notarios-paradoja-vivienda-compra-precios/ Nvidia resultados https://www.elindependiente.com/economia/2",
+    "file_path": "sources/e0595f0e.txt",
+    "fulltext_preview": "Los trabajadores de Airbus inician una huelga indefinida\nDestacamos:\nÚltimas noticias\nhttps://www.elindependiente.com/ultimas-noticias/\nVivienda\nhttps://www.elindependiente.com/economia/2026/08/27/notarios-paradoja-vivienda-compra-precios/\nNvidia resultados\nhttps://www.elindependiente.com/economia/2026/08/26/nvidia-dispara-un-126-su-beneficio-y-duplica-sus-ventas-en-el-segundo-trimestre-fiscal/\nMarlaska CNI\nhttps://www.elindependiente.com/espana/2026/08/27/ministros-polemica-marlaska-informes-cni-ceuta-desgastar-robles/\nCeuta y Melilla\nhttps://www.elindependiente.com/opinion/2026/08/27/ceuta-y-melilla-y-la-trampa-del-mapa/\nPresos políticos\nhttps://www.elindependiente.com/opinion/2026/08/26/la-libertad-de-los-presos-politicos-no-son-migajas/\nCIA\nhttps://www.elindependiente.com/internacional"
+  },
+  {
+    "id": "5408a0b4-8ba7-456f-8336-f4e3041928a6",
+    "index": 178,
+    "title": "Los trabajadores de Airbus votan ir a la huelga indefinida desde este martes - RTVE.es",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.rtve.es/noticias/20260824/trabajadores-turno-manana-airbus-huelga-indefinida-votan-a-favor/17200082.shtml",
+    "char_count": 28397,
+    "summary": "Los trabajadores de Airbus votan ir a la huelga indefinida Enlaces accesibilidad Saltar al contenido principal https://www.rtve.es/noticias/20260824/trabajadores-turno-manana-airbus-huelga-indefinida-votan-a-favor/17200082.shtml#topPage Ir a la página de accesibilidad https://www.rtve.es/accesibilid",
+    "file_path": "sources/5408a0b4.txt",
+    "fulltext_preview": "Los trabajadores de Airbus votan ir a la huelga indefinida\nEnlaces accesibilidad\nSaltar al contenido principal\nhttps://www.rtve.es/noticias/20260824/trabajadores-turno-manana-airbus-huelga-indefinida-votan-a-favor/17200082.shtml#topPage\nIr a la página de accesibilidad\nhttps://www.rtve.es/accesibilidad/\nSaltar al pie de página\nhttps://www.rtve.es/noticias/20260824/trabajadores-turno-manana-airbus-huelga-indefinida-votan-a-favor/17200082.shtml#footer\nLos trabajadores de Airbus votan ir a la huelga indefinida desde este martes\nhttps://www.rtve.es/noticias/20260824/trabajadores-turno-manana-airbus-huelga-indefinida-votan-a-favor/17200082.shtml#h1_maincontent\n \n \nVuelta a España 2026desplegable\nhttps://www.rtve.es/play/teledeporte/ciclismo/\nGrand Prixdesplegable\nhttps://www.rtve.es/play/videos/"
+  },
+  {
+    "id": "359c870c-92d9-4c1a-bb57-eb7bb83e47e0",
+    "index": 179,
+    "title": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida - Elplural.com",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.elplural.com/economia/trabajadores-airbus-ejemplo-lucha-contra-tirania-multinacional-asambleas-guian-huelga-indefinida_398746102",
+    "char_count": 20731,
+    "summary": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida   With your agreement, we and  our 815 partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process personal da",
+    "file_path": "sources/359c870c.txt",
+    "fulltext_preview": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida\n \nWith your agreement, we and \nour 815 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience r"
+  },
+  {
+    "id": "7b49513e-1b3e-4d1e-b853-ef064166956b",
+    "index": 180,
+    "title": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida - Elplural.com",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.elplural.com/economia/trabajadores-airbus-ejemplo-lucha-contra-tirania-multinacional-asambleas-guian-huelga-indefinida_398746102",
+    "char_count": 20730,
+    "summary": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida   With your agreement, we and  our 815 partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process personal da",
+    "file_path": "sources/7b49513e.txt",
+    "fulltext_preview": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida\n \nWith your agreement, we and \nour 815 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience r"
+  },
+  {
+    "id": "b4482940-1d04-482f-b73f-3d032726a0d3",
+    "index": 181,
+    "title": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida - Elplural.com",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.elplural.com/economia/trabajadores-airbus-ejemplo-lucha-contra-tirania-multinacional-asambleas-guian-huelga-indefinida_398746102",
+    "char_count": 20729,
+    "summary": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida   With your agreement, we and  our 815 partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to store, access, and process personal da",
+    "file_path": "sources/b4482940.txt",
+    "fulltext_preview": "Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida\n \nWith your agreement, we and \nour 815 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience r"
+  },
+  {
+    "id": "30bc9ec0-f7bf-4e32-9ae5-ffa868756993",
+    "index": 182,
+    "title": "Los trabajadores de Concentrix, que prestan la atención telefónica de H&M, convocan una huelga de 24 horas - Forbes España",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://forbes.es/ultima-hora/973997/los-trabajadores-de-concentrix-que-prestan-la-atencion-telefonica-de-hm-convocan-una-huelga-de-24-horas/",
+    "char_count": 4712,
+    "summary": "Los trabajadores de Concentrix, que prestan la atención telefónica de H&M, convocan una huelga de 24 horas - Forbes España   Su privacidad es importante para nosotros Nosotros y nuestros socios almacenamos y/o accedemos a información en un dispositivo, como cookies, y procesamos datos personales, co",
+    "file_path": "sources/30bc9ec0.txt",
+    "fulltext_preview": "Los trabajadores de Concentrix, que prestan la atención telefónica de H&M, convocan una huelga de 24 horas - Forbes España\n \nSu privacidad es importante para nosotros\nNosotros y nuestros socios almacenamos y/o accedemos a información en un dispositivo, como cookies, y procesamos datos personales, como identificadores únicos e información estándar enviada por un dispositivo para publicidad y contenido personalizado, medición de publicidad y contenido, investigación de audiencia y desarrollo de servicios. Con su permiso, nosotros y nuestros socios podemos utilizar datos de localización geográfica precisa e identificación mediante las características de dispositivos. Puede hacer clic para otorgarnos su consentimiento a nosotros y a nuestros 1734 socios para que llevemos a cabo el procesamient"
+  },
+  {
+    "id": "9ce0fa28-b7ec-4bc1-8a82-063765d6665c",
+    "index": 183,
+    "title": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amenaza de huelga indefinida - Noticias Valladolid - Tribuna",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.tribunavalladolid.com/noticias/445708/los-trabajadores-de-renault-inician-movilizaciones-con-un-amplio-respaldo-y-amenaza-de-huelga-indefinida",
+    "char_count": 14873,
+    "summary": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amenaza de huelga indefinida - Tribuna de Valladolid. Menú Buscador Noticias 24h /noticias-24-horas Ávila https://www.tribunaavila.com/ Burgos https://www.tribunaburgos.com/ León https://www.tribunaleon.com/ Palencia https:/",
+    "file_path": "sources/9ce0fa28.txt",
+    "fulltext_preview": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amenaza de huelga indefinida - Tribuna de Valladolid.\nMenú\nBuscador\nNoticias 24h\n/noticias-24-horas\nÁvila\nhttps://www.tribunaavila.com/\nBurgos\nhttps://www.tribunaburgos.com/\nLeón\nhttps://www.tribunaleon.com/\nPalencia\nhttps://www.tribunapalencia.com/\nSalamanca\nhttps://www.tribunasalamanca.com/\nSegovia\nhttps://www.tribunasegovia.com/\nSoria\nhttps://www.tribunasoria.com/\nValladolid\nhttps://www.tribunavalladolid.com/\nZamora\nhttps://www.tribunazamora.com/\nMadrid\nhttps://www.tribunamadrid.com/\nIniciar Sesión \n/noticias-24-horas\nEl primer diario digital de Castilla y Leónlogo\n/\nValladolid\n/canal/94/valladolid\nProvincia\n/canal/95/provincia\nCastilla y León\n/canal/96/castilla-y-leon\nSucesos Valladolid\n/canal/101/sucesos-valla"
+  },
+  {
+    "id": "5b9b983e-0909-4e5b-b194-8fadaf54b212",
+    "index": 184,
+    "title": "Los trabajadores de atención telefónica de H&M convocan una huelga para denunciar la reducción de plantilla - Metrópoli Abierta",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://metropoliabierta.elespanol.com/el-pulso-de-la-ciudad/20260707/trabajadores-atencion-telefonica-hm-convocan-huelga-denunciar-reduccion-plantilla/1003742777677_0.html",
+    "char_count": 19716,
+    "summary": "Los trabajadores de atención telefónica de H&M convocan una huelga para denunciar la reducción de plantilla ES NOTICIA: El extenista Félix Mantilla se sube al 'boom' del pádel y el pickleball https://metropoliabierta.elespanol.com/economia/20260828/extenista-felix-mantilla-sube-boom-padel-pickleball",
+    "file_path": "sources/5b9b983e.txt",
+    "fulltext_preview": "Los trabajadores de atención telefónica de H&M convocan una huelga para denunciar la reducción de plantilla\nES NOTICIA:\nEl extenista Félix Mantilla se sube al 'boom' del pádel y el pickleball\nhttps://metropoliabierta.elespanol.com/economia/20260828/extenista-felix-mantilla-sube-boom-padel-pickleball-nueva-empresa-pistas-barcelona/1003742789047_0.html?utm_cmp_rs=trends\nSant Adrià erradica los campamentos de sintecho\nhttps://metropoliabierta.elespanol.com/gran-barcelona/20260828/sant-adria-moviliza-erradicar-campamentos-sintecho-proliferacion-jeringuillas-no-normalizamos-ocupacion-espacio-publico/1003742789645_0.html?utm_cmp_rs=trends\nLa presión del tráfico se incrementa\nhttps://metropoliabierta.elespanol.com/movilidad/20260827/presion-trafico-incrementa-ultimo-lustro-arterias-barcelona/1003"
+  },
+  {
+    "id": "88378394-3fa9-403c-8cd7-e3de96a9e25b",
+    "index": 185,
+    "title": "Los trabajadores del metal en Cádiz rechazan la traición de los sindicatos en el convenio",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.wsws.org/es/articles/2025/06/28/1420-j28.html",
+    "char_count": 17294,
+    "summary": "Los trabajadores del metal en Cádiz rechazan la traición de los sindicatos en el convenio - World Socialist Web Site menú https://www.wsws.org/es/articles/2025/06/28/1420-j28.html   búsqueda https://www.wsws.org/es/search   https://www.wsws.org/es lo último https://www.wsws.org/es/articles/2025/06/2",
+    "file_path": "sources/88378394.txt",
+    "fulltext_preview": "Los trabajadores del metal en Cádiz rechazan la traición de los sindicatos en el convenio - World Socialist Web Site\nmenú\nhttps://www.wsws.org/es/articles/2025/06/28/1420-j28.html\n \nbúsqueda\nhttps://www.wsws.org/es/search\n \nhttps://www.wsws.org/es\nlo último\nhttps://www.wsws.org/es/articles/2025/06/28/1420-j28.html\n \nperfil\nhttps://www.wsws.org/es/profile\nEspañol\ncontacto\nhttps://www.wsws.org/es/special/pages/contact.html\n| \nsobre\nhttps://www.wsws.org/es/special/pages/icfi/wsws.html\n| \nhttps://www.wsws.org/es/profile\nComité Internacional de la Cuarta Internacional ( CICI)\nhttps://www.wsws.org/es/special/pages/icfi/about.html\nmenú\nhttps://www.wsws.org/es/articles/2025/06/28/1420-j28.html\n \nbúsqueda\nhttps://www.wsws.org/es/search\nComité Internacional de la Cuarta Internacional ( CICI)\nhttps:/"
+  },
+  {
+    "id": "4cbebae9-bc9e-4245-bd56-34aa436b07d8",
+    "index": 186,
+    "title": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus plantas - Tribuna de Valladolid.",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.tribunavalladolid.com/noticias/455443/luz-verde-al-convenio-de-renault-que-garantiza-cinco-nuevos-modelos-para-sus-plantas",
+    "char_count": 12012,
+    "summary": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus plantas - Tribuna de Valladolid. Menú Buscador Noticias 24h /noticias-24-horas Ávila https://www.tribunaavila.com/ Burgos https://www.tribunaburgos.com/ León https://www.tribunaleon.com/ Palencia https://www.tribunapalencia",
+    "file_path": "sources/4cbebae9.txt",
+    "fulltext_preview": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus plantas - Tribuna de Valladolid.\nMenú\nBuscador\nNoticias 24h\n/noticias-24-horas\nÁvila\nhttps://www.tribunaavila.com/\nBurgos\nhttps://www.tribunaburgos.com/\nLeón\nhttps://www.tribunaleon.com/\nPalencia\nhttps://www.tribunapalencia.com/\nSalamanca\nhttps://www.tribunasalamanca.com/\nSegovia\nhttps://www.tribunasegovia.com/\nSoria\nhttps://www.tribunasoria.com/\nValladolid\nhttps://www.tribunavalladolid.com/\nZamora\nhttps://www.tribunazamora.com/\nMadrid\nhttps://www.tribunamadrid.com/\nIniciar Sesión \n/noticias-24-horas\nEl primer diario digital de Castilla y Leónlogo\n/\nValladolid\n/canal/94/valladolid\nProvincia\n/canal/95/provincia\nCastilla y León\n/canal/96/castilla-y-leon\nSucesos Valladolid\n/canal/101/sucesos-valladolid\nCultura Vallad"
+  },
+  {
+    "id": "14c53223-9144-4b84-90a1-54cb8f68eb53",
+    "index": 187,
+    "title": "MORE THAN A LABOR DISPUTE: THE PATCO STRIKE OF 1981 - The Economic and Business History Society",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": "https://www.ebhsoc.org/journal/index.php/ebhs/article/download/155/136/311",
+    "char_count": 42918,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8u8TO44srq4v0Hssr3fPH7mBdhRcLppJ080AKQ5jROv7qzGbZtiZ2iSMNWdhPIiiC-f50HN8xRduC5srlxMTOE4jH_4BzhD17A7cKWyfIYVnGsqpg52whdBn0kZzfKtR5a_S5HFQ=w843-h1280-v0 4c4143a7-afa8-4b55-82b0-9f00424dae7c MORE THAN A LABOR DISPUTE: THE PATCO STRIKE OF 1981  Paul L.",
+    "file_path": "sources/14c53223.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8u8TO44srq4v0Hssr3fPH7mBdhRcLppJ080AKQ5jROv7qzGbZtiZ2iSMNWdhPIiiC-f50HN8xRduC5srlxMTOE4jH_4BzhD17A7cKWyfIYVnGsqpg52whdBn0kZzfKtR5a_S5HFQ=w843-h1280-v0\n4c4143a7-afa8-4b55-82b0-9f00424dae7c\nMORE THAN A LABOR DISPUTE: THE PATCO STRIKE OF 1981 \nPaul L. Butterworth Embry-Riddle Aeronautical University James T. Schultz Embry-Riddle Aeronautical University Marian C. Schultz University ofWest Florida \nABSTRACT On August 3, 1981, 13,000 air traffic controllers walked off thejob. Under US law, the strike was illegal. President Ronald Reagan ordered the strikers as a group to return to work; when they did not, he ordered individual strikers to return, and again they refused. Two days later the president fired the strikers. Reagan s action transformed"
+  },
+  {
+    "id": "f81c6544-9df5-46d8-9eed-983f44f84748",
+    "index": 188,
+    "title": "Minima Métallurgie | La CGT ATOS-BULL",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.cgtatos.org/minima-metallurgie/",
+    "char_count": 8117,
+    "summary": "Minima Métallurgie | La CGT ATOS-BULL Actualités https://www.cgtatos.org/ ATOS https://www.cgtatos.org/categorie/atos/ EVIDEN https://www.cgtatos.org/categorie/eviden/ Dossiers https://www.cgtatos.org/categorie/dossiers/ Restructuration https://www.cgtatos.org/categorie/dossiers/restructuration/ Ara",
+    "file_path": "sources/f81c6544.txt",
+    "fulltext_preview": "Minima Métallurgie | La CGT ATOS-BULL\nActualités\nhttps://www.cgtatos.org/\nATOS\nhttps://www.cgtatos.org/categorie/atos/\nEVIDEN\nhttps://www.cgtatos.org/categorie/eviden/\nDossiers\nhttps://www.cgtatos.org/categorie/dossiers/\nRestructuration\nhttps://www.cgtatos.org/categorie/dossiers/restructuration/\nAral\nhttps://www.cgtatos.org/categorie/dossiers/aral/\nRégions\nhttps://www.cgtatos.org/minima-metallurgie/\nBezons\nhttps://www.cgtatos.org/categorie/regions/bezons/\nBordeaux\nhttps://www.cgtatos.org/categorie/regions/bordeaux/\nLille\nhttps://www.cgtatos.org/categorie/regions/lille/\nSophia\nhttps://www.cgtatos.org/categorie/regions/sophia/\nToulouse\nhttps://www.cgtatos.org/categorie/regions/toulouse/\nLa CGT\nhttps://www.cgtatos.org/la-cgt/\nAdhésion\nhttps://www.cgtatos.org/adhesion/\nContact\nhttps://www.cgta"
+  },
+  {
+    "id": "fa41331e-6c4d-4b9a-8970-4eece2bc7f92",
+    "index": 189,
+    "title": "Minutas Asamblea Getafe_20260720.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4526,
+    "summary": "Minutas Asamblea Getafe     FECHA HORA LUGAR DE CONVOCATORIA  20 de julio 10:00 h Airbus Getafe - Puerta Norte    Puntos tratados  1. Mensajes Generales: - Se recuerda que las nuevas propuestas y los feedback es preferible hacerlas  directamente a los compañeros de los grupos de trabajo, estarán e",
+    "file_path": "sources/fa41331e.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n \n FECHA HORA LUGAR DE CONVOCATORIA \n20 de julio 10:00 h Airbus Getafe - Puerta Norte \n \nPuntos tratados \n1. Mensajes Generales: - Se recuerda que las nuevas propuestas y los feedback es preferible hacerlas \ndirectamente a los compañeros de los grupos de trabajo, estarán en las carpas de la puerta Sur por la mañana antes de las asambleas. Y si alguien quiere unirse a los grupos será bienvenido. \n- Este Jueves (23/07) hay una manifestación en Sevilla a la que asistirán: Tablada, San Pablo y Cádiz. \n- Sobre la marcha al ministerio: para que todos los Sites se puedan unir, se retrasará la marcha a septiembre. \n \n2. Información desde los Grupos de Trabajo: - Grupo de logística - Resolución de dudas sobre el censo: \n- Horario: Estarán todos los días en ambas puertas a"
+  },
+  {
+    "id": "72e332de-9255-49fc-85c3-7ea2be624ce2",
+    "index": 190,
+    "title": "Minutas Asamblea Getafe_20260721.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 7745,
+    "summary": "Minutas Asamblea Getafe  21 de julio de 2026    FECHA HORA LUGAR DE CONVOCATORIA  21 de julio 10:00 h Airbus Getafe - Puerta Sur    Mensajes  Generales  1. Se recuerda que es importante venir a los piquetes desde las 5am. Dar visibilidad es importante para mostrar la fuerza del movimiento y evitar",
+    "file_path": "sources/72e332de.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n21 de julio de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n21 de julio 10:00 h Airbus Getafe - Puerta Sur \n \nMensajes  Generales \n1. Se recuerda que es importante venir a los piquetes desde las 5am. Dar visibilidad es importante para mostrar la fuerza del movimiento y evitar desmovilizaciones. \n2. Compañero que ha asistido a la asamblea de CCOO hoy comenta que la participación ha sido menor que la de la asamblea en huelga. \n \nMensajes de los grupos de  trabajo \nGrupo de logística - CENSO: \nContinúa el censo, recordad llevar vuestro BADGE y vuestro móvil. \nIncidencias: a partir de mañana se comenzará a revisar, pasar por las carpas \npara resolverlas. \nEs necesario censarse de manera presencial, solo para casos excepcionales se \nestá estudiando como poder hacerlo a d"
+  },
+  {
+    "id": "df2d88f5-8d4a-4655-87bf-e34aa59876cd",
+    "index": 191,
+    "title": "Minutas Asamblea Getafe_20260722.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4717,
+    "summary": "Minutas Asamblea Getafe   22 de julio de 2026    FECHA HORA LUGAR DE CONVOCATORIA  22 de julio 10:00 h Airbus Getafe - Puerta Norte    Mensajes generales  1. Tablada, San Pablo e Illescas han realizado la votación sobre la papeleta de huelga.  2. Resultado global: sí al contenido de la papeleta de",
+    "file_path": "sources/df2d88f5.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n 22 de julio de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n22 de julio 10:00 h Airbus Getafe - Puerta Norte \n \nMensajes generales \n1. Tablada, San Pablo e Illescas han realizado la votación sobre la papeleta de huelga. \n2. Resultado global: sí al contenido de la papeleta de huelga y sí a la huelga indefinida \ndesde el 24 de agosto. La papeleta se presentará el 1 de Agosto, ya que por temas legales no es posible incluir a SIPA antes de finalizar la papeleta actual (con fecha fin 31 de julio). \n3. En próximas votaciones no se compartirá ningún resultado de otros centros para no influenciar y se intentará que se realicen al mismo tiempo (en la medida de lo posible). \n4. Mañana, jueves (23/07), hay una marcha en Sevilla, por lo que, si hubiera que votar algo de lo que"
+  },
+  {
+    "id": "876c5764-ea57-41e7-850f-f5e0c4b9ac9d",
+    "index": 192,
+    "title": "Minutas Asamblea Getafe_20260723.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 8535,
+    "summary": "Minutas Asambleas Getafe   23 de julio de 2026    FECHA HORA LUGAR DE CONVOCATORIA  23 de julio 09:00 h Airbus Getafe - Puerta Sur    Pre-Asamblea (comienzo 08:50h)  Turno de palabra de CGT  1. SIPA y ATP han traicionado la confianza de la asamblea. Se ha firmado un acuerdo que  no se puede echar",
+    "file_path": "sources/876c5764.txt",
+    "fulltext_preview": " \nMinutas Asambleas Getafe \n 23 de julio de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n23 de julio 09:00 h Airbus Getafe - Puerta Sur \n \nPre-Asamblea (comienzo 08:50h) \nTurno de palabra de CGT \n1. SIPA y ATP han traicionado la confianza de la asamblea. Se ha firmado un acuerdo que \nno se puede echar hacia atrás. Es un acuerdo que ya está firmado. 2. CGT defiende que SIPA ha retrasado la presentación de la papeleta de huelga, \ncomunicó tarde que podría declararse huelga abusiva si se presenta la papeleta de huelga antes de que termine la suya. \n3. CGT quiere seguir peleando, legalmente no hay problema en hacerlo por los puntos que no están incluidos en el acuerdo, pero han lanzado una consulta legal sobre los puntos que sí están. En caso de poderse se debe volver a preparar la papeleta de hu"
+  },
+  {
+    "id": "bc204d86-699c-481c-ba2d-bafdde60bf9c",
+    "index": 193,
+    "title": "Minutas Asamblea Getafe_20260729.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 3621,
+    "summary": "Minutas Asamblea Retribuida Getafe   29 de julio de 2026    FECHA HORA LUGAR DE CONVOCATORIA  29 de julio 9:51 h Airbus Getafe - Puerta Norte    Mensajes generales   1. Se aclara que a pesar de que el slot de la asamblea lo convoca una fuerza sindical, la asamblea continúa siendo  una herramienta",
+    "file_path": "sources/bc204d86.txt",
+    "fulltext_preview": " \nMinutas Asamblea Retribuida Getafe \n 29 de julio de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n29 de julio 9:51 h Airbus Getafe - Puerta Norte \n \nMensajes generales  \n1. Se aclara que a pesar de que el slot de la asamblea lo convoca una fuerza sindical, la asamblea continúa siendo  una herramienta en manos de los trabajadores. \n2. Se recuerdan las normas de la asamblea: Nada de siglas, ni ataques entre nosotros, no violencia.  \n3. Se recuerda que la fuerza de este movimiento es la UNIDAD y se invita a TODAS las \nfuerzas sindicales a que se unan. \n4. Los grupos de trabajo siguen activos en el tiempo libre de los trabajadores. Damos la bienvenida a nuevos voluntarios que quieran sumarse a los grupos.   \n \nAclaración CNC \n- Para obtener una respuesta antes de vacaciones, se ha decidido consu"
+  },
+  {
+    "id": "0cce3e49-4bc7-4cc9-80a2-77430313bff5",
+    "index": 194,
+    "title": "Minutas Asamblea Getafe_20260824 (1).PDF",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 11739,
+    "summary": "Minutas Asamblea Getafe  24 de Agosto de 2026    FECHA HORA LUGAR DE CONVOCATORIA   24 de agosto 11:30 Airbus Getafe - Explanada entre P1 y A1    Mensajes Generales  Se recuerdan las normas de la asamblea:  1. Nada de siglas, ni ataque entre nosotros. No Violencia, ni verbal ni física. 2. Las asam",
+    "file_path": "sources/0cce3e49.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n24 de Agosto de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n 24 de agosto 11:30 Airbus Getafe - Explanada entre P1 y A1 \n \nMensajes Generales \nSe recuerdan las normas de la asamblea: \n1. Nada de siglas, ni ataque entre nosotros. No Violencia, ni verbal ni física. 2. Las asambleas son organizadas por y para los trabajadores. Las fuerzas sindicales \nponen esta herramienta en manos de los trabajadores. 3. Se pide respetar la libertad de expresión durante las votaciones. Si alguien se siente \ncoaccionado, contactad con los grupos de trabajo para denunciar el hecho. 4. El objetivo es ser transparentes, hoy se van a dar explicaciones de las negociaciones \nque han tenido lugar durante agosto. \n \nAclaraciones sobre el paro de hoy 24 de agosto \n1. ¿Por qué se decidió tener "
+  },
+  {
+    "id": "72314676-15ab-41ae-96a4-dfc72535b350",
+    "index": 195,
+    "title": "Minutas Asamblea Getafe_20260825-1.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 5467,
+    "summary": "Minutas Asamblea Getafe   25 de Agosto de 2026    FECHA HORA LUGAR DE CONVOCATORIA  25 de agosto 10:00 h Airbus Getafe - Puerta Sur    Mensajes Generales  1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas  sindicales son bienvenidas. Se pide respetar la libertad",
+    "file_path": "sources/72314676.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n 25 de Agosto de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n25 de agosto 10:00 h Airbus Getafe - Puerta Sur \n \nMensajes Generales \n1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas \nsindicales son bienvenidas. Se pide respetar la libertad de expresión. 2. Se felicita por lo exitoso y pacifico que ha sido el piquete de hoy. 3. Se informa que en todas las factorías ganó ayer el SÍ a la huelga. Excepto en Cádiz, \nque están todavía de vacaciones. 4. Se comunica que debido a la reunión del SIMA hoy a las 9:00, en esta asamblea no se \ncontará con la participación de los representantes sindicales. 5. Se informa que ayer se reunieron sindicatos y grupos de trabajo para revisar las \nreivindicaciones y preparar las negociaciones de hoy en"
+  },
+  {
+    "id": "0f60b70c-8b66-4e63-9019-d0f40c24c6fb",
+    "index": 196,
+    "title": "Minutas Asamblea Getafe_20260825.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 5467,
+    "summary": "Minutas Asamblea Getafe   25 de Agosto de 2026    FECHA HORA LUGAR DE CONVOCATORIA  25 de agosto 10:00 h Airbus Getafe - Puerta Sur    Mensajes Generales  1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas  sindicales son bienvenidas. Se pide respetar la libertad",
+    "file_path": "sources/0f60b70c.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n 25 de Agosto de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n25 de agosto 10:00 h Airbus Getafe - Puerta Sur \n \nMensajes Generales \n1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas \nsindicales son bienvenidas. Se pide respetar la libertad de expresión. 2. Se felicita por lo exitoso y pacifico que ha sido el piquete de hoy. 3. Se informa que en todas las factorías ganó ayer el SÍ a la huelga. Excepto en Cádiz, \nque están todavía de vacaciones. 4. Se comunica que debido a la reunión del SIMA hoy a las 9:00, en esta asamblea no se \ncontará con la participación de los representantes sindicales. 5. Se informa que ayer se reunieron sindicatos y grupos de trabajo para revisar las \nreivindicaciones y preparar las negociaciones de hoy en"
+  },
+  {
+    "id": "840ae971-f7d9-4a98-9ce3-11561389a76f",
+    "index": 197,
+    "title": "Minutas Asamblea Getafe_20260826-1.PDF",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 9157,
+    "summary": "Minutas Asamblea Getafe   26 de Agosto de 2026    FECHA HORA LUGAR DE CONVOCATORIA  26 de agosto 10:00 h Airbus Getafe - Puerta Norte     Mensajes Generales  1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas  sindicales son bienvenidas. Se pide respetar la liber",
+    "file_path": "sources/840ae971.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n 26 de Agosto de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n26 de agosto 10:00 h Airbus Getafe - Puerta Norte  \n \nMensajes Generales \n1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas \nsindicales son bienvenidas. Se pide respetar la libertad de expresión. 2. Desde los grupos de trabajo se ha realizado un acercamiento a los delegados sindicales \nde SIPA para que se sumen a la huelga. SIPA va a realizar una consulta con su afiliación. \n3. Marcha al ministerio: Puede tener un recorrido que pase por varios ministerios. Se va a estudiar cuál será el recorrido, cómo organizar los desplazamientos de los compañeros de fuera de Madrid y como pagar los gastos entre todos.  \n4. Piquetes: Se pide a los sindicatos que como mínimo haya un del"
+  },
+  {
+    "id": "f063b610-7420-4755-9ca9-ebae1643a528",
+    "index": 198,
+    "title": "Minutas Asamblea Getafe_20260827.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4554,
+    "summary": "Minutas Asamblea Getafe   27 de Agosto de 2026    FECHA HORA LUGAR DE CONVOCATORIA  27 de Agosto 9:30 h Airbus Getafe - Puerta Sur     Mensajes Generales  1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas  sindicales son bienvenidas. Se pide respetar la libertad",
+    "file_path": "sources/f063b610.txt",
+    "fulltext_preview": " \nMinutas Asamblea Getafe \n 27 de Agosto de 2026 \n  FECHA HORA LUGAR DE CONVOCATORIA \n27 de Agosto 9:30 h Airbus Getafe - Puerta Sur  \n \nMensajes Generales \n1. Se recuerdan las normas de la asamblea: No violencia, no siglas. Todas las fuerzas \nsindicales son bienvenidas. Se pide respetar la libertad de expresión. 2. Enhorabuena porque hoy a pesar de la lluvia se ha mantenido el piquete. 3. La sesión del SIMA ha empezado, cuándo tengamos información se pasará por los \ncanales habituales. 4. Se pide apoyo a los piquetes, hay gente que está horas sujetando la pancarta. \nNecesitamos darles relevos. \n \nMensajes de los grupos de trabajo \n1. Marcha al ministerio: a. Ya está redactado el documento, solo falta concretar la fecha que la están \nmirando especialmente los centros que tienen que realiza"
+  },
+  {
+    "id": "7f536e16-d4c1-4c23-9ed2-33ea6badeeac",
+    "index": 199,
+    "title": "Minutas Asamblea en Huelga GETAFE - 16_07_2026.pdf",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "pdf",
+    "url": null,
+    "char_count": 4998,
+    "summary": "Minutas Asamblea en Huelga GETAFE - 16/07/2026   UN DÍA DIFERENTE   1. Votación clave en la asamblea de mañana:  - Se realizará una votación decisiva sobre la duración de la nueva papeleta de huelga.  - Se expondrán con total transparencia los pros y contras de cada uno de los escenarios previstos.",
+    "file_path": "sources/7f536e16.txt",
+    "fulltext_preview": "Minutas Asamblea en Huelga GETAFE - 16/07/2026  \nUN DÍA DIFERENTE \n 1. Votación clave en la asamblea de mañana: \n- Se realizará una votación decisiva sobre la duración de la nueva papeleta de huelga. \n- Se expondrán con total transparencia los pros y contras de cada uno de los escenarios previstos. \n- Se solicita la máxima asistencia y movilización de la plantilla para asegurar que el \nresultado sea completamente representativo. \n- Coordinación nacional: Se buscará realizar la votación de forma paralela en todos \nlos centros  \n2. Rol de los observadores: \n- Función de los observadores: Su labor se limita a asegurar que el proceso sea transparente y que se respeten las reivindicaciones de la plantilla. No están autorizados ni deben ser presionados para difundir cotilleos, rumores o \nfiltrac"
+  },
+  {
+    "id": "b32d36de-3d72-40eb-ba90-55e6bbc978fc",
+    "index": 200,
+    "title": "Más de 25.000 trabajadores se unen a la huelga del metal de Cádiz en su primera jornada",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.elsaltodiario.com/cadiz/represion-incumplimientos-impagos-huelga-del-metal-arranca-cadiz",
+    "char_count": 30883,
+    "summary": "Más de 25.000 trabajadores se unen a la huelga del metal de Cádiz en su primera jornada - El Salto - Andalucía Salto a contenido https://www.elsaltodiario.com/cadiz/represion-incumplimientos-impagos-huelga-del-metal-arranca-cadiz#contenido-principal   Salto a navegación https://www.elsaltodiario.com",
+    "file_path": "sources/b32d36de.txt",
+    "fulltext_preview": "Más de 25.000 trabajadores se unen a la huelga del metal de Cádiz en su primera jornada - El Salto - Andalucía\nSalto a contenido\nhttps://www.elsaltodiario.com/cadiz/represion-incumplimientos-impagos-huelga-del-metal-arranca-cadiz#contenido-principal\n \nSalto a navegación\nhttps://www.elsaltodiario.com/cadiz/represion-incumplimientos-impagos-huelga-del-metal-arranca-cadiz#menu-principal\n \nContenidos portada\nhttps://www.elsaltodiario.com/#contenido-principal\n \nAccesibilidad\nhttps://www.elsaltodiario.com/info/accesibilidad\nimage/svg+xml 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10\n×\nEsta web utiliza cookies. Si continúas navegando entendemos que acepta su uso. \nOK\nhttps://www.elsaltodiario.com/cadiz/represion-incumplimientos-impagos-huelga-del-metal-arranca-cadiz\nLas \ncookies propias\n de esta web "
+  },
+  {
+    "id": "a34b08c8-8054-4f8a-b577-a400ca3c75fc",
+    "index": 201,
+    "title": "Nouvelle grille de salaires de la Convention Métallurgie 2026 - Juritravail",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.juritravail.com/Actualite/grille-de-salaires-convention-collective-unique-metallurgie/Id/376656",
+    "char_count": 86969,
+    "summary": "Métallurgie : les grilles de salaires pour 2026 Professionnel https://www.juritravail.com/professionnels   CSE https://www.juritravail.com/professionnels/comite-social-et-economique   Particulier https://www.juritravail.com/particuliers Votre abonnement juridique https://www.juritravail.com/professi",
+    "file_path": "sources/a34b08c8.txt",
+    "fulltext_preview": "Métallurgie : les grilles de salaires pour 2026\nProfessionnel\nhttps://www.juritravail.com/professionnels\n \nCSE\nhttps://www.juritravail.com/professionnels/comite-social-et-economique\n \nParticulier\nhttps://www.juritravail.com/particuliers\nVotre abonnement juridique\nhttps://www.juritravail.com/professionnels/offres/offre-abonnement-employeur\n01 75 75 36 00\ntel:+33175753600\n \nhttps://www.juritravail.com/mon-compte\n0\nVotre panier vous attend !\nCommander\nS1QG3W3ZQT 24e75a3f3e1f93a2473027972002ecf2 true\nProfessionnel\nhttps://www.juritravail.com/professionnels\n \nCSE\nhttps://www.juritravail.com/professionnels/comite-social-et-economique\n \nParticulier\nhttps://www.juritravail.com/particuliers\nJe suis un professionnel\nDossiers\nLettres et contrats\nAffichages obligatoires\nConventions Collectives\nDémarch"
+  },
+  {
+    "id": "66cf2a84-96ed-476d-ba2f-5aed76c2c8bc",
+    "index": 202,
+    "title": "Nuevo Convenio Estatal de Industrias Cárnicas para 2024-2025 - LSB-USO",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/",
+    "char_count": 24281,
+    "summary": "Nuevo Convenio Estatal de Industrias Cárnicas para 2024-2025 - LSB-USO Saltar al contenido https://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/#content Menú superior https://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/ CONFEDERACIÓN http://ww",
+    "file_path": "sources/66cf2a84.txt",
+    "fulltext_preview": "Nuevo Convenio Estatal de Industrias Cárnicas para 2024-2025 - LSB-USO\nSaltar al contenido\nhttps://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/#content\nMenú superior\nhttps://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/\nCONFEDERACIÓN\nhttp://www.uso.es/\nFAC\nhttps://facuso.es/\nFE\nhttp://www.feuso.es/\nFI\nhttp://www.fi-uso.es/\nFS\nhttp://www.fs-uso.es/\nFTSP\nhttp://www.ftspuso.es/\nGABINETE DE ESTUDIOS\nhttp://jlfsanti.wixsite.com/geuso\n28 agosto, 2026\nCONFEDERACIÓN\nhttp://www.uso.es/\nFAC\nhttps://facuso.es/\nFE\nhttp://www.feuso.es/\nFI\nhttp://www.fi-uso.es/\nFS\nhttp://www.fs-uso.es/\nFTSP\nhttp://www.ftspuso.es/\nGABINETE DE ESTUDIOS\nhttp://jlfsanti.wixsite.com/geuso\nFacebook\nhttps://facebook.com/lsb.uso.Euskadi\nTwitter\nhttps://x.com/LSB_USOEuskad"
+  },
+  {
+    "id": "22e6f89f-4073-4f05-89c9-b4b224d858a1",
+    "index": 203,
+    "title": "Oficinas y Seguros - FeSMC UGT-CV",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2",
+    "char_count": 19535,
+    "summary": "Oficinas y Seguros  https://www.fesmcugtcv.org/cms/ Menu Inicio https://www.fesmcugtcv.org/cms/index.php Somos https://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2 Qué es FeSMC-CV? https://www.fesmcugtcv.org/cms/index.php/somos/que-es-fesmc-cv Nuestra historia https://www.fesmcugtcv.org/cms",
+    "file_path": "sources/22e6f89f.txt",
+    "fulltext_preview": "Oficinas y Seguros \nhttps://www.fesmcugtcv.org/cms/\nMenu\nInicio\nhttps://www.fesmcugtcv.org/cms/index.php\nSomos\nhttps://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2\nQué es FeSMC-CV?\nhttps://www.fesmcugtcv.org/cms/index.php/somos/que-es-fesmc-cv\nNuestra historia\nhttps://www.fesmcugtcv.org/cms/images/publicaciones/ugt_historia_hoy/150304_ugt_historia_hoy.pdf\nCódigo ético\nhttps://www.fesmcugtcv.org/cms/images/publicaciones/ugt-codigo-etico/UGT-CodigoEtico.pdf\nOtras webs de UGT\nhttps://www.fesmcugtcv.org/cms/index.php/somos/otras-webs-ugt\nElecciones sindicales\nhttps://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2\nDocumentos\nhttps://www.fesmcugtcv.org/cms/index.php/somos/elecciones-sindicales/elecciones-sindicales-documentos\nVídeos-Campañas\nhttps://www.fesmcugtcv.org/cms/index.p"
+  },
+  {
+    "id": "042d8051-3b5c-416d-95a5-c35a0a3393f0",
+    "index": 204,
+    "title": "PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 3402,
+    "summary": "PLIEGO DE GARANTÍAS DEFINITIVO -TRABAJADORES DE ESPACIO  AL COMITÉ DE EMPRESA Y SECCIONES SINDICALES - AIRBUS GETAFE  ASUNTO: Pliego de Garantías del Colectivo S07 ante el Proyecto Bromo.  BLOQUE 1: MARCO LABORAL Y CONVENIO    Adhesión Permanente al Convenio de Airbus: Garantizar la permanencia en e",
+    "file_path": "sources/042d8051.txt",
+    "fulltext_preview": "PLIEGO DE GARANTÍAS DEFINITIVO -TRABAJADORES DE ESPACIO \nAL COMITÉ DE EMPRESA Y SECCIONES SINDICALES - AIRBUS GETAFE \nASUNTO: Pliego de Garantías del Colectivo S07 ante el Proyecto Bromo. \nBLOQUE 1: MARCO LABORAL Y CONVENIO \n \nAdhesión Permanente al Convenio de Airbus: Garantizar la permanencia en el convenio de Airbus \nmediante un Pacto de Adhesión que garantice la aplicación de las futuras mejoras que se pacten en la empresa matriz. \n \nCláusula Anti-Doble Escala: Este marco laboral debe aplicarse por igual a la plantilla subrogada y a \ntodas las nuevas incorporaciones futuras, evitando la creación de una escala laboral inferior en Bromo. \n \nResponsabilidad Solidaria: Que Airbus firme como responsable solidario de todas estas garantías, \nactuando como avalista ante cualquier incumplimient"
+  },
+  {
+    "id": "457367f7-4340-4486-9db9-a14a0a05a989",
+    "index": 205,
+    "title": "Passion for progress - Radar du devoir de vigilance",
+    "category": "Informes Airbus SE & Financieros",
+    "type": "pdf",
+    "url": "https://plan-vigilance.org/wp-content/uploads/vigilance-pdf/a468a75ff42914b0e276f6e7f12a7b7f.pdf",
+    "char_count": 1152375,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9DenSZL87mTNSEw5_pXeKQ3bp0kFm_2YDFMnrlJP0egOmJWWNXfRKXJ5oxoYFBIXp2RdTGmoXarhWKC8DzohWNPoNnlDX2GBCngqg7kA0b6BDp9o0qPs2COZKmcHDqY3nHu6M3Fw=w854-h1106-v0 35edce61-56d5-455b-85d9-448e1b9c877e Passion for progress  AIRBUS ANNUAL REPORT 2018 https://lh3.g",
+    "file_path": "sources/457367f7.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9DenSZL87mTNSEw5_pXeKQ3bp0kFm_2YDFMnrlJP0egOmJWWNXfRKXJ5oxoYFBIXp2RdTGmoXarhWKC8DzohWNPoNnlDX2GBCngqg7kA0b6BDp9o0qPs2COZKmcHDqY3nHu6M3Fw=w854-h1106-v0\n35edce61-56d5-455b-85d9-448e1b9c877e\nPassion for progress \nAIRBUS ANNUAL REPORT 2018\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_zp1TYjtr40ZQkGwBBFDFRc2F7_BcCJnxY7gv3KonwQLm_hHRbIqb2TY1mATuEJgRElnRxye05P3ufTTXu9GFr1awE1NBuPD3NdZ-uKbz4Rz6FHgz37q9jUGDuZ7J6l2Thx-17dw=w863-h1119-v0\nb723459c-e4bc-45af-84f9-3267e6e6470c\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8hJEyB5N04bE7t721yuHFDjlr8e050hAQWeIW2zgoz_JjxUGUZYrhjXaJdGtNzIMDC0SrcnJO82_xxZFmRMMUM4jZugLKKCvvEbQpvAZaSnmGA5gW7E8H3xXBWpkqLgzNTdTGIjQ=w307-h233-v0\n4e99b26f-aaa1-43df-b33c-81399b8461d9\nhttps://lh3.googleusercontent.com/no"
+  },
+  {
+    "id": "e2f76ebb-cd61-4fae-9336-2c5988a3b380",
+    "index": 206,
+    "title": "Plataforma reivindicativa de los trabajadores.pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2863,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8HHboVYIqZuU_FTNm_QsV_V8eF-98cojy0WHx0lfu-1_DC8zLQU4o3E00L0Zn7besC34aCKHc9C51WZ_5IytozjOGwH976PxnmiTwXIiu7QRim8y7XiOW9ZknE6hAeYL2gGcqZYQ=w839-h1187-v0 9580147a-48b5-4996-bb6e-c085ae2f8482 https://lh3.googleusercontent.com/notebooklm/AKYWMX_hJvPejZTt",
+    "file_path": "sources/e2f76ebb.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX8HHboVYIqZuU_FTNm_QsV_V8eF-98cojy0WHx0lfu-1_DC8zLQU4o3E00L0Zn7besC34aCKHc9C51WZ_5IytozjOGwH976PxnmiTwXIiu7QRim8y7XiOW9ZknE6hAeYL2gGcqZYQ=w839-h1187-v0\n9580147a-48b5-4996-bb6e-c085ae2f8482\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_hJvPejZTt2Qr1tHGvqXq1RhE1nG_NU0H_Jf5JRmVPL6P-REcKCCBOFoOjRJ_CiaPSqYa_fzNJ2AZ-5ZcO2fHO0tVWmnlMpiGVpNKup3fcH0jz0eL4WbgWn5X6bXGC9vVV0vJhGA=w839-h1187-v0\n0627fc7d-3cd4-4e67-a6dc-16ece5531310\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-ES_nRFXKDCDcEhDkc-4Bdyxumnvjr3yYAj2lrauhPM5Yv4Yg922lsei7JAVd6Pcfy_TkaOMODDV1GJVAjHjni30xGb77xL3XdUDsV5DKDq-yOY0fFGcgzRoHpNA-XLzwYV94VGQ=w839-h1187-v0\n8843d4ae-215e-4cf6-bcd3-cba268baff36\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX-Hj0D6i9rB-OUkS6k87pDd-m1rx5bgaG"
+  },
+  {
+    "id": "4f43ba00-1a72-4e3c-aab8-3350f7965e96",
+    "index": 207,
+    "title": "Professional Air Traffic Controllers Organization (Washington, D.C.)",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://scua.library.umass.edu/professional-air-traffic-controllers-patco-boston-tower/",
+    "char_count": 59778,
+    "summary": "Professional Air Traffic Controllers Organization (Washington, D.C.) – Special Collections & University Archives The University of Massachusetts Amherst https://www.umass.edu/  Open UMass Global Links Menu Visit https://www.umass.edu/admissions/visits/visit-campus Apply https://www.umass.edu/gateway",
+    "file_path": "sources/4f43ba00.txt",
+    "fulltext_preview": "Professional Air Traffic Controllers Organization (Washington, D.C.) – Special Collections & University Archives\nThe University of Massachusetts Amherst\nhttps://www.umass.edu/\n Open UMass Global Links Menu\nVisit\nhttps://www.umass.edu/admissions/visits/visit-campus\nApply\nhttps://www.umass.edu/gateway/admissions\nGive\nhttps://securelb.imodules.com/s/1640/rd17/form/form.aspx?sid=1640&gid=2&pgid=443&cid=1121\nSearch UMass.edu\nhttps://www.umass.edu/search\nUMass Amherst Libraries\nhttp://library.umass.edu/\nRobert S. Cox Special Collections & University Archives Research Center\nhttps://scua.library.umass.edu/\n \nEmail an archivist\nhttps://scua.library.umass.edu/services-at-scua/askanarc/\nCredoResearch digital collections in Credo\nhttp://credo.library.umass.edu/\nProfessional Air Traffic Controllers Or"
+  },
+  {
+    "id": "f9de72e8-7f13-4801-af57-6910d864a93f",
+    "index": 208,
+    "title": "Project Bromo - Wikipedia",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://en.wikipedia.org/wiki/Project_Bromo",
+    "char_count": 14413,
+    "summary": "Project Bromo - Wikipedia Jump to content https://en.wikipedia.org/wiki/Project_Bromo#bodyContent   [-] Main menu Main menu move to sidebar hide Navigation Main page https://en.wikipedia.org/wiki/Main_Page Contents https://en.wikipedia.org/wiki/Wikipedia:Contents Current events https://en.wikipedia.",
+    "file_path": "sources/f9de72e8.txt",
+    "fulltext_preview": "Project Bromo - Wikipedia\nJump to content\nhttps://en.wikipedia.org/wiki/Project_Bromo#bodyContent\n \n[-]\nMain menu\nMain menu\nmove to sidebar hide\nNavigation\nMain page\nhttps://en.wikipedia.org/wiki/Main_Page\nContents\nhttps://en.wikipedia.org/wiki/Wikipedia:Contents\nCurrent events\nhttps://en.wikipedia.org/wiki/Portal:Current_events\nRandom article\nhttps://en.wikipedia.org/wiki/Special:Random\nAbout Wikipedia\nhttps://en.wikipedia.org/wiki/Wikipedia:About\nContact us\nhttps://en.wikipedia.org/wiki/Wikipedia:Contact_us\nContribute\nHelp\nhttps://en.wikipedia.org/wiki/Help:Contents\nLearn to edit\nhttps://en.wikipedia.org/wiki/Help:Introduction\nCommunity portal\nhttps://en.wikipedia.org/wiki/Wikipedia:Community_portal\nRecent changes\nhttps://en.wikipedia.org/wiki/Special:RecentChanges\nUpload file\nhttps://en"
+  },
+  {
+    "id": "ee792c1b-93c3-4ec0-b1a5-316c45e628db",
+    "index": 209,
+    "title": "Project Bromo Space Economy: Shaping Europe's New Aerospace Ecosystem - Kineton",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.kineton.it/en/project-bromo-space-economy/",
+    "char_count": 14086,
+    "summary": "Project Bromo Space Economy: Europe's New Aerospace Strategy - Kineton Skip to content https://www.kineton.it/en/project-bromo-space-economy/#content Project Bromo Space Economy: Shaping Europe's New Aerospace Ecosystem 18/06/2026 https://www.kineton.it/en/2026/06/18/   Introduction Project Bromo Sp",
+    "file_path": "sources/ee792c1b.txt",
+    "fulltext_preview": "Project Bromo Space Economy: Europe's New Aerospace Strategy - Kineton\nSkip to content\nhttps://www.kineton.it/en/project-bromo-space-economy/#content\nProject Bromo Space Economy: Shaping Europe's New Aerospace Ecosystem\n18/06/2026\nhttps://www.kineton.it/en/2026/06/18/\n \nIntroduction\nProject Bromo Space Economy\n represents one of the most significant industrial initiatives in the European aerospace sector. The announced joint venture involving \nAirbus Defence and Space\nhttps://www.airbus.com/en/products-services/space\n, \nThales\nhttps://www.thalesgroup.com/it/worldwide/italia\n, and \nLeonardo\nhttps://www.leonardo.com/it/home\n aims to strengthen Europe's technological sovereignty while accelerating innovation across satellite systems, software engineering, and digital infrastructure.\nMoreover,"
+  },
+  {
+    "id": "f9293a4d-e456-4c58-96be-74f5afc3d06b",
+    "index": 210,
+    "title": "Proposal - IAM District 751",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.iam751.org/2024StrikeProposal/",
+    "char_count": 2979,
+    "summary": "Highlights of October 31 Proposal  Red Line of Offer October 31 Proposal  Health Care Costs  Strike Settlement Agreement October 31          All Highlights to Date in One Doc        Latest Company Proposal - October 31st, 2024 With the assistance of Secretary of Labor Julie Su, this updated",
+    "file_path": "sources/f9293a4d.txt",
+    "fulltext_preview": "\n\n\n\n\n\n\n\nHighlights of October 31 Proposal\n\nRed Line of Offer October 31 Proposal\n\nHealth Care Costs\n\nStrike Settlement Agreement October 31\n\n\n\n\n\n\n\n\n\nAll Highlights to Date in One Doc\n\n\n\n\n\n\n\nLatest Company Proposal - October 31st, 2024\nWith the assistance of Secretary of Labor Julie Su, this updated proposal between the Union and Boeing, includes several key improvements aimed at resolving the strike. In addition to what was offered in the rejected September 12, 2024 offer, here's a breakdown of the key elements.\nWe are planning to vote this proposal on Monday November 4, 2024.\nWages\n: A 38% general wage increase spread over 4 years (13% in Year 1, 9% in Year 2, 9% in Year 3, and 7% in Year 4).\nIncentive Pay\n:The AMPP incentive plan is reinstated, with a guaranteed minimum annual payout of "
+  },
+  {
+    "id": "dd4c1c8f-c6e2-4e4e-89cc-141884a1e325",
+    "index": 211,
+    "title": "Propuesta_ComiteHuelga270826.pdf",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "pdf",
+    "url": null,
+    "char_count": 11029,
+    "summary": "Número Concepto   1   Desistimiento del recurso presentado  ante el tribunal supremo  Desistimiento del recurso presentado ante el tribunal supremo. Compromiso de no aplicación de ninguna medida que suponga retirada o reducción del complemento IT. Se tomará como referencia para el control del absent",
+    "file_path": "sources/dd4c1c8f.txt",
+    "fulltext_preview": "Número Concepto  \n1 \n Desistimiento del recurso presentado \nante el tribunal supremo \nDesistimiento del recurso presentado ante el tribunal supremo. Compromiso de no aplicación de ninguna medida que suponga retirada o reducción del complemento IT. Se tomará como referencia para el control del absentismo el texto del VI convenio colectivo. Se procederá a la devolución de las cantidades descontadas en octubre de 2026.    \n2  Incremento salarial y \nrecuperación del poder adquisitivo \nPago no consolidable de 7500 euros. Incremento del 12% en tablas e incremento general a 1 de enero de 2026. 2026: IPC+1.5% 2027: IPC+1.5%  IPC sin clausula techo. Clausula suelo 0%. A partir de 2027, IG ligado a IPC+X%.   \n3 Teletrabajo \nLa modalidad de trabajo a distancia se aplicará de manera universal en un mí"
+  },
+  {
+    "id": "73125e1e-f70a-4b36-9d1c-c813ce3c0fcf",
+    "index": 212,
+    "title": "Protect, accelerate, transform: Renault Group signs a three-year trade union agreement",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://media.renaultgroup.com/protect-accelerate-transform-renault-group-signs-a-three-year-trade-union-agreement/",
+    "char_count": 14652,
+    "summary": "en   Stratégie   Magazine   Gouvernance   newsalert   Contacts   en  Actualités    futuREady   Renaulution   Partenariats   Innovation et technologie   Résultats financiers   Résultats commerciaux   RRG   Assemblée générale   Conseil d'administration   Accords   Nominations   Usines 4.0   Prix WEF",
+    "file_path": "sources/73125e1e.txt",
+    "fulltext_preview": " en \n Stratégie \n Magazine \n Gouvernance \n newsalert \n Contacts \n en \nActualités  \n futuREady \n Renaulution \n Partenariats \n Innovation et technologie \n Résultats financiers \n Résultats commerciaux \n RRG \n Assemblée générale \n Conseil d'administration \n Accords \n Nominations \n Usines 4.0 \n Prix WEF \n Usine \n Économie circulaire \n Décarbonation \n Sécurité \n Inclusion \n Fondation \n Médiathèque \n Contacts \n Stratégie \n Magazine \n Gouvernance \n Renault Group \n Renault \n Alpine \n Dacia \n Alliance \n Communiqués de presse \nCommuniqués de presse  \nProtect, accelerate, transform: Renault Group signs a three-year trade union agreement \nRenault Group in France and the trade unions CFE-CGC and CFDT signed a new three-year social agreement today, December 19, for the period 2025-2027.\nThis agreement is"
+  },
+  {
+    "id": "17d085cc-9816-40c4-b923-11c47b15d0a0",
+    "index": 213,
+    "title": "Protestas contra el cierre de Airbus Puerto Real",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "youtube",
+    "url": "https://www.youtube.com/watch?v=4_V6FoIpk7U",
+    "char_count": 1035,
+    "summary": "pero texto en madrid contra el cierre de la planta de airbus en puerto real en la sureña provincia de cádiz más de medio millar de trabajadores han participado en una marcha convocada por la cgt desde la factoría de airbus en getafe hasta el ministerio de industria español uno de los miembros del co",
+    "file_path": "sources/17d085cc.txt",
+    "fulltext_preview": "pero texto en madrid contra el cierre de la planta de airbus en puerto real en la sureña provincia de cádiz más de medio millar de trabajadores han participado en una marcha convocada por la cgt desde la factoría de airbus en getafe hasta el ministerio de industria español uno de los miembros del comité de empresa de la fábrica de puerto real explica el gran impacto que tendría su cierre aproximadamente en la planta son unos 300 y algo de directo y por tres más o menos los subcontrata que tenemos allí pero luego hay un tejido industrial alrededor de la factoría que no trabajan dentro de nuestra planta pero que que también dependen de la asistencia de airbus puerto real bis el jueves hubo un paro en la planta de puerto real tras conocerse que su cierre y traslado de su producción al centro "
+  },
+  {
+    "id": "41e120cb-94ab-425f-a957-265cf138d5c8",
+    "index": 214,
+    "title": "Publicado en el Boletín Oficial del Estado el VII Convenio del Sector de la Construcción",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.fundacionlaboral.org/actualidad/noticias/sector/publicado-en-el-boletin-oficial-del-estado-el-vii-convenio-del-sector-de-la-construccion",
+    "char_count": 16996,
+    "summary": "Publicado en el Boletín Oficial del Estado el VII Convenio del Sector de la Construcción Blog http://blog.fundacionlaboral.org/ [900 11 21 21](tel:900 11 21 21) L-V 8:00 - 15:00 Fundación Laboral de la Construcción https://www.fundacionlaboral.org/ Menú Inicio https://www.fundacionlaboral.org/ Funda",
+    "file_path": "sources/41e120cb.txt",
+    "fulltext_preview": "Publicado en el Boletín Oficial del Estado el VII Convenio del Sector de la Construcción\nBlog\nhttp://blog.fundacionlaboral.org/\n[900 11 21 21](tel:900 11 21 21)\nL-V 8:00 - 15:00\nFundación Laboral de la Construcción\nhttps://www.fundacionlaboral.org/\nMenú\nInicio\nhttps://www.fundacionlaboral.org/\nFundación\njavascript:;\nQuiénes somos Quiénes somos Conoce nuestras señas de identidad y nuestro organigrama.\nhttps://www.fundacionlaboral.org/fundacion/quienes-somos\nCuotas Cuotas Cómo gestionar el pago de la cuota sectorial.\nhttps://www.fundacionlaboral.org/cuotas\nSistema integrado de gestión Sistema integrado de gestión Nuestro compromiso con la excelencia.\nhttps://www.fundacionlaboral.org/fundacion/sistema-integrado-de-gestion\nTransparencia Transparencia El origen de nuestros recursos y su distrib"
+  },
+  {
+    "id": "b5655946-17f0-44ff-92da-39fbc6c59221",
+    "index": 215,
+    "title": "RELOAD – Classification - My CFE-CGC Airbus",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://airbus.avions.cfe-cgc.fr/2022/10/06/reload-classification-3/",
+    "char_count": 3058,
+    "summary": "RELOAD – Classification – My CFE-CGC Airbus Aller au contenu principal https://airbus.avions.cfe-cgc.fr/2022/10/06/reload-classification-3/#content ACTUALITES https://airbus.avions.cfe-cgc.fr/category/actualites/  Ouvrir le sous-menu CFE-CGC Airbus https://airbus.avions.cfe-cgc.fr/category/actualite",
+    "file_path": "sources/b5655946.txt",
+    "fulltext_preview": "RELOAD – Classification – My CFE-CGC Airbus\nAller au contenu principal\nhttps://airbus.avions.cfe-cgc.fr/2022/10/06/reload-classification-3/#content\nACTUALITES\nhttps://airbus.avions.cfe-cgc.fr/category/actualites/\n Ouvrir le sous-menu\nCFE-CGC Airbus\nhttps://airbus.avions.cfe-cgc.fr/category/actualites/cfe-cgc/\nBlagnac-SAS\nhttps://airbus.avions.cfe-cgc.fr/category/actualites/blagnac-sas/\nEnglish version\nhttps://airbus.avions.cfe-cgc.fr/category/actualites/actuality-english-version/\nToulouse OPS SAS\nhttps://airbus.avions.cfe-cgc.fr/category/actualites/toulouse/\nNos valeurs\nhttps://airbus.avions.cfe-cgc.fr/2018/11/06/nos-valeurs/\nNos spécialistes\nhttps://airbus.avions.cfe-cgc.fr/category/nos-specialistes/\n Ouvrir le sous-menu\nBlagnac SAS\nhttps://airbus.avions.cfe-cgc.fr/2018/11/06/nos-speciali"
+  },
+  {
+    "id": "65aaf2d6-0c65-4a77-9880-315a04685ab5",
+    "index": 216,
+    "title": "RELOAD: two years of damage and growing dissatisfaction!",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/",
+    "char_count": 8633,
+    "summary": "RELOAD: two years of damage and growing dissatisfaction! – CGT Airbus Commercial Aircraft Aller au contenu https://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/#wp--skip-link--target Les sites CGT Airbus https://avions.cgtairbus.com/english/reload-two-years-of-",
+    "file_path": "sources/65aaf2d6.txt",
+    "fulltext_preview": "RELOAD: two years of damage and growing dissatisfaction! – CGT Airbus Commercial Aircraft\nAller au contenu\nhttps://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/#wp--skip-link--target\nLes sites CGT Airbus\nhttps://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/\nAirbus Group\nhttps://groupe.cgtairbus.com/\nAirbus Defence & Space RP\nhttps://ds.cgtairbus.com/\nAirbus Defence & Space TLS\nhttps://www.cgt-airbusds.com/\nAirbus Atlantic Nantes\nhttps://www.cgt-airbus-nantes.fr/\nAirbus Atlantic Montoir\nhttps://www.cgt-airbus-saint-nazaire.fr/\nAirbus Helicopter\nhttps://cgtairbus.fr/\nSe syndiquer\nhttps://avions.cgtairbus.com/se-syndiquer/\nInstagram\nhttps://www.instagram.com/cgtairbus/\nBluesky\nhttps://bsky.app/profile/cgtairbus.bsky"
+  },
+  {
+    "id": "26c0438f-1682-45c4-ba90-aa26a716f5f7",
+    "index": 217,
+    "title": "REPRESIÓN Y RESISTENCIA EN CÁDIZ: 24 ENCAUSADOS POR LA HUELGA DEL METAL - Canarias Semanal",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://canarias-semanal.org/art/38905/represion-y-resistencia-en-cadiz-24-encausados-por-la-huelga-del-metal",
+    "char_count": 22560,
+    "summary": "REPRESIÓN Y RESISTENCIA EN CÁDIZ: 24 ENCAUSADOS POR LA HUELGA DEL METAL | Canarias-semanal I Digital informativo alternativo de ámbito internacional y actualización diaria Cartas de los lectores https://canarias-semanal.org/readletter Fotos de los lectores https://canarias-semanal.org/readpic Más co",
+    "file_path": "sources/26c0438f.txt",
+    "fulltext_preview": "REPRESIÓN Y RESISTENCIA EN CÁDIZ: 24 ENCAUSADOS POR LA HUELGA DEL METAL | Canarias-semanal I Digital informativo alternativo de ámbito internacional y actualización diaria\nCartas de los lectores\nhttps://canarias-semanal.org/readletter\nFotos de los lectores\nhttps://canarias-semanal.org/readpic\nMás contenido\njavascript:void(0)\nTemas de actualidad\nhttps://canarias-semanal.org/tags\nIniciar sesión\nRegístrate\nIniciar sesión\njavascript:void(0);\nRegístrate\nhttps://canarias-semanal.org/pag/reg\nLa primera a la izquierda \nhttps://www.facebook.com/pages/Canarias-Semanal/487163261330600\n \nhttps://twitter.com/CanariasSemana1\n \nhttps://www.instagram.com/canariassemanal/\n \nhttps://www.youtube.com/user/CanariasSemanal\nViernes, 28 de Agosto de 2026\nActualizada\nViernes, 28 de Agosto de 2026 a las 08:38:55 ho"
+  },
+  {
+    "id": "167fe125-18d4-4113-80c5-247377254415",
+    "index": 218,
+    "title": "REUNIÓN COMITÉ DE HUELGA EN EL SIMA.pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2985,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_F2jwdT5ZK_Y-S9Kbv7a8235Re4XM0nSCa8tqhWZ6Dc6BCbDkHHJVC2_bXtcTGXZaZBvXk1-5Lq9otPjXw2P2Q3Dq-bp_yJ0srYYipAMOWa0jFuZv2w6Bqug2OHpZ54JfagKAJog=w880-h245-v0 c2a26a37-c020-4de9-bb2e-914cc93c6300   REUNIÓN COMITÉ DE HUELGA EN EL SIMA 21/08/2026.    La reunió",
+    "file_path": "sources/167fe125.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX_F2jwdT5ZK_Y-S9Kbv7a8235Re4XM0nSCa8tqhWZ6Dc6BCbDkHHJVC2_bXtcTGXZaZBvXk1-5Lq9otPjXw2P2Q3Dq-bp_yJ0srYYipAMOWa0jFuZv2w6Bqug2OHpZ54JfagKAJog=w880-h245-v0\nc2a26a37-c020-4de9-bb2e-914cc93c6300\n \nREUNIÓN COMITÉ DE HUELGA EN EL SIMA 21/08/2026. \n \nLa reunión del día 21 de agosto de 2026, ya por fin en el foro correcto del Comité de Huelga, contó con la presencia de Carmen \nMaja responsable máxima de RH en la compañía y con el equipo de asesores de Baker Mackenzie. En aras a la transparencia absoluta que ha distinguido a este comité de huelga, adjuntamos el acta de dicha reunión.   \nDurante la misma en el SIMA, la Dirección de la empresa nos ha entregado una respuesta a cada una de las reivindicaciones listadas en la papeleta de huelga. Destacan do"
+  },
+  {
+    "id": "c8878801-42ee-466d-a3e6-f6800e712174",
+    "index": 219,
+    "title": "Renault España acepta incrementar los salarios en base al IPC+1% en 2026 y ofrece una cantidad adicional de un pago único de 400 euros - Palencia en la Red",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.palenciaenlared.es/renault-espana-acepta-incrementar-los-salarios-en-base-al-ipc1-en-2026-y-ofrece-una-cantidad-adicional-de-un-pago-unico-de-400-euros/",
+    "char_count": 18452,
+    "summary": "Renault España acepta incrementar los salarios en base al IPC+1% en 2026 y ofrece una cantidad adicional de un pago único de 400 euros - Palencia en la Red Ir al contenido https://www.palenciaenlared.es/renault-espana-acepta-incrementar-los-salarios-en-base-al-ipc1-en-2026-y-ofrece-una-cantidad-adic",
+    "file_path": "sources/c8878801.txt",
+    "fulltext_preview": "Renault España acepta incrementar los salarios en base al IPC+1% en 2026 y ofrece una cantidad adicional de un pago único de 400 euros - Palencia en la Red\nIr al contenido\nhttps://www.palenciaenlared.es/renault-espana-acepta-incrementar-los-salarios-en-base-al-ipc1-en-2026-y-ofrece-una-cantidad-adicional-de-un-pago-unico-de-400-euros/#content\n \nhttps://www.palenciaenlared.es/buscar/\nInicio\nhttps://www.palenciaenlared.es/\nCapital\nhttps://www.palenciaenlared.es/palencia-capital/\nProvincia\nhttps://www.palenciaenlared.es/provincia-de-palencia/\nCerrato\nhttps://www.palenciaenlared.es/provincia-de-palencia/cerrato-palentino/\nMontaña Palentina\nhttps://www.palenciaenlared.es/provincia-de-palencia/montana-palentina/\nTierra de Campos\nhttps://www.palenciaenlared.es/provincia-de-palencia/tierra-de-camp"
+  },
+  {
+    "id": "738dca32-935c-4be7-a761-da3cc8231b8a",
+    "index": 220,
+    "title": "Renault España suspende la adjudicación de vehículos ante la falta de acuerdo en el convenio - EFE",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://efe.com/castilla-y-leon/2026-05-07/renault-no-adjudica-vehiculos-por-falta-de-acuerdo-en-el-convenio/",
+    "char_count": 17252,
+    "summary": "Renault no adjudica vehículos por falta de acuerdo en el convenio efe.com - Do Not Process My Personal Information If you wish to opt-out of the sale, sharing to third parties, or processing of your personal or sensitive information for targeted advertising by us, please use the below opt-out sectio",
+    "file_path": "sources/738dca32.txt",
+    "fulltext_preview": "Renault no adjudica vehículos por falta de acuerdo en el convenio\nefe.com - Do Not Process My Personal Information\nIf you wish to opt-out of the sale, sharing to third parties, or processing of your personal or sensitive information for targeted advertising by us, please use the below opt-out section to confirm your selection. Please note that after your opt-out request is processed you may continue seeing interest-based ads based on personal information utilized by us or personal information disclosed to third parties prior to your opt-out. You may separately opt-out of the further disclosure of your personal information by third parties on the IAB's list of downstream participants. This information may also be disclosed by us to third parties on the \nIAB's List of Downstream Participants"
+  },
+  {
+    "id": "64629a2f-1926-45e7-a95a-eff88fc03c3c",
+    "index": 221,
+    "title": "Renault Group signs-off on a three-year trade union agreement that places France at the heart of its value-creating activities",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://media.renaultgroup.com/renault-group-signs-off-on-a-three-year-trade-union-agreement-that-places-france-at-the-heart-of-its-value-creating-activities/",
+    "char_count": 9402,
+    "summary": "en   Stratégie   Magazine   Gouvernance   newsalert   Contacts   en  Actualités    futuREady   Renaulution   Partenariats   Innovation et technologie   Résultats financiers   Résultats commerciaux   RRG   Assemblée générale   Conseil d'administration   Accords   Nominations   Usines 4.0   Prix WEF",
+    "file_path": "sources/64629a2f.txt",
+    "fulltext_preview": " en \n Stratégie \n Magazine \n Gouvernance \n newsalert \n Contacts \n en \nActualités  \n futuREady \n Renaulution \n Partenariats \n Innovation et technologie \n Résultats financiers \n Résultats commerciaux \n RRG \n Assemblée générale \n Conseil d'administration \n Accords \n Nominations \n Usines 4.0 \n Prix WEF \n Usine \n Économie circulaire \n Décarbonation \n Sécurité \n Inclusion \n Fondation \n Médiathèque \n Contacts \n Stratégie \n Magazine \n Gouvernance \n Renault Group \n Renault \n Alpine \n Dacia \n Alliance \n Communiqués de presse \nCommuniqués de presse  \nRenault Group signs-off on a three-year trade union agreement that places France at the heart of its value-creating activities\nThree trade unions CFE-CGC, CFDT, and FO (75,8% of all trade union representation) and Renault Group Management have agreed on "
+  },
+  {
+    "id": "a8f2f4f1-c885-4076-ab48-9a1c31361eac",
+    "index": 222,
+    "title": "Renault logra un preacuerdo de convenio en la reunión de mediación en Industria",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.latribunadeautomocion.es/2026/05/renault-logra-un-preacuerdo-de-convenio-en-la-reunion-de-mediacion-en-industria/",
+    "char_count": 25521,
+    "summary": "Renault logra un preacuerdo de convenio en la reunión de mediación en Industria - La Tribuna de Automoción Gestionar el consentimiento de las cookies Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consent",
+    "file_path": "sources/a8f2f4f1.txt",
+    "fulltext_preview": "Renault logra un preacuerdo de convenio en la reunión de mediación en Industria - La Tribuna de Automoción\nGestionar el consentimiento de las cookies\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el abonado o usuario, o con el único propó"
+  },
+  {
+    "id": "09d2ab28-fce5-4d74-ae0e-9ab2be6d959f",
+    "index": 223,
+    "title": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos para Palencia y Valladolid",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.tribunavalladolid.com/noticias/446214/renault-plantea-un-preacuerdo-para-el-convenio-2026-2028-ligado-a-nuevos-modelos-para-palencia-y-valladolid",
+    "char_count": 11353,
+    "summary": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos para Palencia y Valladolid - Tribuna de Valladolid. Menú Buscador Noticias 24h /noticias-24-horas Ávila https://www.tribunaavila.com/ Burgos https://www.tribunaburgos.com/ León https://www.tribunaleon.com/ Palencia http",
+    "file_path": "sources/09d2ab28.txt",
+    "fulltext_preview": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos para Palencia y Valladolid - Tribuna de Valladolid.\nMenú\nBuscador\nNoticias 24h\n/noticias-24-horas\nÁvila\nhttps://www.tribunaavila.com/\nBurgos\nhttps://www.tribunaburgos.com/\nLeón\nhttps://www.tribunaleon.com/\nPalencia\nhttps://www.tribunapalencia.com/\nSalamanca\nhttps://www.tribunasalamanca.com/\nSegovia\nhttps://www.tribunasegovia.com/\nSoria\nhttps://www.tribunasoria.com/\nValladolid\nhttps://www.tribunavalladolid.com/\nZamora\nhttps://www.tribunazamora.com/\nMadrid\nhttps://www.tribunamadrid.com/\nIniciar Sesión \n/noticias-24-horas\nEl primer diario digital de Castilla y Leónlogo\n/\nValladolid\n/canal/94/valladolid\nProvincia\n/canal/95/provincia\nCastilla y León\n/canal/96/castilla-y-leon\nSucesos Valladolid\n/canal/101/sucesos-va"
+  },
+  {
+    "id": "45b378d1-6f91-4a54-aac7-e94862e586c7",
+    "index": 224,
+    "title": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Noticias Palencia - Tribuna",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.tribunapalencia.com/noticias/446215/renault-y-los-sindicatos-ugt-y-ccoo-firman-el-preacuerdo-del-convenio",
+    "char_count": 10968,
+    "summary": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Tribuna de Palencia. Menú Buscador Noticias 24h /noticias-24-horas Ávila https://www.tribunaavila.com/ Burgos https://www.tribunaburgos.com/ León https://www.tribunaleon.com/ Palencia https://www.tribunapalencia.com/ Salamanca h",
+    "file_path": "sources/45b378d1.txt",
+    "fulltext_preview": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Tribuna de Palencia.\nMenú\nBuscador\nNoticias 24h\n/noticias-24-horas\nÁvila\nhttps://www.tribunaavila.com/\nBurgos\nhttps://www.tribunaburgos.com/\nLeón\nhttps://www.tribunaleon.com/\nPalencia\nhttps://www.tribunapalencia.com/\nSalamanca\nhttps://www.tribunasalamanca.com/\nSegovia\nhttps://www.tribunasegovia.com/\nSoria\nhttps://www.tribunasoria.com/\nValladolid\nhttps://www.tribunavalladolid.com/\nZamora\nhttps://www.tribunazamora.com/\nMadrid\nhttps://www.tribunamadrid.com/\nIniciar Sesión \n/noticias-24-horas\nEl primer diario digital de Castilla y Leónlogo\n/\nPalencia\n/canal/81/palencia\nProvincia\n/canal/82/provincia\nCastilla y León\n/canal/83/castilla-y-leon\nSucesos Palencia\n/canal/88/sucesos-palencia\nCultura Palencia\n/canal/89/cultura-palen"
+  },
+  {
+    "id": "8512b14e-8597-4081-b7d6-60a5715d8615",
+    "index": 225,
+    "title": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco nuevos modelos en España - Cadena SER",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://cadenaser.com/castillayleon/2026/06/02/renault-y-los-sindicatos-firman-el-convenio-2026-2028-que-abre-la-puerta-a-cinco-nuevos-modelos-en-espana-radio-palencia/",
+    "char_count": 52876,
+    "summary": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco nuevos modelos en España | Economía y negocios | Cadena SER   We care about your privacy With your agreement, we and  our partners javascript:Didomi.preferences.show('vendors')  use cookies or similar technologies to st",
+    "file_path": "sources/8512b14e.txt",
+    "fulltext_preview": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco nuevos modelos en España | Economía y negocios | Cadena SER\n \nWe care about your privacy\nWith your agreement, we and \nour partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website. You can withdraw your consent or set your preferences at any time by clicking on \"Configuration\" or in our Cookies Policy on this website.\nWe and our partners process data for the following purposes: Personalised advertising and content, advertising and content measurement, audience research and services development, Precise geolocation data, and identification through device scanning, Sharing data and profiles for analysis "
+  },
+  {
+    "id": "83e5ce60-3e28-4029-883d-68615e53f82d",
+    "index": 226,
+    "title": "Resolución de 12 de junio de 2023, de la Consellería de Promoción del Empleo e Igualdad, por la que se acuerda la inscripción y publicación del Convenio colectivo para el sector del comercio del metal de la provincia de Ourense para los años 2023 y 2024 - Noticias Jurídicas",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://noticias.juridicas.com/base_datos/Laboral/766398-convenio-colectivo-para-el-sector-del-comercio-del-metal-ourense-2023-2024.html",
+    "char_count": 60745,
+    "summary": "Resolución de 12 de junio de 2023, de la Consellería de Promoción  https://noticias.juridicas.com/ Anúnciate en Noticias Jurídicas https://noticias.juridicas.com/publicidad/   Newsletter https://noticias.juridicas.com/suscripcion-boletin/   Colabora con nosotros https://noticias.juridicas.com/conten",
+    "file_path": "sources/83e5ce60.txt",
+    "fulltext_preview": "Resolución de 12 de junio de 2023, de la Consellería de Promoción \nhttps://noticias.juridicas.com/\nAnúnciate en Noticias Jurídicas\nhttps://noticias.juridicas.com/publicidad/\n \nNewsletter\nhttps://noticias.juridicas.com/suscripcion-boletin/\n \nColabora con nosotros\nhttps://noticias.juridicas.com/content/colabora/\nSíguenos en: \nhttps://www.facebook.com/NoticiasJuridicasOficial\n \nhttps://www.linkedin.com/company/noticias-jur-dicas\n \nhttps://twitter.com/NotisJuridicas\n \nhttps://noticias.juridicas.com/feeds/rss.xml\n×\njavascript:void(0)\nBúsqueda personalizada\nOrdenar por\nRelevance\nDate \nhttps://noticias.juridicas.com/\nActualidad\nhttps://noticias.juridicas.com/actualidad/\n \nActualidad\nhttps://noticias.juridicas.com/actualidad\nNoticias\nhttps://noticias.juridicas.com/actualidad/noticias/\n26 de agosto"
+  },
+  {
+    "id": "d4eb0d7f-54a4-4839-bf56-0abcaa9c10a8",
+    "index": 227,
+    "title": "Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "pdf",
+    "url": null,
+    "char_count": 7435,
+    "summary": "RECUPERACIÓN DEL PODER ADQUISITIVO EN AIRBUS ESPAÑA    Convenio Colectivo VII  (2024-2027)  Análisis basado en métricas oficiales del INE (IPC, IPV y EPF 2025), Banco de España y BCE.  El objetivo es recuperar el poder adquisitivo perdido entre 2020 y 2025 y blindar su mantenimiento en el futuro.",
+    "file_path": "sources/d4eb0d7f.txt",
+    "fulltext_preview": " \nRECUPERACIÓN DEL PODER ADQUISITIVO EN AIRBUS ESPAÑA \n \nConvenio Colectivo VII \n(2024-2027) \nAnálisis basado en métricas oficiales del INE (IPC, IPV y EPF 2025), Banco de España y BCE. \nEl objetivo es recuperar el poder adquisitivo perdido entre 2020 y 2025 y blindar su mantenimiento en el futuro. \n1 RECUPERACIÓN DEL PODER ADQUISITIVO PERDIDO (ACTUALIZACIÓN CONSOLIDABLE) \nLa pérdida neta de poder adquisitivo acumulada por la plantilla entre 2020 y 2025 se sitúa entre +20,9 % y +24,4 %, \ndependiendo de la comunidad autónoma. \nPara recuperar esta pérdida, es necesaria una actualización salarial consolidable en tablas equivalente a ese rango, \naplicable a partir de 2026. \n2 COMPENSACIÓN POR CANTIDADES NO PERCIBIDAS (PAGO ÚNICO NO CONSOLIDABLE) \nLa actualización salarial corrige el salario fu"
+  },
+  {
+    "id": "865636bf-61fa-4d63-81c7-d347e0bbf365",
+    "index": 228,
+    "title": "Reunión Comité de Huelga en el SIMA el 27-08-2026 (1).pdf",
+    "category": "Actas SIMA & Legal",
+    "type": "pdf",
+    "url": null,
+    "char_count": 2196,
+    "summary": "Reunión Comité de Huelga en el SIMA el 27/08/2026   Hoy ha tenido lugar una reunión en el SIMA en el seno del Comité de Huelga para avanzar en la negociación cómo continuación de la reunión mantenida el pasado martes día 25 de agosto.  Nuestro análisis de la pérdida del poder adquisitivo estaba ya m",
+    "file_path": "sources/865636bf.txt",
+    "fulltext_preview": "Reunión Comité de Huelga en el SIMA el 27/08/2026 \n Hoy ha tenido lugar una reunión en el SIMA en el seno del Comité de Huelga para avanzar en la negociación cómo continuación de la reunión mantenida el pasado martes día 25 de agosto.  Nuestro análisis de la pérdida del poder adquisitivo estaba ya marcado en el dossier que se presentó a la empresa y a partir de él la negociación debe entrar en distintas iteraciones hasta alcanzar un acuerdo.  Como ya se ha comunicado en las asambleas en varias ocasiones, la empresa ha solicitado una propuesta realista y detallada de nuestras reivindicaciones más allá del dossier.   Con el único fin de desbloquear la situación y en aras de que esa negociación progrese, se presenta para el punto de subida salarial una propuesta que mejora notablemente la del"
+  },
+  {
+    "id": "29a10162-e2a6-4cec-a096-88a4d3110a4b",
+    "index": 229,
+    "title": "Reviving the Strike in the Shadow of PATCO - Monthly Review",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://monthlyreview.org/articles/reviving-the-strike-in-the-shadow-of-patco/",
+    "char_count": 31494,
+    "summary": "Reviving the Strike in the Shadow of PATCO - Monthly Review Skip to content https://monthlyreview.org/articles/reviving-the-strike-in-the-shadow-of-patco/#content   https://monthlyreview.org/my-store-account/   https://monthlyreview.foxycart.com/cart Home https://monthlyreview.org/ About https://mon",
+    "file_path": "sources/29a10162.txt",
+    "fulltext_preview": "Reviving the Strike in the Shadow of PATCO - Monthly Review\nSkip to content\nhttps://monthlyreview.org/articles/reviving-the-strike-in-the-shadow-of-patco/#content\n \nhttps://monthlyreview.org/my-store-account/\n \nhttps://monthlyreview.foxycart.com/cart\nHome\nhttps://monthlyreview.org/\nAbout\nhttps://monthlyreview.org/about/\nThe Editors\nhttps://monthlyreview.org/about/the-editors/\nThe Paul A. Baran—Paul M. Sweezy Memorial Award\nhttps://monthlyreview.org/the-paul-a-baran-paul-m-sweezy-memorial-award/\nPrivacy Policy\nhttps://monthlyreview.org/about/privacy-policy/\nMagazine\nhttps://monthlyreview.org/articles/reviving-the-strike-in-the-shadow-of-patco/\n__________\nhttps://monthlyreview.org/articles/reviving-the-strike-in-the-shadow-of-patco/\nSubscribe\nhttps://monthlyreview.org/subscribe/\nBack Issues\n"
+  },
+  {
+    "id": "342fff4c-6f40-4ab0-946e-5bc943f4aafe",
+    "index": 230,
+    "title": "SIPA",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.sipa.es/",
+    "char_count": 11363,
+    "summary": "SIPA  javascript:void(null) SIPA SIPA / Airbus en Huelga https://www.sipa.es/ ¿Quiénes somos? quienes-somos Únete unete Noticias noticias Calendarios calendarios Rutas rutas Soft Services soft-services Variable variable Índice Bradford indice-bradford-1 Normativa normativa Legal legal SIPA S INDICAT",
+    "file_path": "sources/342fff4c.txt",
+    "fulltext_preview": "SIPA \njavascript:void(null)\nSIPA SIPA\n/\nAirbus en Huelga\nhttps://www.sipa.es/\n¿Quiénes somos?\nquienes-somos\nÚnete\nunete\nNoticias\nnoticias\nCalendarios\ncalendarios\nRutas\nrutas\nSoft Services\nsoft-services\nVariable\nvariable\nÍndice Bradford\nindice-bradford-1\nNormativa\nnormativa\nLegal\nlegal\nSIPA S INDICATO I NDEPENDIENTE DE P ROFESIONALES A ERONAUTICOS\nInfodefensa: \nHuelga indefinida en Airbus España: UGT, CGT y ÚTIL convocan paros totales a partir del 24 de agosto\nLos sindicatos que optaron por no apoyar el preacuedo de hace una semana optan por reanudar los paros totales solo un día después de la petición de mediación de la compañía\nInfodefensa: \nAirbus España recurre al SIMA para intentar salvar el pacto salarial rechazado por la plantilla\nLos sindicatos que optaron por no apoyar el preacuedo"
+  },
+  {
+    "id": "2e978819-ec3c-47ff-b8a0-0d40f9221f14",
+    "index": 231,
+    "title": "Safari.pdf",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": null,
+    "char_count": 1894,
+    "summary": "CENSO DE VOTACIÓN  Información sobre el tratamiento de tus datos personales  Responsable del tratamiento  Comité de Huelga  Finalidad  Crear un censo de personas habilitadas para votar en la consulta relacionada con la huelga, garantizando que cada persona pueda votar una sola vez.  Base jurídica  T",
+    "file_path": "sources/2e978819.txt",
+    "fulltext_preview": "CENSO DE VOTACIÓN \nInformación sobre el tratamiento de tus datos personales \nResponsable del tratamiento \nComité de Huelga \nFinalidad \nCrear un censo de personas habilitadas para votar en la consulta relacionada con la huelga, garantizando que cada persona pueda votar una sola vez. \nBase jurídica \nTu consentimiento, que prestas al facilitar voluntariamente tu número de tarjeta de empleado (Z). \n¿Qué ocurre con tu número Z? \nNo se guarda en ningún momento, ni en este ordenador ni en ningún servidor. Se usa solo, durante una fracción de segundo, para generar mediante una fórmula matemática irreversible un nombre de usuario anónimo (por ejemplo, “palabra-palabra-0000”). Es imposible recuperar tu número Z a partir de ese nombre. \n¿Qué se guarda? \nÚnicamente tu nombre de usuario anónimo y tu ce"
+  },
+  {
+    "id": "d25b721c-74f5-49ed-a02f-7c7bca9a8310",
+    "index": 232,
+    "title": "Salaire minimum (SMIC) 2026 : montant net et brut - Transport aérien : personnel au sol",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum",
+    "char_count": 21763,
+    "summary": "Salaire minimum (SMIC) 2026 : montant net et brut - Transport aérien : personnel au sol - Code du travail numérique Contenu https://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#main Menu https://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#fr-header-main-nav",
+    "file_path": "sources/d25b721c.txt",
+    "fulltext_preview": "Salaire minimum (SMIC) 2026 : montant net et brut - Transport aérien : personnel au sol - Code du travail numérique\nContenu\nhttps://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#main\nMenu\nhttps://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#fr-header-main-navigation\nRecherche\nhttps://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#fr-header-search-button\nPied de page\nhttps://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum#more-info\nRÉPUBLIQUE\nFRANÇAISE\nLiberté égalité fraternité\nRechercher Menu\nRechercher\nFermer\nCode du travail\nQuoi de neuf sur le Code du travail numérique ?\nhttps://code.travail.gouv.fr/quoi-de-neuf\nComprendre le droit du travail\nhttps://code.travail.gouv.fr/droit-du-travail\nActualités\nhttps://cod"
+  },
+  {
+    "id": "d3f747ac-9989-4546-a42c-dfa5c0f8c0ab",
+    "index": 233,
+    "title": "Salary comparison between Bangalore and Bristol - Reddit",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/",
+    "char_count": 36818,
+    "summary": "Salary comparison between Bangalore and Bristol : r/bristol Skip to main content https://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/#main-content  Salary comparison between Bangalore and Bristol : r/bristol Open menu Open navigation  https://www.reddit.c",
+    "file_path": "sources/d3f747ac.txt",
+    "fulltext_preview": "Salary comparison between Bangalore and Bristol : r/bristol\nSkip to main content\nhttps://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/#main-content\n Salary comparison between Bangalore and Bristol : r/bristol\nOpen menu\nOpen navigation \nhttps://www.reddit.com/\nGo to Reddit Home\nSearch Reddit\nSign Up\nhttps://www.reddit.com/register/\nSign up for Reddit\nLog In\nhttps://www.reddit.com/login/\nLog in to Reddit\nExpand user menu\nOpen settings menu\nSkip to Sign up\nhttps://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/#left-sidebar-container\n \nSkip to Right Sidebar\nhttps://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/#right-sidebar-container\nBack\nGo to bristol\nhttps://www."
+  },
+  {
+    "id": "86b4f20c-cc71-4aee-a653-e2396fdf496c",
+    "index": 234,
+    "title": "Se publica en el BOE el Convenio de Industrias Cárnicas, que esquivó el conflicto al recoger una potente subida salarial y garantizar el poder adquisitivo - Confederación Sindical de Comisiones Obreras",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.ccoo.es/noticia:632330--Se%20publica%20en%20el%20BOE%20el%20Convenio%20de%20Industrias%20C%C3%A1rnicas,%20que%20esquiv%C3%B3%20el%20conflicto%20al%20recoger%20una%20potente%20subida%20salarial%20y%20garantizar%20el%20poder%20adquisitivo",
+    "char_count": 505796,
+    "summary": "Confederación Sindical de Comisiones Obreras   Política de cookies Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su",
+    "file_path": "sources/86b4f20c.txt",
+    "fulltext_preview": "Confederación Sindical de Comisiones Obreras\n \nPolítica de cookies\nEste sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'\nPara más información consulta nuestra Política de cookies\nPolítica de cookies Configurar cookies\nAceptar\n \nPolítica de cookies\nCONFEDERACION SINDICAL DE CC.OO. informa que este sitio web usa cookies para:\nAsegurar que las páginas web puedan funcionar correctamente\nRecopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.\nMostrar contenido de redes sociales, siempre relacio"
+  },
+  {
+    "id": "dd4eb9fe-b518-408d-91f1-3834efbe08ea",
+    "index": 235,
+    "title": "Semi-Skilled Aircraft Fitter Jobs - Careers at Airbus UK - Guidant Global",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://airbus.guidantglobal.com/semi-skilled-aircraft-fitter",
+    "char_count": 20986,
+    "summary": "Semi-Skilled Aircraft Fitter Jobs | Airbus UK Home https://airbus.guidantglobal.com/ Business Areas Discover Airbus Explore Roles Locations All Jobs https://airbus.guidantglobal.com/jobs Talent Community Hub https://airbus.guidantglobal.com/talent-community Learn More https://airbus.guidantglobal.co",
+    "file_path": "sources/dd4eb9fe.txt",
+    "fulltext_preview": "Semi-Skilled Aircraft Fitter Jobs | Airbus UK\nHome\nhttps://airbus.guidantglobal.com/\nBusiness Areas\nDiscover Airbus\nExplore Roles\nLocations\nAll Jobs\nhttps://airbus.guidantglobal.com/jobs\nTalent Community Hub\nhttps://airbus.guidantglobal.com/talent-community\nLearn More\nhttps://airbus.guidantglobal.com/semi-skilled-aircraft-fitter\n \n \nSemi-Skilled Aircraft Fitters\nBroughton, Wales\nHave you got at least 12 months experience in a manufacturing role? Then we welcome you to join our\nTalent Community for the Airbus team in Broughton.\nWhat you can expect\nAs a Semi-Skilled Aircraft Fitter, you will be working as part of the aircraft wing build production team to support with the assembly and installation of components, including repair of metallic and composite materials.\nThis role requires flexibi"
+  },
+  {
+    "id": "ccc5275c-2d71-48fa-8eb3-ec2658ef076f",
+    "index": 236,
+    "title": "Sin acuerdo en el SIMA: se mantiene la huelga en Groundforce - Sindicato USO Servicios",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.fs-uso.es/sin-acuerdo-en-el-sima-se-mantiene-la-huelga-en-groundforce/",
+    "char_count": 21275,
+    "summary": "Sin acuerdo en el SIMA: se mantiene la huelga en Groundforce Gestionar el consentimiento de las cookies Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá pro",
+    "file_path": "sources/ccc5275c.txt",
+    "fulltext_preview": "Sin acuerdo en el SIMA: se mantiene la huelga en Groundforce\nGestionar el consentimiento de las cookies\nPara ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.\nFuncional\n \n[x] 1\n \nFuncional Siempre activo\nEl almacenamiento o acceso técnico es estrictamente necesario para el propósito legítimo de permitir el uso de un servicio específico explícitamente solicitado por el abonado o usuario, o con el único propósito de llevar a cabo la transmisión de una co"
+  },
+  {
+    "id": "0c1e3f6a-58aa-4167-aee7-8f35a90c1e08",
+    "index": 237,
+    "title": "Sin acuerdo en la última reunión, la huelga sigue en Airbus: la empresa rechaza la propuesta de los convocantes, que incluye una paga de 7.500 euros y una subida salarial única del 12% para recuperar el poder adquisitivo - La Razón",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.larazon.es/economia/acuerdo-ultima-reunion-huelga-sigue-airbus-empresa-rechaza-propuesta-convocantes-que-incluye-paga-7500-euros-subida-salarial-unica-12-recuperar-poder_202608286a913324d16f763504a2fdd3.html",
+    "char_count": 22098,
+    "summary": "Sin acuerdo en la última reunión, la huelga sigue en Airbus: la empresa rechaza la propuesta de los convocantes, que incluye una paga de 7.500 euros y una subida salarial única del 12% para recuperar el poder adquisitivo With your agreement, we and  our 1014 partners javascript:Didomi.preferences.sh",
+    "file_path": "sources/0c1e3f6a.txt",
+    "fulltext_preview": "Sin acuerdo en la última reunión, la huelga sigue en Airbus: la empresa rechaza la propuesta de los convocantes, que incluye una paga de 7.500 euros y una subida salarial única del 12% para recuperar el poder adquisitivo\nWith your agreement, we and \nour 1014 partners\njavascript:Didomi.preferences.show('vendors')\n use cookies or similar technologies to store, access, and process personal data like your visit on this website, IP addresses and cookie identifiers. Some partners do not ask for your consent to process your data and rely on their legitimate business interest. You can withdraw your consent or object to data processing based on legitimate interest at any time by clicking on “Learn More” or in our Privacy Policy on this website.\nWe and our partners process data for the following pur"
+  },
+  {
+    "id": "6c0f7b88-b559-4262-97e8-8c5408d92bc8",
+    "index": 238,
+    "title": "Sistema HJ - Resolución: SENTENCIA 11/1981",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://hj.tribunalconstitucional.es/es-ES/Resolucion/Show/11",
+    "char_count": 167175,
+    "summary": "Sistema HJ - Resolución: SENTENCIA 11/1981 Volver a la página principal https://www.tribunalconstitucional.es/ [Español] https://hj.tribunalconstitucional.es/es/Resolucion/Show/11   English https://hj.tribunalconstitucional.es/en/Resolucion/Show/11   Français https://hj.tribunalconstitucional.es/fr/",
+    "file_path": "sources/6c0f7b88.txt",
+    "fulltext_preview": "Sistema HJ - Resolución: SENTENCIA 11/1981\nVolver a la página principal\nhttps://www.tribunalconstitucional.es/\n[Español]\nhttps://hj.tribunalconstitucional.es/es/Resolucion/Show/11\n \nEnglish\nhttps://hj.tribunalconstitucional.es/en/Resolucion/Show/11\n \nFrançais\nhttps://hj.tribunalconstitucional.es/fr/Resolucion/Show/11\nTribunal Constitucional de España\nBuscador de jurisprudencia constitucional\nBuscador\nhttps://hj.tribunalconstitucional.es/es/Busqueda/Index\nListado\nhttps://hj.tribunalconstitucional.es/es/Resolucion/List\nResolución\nhttps://hj.tribunalconstitucional.es/es/Resolucion/Show/11\nBuscar\nhttps://hj.tribunalconstitucional.es/es-ES/Resolucion/Show/11\ndoc\nhttps://hj.tribunalconstitucional.es/es/Resolucion/GetDocumentResolucion/11\nprint\nhttps://hj.tribunalconstitucional.es/es-ES/Resolucio"
+  },
+  {
+    "id": "c99c327f-87a3-4d23-b953-5db74248edd7",
+    "index": 239,
+    "title": "Supply Chain Disruptions: An Expert Guide - NetSuite",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.netsuite.com/portal/resource/articles/erp/supply-chain-disruptions.shtml",
+    "char_count": 64922,
+    "summary": "Supply Chain Disruptions: An Expert Guide | NetSuite 1-877-638-7848 tel:1-877-638-7848   Free Product Tour (opens in new tab) https://www.netsuite.com/app/site/backend/bridgedomainstoforms.nl?target=%2Fapp%2Fsite%2Fcrm%2Fexternalleadpage.nl%3Fcompid%3D6262239%26formid%3D900%26h%3DAAFdikaI1fBy4MHb0bK",
+    "file_path": "sources/c99c327f.txt",
+    "fulltext_preview": "Supply Chain Disruptions: An Expert Guide | NetSuite\n1-877-638-7848\ntel:1-877-638-7848\n \nFree Product Tour (opens in new tab)\nhttps://www.netsuite.com/app/site/backend/bridgedomainstoforms.nl?target=%2Fapp%2Fsite%2Fcrm%2Fexternalleadpage.nl%3Fcompid%3D6262239%26formid%3D900%26h%3DAAFdikaI1fBy4MHb0bKWuQqkFlzZAHNgAytedck5lEYCYkmrz_0&branding=T&subsidiaryOverride=session\n \ntel:1-877-638-7848\n \nLog In (opens in new tab)\nhttps://system.netsuite.com/pages/customerlogin.jsp?country=US\nProducts\nhttps://www.netsuite.com/portal/products.shtml\nMain Menu\nhttps://www.netsuite.com/portal/resource/articles/erp/supply-chain-disruptions.shtml\nProducts\nhttps://www.netsuite.com/portal/products.shtml\nERP\nhttps://www.netsuite.com/portal/products/erp.shtml\nProducts\nhttps://www.netsuite.com/portal/resource/artic"
+  },
+  {
+    "id": "dd0c5833-2672-41af-8368-d739dc45f500",
+    "index": 240,
+    "title": "Supply Chain Disruptions: Causes, Costs & Solutions - GoBolt",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.gobolt.com/blog/supply-chain-disruptions/",
+    "char_count": 26419,
+    "summary": "Supply Chain Disruptions: Causes, Costs & Solutions Track Your Shipment https://galileo.gobolt.com/tracking Customer Support https://help.gobolt.com/ Deliver With Us https://www.gobolt.com/independent-operator/ Contact https://www.gobolt.com/contact/ Login https://portal.gobolt.com/auth/login Track",
+    "file_path": "sources/dd0c5833.txt",
+    "fulltext_preview": "Supply Chain Disruptions: Causes, Costs & Solutions\nTrack Your Shipment\nhttps://galileo.gobolt.com/tracking\nCustomer Support\nhttps://help.gobolt.com/\nDeliver With Us\nhttps://www.gobolt.com/independent-operator/\nContact\nhttps://www.gobolt.com/contact/\nLogin\nhttps://portal.gobolt.com/auth/login\nTrack Your Shipment\nhttps://galileo.gobolt.com/tracking\nCustomer Support\nhttps://help.gobolt.com/\nDeliver With Us\nhttps://www.gobolt.com/independent-operator/\nContact\nhttps://www.gobolt.com/contact/\nLogin\nhttps://portal.gobolt.com/auth/login\nFulfillment\nhttps://www.gobolt.com/fulfillment-center/\nLast Mile\nhttps://www.gobolt.com/last-mile-delivery/\nAbout Us\nhttps://www.gobolt.com/company/\nResources\nhttps://www.gobolt.com/resources/\nFulfillment\nhttps://www.gobolt.com/fulfillment-center/\nLast Mile\nhttps:"
+  },
+  {
+    "id": "7c411cca-658b-44c5-8e6c-c49b7a9812e3",
+    "index": 241,
+    "title": "Supply Chain Disruptions: Managing Volatility in 2026 - Agistix",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.agistix.com/resources/blog/supply-chain-disruptions-2026-faqs-on-managing-modern-risks/",
+    "char_count": 26657,
+    "summary": "Supply Chain Disruptions: Managing Volatility in 2026 Skip to content https://www.agistix.com/resources/blog/supply-chain-disruptions-2026-faqs-on-managing-modern-risks/#main   https://www.agistix.com/   https://www.agistix.com/ Products Agistix Visibility https://www.agistix.com/products/visibility",
+    "file_path": "sources/7c411cca.txt",
+    "fulltext_preview": "Supply Chain Disruptions: Managing Volatility in 2026\nSkip to content\nhttps://www.agistix.com/resources/blog/supply-chain-disruptions-2026-faqs-on-managing-modern-risks/#main\n \nhttps://www.agistix.com/\n \nhttps://www.agistix.com/\nProducts\nAgistix Visibility\nhttps://www.agistix.com/products/visibility/\nAgistix TMS\nhttps://www.agistix.com/products/tms/\nAgistix Microsites\nhttps://www.agistix.com/products/microsites/\nSolutions\nInbound Visibility\nhttps://www.agistix.com/solutions/inbound-visibility/\nTrack & Trace\nhttps://www.agistix.com/solutions/track-and-trace/\nContract Rate Management\nhttps://www.agistix.com/solutions/contract-rate-management/\nSpot Quotes & Bidding\nhttps://www.agistix.com/solutions/spot-quotes-and-bidding/\nMultimode Shipment Execution\nhttps://www.agistix.com/solutions/multimo"
+  },
+  {
+    "id": "528cbe21-8048-44f2-bd39-c4527b49172f",
+    "index": 242,
+    "title": "Supply Chain and Quality Manager - Myworkdayjobs.com",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Supply-Chain-and-Quality-Manager_JR10421050",
+    "char_count": 702,
+    "summary": "Careers Skip to main content https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Supply-Chain-and-Quality-Manager_JR10421050 We use cookies to make interactions with our websites and services easy and meaningful. By using this website you agree to our use of cookies. To find out more, see our Privacy",
+    "file_path": "sources/528cbe21.txt",
+    "fulltext_preview": "Careers\nSkip to main content\nhttps://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Supply-Chain-and-Quality-Manager_JR10421050\nWe use cookies to make interactions with our websites and services easy and meaningful. By using this website you agree to our use of cookies. To find out more, see our Privacy Information Notice: \nCLICK HERE\nhttps://www.airbus.com/en/careers/candidate-privacy-statement\n.\nRead Full Privacy Message\nDecline\nAccept Cookies\nCareers\nEnglish\nSign In\nCareers Page Search for Jobs\n \n \nThe page you are looking for doesn't exist.\nSearch for Jobs\nFollow Us\nPrivacy Information Notice\nhttps://www.airbus.com/en/careers/candidate-privacy-statement\n© 2026 Workday, Inc. All rights reserved."
+  },
+  {
+    "id": "671d6c8b-275a-40f9-a879-78aadeb25a43",
+    "index": 243,
+    "title": "Supply chain disruptions and resilience: a major review and future research agenda - PMC",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7792559/",
+    "char_count": 459,
+    "summary": "Checking your browser - reCAPTCHA Checking your browser before accessing pmc.ncbi.nlm.nih.gov ... Click  here https://www.google.com/recaptcha/challengepage/  if you are not automatically redirected after 5 seconds. Select all images with a  bus  Click verify once there are none left.",
+    "file_path": "sources/671d6c8b.txt",
+    "fulltext_preview": "Checking your browser - reCAPTCHA\nChecking your browser before accessing pmc.ncbi.nlm.nih.gov ...\nClick \nhere\nhttps://www.google.com/recaptcha/challengepage/\n if you are not automatically redirected after 5 seconds.\nSelect all images with a \nbus\n Click verify once there are none left.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlease try again.\nPlease select all matching images.\nPlease also check the new images.\nPlease select around the object, or reload if there are none.\nVerify"
+  },
+  {
+    "id": "67bf2880-ecca-4f10-a25b-71912c616967",
+    "index": 244,
+    "title": "TS. Acuerdo de teletrabajo. Es válida la cláusula que obliga al empleado a facilitar a la empresa su correo electrónico y número de teléfono personal por si fuera necesario contactar con él por urgencias del servicio - Laboral Social",
+    "category": "Actas SIMA & Legal",
+    "type": "web_page",
+    "url": "https://www.laboral-social.com/contrato-teletrabajo-es-valida-clausula-obliga-empleado-facilitar-empresa-correo-electronico-numero-telefono-personal",
+    "char_count": 8153,
+    "summary": "Se respeta el principio de minimización de datos Inicio https://www.laboral-social.com/ Noticias https://www.laboral-social.com/noticias.html Jurisprudencia » https://www.laboral-social.com/jurisprudencia.html Histórico de sentencias http://www.laboral-social.com/historico-jurisprudencia.html  Menú",
+    "file_path": "sources/67bf2880.txt",
+    "fulltext_preview": "Se respeta el principio de minimización de datos\nInicio\nhttps://www.laboral-social.com/\nNoticias\nhttps://www.laboral-social.com/noticias.html\nJurisprudencia »\nhttps://www.laboral-social.com/jurisprudencia.html\nHistórico de sentencias\nhttp://www.laboral-social.com/historico-jurisprudencia.html\n Menú Principal Histórico de sentencias\nLegislación »\nhttps://www.laboral-social.com/novedades-legislativas.html\nLegislación estatal\nhttp://www.laboral-social.com/legislacion-estatal\nLegislación autonómica\nhttp://www.laboral-social.com/legislacion-autonomica\n Menú Principal Legislación estatal Legislación autonómica\nConvenios »\nhttp://www.laboral-social.com/convenios-colectivos\nHistórico de Convenios\nhttp://www.laboral-social.com/historico-convenios.html\nBuscador de Convenios\nhttp://www.cef.es/conveni"
+  },
+  {
+    "id": "0a4e2c32-094c-4e4f-8ec2-41915324c6e0",
+    "index": 245,
+    "title": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.gesamtmetall.de/themen/tarifrunde-2024/",
+    "char_count": 16689,
+    "summary": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall Zum Inhalt springen https://www.gesamtmetall.de/themen/tarifrunde-2024/#main Hallo! Könnten wir bitte einige zusätzliche Dienste für  Besucherstatistiken, Mediaplayer & Darstellung von Auswertungen und Daten  aktivieren? Sie können Ihre Zustimmung sp",
+    "file_path": "sources/0a4e2c32.txt",
+    "fulltext_preview": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall\nZum Inhalt springen\nhttps://www.gesamtmetall.de/themen/tarifrunde-2024/#main\nHallo! Könnten wir bitte einige zusätzliche Dienste für \nBesucherstatistiken, Mediaplayer & Darstellung von Auswertungen und Daten\n aktivieren? Sie können Ihre Zustimmung später jederzeit ändern oder zurückziehen.\nLassen Sie mich wählen\nhttps://www.gesamtmetall.de/themen/tarifrunde-2024/\n \nVisuelle Assistenzsoftware und Vorlesefunktion Eye-Able öffnen.\njavascript:EyeAbleAPI.toggleToolbar()\nIch lehne ab Das ist ok\nAktuelles\nhttps://www.gesamtmetall.de/themen/tarifrunde-2024/\n \nAuf einen Blick\nhttps://www.gesamtmetall.de/aktuelles/\nComeback Deutschland\nhttps://www.gesamtmetall.de/aktuelles/comeback-deutschland/\nNeue Veröffentlichungen\nhttps://www.gesamtmetall.de/aktu"
+  },
+  {
+    "id": "0222707e-f904-4e73-86f2-fd52a58aa2de",
+    "index": 246,
+    "title": "Tarifrunde Metall und Elektro 2024 Verhandlungsergebnis: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.igmetall.de/tarif/tarifrunden/metall-und-elektro/tarifrunde-metall-und-elektro-2024",
+    "char_count": 38158,
+    "summary": "Metall-Tarifergebnis 2024 IG Metall https://www.igmetall.de/ Jugend https://www.igmetall.de/jugend Aktivenportal https://www.igmetall.de/aktive Presse https://www.igmetall.de/presse Kontakt https://www.igmetall.de/service/online-services/kontakt-aufnehmen metall - Dein Magazin https://www.igmetall.d",
+    "file_path": "sources/0222707e.txt",
+    "fulltext_preview": "Metall-Tarifergebnis 2024\nIG Metall\nhttps://www.igmetall.de/\nJugend\nhttps://www.igmetall.de/jugend\nAktivenportal\nhttps://www.igmetall.de/aktive\nPresse\nhttps://www.igmetall.de/presse\nKontakt\nhttps://www.igmetall.de/service/online-services/kontakt-aufnehmen\nmetall - Dein Magazin\nhttps://www.igmetall.de/service/publikationen-und-studien/metallzeitung\nKampagnen\nhttps://www.igmetall.de/ueber-uns/kampagnen\nSeminare\nhttps://www.igmetall.de/service/bildung-und-seminare\nKarriere\nhttps://www.igmetall.de/ueber-uns/karriere\nDeutsch \nDeutsch\nhttps://www.igmetall.de/tarif/tarifrunden/metall-und-elektro/tarifrunde-metall-und-elektro-2024\n \nEnglish\nhttps://www.igmetall.de/en/tarif/tarifrunden/metall-und-elektro/tarifrunde-metall-und-elektro-2024\nMitglied werden\nhttps://www.igmetall.de/mitglieder/mitglied-"
+  },
+  {
+    "id": "8cdd37c4-f918-4fbb-bba3-9fd6818f527d",
+    "index": 247,
+    "title": "The 1981 PATCO Strike - UTA Libraries",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://libraries.uta.edu/news/1981-patco-strike",
+    "char_count": 31843,
+    "summary": "The 1981 PATCO Strike | UTA Libraries Skip to main content https://libraries.uta.edu/news/1981-patco-strike#main-content [ Libraries ](https://libraries.uta.edu/) Home Research and Publish Library Search https://libraries.uta.edu/search Subject and Course Guides https://libguides.uta.edu/?b=s Find H",
+    "file_path": "sources/8cdd37c4.txt",
+    "fulltext_preview": "The 1981 PATCO Strike | UTA Libraries\nSkip to main content\nhttps://libraries.uta.edu/news/1981-patco-strike#main-content\n[\nLibraries\n](https://libraries.uta.edu/)\nHome\nResearch and Publish\nLibrary Search\nhttps://libraries.uta.edu/search\nSubject and Course Guides\nhttps://libguides.uta.edu/?b=s\nFind Help\nhttps://libraries.uta.edu/help\nResearch Help\nhttps://libraries.uta.edu/research\nSpecial Collections and Archives\nhttps://libraries.uta.edu/special-collections\nOpen Access Publishing\nhttps://libraries.uta.edu/open-access-publishing\nInterlibrary Loan\nhttps://libraries.uta.edu/services/interlibrary-loan\nSuggest a Purchase\nhttps://libraries.uta.edu/dept/access-discovery/forms/suggest-purchase\nGet Help\nAll Services A-Z\nhttps://libraries.uta.edu/services-a-z\nGet Library Help\nhttps://libraries.uta."
+  },
+  {
+    "id": "ee825cd0-1d9c-43ca-acb9-6d8548100ff4",
+    "index": 248,
+    "title": "The Economic Impact of Strikes: An Historical Boeing Case Study - AAF",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.americanactionforum.org/insight/the-economic-impact-of-strikes-an-historical-boeing-case-study/",
+    "char_count": 28332,
+    "summary": "The Economic Impact of Strikes: An Historical Boeing Case Study - AAF          Donate https://www.americanactionforum.org/donate   Subscribe https://www.americanactionforum.org/subscribe     Thank You! [-] mime   [x] html   [-] plain   [x] 1   [x] 2   [x] 4   [x] 8796093022208   [x] 8   [-] 26843545",
+    "file_path": "sources/ee825cd0.txt",
+    "fulltext_preview": "The Economic Impact of Strikes: An Historical Boeing Case Study - AAF \n \n \n \n \nDonate\nhttps://www.americanactionforum.org/donate\n \nSubscribe\nhttps://www.americanactionforum.org/subscribe\n \n \nThank You!\n[-] mime\n \n[x] html\n \n[-] plain\n \n[x] 1\n \n[x] 2\n \n[x] 4\n \n[x] 8796093022208\n \n[x] 8\n \n[-] 268435456\n \n[-] 536870912\n \n[-] 1073741824\n \n[-] 2147483648\n \n[-] 4294967296\n \n[-] 8589934592\n \n[-] 34359738368\n \n[-] 68719476736\n \n[-] 274877906944\n \n[-] 549755813888\n \n[-] 1099511627776\n \n[-] 2199023255552\n \n[x] yes\n \n[-] no\nThe Daily Dish\nServing economic news and views every morning.\n \n[x] yes\n \n[-] no\nThe Week in Regulation\nWeekly analysis of newly proposed and final rules, including their cost.\n \n[x] yes\n \n[-] no\nU6 Fix\nAnalysis on the underemployment number in the monthly jobs report.\n \n[x] yes\n "
+  },
+  {
+    "id": "1322a2ad-aa80-4047-838f-3aef69bb4613",
+    "index": 249,
+    "title": "The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008?",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://simpleflying.com/boeing-last-machinist-strike-history/",
+    "char_count": 29157,
+    "summary": "The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008? Menu   https://simpleflying.com/threads/ Sign in now   [-] Close Airlines https://simpleflying.com/category/airlines/ Airports https://simpleflying.com/category/airports/ Aircraft https://simpleflying.com/category/airc",
+    "file_path": "sources/1322a2ad.txt",
+    "fulltext_preview": "The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008?\nMenu\n \nhttps://simpleflying.com/threads/\nSign in now\n \n[-]\nClose\nAirlines\nhttps://simpleflying.com/category/airlines/\nAirports\nhttps://simpleflying.com/category/airports/\nAircraft\nhttps://simpleflying.com/category/aircraft/\nManufacturers\nhttps://simpleflying.com/category/manufacturers/\nFlight Tracker\nhttps://simpleflying.com/flight-tracker/\nSeat Maps\nhttps://simpleflying.com/seat-maps/airlines/\nThreads\nhttps://simpleflying.com/threads/\nVideos\nhttps://simpleflying.com/videos/\nPodcast\nhttps://simpleflying.com/category/podcasts/\nSign in\nhttps://simpleflying.com/boeing-last-machinist-strike-history/\nNewsletter\nhttps://simpleflying.com/page/newsletter/\n \n[-]\nMenu\nLike\nFollow\nFollowed\n13 13\nhttps://simpleflying.com"
+  },
+  {
+    "id": "07dff4f5-e223-4a5c-98d4-a19dd2bcdeb1",
+    "index": 250,
+    "title": "The biggest supply chain risks across industries - Marsh",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.marsh.com/en/services/business-interruption-supply-chain/insights/the-biggest-supply-chain-risks-across-industries.html",
+    "char_count": 41983,
+    "summary": "The biggest supply chain risks across industries | Marsh Opens in a new window Opens an external website Opens an external website in a new window We use cookies to optimize the performance of this site and give you the best user experience. By using the site, you accept our use of cookies  Cookie N",
+    "file_path": "sources/07dff4f5.txt",
+    "fulltext_preview": "The biggest supply chain risks across industries | Marsh\nOpens in a new window Opens an external website Opens an external website in a new window\nWe use cookies to optimize the performance of this site and give you the best user experience. By using the site, you accept our use of cookies \nCookie Notice\nhttps://www.test.com/\nManage Cookies\nStorage Preferences\nSkip to main content\nhttps://www.marsh.com/en/services/business-interruption-supply-chain/insights/the-biggest-supply-chain-risks-across-industries.html#main-content\nCorporate\nhttps://www.marsh.com/\nRisk and insurance\nhttps://www.marsh.com/risk-home.html\nReinsurance and capital\nhttps://guycarp.com/\nPeople and investments\nhttps://www.mercer.com/\nManagement consulting\nhttps://www.oliverwyman.com/\nRisk and insurance\nCorporate\nhttps://ww"
+  },
+  {
+    "id": "3eff3b96-eefc-4c92-8b51-d78eac1a44a8",
+    "index": 251,
+    "title": "Top Aerospace Supply Chain Challenges and How to Overcome Them - NTS Unitek",
+    "category": "Cadena de Suministro & Logística",
+    "type": "web_page",
+    "url": "https://www.unitek-kiwa.com/blog/aerospace-supply-chain-challenges/",
+    "char_count": 25827,
+    "summary": "Top Aerospace Supply Chain Challenges and How to Overcome Them Services https://www.unitek-kiwa.com/services/ Product Verification https://www.unitek-kiwa.com/services/product-verification/ Audits & Surveys https://www.unitek-kiwa.com/services/audits-and-surveys/ Supplier Development https://www.uni",
+    "file_path": "sources/3eff3b96.txt",
+    "fulltext_preview": "Top Aerospace Supply Chain Challenges and How to Overcome Them\nServices\nhttps://www.unitek-kiwa.com/services/\nProduct Verification\nhttps://www.unitek-kiwa.com/services/product-verification/\nAudits & Surveys\nhttps://www.unitek-kiwa.com/services/audits-and-surveys/\nSupplier Development\nhttps://www.unitek-kiwa.com/services/supplier-development/\nSupply Chain Management\nhttps://www.unitek-kiwa.com/services/supply-chain-management/\nTechnical Support Services\nhttps://www.unitek-kiwa.com/services/technical-resources-solutions/\nIndustries\nhttps://www.unitek-kiwa.com/about-us/vertical-expertise/\nAerospace\nhttps://www.unitek-kiwa.com/about-us/vertical-expertise/aerospace-industry/\nAutomotive\nhttps://www.unitek-kiwa.com/about-us/vertical-expertise/automotive/\nAviation\nhttps://www.unitek-kiwa.com/about"
+  },
+  {
+    "id": "33890598-f04e-43a9-9653-48bb35991437",
+    "index": 252,
+    "title": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos modelos para Valladolid y Palencia - El Español",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.elespanol.com/castilla-y-leon/region/20260814/luz-verde-convenio-renault-abre-puerta-nuevos-modelos-valladolid-palencia/1003744352973_0.html",
+    "char_count": 29275,
+    "summary": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos modelos para Valladolid y Palencia ES NOTICIA: Últimas noticias https://www.elespanol.com/ultimas/?utm_cmp_rs=trends Mapa de noticias https://www.elespanol.com/sitemap_google_news.xml?utm_cmp_rs=trends Muere el rey Harald, úl",
+    "file_path": "sources/33890598.txt",
+    "fulltext_preview": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos modelos para Valladolid y Palencia\nES NOTICIA:\nÚltimas noticias\nhttps://www.elespanol.com/ultimas/?utm_cmp_rs=trends\nMapa de noticias\nhttps://www.elespanol.com/sitemap_google_news.xml?utm_cmp_rs=trends\nMuere el rey Harald, última hora\nhttps://www.elespanol.com/corazon/20260828/muere-rey-harald-89-anos-ultima-hora-directo-reacciones-fallecimiento-noruega/1003744365415_10.html?utm_cmp_rs=trends\nÚltima hora política en España\nhttps://www.elespanol.com/espana/politica/20260828/crisis-migratoria-ceuta-ultima-hora-directo-pedro-sanchez-presidira-comite-especializado-moncloa-once-ministros-marlaska-torres-bolanos-entrada-migrantes-marruecos/1003744365362_10.html?utm_cmp_rs=trends\nEstallido social en Ceuta\nhttps://www.elesp"
+  },
+  {
+    "id": "827d459a-1774-413e-939a-59646324779e",
+    "index": 253,
+    "title": "UGT exige responsabilidad y negociación de buena fe a Airbus para avanzar en la resolución del conflicto laboral",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://www.ugt.es/ugt-exige-responsabilidad-y-negociacion-de-buena-fe-airbus-para-avanzar-en-la-resolucion-del",
+    "char_count": 13950,
+    "summary": "UGT | UGT exige responsabilidad y negociación de buena fe a Airbus para avanzar en la resolución del conflicto laboral Opciones de accesibilidad  Pasar al contenido principal https://www.ugt.es/ugt-exige-responsabilidad-y-negociacion-de-buena-fe-airbus-para-avanzar-en-la-resolucion-del#main-content",
+    "file_path": "sources/827d459a.txt",
+    "fulltext_preview": "UGT | UGT exige responsabilidad y negociación de buena fe a Airbus para avanzar en la resolución del conflicto laboral\nOpciones de accesibilidad \nPasar al contenido principal\nhttps://www.ugt.es/ugt-exige-responsabilidad-y-negociacion-de-buena-fe-airbus-para-avanzar-en-la-resolucion-del#main-content\n[Teléfono: 915 897 100](tel:915 897 100)\n \n \n \n \nSomos\nQué es UGT\nhttps://www.ugt.es/index.php/que-es-ugt\nSedes de UGT\nhttps://www.ugt.es/index.php/sedes\nEstructura Confederal\nhttps://www.ugt.es/index.php/estructura-confederal\nUniones Territoriales\nhttps://www.ugt.es/index.php/uniones-territoriales\nFederaciones\nhttps://www.ugt.es/index.php/federaciones\nOtros Organismos\nhttps://www.ugt.es/index.php/otros-organismos\nCalendario Laboral\nhttps://www.ugt.es/index.php/calendario-laboral\n43 Congreso Con"
+  },
+  {
+    "id": "40e76c95-752d-4cee-9395-cad733e4c1ff",
+    "index": 254,
+    "title": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html",
+    "char_count": 14115,
+    "summary": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga Ir al contenido https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body Temas  Inflación agosto disparada https://www.elconciso.es/coyuntura/inflacion-agosto-encarecimien",
+    "file_path": "sources/40e76c95.txt",
+    "fulltext_preview": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga\nIr al contenido\nhttps://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body\nTemas \nInflación agosto disparada\nhttps://www.elconciso.es/coyuntura/inflacion-agosto-encarecimiento-carburantes_0_2007818429.html\n \nAndalucía vivienda extranjera\nhttps://www.elconciso.es/coyuntura/andalucia-interes-vivienda-extranjera-comprador_0_2007818644.html\n \nÚltima hora huelga Airbus\nhttps://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html\n \nBeneficios Aertec\nhttps://www.elconciso.es/empresas/aertec-solutions-gano-2025-20_0_2007809732.html\n \nAndaluces sobreendeudados\nhttps://www.elconciso.es/finanzas/andaluces-sobreendeudados-ingresos-pagar-deudas_0_2"
+  },
+  {
+    "id": "60f3eb0f-54a7-401d-9d07-80c8ff80c73e",
+    "index": 255,
+    "title": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html",
+    "char_count": 14101,
+    "summary": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga Ir al contenido https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body Temas  Última hora huelga Airbus https://www.elconciso.es/empresas/gobierno-amenaza-intervenir-con",
+    "file_path": "sources/60f3eb0f.txt",
+    "fulltext_preview": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga\nIr al contenido\nhttps://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body\nTemas \nÚltima hora huelga Airbus\nhttps://www.elconciso.es/empresas/gobierno-amenaza-intervenir-conflicto-laboral-airbus_0_2007797929.html\n \nBeneficios Aertec\nhttps://www.elconciso.es/empresas/aertec-solutions-gano-2025-20_0_2007809732.html\n \nAndaluces sobreendeudados\nhttps://www.elconciso.es/finanzas/andaluces-sobreendeudados-ingresos-pagar-deudas_0_2007810513.html\n \nVenta Rosabus\nhttps://www.elconciso.es/empresas/sagales-compra-sevillana-autobuses-rosabus_0_2007797597.html\n \nPugna Deoleo\nhttps://www.elconciso.es/agricultura/deoleo-dcoop-coricelli-aceite-oliva_0_2007803470.html\n \nMarcas favo"
+  },
+  {
+    "id": "7ddd832c-5159-4ee5-9ed9-13f940a52b7a",
+    "index": 256,
+    "title": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "web_page",
+    "url": "https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html",
+    "char_count": 14115,
+    "summary": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga Ir al contenido https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body Temas  Inflación agosto disparada https://www.elconciso.es/coyuntura/inflacion-agosto-encarecimien",
+    "file_path": "sources/7ddd832c.txt",
+    "fulltext_preview": "Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga\nIr al contenido\nhttps://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html#content-body\nTemas \nInflación agosto disparada\nhttps://www.elconciso.es/coyuntura/inflacion-agosto-encarecimiento-carburantes_0_2007818429.html\n \nAndalucía vivienda extranjera\nhttps://www.elconciso.es/coyuntura/andalucia-interes-vivienda-extranjera-comprador_0_2007818644.html\n \nÚltima hora huelga Airbus\nhttps://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html\n \nBeneficios Aertec\nhttps://www.elconciso.es/empresas/aertec-solutions-gano-2025-20_0_2007809732.html\n \nAndaluces sobreendeudados\nhttps://www.elconciso.es/finanzas/andaluces-sobreendeudados-ingresos-pagar-deudas_0_2"
+  },
+  {
+    "id": "2361efc1-b800-4a61-b040-bb02adcdbb09",
+    "index": 257,
+    "title": "Valladolid: Intrum workers call 24‑hour strikes on 21 May and 10 June",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://striketracker.app/strikes-in-spain/transport-strike-valladolid-21-may-10-jun-2026",
+    "char_count": 6622,
+    "summary": "Valladolid Business services (debt collection & Call center) Strike on 21 May and 10 June 2026 Strike Tracker Strike Tracker https://striketracker.app/ Home https://striketracker.app/   Strikes https://striketracker.app/strikes   Blog https://striketracker.app/blog   Alerts Beta https://striketracke",
+    "file_path": "sources/2361efc1.txt",
+    "fulltext_preview": "Valladolid Business services (debt collection & Call center) Strike on 21 May and 10 June 2026\nStrike Tracker Strike Tracker\nhttps://striketracker.app/\nHome\nhttps://striketracker.app/\n \nStrikes\nhttps://striketracker.app/strikes\n \nBlog\nhttps://striketracker.app/blog\n \nAlerts Beta\nhttps://striketracker.app/subscribe\n \nContact\nhttps://striketracker.app/contact\n \nStrike data is gathered by AI agents and can make mistakes. Please double-check the sources. \nLearn how it works →\nhttps://striketracker.app/ai-transparency\n← Back to 🇪🇸 Spain strikes\nhttps://striketracker.app/strikes-in-spain\nAdd to Calendar\nCalendar (.ics)\nhttps://striketracker.app/api/export_ical.php?country=spain&slug=transport-strike-valladolid-21-may-10-jun-2026\n \nGoogle Calendar\nhttps://calendar.google.com/calendar/render?actio"
+  },
+  {
+    "id": "9bc77427-6bf9-4c56-b1a3-47bf7349bf8c",
+    "index": 258,
+    "title": "Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt",
+    "category": "Comunicados Sindicales & Huelga",
+    "type": "web_page",
+    "url": "https://igmetall-bocholt.de/verhandlungsergebnis-metall-und-elektro-2024-mehr-geld-140-euro-mehr-fuer-azubis-mehr-freie-tage/",
+    "char_count": 20583,
+    "summary": "Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt HOME https://igmetall-bocholt.de/ THEMEN https://igmetall-bocholt.de/category/themen/ Wir in Bocholt https://igmetall-bocholt.de/category/wir-in-bocholt/ Arbeitswelt https://igmetal",
+    "file_path": "sources/9bc77427.txt",
+    "fulltext_preview": "Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt\nHOME\nhttps://igmetall-bocholt.de/\nTHEMEN\nhttps://igmetall-bocholt.de/category/themen/\nWir in Bocholt\nhttps://igmetall-bocholt.de/category/wir-in-bocholt/\nArbeitswelt\nhttps://igmetall-bocholt.de/category/themen/arbeitswelt/\nService & Ratgeber\nhttps://igmetall-bocholt.de/category/themen/service/ratgeber/\nJubilare\nhttps://igmetall-bocholt.de/category/jubilare/\nJugend\nhttps://igmetall-bocholt.de/category/themen/jugend/\nMetallzeitung Bocholt\nhttps://igmetall-bocholt.de/metallzeitung-bocholt/\n \n+\nhttps://igmetall-bocholt.de/verhandlungsergebnis-metall-und-elektro-2024-mehr-geld-140-euro-mehr-fuer-azubis-mehr-freie-tage/\nTEAM BOCHOLT\nhttps://igmetall-bocholt.de/ansprechpartnerinn"
+  },
+  {
+    "id": "9535b65a-6ec9-410a-9436-d5e04dae1b59",
+    "index": 259,
+    "title": "Verificador de derechos en teletrabajo - Alcántara Moreno Abogados",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://alcantaramoreno.com/herramientas/ley-teletrabajo/",
+    "char_count": 13127,
+    "summary": "Alcantara Moreno Abobagos Saltar al contenido principal https://alcantaramoreno.com/herramientas/ley-teletrabajo/#inicio Herramientas https://alcantaramoreno.com/herramientas/  › Verificadores de derechos Gratuita 4 minutos Ley 10/2021 Verificador de derechos  en teletrabajo Comprueba si tu empresa",
+    "file_path": "sources/9535b65a.txt",
+    "fulltext_preview": "Alcantara Moreno Abobagos\nSaltar al contenido principal\nhttps://alcantaramoreno.com/herramientas/ley-teletrabajo/#inicio\nHerramientas\nhttps://alcantaramoreno.com/herramientas/\n › Verificadores de derechos\nGratuita 4 minutos Ley 10/2021\nVerificador de derechos \nen teletrabajo\nComprueba si tu empresa cumple la Ley de Teletrabajo (Ley 10/2021): acuerdo escrito, compensación de gastos, equipos, desconexión digital y demás derechos.\n¿Cumple tu empresa con la Ley de Teletrabajo?\nMarca todas las condiciones que tu empresa cumple actualmente. La ley se aplica cuando el teletrabajo supera el 30% de la jornada (o el % del convenio).\n¿Qué porcentaje de tu jornada realizas en teletrabajo?\nMenos del 30% de la jornada\n30% o más de la jornada\n100% en teletrabajo\n📋 Acuerdo de teletrabajo\n \n[-]\nExiste un a"
+  },
+  {
+    "id": "f8d01c7d-2109-431d-9422-d75c8cb1304e",
+    "index": 260,
+    "title": "Viewpoint: PATCO's Lessons for this Crisis - Labor Notes |",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://labornotes.org/blogs/2025/04/patcos-lessons-crisis",
+    "char_count": 13257,
+    "summary": "Viewpoint: PATCO's Lessons for this Crisis | Labor Notes Skip to main content https://labornotes.org/blogs/2025/04/patcos-lessons-crisis#main-content Labor Notes https://labornotes.org/ SUBSCRIBE https://labornotes.org/subscribe Log In https://labornotes.org/user/login Main menu Home https://laborno",
+    "file_path": "sources/f8d01c7d.txt",
+    "fulltext_preview": "Viewpoint: PATCO's Lessons for this Crisis | Labor Notes\nSkip to main content\nhttps://labornotes.org/blogs/2025/04/patcos-lessons-crisis#main-content\nLabor Notes\nhttps://labornotes.org/\nSUBSCRIBE\nhttps://labornotes.org/subscribe\nLog In\nhttps://labornotes.org/user/login\nMain menu\nHome\nhttps://labornotes.org/\nAbout\nhttps://labornotes.org/about\nDonate\nhttps://labornotes.org/donate\nStore\nhttps://labornotes.org/store\nEvents\nhttps://labornotes.org/events\nNews\nhttps://labornotes.org/archives\nResources\nhttps://labornotes.org/resources\nPodcast\nhttps://labornotespodcast.podbean.com/\nSearch form\nSearch\n \nSearch »\n \nSearch\nViewpoint: PATCO's Lessons for this Crisis\nEnglish\nhttps://labornotes.org/blogs/2025/04/patcos-lessons-crisis\nEspañol\nhttps://labornotes.org/blogs/2025/04/patcos-lessons-crisis?lang"
+  },
+  {
+    "id": "46882947-d24c-42f5-9eac-3cc4425eebdf",
+    "index": 261,
+    "title": "Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany - Reddit",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de",
+    "char_count": 35228,
+    "summary": "Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany Skip to main content https://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de#main-content  Wie viel kann ich für einen ersten Job als Ingenieur bei Air",
+    "file_path": "sources/46882947.txt",
+    "fulltext_preview": "Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany\nSkip to main content\nhttps://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de#main-content\n Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany\nOpen menu\nOpen navigation \nhttps://www.reddit.com/\nGo to Reddit Home\nSearch Reddit\nSign Up\nhttps://www.reddit.com/register/\nSign up for Reddit\nLog In\nhttps://www.reddit.com/login/\nLog in to Reddit\nExpand user menu\nOpen settings menu\nSkip to Sign up\nhttps://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de#left-sidebar-container\n \nSkip to Right Sidebar\nhttps://www.reddit.com/r/germany/comments/znbjm0/how_much_c"
+  },
+  {
+    "id": "6c121489-b4d6-4b5f-b977-3dd5373afcd5",
+    "index": 262,
+    "title": "Wie viel verdient man bei Airbus? Dein Gehaltseinblick - kununu News",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://news.kununu.com/einblick-gehalt-airbus/",
+    "char_count": 23300,
+    "summary": "Wie viel verdient man bei Airbus? Dein Gehaltseinblick | kununu News Zum Inhalt springen https://news.kununu.com/einblick-gehalt-airbus/#main Let's make work better. https://news.kununu.com/ Suche nach: Arbeitgeber bewerten https://www.kununu.com/at/insights?forms=bewerten,gehalt,kultur Arbeitgeber",
+    "file_path": "sources/6c121489.txt",
+    "fulltext_preview": "Wie viel verdient man bei Airbus? Dein Gehaltseinblick | kununu News\nZum Inhalt springen\nhttps://news.kununu.com/einblick-gehalt-airbus/#main\nLet's make work better.\nhttps://news.kununu.com/\nSuche nach:\nArbeitgeber bewerten\nhttps://www.kununu.com/at/insights?forms=bewerten,gehalt,kultur\nArbeitgeber finden\nhttps://www.kununu.com/de/search/\nGehaltscheck\nhttps://www.kununu.com/de/gehalt\nJobs\nhttps://www.kununu.com/de/jobs\nNews\nhttps://news.kununu.com/\nÜber kununu\nhttps://inside.kununu.com/\nFür Arbeitgeber\nhttps://arbeitgeberportal.kununu.com/\nStartseite\nhttps://news.kununu.com/\nRanking\nhttps://news.kununu.com/ranking/\nGehalt\nhttps://news.kununu.com/gehalt/\nBewerbung\nhttps://news.kununu.com/bewerbung/\nArbeitsalltag\nhttps://news.kununu.com/arbeitsalltag/\nKarriere\nhttps://news.kununu.com/karrier"
+  },
+  {
+    "id": "83edfcf7-3d6b-4c58-8689-624fe01050ea",
+    "index": 263,
+    "title": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site",
+    "category": "Benchmark Internacional",
+    "type": "web_page",
+    "url": "https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html",
+    "char_count": 31935,
+    "summary": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site Menu https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html   Search https://www.wsws.org/en/search   https://www.wsws.org/en Latest https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html   Profile https://www.wsws.org/",
+    "file_path": "sources/83edfcf7.txt",
+    "fulltext_preview": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site\nMenu\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nSearch\nhttps://www.wsws.org/en/search\n \nhttps://www.wsws.org/en\nLatest\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nProfile\nhttps://www.wsws.org/en/profile\nEnglish\nContact\nhttps://www.wsws.org/en/special/pages/contact.html\n| \nAbout\nhttps://www.wsws.org/en/special/pages/icfi/wsws.html\n| \nhttps://www.wsws.org/en/profile\nInternational Committee of the Fourth International ( ICFI)\nhttps://www.wsws.org/en/special/pages/icfi/about.html\nMenu\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nSearch\nhttps://www.wsws.org/en/search\nInternational Committee of the Fourth International ( ICFI)\nhttps://www.wsws.org/en/special/pages/icfi/about"
+  },
+  {
+    "id": "d77d021f-e239-4852-9895-37abf9d4e109",
+    "index": 264,
+    "title": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site",
+    "category": "Benchmark Internacional",
+    "type": "web_page",
+    "url": "https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html",
+    "char_count": 31887,
+    "summary": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site Menu https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html   Search https://www.wsws.org/en/search   https://www.wsws.org/en Latest https://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html   Profile https://www.wsws.org/",
+    "file_path": "sources/d77d021f.txt",
+    "fulltext_preview": "Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site\nMenu\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nSearch\nhttps://www.wsws.org/en/search\n \nhttps://www.wsws.org/en\nLatest\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nProfile\nhttps://www.wsws.org/en/profile\nEnglish\nContact\nhttps://www.wsws.org/en/special/pages/contact.html\n| \nAbout\nhttps://www.wsws.org/en/special/pages/icfi/wsws.html\n| \nhttps://www.wsws.org/en/profile\nInternational Committee of the Fourth International ( ICFI)\nhttps://www.wsws.org/en/special/pages/icfi/about.html\nMenu\nhttps://www.wsws.org/en/articles/2026/08/27/xoqk-a27.html\n \nSearch\nhttps://www.wsws.org/en/search\nInternational Committee of the Fourth International ( ICFI)\nhttps://www.wsws.org/en/special/pages/icfi/about"
+  },
+  {
+    "id": "2097d5f3-1c09-462d-8b9a-c6d9cf1e0bbc",
+    "index": 265,
+    "title": "censo_presentacion.pdf",
+    "category": "Cadena de Suministro & Logística",
+    "type": "pdf",
+    "url": null,
+    "char_count": 12549,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9nSeNBYrJfIyaSMqT1Mt3bJxidTU3yFhMykSQwXEiGlpicbfBtaeENNmmwqFEUXECSq0CjbI04WOpzw5R0oVQ-lgNGYZEuv55WvGXFcEw0DNxpfMBvomjsE-a3k0DVnmaQT3jQMg=w256-h256-v0 0bdd446e-28c2-4b1b-90a5-b3174da1c738 Censo de votación  Cómo funciona y por qué tu privacidad está",
+    "file_path": "sources/2097d5f3.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX9nSeNBYrJfIyaSMqT1Mt3bJxidTU3yFhMykSQwXEiGlpicbfBtaeENNmmwqFEUXECSq0CjbI04WOpzw5R0oVQ-lgNGYZEuv55WvGXFcEw0DNxpfMBvomjsE-a3k0DVnmaQT3jQMg=w256-h256-v0\n0bdd446e-28c2-4b1b-90a5-b3174da1c738\nCenso de votación \nCómo funciona y por qué tu privacidad está protegida \nUna guía breve para quienes van a censarse \nComité de Huelga  ·  logistica.censo.airbus@gmail.com\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX8W_zA-Gj8vE5QHq-wvnd3qPsikWTaMJGj-_EXlYHO0TvXJEbAa1UuvgoZ6TKN0UIhzoQJFa-_7W8yjLEp-86SEPI1Ez5R8QqEXyV54O7oDAQuRYfjpDB_vgWaDvurI7kZzCnaOkQ=w209-h209-v0\n77b9cd35-dc2f-4147-8ec3-2fb3e808d885\n¿Qué es esto y para qué sirve? \nEs una aplicación para crear un censo: una lista de personas habilitadas para participar más adelante en la votación rela"
+  },
+  {
+    "id": "68459e1f-1fc0-4479-aa90-2fe99dfee475",
+    "index": 266,
+    "title": "dossier_recuperacion_salarial_airbus_E1_v8.pdf",
+    "category": "Dossiers Económicos & Salariales",
+    "type": "pdf",
+    "url": null,
+    "char_count": 69612,
+    "summary": "Recuperación del poder adquisitivo en Airbus  España  Pérdida acumulada 2020-2025 y propuesta de recuperación  con métricas oficiales INE y comparativa sectorial  Julio 2026 · Convenio Colectivo VII (2024-2027)  Fuentes: INE (IPC, EPF 2025), Banco de España, BCE, OECD, Airbus SE Annual Report, Boein",
+    "file_path": "sources/68459e1f.txt",
+    "fulltext_preview": "Recuperación del poder adquisitivo en Airbus \nEspaña \nPérdida acumulada 2020-2025 y propuesta de recuperación \ncon métricas oficiales INE y comparativa sectorial \nJulio 2026 · Convenio Colectivo VII (2024-2027) \nFuentes: INE (IPC, EPF 2025), Banco de España, BCE, OECD, Airbus SE Annual Report, Boeing 10-K SEC, IAM 751 \nÍndice \nPérdida real de poder adquisitivo 2020-2025 — Actualización salarial mediante pago \nconsolidable \nPérdida por cantidades no percibidas 2020-2025 — Pago único retroactivo no consolidable \nRSG 2027 y siguientes — Fórmula de blindaje futuro \nResumen de la estructura de recuperación \nCapacidad económica Airbus — Coste de implementación \nBenchmark sectorial — teletrabajo y beneficios \nPrecedente Boeing — huelga IAM 751 y acuerdo salarial (2024) \nAnexos — Metodología, asun"
+  },
+  {
+    "id": "fd9ccdaf-6c34-4961-bbc1-5cde7c564047",
+    "index": 267,
+    "title": "inFO RELOAD – Classification #1 - FO AIRBUS TLSE",
+    "category": "Noticias & Medios",
+    "type": "web_page",
+    "url": "https://www.fo-airbus-operations-toulouse.fr/actus/i/61724303/article-n-907",
+    "char_count": 4452,
+    "summary": "inFO RELOAD – Classification #1     Actus / Vos représentants /vos-representants Paiement cotisation https://paiement-foairbus-tlse.fr/ Référents Airbus Atlantic /referents-airbus-atlantic Poser une question /poser-une-question Rencontrons-nous /rejoignez-nous-1 Grilles salariales /salaires EDCM /ed",
+    "file_path": "sources/fd9ccdaf.txt",
+    "fulltext_preview": "inFO RELOAD – Classification #1\n \n \nActus\n/\nVos représentants\n/vos-representants\nPaiement cotisation\nhttps://paiement-foairbus-tlse.fr/\nRéférents Airbus Atlantic\n/referents-airbus-atlantic\nPoser une question\n/poser-une-question\nRencontrons-nous\n/rejoignez-nous-1\nGrilles salariales\n/salaires\nEDCM\n/edcm\nLiens utiles\n/liens-utiles\nPolitique de confidentialité\n/politique-de-confidentialite\n/reglages\n \n \n \n \ninFO RELOAD – Classification #1\nRédigé le 24/01/2022\n \nLa nouvelle \"Classification\" est un thème majeur du Nouveau Dispositif Conventionnel de la Métallurgie (NDCM), et par conséquent du projet RELOAD.\nA partir du 1er janvier 2024, les grilles et les niveaux non cadres et cadres actuels (190, 215, ..., 305, 335 points, II, IIIA, IIIB, etc...) seront remplacés par la \ngrille unique\n ci-desso"
+  },
+  {
+    "id": "7b98346c-89d2-4962-abd6-f58df34d356b",
+    "index": 268,
+    "title": "trabajar desde cualquier lugar (incluso tu coche): la nueva frontera del trabajo flexible",
+    "category": "Convenios Colectivos & BOE",
+    "type": "web_page",
+    "url": "https://www.renault.es/blog/detras-del-volante/trabajar-desde-cualquier-lugar-incluso-tu-coche.html",
+    "char_count": 35494,
+    "summary": "Trabajar desde cualquier lugar (incluso tu coche)  https://www.renault.es/ cerrar vehículos volver cerrar cerrar filtra los vehículos categoría   [x] personal-cars vehículos particulares   [-] vans vehículos comerciales motorización   [-] electric eléctrico   [-] gasoline gasolina   [-] lpg glp   [-",
+    "file_path": "sources/7b98346c.txt",
+    "fulltext_preview": "Trabajar desde cualquier lugar (incluso tu coche) \nhttps://www.renault.es/\ncerrar\nvehículos volver cerrar cerrar filtra los vehículos categoría\n \n[x] personal-cars vehículos particulares\n \n[-] vans vehículos comerciales motorización\n \n[-] electric eléctrico\n \n[-] gasoline gasolina\n \n[-] lpg glp\n \n[-] hybrid híbrido\n \n[-] mildHybrid mild hybrid\n \n[-] hybridPlugin híbrido enchufable\n \n[-] diesel diésel \nconoce nuestras motorizaciones\nhttps://www.renault.es/motores.html\n \ncompara los modelos\nhttps://www.renault.es/comparador-coches.html?rangeId=personal-cars\n \nvehículos nuevos en stock\nhttps://www.renault.es/renault-webstore.html\n \nvehículos de segunda mano\nhttps://es.renew.auto/\n cerrar TWINGO precio desde 17.463 €\n eléctrico plazas 4 longitud 3,79 m \ndescúbrelo\nhttps://www.renault.es/electr"
+  },
+  {
+    "id": "951a5404-3526-4a14-94d8-c1653420351b",
+    "index": 269,
+    "title": "www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensación de gastos. Empresa que vino aplicando una política de tr",
+    "category": "Noticias & Medios",
+    "type": "pdf",
+    "url": "https://www.laboral-social.com/sites/laboral-social.com/files/62-2024-3-junio.pdf",
+    "char_count": 40572,
+    "summary": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-UESFPaGTDKGI1DI-QRlI6NjmYepE-7cErPQRgNxB6pYmAFLcIX0xU-UuBiSeEeMOXwWYVX2OpgJF8xRzBALQCFMMC6CeiofI9dm0dy90sx7_U5_OaVX5Ze5aKHi_0RNh4J7a1QQ=w432-h58-v0 807e544f-f1a8-4dd2-a807-bdf334507ab9 https://lh3.googleusercontent.com/notebooklm/AKYWMX_I9XFEH63du9",
+    "file_path": "sources/951a5404.txt",
+    "fulltext_preview": "https://lh3.googleusercontent.com/notebooklm/AKYWMX-UESFPaGTDKGI1DI-QRlI6NjmYepE-7cErPQRgNxB6pYmAFLcIX0xU-UuBiSeEeMOXwWYVX2OpgJF8xRzBALQCFMMC6CeiofI9dm0dy90sx7_U5_OaVX5Ze5aKHi_0RNh4J7a1QQ=w432-h58-v0\n807e544f-f1a8-4dd2-a807-bdf334507ab9\nhttps://lh3.googleusercontent.com/notebooklm/AKYWMX_I9XFEH63du9xGX86kVMlOchI7r_LfvPKV4MUDcwGoHrOiS7G1X0ZM4I2KxsECbpgiUOGQauXxQ6TWQKhZfoPvG3x813Ie8iVcQPat5DkXwR4y4L97oGS7S1cHJXNR0J6nATG4=w278-h86-v0\n0661e979-d10f-493f-8655-20d08b893c13\nwww.laboral-social.com \n \nAUDIENCIA NACIONAL \nSentencia 62/2024, de 3 de junio de 2024 Sala de lo Social Rec. n.º 289/2023 \n SUMARIO:  \nTrabajo a distancia. Teletrabajo. Compensación de gastos. Empresa que \nvino aplicando una política de trabajo flexible tras la pandemia por COVID-19 hasta que, previo requerimiento por la Insp"
+  }
+];
 
 const checklistItems = [
   { id: "chk_1", title: "1. Consolidación del 12% íntegro en Tablas", desc: "¿El 12% se incorpora al salario base consolidable a 1 de enero de 2026 sin fragmentar en pagas no consolidables?" },
@@ -84,20 +13930,42 @@ const checklistItems = [
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.lucide) lucide.createIcons();
 
-  // Load consolidated data
-  try {
-    let res = await fetch('data/conflict_metrics.json');
-    if (!res.ok) res = await fetch('../data/conflict_metrics.json');
-    if (res.ok) {
-      conflictData = await res.json();
-    } else {
-      conflictData = fallbackData;
-    }
-  } catch (e) {
-    conflictData = fallbackData;
+  // 1. Establish baseline data immediately
+  if (!conflictData) {
+    conflictData = (window.CONFLICT_DATA) ? window.CONFLICT_DATA : fallbackConflictData;
+  }
+  if (!sourcesCatalogData || sourcesCatalogData.length === 0) {
+    sourcesCatalogData = (window.SOURCES_DATA && window.SOURCES_DATA.length > 0) ? window.SOURCES_DATA : fallbackSourcesCatalog;
   }
 
-  // Initialize UI components
+  // 2. Render all tabs immediately from baseline (zero blank screen, 100% offline capability)
+  initAllModules();
+
+  // 3. Background asynchronous sync for updated datasets
+  syncDataInBackground();
+
+  // 4. Start Beluga Live polling (every 60 seconds)
+  startBelugaLivePolling();
+
+  // 5. Setup modal keyboard listener (Esc to close)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSourceModal();
+    }
+  });
+
+  // 6. Close modal on backdrop click
+  const modalEl = document.getElementById('source-modal');
+  if (modalEl) {
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) {
+        closeSourceModal();
+      }
+    });
+  }
+});
+
+function initAllModules() {
   initChecklist();
   initBenchmarks();
   initSources();
@@ -109,10 +13977,52 @@ document.addEventListener('DOMContentLoaded', async () => {
   initThermometerAndBeluga();
   updateAsymmetrySimulation();
   updateWageSimulation();
+  initAsymmetryChart();
+  initWagesChart();
+  initBelugaHistoryChart();
+  if (window.lucide) lucide.createIcons();
+}
 
-  // Auto-polling for Beluga Live tracker (every 60s)
-  startBelugaLivePolling();
-});
+async function syncDataInBackground() {
+  // Sync conflict_metrics.json if online/served via HTTP
+  try {
+    let res = await fetch('data/conflict_metrics.json', { cache: 'no-store' });
+    if (!res.ok) res = await fetch('../data/conflict_metrics.json', { cache: 'no-store' });
+    if (res.ok) {
+      const liveJson = await res.json();
+      if (liveJson && liveJson.parameters) {
+        conflictData = liveJson;
+        // Re-render data-dependent components
+        initHistoricalLosses();
+        initNegotiationEvolution();
+        initTimeline();
+        initWorkflows();
+        initTelegramArchive();
+        initThermometerAndBeluga();
+        updateAsymmetrySimulation();
+      }
+    }
+  } catch (e) {
+    // Offline or file:// mode, baseline remains active
+  }
+
+  // Sync sources catalog
+  try {
+    let resSources = await fetch('data/sources_catalog.json', { cache: 'no-store' });
+    if (!resSources.ok) resSources = await fetch('dashboard/data/sources_catalog.json', { cache: 'no-store' });
+    if (!resSources.ok) resSources = await fetch('../data/sources_catalog.json', { cache: 'no-store' });
+    if (resSources.ok) {
+      const liveSources = await resSources.json();
+      const sList = liveSources.sources || liveSources;
+      if (Array.isArray(sList) && sList.length > 0) {
+        sourcesCatalogData = sList;
+        renderSourcesList(getFilteredSources());
+      }
+    }
+  } catch (e) {
+    // Offline mode, embedded sources remain active
+  }
+}
 
 // Mobile Sidebar Toggle
 function toggleMobileSidebar() {
@@ -148,9 +14058,12 @@ function switchTab(tabId) {
 
 // ==================== ASYMMETRY SIMULATOR ====================
 function updateAsymmetrySimulation() {
-  const days = parseInt(document.getElementById('slider-days').value, 10);
+  const daysEl = document.getElementById('slider-days');
+  if (!daysEl) return;
+  const days = parseInt(daysEl.value, 10);
   const salary = 50000;
-  document.getElementById('slider-days-val').textContent = `${days} día${days > 1 ? 's' : ''}`;
+  const daysValEl = document.getElementById('slider-days-val');
+  if (daysValEl) daysValEl.textContent = `${days} día${days > 1 ? 's' : ''}`;
 
   const dailyWorkerGross = salary / 365.0;
   const dailyWorkerNet = dailyWorkerGross * 0.72;
@@ -171,15 +14084,20 @@ function updateAsymmetrySimulation() {
   const collectivePayrollSaved = (days * dailyWorkerGross * totalWorkers) / 1e6;
   const ratio = collectivePayrollSaved > 0 ? (airbusLoss / collectivePayrollSaved) : 0;
 
-  document.getElementById('calc-airbus-loss').textContent = `${airbusLoss.toFixed(1)} M€`;
-  document.getElementById('calc-worker-loss').textContent = `${Math.round(workerLossPerPerson).toLocaleString()} €`;
-  document.getElementById('calc-payroll-saved').textContent = `${collectivePayrollSaved.toFixed(1)} M€`;
-  document.getElementById('calc-asymmetry-ratio').textContent = `${ratio.toFixed(1)}x nómina`;
+  const lossEl = document.getElementById('calc-airbus-loss');
+  if (lossEl) lossEl.textContent = `${airbusLoss.toFixed(1)} M€`;
+  const wLossEl = document.getElementById('calc-worker-loss');
+  if (wLossEl) wLossEl.textContent = `${Math.round(workerLossPerPerson).toLocaleString()} €`;
+  const paySavedEl = document.getElementById('calc-payroll-saved');
+  if (paySavedEl) paySavedEl.textContent = `${collectivePayrollSaved.toFixed(1)} M€`;
+  const ratioEl = document.getElementById('calc-asymmetry-ratio');
+  if (ratioEl) ratioEl.textContent = `${ratio.toFixed(1)}x nómina`;
 }
 
 function initAsymmetryChart() {
   const ctx = document.getElementById('asymmetryChart')?.getContext('2d');
   if (!ctx) return;
+  if (asymmetryChart) asymmetryChart.destroy();
 
   const days = [1, 3, 5, 7, 10, 15, 20, 30];
   const airbusLoss = [6.5, 19.5, 52.5, 97.9, 166.0, 279.5, 393.0, 620.0];
@@ -233,17 +14151,22 @@ function initAsymmetryChart() {
 
 // ==================== WAGES SIMULATOR ====================
 function updateWageSimulation() {
-  const salary = parseFloat(document.getElementById('sim-salary').value) || 50000;
+  const salaryInput = document.getElementById('sim-salary');
+  if (!salaryInput) return;
+  const salary = parseFloat(salaryInput.value) || 50000;
   const unionSalary = salary * 1.12;
   const monthlyHike = (salary * 0.12) / 14;
 
-  document.getElementById('sim-res-union-salary').textContent = `${Math.round(unionSalary).toLocaleString()} €/año`;
-  document.getElementById('sim-res-union-monthly').textContent = `+${Math.round(monthlyHike).toLocaleString()} €/mes (14p)`;
+  const resUnionSalary = document.getElementById('sim-res-union-salary');
+  if (resUnionSalary) resUnionSalary.textContent = `${Math.round(unionSalary).toLocaleString()} €/año`;
+  const resUnionMonthly = document.getElementById('sim-res-union-monthly');
+  if (resUnionMonthly) resUnionMonthly.textContent = `+${Math.round(monthlyHike).toLocaleString()} €/mes (14p)`;
 }
 
 function initWagesChart() {
   const ctx = document.getElementById('wagesChart')?.getContext('2d');
   if (!ctx) return;
+  if (wagesChart) wagesChart.destroy();
 
   wagesChart = new Chart(ctx, {
     type: 'line',
@@ -375,6 +14298,7 @@ function fallbackBelugaRender() {
 function initBelugaHistoryChart() {
   const ctx = document.getElementById('belugaHistoryChart')?.getContext('2d');
   if (!ctx) return;
+  if (belugaHistoryChart) belugaHistoryChart.destroy();
 
   const history = conflictData?.beluga_logistics?.historical_movements || {
     weeks: ["Jun (Normal)", "Jul S1", "Jul S2", "Jul S3", "Jul S4", "Ago S1-S3", "Ago S4 (Huelga)"],
@@ -463,37 +14387,52 @@ function initWorkflows() {
   const container = document.getElementById('workflows-container');
   if (!container) return;
 
-  const workflows = conflictData?.workflows || [];
-  if (workflows.length === 0) return;
+  const workflows = conflictData?.workflows || [
+    {
+      title: "1. Voto en Urna de la Propuesta Empresa",
+      phase: "Fase de Ratificación Asamblearia",
+      steps: [
+        { name: "Paso 1: Lectura Íntegra del Texto", detail: "Comprobar consolidación del 12% y cláusula RSG sin topes.", rule: "Si no hay RSG = IPC+1,5%, rechazar.", action: "Voto NO" },
+        { name: "Paso 2: Evaluación de Atrasos", detail: "Exigir pago único mínimo de 7.500 € para compensar 2021-2025.", rule: "Si es < 5.000 €, no compensa pérdida histórica.", action: "Enmienda en SIMA" },
+        { name: "Paso 3: Verificación de Demandas IT / Bradford", detail: "Airbus debe desistir de la casación de IT ante el Tribunal Supremo.", rule: "Requisito innegociable de paz social.", action: "Condición 'Sine Qua Non'" }
+      ]
+    },
+    {
+      title: "2. Gestión Táctica del Estrangulamiento JIT",
+      phase: "Fase de Presión Industrial Activa",
+      steps: [
+        { name: "Paso 1: Control de Buffer HTP", detail: "Monitorear nivel de stock de estabilizadores en FAL Toulouse.", rule: "Buffer crítico: 48 a 72 horas.", action: "Bloqueo LEGT" },
+        { name: "Paso 2: Monitorización Beluga Live", detail: "Rastreo de vuelos ATI en BelugaWatch hacia Getafe.", rule: "Detección de intentos de desvío de piezas terminadas.", action: "Alerta EASA" },
+        { name: "Paso 3: Coordinación con FAL Hamburgo", detail: "Contacto con delegados de IG Metall para evitar transferencias.", rule: "Solidaridad sindical europea ante esquirolaje.", action: "Comité Europeo" }
+      ]
+    }
+  ];
 
   container.innerHTML = workflows.map(wf => `
-    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-slate-700 transition space-y-4">
-      <div>
-        <div class="flex justify-between items-start">
-          <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${wf.color}-500/20 text-${wf.color}-400 border border-${wf.color}-500/30">
-            ${wf.badge}
-          </span>
-          <span class="text-[10px] text-slate-500 font-bold uppercase">${wf.category}</span>
+    <div class="bg-slate-900/90 border border-slate-800 p-4 sm:p-5 rounded-xl space-y-3">
+      <div class="flex justify-between items-start border-b border-slate-800 pb-2.5">
+        <div>
+          <h4 class="text-xs sm:text-sm font-black text-white">${wf.title}</h4>
+          <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider">${wf.phase}</span>
         </div>
-        <h3 class="text-sm sm:text-base font-black text-white mt-2">${wf.title}</h3>
-        <p class="text-xs text-slate-300 mt-1">${wf.objective}</p>
+        <span class="p-1 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+          <i data-lucide="git-commit" class="w-4 h-4"></i>
+        </span>
+      </div>
 
-        <div class="mt-4 space-y-2.5">
-          ${wf.steps.map(s => `
-            <div class="p-3 bg-slate-950/60 border border-slate-800/80 rounded-xl flex items-start space-x-3">
-              <div class="w-5 h-5 rounded-full bg-${wf.color}-600/30 border border-${wf.color}-500/50 flex items-center justify-center text-[10px] font-black text-${wf.color}-300 shrink-0 mt-0.5">
-                ${s.step}
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="text-xs font-bold text-white">${s.title}</span>
-                  <span class="text-[9px] font-extrabold px-1.5 py-0.2 rounded bg-slate-800 text-slate-300">${s.gate}</span>
-                </div>
-                <p class="text-[11px] text-slate-400 mt-1 leading-relaxed whitespace-pre-line">${s.condition}</p>
-              </div>
+      <div class="space-y-2.5 pt-1">
+        ${wf.steps.map((st, i) => `
+          <div class="p-2.5 bg-slate-950/70 border border-slate-800/80 rounded-lg space-y-1">
+            <div class="flex justify-between items-center text-xs font-bold text-white">
+              <span>${st.name}</span>
+              <span class="px-1.5 py-0.5 text-[9px] font-mono rounded bg-slate-800 text-slate-300">${st.action}</span>
             </div>
-          `).join('')}
-        </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">${st.detail}</p>
+            <div class="text-[10px] text-amber-400 font-medium">
+              <strong>Regla:</strong> ${st.rule}
+            </div>
+          </div>
+        `).join('')}
       </div>
     </div>
   `).join('');
@@ -506,7 +14445,7 @@ function initNegotiationEvolution() {
 
   // 1. Render Initial Demands (July 1, 2026)
   const initialGrid = document.getElementById('initial-demands-grid');
-  if (initialGrid && evo.initial_demands_july) {
+  if (initialGrid && evo.initial_demands_july && evo.initial_demands_july.items) {
     initialGrid.innerHTML = evo.initial_demands_july.items.map(item => `
       <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
         <div>
@@ -551,9 +14490,9 @@ function initNegotiationEvolution() {
   if (gapTableBody && evo.current_gap_analysis) {
     gapTableBody.innerHTML = evo.current_gap_analysis.map(gap => {
       let badgeClass = "bg-rose-500/20 text-rose-300 border-rose-500/30";
-      if (gap.status.includes("Condicionado") || gap.status.includes("Acercamiento")) {
+      if (gap.status.includes("Condicionado") || gap.status.includes("Acercamiento") || gap.status.includes("Principio")) {
         badgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/30";
-      } else if (gap.status.includes("Técnico")) {
+      } else if (gap.status.includes("Técnico") || gap.status.includes("En Discusión")) {
         badgeClass = "bg-sky-500/20 text-sky-300 border-sky-500/30";
       }
 
@@ -585,7 +14524,7 @@ function initTimeline() {
   container.innerHTML = timeline.map(item => `
     <div class="relative group">
       <!-- Dot on timeline -->
-      <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-${item.badge_color}-500 shadow-lg shadow-${item.badge_color}-500/30"></div>
+      <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-${item.badge_color || 'blue'}-500 shadow-lg shadow-${item.badge_color || 'blue'}-500/30"></div>
 
       <div class="bg-slate-900/80 border border-slate-800 group-hover:border-slate-700 p-4 sm:p-5 rounded-2xl transition space-y-3.5">
         <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1.5">
@@ -594,7 +14533,7 @@ function initTimeline() {
             <span class="text-xs text-slate-400 font-medium">• ${item.phase}</span>
             ${item.time ? `<span class="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded">🕒 ${item.time}</span>` : ''}
           </div>
-          <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${item.badge_color}-500/20 text-${item.badge_color}-400 border border-${item.badge_color}-500/30 self-start sm:self-auto">
+          <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${item.badge_color || 'blue'}-500/20 text-${item.badge_color || 'blue'}-400 border border-${item.badge_color || 'blue'}-500/30 self-start sm:self-auto">
             ${item.badge}
           </span>
         </div>
@@ -622,13 +14561,15 @@ function initTimeline() {
         ` : ''}
 
         <div class="flex flex-wrap gap-1.5 pt-1">
-          ${item.actors.map(a => `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">${a}</span>`).join('')}
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">Doc: ${item.source_ref}</span>
+          ${(item.actors || []).map(a => `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">${a}</span>`).join('')}
+          ${item.source_ref ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">Doc: ${item.source_ref}</span>` : ''}
         </div>
 
-        <div class="p-2.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-[11px] text-slate-300">
-          <strong class="text-amber-400">Lección Estratégica:</strong> ${item.strategic_takeaway}
-        </div>
+        ${item.strategic_takeaway ? `
+          <div class="p-2.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-[11px] text-slate-300">
+            <strong class="text-amber-400">Lección Estratégica:</strong> ${item.strategic_takeaway}
+          </div>
+        ` : ''}
       </div>
     </div>
   `).join('');
@@ -641,20 +14582,20 @@ function initThermometerAndBeluga() {
 
   if (thermo) {
     const tempEl = document.getElementById('thermo-temp');
+    if (tempEl) tempEl.textContent = `${thermo.current_temperature_celsius.toFixed(1)}°C`;
     const badgeEl = document.getElementById('thermo-badge');
+    if (badgeEl) badgeEl.textContent = thermo.pressure_status;
     const descEl = document.getElementById('thermo-desc');
+    if (descEl) descEl.textContent = thermo.status_narrative;
     const barEl = document.getElementById('thermo-bar');
-    const badEl = document.getElementById('thermo-bad-ratio');
-    const goodEl = document.getElementById('thermo-good-ratio');
+    if (barEl) barEl.style.width = `${Math.min(100, Math.max(10, thermo.current_temperature_celsius))}%`;
 
-    if (tempEl) tempEl.textContent = `${thermo.temperature_celsius}°C`;
-    if (badgeEl) badgeEl.textContent = thermo.status_label;
-    if (descEl) descEl.textContent = thermo.status_description;
-    if (barEl) barEl.style.width = `${thermo.temperature_celsius}%`;
-    if (badEl) badEl.textContent = `${thermo.bad_for_airbus_percentage}%`;
-    if (goodEl) goodEl.textContent = `${thermo.good_for_airbus_percentage}%`;
+    const badRatioEl = document.getElementById('thermo-bad-ratio');
+    if (badRatioEl) badRatioEl.textContent = `${thermo.bad_for_airbus_pct.toFixed(1)}%`;
+    const goodRatioEl = document.getElementById('thermo-good-ratio');
+    if (goodRatioEl) goodRatioEl.textContent = `${thermo.good_for_airbus_pct.toFixed(1)}%`;
 
-    thermoFeedData = thermo.feed || [];
+    thermoFeedData = thermo.media_and_social_feed || [];
     renderThermoFeed(thermoFeedData);
   }
 
@@ -808,18 +14749,21 @@ function initChecklist() {
 
 function updateChecklistScore() {
   const checked = checklistItems.filter(item => document.getElementById(item.id)?.checked).length;
-  document.getElementById('checklist-score').textContent = `${checked} / 6`;
+  const scoreEl = document.getElementById('checklist-score');
+  if (scoreEl) scoreEl.textContent = `${checked} / 6`;
 
   const verdict = document.getElementById('checklist-verdict');
-  if (checked === 6) {
-    verdict.textContent = "Oferta Aceptable: Procede Voto SÍ en Urna";
-    verdict.className = "block text-[10px] uppercase font-bold text-emerald-400";
-  } else if (checked >= 4) {
-    verdict.textContent = "Preacuerdo Insuficiente: Exige Mejoras en SIMA";
-    verdict.className = "block text-[10px] uppercase font-bold text-amber-400";
-  } else {
-    verdict.textContent = "Oferta Inaceptable: Votar NO y Reactivar Huelga";
-    verdict.className = "block text-[10px] uppercase font-bold text-rose-400";
+  if (verdict) {
+    if (checked === 6) {
+      verdict.textContent = "Oferta Aceptable: Procede Voto SÍ en Urna";
+      verdict.className = "block text-[10px] uppercase font-bold text-emerald-400";
+    } else if (checked >= 4) {
+      verdict.textContent = "Preacuerdo Insuficiente: Exige Mejoras en SIMA";
+      verdict.className = "block text-[10px] uppercase font-bold text-amber-400";
+    } else {
+      verdict.textContent = "Oferta Inaceptable: Votar NO y Reactivar Huelga";
+      verdict.className = "block text-[10px] uppercase font-bold text-rose-400";
+    }
   }
 }
 
@@ -828,7 +14772,45 @@ function initBenchmarks() {
   const container = document.getElementById('benchmarks-container');
   if (!container) return;
 
-  const data = fallbackData.benchmarks;
+  const data = conflictData?.benchmarks || [
+    {
+      case: "Boeing IAM 751 (2024)",
+      badge: "+38% en Tablas",
+      badgeColor: "emerald",
+      sector: "Aeroespacial Comercial",
+      duration: "53 días",
+      result: "38% subida en tablas + 12.000$ bono de firma + IPC protegido.",
+      lesson: "El rechazo asambleario en dos ocasiones forzó a la dirección a doblar la oferta inicial."
+    },
+    {
+      case: "Spirit AeroSystems (2023)",
+      badge: "+20,5% en Tablas",
+      badgeColor: "emerald",
+      sector: "Aeroestructuras / Fuselajes",
+      duration: "7 días",
+      result: "20,5% en tablas + Retirada íntegra de recortes de descansos.",
+      lesson: "Pausa táctica de 7 días con huelga viva forzó la capitulación patronal al estrangular la cadena de Boeing."
+    },
+    {
+      case: "RMT Network Rail (2022-23)",
+      badge: "9% a 14% en Tablas",
+      badgeColor: "blue",
+      sector: "Infraestructuras Ferroviarias",
+      duration: "Paros rotatorios",
+      result: "9% a 14,4% consolidado con blindaje contra despidos forzosos.",
+      lesson: "La alternancia de paros y negociaciones en SIMA británico evitó la asfixia salarial de las familias."
+    },
+    {
+      case: "Acerinox Palmones (2024)",
+      badge: "Asfixia Financiera",
+      badgeColor: "rose",
+      sector: "Siderurgia",
+      duration: "135 días",
+      result: "Acuerdo a la baja con desmovilización por asfixia financiera familiar.",
+      lesson: "La falta de asimetría crítica en JIT y la ausencia de caja de resistencia agotaron a las bases."
+    }
+  ];
+
   container.innerHTML = data.map(b => `
     <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl flex flex-col justify-between">
       <div>
@@ -846,38 +14828,328 @@ function initBenchmarks() {
   `).join('');
 }
 
-// ==================== SOURCES ====================
+// ==================== SOURCES ENGINE (269+ PRIMARY SOURCES & MODAL) ====================
+function normalizeCategory(cat) {
+  if (!cat) return "Prensa & Medios";
+  const c = cat.toLowerCase();
+  if (c.includes("sima") || c.includes("legal") || c.includes("sentencia") || c.includes("actas") || c.includes("audiencia")) return "Actas SIMA & Legal";
+  if (c.includes("dossier") || c.includes("salarial") || c.includes("económic") || c.includes("economic") || c.includes("pérdida") || c.includes("adquisitivo") || c.includes("ipc")) return "Dossiers Económicos";
+  if (c.includes("airbus se") || c.includes("financier") || c.includes("annual report") || c.includes("ebit")) return "Informes Airbus SE";
+  if (c.includes("convenio") || c.includes("boe") || c.includes("regcon")) return "Convenios & BOE";
+  if (c.includes("comunicado") || c.includes("sindical") || c.includes("huelga") || c.includes("asamblea") || c.includes("sipa") || c.includes("ugt") || c.includes("cgt") || c.includes("ccoo") || c.includes("útil")) return "Comunicados Sindicales";
+  if (c.includes("suministro") || c.includes("logística") || c.includes("logistica") || c.includes("jit") || c.includes("cadena") || c.includes("beluga") || c.includes("fal") || c.includes("htp")) return "Cadena JIT & Logística";
+  if (c.includes("benchmark") || c.includes("internacional") || c.includes("boeing") || c.includes("spirit") || c.includes("acerinox") || c.includes("ig metall")) return "Benchmark";
+  return "Prensa & Medios";
+}
+
+function getCategoryColor(cat) {
+  const norm = normalizeCategory(cat);
+  switch (norm) {
+    case "Actas SIMA & Legal": return "rose";
+    case "Dossiers Económicos": return "emerald";
+    case "Informes Airbus SE": return "indigo";
+    case "Convenios & BOE": return "blue";
+    case "Comunicados Sindicales": return "sky";
+    case "Cadena JIT & Logística": return "amber";
+    case "Benchmark": return "purple";
+    default: return "slate";
+  }
+}
+
 function initSources() {
-  renderSourcesList(fallbackData.sources);
+  renderSourcesList(getFilteredSources());
+}
+
+function setSourceCategory(category) {
+  selectedSourceCategory = category;
+
+  // Update pills UI
+  document.querySelectorAll('.source-cat-pill').forEach(pill => {
+    const pillCat = pill.getAttribute('data-cat');
+    if (pillCat === category) {
+      pill.className = "source-cat-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white whitespace-nowrap transition";
+    } else {
+      pill.className = "source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition";
+    }
+  });
+
+  renderSourcesList(getFilteredSources());
+}
+
+function filterSources() {
+  renderSourcesList(getFilteredSources());
+}
+
+function getFilteredSources() {
+  const query = document.getElementById('source-search')?.value.toLowerCase().trim() || '';
+  
+  return sourcesCatalogData.filter(s => {
+    const normCat = normalizeCategory(s.category);
+    const matchesCat = (selectedSourceCategory === 'ALL') || (normCat === selectedSourceCategory);
+    
+    if (!matchesCat) return false;
+    if (!query) return true;
+
+    const title = (s.title || '').toLowerCase();
+    const id = (s.id || '').toLowerCase();
+    const rawId = (s.raw_id || '').toLowerCase();
+    const summary = (s.summary || '').toLowerCase();
+    const type = (s.type || '').toLowerCase();
+    const url = (s.url || '').toLowerCase();
+
+    return title.includes(query) || id.includes(query) || rawId.includes(query) || summary.includes(query) || type.includes(query) || url.includes(query) || normCat.toLowerCase().includes(query);
+  });
 }
 
 function renderSourcesList(sources) {
   const container = document.getElementById('sources-list');
   if (!container) return;
 
-  container.innerHTML = sources.map(s => `
-    <div class="p-3 bg-slate-900/70 border border-slate-800 rounded-lg flex items-start justify-between">
-      <div>
-        <span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">${s.id}</span>
-        <h4 class="text-xs font-bold text-white mt-1">${s.title}</h4>
-        <p class="text-xs text-slate-400 mt-0.5">${s.section}</p>
+  const countBadge = document.getElementById('sources-count-badge');
+  if (countBadge) {
+    countBadge.textContent = `${sources.length} de ${sourcesCatalogData.length} Fuentes`;
+  }
+
+  if (sources.length === 0) {
+    container.innerHTML = `
+      <div class="text-center py-12 bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+        <i data-lucide="file-question" class="w-10 h-10 text-slate-500 mx-auto mb-2"></i>
+        <h4 class="text-sm font-bold text-white">No se encontraron fuentes</h4>
+        <p class="text-xs text-slate-400 mt-1">Prueba con otro término de búsqueda o selecciona otra categoría.</p>
       </div>
-      <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 ml-2"></i>
-    </div>
-  `).join('');
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  container.innerHTML = sources.map(s => {
+    const normCat = normalizeCategory(s.category);
+    const catColor = getCategoryColor(normCat);
+    const shortId = s.id || `SRC-${s.index || '00'}`;
+    const chars = s.char_count ? `${(s.char_count / 1000).toFixed(1)}k chars` : 'Indexado';
+    const dateStr = s.date || '2026-08-28';
+    const hasUrl = s.url && s.url.startsWith('http');
+    const safeTitle = (s.title || '').replace(/"/g, '&quot;');
+    const lookupId = s.raw_id || s.id || s.index;
+
+    return `
+      <div class="p-3.5 sm:p-4 bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl transition flex flex-col md:flex-row justify-between md:items-center gap-3">
+        <div class="space-y-1.5 flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2 py-0.5 text-[9px] font-extrabold bg-${catColor}-500/20 text-${catColor}-300 border border-${catColor}-500/30 rounded">
+              ${normCat}
+            </span>
+            <span class="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+              ${shortId}
+            </span>
+            <span class="text-[10px] text-slate-400 font-mono">
+              ${s.type || 'Documento'} • ${chars} • ${dateStr}
+            </span>
+          </div>
+          <h4 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">
+            ${s.title}
+          </h4>
+          <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+            ${s.summary || 'Documento indexado para la monitorización del conflicto.'}
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-2 shrink-0 self-end md:self-center">
+          <button onclick="openSourceModal('${lookupId}')" class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 rounded-lg text-xs font-bold transition flex items-center shadow-sm">
+            <i data-lucide="eye" class="w-3.5 h-3.5 mr-1.5"></i>
+            Ver Texto
+          </button>
+          ${hasUrl ? `
+            <a href="${s.url}" target="_blank" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 rounded-lg text-xs transition flex items-center" title="Abrir enlace original">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+          ` : `
+            <button onclick="openSourceModal('${lookupId}')" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 rounded-lg text-xs transition" title="Consultar contenido local">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+            </button>
+          `}
+        </div>
+      </div>
+    `;
+  }).join('');
+
   if (window.lucide) lucide.createIcons();
 }
 
-function filterSources() {
-  const query = document.getElementById('source-search')?.value.toLowerCase() || '';
-  const filtered = fallbackData.sources.filter(s => s.title.toLowerCase().includes(query) || s.section.toLowerCase().includes(query) || s.id.toLowerCase().includes(query));
-  renderSourcesList(filtered);
+// ==================== FULL-TEXT READER MODAL ====================
+async function openSourceModal(sourceIdentifier) {
+  const modal = document.getElementById('source-modal');
+  if (!modal) return;
+
+  // Find source in catalog or telegram docs
+  let source = sourcesCatalogData.find(s => s.raw_id === sourceIdentifier || s.id === sourceIdentifier || String(s.index) === String(sourceIdentifier));
+  if (!source) {
+    source = telegramDocsData.find(d => d.id === sourceIdentifier || d.title === sourceIdentifier);
+  }
+  if (!source) {
+    source = {
+      title: "Documento #" + sourceIdentifier,
+      category: "Documentación General",
+      type: "Texto / Archivo",
+      char_count: 0,
+      summary: "Texto no encontrado en catálogo principal."
+    };
+  }
+
+  currentModalSource = source;
+
+  // Set modal headers & meta
+  const normCat = normalizeCategory(source.category);
+  const catColor = getCategoryColor(normCat);
+
+  const catEl = document.getElementById('modal-source-category');
+  if (catEl) {
+    catEl.textContent = normCat;
+    catEl.className = `px-2 py-0.5 text-[10px] font-extrabold uppercase bg-${catColor}-500/20 text-${catColor}-300 border border-${catColor}-500/30 rounded`;
+  }
+
+  const typeEl = document.getElementById('modal-source-type');
+  if (typeEl) typeEl.textContent = source.type || 'Documento';
+
+  const sizeEl = document.getElementById('modal-source-size');
+  if (sizeEl) sizeEl.textContent = source.char_count ? `${source.char_count.toLocaleString()} caracteres` : `${source.size_chars ? source.size_chars.toLocaleString() + ' caracteres' : 'Texto íntegro'}`;
+
+  const titleEl = document.getElementById('modal-source-title');
+  if (titleEl) titleEl.textContent = source.title || 'Sin Título';
+
+  const linkEl = document.getElementById('modal-source-link');
+  if (linkEl) {
+    if (source.url && source.url.startsWith('http')) {
+      linkEl.href = source.url;
+      linkEl.classList.remove('hidden');
+      linkEl.title = "Abrir URL original";
+    } else if (source.file_path) {
+      linkEl.href = source.file_path;
+      linkEl.classList.remove('hidden');
+      linkEl.title = "Descargar archivo";
+    } else {
+      linkEl.classList.add('hidden');
+    }
+  }
+
+  const footerMeta = document.getElementById('modal-source-footer-meta');
+  if (footerMeta) {
+    footerMeta.textContent = `ID: ${source.id || source.raw_id || 'N/A'} • Fecha: ${source.date || '2026-08-28'} • Repositorio Oficial Airbus 2026`;
+  }
+
+  // Display content
+  const contentEl = document.getElementById('modal-source-content');
+  const loadingEl = document.getElementById('modal-loading');
+
+  if (contentEl) contentEl.textContent = '';
+  if (loadingEl) loadingEl.classList.remove('hidden');
+
+  // Reveal modal
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  // Load content with multiple fallback strategies
+  let fullText = source.content || source.fulltext || source.fulltext_preview || '';
+
+  if (!fullText || fullText.length < 200) {
+    const rawId = source.raw_id || source.id || '';
+    const shortId = rawId ? rawId.substring(0, 8) : '';
+    const candidates = [
+      `data/sources/${shortId}.txt`,
+      `dashboard/data/sources/${shortId}.txt`,
+      `../data/sources/${shortId}.txt`,
+      source.file_path,
+      `data/telegram_archive/documents/${source.title}`,
+      `data/telegram_archive/assembly_minutes/${source.title}`
+    ].filter(Boolean);
+
+    for (const cand of candidates) {
+      try {
+        const res = await fetch(cand);
+        if (res.ok) {
+          const txt = await res.text();
+          if (txt && txt.trim().length > 0) {
+            fullText = txt;
+            break;
+          }
+        }
+      } catch (err) {
+        // Proceed to next candidate
+      }
+    }
+  }
+
+  if (loadingEl) loadingEl.classList.add('hidden');
+
+  if (contentEl) {
+    if (fullText && fullText.trim().length > 0) {
+      contentEl.textContent = fullText;
+    } else {
+      contentEl.textContent = `========================================================================
+[CONSULTA DOCUMENTAL - RESUMEN EJECUTIVO INDEXADO]
+========================================================================
+
+Título: ${source.title}
+Categoría: ${normCat}
+Tipo: ${source.type || 'Documento'}
+Referencia ID: ${source.id || source.raw_id || 'N/A'}
+
+SINOPSIS / EXTRACTO:
+------------------------------------------------------------------------
+${source.summary || 'Documento incorporado al dossier probatorio del conflicto Airbus España 2026.'}
+
+NOTA: El texto íntegro está indexado en el repositorio central de fuentes de la mesa de mediación.`;
+    }
+  }
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeSourceModal() {
+  const modal = document.getElementById('source-modal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function copyModalText() {
+  const contentEl = document.getElementById('modal-source-content');
+  if (!contentEl) return;
+  const text = contentEl.textContent;
+  if (!text) return;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast("✓ Texto copiado al portapapeles");
+    }).catch(() => {
+      fallbackCopyText(text);
+    });
+  } else {
+    fallbackCopyText(text);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    showToast("✓ Texto copiado al portapapeles");
+  } catch (err) {
+    showToast("No se pudo copiar automáticamente");
+  }
+  document.body.removeChild(textArea);
 }
 
 function showToast(msg) {
   const toast = document.createElement('div');
-  toast.className = 'fixed bottom-4 right-4 z-50 bg-slate-900 border border-sky-500/50 text-white text-xs px-4 py-2.5 rounded-xl shadow-2xl animate-fade-in';
-  toast.textContent = msg;
+  toast.className = 'fixed bottom-4 right-4 z-50 bg-slate-900 border border-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-2xl animate-fade-in flex items-center space-x-2';
+  toast.innerHTML = `<span>${msg}</span>`;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 3000);
 }
@@ -893,8 +15165,8 @@ function initHistoricalLosses() {
     tableBody.innerHTML = hist.yearly_loss_metrics_table.map(row => `
       <tr class="hover:bg-slate-900/50 transition">
         <td class="p-3.5 font-bold text-white whitespace-nowrap">${row.year}</td>
-        <td class="p-3.5 text-sky-400 font-mono font-bold">${row.cost_of_living_index.toFixed(1)}</td>
-        <td class="p-3.5 text-amber-400 font-mono font-bold">${row.airbus_rsg_index.toFixed(1)}</td>
+        <td class="p-3.5 text-sky-400 font-mono font-bold">${typeof row.cost_of_living_index === 'number' ? row.cost_of_living_index.toFixed(1) : row.cost_of_living_index}</td>
+        <td class="p-3.5 text-amber-400 font-mono font-bold">${typeof row.airbus_rsg_index === 'number' ? row.airbus_rsg_index.toFixed(1) : row.airbus_rsg_index}</td>
         <td class="p-3.5 text-rose-400 font-mono">${row.nominal_gross_loss_eur !== 0 ? `${row.nominal_gross_loss_eur.toLocaleString()} €` : '0 €'}</td>
         <td class="p-3.5 text-emerald-400 font-mono font-bold">${row.one_off_payment_received_eur > 0 ? `+${row.one_off_payment_received_eur.toLocaleString()} €` : '-'}</td>
         <td class="p-3.5 text-rose-300 font-mono font-black bg-rose-950/20">${row.updated_net_loss_eur !== 0 ? `${row.updated_net_loss_eur.toLocaleString()} €` : '0 €'}</td>
@@ -954,8 +15226,6 @@ function initHistoricalLosses() {
 }
 
 // ==================== TELEGRAM ARCHIVE EXPLORER ====================
-let telegramDocsData = [];
-
 function initTelegramArchive() {
   const tg = conflictData?.telegram_archive;
   if (!tg || !tg.documents) return;
@@ -964,7 +15234,47 @@ function initTelegramArchive() {
   const countEl = document.getElementById('tg-docs-count');
   if (countEl) countEl.textContent = `${telegramDocsData.length} archivos indexados`;
 
-  renderTelegramDocs(telegramDocsData);
+  renderTelegramDocs(getFilteredTelegramDocs());
+}
+
+function setTgCategory(cat) {
+  selectedTgCategory = cat;
+
+  // Update pills UI
+  document.querySelectorAll('.tg-cat-pill').forEach(pill => {
+    const pillCat = pill.getAttribute('data-tgcat');
+    if (pillCat === cat) {
+      pill.className = "tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-600 text-white whitespace-nowrap transition";
+    } else {
+      pill.className = "tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition";
+    }
+  });
+
+  renderTelegramDocs(getFilteredTelegramDocs());
+}
+
+function filterTelegramDocs() {
+  renderTelegramDocs(getFilteredTelegramDocs());
+}
+
+function getFilteredTelegramDocs() {
+  const query = document.getElementById('tg-doc-search')?.value.toLowerCase().trim() || '';
+  
+  return telegramDocsData.filter(d => {
+    let matchesCat = true;
+    if (selectedTgCategory !== 'ALL') {
+      matchesCat = (d.category || '').toLowerCase().includes(selectedTgCategory.toLowerCase()) ||
+                   (selectedTgCategory.includes("Asamblea") && (d.category.includes("Asamblea") || d.category.includes("Minutas"))) ||
+                   (selectedTgCategory.includes("Mantenimiento") && d.category.includes("Mantenimiento")) ||
+                   (selectedTgCategory.includes("Jurídico") && (d.category.includes("Legal") || d.category.includes("Sentencia") || d.category.includes("Jurídico")));
+    }
+    if (!matchesCat) return false;
+    if (!query) return true;
+
+    return (d.title || '').toLowerCase().includes(query) || 
+           (d.category || '').toLowerCase().includes(query) || 
+           (d.summary || '').toLowerCase().includes(query);
+  });
 }
 
 function renderTelegramDocs(docs) {
@@ -982,14 +15292,18 @@ function renderTelegramDocs(docs) {
         <div class="flex items-center space-x-2">
           <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">${doc.category}</span>
           <span class="text-xs text-slate-400 font-mono">${doc.date}</span>
-          <span class="text-[10px] text-slate-500 font-mono">${(doc.size_chars/1000).toFixed(1)}k caracteres</span>
+          <span class="text-[10px] text-slate-500 font-mono">${(doc.size_chars ? (doc.size_chars/1000).toFixed(1) : 0)}k caracteres</span>
         </div>
         <h5 class="text-xs font-bold text-white">${doc.title}</h5>
         <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">${doc.summary}</p>
       </div>
       <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="openSourceModal('${doc.id || doc.title}')" class="px-2.5 py-1.5 bg-sky-600/20 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/30 rounded-lg text-xs font-bold transition flex items-center">
+          <i data-lucide="eye" class="w-3.5 h-3.5 mr-1 text-sky-400"></i>
+          Ver Texto
+        </button>
         <a href="${doc.file_path}" download class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center">
-          <i data-lucide="download" class="w-3.5 h-3.5 mr-1 text-sky-400"></i>
+          <i data-lucide="download" class="w-3.5 h-3.5 mr-1 text-slate-400"></i>
           Descargar
         </a>
       </div>
@@ -997,14 +15311,4 @@ function renderTelegramDocs(docs) {
   `).join('');
 
   if (window.lucide) lucide.createIcons();
-}
-
-function filterTelegramDocs() {
-  const query = document.getElementById('tg-doc-search')?.value.toLowerCase() || '';
-  const filtered = telegramDocsData.filter(d => 
-    d.title.toLowerCase().includes(query) || 
-    d.category.toLowerCase().includes(query) || 
-    d.summary.toLowerCase().includes(query)
-  );
-  renderTelegramDocs(filtered);
 }

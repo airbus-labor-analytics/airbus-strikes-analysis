@@ -1,0 +1,398 @@
+Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027
+common.go-to-content
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html#content-body
+Temas
+Viana, entre lodo
+https://www.laregion.es/viana-do-bolo/riadas-golpean-nuevo-viana-do_1_20260828-4394643.html
+Riada en Nepal
+https://www.laregion.es/mundo/riada-nepal-deja-muertos-desaparecidos-espanoles-localizados_1_20260828-4394704.html
+Radares en Ourense
+https://www.laregion.es/ourense/ruleta-rusa-radares-ourense-hay_1_20260828-4394631.html
+Casa de Baños, en ruinas
+https://www.laregion.es/ourense/casa-banos-continua-deteriorandose-silencio_1_20260828-4394519.html
+Previsión del tiempo
+https://www.laregion.es/provincia/adios-lluvias-vuelco-termico-ourense-termometros-30-grados_1_20260828-4394625.html
+La prensa
+https://www.laregion.es/temas/prensa/
+header.menu.open 
+Últimas Noticias
+https://www.laregion.es/ultima-hora/
+Ourense
+https://www.laregion.es/ourense/
+Concellos
+O Carballiño
+https://www.laregion.es/o-carballino/
+Verín
+https://www.laregion.es/verin/
+O Barco de Valdeorras
+https://www.laregion.es/o-barco-de-valdeorras/
+Barbadás
+https://www.laregion.es/barbadas/
+Xinzo de Limia
+https://www.laregion.es/xinzo-de-limia/
+O Pereiro de Aguiar
+https://www.laregion.es/pereiro-de-aguiar/
+Allariz
+https://www.laregion.es/allariz/
+Celanova
+https://www.laregion.es/celanova/
+San Cibrao das Viñas
+https://www.laregion.es/san-cibrao-das-vinas/
+Ribadavia
+https://www.laregion.es/ribadavia/
+A Rúa
+https://www.laregion.es/a-rua/
+A Pobra de Trives
+https://www.laregion.es/a-pobra-de-trives/
+Provincia
+https://www.laregion.es/provincia/
+Valdeorras
+https://www.laregion.es/valdeorras/
+Monterrei
+https://www.laregion.es/comarca-de-monterrei/
+Carballiño
+https://www.laregion.es/carballino/
+A Limia
+https://www.laregion.es/a-limia/
+Allariz
+https://www.laregion.es/allariz-maceda/
+O Ribeiro
+https://www.laregion.es/o-ribeiro/
+Celanova
+https://www.laregion.es/comarca-de-celanova/
+Baixa Limia
+https://www.laregion.es/baixa-limia/
+Trives
+https://www.laregion.es/trives/
+Viana
+https://www.laregion.es/viana/
+Castro Caldelas
+https://www.laregion.es/comarca-de-castro-caldelas/
+Ribeira Sacra
+https://www.laregion.es/ribeira-sacra/
+Deportes
+https://www.laregion.es/deportes/
+Deporte Local
+https://www.laregion.es/deporte-local/
+Zona COB
+https://www.laregion.es/zona-cob/
+Más Motor
+https://www.laregion.es/mas-motor/
+Opinión
+https://www.laregion.es/opinion/
+Cartas al Director
+https://www.laregion.es/cartas-al-director/
+Encuestas
+https://www.laregion.es/encuestas/
+FORO LR
+https://www.laregion.es/foro-la-region/
+TELEMIÑO
+https://www.laregion.es/teleminho/
+QUIOSCO LR
+https://quiosco.laregion.es/dashboard/dashboard
+Pasatiempos
+https://www.laregion.es/pasatiempos/
+Regístrate 
+ 
+https://www.laregion.es/buscar/
+Últimas noticias
+https://www.laregion.es/ultima-hora/
+Especial La prensa
+https://www.laregion.es/temas/prensa/
+Buscador Hemeroteca Digital
+https://www.laregion.es/hemeroteca/
+Quiosco La Región
+https://quiosco.laregion.es/
+🔴 TELEMIÑO
+https://www.laregion.es/teleminho/
+LA REGIÓN INTERNACIONAL
+https://www.laregion.es/lri/
+Ourense
+https://www.laregion.es/ourense/
+Concellos
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+O Carballiño
+https://www.laregion.es/o-carballino/
+Verín
+https://www.laregion.es/verin/
+O Barco de Valdeorras
+https://www.laregion.es/o-barco-de-valdeorras/
+Barbadás
+https://www.laregion.es/barbadas/
+Xinzo de Limia
+https://www.laregion.es/xinzo-de-limia/
+O Pereiro de Aguiar
+https://www.laregion.es/pereiro-de-aguiar/
+Allariz
+https://www.laregion.es/allariz/
+Celanova
+https://www.laregion.es/celanova/
+San Cibrao das Viñas
+https://www.laregion.es/san-cibrao-das-vinas/
+Ribadavia
+https://www.laregion.es/ribadavia/
+A Rúa
+https://www.laregion.es/a-rua/
+A Pobra de Trives
+https://www.laregion.es/a-pobra-de-trives/
+Provincia
+https://www.laregion.es/provincia/
+Valdeorras
+https://www.laregion.es/valdeorras/
+Monterrei
+https://www.laregion.es/comarca-de-monterrei/
+Carballiño
+https://www.laregion.es/carballino/
+A Limia
+https://www.laregion.es/a-limia/
+Allariz
+https://www.laregion.es/allariz-maceda/
+O Ribeiro
+https://www.laregion.es/o-ribeiro/
+Celanova
+https://www.laregion.es/comarca-de-celanova/
+Baixa Limia
+https://www.laregion.es/baixa-limia/
+Trives
+https://www.laregion.es/trives/
+Viana
+https://www.laregion.es/viana/
+Castro Caldelas
+https://www.laregion.es/comarca-de-castro-caldelas/
+Ribeira Sacra
+https://www.laregion.es/ribeira-sacra/
+Deportes
+https://www.laregion.es/deportes/
+Deporte Local
+https://www.laregion.es/deporte-local/
+Zona COB
+https://www.laregion.es/zona-cob/
+Más Motor
+https://www.laregion.es/mas-motor/
+Rally de Ourense
+https://www.laregion.es/rally-de-ourense/
+Mundial
+https://www.laregion.es/temas/mundial-de-futbol/
+Opinión
+https://www.laregion.es/opinion/
+Cartas al director
+https://www.laregion.es/cartas-al-director/
+Encuestas
+https://www.laregion.es/encuestas/
+Galicia
+https://www.laregion.es/galicia/
+España
+https://www.laregion.es/espana/
+Mundo
+https://www.laregion.es/mundo/
+Economía
+https://www.laregion.es/economia/
+Sociedad
+https://www.laregion.es/sociedad/
+Salud
+https://www.laregion.es/salud/
+Gente
+https://www.laregion.es/gente/
+Tendencias
+https://www.laregion.es/tendencias/
+Cultura
+https://www.laregion.es/cultura/
+Suplementos
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+Más Deporte
+https://www.laregion.es/mas-deporte/
+Vida
+https://www.laregion.es/vida/
+Xornal Escolar
+https://www.laregion.es/xornal-escolar/
+La Revista
+https://www.laregion.es/la-revista/
+Multimedia
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+Galerías
+https://www.laregion.es/galerias/
+El Tiempo
+https://www.laregion.es/el-tiempo/
+Agenda
+https://www.laregion.es/eventos/
+Pasatiempos
+https://www.laregion.es/pasatiempos/
+Horóscopo
+https://www.laregion.es/temas/horoscopo/
+Foro La Región
+https://www.laregion.es/foro-la-region/
+Newsletters
+https://www.laregion.es/newsletters/
+Press Club La Región
+https://pressclub.laregion.es/
+Venta de imágenes y otros servicios
+https://www.laregion.es/venta-de-imagenes/
+Ourense
+https://www.laregion.es/ourense/
+Ourense
+https://www.laregion.es/ourense/
+Amoeiro
+https://www.laregion.es/amoeiro/
+Barbadás
+https://www.laregion.es/barbadas/
+Coles
+https://www.laregion.es/coles/
+Esgos
+https://www.laregion.es/esgos/
+Nogueira
+https://www.laregion.es/nogueira-de-ramuin/
+Pereiro
+https://www.laregion.es/pereiro-de-aguiar/
+A Peroxa
+https://www.laregion.es/a-peroxa/
+San Cibrao
+https://www.laregion.es/san-cibrao-das-vinas/
+Toén
+https://www.laregion.es/toen/
+Vilamarín
+https://www.laregion.es/vilamarin/
+Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027
+JUICIO POR DISTURBIOS
+La Fiscalía solicita penas de multa para los implicados por los disturbios ocurridos en Carballiño, que causaron desperfectos valorados en más de 120.000 euros.
+La Región
+https://www.laregion.es/autores/la-region/
+Publicado: 02 jul 2026- 06:05
+ 
+Edificio que alberga los juzgados penales de la ciudad. | ARCHIVO
+[](https://api.whatsapp.com/send?text=Los%20altercados%20en%20la%20huelga%20del%20metal%20en%20Ourense%20se%20juzgar%C3%A1n%20en%20marzo%20de%202027 https%3A%2F%2Fwww.laregion.es%2Fourense%2Faltercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html)
+[](https://x.com/intent/tweet?text=Los%20altercados%20en%20la%20huelga%20del%20metal%20en%20Ourense%20se%20juzgar%C3%A1n%20en%20marzo%20de%202027 https%3A%2F%2Fwww.laregion.es%2Fourense%2Faltercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html vía @laregion)
+El juicio contra cuatro trabajadores acusados de provocar daños durante la 
+huelga del sector del metal de Ourense
+ en octubre de 2022 se celebrará en 
+marzo de 2027
+, durante tres días, tras no alcanzarse ayer un acuerdo de conformidad en la Sección Penal. La 
+Fiscalía
+https://www.laregion.es/temas/fiscalia/
+ reclama penas de 
+entre 20 y 22 meses de multa
+ por los incidentes registrados en las instalaciones de la empresa 
+Gri Towers
+, en Carballiño.
+La fiscal sostiene que, durante la noche del 5 de octubre, los implicados lanzaron huevos de pintura y neumáticos contra la fábrica, además de prender fuego a unas maderas en la entrada, lo que generó unos daños cuantificados en 
+118.905,29 euros
+. Asimismo, a uno de ellos se le imputa el lanzamiento de una piedra contra el parabrisas de un autobús fletado para trabajadores no huelguistas, sumando 
+1.509 euros adicionales
+ en desperfectos.
+Relacionado
+La huelga del metal paraliza una gran parte de la industria
+https://www.laregion.es/galicia/huelga-metal-paraliza-gran-parte_1_20260507-4267596.html
+ 
+Temas relacionados
+Juicio
+https://www.laregion.es/temas/juicio/
+ 
+Huelga
+https://www.laregion.es/temas/huelga/
+ 
+Metal
+https://www.laregion.es/temas/metal/
+Contenido patrocinado
+También te puede interesar
+QUEN CHO DIXO
+¿Sabe usted que hay cosas en la city realmente incomprensibles?
+https://www.laregion.es/ourense/hay-cosas-city-realmente-incomprensibles_1_20260828-4395129.html
+QUEN CHO DIXO
+¿Sabe usted que Rafa Cachafeiro ya está en la relación de candidatos para consolidar plaza en la Escuela de música?
+https://www.laregion.es/ourense/rafa-cachafeiro-relacion-candidatos-consolidar_1_20260828-4395111.html
+PERSECUCIÓN POR LA CIUDAD
+Detenido un motorista en Ourense tras desobedecer a los agentes y dar positivo indiciario en drogas
+https://www.laregion.es/ourense/detenido-motorista-ourense-desobedecer-agentes-positivo-drogas_1_20260828-4395061.html
+EXCESO DE VELOCIDAD
+La ruleta rusa de los radares en Ourense: solo hay uno activo en toda la ciudad
+https://www.laregion.es/ourense/ruleta-rusa-radares-ourense-hay_1_20260828-4394631.html
+Lo último
+NUEVAS CONDICIONES
+La jubilación flexible permite trabajar y cobrar la pensión desde hoy viernes
+https://www.laregion.es/economia/jubilacion-flexible-permite-trabajar-cobrar_1_20260828-4395432.html
+ACCIDENTE DE TRÁFICO
+Una joven resulta herida tras colisionar su patinete eléctrico contra un coche en Barbadás
+https://www.laregion.es/barbadas/joven-resulta-herida-colisionar-patinete_1_20260828-4395444.html
+AGENDA DE OCIO
+Tres planes apetecibles en este fin de semana en Ourense: de romería en laza, de vendimia en Leiro, o a la Festa da istoria en Ribadavia
+https://www.laregion.es/provincia/tres-planes-puedes-perder-fin-semana-vendimia-romeria-festa-istoria_1_20260828-4395369.html
+![Rubén Rada, "El Negro".](https://static.laregion.es/clip/ff6f114b-f498-45d3-b59b-786785e34dbf_source-aspect-ratio_1600w_0_x333y280.jpg "Rubén Rada, "El Negro".")
+https://www.laregion.es/cultura/muere-ruben-rada-montevideo-negro-uruguay-musica_1_20260828-4395388.html
+OBITUARIO
+Muere Rubén Rada, "El Negro", en Montevideo, ícono del candombe y la música rioplatense
+https://www.laregion.es/cultura/muere-ruben-rada-montevideo-negro-uruguay-musica_1_20260828-4395388.html
+Lo más visto
+ 
+Francisco, residente en Gran Canaria: “Yo nací en Madrid, pero fue un error; tendría que haber nacido en Galicia”
+https://www.laregion.es/provincia/francisco-residente-gran-canaria-naci_1_20260826-4392589.html
+ 
+Adiós a las lluvias y vuelco térmico en Ourense: los termómetros llegarán a los 30 grados
+https://www.laregion.es/provincia/adios-lluvias-vuelco-termico-ourense-termometros-30-grados_1_20260828-4394625.html
+ 
+Un centenar de policías de paisano en Ourense cobrarán por su ropa de calle tras años de pleitos
+https://www.laregion.es/ourense/centenar-policias-paisano-ourense-cobraran-pleitos_1_20260828-4394544.html
+ 
+La ruleta rusa de los radares en Ourense: solo hay uno activo en toda la ciudad
+https://www.laregion.es/ourense/ruleta-rusa-radares-ourense-hay_1_20260828-4394631.html
+ 
+Detenido un motorista en Ourense tras desobedecer a los agentes y dar positivo indiciario en drogas
+https://www.laregion.es/ourense/detenido-motorista-ourense-desobedecer-agentes-positivo-drogas_1_20260828-4395061.html
+Newsletters La Región
+Apúntate a las que más te interesen y recíbelas de manera gratuita en tu correo electrónico
+Descúbrelas
+https://www.laregion.es/newsletters/
+La Región
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+Quiénes somos
+https://www.laregion.es/quienes-somos/
+Trabaja con nosotros
+https://www.laregion.es/trabaja-con-nosotros/
+Quiosco La Región
+https://quiosco.laregion.es/
+Tarifas de publicidad
+https://www.laregion.es/publicidad/
+Venta de imágenes
+https://www.laregion.es/venta-de-imagenes/
+.
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+La Región Internacional
+https://www.laregioninternacional.com/
+Telemiño
+https://www.teleminho.com/
+Atlántico
+https://www.atlantico.net/
+Info
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+Canal ético
+https://www.laregion.es/canal-etico/
+Política de privacidad
+https://www.laregion.es/politica-de-privacidad/
+Política de cookies
+https://www.laregion.es/politica-de-cookies/
+Aviso legal y condiciones de uso
+https://www.laregion.es/condiciones-de-uso/
+FEDER
+https://static.laregion.es/laregion/public/content/file/original/2025/0206/19/programa-re-acciona-igape-feder-pdf.pdf
+https://www.laregion.es/rss/
+ 
+ 
+Acepta para leer gratis y sin límites
+Si aceptas nuestra 
+política de cookies
+https://www.laregion.es/politica-de-cookies/
+ nos ayudas a ofrecerte contenido y publicidad adaptado a tus preferencias.
+Aceptar
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+Rechazar y Pagar 0.50€ por 24h
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+El acceso mediante pago se proporciona por un proveedor externo a este medio, conforme a sus propias condiciones legales. No se utilizarán cookies publicitarias ni de personalización de contenidos, salvo que las active expresamente, si bien utilizaremos cookies analíticas para obtener estadísticas anónimas y otras cookies exentas de consentimiento. Los espacios incluirían publicidad sin tratamiento de datos personales.
+Nosotros y nuestros socios usamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales como tus visitas al sitio web, interacciones y dispositivos utilizados con arreglo a nuestra 
+Política de Cookies
+https://www.laregion.es/politica-de-cookies/
+. Puedes aceptar todas las cookies o algunas, rechazarlas, oponerte a tratamientos basados en intereses legítimos, y cambiar la configuración y preferencias en cualquier momento.
+Nosotros y nuestros socios hacemos el siguiente tratamiento de datos:
+Almacenar la información en un dispositivo y/o acceder a ella, Datos de localización geográfica precisa e identificación mediante análisis de dispositivos, Publicidad y contenido personalizados, medición de publicidad y contenido, investigación de audiencia y desarrollo de servicios
+Configurar cookies
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+ 
+Ver 459 socios
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html

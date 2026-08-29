@@ -841,26 +841,48 @@
         </div>
       </div>
 
-      <!-- ==================== TAB 8: SOURCES ==================== -->
+      <!-- ==================== TAB 8: SOURCES (269+ PRIMARY SOURCES) ==================== -->
       <div id="tab-sources" class="tab-content hidden space-y-6">
-        <div class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
-          <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-slate-800 pb-3 gap-2">
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-4 gap-3">
             <div>
-              <h2 class="text-base font-bold text-white flex items-center">
-                <i data-lucide="book-open" class="w-5 h-5 mr-2 text-sky-400"></i>
-                Compendio de Fuentes Documentales Primarias (269 Fuentes)
-              </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Actas del SIMA, informes anuales Airbus SE, bases de datos del INE y sentencias del Tribunal Constitucional.</p>
+              <div class="flex items-center space-x-2.5">
+                <h2 class="text-base font-bold text-white flex items-center">
+                  <i data-lucide="book-open" class="w-5 h-5 mr-2 text-sky-400"></i>
+                  Compendio Integral de Fuentes Documentales Primarias
+                </h2>
+                <span id="sources-count-badge" class="px-2 py-0.5 text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded-lg">269 Fuentes</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Actas del SIMA, informes anuales Airbus SE, bases de datos del INE, sentencias del TC y archivos comunitarios indexados.</p>
             </div>
-            <input type="text" id="source-search" placeholder="Filtrar fuentes..." class="bg-slate-900 border border-slate-700 text-xs px-3.5 py-1.5 rounded-xl text-white focus:border-blue-500 focus:outline-none" oninput="filterSources()">
+            <div class="relative w-full md:w-80">
+              <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+              <input type="text" id="source-search" placeholder="Buscar por título, categoría, ID o palabras..." class="w-full bg-slate-900 border border-slate-700 text-xs pl-9 pr-8 py-2 rounded-xl text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none" oninput="filterSources()">
+              <button onclick="document.getElementById('source-search').value=''; filterSources();" class="absolute right-2.5 top-2.5 text-slate-500 hover:text-slate-300 text-xs">
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="space-y-2.5 mt-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2" id="sources-list">
+          <!-- Category Filter Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-xs" id="sources-category-pills">
+            <button onclick="setSourceCategory('ALL')" data-cat="ALL" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 text-white whitespace-nowrap transition">Todas (269+)</button>
+            <button onclick="setSourceCategory('Actas SIMA & Legal')" data-cat="Actas SIMA & Legal" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Actas SIMA & Legal</button>
+            <button onclick="setSourceCategory('Dossiers Económicos')" data-cat="Dossiers Económicos" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Dossiers Económicos</button>
+            <button onclick="setSourceCategory('Informes Airbus SE')" data-cat="Informes Airbus SE" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Informes Airbus SE</button>
+            <button onclick="setSourceCategory('Convenios & BOE')" data-cat="Convenios & BOE" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Convenios & BOE</button>
+            <button onclick="setSourceCategory('Comunicados Sindicales')" data-cat="Comunicados Sindicales" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Comunicados Sindicales</button>
+            <button onclick="setSourceCategory('Cadena JIT & Logística')" data-cat="Cadena JIT & Logística" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Cadena JIT & Logística</button>
+            <button onclick="setSourceCategory('Benchmark')" data-cat="Benchmark" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Benchmark</button>
+            <button onclick="setSourceCategory('Prensa & Medios')" data-cat="Prensa & Medios" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Prensa & Medios</button>
+          </div>
+
+          <!-- Sources List Container -->
+          <div class="space-y-3 max-h-[600px] overflow-y-auto custom-scrollbar pr-2" id="sources-list">
             <!-- Dynamically populated -->
           </div>
         </div>
       </div>
-
       <!-- ==================== TAB 9: TELEGRAM ARCHIVE & DOWNLOADS ==================== -->
       <div id="tab-telegram-archive" class="tab-content hidden space-y-6">
         <div class="glass-card p-5 sm:p-6 rounded-2xl border-sky-500/30 space-y-5">
@@ -929,16 +951,29 @@
           </div>
 
           <!-- Search & Filter Archive Documents -->
-          <div class="border-t border-slate-800 pt-5">
+          <div class="border-t border-slate-800 pt-5 space-y-4">
             <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
               <div class="flex items-center space-x-2">
                 <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-300">Explorador de Archivos Descargados</h4>
                 <span id="tg-docs-count" class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">30 archivos</span>
               </div>
-              <input type="text" id="tg-doc-search" placeholder="Buscar actas, minutas, dossiers..." class="bg-slate-900 border border-slate-700 text-xs px-3.5 py-1.5 rounded-xl text-white focus:border-blue-500 focus:outline-none w-full sm:w-64" oninput="filterTelegramDocs()">
+              <div class="relative w-full sm:w-72">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                <input type="text" id="tg-doc-search" placeholder="Buscar actas, minutas, dossiers..." class="w-full bg-slate-900 border border-slate-700 text-xs pl-9 pr-3.5 py-2 rounded-xl text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none" oninput="filterTelegramDocs()">
+              </div>
             </div>
 
-            <div class="space-y-3 mt-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-2" id="telegram-docs-list">
+            <!-- Telegram Category Filter Pills -->
+            <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-xs" id="tg-category-pills">
+              <button onclick="setTgCategory('ALL')" data-tgcat="ALL" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-600 text-white whitespace-nowrap transition">Todos</button>
+              <button onclick="setTgCategory('Actas de Asamblea')" data-tgcat="Actas de Asamblea" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Actas de Asamblea</button>
+              <button onclick="setTgCategory('Comunicados & Huelga')" data-tgcat="Comunicados & Huelga" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Comunicados & Huelga</button>
+              <button onclick="setTgCategory('Dossiers & Tablas')" data-tgcat="Dossiers & Tablas" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Dossiers & Tablas</button>
+              <button onclick="setTgCategory('Planes de Mantenimiento')" data-tgcat="Planes de Mantenimiento" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Mantenimiento</button>
+              <button onclick="setTgCategory('Jurídico & Sentencias')" data-tgcat="Jurídico & Sentencias" class="tg-cat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Jurídico & Sentencias</button>
+            </div>
+
+            <div class="space-y-3 max-h-[500px] overflow-y-auto custom-scrollbar pr-2" id="telegram-docs-list">
               <!-- Dynamically populated from telegram_archive.documents -->
             </div>
           </div>
@@ -948,7 +983,54 @@
     </main>
   </div>
 
-  <!-- JAVASCRIPT CONTROLLER -->
+  <!-- ==================== FULL-TEXT READER MODAL ==================== -->
+  <div id="source-modal" role="dialog" aria-modal="true" aria-labelledby="modal-source-title" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md hidden transition-opacity duration-200">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 border-b border-slate-800 bg-slate-900/90 flex items-start justify-between gap-3">
+        <div class="space-y-1.5 flex-1 pr-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="modal-source-category" class="px-2 py-0.5 text-[10px] font-extrabold uppercase bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">Categoría</span>
+            <span id="modal-source-type" class="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-800 text-slate-300 rounded border border-slate-700">PDF / Web</span>
+            <span id="modal-source-size" class="px-2 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-950 rounded">0 caracteres</span>
+          </div>
+          <h3 id="modal-source-title" class="text-sm sm:text-base font-bold text-white leading-snug">Título del Documento</h3>
+        </div>
+        
+        <div class="flex items-center space-x-1.5 shrink-0">
+          <button onclick="copyModalText()" title="Copiar texto al portapapeles" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+          </button>
+          <a id="modal-source-link" href="#" target="_blank" title="Abrir fuente original o descargar" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition flex items-center">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+          <button onclick="closeSourceModal()" title="Cerrar (Esc)" class="p-2 rounded-lg bg-slate-800 hover:bg-rose-900/50 hover:text-rose-300 text-slate-400 transition">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Scrollable Text) -->
+      <div class="flex-1 p-4 sm:p-6 overflow-y-auto custom-scrollbar bg-slate-950/70 select-text">
+        <div id="modal-loading" class="hidden flex flex-col items-center justify-center py-12 space-y-3 text-slate-400">
+          <div class="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <span class="text-xs">Cargando texto completo del documento...</span>
+        </div>
+        <pre id="modal-source-content" class="whitespace-pre-wrap font-sans text-xs sm:text-sm text-slate-300 leading-relaxed"></pre>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-3 sm:p-4 border-t border-slate-800 bg-slate-900/90 flex items-center justify-between text-xs text-slate-400">
+        <span id="modal-source-footer-meta" class="text-[11px] text-slate-500">Airbus Spain 2026 Strike Document Archive</span>
+        <button onclick="closeSourceModal()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold transition text-xs">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

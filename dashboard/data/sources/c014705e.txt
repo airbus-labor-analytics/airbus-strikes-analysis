@@ -1,0 +1,294 @@
+ERA Entgeltrechner 2026 – IG Metall Gehaltsrechner
+ 
+IG Metall Gehaltsrechner
+ERA Entgeltrechner 2026 für die Metall- und Elektroindustrie
+Unabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall.
+Tarifjahr
+2025 2026
+ab 01.04.2026
+ab 01.04.2025
+DE EN
+Die Werte ab 01.04.2026 sind vorläufig (Vorjahreswerte + 3,1 %).
+Dein Tarif
+Bundesland / Tarifgebiet
+Bitte wählen…
+Baden-Württemberg
+Bayern
+Berlin/Brandenburg
+Hamburg/Unterweser
+Hessen
+Niedersachsen
+Nordrhein-Westfalen
+Osnabrück-Emsland
+Pfalz
+Rheinland-Rheinhessen
+Saarland
+Sachsen
+Sachsen-Anhalt
+Schleswig-Holstein/MV/NW-Niedersachsen
+Thüringen
+Entgeltgruppe (EG)
+Bitte wählen…
+Stufe
+Bitte wählen…
+Arbeitszeit & Zulage
+Wöchentliche Arbeitszeit i
+ 
+35
+ 
+35
+h
+Mehr-/Minderstunden i Abweichung von der Grundarbeitszeit: Teilzeit als negativer Wert, Mehrarbeit als positiver. Das Entgelt wird anteilig berechnet – 35 h Grundarbeitszeit minus 7 h ergeben also 80 % des Tabellenentgelts.
+ 
+0
+ 
+0
+h
+Leistungszulage
+ 
+0
+ 
+0
+%
+▶ Weitere Optionen einblenden
+Eintrittsdatum
+« ‹ › »
+Heute Löschen
+Sonderzahlung / Gewinnbeteiligung (jährlich)
+€
+Freiwillige monatliche Zulage
+€
+ 
+[-]
+Weihnachtsgeld-Satz manuell übersteuern
+Weihnachtsgeld-Satz
+ 
+0
+ 
+0
+%
+ 
+[-]
+T-ZUG A als freie Tage nehmen
+▶ Netto-Schätzung einblenden
+Krankenversicherung
+Gesetzlich (GKV) Privat (PKV)
+Steuerklasse
+– keine Angabe –
+Steuerklasse 1 (ledig)
+Steuerklasse 2 (alleinerziehend)
+Steuerklasse 3 (verheiratet, Alleinverdiener)
+Steuerklasse 4 (verheiratet, Doppelverdiener)
+Steuerklasse 5 (verheiratet, Zweitverdiener)
+Steuerklasse 6 (Zweitjob)
+Kinderfreibeträge
+0
+0,5
+1
+1,5
+2
+2,5
+3
+3,5
+4+
+KV-Zusatzbeitrag (%)
+ 
+2.5
+%
+PKV-Monatsbeitrag (Eigenanteil)
+€
+Anteil nach AG-Zuschuss, inkl. privater Pflegeversicherung (Gesamtbeitrag minus Arbeitgeberzuschuss)
+ 
+[-]
+Kirchensteuer
+Bruttojahresgehalt (gesamt)
+Monatsentgelt (brutto) ohne Sonderzahlungen
+Ø Monatsdurchschnitt (brutto) inkl. Sonderzahlungen
+Brutto-Stundenlohn
+Bruttoverdienst nach Monaten
+Brutto Netto
+Aufschlüsselung
+12 × Monatsentgelt Tarifliches Monatsentgelt gemäß ERA-Entgelttabelle. Es gilt für die Grundarbeitszeit deines Betriebs und wird nur durch Mehr-/Minderstunden anteilig verändert.
+12 × Leistungszulage Freiwillige Leistungszulage des Arbeitgebers oberhalb des Tarifentgelts. Wird nicht bei Sonderzahlungen berücksichtigt.
+12 × Freiwillige Zulage
+Urlaubsgeld (69 % eines ME) Zusätzliches Urlaubsgeld, meist pauschal bis Ende Juni ausgezahlt. Berechnung auf Basis des tariflichen Monatsentgelts. Im Eintrittsjahr anteilig: 1/12 je vollem Beschäftigungsmonat.
+Weihnachtsgeld (55 % eines ME) Jahressonderzahlung im November. Der volle Satz (55 %) wird nach 36 Monaten Betriebszugehörigkeit erreicht. Vorher gestaffelt: 25 % (ab 6 Mon.), 35 % (ab 12 Mon.), 45 % (ab 24 Mon.).
+T-ZUG A (27,5 % eines ME) Tarifliches Zusatzgeld A – Auszahlung im Juli. Kann alternativ in freie Tage umgewandelt werden (bis zu 8 Tage). Wird bei Umwandlung nicht ausgezahlt.
+T-Geld (18,4 % eines ME) Transformationsgeld – Auszahlung im Juli zusammen mit T-ZUG A. Dient der Finanzierung von Qualifizierung und Transformation in der Metall- und Elektroindustrie.
+T-ZUG B (18,5 % v. Eckentgelt) Tarifliches Zusatzgeld B – fester Betrag auf Basis des Eckentgelts der Region, unabhängig von der persönlichen Entgeltgruppe. Ab 2026: 26,5 % (vorher 18,5 %). Auszahlung im Februar.
+Sonderzahlung
+Summe Jahresbrutto
+Netto-Schätzung
+Geschätztes monatliches Netto ohne Sonderzahlungen
+Geschätztes Jahresnetto
+Ø Monatsdurchschnitt (netto) inkl. Sonderzahlungen
+ℹ Grobe Schätzung auf Basis pauschaler Abzugssätze. Kein Ersatz für eine individuelle Steuerberechnung.
+Wähle Tarifgebiet, Entgeltgruppe und Stufe, um dein Gehalt zu berechnen.
+Zum Vergleich merken
+Vergleich
+×
+
+
+Monatl. Brutto
+
+Jahresbrutto
+
+Monatl. Netto
+
+Jahresnetto
+
+Differenz
+
+
+
+
+
+
+
+
+
+IG Metall Gehaltsrechner 2026 – Tariflohn in der Metall- und Elektroindustrie berechnen
+Kostenloser, Open-Source IG Metall Gehaltsrechner auf Basis der Tariftabellen 2026 inkl. aller tariflichen Sonderzahlungen: Weihnachtsgeld, Urlaubsgeld, T-ZUG A, Transformationsgeld und T-ZUG B. Er unterstützt alle 15 Tarifgebiete der Metall- und Elektroindustrie – von Baden-Württemberg bis Thüringen – und wird nach jeder Tarifrunde aktualisiert.
+Die Tariftabellen unterscheiden sich je nach Bundesland und Entgeltgruppe (EG 1 bis EG 17). Mit unserem Rechner ermittelst du dein persönliches Jahresbrutto in Sekunden – inkl. anteiliger Berechnung bei Teilzeit und optionaler Leistungszulage.
+Unabhängiges Open-Source-Projekt – kein offizielles Angebot der IG Metall.
+Quelle: 
+ERA-Tarifvertrag der Metall- und Elektroindustrie (IG Metall)
+https://www.igmetall.de/tarif
+ · Zuletzt geprüft: August 2026
+IG Metall Tariftabelle 2026 – ERA Entgelttabellen nach Tarifgebiet
+Wähle dein Tarifgebiet für die vollständige IG Metall Tariftabelle 2026 (ERA-Entgelttabelle) mit allen Entgeltgruppen und Sonderzahlungen:
+Baden-Württemberg
+https://www.era-rechner.de/entgelttabelle-baden-wuerttemberg.html
+ 
+Bayern
+https://www.era-rechner.de/entgelttabelle-bayern.html
+ 
+Berlin/Brandenburg
+https://www.era-rechner.de/entgelttabelle-berlin-brandenburg.html
+ 
+Hamburg/Unterweser
+https://www.era-rechner.de/entgelttabelle-hamburg.html
+ 
+Hessen
+https://www.era-rechner.de/entgelttabelle-hessen.html
+ 
+Niedersachsen
+https://www.era-rechner.de/entgelttabelle-niedersachsen.html
+ 
+Nordrhein-Westfalen
+https://www.era-rechner.de/entgelttabelle-nrw.html
+ 
+Osnabrück-Emsland
+https://www.era-rechner.de/entgelttabelle-osnabrueck-emsland.html
+ 
+Pfalz
+https://www.era-rechner.de/entgelttabelle-pfalz.html
+ 
+Rheinland-Rheinhessen
+https://www.era-rechner.de/entgelttabelle-rheinland-rheinhessen.html
+ 
+Saarland
+https://www.era-rechner.de/entgelttabelle-saarland.html
+ 
+Sachsen
+https://www.era-rechner.de/entgelttabelle-sachsen.html
+ 
+Sachsen-Anhalt
+https://www.era-rechner.de/entgelttabelle-sachsen-anhalt.html
+ 
+Schleswig-Holstein/MV/NW-Niedersachsen
+https://www.era-rechner.de/entgelttabelle-schleswig-holstein.html
+ 
+Thüringen
+https://www.era-rechner.de/entgelttabelle-thueringen.html
+Tipp: Auf den Tarifgebiet-Seiten findest du auch die Ausbildungsvergütung und Erklärungen, wann welche Entgeltstufe erreicht wird.
+Alle Tarifgebiete im Vergleich →
+https://www.era-rechner.de/tariftabelle.html
+Offizielle Daten
+Basierend auf den offiziellen IG Metall Tarifabschlüssen 2025/2026 – regelmäßig aktualisiert.
+100 % Datenschutz
+Keine Speicherung, kein Tracking – alle Berechnungen laufen direkt in deinem Browser.
+[
+Open Source
+Quellcode frei einsehbar auf GitHub (MIT-Lizenz) – transparent und nachprüfbar. Auf GitHub ansehen →](https://github.com/markus-sanwald/era-rechner)
+[
+Werbefrei
+Unabhängiges Privatprojekt – kostenlos und ohne Werbung. Mit einer Spende unterstützen →](https://paypal.me/erarechner)
+Häufige Fragen zum ERA Rechner
+Alle 15 Grundlagen & Tarif 7 Berechnung 6 Über das Projekt 2
+Was ist das ERA-Entgeltsystem der Metall- und Elektroindustrie?
+Das Entgeltrahmenabkommen (ERA) ist das Entgeltsystem für die Metall- und Elektroindustrie in Deutschland. Es regelt die Eingruppierung in Entgeltgruppen (EG 1–17, je nach Tarifgebiet) und wird zwischen den Arbeitgeberverbänden und der IG Metall ausgehandelt. Die ERA-Entgelttabellen legen die monatlichen Grundentgelte für jede Entgeltgruppe und jedes Tarifgebiet fest.
+Wie aktuell sind die Entgelttabellen in diesem Rechner?
+Der Rechner enthält die offiziellen ERA-Entgelttabellen für 2025 und 2026 (gültig ab 01.04.2026) für alle 15 Tarifgebiete. Die Werte werden nach jeder Tarifrunde zeitnah aktualisiert.
+Was ändert sich mit dem Tarifjahr 2026?
+Zum 1. April 2026 steigen die ERA-Grundentgelte in allen 15 Tarifgebieten um 3,1 %. Außerdem wird das T-ZUG B deutlich angehoben – von 18,5 % auf 26,5 % des Eckentgelts. Die übrigen Sonderzahlungen bleiben unverändert: Urlaubsgeld (69 %, in NRW 72 %), Weihnachtsgeld (25–55 %), T-ZUG A (27,5 %) und Transformationsgeld (18,4 %).
+Neu ist außerdem der Auszahlungszeitpunkt: T-ZUG B wird künftig im Februar ausgezahlt (bisher Juli) – im Tausch mit dem Transformationsgeld (T-Geld), das nun im Juli kommt. Eine mögliche „Differenzierung“ (Kürzung oder Verschiebung in wirtschaftlich angeschlagenen Betrieben) betrifft seither nicht mehr das T-ZUG B, sondern das T-Geld – so bleibt T-ZUG B als soziale Komponente erhalten. Wähle im Rechner einfach das Tarifjahr 2026, um die neuen Werte zu sehen.
+Welche Sonderzahlungen sind im Jahresbrutto enthalten?
+Das berechnete Bruttojahresgehalt enthält neben dem monatlichen Entgelt auch: Urlaubsgeld (69 % eines Monatsentgelts, in NRW 72 %), Weihnachtsgeld (25–55 % je nach Betriebszugehörigkeit), T-ZUG A (27,5 %), Transformationsgeld (18,4 %) und T-ZUG B (fester Betrag auf Basis des Eckentgelts). Alle Sonderzahlungen außer T-ZUG B berechnen sich auf Basis des Monatsentgelts inkl. Leistungszulage.
+Ist dies ein offizielles Angebot der IG Metall?
+Nein. Dieser Rechner ist ein unabhängiges, kostenloses und werbefreies Open-Source-Projekt. Er basiert auf den öffentlich verfügbaren ERA-Entgelttabellen, ist jedoch kein offizielles Angebot der IG Metall oder eines Arbeitgeberverbandes. Alle Angaben ohne Gewähr.
+Wie genau ist die Netto-Schätzung?
+Die Netto-Schätzung ist eine Näherung auf Basis progressiver Lohnsteuersätze und der aktuellen Sozialversicherungsbeiträge (inkl. Beitragsbemessungsgrenzen). Sie ersetzt keine individuelle Steuerberechnung – für verbindliche Werte empfehlen wir den offiziellen Lohnsteuerrechner des Bundesfinanzministeriums.
+Für welche Bundesländer und Tarifgebiete gilt der Rechner?
+Der Rechner unterstützt alle 15 ERA-Tarifgebiete: Baden-Württemberg, Bayern, Berlin/Brandenburg, Hamburg/Unterweser, Hessen, Niedersachsen, Nordrhein-Westfalen, Osnabrück-Emsland, Pfalz, Rheinland-Rheinhessen, Saarland, Sachsen, Sachsen-Anhalt, Schleswig-Holstein/MV/NW-Niedersachsen und Thüringen.
+Was ist die IG Metall Tariftabelle 2026?
+„Tariftabelle“ und „ERA-Entgelttabelle“ bezeichnen dasselbe: die Tabelle der tariflichen Monatsentgelte in der Metall- und Elektroindustrie, gestaffelt nach Entgeltgruppe (EG 1 bis EG 17). Sie unterscheidet sich je Bundesland und Tarifgebiet. Die vollständigen Werte deines Tarifgebiets findest du oben im Rechner oder auf den einzelnen 
+Entgelttabellen-Unterseiten
+https://www.era-rechner.de/#entgelttabellen
+.
+Wie hoch ist die Ausbildungsvergütung in der Metall- und Elektroindustrie?
+Die tarifliche Ausbildungsvergütung steigt mit jedem Ausbildungsjahr und unterscheidet sich je Tarifgebiet. 2026 liegt sie im ersten Ausbildungsjahr je nach Region bei rund 1.240–1.370 € und erreicht im vierten Jahr bis zu rund 1.560 €. Die genauen Beträge für dein Tarifgebiet findest du auf den jeweiligen 
+Entgelttabellen-Unterseiten
+https://www.era-rechner.de/#entgelttabellen
+.
+Was bedeuten die Entgeltstufen (z. B. Grund-, Haupt- und Zusatzstufe oder Stufe A/B/C)?
+Viele Tarifgebiete unterteilen jede Entgeltgruppe in Stufen, die sich nach Berufserfahrung bzw. zusätzlichen Anforderungen richten. Wann genau welche Stufe erreicht wird, unterscheidet sich je Region – wir erklären es direkt auf den Tarifgebiet-Seiten, z. B. 
+Bayern
+https://www.era-rechner.de/entgelttabelle-bayern.html
+, 
+Berlin/Brandenburg
+https://www.era-rechner.de/entgelttabelle-berlin-brandenburg.html
+, 
+Hamburg/Unterweser
+https://www.era-rechner.de/entgelttabelle-hamburg.html
+, 
+Osnabrück-Emsland
+https://www.era-rechner.de/entgelttabelle-osnabrueck-emsland.html
+ oder 
+Niedersachsen
+https://www.era-rechner.de/entgelttabelle-niedersachsen.html
+. Eine Übersicht aller Gebiete gibt es bei den 
+ERA Entgelttabellen
+https://www.era-rechner.de/#entgelttabellen
+.
+Was ist der Unterschied zwischen T-ZUG A und T-ZUG B?
+T-ZUG A beträgt 27,5 % eines Monatsentgelts und kann wahlweise als Geldleistung oder als bis zu 8 bezahlte freie Tage genommen werden. T-ZUG B ist ein jährlicher Festbetrag, der sich nach dem Eckentgelt der jeweiligen Region richtet – dem Grundentgelt der Referenz-Entgeltgruppe (meist EG 5, in Baden-Württemberg EG 7, in Osnabrück-Emsland EG 4, in NRW EG 9). Er ist damit unabhängig von der persönlichen Entgeltgruppe. Beide Zahlungen werden einmal jährlich ausgezahlt.
+Bekomme ich die Sonderzahlungen auch als Neueinsteiger?
+Anspruch auf T-ZUG A, T-ZUG B und das Transformationsgeld (T-Geld) besteht erst nach sechs Monaten ununterbrochener Betriebszugehörigkeit. Maßgeblich ist der jeweilige Auszahlungsmonat: T-ZUG A wird im Juli ausgezahlt (Stichtag 31. Juli, Eintritt also spätestens 31. Januar). Bei T-Geld und T-ZUG B sind die Auszahlungsmonate ab 2026 getauscht: T-Geld kommt im Juli (Stichtag 31. Juli), T-ZUG B im Februar (Stichtag Ende Februar – Eintritt spätestens Ende August des Vorjahres); bis 2025 war es umgekehrt. Das Urlaubsgeld funktioniert anders: Es hängt am Urlaubsanspruch und wird im Eintrittsjahr gezwölftelt (1/12 je vollem Beschäftigungsmonat). Wer z. B. am 1. September anfängt, hat Anspruch auf 4/12 des Urlaubsgeldes. Ausgezahlt wird dieser Anteil nicht im Juni (der pauschale Termin ist dann bereits vorbei), sondern mit den tatsächlich genommenen Urlaubstagen – z. B. im November/Dezember – oder zu Beginn des Folgejahres; bei Eintritt nach dem 1. Juli entsteht der Anspruch formal erst sechs Monate nach Eintritt, geht aber nicht verloren. Tipp: Trage dein Eintrittsdatum im Rechner ein, dann wird alles automatisch berücksichtigt. Bleibt das Feld leer, geht der Rechner davon aus, dass du bereits länger als sechs Monate im Betrieb bist.
+Wie berechne ich mein ERA-Gehalt bei Teilzeit?
+Das Teilzeitgehalt ergibt sich aus: Grundentgelt × (tatsächliche Wochenstunden ÷ Grundarbeitszeit des Betriebs). Bei 28 Stunden in der Woche und 35 Stunden Vollzeit beträgt das Entgelt also 80 % des Vollzeitwertes. Alle Sonderzahlungen wie Urlaubsgeld, Weihnachtsgeld und T-ZUG werden anteilig auf Basis dieses angepassten Monatsentgelts berechnet. Im Rechner einfach die gewünschten Wochenstunden eintragen – alles wird automatisch umgerechnet. In den ostdeutschen Tarifgebieten beträgt die tarifliche Vollzeit 38 Stunden statt 35; dort erscheint zusätzlich das Feld „Grundarbeitszeit des Betriebs“, auf das sich die Teilzeitquote bezieht.
+Was bedeutet Leistungszulage und wie beeinflusst sie Sonderzahlungen?
+Die Leistungszulage ist ein individueller prozentualer Aufschlag auf das tarifliche Grundentgelt (0–30 %), den der Arbeitgeber gewährt. Sie erhöht nicht nur das monatliche Bruttogehalt, sondern wirkt sich auch auf Urlaubsgeld, Weihnachtsgeld, T-ZUG A und Transformationsgeld aus, da diese als Prozentsatz des Monatsentgelts berechnet werden. Einzige Ausnahme: T-ZUG B basiert auf dem Eckentgelt und ist von der persönlichen Leistungszulage unabhängig.
+Wie kann ich das Projekt unterstützen?
+Der Rechner ist kostenlos, werbefrei und wird in der Freizeit gepflegt. Wer das Projekt unterstützen möchte, kann das gerne über eine kleine Spende via PayPal tun – das hilft, den Dienst langfristig am Laufen zu halten.
+💗 Jetzt via PayPal spenden
+https://paypal.me/erarechner
+Alle 15 Fragen anzeigen
+Anregungen, Fehler oder Feedback? 
+info@era-rechner.de
+mailto:info@era-rechner.de
+Dieses Projekt ist werbefrei und open-source. Unterstütze es mit einer Spende via 
+PayPal
+https://paypal.me/erarechner
+.
+Impressum
+https://www.era-rechner.de/impressum.html
+ · 
+Datenschutz
+https://www.era-rechner.de/datenschutz.html
+ · 
+Glossar
+https://www.era-rechner.de/glossar.html
+ · 
+Quellcode auf GitHub
+https://github.com/markus-sanwald/era-rechner

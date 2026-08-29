@@ -1,0 +1,295 @@
+# Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Precedentes de Resolución
+Categoría: Documento Legal / SIMA
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Precedentes de Resolución
+Contexto Macroeconómico e Industrial del Conflicto de Airbus 2026
+La huelga indefinida iniciada a finales de agosto de 2026 en las plantas españolas de la corporación aeroespacial Airbus expone una marcada divergencia entre los resultados financieros de las corporaciones transnacionales y las condiciones socioeconómicas de sus plantillas [cite: 1, 2]. El consorcio cerró el ejercicio fiscal de 2025 con un beneficio neto de 5.221 millones de euros, lo que representó un incremento del 23% en comparación con el año anterior, y mantuvo esta trayectoria ascendente durante el primer semestre de 2026, registrando ingresos de 33.176 millones de euros (un 12% más) y un beneficio neto de 2.243 millones de euros, equivalente a un aumento interanual del 47% [cite: 3, 4]. Esta sólida posición financiera contrasta con la situación retributiva de la plantilla en España, estimada en unos 14.000 trabajadores distribuidos en los centros de Getafe, Illescas, Albacete, Cádiz y Sevilla [cite: 5, 6]. El comité de huelga justificó la movilización basándose en una pérdida acumulada del poder adquisitivo del 9% desde el estallido de la pandemia del COVID-19, agudizada por años de moderación salarial frente al repunte de la inflación [cite: 1, 7].
+El desencadenante inmediato del conflicto fue el rechazo en referéndum de un preacuerdo alcanzado previamente en julio entre la dirección y los sindicatos CCOO, SIPA y ATP [cite: 8, 9]. Con una participación del 81,44% del censo, el 49;15% de la plantilla votó en contra del acuerdo, frente a un 45,95% a favor y un 4,62% de abstenciones, lo que evidenció una clara distancia entre las federaciones sindicales firmantes y la voluntad de las bases operativas [cite: 9]. Esta fractura de representación legitimó a las organizaciones sindicales UGT, CGT y ÚTIL para canalizar el descontento y convocar paros totales indefinidos a partir del 25 de agosto de 2026, logrando un seguimiento inicial de aproximadamente el 90% en la mayor parte de las factorías [cite: 1, 10, 11].
+La magnitud de la crisis obligó a la intervención directa del consejero delegado global de Airbus, Guillaume Faury, quien se desplazó a la factoría de Getafe para evaluar la situación [cite: 9]. El diagnóstico de la dirección general reconoció que el conflicto trascendía las demandas materiales inmediatas, identificando una crisis profunda de confianza y sentido de pertenencia en la división española, vinculada a la percepción de que las decisiones corporativas clave se adoptaban de manera unilateral en la sede central de Toulouse, ignorando las particularidades de los centros de trabajo locales [cite: 9]. Como respuesta estratégica, la dirección general esquivó los canales jerárquicos habituales y constituyó un equipo especial de cuatro directivos con reporte directo al consejero delegado, encargado de recopilar información sin filtros y diseñar soluciones que restablecieran la cohesión organizativa [cite: 9].
+
+--------------------------------------------------------------------------------
+
+Bloques Temáticos de Negociación y Resoluciones Parciales
+El Servicio Interconfederal de Mediación y Arbitraje (SIMA) actuó como el espacio formal para canalizar las negociaciones colectivas [cite: 1, 12]. Aunque las primeras sesiones concluyeron con posturas distantes en el apartado salarial, el marco de mediación del SIMA facilitó avances significativos en la resolución de litigios laborales no retributivos que habían erosionado el clima social de la empresa durante los años anteriores [cite: 1, 7].
+Uno de los principales logros de la mediación fue la resolución del conflicto relativo a las retenciones salariales por incapacidad temporal (IT) mediante la aplicación del modelo Bradford de control del absentismo [cite: 3, 7]. Airbus había suspendido de manera unilateral estos complementos de baja médica, medida que fue anulada por la Audiencia Nacional tras recursos interpuestos por UGT y SIPA [cite: 7]. Aunque la compañía había recurrido inicialmente esta sentencia ante el Tribunal Supremo, la presión de la huelga indefinida propició que la dirección presentara el desistimiento formal de dicho recurso el 24 de agosto de 2026 en la mesa del SIMA, comprometiéndose al reintegro inmediato de las cantidades descontadas a los trabajadores afectados y a la creación de un grupo de trabajo paritario para redefinir las políticas de salud laboral sin penalizar las ausencias por enfermedad común o accidente [cite: 7].
+Asimismo, las negociaciones en el SIMA permitieron desactivar el conflicto derivado del plan de retorno forzoso a las oficinas, el cual pretendía restringir el teletrabajo a un solo día semanal a partir de septiembre de 2026 [cite: 1, 13]. Esta medida, que había generado protestas homólogas en las divisiones de Airbus en el Reino Unido y Francia, fue finalmente revocada, acordándose respetar el derecho a mantener los dos días de trabajo a distancia semanales recogidos en los acuerdos individuales [cite: 1, 7, 13]. También se blindó la flexibilidad vacacional, garantizando dos semanas íntegras de descanso estival continuado y eliminando la obligatoriedad de concentrar las vacaciones exclusivamente en agosto [cite: 1, 7]. Para la división espacial y el personal transferido a la nueva joint venture "Bromo" —participada por Airbus (35%), Thales (32,5%) y Leonardo (32,5%)—, se acordó la vigencia del convenio colectivo de origen, el acceso al mercado de empleo interno del grupo aeroespacial y la preservación de la antigüedad sin nuevos periodos de prueba [cite: 4, 7].
+Materia de Conflicto
+Posición Inicial de Airbus
+Reclamación Sindical (UGT, CGT, ÚTIL)
+Resolución o Estado en el SIMA
+Absentismo (Método Bradford)
+Recorte de complementos por incapacidad temporal y recurso ante el Tribunal Supremo [cite: 7].
+Abolición de penalizaciones salariales por baja médica y retirada del recurso de casación [cite: 3, 7].
+Resuelto:
+ Desistimiento del recurso, reintegro de salarios deducidos y comisión técnica de prevención [cite: 7].
+Régimen de Teletrabajo
+Reducción unilateral a un único día presencial a partir de septiembre de 2026 [cite: 1, 13].
+Mantenimiento de los dos días de trabajo a distancia acordados previamente [cite: 6, 7].
+Resuelto:
+ Preservación del derecho a dos días de teletrabajo semanal en acuerdos individuales [cite: 7, 14].
+Garantías de la Joint Venture "Bromo"
+Transferencia de activos sin compromisos laborales específicos extraconvenio.
+Blindaje de antigüedad, supresión de periodos de prueba y acceso al mercado de empleo de Airbus [cite: 4, 7].
+Avanzado:
+ Compromiso escrito de mantener condiciones de origen y reubicación preferente [cite: 4, 7].
+Carga de Trabajo de Cádiz
+Reestructuración de la actividad tras el cierre previo del centro de Puerto Real.
+Garantías concretas de empleo y adjudicación de carga industrial de soporte [cite: 7, 15].
+En Proceso:
+ Constitución de una comisión específica antes del 1 de noviembre de 2026 [cite: 7, 15].
+Estructura de Incrementos Salariales
+Subida del 7,6% acumulado hasta 2030 con mecanismos de tope y suelo sobre el IPC [cite: 7, 16, 17].
+Incremento vinculado al IPC real más 5% adicional entre 2026-2027 o subida directa del 12% con paga de 7.500 euros [cite: 6, 18].
+Bloqueado:
+ Posiciones distantes. Airbus ofreció una paga única de 2.000 euros brutos condicionada al cese del paro [cite: 14, 19].
+La resolución definitiva del conflicto se mantuvo encallada en el apartado económico debido a la exigencia de la corporación de supeditar cualquier propuesta salarial mejorada a la desconvocatoria o suspensión previa del paro indefinido, exigencia que el comité de huelga rechazó al considerarla una desactivación unilateral de su principal herramienta de negociación colectiva [cite: 17, 20].
+
+--------------------------------------------------------------------------------
+
+Dinámicas de Coacción Corporativa y Presión Geopolítica
+Frente a la persistencia de las movilizaciones, la dirección de Airbus en España desplegó una estrategia de presión industrial para minar la resistencia de la plantilla y forzar la desconvocatoria de los paros [cite: 10, 21]. Entre las medidas de coacción corporativa destacaron la congelación inmediata de todas las nuevas contrataciones previstas para el año 2026 y la amenaza directa de suspender o revocar los planes de jubilación y prejubilación parcial ya pactados con la representación de los trabajadores [cite: 6, 15, 21]. Asimismo, la multinacional advirtió de que la parálisis prolongada obligaría a evaluar el desvío de carga de trabajo industrial asignada a las plantas españolas hacia otros centros productivos de la corporación en Francia y Alemania para salvaguardar las entregas de su división comercial [cite: 6, 18].
+Esta estrategia de presión corporativa adquirió una notable dimensión geopolítica en el ámbito de la defensa europea [cite: 6, 22]. Las factorías de Getafe y Sevilla concentran proyectos clave de Airbus Defence and Space, incluyendo el ensamblaje y mantenimiento del avión de transporte táctico C295 y el suministro de repuestos de aviación militar esenciales para diversas fuerzas aéreas aliadas de la OTAN, especialmente en países limítrofes con zonas de conflicto en el este de Europa [cite: 1, 6, 22]. La corporación instrumentalizó este contexto de seguridad para advertir de que la parálisis de las líneas españolas afectaba directamente a la operatividad militar de ejércitos europeos implicados en misiones estratégicas frente a Rusia [cite: 22].
+Esta tensión industrial y geopolítica provocó la reacción del Ministerio de Industria y Turismo del Gobierno de España [cite: 23, 24]. El ministro Jordi Hereu instó públicamente a ambas partes a actuar con responsabilidad, remarcando el carácter estratégico de la empresa aeroespacial para el tejido industrial nacional, aunque manifestó su deseo de evitar una intervención directa del Ejecutivo siempre que fuera factible encauzar el acuerdo a través del diálogo bilateral [cite: 23, 24].
+
+--------------------------------------------------------------------------------
+
+Análisis de Conflictos Similares y Patrones de Resolución
+La evaluación de huelgas y bloqueos negociadores en sectores afines, tanto en el sector de la automoción como en la propia cadena de valor aeroespacial y metalúrgica, ofrece valiosas referencias sobre los patrones de resolución de disputas de alta intensidad.
+El Desbloqueo de Renault España (Mayo 2026)
+El conflicto colectivo en Renault España se desató ante la parálisis de la negociación de su convenio colectivo, lo que llevó a la dirección del constructor de automoción a suspender cautelarmente la adjudicación de nuevos modelos de vehículos proyectados para las plantas de Valladolid, Palencia y Sevilla [cite: 25, 26]. Tras una serie de paros parciales de carácter histórico y ante la amenaza explícita de convocar una huelga de carácter indefinido, el Ministerio de Industria y Turismo asumió un papel mediador directo [cite: 27, 28, 29].
+El ministro Jordi Hereu convocó de urgencia a la dirección y a las centrales sindicales, logrando un preacuerdo que fue respaldado por las organizaciones UGT, CCOO y SCP, aunque contó con el rechazo de CSIF y CGT [cite: 29]. El mecanismo de resolución articuló concesiones recíprocas estructuradas:
+Salarial:
+ Se pactó un sistema de revisión salarial vinculado al IPC real junto con un abono anual extraordinario de 145 euros brutos en la nómina de septiembre de cada ejercicio [cite: 30, 31]. CSIF criticó este modelo al considerar que no corregía la pérdida de poder adquisitivo acumulada durante las congelaciones de los años 2021 y 2022 [cite: 29].
+Industrial:
+ A cambio de la moderación salarial de la plantilla, la multinacional garantizó la asignación de cinco nuevos vehículos, incluyendo la producción de turismos eléctricos en la plataforma RGEV Medio 2.0 en Palencia y el compromiso de formalizar 300 nuevos contratos de carácter indefinido [cite: 29, 30].
+Conciliación de jornada:
+ Se fijaron mejoras de ergonomía y límites estrictos a la saturación de las tareas industriales en la línea de montaje [cite: 32].
+Este precedente demuestra que la implicación directa del Gobierno, utilizando la adjudicación de nuevos planes industriales y plataformas tecnológicas como contrapartida de viabilidad a largo plazo, constituye un modelo eficaz de descompresión en corporaciones con fuerte presencia de capital estratégico o incentivos de reconversión pública [cite: 29].
+El Conflicto de Resistencia de Acerinox Palmones (2024)
+En contraste con la resolución política de Renault, la huelga indefinida en la planta siderúrgica de Acerinox en Los Barrios (Cádiz) se prolongó durante 135 días en el año 2024, erigiéndose en uno de los paros más prolongados del sector industrial contemporáneo [cite: 33, 34]. La disputa se centró en la exigencia empresarial de implantar un modelo de jornada altamente flexible a cinco turnos, planteamiento que fue rechazado sistemáticamente por la plantilla en defensa de la conciliación y el descanso laboral [cite: 33, 34].
+La resolución se retrasó debido al fracaso reiterado de las mediaciones del Consejo Andaluz de Relaciones Laborales (CARL), la falta de planes alternativos por parte de las administraciones públicas y la firme resistencia de los huelguistas, respaldados por una caja de resistencia comunitaria y movilizaciones masivas en el Campo de Gibraltar [cite: 34, 35]. El conflicto se cerró finalmente tras una consulta en la que el 60% de la plantilla refrendó una propuesta de mediación que suavizaba los turnos organizativos y mejoraba las condiciones de un expediente de regulación de empleo (ERE) voluntario mediante indemnizaciones adicionales de 1.000 euros por año trabajado para las bajas incentivadas [cite: 33, 36].
+No obstante, la resolución de Acerinox dejó secuelas en la paz social de la factoría [cite: 37]. En 2025, la siderúrgica inició acciones legales reclamando una indemnización solidaria de 30 millones de euros a seis representantes de la Asociación de Trabajadores del Acero (ATA) y uno de CGT por presuntos daños causados durante la huelga, una medida de litigación agresiva que generó rechazo en las organizaciones sindicales por su potencial restrictivo sobre el derecho fundamental de huelga en España [cite: 37].
+La Conflictividad Aeroespacial y Auxiliar (Alestis, ITP Aero y Groundforce)
+La huelga de Airbus guarda estrecha relación con las dinámicas de conflicto de su cadena de suministro aeroespacial y de servicios auxiliares:
+Alestis Aerospace (Vitoria, Junio de 2026):
+ El comité de empresa convocó paros ante el bloqueo de la negociación de su convenio colectivo en un contexto de incremento de carga industrial [cite: 38]. Los sindicatos culparon del estancamiento a los accionistas controladores —Aciturri Aerostructures (49%) y la multinacional belga Sonaca (51%)— y recurrieron a protestas simbólicas ante el Parlamento Vasco junto con trabajadores de Aernnova para evidenciar la precarización en las subcontratas del sector aeroespacial [cite: 38].
+ITP Aero (Mundaka/Zamudio, 2021):
+ El conflicto derivado de un ERE que contemplaba el despido de unos 90 operarios concluyó en vía judicial cuando el Tribunal Superior de Justicia del País Vasco (TSJPV) declaró nulos los despidos [cite: 39]. El tribunal argumentó que el marco legal excepcional de protección del empleo vigente durante la pandemia del COVID-19 debía prevalecer [cite: 39]. Las protestas de ITP Aero registraron incidentes de gran intensidad y cargas policiales antes de que Rolls-Royce formalizara la venta de la filial [cite: 39]. Posteriormente, el conflicto se estabilizó mediante la firma de un convenio colectivo a tres años impulsado por CCOO, que facilitó la reincorporación de los despedidos [cite: 40].
+Groundforce (Marzo de 2026):
+ Los sindicatos USO, CCOO y UGT mantuvieron una huelga indefinida tras fracasar una maratoniana reunión de mediación de más de diez horas en el SIMA [cite: 41]. El núcleo de la disputa fue la exigencia de aplicar de forma íntegra las cláusulas de recuperación salarial frente a la inflación, planteamiento rechazado por la dirección [cite: 41]. Este paro se mantuvo activo en contraste con la huelga de 
+handling
+ de Ryanair, que fue desconvocada por los sindicatos debido a la imposición por parte del Ministerio de Transportes de unos servicios mínimos considerados abusivos, los cuales superaban el 70% de cobertura y neutralizaban la efectividad de la protesta [cite: 4, 41].
+Metal de Cádiz (2021 y 2025):
+ Las protestas del sector del metal en Cádiz en 2021 destacaron por el uso de unidades antidisturbios y el despliegue del vehículo blindado policial ("tanqueta") en barriadas obreras [cite: 42]. Los puntos críticos del conflicto fueron la regulación del contrato fijo-discontinuo y el mantenimiento del plus de toxicidad [cite: 42]. En 2025, CGT desconvocó nuevas protestas en cumplimiento de los mandatos explícitos emanados de las asambleas obreras, consolidando la asamblea como órgano de soberanía laboral [cite: 43].
+Empresa / Conflicto
+Sector Industrial
+Mecanismo de Mediación
+Clave de Desacuerdo o Conflicto
+Fórmula de Resolución o Estado
+Renault España (2026)
+ [cite: 29, 32]
+Automoción [cite: 29]
+Ministerio de Industria y Turismo (Jordi Hereu) [cite: 29]
+Vinculación del convenio colectivo a la asignación de modelos de turismos [cite: 25, 26].
+Preacuerdo:
+ Indexación salarial moderada a cambio de vehículos eléctricos RGEV [cite: 29, 30].
+Acerinox Palmones (2024)
+ [cite: 33, 34]
+Siderurgia [cite: 33, 42]
+CARL / Sercla (Autonómico) [cite: 33, 35]
+Flexibilidad horaria obligatoria a cinco turnos rotativos [cite: 33, 34].
+Acuerdo:
+ Aprobado con el 60% tras 135 días de huelga; posterior judicialización penal [cite: 33, 37].
+Alestis Vitoria (2026)
+ [cite: 38]
+Aeroespacial (Proveedor)
+Negociación Directa / Bloqueo en mesa de convenio [cite: 38].
+Negativa de Aciturri y Sonaca a trasladar el aumento de producción a salarios [cite: 38].
+En Conflicto:
+ Convocatoria de jornadas de huelga y protestas en Parlamento Vasco [cite: 38].
+ITP Aero (2021)
+ [cite: 39]
+Turbinas de Aviación [cite: 40]
+Resolución Judicial (TSJPV) / Negociación Directa [cite: 39, 40]
+Despidos colectivos vía ERE en plena crisis de la pandemia [cite: 39].
+Nulidad de Despidos:
+ Reincorporación forzosa por sentencia y firma de acuerdo a tres años [cite: 39, 40].
+Groundforce (2026)
+ [cite: 41]
+Servicios Aeroportuarios
+Mediación de diez horas en el SIMA (Fracasada) [cite: 41]
+Aplicación de los incrementos salariales de la cláusula de recuperación [cite: 41].
+Huelga Activa:
+ Mantenimiento de paros por falta de acuerdo con la dirección [cite: 41].
+
+--------------------------------------------------------------------------------
+
+Implicaciones del Arbitraje Obligatorio en la Legislación Española
+Ante un escenario de parálisis prolongada en un sector considerado estratégico para la defensa nacional y el transporte, surge el debate en torno a la constitucionalidad de la imposición de un laudo arbitral obligatorio por parte del Gobierno de España [cite: 23, 44]. Este mecanismo excepcional está contemplado en el 
+Artículo 10.1 del Real Decreto-Ley 17/1977, de 4 de marzo, sobre Relaciones de Trabajo
+, que autoriza al Consejo de Ministros a decretar la reanudación del trabajo y, de persistir la parálisis, a establecer un arbitraje vinculante para dirimir las condiciones colectivas [cite: 44].
+Sin embargo, el Tribunal Constitucional de España ha fijado límites estrictos a este poder coercitivo estatal mediante su histórica 
+Sentencia STC 11/1981, de 8 de abril
+ [cite: 44, 45]. El alto tribunal dictaminó que la imposición gubernamental de un laudo arbitral representa una restricción severa del derecho fundamental a la huelga (Artículo 28.2 de la Constitución Española), por lo que su validez depende de la concurrencia rigurosa de las siguientes garantías jurídicas [cite: 44, 45]:
+Excepcionalidad objetiva:
+ Debe justificarse en la gravedad del perjuicio causado a la economía nacional o en la parálisis de servicios públicos esenciales de primera necesidad, requisitos difíciles de amparar en un conflicto comercial de una empresa manufacturera privada, aun cuando sea proveedora de equipos militares [cite: 44].
+Imparcialidad procesal del árbitro:
+ El laudo debe ser emitido por un tercero cuya neutralidad sea incuestionable, quedando excluida la designación unilateral de funcionarios o miembros de la administración pública directamente interesada en la reanudación del servicio [cite: 44].
+Decisión motivada:
+ El acuerdo gubernamental que imponga la medida es un acto administrativo sujeto a control judicial ordinario, debiendo motivar de manera detallada la proporcionalidad y la imposibilidad de resolver el bloqueo por otras vías autocompositivas [cite: 44].
+La jurisprudencia demuestra que el uso de este instrumento coercitivo suele derivar en una alta conflictividad jurídica y en el descontento de la parte social afectada, la cual tiende a considerar el laudo como una vulneración de la autonomía de la negociación colectiva [cite: 44]. En la práctica industrial de alta cualificación tecnológica, la imposición forzosa de un laudo resulta además ineficaz, dado que no puede contener el absentismo o las reducciones silenciosas de la productividad y calidad de fabricación que caracterizan a las plantillas descontentas en sectores de precisión aeronáutica [cite: 1].
+
+--------------------------------------------------------------------------------
+
+Conclusiones y Propuestas Estratégicas para la Estabilización Laboral
+La huelga indefinida en Airbus en 2026 y la comparación con precedentes industriales relevantes en el mercado español permiten extraer conclusiones conceptuales y diseñar directrices estratégicas orientadas a restaurar la paz laboral y asegurar la sostenibilidad del sector a largo plazo.
+Lecciones extraídas de los conflictos analizados
+La primera conclusión señala que la pérdida acumulada de poder adquisitivo tras periodos de crisis inflacionaria actúa como el combustible primario del descontento laboral, pero raramente constituye la única causa de la movilización [cite: 1, 7]. En sectores de alto valor añadido, las demandas "blandas" relativas a la flexibilidad horaria, el teletrabajo estructurado, la soberanía de las vacaciones y el rechazo a políticas de salud de carácter punitivo (como el modelo Bradford) son defendidas con la misma intensidad que las cláusulas estrictamente monetarias [cite: 1, 3, 7].
+La segunda lección expone la erosión de los modelos tradicionales de representación intermedia [cite: 9]. Las direcciones de las multinacionales cometen un error estratégico al asumir que la mera firma de un pacto con las cúpulas sindicales tradicionales garantiza la resolución de la disputa, obviando la soberanía de las asambleas de trabajadores y las consultas en referéndum, que pueden invalidar preacuerdos considerados insuficientes por las bases operativas [cite: 8, 9].
+Por último, el precedente del Ministerio de Industria en el conflicto de Renault en mayo de 2026 demuestra que la mejor vía de intervención gubernamental no radica en la coerción legal o la amenaza del arbitraje forzoso, sino en el despliegue de una política de incentivos industriales vinculados al empleo de calidad y la inversión en nuevas tecnologías de producción [cite: 29]. Ello permite a las multinacionales asumir costes salariales más elevados a cambio de un entorno de estabilidad, paz social y competitividad subvencionada a largo plazo [cite: 29].
+Recomendaciones para avanzar a futuro en Airbus España
+Para desbloquear el conflicto en Airbus y asegurar la estabilidad de sus operaciones en España, se propone la adopción de las siguientes medidas coordinadas:
+En primer lugar, la dirección española y el comité de huelga deben articular un pacto de revisión salarial de carácter progresivo para el periodo 2026-2030, que descarte los topes de protección del IPC real exigidos por la corporación para los primeros años de vigencia del convenio [cite: 7, 16]. Se recomienda acordar una cláusula de salvaguarda salarial retroactiva que distribuya la compensación de la pérdida del 9% del poder adquisitivo perdida desde la pandemia en tramos anuales fijos consolidados, reduciendo de manera simultánea la cuantía de la paga única extraordinaria no consolidable para financiar de manera prioritaria las tablas salariales de base de los grupos profesionales más vulnerables de la plantilla [cite: 7, 18, 19].
+En segundo lugar, se debe ratificar en el convenio colectivo el desistimiento definitivo del recurso judicial sobre el modelo Bradford [cite: 7]. La dirección debe comprometerse a erradicar de forma permanente los sistemas punitivos de control de absentismo y a conformar el grupo de trabajo paritario de prevención de la salud acordado en el SIMA, con el objetivo de diseñar un sistema de seguimiento médico de carácter positivo centrado en la ergonomía y la salud de las líneas de producción, excluyendo de los cómputos de ausencias operativas las bajas derivadas de enfermedad común, accidentes o patologías crónicas certificadas [cite: 3, 7].
+En tercer lugar, es indispensable formalizar en el cuerpo del convenio colectivo el derecho al teletrabajo estructurado de dos días semanales para el personal de oficinas e ingeniería, lo que desactivará de manera definitiva las tensiones y asimilará las directrices españolas a las mejores prácticas de conciliación internacional de la corporación [cite: 1, 6, 7]. Este marco debe ser blindado contra modificaciones unilaterales y gestionado mediante objetivos claros de entrega de proyectos, erradicando los enfoques basados estrictamente en el presencialismo físico [cite: 7, 13].
+Finalmente, de acuerdo con el diagnóstico de crisis de confianza planteado por Guillaume Faury, se debe avanzar en la descentralización de la gobernanza laboral en España [cite: 9]. Se propone dotar de funciones ejecutivas permanentes a la mesa intercentros española y al equipo de reporte directo creado por la dirección general, permitiendo adecuar las directrices organizativas globales de Toulouse a la realidad socioeconómica española [cite: 9]. Esto evitará la acumulación de litigios no resueltos y reconstruirá el sentimiento de pertenencia y orgullo de la plantilla, asegurando la entrega a tiempo de los compromisos industriales tanto en el sector de la aviación comercial como de la defensa estratégica [cite: 4, 9, 23].
+
+--------------------------------------------------------------------------------
+
+La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA - Aviación Digital, 
+https://aviaciondigital.com/huelga-indefinida-airbus-espana-sima-agosto-2026/
+https://aviaciondigital.com/huelga-indefinida-airbus-espana-sima-agosto-2026/
+Comienza la huelga indefinida de los trabajadores de Airbus: “Pedimos lo que merecemos”, 
+https://elpais.com/economia/2026-08-25/comienza-la-huelga-indefinida-de-los-trabajadores-de-airbus-pedimos-lo-que-merecemos.html
+https://elpais.com/economia/2026-08-25/comienza-la-huelga-indefinida-de-los-trabajadores-de-airbus-pedimos-lo-que-merecemos.html
+Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida - Elplural.com, 
+https://www.elplural.com/economia/trabajadores-airbus-ejemplo-lucha-contra-tirania-multinacional-asambleas-guian-huelga-indefinida_398746102
+https://www.elplural.com/economia/trabajadores-airbus-ejemplo-lucha-contra-tirania-multinacional-asambleas-guian-huelga-indefinida_398746102
+Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata, 
+https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/
+https://www.democrata.es/actualidad/huelga-airbus-que-reclaman-trabajadores-impacto-produccion-espana/
+Los trabajadores de Airbus inician una huelga indefinida con la negociación aún abierta en el SIMA - El Independiente, 
+https://www.elindependiente.com/economia/2026/08/25/trabajadores-airbus-inician-huelga-indefinida/
+https://www.elindependiente.com/economia/2026/08/25/trabajadores-airbus-inician-huelga-indefinida/
+Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupación por la producción - El Diario de Madrid, 
+https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html
+https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html
+Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto - Industry Talks, 
+https://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/
+https://industrytalks.es/huelga-en-airbus-las-propuestas-de-la-empresa-cierran-varios-frentes-pero-no-el-salarial-la-solucion-al-conflicto/
+La plantilla de Airbus seguirá en huelga tras una nueva reunión negociadora sin avances, 
+https://efe.com/economia/2026-08-25/huelga-airbus-negociacion-poner-fin-conflicto/
+https://efe.com/economia/2026-08-25/huelga-airbus-negociacion-poner-fin-conflicto/
+SIPA, 
+https://www.sipa.es/
+https://www.sipa.es/
+La plantilla de Airbus España decide ir a la huelga indefinida hasta que la empresa avance en sus propuestas - Industry Talks, 
+https://industrytalks.es/la-plantilla-de-airbus-espana-decide-ir-a-la-huelga-indefinida-hasta-que-la-empresa-avance-en-sus-propuestas/
+https://industrytalks.es/la-plantilla-de-airbus-espana-decide-ir-a-la-huelga-indefinida-hasta-que-la-empresa-avance-en-sus-propuestas/
+Airbus amenaza con suspender las contrataciones previstas en España si continúa la huelga - Cadena SER, 
+https://cadenaser.com/cmadrid/2026/08/26/airbus-amenaza-con-suspender-las-contrataciones-previstas-en-espana-si-continua-la-huelga-ser-madrid-sur/
+https://cadenaser.com/cmadrid/2026/08/26/airbus-amenaza-con-suspender-las-contrataciones-previstas-en-espana-si-continua-la-huelga-ser-madrid-sur/
+Airbus vuelve al SIMA con la huelga activa y una oferta salarial aún sin acuerdo - Ola Next, 
+https://www.olanext.eu/airbus-vuelve-al-sima-huelga-activa-oferta-salarial-sin-acuerdo/
+https://www.olanext.eu/airbus-vuelve-al-sima-huelga-activa-oferta-salarial-sin-acuerdo/
+Huelga Airbus, 
+https://airbus-huelga.github.io/dashboard/
+https://airbus-huelga.github.io/dashboard/
+Airbus condiciona su última oferta a los sindicatos a que desconvoquen la huelga, 
+https://www.eleconomista.es/industria/noticias/14010525/08/26/airbus-condiciona-su-ultima-oferta-a-los-sindicatos-a-que-desconvoquen-la-huelga.html
+https://www.eleconomista.es/industria/noticias/14010525/08/26/airbus-condiciona-su-ultima-oferta-a-los-sindicatos-a-que-desconvoquen-la-huelga.html
+Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas - La Razón, 
+https://www.larazon.es/economia/airbus-espana-reacciona-huelga-indefinida-congelacion-inmediata-contrataciones-que-tenia-previstas_202608266a8eb066d16f7635049e26f6.html
+https://www.larazon.es/economia/airbus-espana-reacciona-huelga-indefinida-congelacion-inmediata-contrataciones-que-tenia-previstas_202608266a8eb066d16f7635049e26f6.html
+Los trabajadores de Airbus aplazan al lunes la votación sobre la suspensión de la huelga, 
+https://cincodias.elpais.com/economia/2026-08-28/los-trabajadores-de-airbus-aplazan-al-lunes-la-votacion-sobre-la-suspension-de-la-huelga.html
+https://cincodias.elpais.com/economia/2026-08-28/los-trabajadores-de-airbus-aplazan-al-lunes-la-votacion-sobre-la-suspension-de-la-huelga.html
+Airbus sube sueldos ligados al IPC y mantiene teletrabajo - Demócrata, 
+https://www.democrata.es/economia/airbus-plantea-subir-sueldos-ligados-al-ipc-real-y-un-7-6-adicional-hasta-2030-y-conserva-el-teletrabajo-para-evitar-la-huelga/
+https://www.democrata.es/economia/airbus-plantea-subir-sueldos-ligados-al-ipc-real-y-un-7-6-adicional-hasta-2030-y-conserva-el-teletrabajo-para-evitar-la-huelga/
+Sin acuerdo en la última reunión, la huelga sigue en Airbus: la empresa rechaza la propuesta de los convocantes, que incluye una paga de 7.500 euros y una subida salarial única del 12% para recuperar el poder adquisitivo - La Razón, 
+https://www.larazon.es/economia/acuerdo-ultima-reunion-huelga-sigue-airbus-empresa-rechaza-propuesta-convocantes-que-incluye-paga-7500-euros-subida-salarial-unica-12-recuperar-poder_202608286a913324d16f763504a2fdd3.html
+https://www.larazon.es/economia/acuerdo-ultima-reunion-huelga-sigue-airbus-empresa-rechaza-propuesta-convocantes-que-incluye-paga-7500-euros-subida-salarial-unica-12-recuperar-poder_202608286a913324d16f763504a2fdd3.html
+Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga, 
+https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html
+https://www.elconciso.es/empresas/ultimatum-airbus-sindicatos-no-seguira_0_2007798053.html
+Airbus y los sindicatos mantienen posiciones distantes tras la reunión en el SIMA mientras continúan los paros - Cinco Días, 
+https://cincodias.elpais.com/companias/2026-08-27/airbus-y-los-sindicatos-mantienen-posiciones-distantes-tras-la-reunion-en-el-sima-mientras-continuan-los-paros.html
+https://cincodias.elpais.com/companias/2026-08-27/airbus-y-los-sindicatos-mantienen-posiciones-distantes-tras-la-reunion-en-el-sima-mientras-continuan-los-paros.html
+Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los trabajadores si continúan con la huelga - OkDiario, 
+https://okdiario.com/economia/airbus-amenaza-congelar-jubilaciones-prejubilaciones-pactadas-trabajadores-si-continuan-huelga-20171849
+https://okdiario.com/economia/airbus-amenaza-congelar-jubilaciones-prejubilaciones-pactadas-trabajadores-si-continuan-huelga-20171849
+El gobierno amenaza a los trabajadores en huelga de Airbus: «espero no tener que intervenir» - Kaos en la red, 
+https://kaosenlared.net/el-gobierno-amenaza-a-los-trabajadores-en-huelga-de-airbus-espero-no-tener-que-intervenir/
+https://kaosenlared.net/el-gobierno-amenaza-a-los-trabajadores-en-huelga-de-airbus-espero-no-tener-que-intervenir/
+Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes - El Español, 
+https://www.elespanol.com/invertia/20260828/continua-huelga-plantas-airbus-empresa-sindicatos-seguiran-negociando-proximo-martes/1003744365159_0.html
+https://www.elespanol.com/invertia/20260828/continua-huelga-plantas-airbus-empresa-sindicatos-seguiran-negociando-proximo-martes/1003744365159_0.html
+Airbus: Hereu irrumpe en la huelga indefinida, pero espera no 'intervenir', 
+https://intereconomia.com/noticia/empresas/airbus-hereu-irrumpe-en-la-huelga-indefinida-pero-espera-no-intervenir-20260826-1623/
+https://intereconomia.com/noticia/empresas/airbus-hereu-irrumpe-en-la-huelga-indefinida-pero-espera-no-intervenir-20260826-1623/
+Los sindicatos convocan paros en Renault España para retomar la negociación del convenio - El Diario, 
+https://www.eldiario.es/castilla-y-leon/economia/sindicatos-convocan-paros-renault-espana-retomar-negociacion-convenio_1_13236622.html
+https://www.eldiario.es/castilla-y-leon/economia/sindicatos-convocan-paros-renault-espana-retomar-negociacion-convenio_1_13236622.html
+Renault España suspende la adjudicación de vehículos ante la falta de acuerdo en el convenio - EFE, 
+https://efe.com/castilla-y-leon/2026-05-07/renault-no-adjudica-vehiculos-por-falta-de-acuerdo-en-el-convenio/
+https://efe.com/castilla-y-leon/2026-05-07/renault-no-adjudica-vehiculos-por-falta-de-acuerdo-en-el-convenio/
+Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde - Cadena SER, 
+https://cadenaser.com/castillayleon/2026/05/20/los-sindicatos-de-renault-convocan-paros-parciales-como-previa-a-una-huelga-indefinida-si-la-empresa-no-responde-radio-valladolid/
+https://cadenaser.com/castillayleon/2026/05/20/los-sindicatos-de-renault-convocan-paros-parciales-como-previa-a-una-huelga-indefinida-si-la-empresa-no-responde-radio-valladolid/
+La plantilla de Renault España amenaza con una “huelga indefinida” si no se retoma la negociación del nuevo convenio - Cinco Días, 
+https://cincodias.elpais.com/companias/2026-05-22/la-plantilla-de-renault-espana-amenaza-con-una-huelga-indefinida-si-no-se-retoma-la-negociacion-del-nuevo-convenio.html
+https://cincodias.elpais.com/companias/2026-05-22/la-plantilla-de-renault-espana-amenaza-con-una-huelga-indefinida-si-no-se-retoma-la-negociacion-del-nuevo-convenio.html
+Hay preacuerdo en el convenio de Renault tras la reunión con el ministro de Industria como mediador: "Asegura el futuro" - El Español, 
+https://www.elespanol.com/castilla-y-leon/economia/empresas/20260526/preacuerdo-convenio-renault-reunion-ministro-industria-mediador-asegura-futuro/1003744261102_0.html
+https://www.elespanol.com/castilla-y-leon/economia/empresas/20260526/preacuerdo-convenio-renault-reunion-ministro-industria-mediador-asegura-futuro/1003744261102_0.html
+Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Noticias Palencia - Tribuna, 
+https://www.tribunapalencia.com/noticias/446215/renault-y-los-sindicatos-ugt-y-ccoo-firman-el-preacuerdo-del-convenio
+https://www.tribunapalencia.com/noticias/446215/renault-y-los-sindicatos-ugt-y-ccoo-firman-el-preacuerdo-del-convenio
+Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos para Palencia y Valladolid, 
+https://www.tribunavalladolid.com/noticias/446214/renault-plantea-un-preacuerdo-para-el-convenio-2026-2028-ligado-a-nuevos-modelos-para-palencia-y-valladolid
+https://www.tribunavalladolid.com/noticias/446214/renault-plantea-un-preacuerdo-para-el-convenio-2026-2028-ligado-a-nuevos-modelos-para-palencia-y-valladolid
+Renault logra un preacuerdo de convenio en la reunión de mediación en Industria, 
+https://www.latribunadeautomocion.es/2026/05/renault-logra-un-preacuerdo-de-convenio-en-la-reunion-de-mediacion-en-industria/
+https://www.latribunadeautomocion.es/2026/05/renault-logra-un-preacuerdo-de-convenio-en-la-reunion-de-mediacion-en-industria/
+Fin de la huelga en Acerinox tras 135 días: los trabajadores votan a favor del acuerdo, 
+https://www.eleconomista.es/empleo/noticias/12875626/06/24/el-preacuerdo-alcanzado-con-la-mediacion-de-empleo-logra-el-60-de-respaldo.html
+https://www.eleconomista.es/empleo/noticias/12875626/06/24/el-preacuerdo-alcanzado-con-la-mediacion-de-empleo-logra-el-60-de-respaldo.html
+La plantilla de Acerinox, 120 días de huelga en nombre de la conciliación - Diario Público, 
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html
+Dos meses sin avances: El paro de Acerinox llega al Parlamento donde la oposición pide al Gobierno que medie en el conflicto - El Correo de Andalucía, 
+https://www.elcorreoweb.es/andalucia/2024/04/11/acerinox-huelga-junta-de-andalucia-mediacion-paro-100934355.html
+https://www.elcorreoweb.es/andalucia/2024/04/11/acerinox-huelga-junta-de-andalucia-mediacion-paro-100934355.html
+Acuerdo en mediación para desconvocar la huelga de Acerinox tras mejorarse las condiciones del ERE | Sindicato USO, 
+https://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/
+https://www.uso.es/acuerdo-en-mediacion-para-desconvocar-la-huelga-de-acerinox-tras-mejorarse-las-condiciones-del-ere/
+Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista, 
+https://diariosocialista.net/2025/05/21/acerinox-reclama-30-millones-de-euros-a-siete-sindicalistas-por-huelga-en-la-planta-de-palmones/
+https://diariosocialista.net/2025/05/21/acerinox-reclama-30-millones-de-euros-a-siete-sindicalistas-por-huelga-en-la-planta-de-palmones/
+El comité de Alestis convoca cuatro días de huelga ante el bloqueo del convenio, 
+https://www.noticiasdealava.eus/alava/2026/06/11/comite-alestis-convoca-cuatro-dias-11188433.html
+https://www.noticiasdealava.eus/alava/2026/06/11/comite-alestis-convoca-cuatro-dias-11188433.html
+El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los 90 trabajadores - El Salto, 
+https://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores
+https://www.elsaltodiario.com/laboral/tsjpv-declara-nulo-despido-itp-aero-obliga-empresa-readmitir-90-trabajadores
+CCOO e Industria de Turbopropulsores (ITP) alcanzan un acuerdo para tres años, 
+https://industria.ccoo.es/noticia:229388--CCOO%20e%20Industria%20de%20Turbopropulsores%20(ITP)%20alcanzan%20un%20acuerdo%20para%20tres%20a%C3%B1os
+https://industria.ccoo.es/noticia:229388--CCOO%20e%20Industria%20de%20Turbopropulsores%20(ITP)%20alcanzan%20un%20acuerdo%20para%20tres%20a%C3%B1os
+Sin acuerdo en el SIMA: se mantiene la huelga en Groundforce - Sindicato USO Servicios, 
+https://www.fs-uso.es/sin-acuerdo-en-el-sima-se-mantiene-la-huelga-en-groundforce/
+https://www.fs-uso.es/sin-acuerdo-en-el-sima-se-mantiene-la-huelga-en-groundforce/
+La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021, 
+https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html
+https://www.diariodecadiz.es/noticias-provincia-cadiz/huelga-metal-inquieta-provincia-cadiz-fantasma-protestas-2021_0_2004150172.html
+CGT desconvoca la huelga en la Bahía de Cádiz por decisión de las asambleas de trabajadores del metal, 
+https://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/
+https://cgt.es/cgt-pone-fin-a-la-huelga-que-mantenia-en-desde-el-pasado-23-de-junio-en-el-sector-del-metal-gaditano/
+EL ARBITRAJE “OBLIGATORIO” QUE PONE FIN A LA HUELGA - Dialnet, 
+https://dialnet.unirioja.es/descarga/articulo/802005.pdf
+https://dialnet.unirioja.es/descarga/articulo/802005.pdf
+Sistema HJ - Resolución: SENTENCIA 11/1981, 
+https://hj.tribunalconstitucional.es/es-ES/Resolucion/Show/11
+https://hj.tribunalconstitucional.es/es-ES/Resolucion/Show/11
