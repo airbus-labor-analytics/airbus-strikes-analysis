@@ -14,6 +14,13 @@ from typing import Dict, List, Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
+try:
+    from beluga_tracker import BelugaTracker
+    from sentiment_thermometer import SentimentThermometerEngine
+except ImportError:
+    from src.beluga_tracker import BelugaTracker
+    from src.sentiment_thermometer import SentimentThermometerEngine
+
 
 
 @dataclass
@@ -216,7 +223,9 @@ class StrikeAnalysisEngine:
                     "final_agreement": "Acuerdo a la baja por agotamiento financiero",
                     "key_lesson": "Sin asimetría crítica en JIT ni solvencia familiar, el conflicto largo desgasta a la plantilla."
                 }
-            ]
+            ],
+            "beluga_logistics": BelugaTracker().fetch_live_data(),
+            "sentiment_thermometer": SentimentThermometerEngine().evaluate_pressure_metrics(),
         }
 
 

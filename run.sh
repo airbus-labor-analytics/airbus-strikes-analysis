@@ -12,6 +12,12 @@ case "$1" in
   data)
     python3 src/analysis_engine.py "${@:2}"
     ;;
+  beluga)
+    python3 src/beluga_tracker.py "${@:2}"
+    ;;
+  thermo)
+    python3 src/sentiment_thermometer.py "${@:2}"
+    ;;
   sync)
     python3 src/notebooklm_sync.py --all "${@:2}"
     ;;

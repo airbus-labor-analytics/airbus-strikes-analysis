@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initWagesChart();
   updateAsymmetrySimulation();
   updateWageSimulation();
+  initThermometerAndBeluga();
 });
 
 // Tab Switcher
@@ -352,4 +353,162 @@ function filterSources() {
   const query = document.getElementById('source-search')?.value.toLowerCase() || '';
   const filtered = fallbackData.sources.filter(s => s.title.toLowerCase().includes(query) || s.section.toLowerCase().includes(query) || s.id.toLowerCase().includes(query));
   renderSourcesList(filtered);
+}
+
+// ==================== THERMOMETER & BELUGA LOGISTICS ====================
+let thermoFeedData = [];
+
+function initThermometerAndBeluga() {
+  const thermo = conflictData?.sentiment_thermometer;
+  const beluga = conflictData?.beluga_logistics;
+
+  if (thermo) {
+    const tempEl = document.getElementById('thermo-temp');
+    const badgeEl = document.getElementById('thermo-badge');
+    const descEl = document.getElementById('thermo-desc');
+    const barEl = document.getElementById('thermo-bar');
+    const badEl = document.getElementById('thermo-bad-ratio');
+    const goodEl = document.getElementById('thermo-good-ratio');
+
+    if (tempEl) tempEl.textContent = `${thermo.temperature_celsius}°C`;
+    if (badgeEl) badgeEl.textContent = thermo.status_label;
+    if (descEl) descEl.textContent = thermo.status_description;
+    if (barEl) barEl.style.width = `${thermo.temperature_celsius}%`;
+    if (badEl) badEl.textContent = `${thermo.bad_for_airbus_percentage}%`;
+    if (goodEl) goodEl.textContent = `${thermo.good_for_airbus_percentage}%`;
+
+    thermoFeedData = thermo.feed || [];
+    renderThermoFeed(thermoFeedData);
+  }
+
+  if (beluga) {
+    renderBelugaFleet(beluga);
+  }
+}
+
+function renderBelugaFleet(beluga) {
+  const container = document.getElementById('beluga-fleet-grid');
+  if (!container) return;
+
+  const aircraftList = beluga.all_aircraft || beluga.other_airborne_aircraft || [];
+  if (aircraftList.length === 0) {
+    container.innerHTML = `<div class="col-span-full p-4 text-center text-xs text-slate-400">Datos de flota BelugaXL en proceso de recepción desde OpenSky Network.</div>`;
+    return;
+  }
+
+  container.innerHTML = aircraftList.map(ac => {
+    const isAirborne = ac.airborne || ac.status === "En Vuelo";
+    const isSpainRelated = ac.is_spain_connection || (ac.currentSite && ac.currentSite.toLowerCase().includes('getafe'));
+    const statusColor = isAirborne ? 'emerald' : 'slate';
+    const badgeColor = isSpainRelated ? 'rose' : 'blue';
+    const location = ac.locationLabel || ac.currentSite || "En Tránsito";
+    const callsign = ac.callsign || "N/A";
+    const reg = ac.registration || ac.id || "BXL";
+
+    return `
+      <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-slate-700 transition">
+        <div>
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-bold text-white">${ac.name || 'BelugaXL'}</span>
+              <span class="text-[10px] text-slate-400 block font-mono">${reg} • Callsign: ${callsign}</span>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-${statusColor}-500/20 text-${statusColor}-400 border border-${statusColor}-500/30">
+              ${isAirborne ? '● EN VUELO' : 'EN TIERRA'}
+            </span>
+          </div>
+
+          <div class="mt-3 space-y-1 text-xs">
+            <div class="flex justify-between text-slate-300">
+              <span class="text-slate-500 text-[11px]">Ubicación:</span>
+              <span class="font-medium text-sky-400">${location}</span>
+            </div>
+            ${ac.speedKt ? `
+            <div class="flex justify-between text-slate-400 text-[11px]">
+              <span>Velocidad / Altitud:</span>
+              <span class="font-mono text-slate-300">${ac.speedKt} kt / ${ac.altitudeFt || 0} ft</span>
+            </div>` : ''}
+          </div>
+        </div>
+
+        <div class="mt-3 pt-2 border-t border-slate-800 flex justify-between items-center text-[10px]">
+          <span class="text-slate-400">Relevancia Huelga:</span>
+          <span class="px-1.5 py-0.5 rounded font-bold bg-${badgeColor}-500/20 text-${badgeColor}-300 border border-${badgeColor}-500/30">
+            ${isSpainRelated ? '⚠️ Bloqueo HTP Getafe' : 'Ruta Externa'}
+          </span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderThermoFeed(items) {
+  const container = document.getElementById('thermo-feed-container');
+  if (!container) return;
+
+  if (items.length === 0) {
+    container.innerHTML = `<div class="p-4 text-center text-xs text-slate-400">No hay entradas disponibles para este filtro.</div>`;
+    return;
+  }
+
+  container.innerHTML = items.map(item => {
+    const isBadForAirbus = item.category === "BAD_FOR_AIRBUS";
+    const badgeClass = isBadForAirbus 
+      ? "bg-rose-500/20 text-rose-300 border-rose-500/30" 
+      : "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
+    const badgeLabel = isBadForAirbus ? "🔴 ALTA PALANCA HUELGA" : "🟢 SPIN CORPORATIVO AIRBUS";
+    const impactColor = isBadForAirbus ? "text-rose-400" : "text-emerald-400";
+
+    return `
+      <div class="p-4 bg-slate-900/70 border border-slate-800 rounded-xl hover:bg-slate-900 transition">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+          <div class="flex items-center space-x-2">
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+              ${item.channel}
+            </span>
+            <span class="text-xs text-slate-400 font-medium">${item.source} • ${item.date}</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold border ${badgeClass}">
+              ${badgeLabel}
+            </span>
+            <span class="text-xs font-black ${impactColor}">${item.pressure_impact}</span>
+          </div>
+        </div>
+
+        <a href="${item.url}" target="_blank" class="text-xs sm:text-sm font-bold text-white hover:text-blue-400 mt-2 block transition">
+          ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500"></i>
+        </a>
+        <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">${item.summary}</p>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function filterThermoFeed(category) {
+  document.getElementById('btn-feed-all')?.classList.remove('bg-blue-600', 'text-white');
+  document.getElementById('btn-feed-bad')?.classList.remove('bg-rose-600', 'text-white');
+  document.getElementById('btn-feed-good')?.classList.remove('bg-emerald-600', 'text-white');
+
+  document.getElementById('btn-feed-all')?.classList.add('bg-slate-800', 'text-slate-300');
+  document.getElementById('btn-feed-bad')?.classList.add('bg-slate-800', 'text-slate-300');
+  document.getElementById('btn-feed-good')?.classList.add('bg-slate-800', 'text-slate-300');
+
+  if (category === 'ALL') {
+    const btn = document.getElementById('btn-feed-all');
+    if (btn) { btn.className = "px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white"; }
+    renderThermoFeed(thermoFeedData);
+  } else if (category === 'BAD_FOR_AIRBUS') {
+    const btn = document.getElementById('btn-feed-bad');
+    if (btn) { btn.className = "px-2.5 py-1 rounded text-xs font-bold bg-rose-600 text-white"; }
+    const filtered = thermoFeedData.filter(i => i.category === 'BAD_FOR_AIRBUS');
+    renderThermoFeed(filtered);
+  } else if (category === 'GOOD_FOR_AIRBUS') {
+    const btn = document.getElementById('btn-feed-good');
+    if (btn) { btn.className = "px-2.5 py-1 rounded text-xs font-bold bg-emerald-600 text-white"; }
+    const filtered = thermoFeedData.filter(i => i.category === 'GOOD_FOR_AIRBUS');
+    renderThermoFeed(filtered);
+  }
 }

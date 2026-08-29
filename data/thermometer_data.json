@@ -1,0 +1,113 @@
+{
+  "source": "Airbus Strike Sentiment & Business Pressure Engine",
+  "timestamp": "2026-08-29T17:28:56.071531+00:00",
+  "temperature_celsius": 85.5,
+  "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
+  "status_color": "red",
+  "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe y la cobertura internacional fuerzan una concesión inminente en la mesa negociadora.",
+  "bad_for_airbus_count": 7,
+  "good_for_airbus_count": 1,
+  "neutral_count": 0,
+  "total_items_monitored": 8,
+  "bad_for_airbus_percentage": 87.5,
+  "good_for_airbus_percentage": 12.5,
+  "channels_distribution": {
+    "News": 1,
+    "Economy": 2,
+    "Markets": 1,
+    "Reddit": 1,
+    "Twitter / X": 1,
+    "Corporate": 1,
+    "Threads": 1
+  },
+  "feed": [
+    {
+      "id": "news-01",
+      "source": "Reuters Aviation",
+      "channel": "News",
+      "title": "Airbus faces delivery bottleneck as Spain horizontal tail plane plant strikes halt Beluga freight",
+      "date": "2026-08-28",
+      "url": "https://www.reuters.com/business/aerospace-defense/",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+28°C",
+      "summary": "Logistical delay in Getafe HTP components threatens delivery target of 870 commercial jets in 2026, causing immediate ripple effects across Toulouse and Hamburg FALs."
+    },
+    {
+      "id": "news-02",
+      "source": "Cinco Días / El País",
+      "channel": "Economy",
+      "title": "La plantilla de Airbus España tumba el preacuerdo de CCOO y UGT y exige subida consolidada en tablas",
+      "date": "2026-08-27",
+      "url": "https://cincodias.elpais.com/companias/airbus/",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+25°C",
+      "summary": "El 51,13% de la asamblea rechaza la oferta del 3% sin cláusula técnica y ratifica la huelga indefinida como única palanca efectiva."
+    },
+    {
+      "id": "news-03",
+      "source": "Bloomberg Markets",
+      "channel": "Markets",
+      "title": "Airbus SE operational cash burn estimated at €22.7M/day during full Spanish supply halt",
+      "date": "2026-08-28",
+      "url": "https://www.bloomberg.com/markets",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+22°C",
+      "summary": "Financial analysts highlight the disproportionate asymmetry: 15,562 Spanish workers cost €1.5M/day in wages vs €22.7M/day in Airbus revenue and penalty loss."
+    },
+    {
+      "id": "news-04",
+      "source": "Reddit (r/aviation)",
+      "channel": "Reddit",
+      "title": "BelugaXL flights from Getafe ground to a halt: How Airbus JIT supply chain breaks in 72 hours",
+      "date": "2026-08-29",
+      "url": "https://www.reddit.com/r/aviation/",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Community aviation analysis explains why the single-source production of horizontal stabilizers in Spain gives unions maximum leverage over European final assembly lines."
+    },
+    {
+      "id": "news-05",
+      "source": "Twitter / X (@SindicatoSIPA)",
+      "channel": "Twitter / X",
+      "title": "Unidad de acción sindical: Ni un paso atrás en la recuperación del poder adquisitivo perdido (20,9% - 24,4%)",
+      "date": "2026-08-29",
+      "url": "https://twitter.com/",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+15°C",
+      "summary": "El Comité de Huelga mantiene la movilización total y rechaza suspensiones temporales sin garantías firmadas en tablas salariales."
+    },
+    {
+      "id": "news-06",
+      "source": "Airbus SE Press Office",
+      "channel": "Corporate",
+      "title": "Airbus SE statement: Management warns strike could impact future industrial workload allocation in Spain",
+      "date": "2026-08-27",
+      "url": "https://www.airbus.com/en/newsroom",
+      "category": "GOOD_FOR_AIRBUS",
+      "pressure_impact": "-14°C",
+      "summary": "La dirección intenta desmovilizar amenazando con congelar contrataciones y deslocalizar carga de trabajo hacia Francia y Alemania (desmontado por saturación de factorías europeas)."
+    },
+    {
+      "id": "news-07",
+      "source": "Expansión",
+      "channel": "Economy",
+      "title": "El Gobierno español (SEPI 4,09%) y el Ministerio de Industria instan a un acuerdo rápido para proteger contratos de Defensa",
+      "date": "2026-08-28",
+      "url": "https://www.expansion.com/empresas/industria.html",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+20°C",
+      "summary": "Presión política sobre Guillaume Faury para evitar paros en programas estratégicos militares (Eurofighter, A400M, C295, SIRTAP) que dependen del presupuesto estatal."
+    },
+    {
+      "id": "news-08",
+      "source": "Threads (@AeroWorkersUnion)",
+      "channel": "Threads",
+      "title": "Solidaridad internacional: Los trabajadores de Boeing IAM 751 y Spirit AeroSystems envían apoyo a los compañeros de Airbus",
+      "date": "2026-08-29",
+      "url": "https://threads.net/",
+      "category": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+12°C",
+      "summary": "El precedente de Boeing 2024 (38% en tablas tras 53 días) inspira la firmeza de la plantilla española frente a las presiones de la patronal."
+    }
+  ]
+}

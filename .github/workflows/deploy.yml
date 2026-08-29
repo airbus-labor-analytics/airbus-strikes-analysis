@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -38,6 +38,14 @@ jobs:
           npm install
           pip install -r requirements.txt || true
 
+      - name: Fetch Live Beluga Logistics Status
+        run: |
+          python3 src/beluga_tracker.py
+
+      - name: Run Sentiment & Pressure Thermometer
+        run: |
+          python3 src/sentiment_thermometer.py
+
       - name: Run Econometric Analysis Engine
         run: |
           python3 src/analysis_engine.py
@@ -57,22 +65,6 @@ jobs:
           name: airbus-strike-guide-pdf
           path: docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
 
-  deploy-pages:
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - name: Prepare static dashboard bundle
         run: |
           mkdir -p _site
@@ -81,11 +73,12 @@ jobs:
           cp -r data/* _site/data/ || true
           cp -r docs/* _site/docs/ || true
 
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: '_site'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
