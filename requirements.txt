@@ -1,0 +1,4 @@
+# Python dependencies for Airbus Spain 2026 Strike Analysis Engine
+# Standard library is primarily used (argparse, json, math, dataclasses, subprocess)
+# Optional visualization & server utilities:
+requests>=2.31.0

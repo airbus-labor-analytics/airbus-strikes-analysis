@@ -1,0 +1,47 @@
+{
+  "notebook_id": "602774aa-f859-4d52-a3e4-87afb7761d15",
+  "notebook_title": "Huelga Airbus 2026 - Cómo ganarla",
+  "artifacts": [
+    {
+      "index": 1,
+      "id": "89a12441-c2cf-48b7-aa4c-4d15aa86769b",
+      "title": "Airbus Strike Strategy: Weighing the Monday Vote",
+      "type": "Video",
+      "type_id": "video",
+      "status": "completed",
+      "status_id": 3,
+      "created_at": "2026-08-29T08:34:09+00:00"
+    },
+    {
+      "index": 2,
+      "id": "de249755-fecf-4b18-9047-1ab8305ffb2d",
+      "title": "Crisis laboral en sector aeroespacial",
+      "type": "Infographic",
+      "type_id": "infographic",
+      "status": "completed",
+      "status_id": 3,
+      "created_at": "2026-08-28T17:22:13+00:00"
+    },
+    {
+      "index": 3,
+      "id": "e8366d89-8380-4154-932e-c7f660090a05",
+      "title": "Resumen Ejecutivo: Estrategia de Asamblea, Análisis Salarial y Escenarios de Cierre - Conflicto Airbus 2026",
+      "type": "Report",
+      "type_id": "report",
+      "status": "completed",
+      "status_id": 3,
+      "created_at": "2026-08-28T17:22:02+00:00"
+    },
+    {
+      "index": 4,
+      "id": "b16e611c-5568-4467-a79c-57637068f3bb",
+      "title": "Airbus Mapa",
+      "type": "Mind Map",
+      "type_id": "mind_map",
+      "status": "completed",
+      "status_id": 3,
+      "created_at": "2026-08-28T16:22:01+00:00"
+    }
+  ],
+  "count": 4
+}

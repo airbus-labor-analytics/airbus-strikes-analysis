@@ -1,0 +1,113 @@
+{
+  "name": "Conflicto Laboral Airbus España 2026",
+  "children": [
+    {
+      "name": "Histórico del Conflicto",
+      "children": [
+        {
+          "name": "Convocatoria inicial SIPA (1 de julio)"
+        },
+        {
+          "name": "Manifestación masiva en Getafe (16 de julio)"
+        },
+        {
+          "name": "Reunión con CEO Guillaume Faury"
+        },
+        {
+          "name": "Referéndum del preacuerdo (24 de julio)"
+        },
+        {
+          "name": "Rechazo de la plantilla (51,13% no)"
+        },
+        {
+          "name": "Inicio de huelga indefinida (25 de agosto)"
+        }
+      ]
+    },
+    {
+      "name": "Estado Actual (Agosto 2026)",
+      "children": [
+        {
+          "name": "Seguimiento de huelga superior al 90%"
+        },
+        {
+          "name": "Negociaciones encalladas en el SIMA"
+        },
+        {
+          "name": "Impacto en producción de Marignan y Toulouse"
+        },
+        {
+          "name": "Postura de la empresa: Exige fin de paros para negociar"
+        },
+        {
+          "name": "Postura sindical: Exigen compromisos claros por escrito"
+        },
+        {
+          "name": "Amenaza de deslocalización de carga de trabajo"
+        },
+        {
+          "name": "Congelación inmediata de nuevas contrataciones"
+        }
+      ]
+    },
+    {
+      "name": "Causas y Reivindicaciones",
+      "children": [
+        {
+          "name": "Económicas",
+          "children": [
+            {
+              "name": "Pérdida de poder adquisitivo del 9%"
+            },
+            {
+              "name": "Revisión salarial vinculada al IPC"
+            },
+            {
+              "name": "Paga única no consolidable (7500€ propuesto)"
+            }
+          ]
+        },
+        {
+          "name": "Condiciones Laborales",
+          "children": [
+            {
+              "name": "Mantenimiento de 2 días de teletrabajo"
+            },
+            {
+              "name": "Consenso en vacaciones y 2 semanas flexibles"
+            },
+            {
+              "name": "Retirada del Método Bradford de absentismo"
+            },
+            {
+              "name": "Garantías de empleo en Proyecto Bromo"
+            },
+            {
+              "name": "Mantenimiento de rutas de transporte y comedor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vías Posibles de Resolución",
+      "children": [
+        {
+          "name": "Intervención del Ministerio de Industria"
+        },
+        {
+          "name": "Calendario de reuniones diarias en el SIMA"
+        },
+        {
+          "name": "Aceptación de subida salarial retroactiva (12%)"
+        },
+        {
+          "name": "Pausa temporal de la huelga por las asambleas"
+        },
+        {
+          "name": "Sometimiento de nueva oferta a referéndum vinculante"
+        }
+      ]
+    }
+  ]
+}

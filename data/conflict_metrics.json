@@ -1,0 +1,477 @@
+{
+  "metadata": {
+    "project": "Airbus Spain 2026 Strike Analysis Engine",
+    "target_company": "Airbus SE / Airbus Operations S.L.U. / Airbus Defence and Space",
+    "scope": "Spanish Plants (Getafe, Illescas, Puerto Real, Sevilla San Jerónimo/Tablada)",
+    "generated_at": "2026-08-29T19:00:00Z"
+  },
+  "parameters": {
+    "total_workers_spain": 15562,
+    "avg_annual_salary": 50000.0,
+    "airbus_se_net_profit_2025": 5221000000.0,
+    "airbus_se_ebit_adj_2025": 5838000000.0,
+    "annual_delivery_target_2026": 870,
+    "avg_aircraft_margin": 8500000.0,
+    "daily_ebitda_burn_rate_strike": 18500000.0,
+    "daily_delay_penalty_cost": 4200000.0,
+    "getafe_htp_production_share": 1.0,
+    "fal_stock_buffer_hours": 60.0
+  },
+  "platform_cost": {
+    "total_workers": 15562,
+    "annual_wage_mass_spain_eur": 778100000.0,
+    "cost_12pct_increase_eur": 93372000.0,
+    "cost_one_time_payment_eur": 116715000.0,
+    "total_first_year_impact_eur": 239032320.0,
+    "annualized_recurrent_cost_eur": 122317320.0,
+    "pct_of_annual_net_profit": 4.58,
+    "pct_of_annual_ebit": 4.09,
+    "feasibility_assessment": "Fully absorbable within operating cash flow (<2.8% of annual free cash flow)."
+  },
+  "strike_timeline_30d": [
+    {
+      "day": 1,
+      "hours_elapsed": 24,
+      "buffer_status": "Consuming stock buffer (48-72h)",
+      "fal_disruption_pct": 14.0,
+      "daily_airbus_loss_eur": 6500000.0,
+      "cumulative_airbus_loss_eur": 6500000.0,
+      "worker_net_loss_per_person_eur": 98.63,
+      "cumulative_payroll_saved_airbus_eur": 2131780.82,
+      "asymmetry_ratio": 3.0
+    },
+    {
+      "day": 2,
+      "hours_elapsed": 48,
+      "buffer_status": "Consuming stock buffer (48-72h)",
+      "fal_disruption_pct": 28.0,
+      "daily_airbus_loss_eur": 6500000.0,
+      "cumulative_airbus_loss_eur": 13000000.0,
+      "worker_net_loss_per_person_eur": 197.26,
+      "cumulative_payroll_saved_airbus_eur": 4263561.64,
+      "asymmetry_ratio": 3.0
+    },
+    {
+      "day": 3,
+      "hours_elapsed": 72,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 29650000.0,
+      "worker_net_loss_per_person_eur": 295.89,
+      "cumulative_payroll_saved_airbus_eur": 6395342.47,
+      "asymmetry_ratio": 4.6
+    },
+    {
+      "day": 4,
+      "hours_elapsed": 96,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 46300000.0,
+      "worker_net_loss_per_person_eur": 394.52,
+      "cumulative_payroll_saved_airbus_eur": 8527123.29,
+      "asymmetry_ratio": 5.4
+    },
+    {
+      "day": 5,
+      "hours_elapsed": 120,
+      "buffer_status": "Buffer exhausted: European FALs throttled (Toulouse/Hamburg)",
+      "fal_disruption_pct": 75.0,
+      "daily_airbus_loss_eur": 16650000.0,
+      "cumulative_airbus_loss_eur": 62950000.0,
+      "worker_net_loss_per_person_eur": 493.15,
+      "cumulative_payroll_saved_airbus_eur": 10658904.11,
+      "asymmetry_ratio": 5.9
+    },
+    {
+      "day": 6,
+      "hours_elapsed": 144,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 85650000.0,
+      "worker_net_loss_per_person_eur": 591.78,
+      "cumulative_payroll_saved_airbus_eur": 12790684.93,
+      "asymmetry_ratio": 6.7
+    },
+    {
+      "day": 7,
+      "hours_elapsed": 168,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 108350000.0,
+      "worker_net_loss_per_person_eur": 690.41,
+      "cumulative_payroll_saved_airbus_eur": 14922465.75,
+      "asymmetry_ratio": 7.3
+    },
+    {
+      "day": 8,
+      "hours_elapsed": 192,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 131050000.0,
+      "worker_net_loss_per_person_eur": 789.04,
+      "cumulative_payroll_saved_airbus_eur": 17054246.58,
+      "asymmetry_ratio": 7.7
+    },
+    {
+      "day": 9,
+      "hours_elapsed": 216,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 153750000.0,
+      "worker_net_loss_per_person_eur": 887.67,
+      "cumulative_payroll_saved_airbus_eur": 19186027.4,
+      "asymmetry_ratio": 8.0
+    },
+    {
+      "day": 10,
+      "hours_elapsed": 240,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 176450000.0,
+      "worker_net_loss_per_person_eur": 986.3,
+      "cumulative_payroll_saved_airbus_eur": 21317808.22,
+      "asymmetry_ratio": 8.3
+    },
+    {
+      "day": 11,
+      "hours_elapsed": 264,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 199150000.0,
+      "worker_net_loss_per_person_eur": 1084.93,
+      "cumulative_payroll_saved_airbus_eur": 23449589.04,
+      "asymmetry_ratio": 8.5
+    },
+    {
+      "day": 12,
+      "hours_elapsed": 288,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 221850000.0,
+      "worker_net_loss_per_person_eur": 1183.56,
+      "cumulative_payroll_saved_airbus_eur": 25581369.86,
+      "asymmetry_ratio": 8.7
+    },
+    {
+      "day": 13,
+      "hours_elapsed": 312,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 244550000.0,
+      "worker_net_loss_per_person_eur": 1282.19,
+      "cumulative_payroll_saved_airbus_eur": 27713150.68,
+      "asymmetry_ratio": 8.8
+    },
+    {
+      "day": 14,
+      "hours_elapsed": 336,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 267250000.0,
+      "worker_net_loss_per_person_eur": 1380.82,
+      "cumulative_payroll_saved_airbus_eur": 29844931.51,
+      "asymmetry_ratio": 9.0
+    },
+    {
+      "day": 15,
+      "hours_elapsed": 360,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 289950000.0,
+      "worker_net_loss_per_person_eur": 1479.45,
+      "cumulative_payroll_saved_airbus_eur": 31976712.33,
+      "asymmetry_ratio": 9.1
+    },
+    {
+      "day": 16,
+      "hours_elapsed": 384,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 312650000.0,
+      "worker_net_loss_per_person_eur": 1578.08,
+      "cumulative_payroll_saved_airbus_eur": 34108493.15,
+      "asymmetry_ratio": 9.2
+    },
+    {
+      "day": 17,
+      "hours_elapsed": 408,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 335350000.0,
+      "worker_net_loss_per_person_eur": 1676.71,
+      "cumulative_payroll_saved_airbus_eur": 36240273.97,
+      "asymmetry_ratio": 9.3
+    },
+    {
+      "day": 18,
+      "hours_elapsed": 432,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 358050000.0,
+      "worker_net_loss_per_person_eur": 1775.34,
+      "cumulative_payroll_saved_airbus_eur": 38372054.79,
+      "asymmetry_ratio": 9.3
+    },
+    {
+      "day": 19,
+      "hours_elapsed": 456,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 380750000.0,
+      "worker_net_loss_per_person_eur": 1873.97,
+      "cumulative_payroll_saved_airbus_eur": 40503835.62,
+      "asymmetry_ratio": 9.4
+    },
+    {
+      "day": 20,
+      "hours_elapsed": 480,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 403450000.0,
+      "worker_net_loss_per_person_eur": 1972.6,
+      "cumulative_payroll_saved_airbus_eur": 42635616.44,
+      "asymmetry_ratio": 9.5
+    },
+    {
+      "day": 21,
+      "hours_elapsed": 504,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 426150000.0,
+      "worker_net_loss_per_person_eur": 2071.23,
+      "cumulative_payroll_saved_airbus_eur": 44767397.26,
+      "asymmetry_ratio": 9.5
+    },
+    {
+      "day": 22,
+      "hours_elapsed": 528,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 448850000.0,
+      "worker_net_loss_per_person_eur": 2169.86,
+      "cumulative_payroll_saved_airbus_eur": 46899178.08,
+      "asymmetry_ratio": 9.6
+    },
+    {
+      "day": 23,
+      "hours_elapsed": 552,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 471550000.0,
+      "worker_net_loss_per_person_eur": 2268.49,
+      "cumulative_payroll_saved_airbus_eur": 49030958.9,
+      "asymmetry_ratio": 9.6
+    },
+    {
+      "day": 24,
+      "hours_elapsed": 576,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 494250000.0,
+      "worker_net_loss_per_person_eur": 2367.12,
+      "cumulative_payroll_saved_airbus_eur": 51162739.73,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 25,
+      "hours_elapsed": 600,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 516950000.0,
+      "worker_net_loss_per_person_eur": 2465.75,
+      "cumulative_payroll_saved_airbus_eur": 53294520.55,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 26,
+      "hours_elapsed": 624,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 539650000.0,
+      "worker_net_loss_per_person_eur": 2564.38,
+      "cumulative_payroll_saved_airbus_eur": 55426301.37,
+      "asymmetry_ratio": 9.7
+    },
+    {
+      "day": 27,
+      "hours_elapsed": 648,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 562350000.0,
+      "worker_net_loss_per_person_eur": 2663.01,
+      "cumulative_payroll_saved_airbus_eur": 57558082.19,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 28,
+      "hours_elapsed": 672,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 585050000.0,
+      "worker_net_loss_per_person_eur": 2761.64,
+      "cumulative_payroll_saved_airbus_eur": 59689863.01,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 29,
+      "hours_elapsed": 696,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 607750000.0,
+      "worker_net_loss_per_person_eur": 2860.27,
+      "cumulative_payroll_saved_airbus_eur": 61821643.84,
+      "asymmetry_ratio": 9.8
+    },
+    {
+      "day": 30,
+      "hours_elapsed": 720,
+      "buffer_status": "Critical Cascade: European FALs fully paralyzed, delivery penalties active",
+      "fal_disruption_pct": 100.0,
+      "daily_airbus_loss_eur": 22700000.0,
+      "cumulative_airbus_loss_eur": 630450000.0,
+      "worker_net_loss_per_person_eur": 2958.9,
+      "cumulative_payroll_saved_airbus_eur": 63953424.66,
+      "asymmetry_ratio": 9.9
+    }
+  ],
+  "purchasing_power_model": {
+    "historical_cpi_general_pct": 20.9,
+    "historical_cpi_essentials_pct": 31.2,
+    "historical_consolidated_wage_pct": 4.8,
+    "net_purchasing_power_loss_pct": -13.3,
+    "projection_years": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026 (Proj)",
+      "2027 (Proj)",
+      "2028 (Proj)"
+    ],
+    "cpi_index": [
+      100.0,
+      106.5,
+      110.2,
+      114.1,
+      120.9,
+      124.5,
+      127.6,
+      130.8
+    ],
+    "company_offer_real_wage_index": [
+      100.0,
+      95.3,
+      93.3,
+      90.7,
+      86.7,
+      86.7,
+      87.1,
+      87.5
+    ],
+    "union_platform_real_wage_index": [
+      100.0,
+      95.3,
+      93.3,
+      90.7,
+      86.7,
+      94.3,
+      95.7,
+      97.0
+    ]
+  },
+  "resolution_scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "Victoria Sindical Plena",
+      "probability_pct": 58,
+      "description": "Incremento del 10% al 12% en tablas retroactivo + Cláusula IPC sin techo + 7.500€ atrasos.",
+      "duration_days_estimated": "5 - 12 días",
+      "trigger": "Impacto crítico en FALs europeas + Riesgo de incumplir el objetivo anual de 870 entregas.",
+      "historical_precedent": "Boeing IAM 751 (2024: +38% en tablas) / Spirit AeroSystems (2023: +20,5% en tablas)",
+      "confidence_level": "Alta"
+    },
+    {
+      "id": "scenario_2",
+      "name": "Pacto Transaccional Mixto",
+      "probability_pct": 27,
+      "description": "Incremento del 7,5% al 9% en tablas + Paga única de 3.500€ a 5.000€ + IPC con revisión diferida.",
+      "duration_days_estimated": "12 - 20 días",
+      "trigger": "Negociación de desgaste con intervención de mediación reforzada en SIMA.",
+      "historical_precedent": "RMT Network Rail (2023: 9% - 14,4% con cambios organizativos)",
+      "confidence_level": "Media"
+    },
+    {
+      "id": "scenario_3",
+      "name": "Arbitraje / Mediación Obligatoria",
+      "probability_pct": 11,
+      "description": "Propuesta vinculante dictada por árbitro independiente con subidas del 8% al 9% e IPC con fórmula media.",
+      "duration_days_estimated": "20 - 35 días",
+      "trigger": "Intervención de Gobierno central/SEPI por impacto en defensa y seguridad nacional.",
+      "historical_precedent": "Conflictos en sector estratégico aeroportuario (Enaire/Aena)",
+      "confidence_level": "Baja"
+    },
+    {
+      "id": "scenario_4",
+      "name": "Fractura Asamblearia / Imposición",
+      "probability_pct": 4,
+      "description": "Aceptación forzosa de oferta empresarial a la baja (5% a 7,6% plurianual con techos de IPC).",
+      "duration_days_estimated": ">45 días",
+      "trigger": "Agotamiento financiero de la plantilla sin fondo de resistencia ni apoyo social.",
+      "historical_precedent": "Acerinox Palmones (2024: 135 días de huelga con asfixia financiera)",
+      "confidence_level": "Muy Baja"
+    }
+  ],
+  "benchmarks": [
+    {
+      "case": "Boeing IAM 751 (2024)",
+      "sector": "Aeroespacial Comercial",
+      "strike_duration_days": 53,
+      "initial_offer": "25% en 4 años",
+      "final_agreement": "38% en tablas + 12.000$ bono de firma + IPC protegido",
+      "key_lesson": "El control asambleario rechazó ofertas intermedias hasta doblar el coste para la empresa."
+    },
+    {
+      "case": "Spirit AeroSystems IAM 839 (2023)",
+      "sector": "Aeroestructuras / Fuselajes",
+      "strike_duration_days": 7,
+      "initial_offer": "16% con recortes de descansos",
+      "final_agreement": "+20,5% en tablas + Retirada de recortes de jornada",
+      "key_lesson": "La pausa táctica de 7 días forzó a la dirección a capitular por el estrangulamiento de la cadena de Boeing."
+    },
+    {
+      "case": "Acerinox Palmones (2024)",
+      "sector": "Siderurgia",
+      "strike_duration_days": 135,
+      "initial_offer": "Convenio con flexibilización",
+      "final_agreement": "Acuerdo a la baja por agotamiento financiero",
+      "key_lesson": "Sin asimetría crítica en JIT ni solvencia familiar, el conflicto largo desgasta a la plantilla."
+    }
+  ]
+}

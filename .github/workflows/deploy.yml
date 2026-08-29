@@ -1,0 +1,89 @@
+name: Build and Deploy Airbus Strike Analytics
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          pip install -r requirements.txt || true
+
+      - name: Run Econometric Analysis Engine
+        run: |
+          python3 src/analysis_engine.py
+
+      - name: Install Chromium for PDF Generation
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Compile Publication PDF
+        run: |
+          python3 src/generate_pdf.py
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: airbus-strike-guide-pdf
+          path: docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
+
+  deploy-pages:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare static dashboard bundle
+        run: |
+          mkdir -p _site
+          cp -r dashboard/* _site/
+          mkdir -p _site/data _site/docs
+          cp -r data/* _site/data/ || true
+          cp -r docs/* _site/docs/ || true
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

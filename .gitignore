@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Build & OS Artefacts
+.DS_Store
+Thumbs.db
+/tmp/
+*.tmp
+*.log
+
+# Keep documentation and generated publication assets
+!docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
+!docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md
+!data/conflict_metrics.json

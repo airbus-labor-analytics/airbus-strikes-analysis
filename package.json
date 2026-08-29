@@ -1,0 +1,30 @@
+{
+  "name": "airbus-strikes-analysis",
+  "version": "1.0.0",
+  "description": "Strategic intelligence, econometric modeling, publication PDF generator, NotebookLM sync, and interactive analytics dashboard for the Airbus Spain 2026 collective labor conflict.",
+  "author": "sergio (sergiomh499)",
+  "license": "MIT",
+  "main": "src/render_document.js",
+  "scripts": {
+    "build:data": "python3 src/analysis_engine.py",
+    "build:pdf": "python3 src/generate_pdf.py",
+    "sync:notebooklm": "python3 src/notebooklm_sync.py --all",
+    "build": "npm run build:data && npm run build:pdf",
+    "start:dashboard": "python3 -m http.server 8080 --directory .",
+    "test": "python3 -m unittest discover -s tests"
+  },
+  "dependencies": {
+    "marked": "^15.0.7"
+  },
+  "keywords": [
+    "airbus",
+    "labor-conflict",
+    "strike-analysis",
+    "econometrics",
+    "just-in-time",
+    "aerospace",
+    "dashboard",
+    "notebooklm",
+    "sima"
+  ]
+}

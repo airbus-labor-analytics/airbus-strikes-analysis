@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airbus Spain 2026 Strike: Strategic & Financial Analytics Dashboard</title>
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col bg-slate-950 antialiased overflow-x-hidden">
+
+  <!-- TOP APP BAR -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-700 via-indigo-600 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/20">
+          <i data-lucide="plane-takeoff" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base font-bold text-white tracking-tight">AIRBUS SPAIN 2026</h1>
+            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/20 animate-pulse">
+              ● Conflicto Activo (Mesa SIMA)
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Strategic Intelligence & Econometric Strike Analytics</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <a href="../docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf" download class="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow transition">
+          <i data-lucide="file-down" class="w-4 h-4 mr-1.5"></i> Descargar Guía PDF (8 págs)
+        </a>
+        <a href="../docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md" target="_blank" class="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <i data-lucide="file-text" class="w-4 h-4 mr-1.5"></i> Markdown Source
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="border-b border-slate-800 bg-slate-900/50 sticky top-16 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-1 sm:space-x-4 overflow-x-auto py-2">
+      <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-blue-600 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i><span>Asimetría Financiera</span>
+      </button>
+      <button onclick="switchTab('tab-jit')" id="btn-tab-jit" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="boxes" class="w-4 h-4"></i><span>Cadena JIT & FALs</span>
+      </button>
+      <button onclick="switchTab('tab-wages')" id="btn-tab-wages" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="calculator" class="w-4 h-4"></i><span>Simulador Salarial</span>
+      </button>
+      <button onclick="switchTab('tab-scenarios')" id="btn-tab-scenarios" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="git-branch" class="w-4 h-4"></i><span>Árbol de Decisión & SIMA</span>
+      </button>
+      <button onclick="switchTab('tab-checklist')" id="btn-tab-checklist" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="check-square" class="w-4 h-4"></i><span>Auditor 6 Filtros Urna</span>
+      </button>
+      <button onclick="switchTab('tab-benchmarks')" id="btn-tab-benchmarks" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="award" class="w-4 h-4"></i><span>Casos Históricos</span>
+      </button>
+      <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 flex items-center space-x-1.5 whitespace-nowrap">
+        <i data-lucide="book-open" class="w-4 h-4"></i><span>Anexo Documental</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full space-y-6">
+
+    <!-- ==================== TAB 1: OVERVIEW & ASYMMETRY ==================== -->
+    <div id="tab-overview" class="tab-content space-y-6">
+      <!-- Top KPIs -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card p-4 rounded-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-400">Beneficio Neto Airbus (2025)</span>
+            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
+          </div>
+          <p class="text-2xl font-extrabold text-white mt-2">5.221 M€</p>
+          <p class="text-xs text-emerald-400 font-medium mt-1">EBIT Ajustado: 5.838 M€</p>
+        </div>
+
+        <div class="glass-card p-4 rounded-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-400">Coste Diario Parada Airbus</span>
+            <i data-lucide="flame" class="w-4 h-4 text-rose-400"></i>
+          </div>
+          <p class="text-2xl font-extrabold text-rose-400 mt-2">22,7 M€/día</p>
+          <p class="text-xs text-slate-400 mt-1">EBITDA + Penalizaciones entregas</p>
+        </div>
+
+        <div class="glass-card p-4 rounded-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-400">Pérdida Neta por Trabajador</span>
+            <i data-lucide="user-minus" class="w-4 h-4 text-amber-400"></i>
+          </div>
+          <p class="text-2xl font-extrabold text-amber-300 mt-2">~98 €/día</p>
+          <p class="text-xs text-slate-400 mt-1">Sueldo medio neto (50k€ bruto)</p>
+        </div>
+
+        <div class="glass-card p-4 rounded-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-medium text-slate-400">Ratio de Asimetría de Daño</span>
+            <i data-lucide="scale" class="w-4 h-4 text-blue-400"></i>
+          </div>
+          <p class="text-2xl font-extrabold text-blue-400 mt-2">185x a favor</p>
+          <p class="text-xs text-slate-400 mt-1">Airbus pierde 185€ por cada 1€ plantilla</p>
+        </div>
+      </div>
+
+      <!-- Asymmetry Interactive Calculator & Chart -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Interactive Controls -->
+        <div class="glass-card p-5 rounded-xl space-y-5">
+          <div class="border-b border-slate-800 pb-3">
+            <h2 class="text-base font-bold text-white flex items-center">
+              <i data-lucide="sliders" class="w-4 h-4 mr-2 text-blue-400"></i> Simulador de Desgaste Temporal
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Modifica la duración del conflicto para observar la asimetría.</p>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-xs font-medium">
+                <span class="text-slate-300">Días de Huelga Activa:</span>
+                <span id="slider-days-val" class="font-bold text-blue-400">10 días</span>
+              </div>
+              <input type="range" id="slider-days" min="1" max="45" value="10" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500 mt-2" oninput="updateAsymmetrySimulation()">
+              <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                <span>1d</span>
+                <span>Buffer (3d)</span>
+                <span>FALs Paradas (10d)</span>
+                <span>Límite (45d)</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-xs font-medium text-slate-300 block mb-1">Salario Bruto Anual Trabajador (€):</label>
+              <input type="number" id="input-salary" value="50000" step="5000" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:ring-1 focus:ring-blue-500" onchange="updateAsymmetrySimulation()">
+            </div>
+          </div>
+
+          <!-- Dynamic Calculation Output -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 space-y-3">
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Coste acumulado Airbus SE:</span>
+              <span id="calc-airbus-loss" class="font-extrabold text-rose-400 text-sm">187,0 M€</span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Pérdida neta por trabajador:</span>
+              <span id="calc-worker-loss" class="font-bold text-amber-300 text-sm">986 €</span>
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Ahorro nóminas para Airbus:</span>
+              <span id="calc-payroll-saved" class="font-medium text-slate-300 text-xs">21,3 M€</span>
+            </div>
+            <div class="border-t border-slate-800 pt-2 flex justify-between items-center">
+              <span class="text-xs font-semibold text-slate-300">Ratio de Presión:</span>
+              <span id="calc-asymmetry-ratio" class="font-extrabold text-blue-400 text-sm">8,8x nómina total</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="glass-card p-5 rounded-xl lg:col-span-2 flex flex-col justify-between">
+          <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+            <div>
+              <h2 class="text-base font-bold text-white">Curva de Impacto Económico Acumulado</h2>
+              <p class="text-xs text-slate-400">Pérdida financiera de Airbus SE vs. Ahorro salarial colectivo (30 días)</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded">M€ Acumulados</span>
+          </div>
+          <div class="h-64 mt-4">
+            <canvas id="asymmetryChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 2: JIT SUPPLY CHAIN ==================== -->
+    <div id="tab-jit" class="tab-content hidden space-y-6">
+      <div class="glass-card p-5 rounded-xl">
+        <h2 class="text-lg font-bold text-white flex items-center">
+          <i data-lucide="boxes" class="w-5 h-5 mr-2 text-amber-400"></i>
+          Mapa del Cuello de Botella Industrial JIT (Just-In-Time)
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">
+          España no es un centro secundario: concentra el monopolio del estabilizador horizontal (HTP) y piezas críticas de fibra de carbono.
+        </p>
+
+        <!-- Factories Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+          <div class="bg-slate-900/90 border border-blue-500/30 p-4 rounded-xl">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-blue-400 uppercase">Getafe (Madrid)</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/40">100% Producción</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Horizontal Tail Plane (HTP)</h3>
+            <p class="text-xs text-slate-400 mt-1">Monopolio exclusivo para A320, A321XLR, A330 y A350. Sin alternativa industrial en el mundo.</p>
+            <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] text-rose-400 font-semibold flex items-center">
+              <i data-lucide="alert-triangle" class="w-3.5 h-3.5 mr-1"></i> Parada FALs en 48-72h
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-amber-500/30 p-4 rounded-xl">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-amber-400 uppercase">Illescas (Toledo)</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">Composites</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Fibra de Carbono Avanzada</h3>
+            <p class="text-xs text-slate-400 mt-1">Empennage y secciones inferiores de fuselaje para A350 y A320. Tecnología de colocación automática.</p>
+            <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] text-amber-400 font-semibold flex items-center">
+              <i data-lucide="clock" class="w-3.5 h-3.5 mr-1"></i> Stock mínimo de seguridad
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-indigo-500/30 p-4 rounded-xl">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-indigo-400 uppercase">Puerto Real / Cádiz</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">Aeroestructuras</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Cajón Central & Timones</h3>
+            <p class="text-xs text-slate-400 mt-1">Fabricación de timones de dirección y componentes estructurales metálicos y compuestos.</p>
+            <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] text-indigo-400 font-semibold flex items-center">
+              <i data-lucide="shield-alert" class="w-3.5 h-3.5 mr-1"></i> Proyecto Bromo en juego
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-emerald-500/30 p-4 rounded-xl">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-emerald-400 uppercase">Sevilla (San Jerónimo/Tablada)</span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">FAL Militar</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Ensamblaje A400M & C295</h3>
+            <p class="text-xs text-slate-400 mt-1">Línea de montaje final militar, pruebas de vuelo y entregas a ministerios de defensa europeos.</p>
+            <div class="mt-3 pt-2 border-t border-slate-800 text-[11px] text-emerald-400 font-semibold flex items-center">
+              <i data-lucide="plane" class="w-3.5 h-3.5 mr-1"></i> Impacto en defensa estratégica
+            </div>
+          </div>
+        </div>
+
+        <!-- Disruption Cascade Timeline -->
+        <div class="mt-6 bg-slate-900/70 border border-slate-800 p-5 rounded-xl">
+          <h3 class="text-sm font-bold text-white mb-4">Cronología del Efecto Cascada en la Cadena Continental:</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded-lg">
+              <div class="text-xs font-bold text-blue-400">0h - 60h: Consumo de Buffer</div>
+              <p class="text-xs text-slate-400 mt-1">Las FALs de Toulouse y Hamburgo consumen los estabilizadores en tránsito. La flota Beluga queda inmovilizada en Getafe.</p>
+            </div>
+            <div class="p-3 bg-slate-950 border border-amber-900/50 rounded-lg">
+              <div class="text-xs font-bold text-amber-400">60h - 120h: Cuello de Botella Activo</div>
+              <p class="text-xs text-slate-400 mt-1">Agotamiento de stock en Toulouse (A320/A350). Imposibilidad de cerrar fuselajes. Inicio de penalizaciones por retraso.</p>
+            </div>
+            <div class="p-3 bg-slate-950 border border-rose-900/50 rounded-lg">
+              <div class="text-xs font-bold text-rose-400">> 120h: Parálisis Continental</div>
+              <p class="text-xs text-slate-400 mt-1">Paro técnico en FALs europeas. Quiebra del ritmo de 90 entregas/mes exigido para el objetivo de 870 aviones en 2026.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 3: WAGE SIMULATOR ==================== -->
+    <div id="tab-wages" class="tab-content hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Interactive Controls -->
+        <div class="glass-card p-5 rounded-xl space-y-4">
+          <h2 class="text-base font-bold text-white flex items-center">
+            <i data-lucide="calculator" class="w-4 h-4 mr-2 text-emerald-400"></i> Calculadora Salarial Personalizada
+          </h2>
+          <p class="text-xs text-slate-400">Comprueba el impacto real de las propuestas en tu nómina.</p>
+
+          <div>
+            <label class="text-xs font-medium text-slate-300 block mb-1">Tu Salario Base Bruto Anual (€):</label>
+            <input type="number" id="sim-salary" value="50000" step="2500" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white" oninput="updateWageSimulation()">
+          </div>
+
+          <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 space-y-3 text-xs">
+            <div class="border-b border-slate-800 pb-2">
+              <span class="font-bold text-emerald-400">Propuesta Comité (12% + 7.500€):</span>
+              <div class="flex justify-between mt-1 text-slate-300">
+                <span>Nuevo Salario 2026:</span>
+                <span id="sim-res-union-salary" class="font-bold text-white">56.000 €/año</span>
+              </div>
+              <div class="flex justify-between mt-0.5 text-slate-300">
+                <span>Subida mensual bruta (+14 pagas):</span>
+                <span id="sim-res-union-monthly" class="font-bold text-emerald-400">+428 €/mes</span>
+              </div>
+              <div class="flex justify-between mt-0.5 text-slate-300">
+                <span>Paga de Atrasos (Firma):</span>
+                <span class="font-bold text-emerald-400">+7.500 €</span>
+              </div>
+            </div>
+
+            <div>
+              <span class="font-bold text-rose-400">Oferta Empresa (3% sin atrasos):</span>
+              <div class="flex justify-between mt-1 text-slate-300">
+                <span>Nuevo Salario 2026:</span>
+                <span id="sim-res-company-salary" class="font-bold text-white">51.500 €/año</span>
+              </div>
+              <div class="flex justify-between mt-0.5 text-slate-300">
+                <span>Pérdida frente al IPC acumulado:</span>
+                <span class="font-bold text-rose-400">-14,2% poder compra</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Purchasing Power Evolution Chart -->
+        <div class="glass-card p-5 rounded-xl lg:col-span-2">
+          <div class="border-b border-slate-800 pb-3">
+            <h2 class="text-base font-bold text-white">Evolución del Poder Adquisitivo Real (2021 - 2028)</h2>
+            <p class="text-xs text-slate-400">Índice 100 = Base 2021 vs. Inflación acumulada INE</p>
+          </div>
+          <div class="h-64 mt-4">
+            <canvas id="wagesChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 4: SCENARIOS & DECISION TREE ==================== -->
+    <div id="tab-scenarios" class="tab-content hidden space-y-6">
+      <div class="glass-card p-5 rounded-xl">
+        <h2 class="text-lg font-bold text-white flex items-center">
+          <i data-lucide="git-branch" class="w-5 h-5 mr-2 text-indigo-400"></i>
+          Modelo Probabilístico de Resolución del Conflicto
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">
+          Distribución de probabilidades calculada por el motor econométrico en base a benchmarks del sector aeroespacial.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+          <div class="bg-slate-900/90 border border-emerald-500/40 p-4 rounded-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-16 h-16 bg-emerald-500/10 rounded-bl-full pointer-events-none"></div>
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-emerald-400 uppercase">Escenario 1</span>
+              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">58% Prob.</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Victoria Sindical Plena</h3>
+            <p class="text-xs text-slate-400 mt-1">Incremento 10-12% en tablas + Cláusula IPC sin techo + 7.500€ atrasos.</p>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300">
+              <span class="text-emerald-400 font-semibold">Duración esperada:</span> 5 a 12 días
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-blue-500/40 p-4 rounded-xl relative overflow-hidden">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-blue-400 uppercase">Escenario 2</span>
+              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-blue-500/20 text-blue-300 border border-blue-500/40">27% Prob.</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Pacto Transaccional Mixto</h3>
+            <p class="text-xs text-slate-400 mt-1">Incremento 7,5-9% en tablas + Paga única 3.500-5.000€ + IPC diferido.</p>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300">
+              <span class="text-blue-400 font-semibold">Duración esperada:</span> 12 a 20 días
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-amber-500/40 p-4 rounded-xl relative overflow-hidden">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-amber-400 uppercase">Escenario 3</span>
+              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/40">11% Prob.</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Mediación / Arbitraje</h3>
+            <p class="text-xs text-slate-400 mt-1">Laudo o propuesta del SIMA por impacto en defensa y seguridad aérea.</p>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300">
+              <span class="text-amber-400 font-semibold">Duración esperada:</span> 20 a 35 días
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 border border-rose-500/40 p-4 rounded-xl relative overflow-hidden">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-rose-400 uppercase">Escenario 4</span>
+              <span class="px-2 py-0.5 rounded text-xs font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40">4% Prob.</span>
+            </div>
+            <h3 class="text-sm font-bold text-white mt-2">Imposición Patronal</h3>
+            <p class="text-xs text-slate-400 mt-1">Oferta a la baja (5-7,6% hasta 2030) por desgaste o fractura en urnas.</p>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-300">
+              <span class="text-rose-400 font-semibold">Duración esperada:</span> >45 días
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 5: CHECKLIST ==================== -->
+    <div id="tab-checklist" class="tab-content hidden space-y-6">
+      <div class="glass-card p-5 rounded-xl">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+          <div>
+            <h2 class="text-base font-bold text-white flex items-center">
+              <i data-lucide="check-circle-2" class="w-5 h-5 mr-2 text-blue-400"></i>
+              Auditor Asambleario: Los 6 Filtros Innegociables
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Marca cada casilla según el texto final para verificar si procede votar SÍ o NO en urna.</p>
+          </div>
+          <div class="text-right">
+            <span id="checklist-score" class="text-xl font-extrabold text-blue-400">0 / 6</span>
+            <span id="checklist-verdict" class="block text-[10px] uppercase font-bold text-rose-400">Oferta Insuficiente (Votar NO)</span>
+          </div>
+        </div>
+
+        <div class="space-y-3 mt-4" id="checklist-container">
+          <!-- Dynamic generated in app.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 6: BENCHMARKS ==================== -->
+    <div id="tab-benchmarks" class="tab-content hidden space-y-6">
+      <div class="glass-card p-5 rounded-xl">
+        <h2 class="text-base font-bold text-white flex items-center">
+          <i data-lucide="award" class="w-5 h-5 mr-2 text-indigo-400"></i>
+          Benchmark Histórico de Conflictos Laborales Comparados
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">Lecciones tácticas de huelgas de alta tensión industrial en el sector aeronáutico y manufacturero.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4" id="benchmarks-container">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 7: SOURCES ==================== -->
+    <div id="tab-sources" class="tab-content hidden space-y-6">
+      <div class="glass-card p-5 rounded-xl">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+          <div>
+            <h2 class="text-base font-bold text-white flex items-center">
+              <i data-lucide="book-open" class="w-5 h-5 mr-2 text-sky-400"></i>
+              Compendio de Fuentes Documentales Primarias
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">Cotejo exhaustivo de actas SIMA, informes anuales Airbus SE, INE y sentencias del Tribunal Constitucional.</p>
+          </div>
+          <input type="text" id="source-search" placeholder="Filtrar fuentes..." class="bg-slate-900 border border-slate-700 text-xs px-3 py-1.5 rounded-lg text-white" oninput="filterSources()">
+        </div>
+
+        <div class="space-y-2.5 mt-4 max-h-[500px] overflow-y-auto pr-2" id="sources-list">
+          <!-- Populated in app.js -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-4 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500">
+      Airbus Spain 2026 Strike Analytics • Generado bajo rigor documental y econométrico para la plantilla y comités de huelga.
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
