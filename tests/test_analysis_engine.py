@@ -94,6 +94,48 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         self.assertIn("current_gap_analysis", data["negotiation_evolution"])
         self.assertIn("failed_pacts_and_betrayals", data["historical_agreements_and_losses"])
 
+    def test_trade_union_site_breakdown(self):
+        """Validates site-by-site trade union representation and 24-J referendum data."""
+        union_data = self.engine.get_trade_union_representation()
+        self.assertIn("site_breakdown", union_data)
+        sites = union_data["site_breakdown"]
+        self.assertGreaterEqual(len(sites), 7)
+
+        # Total direct factory census across 7 main sites (~13,400)
+        total_census = sum(s["census"] for s in sites)
+        self.assertEqual(total_census, 13400)
+
+        # Total plant committee delegates across 7 main sites
+        total_delegates = sum(s["total_delegates"] for s in sites)
+        self.assertEqual(total_delegates, 171)
+
+        # Check Getafe specific delegates and referendum
+        getafe = next(s for s in sites if s["site_id"] == "getafe")
+        self.assertEqual(getafe["total_delegates"], 39)
+        self.assertEqual(getafe["delegates_by_union"]["SIPA"], 13)
+        self.assertEqual(getafe["delegates_by_union"]["CCOO"], 11)
+        self.assertGreater(getafe["referendum_24j"]["no_pct"], 50.0)
+
+    def test_company_offer_detailed_breakdown(self):
+        """Validates the 5 key negotiation points in company_offer_detailed_breakdown."""
+        nego = self.engine.get_negotiation_evolution()
+        self.assertIn("company_offer_detailed_breakdown", nego)
+        offers = nego["company_offer_detailed_breakdown"]
+        self.assertEqual(len(offers), 5)
+
+        point_ids = [o["id"] for o in offers]
+        self.assertIn("offer-wages", point_ids)
+        self.assertIn("offer-lumpsum", point_ids)
+        self.assertIn("offer-telework", point_ids)
+        self.assertIn("offer-shifts", point_ids)
+        self.assertIn("offer-bromo", point_ids)
+
+        # Validate math calculations exist for point 1
+        wages_offer = next(o for o in offers if o["id"] == "offer-wages")
+        self.assertIn("math_calculation", wages_offer)
+        self.assertIn("salary_base_example", wages_offer["math_calculation"])
+        self.assertIn("company_saving_collective", wages_offer["math_calculation"])
+        self.assertIn("net_loss_gap_annual", wages_offer["math_calculation"])
 
 if __name__ == "__main__":
     unittest.main()

@@ -1101,6 +1101,7 @@ function initShareholderPieChart() {
 function initUnionCharts() {
   initUnionShareChart();
   initUnionEvolutionChart();
+  initUnionSitesBreakdown();
 }
 
 function initUnionShareChart() {
@@ -1206,6 +1207,167 @@ function initUnionEvolutionChart() {
       }
     }
   });
+}
+
+let currentSelectedSite = 'all';
+
+function initUnionSitesBreakdown() {
+  const btnContainer = document.getElementById('site-selector-buttons');
+  const detailsContainer = document.getElementById('site-breakdown-details-container');
+  if (!btnContainer || !detailsContainer) return;
+
+  const sites = conflictData?.trade_union_representation?.site_breakdown || [];
+  if (sites.length === 0) return;
+
+  const siteShortNames = {
+    'getafe': 'Getafe',
+    'illescas': 'Illescas',
+    'san_pablo': 'San Pablo',
+    'tablada': 'Tablada',
+    'cadiz_cbc': 'Cádiz (CBC)',
+    'albacete': 'Albacete',
+    'barajas': 'Barajas'
+  };
+
+  // Render Buttons
+  btnContainer.innerHTML = `
+    <button type="button" onclick="selectUnionSite('all')" id="btn-site-all" class="px-2.5 py-1 text-xs font-bold rounded-lg border transition ${currentSelectedSite === 'all' ? 'bg-rose-600 text-white border-rose-500 shadow-md shadow-rose-600/30' : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'}">
+      Todos los Centros (${sites.length})
+    </button>
+  ` + sites.map(s => `
+    <button type="button" onclick="selectUnionSite('${escapeHTML(s.site_id)}')" id="btn-site-${escapeHTML(s.site_id)}" class="px-2.5 py-1 text-xs font-bold rounded-lg border transition ${currentSelectedSite === s.site_id ? 'bg-rose-600 text-white border-rose-500 shadow-md shadow-rose-600/30' : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'}">
+      ${escapeHTML(siteShortNames[s.site_id] || s.name.split(' ')[0])}
+    </button>
+  `).join('');
+  renderUnionSiteCards(sites);
+}
+
+window.selectUnionSite = function(siteId) {
+  currentSelectedSite = siteId;
+  const sites = conflictData?.trade_union_representation?.site_breakdown || [];
+
+  // Update button styles
+  const allBtns = document.querySelectorAll('#site-selector-buttons button');
+  allBtns.forEach(btn => {
+    btn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg border transition bg-slate-900 text-slate-400 border-slate-800 hover:text-white';
+  });
+  const activeBtn = document.getElementById(`btn-site-${siteId}`);
+  if (activeBtn) {
+    activeBtn.className = 'px-2.5 py-1 text-xs font-bold rounded-lg border transition bg-rose-600 text-white border-rose-500 shadow-md shadow-rose-600/30';
+  }
+
+  renderUnionSiteCards(sites);
+};
+
+function renderUnionSiteCards(sites) {
+  const detailsContainer = document.getElementById('site-breakdown-details-container');
+  if (!detailsContainer) return;
+
+  const filteredSites = currentSelectedSite === 'all' 
+    ? sites 
+     : sites.filter(s => s.site_id === currentSelectedSite);
+
+  detailsContainer.innerHTML = filteredSites.map(site => {
+    const totalDels = site.total_delegates || 1;
+    const dels = site.delegates_by_union || {};
+    const ref = site.referendum_24j || {};
+
+    const unionColors = {
+      "SIPA": { bg: "bg-sky-500", text: "text-sky-400", border: "border-sky-500/30" },
+      "CCOO": { bg: "bg-red-500", text: "text-red-400", border: "border-red-500/30" },
+      "UGT": { bg: "bg-orange-500", text: "text-orange-400", border: "border-orange-500/30" },
+      "ATP": { bg: "bg-purple-500", text: "text-purple-400", border: "border-purple-500/30" },
+      "CGT": { bg: "bg-emerald-500", text: "text-emerald-400", border: "border-emerald-500/30" },
+      "UTIL": { bg: "bg-amber-500", text: "text-amber-400", border: "border-amber-500/30" }
+    };
+
+    return `
+      <div class="p-4 sm:p-5 bg-slate-900/90 border border-slate-800 rounded-xl space-y-4 hover:border-slate-700 transition">
+        <!-- Site Header -->
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="text-sm sm:text-base font-black text-white">${escapeHTML(site.name)}</h4>
+              <span class="px-2 py-0.5 text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">
+                ${site.census.toLocaleString()} trabajadores
+              </span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">${escapeHTML(site.role)}</p>
+          </div>
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <span class="px-2.5 py-1 text-xs font-black bg-slate-800 text-slate-200 border border-slate-700 rounded-lg">
+              ${site.total_delegates} Delegados de Centro
+            </span>
+          </div>
+        </div>
+
+        <!-- 2 Columns: Delegates breakdown & Referendum 24-J outcome -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Left: Delegates by Union -->
+          <div class="p-3.5 bg-slate-950/80 border border-slate-800/80 rounded-xl space-y-2.5">
+            <div class="flex justify-between items-center text-xs font-bold text-slate-300">
+              <span>Distribución de Delegados Electos</span>
+              <span class="text-[10px] text-slate-500">Elecciones Sindicales</span>
+            </div>
+            <div class="space-y-2">
+              ${Object.entries(dels).map(([uCode, count]) => {
+                const pct = ((count / totalDels) * 100).toFixed(1);
+                const color = unionColors[uCode] || { bg: "bg-sky-500", text: "text-sky-400", border: "border-sky-500/30" };
+                return `
+                  <div>
+                    <div class="flex justify-between items-center text-xs mb-1">
+                      <span class="font-bold ${color.text}">${escapeHTML(uCode)}</span>
+                      <span class="font-mono text-slate-300 text-[11px]">${count} del. (${pct}%)</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                      <div class="${color.bg} h-1.5 rounded-full" style="width: ${pct}%"></div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- Right: 24-J Referendum & Assembly Dynamic -->
+          <div class="space-y-3">
+            <div class="p-3.5 bg-slate-950/80 border border-slate-800/80 rounded-xl space-y-2">
+              <div class="flex justify-between items-center text-xs font-bold text-slate-300">
+                <span>Resultado Referéndum 24-Julio (Preacuerdo)</span>
+                <span class="text-[10px] text-sky-400 font-mono">Participación: ${ref.turnout_pct}%</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-center pt-1">
+                <div class="p-2 bg-rose-950/30 border border-rose-500/30 rounded-lg">
+                  <span class="text-[9px] text-rose-400 uppercase font-black block">Voto NO</span>
+                  <span class="text-sm font-black text-rose-300 font-mono">${ref.no_pct}%</span>
+                  <span class="text-[9px] text-slate-400 block">(${ref.no_votes?.toLocaleString() || '-'} votos)</span>
+                </div>
+                <div class="p-2 bg-emerald-950/30 border border-emerald-500/30 rounded-lg">
+                  <span class="text-[9px] text-emerald-400 uppercase font-black block">Voto SÍ</span>
+                  <span class="text-sm font-black text-emerald-300 font-mono">${ref.yes_pct}%</span>
+                  <span class="text-[9px] text-slate-400 block">(${ref.yes_votes?.toLocaleString() || '-'} votos)</span>
+                </div>
+                <div class="p-2 bg-slate-900 border border-slate-800 rounded-lg">
+                  <span class="text-[9px] text-slate-400 uppercase font-black block">Blanco / Nulo</span>
+                  <span class="text-sm font-black text-slate-300 font-mono">${ref.blank_null_pct}%</span>
+                  <span class="text-[9px] text-slate-400 block">(${ref.blank_null_votes?.toLocaleString() || '-'} votos)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-amber-950/20 border border-amber-500/30 rounded-xl text-xs text-slate-300 space-y-1">
+              <strong class="text-amber-400 block flex items-center">
+                <i data-lucide="activity" class="w-3.5 h-3.5 mr-1 text-amber-400"></i>
+                Dinámica Asamblearia y Clave Operativa:
+              </strong>
+              <p class="text-[11px] text-slate-300 leading-relaxed">${escapeHTML(site.assembly_dynamic)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
 }
 
 
@@ -1516,8 +1678,143 @@ function initNegotiationEvolution() {
       `;
     }).join('');
   }
+  // 4. Render Point-by-Point Offer Breakdown with Expandable Explanations
+  initDetailedOffers();
 }
 
+function initDetailedOffers() {
+  const container = document.getElementById('detailed-offers-accordion-container');
+  if (!container) return;
+
+  const offers = conflictData?.negotiation_evolution?.company_offer_detailed_breakdown || [];
+  if (!offers || offers.length === 0) {
+    container.innerHTML = `<p class="text-xs text-slate-400">No hay desglose detallado disponible.</p>`;
+    return;
+  }
+
+  container.innerHTML = offers.map((off, idx) => {
+    const math = off.math_calculation || {};
+    const pointNumber = off.point_num || off.point_number || (idx + 1);
+    const badgeColor = off.badge_color || 'sky';
+    const drawbackNote = off.drawback_reason || (off.technical_analysis ? off.technical_analysis.split('.')[0] + '.' : 'Rechazo asambleario por pérdida de derechos y poder adquisitivo.');
+
+    // Format math items dynamically
+    const mathEntries = Object.entries(math);
+    const mathHtml = mathEntries.map(([key, val]) => {
+      const humanLabel = key
+        .replace(/_/g, ' ')
+        .replace(/eur$/, '(€)')
+        .replace(/pct$/, '(%)')
+        .replace(/\b\w/g, l => l.toUpperCase());
+      return `
+        <div class="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-center">
+          <span class="text-[9px] text-slate-400 block uppercase font-bold tracking-tight">${escapeHTML(humanLabel)}</span>
+          <span class="text-xs font-black text-white font-mono mt-0.5 block">${escapeHTML(String(val))}</span>
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl hover:border-slate-700 transition space-y-3" id="card-${escapeHTML(off.id)}">
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800/80 pb-2.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2 py-0.5 text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded uppercase">
+              Punto ${pointNumber}
+            </span>
+            <span class="px-2 py-0.5 text-[10px] font-bold bg-${badgeColor}-500/20 text-${badgeColor}-300 border border-${badgeColor}-500/30 rounded">
+              ${escapeHTML(off.badge || off.category || 'Negociación')}
+            </span>
+            <h4 class="text-xs sm:text-sm font-bold text-white">${escapeHTML(off.topic)}</h4>
+          </div>
+          <button type="button" onclick="toggleOfferDetails('${escapeHTML(off.id)}')" id="btn-toggle-${escapeHTML(off.id)}" class="px-3 py-1 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 rounded-lg flex items-center space-x-1.5 transition self-start sm:self-auto">
+            <span>Ver Desglose Técnico & Cálculo</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-${escapeHTML(off.id)}"></i>
+          </button>
+        </div>
+
+        <!-- Two Column Quick Comparison -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3 bg-rose-950/20 border border-rose-500/30 rounded-lg space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase text-rose-400">Propuesta Dirección Airbus:</span>
+              <span class="text-[9px] text-rose-300 bg-rose-500/20 px-1.5 py-0.5 rounded font-bold">Oferta Patronal</span>
+            </div>
+            <p class="text-slate-200 text-xs leading-relaxed font-medium">${escapeHTML(off.company_proposal)}</p>
+          </div>
+          <div class="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-lg space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase text-emerald-400">Reivindicación Plataforma Sindical:</span>
+              <span class="text-[9px] text-emerald-300 bg-emerald-500/20 px-1.5 py-0.5 rounded font-bold">Línea Roja</span>
+            </div>
+            <p class="text-slate-200 text-xs leading-relaxed font-medium">${escapeHTML(off.union_demand)}</p>
+          </div>
+        </div>
+
+        <!-- Summary Caveat / Why it's rejected -->
+        <div class="p-2.5 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-amber-200 flex items-start space-x-2">
+          <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+          <p class="leading-relaxed"><strong>Trampa detectada / Motivo de rechazo:</strong> ${escapeHTML(drawbackNote)}</p>
+        </div>
+
+        <!-- Expandable Detail Drawer (Hidden by default) -->
+        <div id="drawer-${escapeHTML(off.id)}" class="hidden pt-3 border-t border-slate-800/80 space-y-4">
+          <!-- Actuarial / Math Table -->
+          <div class="p-3.5 bg-slate-950/80 border border-slate-800 rounded-xl space-y-2">
+            <h5 class="text-xs font-bold text-sky-400 flex items-center">
+              <i data-lucide="calculator" class="w-4 h-4 mr-1.5 text-sky-400"></i>
+              Cálculo de Impacto Financiero y Operativo
+            </h5>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-center pt-1">
+              ${mathHtml}
+            </div>
+          </div>
+
+          <!-- Technical & Legal Breakdown -->
+          <div class="p-3 bg-slate-900/90 border border-slate-800 rounded-xl space-y-1.5">
+            <h5 class="text-xs font-bold text-slate-200 flex items-center">
+              <i data-lucide="file-check-2" class="w-4 h-4 mr-1.5 text-indigo-400"></i>
+              Fundamentos Jurídicos y Convenio Colectivo
+            </h5>
+            <p class="text-xs text-slate-300 leading-relaxed">${escapeHTML(off.technical_analysis)}</p>
+          </div>
+
+          <!-- Verdict Banner -->
+          <div class="p-3 bg-rose-950/30 border border-rose-500/40 rounded-xl flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="gavel" class="w-4 h-4 text-rose-400"></i>
+              <span class="text-xs font-bold text-rose-300">Dictamen Asambleario:</span>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-black bg-rose-600 text-white rounded-lg uppercase tracking-wider">
+              ${escapeHTML(off.verdict)}
+            </span>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+window.toggleOfferDetails = function(offerId) {
+  const drawer = document.getElementById(`drawer-${offerId}`);
+  const icon = document.getElementById(`icon-${offerId}`);
+  const btn = document.getElementById(`btn-toggle-${offerId}`);
+  if (!drawer) return;
+
+  const isHidden = drawer.classList.contains('hidden');
+  if (isHidden) {
+    drawer.classList.remove('hidden');
+    if (icon) icon.classList.add('rotate-180');
+    if (btn) btn.querySelector('span').textContent = 'Ocultar Desglose';
+  } else {
+    drawer.classList.add('hidden');
+    if (icon) icon.classList.remove('rotate-180');
+    if (btn) btn.querySelector('span').textContent = 'Ver Desglose Técnico & Cálculo';
+  }
+  if (window.lucide) lucide.createIcons();
+};
 // ==================== TIMELINE & ASSEMBLY RECORDS ====================
 function initTimeline() {
   const container = document.getElementById('timeline-container');

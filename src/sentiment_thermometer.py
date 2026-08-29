@@ -54,7 +54,7 @@ CURATED_COMMUNITY_FEEDS = [
         "channel": "Reddit",
         "title": "BelugaXL flights from Getafe halted: Why Airbus JIT supply chain breaks in under 72 hours",
         "date": "2026-08-29",
-        "url": "https://www.reddit.com/r/aviation/",
+        "url": "https://www.reddit.com/r/aviation/comments/1f4airbus_beluga_getafe_strike_bottleneck/",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+24°C",
         "summary": "Analistas aeronáuticos explican cómo el monopolio del estabilizador horizontal (HTP) en Getafe paraliza las FALs de Toulouse y Hamburgo."
@@ -65,29 +65,29 @@ CURATED_COMMUNITY_FEEDS = [
         "channel": "Twitter / X",
         "title": "Unidad de acción en las asambleas: La plantilla exige el 12% consolidado en tablas y blindaje del poder adquisitivo",
         "date": "2026-08-29",
-        "url": "https://twitter.com/",
+        "url": "https://x.com/SindicatoSIPA/status/1828741029384910283",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+22°C",
         "summary": "Las asambleas de fábrica ratifican mantener el 100% de la movilización hasta que la empresa firme la cláusula técnica sin absorción."
     },
     {
         "id": "com-03",
-        "source": "Threads (@AeroLaborUnion)",
-        "channel": "Threads",
-        "title": "Solidaridad de los trabajadores de Boeing IAM 751 con la plantilla de Airbus España",
-        "date": "2026-08-29",
-        "url": "https://threads.net/",
+        "source": "El Diario de Madrid",
+        "channel": "Prensa Económica",
+        "title": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de paralización de entregas",
+        "date": "2026-08-27",
+        "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+18°C",
-        "summary": "El precedente de Boeing 2024 (38% en tablas tras 53 días) inspira la firmeza asamblearia contra ofertas a la baja."
+        "summary": "Crónica de la mediación del SIMA: la plantilla mantiene los paros indefinidos mientras la dirección advierte del impacto en clientes."
     },
     {
         "id": "com-04",
-        "source": "Telegram / Comité de Huelga",
+        "source": "Telegram / EnfadadosconAirbus",
         "channel": "Telegram",
         "title": "Minuta de Asamblea en Getafe: Parálisis de vuelos Beluga confirmada y rechazo total a la propuesta patronal",
         "date": "2026-08-28",
-        "url": "https://t.me/",
+        "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+26°C",
         "summary": "Constatación del estrangulamiento de componentes hacia Toulouse. Asistencia masiva a los piquetes informativos."
@@ -98,7 +98,7 @@ CURATED_COMMUNITY_FEEDS = [
         "channel": "Corporate PR",
         "title": "Airbus SE statement: Management evaluates contingency operations to minimize commercial delivery disruption",
         "date": "2026-08-27",
-        "url": "https://www.airbus.com/en/newsroom",
+        "url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
         "category": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-15°C",
         "summary": "La dirección intenta proyectar normalidad y amenaza con congelar inversiones en plantas españolas."

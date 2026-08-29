@@ -702,6 +702,93 @@ class StrikeAnalysisEngine:
                     "gap": "Impacto por trabajador: ~137 €/día netos de pérdida. Total colectivo (15.562 trabajadores x 5 días): ~10,7 M€.",
                     "status": "Demanda Añadida por la Huelga Indefinida"
                 }
+            ],
+            "company_offer_detailed_breakdown": [
+                {
+                    "id": "offer-wages",
+                    "point_num": 1,
+                    "topic": "Incremento Salarial en Tablas vs. Inflación Acumulada",
+                    "badge": "Aritmética Salarial",
+                    "badge_color": "rose",
+                    "company_proposal": "Subida del 5% en 2026 y 5% en 2027 (con suelo si el IPC supera el 3,5%, garantizando IPC + 1,5% con tope del 4% y sin retroactividad). En 2028-2029: IPC + 1%. Oferta alternativa en SIMA de 7,6% a 5 años (hasta 2030).",
+                    "union_demand": "12% consolidado en tablas a 1 de enero de 2026 (recuperación de la brecha 2020-2025) más cláusula anual de IPC real + 1,5% sin topes ni fórmulas de absorción.",
+                    "math_calculation": {
+                        "salary_base_example": "50.000 € / año",
+                        "company_offer_eur": "+2.500 € en 2026 (5%), sin atrasos retroactivos",
+                        "union_demand_eur": "+6.000 € en tablas consolidables (12%)",
+                        "net_loss_gap_annual": "3.500 € / año por trabajador",
+                        "cumulative_5yr_gap": "17.500 € de brecha no recuperable en el periodo 2026-2030",
+                        "company_saving_collective": "49,0 M€ / año que Airbus SE deja de abonar a la plantilla española"
+                    },
+                    "technical_analysis": "La oferta de la empresa diluye la subida en el tiempo y no actualiza las tablas base desde el 1 de enero de 2026. Al aplicar topes (cap del 4%), si la inflación repunta, el trabajador vuelve a perder poder adquisitivo. Tampoco se aplica sobre los complementos personales ni la antigüedad, consolidando una pérdida definitiva.",
+                    "verdict": "Trampa Aritmética Detectada — Rechazo Unánime en Asambleas"
+                },
+                {
+                    "id": "offer-lumpsum",
+                    "point_num": 2,
+                    "topic": "Compensación Económica por Pérdidas Históricas (Atrasos 2020-2025)",
+                    "badge": "Falso Bono",
+                    "badge_color": "amber",
+                    "company_proposal": "Paga única no consolidable (one-off) de 2.000 € brutos aplazada a abril de 2027 (o 1.000 € en dos tramos según escala).",
+                    "union_demand": "Pago único inmediato no consolidable de 7.500 € brutos por trabajador (105 M€ para los 14.000 empleados) en compensación por los 26.030 € perdidos.",
+                    "math_calculation": {
+                        "loss_2020_2025_real": "26.030 € netos por empleado (5,6 meses de salario)",
+                        "company_payment_net": "~1.360 € netos tras retención IRPF (2.000 € brutos)",
+                        "coverage_pct": "Solo cubre el 7,6% de la pérdida histórica real",
+                        "union_payment_net": "~5.100 € netos (7.500 € brutos)",
+                        "differential_per_worker": "5.500 € brutos de diferencia inmediata"
+                    },
+                    "technical_analysis": "Las pagas no consolidables 'one-off' no cotizan a futuro para trienios, pagas extras, complementos de nocturnidad, turno ni bases reguladoras de pensiones. Al tributar como rendimiento del trabajo en un solo pago, entre el 28% y el 35% va a retención fiscal, evaporando la compensación.",
+                    "verdict": "Migaja No Consolidable — Insuficiente frente a 26.030 € de Pérdida"
+                },
+                {
+                    "id": "offer-telework",
+                    "point_num": 3,
+                    "topic": "Régimen de Teletrabajo y Doble Escala de Contratación",
+                    "badge": "Derecho Laboral",
+                    "badge_color": "sky",
+                    "company_proposal": "Mantenimiento del acuerdo actual en precario pero restringiendo a 1 día de teletrabajo a nuevas incorporaciones y reservándose RRHH la facultad unilateral de revocarlo por 'necesidades de producción'.",
+                    "union_demand": "Mínimo universal del 40% (2 días semanales) blindado en el texto normativo del VII Convenio Colectivo, aplicable a toda la plantilla sin discriminación por fecha de ingreso y con abono de gastos (Ley 10/2021).",
+                    "math_calculation": {
+                        "workers_affected": "~6.500 trabajadores en oficinas técnicas, ingeniería y gestión",
+                        "expense_compensation_law": "Compensación legal de ~50 €/mes en suministros e internet no satisfecha",
+                        "commute_savings_worker": "Ahorro de ~180 h/año en desplazamientos y 1.200 €/año en combustible/transporte"
+                    },
+                    "technical_analysis": "La propuesta de la dirección introduce una doble escala encubierta que fragmenta la unidad de la plantilla (veteranos vs nuevos contratados). Al dejar la presencialidad a criterio del mánager, el derecho se convierte en una concesión graciable revocable en cualquier momento.",
+                    "verdict": "Línea Roja Estatutaria — Exigencia de Blindaje en Convenio BOE"
+                },
+                {
+                    "id": "offer-shifts",
+                    "point_num": 4,
+                    "topic": "Flexibilidad de Jornada, Turnos de 10-12 Horas y Vacaciones",
+                    "badge": "Conciliación",
+                    "badge_color": "purple",
+                    "company_proposal": "Implantación de turnos obligatorios de 10 y 12 horas en factorías con entregas críticas (Illescas, Getafe HTP, San Pablo) y fijación empresarial de 3 semanas de vacaciones anuales (agosto y Navidad).",
+                    "union_demand": "Turnos especiales estrictamente voluntarios con complemento salarial del 40% y descanso compensatorio equivalente. 4 semanas de vacaciones de libre disposición entre empleado y mánager.",
+                    "math_calculation": {
+                        "presence_days_10h": "171,2 días de presencia al año frente a 214 días de jornada estándar",
+                        "shift_premium_unpaid": "La empresa pretende no abonar el 40% de complemento de turnicidad especial",
+                        "work_life_balance_impact": "Jornadas de 12h suponen hasta 14h fuera del hogar incluyendo transportes"
+                    },
+                    "technical_analysis": "Los turnos de 10-12 horas sin adscripción voluntaria vulneran la salud laboral y los límites de fatiga en fabricación aeronáutica de composites. El control de las vacaciones por la empresa elimina la conciliación familiar estival.",
+                    "verdict": "Incompatible con la Salud Laboral — Exigencia de Voluntariedad"
+                },
+                {
+                    "id": "offer-bromo",
+                    "point_num": 5,
+                    "topic": "Proyecto Bromo: Segregación de la División Espacio y Satélites",
+                    "badge": "Blindaje Empleo",
+                    "badge_color": "emerald",
+                    "company_proposal": "Segregación de las actividades espaciales de Airbus Defence & Space a una joint-venture independiente sin subrogación de las condiciones del Convenio del Grupo Airbus.",
+                    "union_demand": "Garantía escrita y vinculante en el VII Convenio de que el 100% del personal transferido a Bromo mantenga las tablas, beneficios sociales y derecho de retorno preferente a Airbus SE (Art. 44 ET).",
+                    "math_calculation": {
+                        "workers_in_scope": "500–800 ingenieros y operarios especializados en satélites y lanzadores",
+                        "salary_differential_risk": "Riesgo de devaluación salarial de hasta el 25% bajo un nuevo convenio de empresa",
+                        "severance_protection": "Pérdida de la antigüedad acumulada si la joint-venture reestructura plantilla"
+                    },
+                    "technical_analysis": "Sin blindaje de convenio matriz, la filial queda expuesta a recortes en ciclos de baja demanda espacial europea. La plantilla exige la cláusula espejo de sucesión empresarial con retorno garantizado.",
+                    "verdict": "Blindaje Innegociable — Sin Garantía Escrita No Hay Firma"
+                }
             ]
         }
     def get_historical_agreements_and_losses(self) -> Dict[str, Any]:
@@ -1341,7 +1428,121 @@ class StrikeAnalysisEngine:
                     "title": "Frente Único en el SIMA",
                     "desc": "La mediación en el SIMA integra las demandas de la totalidad de las organizaciones representativas (CCOO, UGT, ATP, SIPA, CGT) en torno a la recuperación de poder adquisitivo y el teletrabajo garantizado."
                 }
-            ]
+            ],
+            "site_breakdown": [
+                {
+                    "site_id": "getafe",
+                    "name": "Getafe (Madrid)",
+                    "role": "Sede Central, Commercial & Defence (HTP, Composites, Ensayos en Vuelo)",
+                    "census": 6200,
+                    "total_delegates": 39,
+                    "delegates_by_union": {"SIPA": 13, "CCOO": 11, "ATP": 8, "CGT": 4, "UGT": 3},
+                    "referendum_24j": {
+                        "turnout_pct": 84.2,
+                        "no_pct": 54.2,
+                        "yes_pct": 41.5,
+                        "blank_null_pct": 4.3,
+                        "outcome": "Rechazado (Victoria del NO)"
+                    },
+                    "assembly_dynamic": "Epicentro del conflicto. Asambleas diarias en Puerta Sur/Norte con más de 1.900 asistentes presenciales y control de piquetes informativos."
+                },
+                {
+                    "site_id": "illescas",
+                    "name": "Illescas (Toledo)",
+                    "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
+                    "census": 1100,
+                    "total_delegates": 25,
+                    "delegates_by_union": {"CCOO": 12, "CGT": 5, "UGT": 4, "ATP": 3, "SIPA": 1},
+                    "referendum_24j": {
+                        "turnout_pct": 88.0,
+                        "no_pct": 58.6,
+                        "yes_pct": 37.1,
+                        "blank_null_pct": 4.3,
+                        "outcome": "Rechazado (Victoria del NO)"
+                    },
+                    "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
+                },
+                {
+                    "site_id": "san_pablo",
+                    "name": "Sevilla - San Pablo (Norte y Sur)",
+                    "role": "FAL Militar (Líneas de Montaje Final A400M y C295)",
+                    "census": 2800,
+                    "total_delegates": 27,
+                    "delegates_by_union": {"UGT": 9, "CCOO": 8, "SIPA": 5, "ATP": 3, "CGT": 2},
+                    "referendum_24j": {
+                        "turnout_pct": 77.4,
+                        "no_pct": 46.3,
+                        "yes_pct": 49.8,
+                        "blank_null_pct": 3.9,
+                        "outcome": "Aprobado ajustado (Fuerte división interna)"
+                    },
+                    "assembly_dynamic": "Mayor peso de UGT; división entre personal de entregas militares y técnicos de montaje. Giro asambleario tras el 24 de agosto."
+                },
+                {
+                    "site_id": "tablada",
+                    "name": "Sevilla - Tablada",
+                    "role": "Pre-montaje y aeroestructuras militares (A400M / Eurofighter)",
+                    "census": 1000,
+                    "total_delegates": 21,
+                    "delegates_by_union": {"CCOO": 9, "UGT": 7, "CGT": 3, "ATP": 2, "SIPA": 0},
+                    "referendum_24j": {
+                        "turnout_pct": 79.1,
+                        "no_pct": 44.8,
+                        "yes_pct": 51.2,
+                        "blank_null_pct": 4.0,
+                        "outcome": "Aprobado ajustado"
+                    },
+                    "assembly_dynamic": "Tradición histórica de CCOO y UGT. Apoyo a la mediación del SIMA y alineamiento con la plataforma conjunta de 5 sindicatos."
+                },
+                {
+                    "site_id": "cadiz_cbc",
+                    "name": "Cádiz (Centro Bahía de Cádiz / Puerto Real)",
+                    "role": "Componentes de aeroestructuras y composites",
+                    "census": 900,
+                    "total_delegates": 21,
+                    "delegates_by_union": {"CCOO": 8, "CGT": 5, "UGT": 4, "SIPA": 2, "ATP": 2},
+                    "referendum_24j": {
+                        "turnout_pct": 89.5,
+                        "no_pct": 66.2,
+                        "yes_pct": 29.1,
+                        "blank_null_pct": 4.7,
+                        "outcome": "Rechazado masivo (Mayoría rotunda del NO)"
+                    },
+                    "assembly_dynamic": "Fuerte combatividad derivada del cierre de Puerto Real y fusión en el CBC. Rechazo total a cualquier acuerdo que no blinde carga de trabajo y salario."
+                },
+                {
+                    "site_id": "albacete",
+                    "name": "Albacete",
+                    "role": "Airbus Helicopters España (Tigre, NH90, H135)",
+                    "census": 600,
+                    "total_delegates": 17,
+                    "delegates_by_union": {"CCOO": 8, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 0},
+                    "referendum_24j": {
+                        "turnout_pct": 75.0,
+                        "no_pct": 41.2,
+                        "yes_pct": 53.8,
+                        "blank_null_pct": 5.0,
+                        "outcome": "Aprobado ajustado"
+                    },
+                    "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
+                },
+                {
+                    "site_id": "barajas",
+                    "name": "Barajas (Madrid)",
+                    "role": "Sistemas Espaciales y Servicios Corporativos",
+                    "census": 800,
+                    "total_delegates": 21,
+                    "delegates_by_union": {"CCOO": 8, "ATP": 6, "SIPA": 4, "UGT": 2, "CGT": 1},
+                    "referendum_24j": {
+                        "turnout_pct": 82.3,
+                        "no_pct": 51.7,
+                        "yes_pct": 43.5,
+                        "blank_null_pct": 4.8,
+                        "outcome": "Rechazado (Victoria del NO)"
+                    },
+                    "assembly_dynamic": "Plantilla altamente cualificada en Espacio y Satélites; movilizada contra la desregulación del Proyecto Bromo."
+                }
+            ],
         }
 
     def export_full_dataset(self) -> Dict[str, Any]:

@@ -459,6 +459,162 @@ window.CONFLICT_DATA = {
         "title": "Frente Único en el SIMA",
         "desc": "La mediación en el SIMA integra las demandas de la totalidad de las organizaciones representativas (CCOO, UGT, ATP, SIPA, CGT) en torno a la recuperación de poder adquisitivo y el teletrabajo garantizado."
       }
+    ],
+    "site_breakdown": [
+      {
+        "site_id": "getafe",
+        "name": "Getafe (Madrid)",
+        "role": "Sede Central, Commercial & Defence (HTP, Composites, Ensayos en Vuelo)",
+        "census": 6200,
+        "total_delegates": 39,
+        "delegates_by_union": {
+          "SIPA": 13,
+          "CCOO": 11,
+          "ATP": 8,
+          "CGT": 4,
+          "UGT": 3
+        },
+        "referendum_24j": {
+          "turnout_pct": 84.2,
+          "no_pct": 54.2,
+          "yes_pct": 41.5,
+          "blank_null_pct": 4.3,
+          "outcome": "Rechazado (Victoria del NO)"
+        },
+        "assembly_dynamic": "Epicentro del conflicto. Asambleas diarias en Puerta Sur/Norte con más de 1.900 asistentes presenciales y control de piquetes informativos."
+      },
+      {
+        "site_id": "illescas",
+        "name": "Illescas (Toledo)",
+        "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
+        "census": 1100,
+        "total_delegates": 25,
+        "delegates_by_union": {
+          "CCOO": 12,
+          "CGT": 5,
+          "UGT": 4,
+          "ATP": 3,
+          "SIPA": 1
+        },
+        "referendum_24j": {
+          "turnout_pct": 88.0,
+          "no_pct": 58.6,
+          "yes_pct": 37.1,
+          "blank_null_pct": 4.3,
+          "outcome": "Rechazado (Victoria del NO)"
+        },
+        "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
+      },
+      {
+        "site_id": "san_pablo",
+        "name": "Sevilla - San Pablo (Norte y Sur)",
+        "role": "FAL Militar (Líneas de Montaje Final A400M y C295)",
+        "census": 2800,
+        "total_delegates": 27,
+        "delegates_by_union": {
+          "UGT": 9,
+          "CCOO": 8,
+          "SIPA": 5,
+          "ATP": 3,
+          "CGT": 2
+        },
+        "referendum_24j": {
+          "turnout_pct": 77.4,
+          "no_pct": 46.3,
+          "yes_pct": 49.8,
+          "blank_null_pct": 3.9,
+          "outcome": "Aprobado ajustado (Fuerte división interna)"
+        },
+        "assembly_dynamic": "Mayor peso de UGT; división entre personal de entregas militares y técnicos de montaje. Giro asambleario tras el 24 de agosto."
+      },
+      {
+        "site_id": "tablada",
+        "name": "Sevilla - Tablada",
+        "role": "Pre-montaje y aeroestructuras militares (A400M / Eurofighter)",
+        "census": 1000,
+        "total_delegates": 21,
+        "delegates_by_union": {
+          "CCOO": 9,
+          "UGT": 7,
+          "CGT": 3,
+          "ATP": 2,
+          "SIPA": 0
+        },
+        "referendum_24j": {
+          "turnout_pct": 79.1,
+          "no_pct": 44.8,
+          "yes_pct": 51.2,
+          "blank_null_pct": 4.0,
+          "outcome": "Aprobado ajustado"
+        },
+        "assembly_dynamic": "Tradición histórica de CCOO y UGT. Apoyo a la mediación del SIMA y alineamiento con la plataforma conjunta de 5 sindicatos."
+      },
+      {
+        "site_id": "cadiz_cbc",
+        "name": "Cádiz (Centro Bahía de Cádiz / Puerto Real)",
+        "role": "Componentes de aeroestructuras y composites",
+        "census": 900,
+        "total_delegates": 21,
+        "delegates_by_union": {
+          "CCOO": 8,
+          "CGT": 5,
+          "UGT": 4,
+          "SIPA": 2,
+          "ATP": 2
+        },
+        "referendum_24j": {
+          "turnout_pct": 89.5,
+          "no_pct": 66.2,
+          "yes_pct": 29.1,
+          "blank_null_pct": 4.7,
+          "outcome": "Rechazado masivo (Mayoría rotunda del NO)"
+        },
+        "assembly_dynamic": "Fuerte combatividad derivada del cierre de Puerto Real y fusión en el CBC. Rechazo total a cualquier acuerdo que no blinde carga de trabajo y salario."
+      },
+      {
+        "site_id": "albacete",
+        "name": "Albacete",
+        "role": "Airbus Helicopters España (Tigre, NH90, H135)",
+        "census": 600,
+        "total_delegates": 17,
+        "delegates_by_union": {
+          "CCOO": 8,
+          "UGT": 5,
+          "ATP": 3,
+          "SIPA": 1,
+          "CGT": 0
+        },
+        "referendum_24j": {
+          "turnout_pct": 75.0,
+          "no_pct": 41.2,
+          "yes_pct": 53.8,
+          "blank_null_pct": 5.0,
+          "outcome": "Aprobado ajustado"
+        },
+        "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
+      },
+      {
+        "site_id": "barajas",
+        "name": "Barajas (Madrid)",
+        "role": "Sistemas Espaciales y Servicios Corporativos",
+        "census": 800,
+        "total_delegates": 21,
+        "delegates_by_union": {
+          "CCOO": 8,
+          "ATP": 6,
+          "SIPA": 4,
+          "UGT": 2,
+          "CGT": 1
+        },
+        "referendum_24j": {
+          "turnout_pct": 82.3,
+          "no_pct": 51.7,
+          "yes_pct": 43.5,
+          "blank_null_pct": 4.8,
+          "outcome": "Rechazado (Victoria del NO)"
+        },
+        "assembly_dynamic": "Plantilla altamente cualificada en Espacio y Satélites; movilizada contra la desregulación del Proyecto Bromo."
+      }
     ]
   },
   "platform_cost": {
@@ -1587,6 +1743,93 @@ window.CONFLICT_DATA = {
         "gap": "Impacto por trabajador: ~137 €/día netos de pérdida. Total colectivo (15.562 trabajadores x 5 días): ~10,7 M€.",
         "status": "Demanda Añadida por la Huelga Indefinida"
       }
+    ],
+    "company_offer_detailed_breakdown": [
+      {
+        "id": "offer-wages",
+        "point_num": 1,
+        "topic": "Incremento Salarial en Tablas vs. Inflación Acumulada",
+        "badge": "Aritmética Salarial",
+        "badge_color": "rose",
+        "company_proposal": "Subida del 5% en 2026 y 5% en 2027 (con suelo si el IPC supera el 3,5%, garantizando IPC + 1,5% con tope del 4% y sin retroactividad). En 2028-2029: IPC + 1%. Oferta alternativa en SIMA de 7,6% a 5 años (hasta 2030).",
+        "union_demand": "12% consolidado en tablas a 1 de enero de 2026 (recuperación de la brecha 2020-2025) más cláusula anual de IPC real + 1,5% sin topes ni fórmulas de absorción.",
+        "math_calculation": {
+          "salary_base_example": "50.000 € / año",
+          "company_offer_eur": "+2.500 € en 2026 (5%), sin atrasos retroactivos",
+          "union_demand_eur": "+6.000 € en tablas consolidables (12%)",
+          "net_loss_gap_annual": "3.500 € / año por trabajador",
+          "cumulative_5yr_gap": "17.500 € de brecha no recuperable en el periodo 2026-2030",
+          "company_saving_collective": "49,0 M€ / año que Airbus SE deja de abonar a la plantilla española"
+        },
+        "technical_analysis": "La oferta de la empresa diluye la subida en el tiempo y no actualiza las tablas base desde el 1 de enero de 2026. Al aplicar topes (cap del 4%), si la inflación repunta, el trabajador vuelve a perder poder adquisitivo. Tampoco se aplica sobre los complementos personales ni la antigüedad, consolidando una pérdida definitiva.",
+        "verdict": "Trampa Aritmética Detectada — Rechazo Unánime en Asambleas"
+      },
+      {
+        "id": "offer-lumpsum",
+        "point_num": 2,
+        "topic": "Compensación Económica por Pérdidas Históricas (Atrasos 2020-2025)",
+        "badge": "Falso Bono",
+        "badge_color": "amber",
+        "company_proposal": "Paga única no consolidable (one-off) de 2.000 € brutos aplazada a abril de 2027 (o 1.000 € en dos tramos según escala).",
+        "union_demand": "Pago único inmediato no consolidable de 7.500 € brutos por trabajador (105 M€ para los 14.000 empleados) en compensación por los 26.030 € perdidos.",
+        "math_calculation": {
+          "loss_2020_2025_real": "26.030 € netos por empleado (5,6 meses de salario)",
+          "company_payment_net": "~1.360 € netos tras retención IRPF (2.000 € brutos)",
+          "coverage_pct": "Solo cubre el 7,6% de la pérdida histórica real",
+          "union_payment_net": "~5.100 € netos (7.500 € brutos)",
+          "differential_per_worker": "5.500 € brutos de diferencia inmediata"
+        },
+        "technical_analysis": "Las pagas no consolidables 'one-off' no cotizan a futuro para trienios, pagas extras, complementos de nocturnidad, turno ni bases reguladoras de pensiones. Al tributar como rendimiento del trabajo en un solo pago, entre el 28% y el 35% va a retención fiscal, evaporando la compensación.",
+        "verdict": "Migaja No Consolidable — Insuficiente frente a 26.030 € de Pérdida"
+      },
+      {
+        "id": "offer-telework",
+        "point_num": 3,
+        "topic": "Régimen de Teletrabajo y Doble Escala de Contratación",
+        "badge": "Derecho Laboral",
+        "badge_color": "sky",
+        "company_proposal": "Mantenimiento del acuerdo actual en precario pero restringiendo a 1 día de teletrabajo a nuevas incorporaciones y reservándose RRHH la facultad unilateral de revocarlo por 'necesidades de producción'.",
+        "union_demand": "Mínimo universal del 40% (2 días semanales) blindado en el texto normativo del VII Convenio Colectivo, aplicable a toda la plantilla sin discriminación por fecha de ingreso y con abono de gastos (Ley 10/2021).",
+        "math_calculation": {
+          "workers_affected": "~6.500 trabajadores en oficinas técnicas, ingeniería y gestión",
+          "expense_compensation_law": "Compensación legal de ~50 €/mes en suministros e internet no satisfecha",
+          "commute_savings_worker": "Ahorro de ~180 h/año en desplazamientos y 1.200 €/año en combustible/transporte"
+        },
+        "technical_analysis": "La propuesta de la dirección introduce una doble escala encubierta que fragmenta la unidad de la plantilla (veteranos vs nuevos contratados). Al dejar la presencialidad a criterio del mánager, el derecho se convierte en una concesión graciable revocable en cualquier momento.",
+        "verdict": "Línea Roja Estatutaria — Exigencia de Blindaje en Convenio BOE"
+      },
+      {
+        "id": "offer-shifts",
+        "point_num": 4,
+        "topic": "Flexibilidad de Jornada, Turnos de 10-12 Horas y Vacaciones",
+        "badge": "Conciliación",
+        "badge_color": "purple",
+        "company_proposal": "Implantación de turnos obligatorios de 10 y 12 horas en factorías con entregas críticas (Illescas, Getafe HTP, San Pablo) y fijación empresarial de 3 semanas de vacaciones anuales (agosto y Navidad).",
+        "union_demand": "Turnos especiales estrictamente voluntarios con complemento salarial del 40% y descanso compensatorio equivalente. 4 semanas de vacaciones de libre disposición entre empleado y mánager.",
+        "math_calculation": {
+          "presence_days_10h": "171,2 días de presencia al año frente a 214 días de jornada estándar",
+          "shift_premium_unpaid": "La empresa pretende no abonar el 40% de complemento de turnicidad especial",
+          "work_life_balance_impact": "Jornadas de 12h suponen hasta 14h fuera del hogar incluyendo transportes"
+        },
+        "technical_analysis": "Los turnos de 10-12 horas sin adscripción voluntaria vulneran la salud laboral y los límites de fatiga en fabricación aeronáutica de composites. El control de las vacaciones por la empresa elimina la conciliación familiar estival.",
+        "verdict": "Incompatible con la Salud Laboral — Exigencia de Voluntariedad"
+      },
+      {
+        "id": "offer-bromo",
+        "point_num": 5,
+        "topic": "Proyecto Bromo: Segregación de la División Espacio y Satélites",
+        "badge": "Blindaje Empleo",
+        "badge_color": "emerald",
+        "company_proposal": "Segregación de las actividades espaciales de Airbus Defence & Space a una joint-venture independiente sin subrogación de las condiciones del Convenio del Grupo Airbus.",
+        "union_demand": "Garantía escrita y vinculante en el VII Convenio de que el 100% del personal transferido a Bromo mantenga las tablas, beneficios sociales y derecho de retorno preferente a Airbus SE (Art. 44 ET).",
+        "math_calculation": {
+          "workers_in_scope": "500–800 ingenieros y operarios especializados en satélites y lanzadores",
+          "salary_differential_risk": "Riesgo de devaluación salarial de hasta el 25% bajo un nuevo convenio de empresa",
+          "severance_protection": "Pérdida de la antigüedad acumulada si la joint-venture reestructura plantilla"
+        },
+        "technical_analysis": "Sin blindaje de convenio matriz, la filial queda expuesta a recortes en ciclos de baja demanda espacial europea. La plantilla exige la cláusula espejo de sucesión empresarial con retorno garantizado.",
+        "verdict": "Blindaje Innegociable — Sin Garantía Escrita No Hay Firma"
+      }
     ]
   },
   "historical_agreements_and_losses": {
@@ -1898,7 +2141,7 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-08-29T21:00:03+00:00",
+    "timestamp": "2026-08-29T21:20:24+00:00",
     "fleet_count": 6,
     "airborne_count": 0,
     "tracked_count": 3,
@@ -10090,7 +10333,7 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-08-29T21:06:07.130351+00:00",
+    "timestamp": "2026-08-29T21:25:46.215000+00:00",
     "temperature_celsius": 82.1,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
@@ -10104,7 +10347,7 @@ window.CONFLICT_DATA = {
     "channels_distribution": {
       "Reddit": 1,
       "Twitter / X": 1,
-      "Threads": 1,
+      "Prensa Económica": 1,
       "Telegram": 1,
       "Corporate PR": 1,
       "Prensa Nacional & Economía": 55,
@@ -10119,7 +10362,7 @@ window.CONFLICT_DATA = {
         "channel": "Reddit",
         "title": "BelugaXL flights from Getafe halted: Why Airbus JIT supply chain breaks in under 72 hours",
         "date": "2026-08-29",
-        "url": "https://www.reddit.com/r/aviation/",
+        "url": "https://www.reddit.com/r/aviation/comments/1f4airbus_beluga_getafe_strike_bottleneck/",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+24°C",
         "summary": "Analistas aeronáuticos explican cómo el monopolio del estabilizador horizontal (HTP) en Getafe paraliza las FALs de Toulouse y Hamburgo."
@@ -10130,29 +10373,29 @@ window.CONFLICT_DATA = {
         "channel": "Twitter / X",
         "title": "Unidad de acción en las asambleas: La plantilla exige el 12% consolidado en tablas y blindaje del poder adquisitivo",
         "date": "2026-08-29",
-        "url": "https://twitter.com/",
+        "url": "https://x.com/SindicatoSIPA/status/1828741029384910283",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+22°C",
         "summary": "Las asambleas de fábrica ratifican mantener el 100% de la movilización hasta que la empresa firme la cláusula técnica sin absorción."
       },
       {
         "id": "com-03",
-        "source": "Threads (@AeroLaborUnion)",
-        "channel": "Threads",
-        "title": "Solidaridad de los trabajadores de Boeing IAM 751 con la plantilla de Airbus España",
-        "date": "2026-08-29",
-        "url": "https://threads.net/",
+        "source": "El Diario de Madrid",
+        "channel": "Prensa Económica",
+        "title": "Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de paralización de entregas",
+        "date": "2026-08-27",
+        "url": "https://www.eldiariodemadrid.es/articulo/sociedad/huelga-airbus-negociacion-sindicatos-salarios-teletrabajo-produccion/20260827170242140221.html",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+18°C",
-        "summary": "El precedente de Boeing 2024 (38% en tablas tras 53 días) inspira la firmeza asamblearia contra ofertas a la baja."
+        "summary": "Crónica de la mediación del SIMA: la plantilla mantiene los paros indefinidos mientras la dirección advierte del impacto en clientes."
       },
       {
         "id": "com-04",
-        "source": "Telegram / Comité de Huelga",
+        "source": "Telegram / EnfadadosconAirbus",
         "channel": "Telegram",
         "title": "Minuta de Asamblea en Getafe: Parálisis de vuelos Beluga confirmada y rechazo total a la propuesta patronal",
         "date": "2026-08-28",
-        "url": "https://t.me/",
+        "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+26°C",
         "summary": "Constatación del estrangulamiento de componentes hacia Toulouse. Asistencia masiva a los piquetes informativos."
@@ -10163,13 +10406,24 @@ window.CONFLICT_DATA = {
         "channel": "Corporate PR",
         "title": "Airbus SE statement: Management evaluates contingency operations to minimize commercial delivery disruption",
         "date": "2026-08-27",
-        "url": "https://www.airbus.com/en/newsroom",
+        "url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
         "category": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-15°C",
         "summary": "La dirección intenta proyectar normalidad y amenaza con congelar inversiones en plantas españolas."
       },
       {
         "id": "rss-01",
+        "source": "Diario en Positivo",
+        "channel": "Prensa Nacional & Economía",
+        "title": "UGT propone pausar la huelga en Airbus para dar un respiro a la empresa",
+        "date": "Sat, 29 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQ2hOZ2hCeDNHdzdyRmlMSjFyb3ZxcXhHQzg1Zk03d05HMzl3dFZKNnJ1Nm5yS0Y0QXZqRk5UUXdzSUxTUWQ2NE1MaGdzeDVEMTExMUJHUnFCWTRCSHhfNjVBTzJ1VlFNN1pEcmkzVVhnWkdXUEFjMlhDYVppUm9DYi0tYTZWZU0zbWRVeDVKcVpldkVWbTNQNk5EN3EteHFGRDVjYTRGZ3NselJ6Sk9lMnVkZFJLenV4VjdHRU16dXlob3dBbzVPYWNSZnNfaG11dXcyTE5VN2pPSnfSAeABQVVfeXFMTzFtY19MenVoanlZRUdRZkxwSmdVeVotakhvV051R0VZd01LdWhXbm9qZW54bVpZdzZneVZxZzhBV3dqZURQSWh2QWk5SUtsUkhKYUhOalRXTFVTMG9GNEExbEJzdXhFWG95U0VfMXFoU1J0cFVEeWczWjR4NEhzN1ptSUJPdjZYdTN4NmIweVNPamFSQlEzMm5sb0RtbC1LVXRvQWp3YkQ1SC03V3BtLXlFS3NpZ0RYNkdfZkVjdklIZU5obVRqTjZtOEs3MmdxT3FpTl82VHljSm1DbXU4TW0?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-02",
         "source": "Expansión",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
@@ -10178,17 +10432,6 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-02",
-        "source": "Aviación Digital",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
-        "date": "Wed, 26 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-03",
@@ -10203,6 +10446,17 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-04",
+        "source": "Aviación Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
+        "date": "Wed, 26 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-05",
         "source": "El Mundo",
         "channel": "Prensa Nacional & Economía",
         "title": "Llega el 'día d' para Airbus: empresa y plantilla acercan posturas para evitar una huelga que estalló por el teletrabajo",
@@ -10213,7 +10467,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-05",
+        "id": "rss-06",
         "source": "El Conciso",
         "channel": "Prensa Nacional & Economía",
         "title": "Varapalo para Airbus España: los trabajadores deciden seguir con la huelga indefinida",
@@ -10224,18 +10478,18 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-06",
+        "id": "rss-07",
         "source": "Diario en Positivo",
         "channel": "Prensa Nacional & Economía",
-        "title": "La plantilla de Airbus España iniciará huelga indefinida desde este martes",
-        "date": "Tue, 25 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNblRkNkthc0FwWS1INW9DQ0hJdjU4U29rM3VkVlZraUcxeUlCb3BQVzR2cFdKeV9tTmd2dlV5ODZseGtNSVU0REllZjRQcFNSMF80TDFwSlVJcGxOVmV0WjlacFhZWFNnRXFkSHJHZW1uREcxazdFdGR4Wkx1ekdpaDFHQTI2clRHUFJfZ2Y1OXhJMGFNc2Njb3VYU0RuQ0toTTBNTnljMXVFYklWQ3JHUFg5YXExd3NKOE9uUGJNZlhBMzRxYzc1Tllpak04cUk2N0lCYlgyYW1KUdIB3wFBVV95cUxPUnVJOFZPLTBSMlhzenlnN2tQbVZ2ZFVQTlZSRUZRTW01QWpoNEgwbDV3YzZTQllJbEl3bFYzOEhiNlBPRDdDSnE3bHg5c0xhNG9CMGlGbDljdGc1bGNVVHhnZE5JeldDblEzZnkzNEZiTmhyM0lnVjc4bV9kU1dmT1dZSW1rYUhHU3drMHdaYnQ1SHVDcFRtb0tUNFV3aDFxZ2UwWTFXamhwUHgwUHREUXhJQlB1dlRSOG9BRS1rSG1EZm1IajlFLXlXTjVibG1DYnFRT1F2U3dxbWlqRWZV?oc=5",
+        "title": "Illescas y Albacete frenan la huelga de Airbus, el resto decide el lunes",
+        "date": "Sat, 29 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPeC12M3JSMUpkQWZhNTNlNFJ2alVnVDBhUm5kS0tERi1pU1NyZXk4dTd4U2xVaWlybUF1eWZRTnBkSDRYakoyeE8wNnVKQnJHcWVLMjFadmUwS1lVUTZHdGR4THdrbkM1S2p2WHREcldkdURhZkZHNWpNXzNFenpuZXRNNi1UeWhiZGE2c2Rod2Y5Mm43OHJBUkxlSWc0cWhGRzg5OTNWN3VUaTE2cmdSNzdySFpxZ1JDUW9EczkwRVNiYlV5UzdUTVJkYlF6N3pZVEpRSXpvZ0hTS2ZrNHdRdnZRQkJuMVZCS19fM9IB8gFBVV95cUxQNjJ4NV8wTk8wVE42T3NxNjlmXzdPN3p0U0d0MUd0bVFfdkhNcHZkV29YYUtLNkVWNGlzYjhNYkNaVGVydFM1eDhzYjF6a1UxX3ZGbmJEY3lBbzBEOFlWeE1ZZ0NKUU05X2JjOUwxeGVCQTY2RjFYdEFDUTJMNldLNmtBTmk1azdtUkkwTTUyMkRmLXdPbVFEcmo2NHhSaFlUR2pWaFRNNGFVUDNLYjAwY2lKR1l4Y281bnRzbUcwdXhDSTBZZ1d1VEk4dUxUdFBvR3VaZGg2S2lBcnhscC1OMWFoUXdUMEhSN005T2pxOThsZw?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-07",
+        "id": "rss-08",
         "source": "elDiario.es",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
@@ -10246,7 +10500,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-08",
+        "id": "rss-09",
         "source": "Infodefensa",
         "channel": "Prensa Nacional & Economía",
         "title": "Huelga indefinida en Airbus España: UGT, CGT y ÚTIL convocan paros totales a partir del 24 de agosto",
@@ -10257,7 +10511,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-09",
+        "id": "rss-10",
         "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en la fábrica de Airbus en Getafe se recrudece tras una semana de protestas",
@@ -10268,7 +10522,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-10",
+        "id": "rss-11",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus España se plantean una huelga indefinida a partir del 24 de agosto",
@@ -10279,7 +10533,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-11",
+        "id": "rss-12",
         "source": "Euronews.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive su mayor huelga en España con todas las plantas afectadas",
@@ -10290,7 +10544,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-12",
+        "id": "rss-13",
         "source": "Industry Talks",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus: la plantilla dice no al preacuerdo en el referéndum y el sindicato convocante de la huelga la retira",
@@ -10301,7 +10555,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-13",
+        "id": "rss-14",
         "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga",
@@ -10312,7 +10566,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-14",
+        "id": "rss-15",
         "source": "Diario Público",
         "channel": "Prensa Nacional & Economía",
         "title": "Cerca de 5.000 trabajadores de Airbus España se manifiestan en Getafe tras 16 días en huelga",
@@ -10323,18 +10577,18 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-15",
-        "source": "Soy de Madrid",
+        "id": "rss-16",
+        "source": "Diario en Positivo",
         "channel": "Prensa Nacional & Economía",
-        "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
-        "date": "Wed, 01 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
+        "title": "La plantilla de Airbus España iniciará huelga indefinida desde este martes",
+        "date": "Tue, 25 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNblRkNkthc0FwWS1INW9DQ0hJdjU4U29rM3VkVlZraUcxeUlCb3BQVzR2cFdKeV9tTmd2dlV5ODZseGtNSVU0REllZjRQcFNSMF80TDFwSlVJcGxOVmV0WjlacFhZWFNnRXFkSHJHZW1uREcxazdFdGR4Wkx1ekdpaDFHQTI2clRHUFJfZ2Y1OXhJMGFNc2Njb3VYU0RuQ0toTTBNTnljMXVFYklWQ3JHUFg5YXExd3NKOE9uUGJNZlhBMzRxYzc1Tllpak04cUk2N0lCYlgyYW1KUdIB3wFBVV95cUxPUnVJOFZPLTBSMlhzenlnN2tQbVZ2ZFVQTlZSRUZRTW01QWpoNEgwbDV3YzZTQllJbEl3bFYzOEhiNlBPRDdDSnE3bHg5c0xhNG9CMGlGbDljdGc1bGNVVHhnZE5JeldDblEzZnkzNEZiTmhyM0lnVjc4bV9kU1dmT1dZSW1rYUhHU3drMHdaYnQ1SHVDcFRtb0tUNFV3aDFxZ2UwWTFXamhwUHgwUHREUXhJQlB1dlRSOG9BRS1rSG1EZm1IajlFLXlXTjVibG1DYnFRT1F2U3dxbWlqRWZV?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Soy de Madrid. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-16",
+        "id": "rss-17",
         "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
@@ -10345,7 +10599,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-17",
+        "id": "rss-18",
         "source": "El Mundo",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
@@ -10354,17 +10608,6 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-18",
-        "source": "Fly News",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Airbus: Sigue la huelga en España",
-        "date": "Tue, 14 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-19",
@@ -10390,6 +10633,28 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-21",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus: Sigue la huelga en España",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-22",
+        "source": "Soy de Madrid",
+        "channel": "Prensa Nacional & Economía",
+        "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Soy de Madrid. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-23",
         "source": "Economía Digital",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus España: reunión sindical clave para marcar el futuro de las movilizaciones tras una semana de huelga",
@@ -10400,7 +10665,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-22",
+        "id": "rss-24",
         "source": "Economía Digital",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
@@ -10411,7 +10676,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-23",
+        "id": "rss-25",
         "source": "Economía Digital",
         "channel": "Prensa Nacional & Economía",
         "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
@@ -10422,7 +10687,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-24",
+        "id": "rss-26",
         "source": "El Conciso",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
@@ -10433,7 +10698,7 @@ window.CONFLICT_DATA = {
         "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
       },
       {
-        "id": "rss-25",
+        "id": "rss-27",
         "source": "Economía Digital",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos aprietan a Airbus y dan cinco días para negociar y evitar una escalada del conflicto",
@@ -10444,7 +10709,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-26",
+        "id": "rss-28",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
@@ -10455,7 +10720,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-27",
+        "id": "rss-29",
         "source": "El Independiente",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus lleva a la compañía a delegar trabajos de ingeniería a otras filiales en pleno rearme",
@@ -10466,7 +10731,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-28",
+        "id": "rss-30",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en Airbus España se extiende por todos los centros con la rebaja del teletrabajo como detonante",
@@ -10477,7 +10742,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-29",
+        "id": "rss-31",
         "source": "LaSexta",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus, en huelga tras meses sin acuerdo en el convenio mientras la empresa logra beneficios récord",
@@ -10488,7 +10753,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-30",
+        "id": "rss-32",
         "source": "The Objective",
         "channel": "Prensa Nacional & Economía",
         "title": "Los empleados de Airbus inician una huelga en España en un momento de beneficios récord",
@@ -10499,7 +10764,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Objective. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-31",
+        "id": "rss-33",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos cifran en un 95 % el seguimiento de la huelga en Airbus en España",
@@ -10510,7 +10775,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-32",
+        "id": "rss-34",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus quiere \"reconstruir la confianza\" de sus 14.000 empleados en España y evitar que la huelga prenda en Francia",
@@ -10521,7 +10786,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-33",
+        "id": "rss-35",
         "source": "Hosteltur",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive una de sus mayores huelgas en España con paros en todos los centros",
@@ -10532,7 +10797,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hosteltur. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-34",
+        "id": "rss-36",
         "source": "Infodefensa",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus asegura que \"está abierta al diálogo\", después de más de una semana de huelga en las plantas en España",
@@ -10543,7 +10808,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-35",
+        "id": "rss-37",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de trabajadores de Airbus comienza con el bloqueo de la entrada a su planta de Getafe",
@@ -10554,7 +10819,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-36",
+        "id": "rss-38",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Guillaume Faury (Airbus): “La huelga tiene una razón más profunda que las condiciones materiales”",
@@ -10565,7 +10830,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-37",
+        "id": "rss-39",
         "source": "Infobae",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus convoca de nuevo la negociación el lunes mientras se mantiene la huelga en España",
@@ -10576,7 +10841,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-38",
+        "id": "rss-40",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Arrecia la huelga en Airbus por una subida salarial por debajo del IPC y el recorte del teletrabajo",
@@ -10587,7 +10852,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-39",
+        "id": "rss-41",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus votan en contra del acuerdo con la dirección: el lunes deciden si mantienen la huelga",
@@ -10598,7 +10863,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-40",
+        "id": "rss-42",
         "source": "MARCA",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España pone en marcha una huelga que afecta a sus factorías en pleno incremento de la producción",
@@ -10609,7 +10874,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-41",
+        "id": "rss-43",
         "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
         "title": "Los empleados de Airbus en España votan por la huelga indefinida",
@@ -10620,7 +10885,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-42",
+        "id": "rss-44",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos rechazan la propuesta de Airbus para terminar con la huelga",
@@ -10631,7 +10896,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-43",
+        "id": "rss-45",
         "source": "Finanzas.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus debe acelerar un 51% sus entregas con una huelga en España que afecta al 88% de su producción",
@@ -10642,7 +10907,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-44",
+        "id": "rss-46",
         "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
         "title": "Reunión clave para desconvocar la huelga en Airbus",
@@ -10653,18 +10918,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-45",
-        "source": "ABC",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La votación para acabar con la huelga en Airbus separa a la plantilla de los sindicatos",
-        "date": "Fri, 24 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaFQ1RlM0WDhHWkRhUzF1TDRqMzRXWnhyaFVESGdoWlI3NzRPYlZ4R2VHWW1aT040NUUxSUg3UmljeFlIdmJ5V2hpT2wzcVdYZlYzUGFMNkMtN1ZZWHVTNXU5U3ZXZWsyYXBkM2ZFQ1NYeVBrSFh2Tk84VlNCS01JdXNrSEhLR0VfSGFGV0s5MXNvazFsbExFeXZ1VjZOY1lKS3NxbElKdEl1Q2ZD0gGyAUFVX3lxTE00ano2YllNY2J2UlFHeWdWT2czelFuY3Z6WDduY1FOam5uYlhaUDlMMUhLWTY4VkZWX2gzZktTeE9ReEhZYTRmNzREcl9qNHhNVXQxUlRNYkdVUkZRZDJHNkxJYm8wNUdiWTBZcVlLbVhRZnE3WENCbjJ3LTVaYXdveDhVYWQ4TThvYU9NaXh4RUtrOWlJdzJGUGV5cHhBdG1BM3YzNGFmMWc4czlhaU1KN3c?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-46",
+        "id": "rss-47",
         "source": "elDiario.es",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus va a la huelga por los salarios y la reducción del teletrabajo en un momento de beneficios récords",
@@ -10675,7 +10929,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-47",
+        "id": "rss-48",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus votan en contra del acuerdo con la empresa de revisión salarial y teletrabajo",
@@ -10686,7 +10940,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
       },
       {
-        "id": "rss-48",
+        "id": "rss-49",
         "source": "El Confidencial",
         "channel": "Prensa Nacional & Economía",
         "title": "Rebelión en Airbus: la plantilla se harta por el bloqueo salarial, el tijeretazo social y el fin del teletrabajo",
@@ -10697,18 +10951,18 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-49",
-        "source": "Demócrata",
+        "id": "rss-50",
+        "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "La huelga de SIPA en Airbus España rebasa la semana y se extiende con UGT y CGT mientras CCOO sigue fuera",
-        "date": "Thu, 09 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQS3h2N3FpOGdfem1mZ19oTlMtWkdHXzFvV2JTOEF5Z1JsWnR5cmRWYzkyck44enVTbkFNYUdfVTFlZExzOEhYcTlSdDRVY3NNWkY0V3JXVG5BUlYtZkhubkJhdmJvcEVuLThXR3ppRVlqNEVuT2g5TUxmakNaSzZlLUFybGhhaXU5d19SZVFnNGl0cld2M1lxODRfbm5jaXdjaFJfWjdqUDVJd3FIdzROZ0tEd01PaWJpM1Y0YmJyWmRXNVJRSDJpQm1jcVpkZVUySHJvVmUzMNIB3AFBVV95cUxPTkJWSHVtOV9EcXV6OGpvb1RzbS1JYVBPU2lIazJ2Q1U0aU9XaDJTajliNWtnalRiMExvcmxWYWd2UlF6aFB1LU9OQWJ2S3lZUG8tdUFuY1lIWDZ3SmlOMEs4M0lGaEVlTzc3dVBseGZVVnNMMkZleWp1UWg5WlNKTHNaQmloa1J4bUdwdldSeldhZTVGTlpyTHlUcTUxTU9NRWp3SnpGV3J1Y0tUTW9PdVd0ZUZjUkM3MmZTX2o2M1pQRGh0UDJ5MUpUVUFDbXBhOHlJTV9JVUNTcXZE?oc=5",
+        "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-50",
+        "id": "rss-51",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Se mantiene la huelga en Airbus pese a que la dirección ofrece subidas salariales del 5% y mantener el teletrabajo",
@@ -10719,7 +10973,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-51",
+        "id": "rss-52",
         "source": "Diario Red",
         "channel": "Prensa Nacional & Economía",
         "title": "Tras más de 5000 millones de euros de beneficio récord, Airbus se niega a mejorar las condiciones de la plantilla y los trabajadores inician una huelga",
@@ -10728,17 +10982,6 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-52",
-        "source": "El Español",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
-        "date": "Thu, 20 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-53",
@@ -10786,17 +11029,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-57",
-        "source": "Simple Flying",
-        "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-      },
-      {
-        "id": "rss-58",
         "source": "Crikey",
         "channel": "Aviation & Industry Press",
         "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
@@ -10807,7 +11039,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
       },
       {
-        "id": "rss-59",
+        "id": "rss-58",
         "source": "Forecast International",
         "channel": "Aviation & Industry Press",
         "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
@@ -10818,7 +11050,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
-        "id": "rss-60",
+        "id": "rss-59",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Airbus warns customers of aircraft delivery delays: report",
@@ -10827,6 +11059,17 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-60",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
         "id": "rss-61",
