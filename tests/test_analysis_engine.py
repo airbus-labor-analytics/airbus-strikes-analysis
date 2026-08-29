@@ -169,5 +169,10 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         self.assertIn("company_saving_collective", wages_offer["math_calculation"])
         self.assertIn("net_loss_gap_annual", wages_offer["math_calculation"])
 
+    def test_comprehensive_invariants_runner(self):
+        """Runs full validate_all() from validate_invariants module."""
+        from src.validate_invariants import validate_all
+        self.assertTrue(validate_all())
+
 if __name__ == "__main__":
     unittest.main()
