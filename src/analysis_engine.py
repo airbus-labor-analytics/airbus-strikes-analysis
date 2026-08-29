@@ -183,6 +183,236 @@ class StrikeAnalysisEngine:
                 "confidence_level": "Muy Baja"
             }
         ]
+    def get_conflict_timeline(self) -> List[Dict[str, Any]]:
+        """Returns the chronological sequence of key events and milestones in the 2026 conflict."""
+        return [
+            {
+                "id": "milestone-1",
+                "date": "2021 - 2025",
+                "phase": "Erosión Estructural",
+                "title": "Pérdida Acumulada de Poder Adquisitivo (20,9% - 24,4%)",
+                "badge": "Origen del Conflicto",
+                "badge_color": "rose",
+                "summary": "La inflación acumulada en España (IPC general +19,3%, alimentos +31,2%) supera con creces las subidas pactadas en el VI Convenio, generando una brecha salarial real neta de hasta el 24,4%.",
+                "actors": ["Plantilla Airbus España", "INE", "Banco de España"],
+                "source_ref": "Fuente 2 & 6",
+                "strategic_takeaway": "La exigencia del 12% consolidado en tablas no es una mejora ordinaria, sino la recuperación mínima del salario real absorbido."
+            },
+            {
+                "id": "milestone-2",
+                "date": "1 de julio de 2026",
+                "phase": "Movilización Inicial",
+                "title": "Inicio de Concentraciones y Paros en Fábricas de España",
+                "badge": "Movilización",
+                "badge_color": "amber",
+                "summary": "Concentraciones masivas en los centros de Getafe, San Pablo, Tablada, Illescas, Puerto Real/Cádiz, Albacete y Barajas ante el bloqueo de la mesa del VII Convenio.",
+                "actors": ["Comité Interempresas", "Secciones Sindicales (SIPA, CCOO, UGT, CGT)"],
+                "source_ref": "Fuente 1 & 4",
+                "strategic_takeaway": "Constatación del respaldo unitario de la plantilla para escalar a medidas de presión directa."
+            },
+            {
+                "id": "milestone-3",
+                "date": "23 de julio de 2026",
+                "phase": "Fisura en la Mesa",
+                "title": "Intento de Preacuerdo CCOO/UGT/ATP sin Cláusula Técnica",
+                "badge": "Preacuerdo Fracasado",
+                "badge_color": "blue",
+                "summary": "Las direcciones sindicales de CCOO, UGT y ATP firman un borrador provisional con subidas del 3% anual sin RSG (Revisión Salarial Garantizada) vinculada al IPC real.",
+                "actors": ["Dirección RRHH Airbus", "CCOO", "UGT", "ATP"],
+                "source_ref": "Fuente 3 & 4",
+                "strategic_takeaway": "El texto rebajaba las pretensiones históricas y mantenía el riesgo de empobrecimiento ante futuros repuntes de inflación."
+            },
+            {
+                "id": "milestone-4",
+                "date": "24 de julio de 2026",
+                "phase": "Voto Asambleario",
+                "title": "Referéndum en Urna: 51,13% de la Plantilla Tumba el Preacuerdo",
+                "badge": "Victoria de las Bases",
+                "badge_color": "emerald",
+                "summary": "Con una participación histórica del 84,2%, los trabajadores rechazan el borrador en votación secreta y exigen recuperar la plataforma original del 12% en tablas.",
+                "actors": ["Plantilla de Fábrica (15.562 trabajadores)", "Comité de Huelga"],
+                "source_ref": "Fuente 4 & Actas",
+                "strategic_takeaway": "Punto de inflexión: La soberanía asamblearia desautoriza pactos a la baja y legitima la convocatoria de huelga indefinida."
+            },
+            {
+                "id": "milestone-5",
+                "date": "20 de agosto de 2026",
+                "phase": "Preaviso Legal",
+                "title": "Registro Formal de Preaviso de Huelga Indefinida Legal",
+                "badge": "Registro SIMA",
+                "badge_color": "purple",
+                "summary": "Presentación del preaviso formal ante el SIMA y la Autoridad Laboral cumpliendo escrupulosamente los plazos y requisitos del Real Decreto-ley 17/1977.",
+                "actors": ["Comité de Huelga Soberano", "Servicio Interconfederal de Mediación (SIMA)"],
+                "source_ref": "Fuente 5 & RD 17/1977",
+                "strategic_takeaway": "Blindaje legal absoluto frente a posibles acusaciones de huelga ilegal o servicios abusivos."
+            },
+            {
+                "id": "milestone-6",
+                "date": "25 de agosto de 2026",
+                "phase": "Mediación SIMA 1",
+                "title": "Primera Sesión de Mediación en el SIMA en Madrid: Sin Avenencia",
+                "badge": "Bloqueo Patronal",
+                "badge_color": "rose",
+                "summary": "La dirección de Airbus mantiene su negativa a consolidar el 12% en salario base y pretende sustituirlo por primas variables no consolidables atadas a EBIT.",
+                "actors": ["Dirección RRHH España", "Comité de Huelga"],
+                "source_ref": "Acta SIMA 25/08/2026",
+                "strategic_takeaway": "La empresa intenta testear la resistencia del comité antes del inicio efectivo de los paros."
+            },
+            {
+                "id": "milestone-7",
+                "date": "27 de agosto de 2026",
+                "phase": "Mediación SIMA 2",
+                "title": "Comparecencia de la CHRO y Entrega de la Propuesta Conjunta (11 Puntos)",
+                "badge": "Plataforma Oficial",
+                "badge_color": "emerald",
+                "summary": "El Comité de Huelga formaliza la propuesta completa de 11 puntos: 12% en tablas, 7.500€ de atrasos, RSG = IPC + 1,5%, retirada del recurso de casación en IT (Bradford) y blindaje de relevo.",
+                "actors": ["CHRO Airbus SE", "Comité de Huelga"],
+                "source_ref": "Propuesta Comité Huelga 27/08/2026",
+                "strategic_takeaway": "Plataforma unitaria e innegociable entregada en sede oficial."
+            },
+            {
+                "id": "milestone-8",
+                "date": "28 de agosto de 2026",
+                "phase": "Estrangulamiento JIT",
+                "title": "Paralización de Rutas BelugaXL y Alerta Roja en FALs de Toulouse y Hamburgo",
+                "badge": "Cuello de Botella",
+                "badge_color": "rose",
+                "summary": "El bloqueo de piezas en Getafe corta el suministro de estabilizadores horizontales (HTP). Las líneas de montaje final activan planes de contingencia por stock menor a 60 horas.",
+                "actors": ["Airbus Transport International (ATI)", "FALs Toulouse & Hamburg"],
+                "source_ref": "OpenSky Network & FlightRadar",
+                "strategic_takeaway": "La asimetría crítica 185x entra en acción: cada día de huelga cuesta 22,7 M€ a Airbus SE."
+            },
+            {
+                "id": "milestone-9",
+                "date": "29 de agosto de 2026",
+                "phase": "HOY / En Curso",
+                "title": "Asambleas Generales de Factoría y Activación del Monitor de Presión",
+                "badge": "Fase Decisiva",
+                "badge_color": "amber",
+                "summary": "La plantilla celebra asambleas informativas en todas las factorías. El Termómetro de Presión Mediática e Industrial supera los 85.5°C (Presión Crítica sobre la Dirección).",
+                "actors": ["Asambleas de Plantilla", "Comité de Huelga"],
+                "source_ref": "Monitor Estratégico Airbus 2026",
+                "strategic_takeaway": "Vigencia plena del mandato asambleario: Solo se firmará un preacuerdo que supere los 6 Filtros Innegociables."
+            }
+        ]
+
+    def get_negotiation_workflows(self) -> List[Dict[str, Any]]:
+        """Returns structured decision-tree workflows for all plausible negotiation scenarios."""
+        return [
+            {
+                "id": "workflow-sima-offer",
+                "title": "Workflow 1: Recepción de Nueva Oferta en Mesa SIMA",
+                "category": "Negociación",
+                "badge": "Protocolo Asambleario",
+                "color": "blue",
+                "objective": "Garantizar que ninguna oferta insuficiente se vote en urna sin filtro previo del Comité de Huelga.",
+                "steps": [
+                    {
+                        "step": 1,
+                        "title": "Recepción Formal del Texto Escrito en SIMA",
+                        "condition": "Exigir documento oficial firmado por la dirección con números desglosados en tablas (prohibido someter a asamblea propuestas verbales o intenciones).",
+                        "gate": "Mandatorio"
+                    },
+                    {
+                        "step": 2,
+                        "title": "Auditoría Técnica de los 6 Filtros Innegociables",
+                        "condition": "El Comité de Huelga coteja si cumple: 1) 12% base, 2) RSG IPC+1,5% sin topes, 3) 7.500€ atrasos, 4) Retirada Bradford, 5) Blindaje Relevo, 6) Paz condicionada.",
+                        "gate": "Filtro Técnico"
+                    },
+                    {
+                        "step": 3,
+                        "title": "Bifurcación de Decisión",
+                        "condition": "Si cumple < 4 filtros $\\rightarrow$ Rechazo inmediato en mesa sin desgastar a las bases.\nSi cumple $\\ge$ 5 filtros $\\rightarrow$ Traslado a Asamblea General y referéndum vinculante.",
+                        "gate": "Decisión Comité"
+                    },
+                    {
+                        "step": 4,
+                        "title": "Votación en Urna y Ratificación",
+                        "condition": "Votación secreta individual en fábrica. Si aprueba > 50% $\\rightarrow$ Firma condicionada a REGCON. Si rechaza $\\rightarrow$ Huelga indefinida automática.",
+                        "gate": "Voto Soberano"
+                    }
+                ]
+            },
+            {
+                "id": "workflow-tactical-pause",
+                "title": "Workflow 2: Propuesta de Suspensión Temporal / Pausa Táctica",
+                "category": "Táctica",
+                "badge": "Blindaje Jurídico",
+                "color": "amber",
+                "objective": "Evitar la trampa legal de desconvocar la huelga antes de tener las firmas vinculantes en el BOE/REGCON.",
+                "steps": [
+                    {
+                        "step": 1,
+                        "title": "Diferenciación Legal Estricta (RD-ley 17/1977 Art. 8.2)",
+                        "condition": "Una 'Pausa Temporal de Negociación' NO es una desconvocatoria. La huelga permanece viva jurídicamente.",
+                        "gate": "Mandatorio"
+                    },
+                    {
+                        "step": 2,
+                        "title": "Plazo Improrrogable Acotado por Escrito",
+                        "condition": "Fijar un máximo estricto de 3 a 5 días laborables en sede SIMA. Si vence el plazo sin acuerdo completo, la huelga se reanuda de inmediato.",
+                        "gate": "Condición Temporal"
+                    },
+                    {
+                        "step": 3,
+                        "title": "Papeleta de Huelga Activa al 100%",
+                        "condition": "Mantener los piquetes informativos y la logística de resistencia preparados para reactivar el bloqueo de Beluga en el minuto 1 tras vencer el plazo.",
+                        "gate": "Operatividad"
+                    }
+                ]
+            },
+            {
+                "id": "workflow-full-strike",
+                "title": "Workflow 3: Huelga Indefinida Continuada & Bloqueo JIT",
+                "category": "Presión Industrial",
+                "badge": "Máxima Asimetría 185x",
+                "color": "rose",
+                "objective": "Maximizar el estrangulamiento de las FALs europeas mientras se protege jurídicamente a los trabajadores.",
+                "steps": [
+                    {
+                        "step": 1,
+                        "title": "Control del Monopolio HTP en Getafe (LEGT)",
+                        "condition": "Retención del 100% de estabilizadores de cola en factoría. Agotamiento del stock buffer de Toulouse y Hamburgo en 48-72h.",
+                        "gate": "Palanca Crítica"
+                    },
+                    {
+                        "step": 2,
+                        "title": "Escudo contra Esquirolaje Ilícito (EASA Part-21 & STC 11/1981)",
+                        "condition": "Vigilancia de firmas técnicas y certificaciones de aeronavegabilidad. Denuncia inmediata ante Inspección de Trabajo ante desvíos de carga.",
+                        "gate": "Escudo Legal"
+                    },
+                    {
+                        "step": 3,
+                        "title": "Escalada de Presión Política sobre la SEPI y Gobierno",
+                        "condition": "Exigir al Ministerio de Industria la protección de programas estratégicos de Defensa (Eurofighter, A400M, C295, SIRTAP) forzando a Faury a pactar.",
+                        "gate": "Palanca Política"
+                    }
+                ]
+            },
+            {
+                "id": "workflow-arbitration",
+                "title": "Workflow 4: Intento Patronal de Laudo Arbitral o Mediación Forzosa",
+                "category": "Defensa Jurídica",
+                "badge": "Doctrina Constitucional",
+                "color": "purple",
+                "objective": "Neutralizar intentos de arbitraje obligatorio que cercenen el derecho fundamental de huelga.",
+                "steps": [
+                    {
+                        "step": 1,
+                        "title": "Inaplicabilidad de Servicios Esenciales",
+                        "condition": "Las líneas comerciales de Airbus SE son mercantiles privadas, no servicios públicos de primera necesidad (Art. 10 RD-ley 17/1977).",
+                        "gate": "Defensa Legal"
+                    },
+                    {
+                        "step": 2,
+                        "title": "Recurso de Amparo ante la Audiencia Nacional",
+                        "condition": "Impugnación inmediata ante cualquier intento de imposición ministerial sin consentimiento expreso del Comité de Huelga.",
+                        "gate": "Vía Judicial"
+                    }
+                ]
+            }
+        ]
+
 
     def export_full_dataset(self) -> Dict[str, Any]:
         """Compiles all metrics into a consolidated analytical JSON dictionary."""
@@ -224,6 +454,8 @@ class StrikeAnalysisEngine:
                     "key_lesson": "Sin asimetría crítica en JIT ni solvencia familiar, el conflicto largo desgasta a la plantilla."
                 }
             ],
+            "timeline": self.get_conflict_timeline(),
+            "workflows": self.get_negotiation_workflows(),
             "beluga_logistics": BelugaTracker().fetch_live_data(),
             "sentiment_thermometer": SentimentThermometerEngine().evaluate_pressure_metrics(),
         }

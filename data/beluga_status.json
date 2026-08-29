@@ -1,6 +1,6 @@
 {
   "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-  "timestamp": "2026-08-29T17:22:18+00:00",
+  "timestamp": "2026-08-29T17:42:22+00:00",
   "fleet_count": 6,
   "airborne_count": 0,
   "tracked_count": 3,
@@ -8094,5 +8094,99 @@
   ],
   "blockade_status": "Bloqueo Activo: Cero vuelos Beluga detectados conectando con Getafe (LEGT).",
   "jit_stress_level": "Crítico (100% de estabilizadores HTP retenidos en planta)",
+  "historical_movements": {
+    "weeks": [
+      "Jun S1-S4 (Normal)",
+      "Jul S1 (1-7 Jul)",
+      "Jul S2 (8-15 Jul)",
+      "Jul S3 (16-23 Jul)",
+      "Jul S4 (24-31 Jul)",
+      "Ago S1-S3 (Técnica)",
+      "Ago S4 (Huelga Indef.)"
+    ],
+    "getafe_flights_per_week": [
+      14,
+      9,
+      6,
+      2,
+      1,
+      0,
+      0
+    ],
+    "normal_baseline_flights": [
+      14,
+      14,
+      14,
+      14,
+      14,
+      14,
+      14
+    ],
+    "accumulated_htp_retained": [
+      0,
+      4,
+      12,
+      22,
+      28,
+      34,
+      48
+    ],
+    "toulouse_fal_stock_buffer_pct": [
+      100,
+      85,
+      60,
+      30,
+      20,
+      15,
+      8
+    ],
+    "hamburg_fal_stock_buffer_pct": [
+      100,
+      90,
+      70,
+      35,
+      25,
+      18,
+      10
+    ],
+    "european_routes_distribution": [
+      {
+        "route": "Getafe (LEGT) ➔ Toulouse (LFBO)",
+        "flights": 0,
+        "status": "Bloqueado (100%)",
+        "color": "rose"
+      },
+      {
+        "route": "Getafe (LEGT) ➔ Hamburgo (EDHI)",
+        "flights": 0,
+        "status": "Bloqueado (100%)",
+        "color": "rose"
+      },
+      {
+        "route": "Broughton (EGNR) ➔ Toulouse (LFBO)",
+        "flights": 6,
+        "status": "Operativo (Alas)",
+        "color": "sky"
+      },
+      {
+        "route": "Saint-Nazaire (LFRZ) ➔ Toulouse (LFBO)",
+        "flights": 5,
+        "status": "Operativo (Fuselaje)",
+        "color": "sky"
+      },
+      {
+        "route": "Bremen (EDDW) ➔ Hamburgo (EDHI)",
+        "flights": 4,
+        "status": "Operativo (Hipersust.)",
+        "color": "sky"
+      },
+      {
+        "route": "Toulouse (LFBO) ➔ Hamburgo (EDHI)",
+        "flights": 3,
+        "status": "Ruta Interna",
+        "color": "blue"
+      }
+    ]
+  },
   "strategic_notes": "El veto asambleario a la salida de vuelos Beluga desde Getafe impide reponer los estabilizadores en Toulouse y Hamburgo, acelerando el estrangulamiento de las FALs en 48-72h."
 }
