@@ -791,8 +791,8 @@
                   </div>
                   <span class="text-rose-400 font-mono font-bold">-0,6%</span>
                 </div>
+              </div>
             </div>
-
             <!-- Right Panel: Investor Thesis & Management Vulnerability -->
             <div class="p-4 bg-rose-950/20 rounded-xl border border-rose-500/30 space-y-3 flex flex-col justify-between">
               <div>
@@ -822,7 +822,6 @@
           </div>
         </div>
       </div>
-    </div>
 
       <!-- ==================== TAB: COMPANY FINANCIAL HEALTH (ESTADO GENERAL HISTÓRICO Y ACTUAL) ==================== -->
       <div id="tab-company-health" class="tab-content hidden space-y-6">
@@ -903,24 +902,45 @@
                 <canvas id="companyDeliveriesChart"></canvas>
               </div>
             </div>
+          </div>
 
           <!-- Bottom Row: Shareholder Breakdown & Fairness Axiom -->
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <!-- Shareholder Pie Chart & Details -->
             <div class="p-4 bg-slate-900/90 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
-                <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
-                  <i data-lucide="pie-chart" class="w-4 h-4 mr-2 text-indigo-400"></i>
-                  Estructura Accionarial de Airbus SE
-                </h3>
+                <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                  <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
+                    <i data-lucide="pie-chart" class="w-4 h-4 mr-2 text-indigo-400"></i>
+                    Estructura Accionarial de Airbus SE
+                  </h3>
+                  <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">792,3M acc.</span>
+                </div>
                 <div class="relative h-44 w-full mt-2 flex items-center justify-center">
                   <canvas id="shareholderPieChart"></canvas>
                 </div>
-              <div class="space-y-1 text-[11px] border-t border-slate-800 pt-2 text-slate-300">
-                <div class="flex justify-between"><span>SOGEPA (Francia):</span><strong class="text-blue-400 font-mono">10,9% (86,4M acc.)</strong></div>
-                <div class="flex justify-between"><span>GZBV / KfW (Alemania):</span><strong class="text-amber-400 font-mono">10,8% (85,6M acc.)</strong></div>
-                <div class="flex justify-between"><span>SEPI (España):</span><strong class="text-red-400 font-mono">4,1% (32,5M acc.)</strong></div>
-                <div class="flex justify-between"><span>Capital Flotante / Fondos:</span><strong class="text-emerald-400 font-mono">74,2% (588,5M acc.)</strong></div>
+              </div>
+              <div class="space-y-1.5 text-[11px] border-t border-slate-800 pt-2.5 text-slate-300">
+                <div class="flex justify-between items-center">
+                  <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-blue-500 mr-1.5"></span>SOGEPA (Francia):</span>
+                  <strong class="text-blue-400 font-mono">10,83% (85,8M acc.)</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-amber-500 mr-1.5"></span>GZBV / KfW (Alemania):</span>
+                  <strong class="text-amber-400 font-mono">10,82% (85,7M acc.)</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-red-500 mr-1.5"></span>SEPI (España):</span>
+                  <strong class="text-red-400 font-mono">4,08% (32,3M acc.)</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-slate-400 mr-1.5"></span>Autocartera:</span>
+                  <strong class="text-slate-400 font-mono">0,10% (0,8M acc.)</strong>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-1.5"></span>Free Float (Mercado):</span>
+                  <strong class="text-emerald-400 font-mono">74,17% (587,7M acc.)</strong>
+                </div>
               </div>
             </div>
 
@@ -952,16 +972,13 @@
                     <span class="text-[10px] text-amber-300/80 block">1 solo año de dividendo paga 21,5 años de plataforma (118M€)</span>
                   </div>
                 </div>
-                    <span class="text-[10px] text-slate-400 block">Los dividendos de 1 año pagan 21 convenios</span>
-                  </div>
-                </div>
 
                 <div class="space-y-2 text-xs text-slate-300 mt-4 leading-relaxed bg-slate-900/80 p-3 rounded-xl border border-slate-800">
                   <p>
-                    <strong class="text-white">Aritmética Inapelable:</strong> Airbus SE genera más de <strong class="text-emerald-400">17,0 millones de euros de EBIT cada día</strong>. Con el beneficio operativo de solo <strong class="text-emerald-300">6,9 días de trabajo</strong> (menos de una semana), la multinacional cubre el coste anual íntegro del incremento salarial exigido por toda la plantilla de España.
+                    <strong class="text-white">Aritmética Inapelable:</strong> Airbus SE genera más de <strong class="text-emerald-400">19,5 millones de euros de EBIT Ajustado cada día</strong>. Con el beneficio operativo de solo <strong class="text-emerald-300">6,1 días de trabajo</strong> (menos de una semana), la multinacional cubre el coste anual íntegro del incremento salarial exigido por toda la plantilla de España.
                   </p>
                   <p class="text-[11px] text-slate-400">
-                    Las alegaciones patronales de «falta de presupuesto» o «amenazas de deslocalización» carecen de cualquier fundamento contable ante una empresa con 10.700 M€ de caja neta y 10 años de pedidos récord garantizados.
+                    Las alegaciones patronales de «falta de presupuesto» o «amenazas de deslocalización» carecen de cualquier fundamento contable ante una empresa con 10.700 M€ de caja neta y más de 10 años de pedidos récord garantizados.
                   </p>
                 </div>
               </div>
@@ -1189,8 +1206,8 @@
                   <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: SIMA</a>
                 </div>
               </div>
+            </div>
           </div>
-
           <!-- Social Breakdown Analysis Cards -->
           <div class="mt-4 p-4 bg-amber-950/20 border border-amber-500/30 rounded-xl space-y-3">
             <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center">
@@ -1937,7 +1954,6 @@
           </div>
         </div>
       </div>
-    </div>
 
       <!-- ==================== TAB 6: 6-FILTER AUDITOR ==================== -->
       <div id="tab-checklist" class="tab-content hidden space-y-6">
