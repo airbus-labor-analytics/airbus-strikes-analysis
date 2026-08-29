@@ -133,13 +133,9 @@ function initAllModules() {
   initThermometerAndBeluga();
   updateAsymmetrySimulation();
   updateWageSimulation();
+  // Tab overview is default visible tab
   initAsymmetryChart();
-  initWagesChart();
-  initBelugaHistoryChart();
-  initAirbusStockChart();
-  initCompanyHealthCharts();
-  initUnionCharts();
-  
+  updateAsymmetrySimulation();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -224,16 +220,16 @@ function switchTab(tabId) {
   const normalizedTabId = tabId.startsWith('tab-') ? tabId : `tab-${tabId}`;
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold');
-    btn.classList.add('text-slate-400', 'font-medium');
+    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
+    btn.classList.add('text-slate-400');
   });
 
   const activeTab = document.getElementById(normalizedTabId);
   const activeBtn = document.getElementById(`btn-${normalizedTabId}`);
   if (activeTab) activeTab.classList.remove('hidden');
   if (activeBtn) {
-    activeBtn.classList.remove('text-slate-400', 'font-medium');
-    activeBtn.classList.add('bg-blue-600', 'text-white', 'font-bold');
+    activeBtn.classList.remove('text-slate-400');
+    activeBtn.classList.add('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
   }
 
   // Update URL hash smoothly
@@ -254,41 +250,44 @@ function switchTab(tabId) {
     }
   }
 
-  setTimeout(() => {
-    if (normalizedTabId === 'tab-overview' || normalizedTabId === 'tab-kpis') {
-      initAsymmetryChart();
-      updateAsymmetrySimulation();
-    } else if (normalizedTabId === 'tab-wages') {
-      initWagesChart();
-      updateWageSimulation();
-    } else if (normalizedTabId === 'tab-thermometer') {
-      initBelugaHistoryChart();
-      initThermometerAndBeluga();
-    } else if (normalizedTabId === 'tab-stock') {
-      initAirbusStockChart();
-    } else if (normalizedTabId === 'tab-company-health') {
-      initCompanyHealthCharts();
-    } else if (normalizedTabId === 'tab-unions') {
-      initUnionCharts();
-    } else if (normalizedTabId === 'tab-historical-losses') {
-      initHistoricalLosses();
-    } else if (normalizedTabId === 'tab-negotiation') {
-      initNegotiationEvolution();
-    } else if (normalizedTabId === 'tab-workflows') {
-      initWorkflows();
-    } else if (normalizedTabId === 'tab-timeline') {
-      initTimeline();
-    } else if (normalizedTabId === 'tab-checklist') {
-      initChecklist();
-    } else if (normalizedTabId === 'tab-benchmarks') {
-      initBenchmarks();
-    } else if (normalizedTabId === 'tab-sources') {
-      initSources();
-    } else if (normalizedTabId === 'tab-telegram-archive') {
-      initTelegramArchive();
-    }
-    if (window.lucide) lucide.createIcons();
-  }, 60);
+  // Schedule chart initializations after DOM unhides
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      if (normalizedTabId === 'tab-overview' || normalizedTabId === 'tab-kpis') {
+        initAsymmetryChart();
+        updateAsymmetrySimulation();
+      } else if (normalizedTabId === 'tab-wages') {
+        initWagesChart();
+        updateWageSimulation();
+      } else if (normalizedTabId === 'tab-thermometer') {
+        initBelugaHistoryChart();
+        initThermometerAndBeluga();
+      } else if (normalizedTabId === 'tab-stock') {
+        initAirbusStockChart();
+      } else if (normalizedTabId === 'tab-company-health') {
+        initCompanyHealthCharts();
+      } else if (normalizedTabId === 'tab-unions') {
+        initUnionCharts();
+      } else if (normalizedTabId === 'tab-historical-losses') {
+        initHistoricalLosses();
+      } else if (normalizedTabId === 'tab-negotiation') {
+        initNegotiationEvolution();
+      } else if (normalizedTabId === 'tab-workflows') {
+        initWorkflows();
+      } else if (normalizedTabId === 'tab-timeline') {
+        initTimeline();
+      } else if (normalizedTabId === 'tab-checklist') {
+        initChecklist();
+      } else if (normalizedTabId === 'tab-benchmarks') {
+        initBenchmarks();
+      } else if (normalizedTabId === 'tab-sources') {
+        initSources();
+      } else if (normalizedTabId === 'tab-telegram-archive') {
+        initTelegramArchive();
+      }
+      if (window.lucide) lucide.createIcons();
+    }, 60);
+  });
 }
 // ==================== ASYMMETRY SIMULATOR ====================
 function setAsymmetryDays(days) {

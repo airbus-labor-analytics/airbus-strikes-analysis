@@ -114,7 +114,7 @@
   <div class="flex-1 flex overflow-hidden">
 
     <!-- SIDEBAR NAVIGATION -->
-    <aside id="sidebar-menu" class="fixed inset-y-0 left-0 z-40 w-64 bg-slate-900 border-r border-slate-800 flex flex-col transform -translate-x-full lg:translate-x-0 lg:static lg:inset-auto transition-transform duration-300 ease-in-out">
+    <aside id="sidebar-menu" class="fixed inset-y-0 left-0 z-40 w-72 bg-slate-900 border-r border-slate-800 flex flex-col transform -translate-x-full lg:translate-x-0 lg:static lg:inset-auto transition-transform duration-300 ease-in-out">
       <!-- Sidebar Header (Mobile) -->
       <div class="lg:hidden p-4 border-b border-slate-800 flex justify-between items-center">
         <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Navegación Estratégica</span>
@@ -124,112 +124,102 @@
       </div>
 
       <!-- Navigation Links Container -->
-      <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-6">
+      <div class="flex-1 overflow-y-auto custom-scrollbar p-3.5 space-y-5">
 
         <!-- Category 1: Strategic Analysis -->
         <div>
-          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2">1. Análisis Estratégico</span>
+          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2 text-left">1. Análisis Estratégico</span>
           <div class="space-y-1">
-            <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-bold text-white bg-blue-600 flex items-center space-x-2.5 transition">
-              <i data-lucide="layout-dashboard" class="w-4 h-4 text-white"></i>
-              <span>Centro de Mando & Asimetría</span>
+            <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 flex items-center text-left transition shadow-md shadow-blue-600/30">
+              <i data-lucide="layout-dashboard" class="w-4 h-4 mr-2.5 flex-shrink-0 text-white"></i>
+              <span class="flex-1 text-left truncate">Centro de Mando & Asimetría</span>
             </button>
 
-            <button onclick="switchTab('tab-jit')" id="btn-tab-jit" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="boxes" class="w-4 h-4 text-sky-400"></i>
-              <span>Cadena JIT & FALs</span>
+            <button onclick="switchTab('tab-jit')" id="btn-tab-jit" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="boxes" class="w-4 h-4 mr-2.5 flex-shrink-0 text-sky-400"></i>
+              <span class="flex-1 text-left truncate">Cadena JIT & FALs</span>
             </button>
 
-            <button onclick="switchTab('tab-thermometer')" id="btn-tab-thermometer" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
-              <div class="flex items-center space-x-2.5">
-                <i data-lucide="flame" class="w-4 h-4 text-rose-500"></i>
-                <span>Termómetro & Beluga Live</span>
-              </div>
-              <span class="px-1.5 py-0.5 text-[10px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">85.5°C</span>
+            <button onclick="switchTab('tab-thermometer')" id="btn-tab-thermometer" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="flame" class="w-4 h-4 mr-2.5 flex-shrink-0 text-rose-500"></i>
+              <span class="flex-1 text-left truncate">Termómetro & Beluga Live</span>
+              <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">85.5°C</span>
             </button>
 
-            <button onclick="switchTab('tab-stock')" id="btn-tab-stock" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
-              <div class="flex items-center space-x-2.5">
-                <i data-lucide="trending-down" class="w-4 h-4 text-rose-400"></i>
-                <span>Acción & Mercados (AIR.PA)</span>
-              </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">203,05 € (-8,3%)</span>
+            <button onclick="switchTab('tab-stock')" id="btn-tab-stock" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="trending-down" class="w-4 h-4 mr-2.5 flex-shrink-0 text-rose-400"></i>
+              <span class="flex-1 text-left truncate">Acción & Mercados (AIR.PA)</span>
+              <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">-8,3%</span>
             </button>
 
-            <button onclick="switchTab('tab-company-health')" id="btn-tab-company-health" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
-              <div class="flex items-center space-x-2.5">
-                <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
-                <span>Salud Financiera Airbus SE</span>
-              </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">8.754 ped.</span>
+            <button onclick="switchTab('tab-company-health')" id="btn-tab-company-health" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="building-2" class="w-4 h-4 mr-2.5 flex-shrink-0 text-emerald-400"></i>
+              <span class="flex-1 text-left truncate">Salud Financiera Airbus</span>
+              <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">8.754 ped.</span>
             </button>
           </div>
         </div>
 
         <!-- Category 2: Action & Negotiation -->
         <div>
-          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2">2. Negociación & Acción</span>
+          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2 text-left">2. Negociación & Acción</span>
           <div class="space-y-1">
-            <button onclick="switchTab('tab-workflows')" id="btn-tab-workflows" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="git-merge" class="w-4 h-4 text-indigo-400"></i>
-              <span>Workflows & Escenarios</span>
+            <button onclick="switchTab('tab-workflows')" id="btn-tab-workflows" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="git-merge" class="w-4 h-4 mr-2.5 flex-shrink-0 text-indigo-400"></i>
+              <span class="flex-1 text-left truncate">Workflows & Escenarios</span>
             </button>
 
-            <button onclick="switchTab('tab-unions')" id="btn-tab-unions" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
-              <div class="flex items-center space-x-2.5">
-                <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
-                <span>Mapa Social & Sindicatos</span>
-              </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">6 sindicatos</span>
+            <button onclick="switchTab('tab-unions')" id="btn-tab-unions" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="users" class="w-4 h-4 mr-2.5 flex-shrink-0 text-amber-400"></i>
+              <span class="flex-1 text-left truncate">Mapa Social & Sindicatos</span>
+              <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">198 del.</span>
             </button>
 
-            <button onclick="switchTab('tab-historical-losses')" id="btn-tab-historical-losses" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="file-minus-2" class="w-4 h-4 text-rose-400"></i>
-              <span>Pérdidas Históricas (BOE)</span>
+            <button onclick="switchTab('tab-historical-losses')" id="btn-tab-historical-losses" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="file-minus-2" class="w-4 h-4 mr-2.5 flex-shrink-0 text-rose-400"></i>
+              <span class="flex-1 text-left truncate">Pérdidas Históricas (BOE)</span>
             </button>
 
-            <button onclick="switchTab('tab-negotiation')" id="btn-tab-negotiation" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="scale" class="w-4 h-4 text-emerald-400"></i>
-              <span>Evolución & Brechas Negociación</span>
+            <button onclick="switchTab('tab-negotiation')" id="btn-tab-negotiation" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="scale" class="w-4 h-4 mr-2.5 flex-shrink-0 text-emerald-400"></i>
+              <span class="flex-1 text-left truncate">Evolución & Brechas</span>
             </button>
 
-            <button onclick="switchTab('tab-timeline')" id="btn-tab-timeline" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="history" class="w-4 h-4 text-amber-400"></i>
-              <span>Línea Temporal & Asambleas</span>
+            <button onclick="switchTab('tab-timeline')" id="btn-tab-timeline" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="history" class="w-4 h-4 mr-2.5 flex-shrink-0 text-amber-400"></i>
+              <span class="flex-1 text-left truncate">Línea Temporal & Hitos</span>
             </button>
 
-            <button onclick="switchTab('tab-checklist')" id="btn-tab-checklist" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="check-square" class="w-4 h-4 text-teal-400"></i>
-              <span>Auditor 6 Filtros Urna</span>
+            <button onclick="switchTab('tab-checklist')" id="btn-tab-checklist" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="check-square" class="w-4 h-4 mr-2.5 flex-shrink-0 text-teal-400"></i>
+              <span class="flex-1 text-left truncate">Auditor 6 Filtros Urna</span>
             </button>
           </div>
         </div>
 
         <!-- Category 3: Tools & Reference -->
         <div>
-          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2">3. Herramientas & Datos</span>
+          <span class="px-3 text-[10px] font-black uppercase tracking-wider text-slate-500 block mb-2 text-left">3. Herramientas & Datos</span>
           <div class="space-y-1">
-            <button onclick="switchTab('tab-wages')" id="btn-tab-wages" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
-              <span>Simulador Salarial</span>
+            <button onclick="switchTab('tab-wages')" id="btn-tab-wages" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="calculator" class="w-4 h-4 mr-2.5 flex-shrink-0 text-emerald-400"></i>
+              <span class="flex-1 text-left truncate">Simulador Salarial</span>
             </button>
 
-            <button onclick="switchTab('tab-benchmarks')" id="btn-tab-benchmarks" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="award" class="w-4 h-4 text-purple-400"></i>
-              <span>Casos Comparados</span>
+            <button onclick="switchTab('tab-benchmarks')" id="btn-tab-benchmarks" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="award" class="w-4 h-4 mr-2.5 flex-shrink-0 text-purple-400"></i>
+              <span class="flex-1 text-left truncate">Casos Comparados</span>
             </button>
 
-            <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="book-open" class="w-4 h-4 text-sky-400"></i>
-              <span>Anexo Documental (269)</span>
+            <button onclick="switchTab('tab-sources')" id="btn-tab-sources" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="book-open" class="w-4 h-4 mr-2.5 flex-shrink-0 text-sky-400"></i>
+              <span class="flex-1 text-left truncate">Anexo Documental (269)</span>
             </button>
 
-            <button onclick="switchTab('tab-telegram-archive')" id="btn-tab-telegram-archive" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
-              <div class="flex items-center space-x-2.5">
-                <i data-lucide="send" class="w-4 h-4 text-sky-400"></i>
-                <span>Archivo Telegram (Canal)</span>
-              </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 rounded border border-sky-500/30">5.794 m.</span>
+            <button onclick="switchTab('tab-telegram-archive')" id="btn-tab-telegram-archive" class="tab-btn w-full px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+              <i data-lucide="send" class="w-4 h-4 mr-2.5 flex-shrink-0 text-sky-400"></i>
+              <span class="flex-1 text-left truncate">Archivo Telegram</span>
+              <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 rounded border border-sky-500/30">5.794 m.</span>
             </button>
           </div>
         </div>
@@ -237,8 +227,8 @@
       </div>
 
       <!-- Sidebar Footer -->
-      <div class="p-3 border-t border-slate-800/80 bg-slate-950/40 text-[11px] text-slate-500 flex items-center justify-between">
-        <span>Plantilla España: <strong>15.562</strong></span>
+      <div class="p-3.5 border-t border-slate-800/80 bg-slate-950/60 text-[11px] text-slate-500 flex items-center justify-between">
+        <span>Plantilla España: <strong class="text-slate-300">15.562</strong></span>
         <span class="text-emerald-400 font-bold">SIMA v8</span>
       </div>
     </aside>
@@ -989,9 +979,9 @@
       </div>
       <!-- ==================== TAB: TRADE UNIONS & SOCIAL LANDSCAPE (MAPA SOCIAL Y SINDICATOS) ==================== -->
       <div id="tab-unions" class="tab-content hidden space-y-6">
-        <!-- Header Card -->
-        <div class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30 space-y-5">
-          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+        <!-- ==================== APARTADO 1: REPRESENTACIÓN SINDICAL & ELECTORAL ==================== -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30 space-y-6">
+          <div class="border-b border-slate-800/80 pb-3.5 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded uppercase tracking-wider">Apartado 1</span>
@@ -1002,11 +992,11 @@
               </div>
               <p class="text-xs text-slate-400">Correlación de fuerzas, distribución de 198 delegados estatales, evolución histórica de mayorías y composición por centro de trabajo.</p>
             </div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-shrink-0">
               <span class="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg">
                 Censo Directo: ~14.000 (15.562 Total)
               </span>
-              <span class="px-2.5 py-1 text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 rounded-lg hidden sm:inline-block">
+              <span class="px-2.5 py-1 text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 rounded-lg">
                 198 Delegados
               </span>
             </div>
@@ -1014,40 +1004,40 @@
 
           <!-- 4 Social & Electoral KPIs -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-rose-500/30 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Bipartidismo (CCOO + UGT)</span>
-                <span class="text-rose-400 font-bold">56,56% (112 del.)</span>
+                <span class="font-medium text-slate-300">Bipartidismo (CCOO + UGT)</span>
+                <i data-lucide="shield-alert" class="w-4 h-4 text-rose-400"></i>
               </div>
-              <p class="text-2xl font-black text-white mt-1">56,56%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">112 delegados estatales <a href="https://industria.ccoo.es/Aeroespacial" target="_blank" class="text-sky-400 underline">[CCOO/UGT]</a></span>
+              <p class="text-2xl font-black text-white">56,56%</p>
+              <span class="text-[11px] text-rose-400/90 block font-medium">112 delegados <a href="https://industria.ccoo.es/Aeroespacial" target="_blank" class="text-sky-400 underline font-mono text-[10px]">[CCOO/UGT]</a></span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-amber-500/30 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Bloque Independiente & Crítico</span>
-                <span class="text-emerald-400 font-bold">43,44% (86 del.)</span>
+                <span class="font-medium text-slate-300">Bloque Crítico & Indep.</span>
+                <i data-lucide="users-round" class="w-4 h-4 text-amber-400"></i>
               </div>
-              <p class="text-2xl font-black text-amber-400 mt-1">43,44%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">86 del. (ATP 15,7%, SIPA 15,2%, CGT 12,6%)</span>
+              <p class="text-2xl font-black text-amber-400">43,44%</p>
+              <span class="text-[11px] text-slate-400 block">86 del. (ATP 31, SIPA 30, CGT 25)</span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-sky-500/30 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Comité Interempresas</span>
-                <span class="text-sky-400 font-bold">13 Asientos</span>
+                <span class="font-medium text-slate-300">Comité Interempresas</span>
+                <i data-lucide="network" class="w-4 h-4 text-sky-400"></i>
               </div>
-              <p class="text-2xl font-black text-sky-400 mt-1">13 Asientos</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">CCOO: 5 | UGT: 3 | ATP: 2 | SIPA: 2 | CGT: 1</span>
+              <p class="text-2xl font-black text-sky-400">13 Asientos</p>
+              <span class="text-[11px] text-slate-400 block font-mono text-[10.5px]">CCOO: 5 | UGT: 3 | ATP: 2 | SIPA: 2 | CGT: 1</span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-emerald-500/30 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Centros Industriales</span>
-                <span class="text-amber-400 font-bold">7 Plantas</span>
+                <span class="font-medium text-slate-300">Centros Industriales</span>
+                <i data-lucide="factory" class="w-4 h-4 text-emerald-400"></i>
               </div>
-              <p class="text-2xl font-black text-amber-400 mt-1">7 Factorías</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Getafe, San Pablo, Illescas, Tablada, Cádiz, Barajas, Albacete</span>
+              <p class="text-2xl font-black text-emerald-400">7 Factorías</p>
+              <span class="text-[11px] text-slate-400 block truncate">Getafe, San Pablo, Illescas, Tablada, Cádiz, Barajas, Albacete</span>
             </div>
           </div>
 
@@ -1065,7 +1055,7 @@
                 </div>
                 <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">198 del.</span>
               </div>
-              <div class="h-56 relative flex items-center justify-center">
+              <div class="relative w-full h-56">
                 <canvas id="unionShareChart"></canvas>
               </div>
               <!-- Legend Grid -->
@@ -1091,7 +1081,7 @@
                 </div>
                 <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">2010-2026</span>
               </div>
-              <div class="h-56 relative">
+              <div class="relative w-full h-56">
                 <canvas id="unionEvolutionChart"></canvas>
               </div>
               <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
@@ -1112,12 +1102,16 @@
                 </div>
                 <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">171 delegados</span>
               </div>
-              <div class="h-56 relative">
+              <div class="relative w-full h-56">
                 <canvas id="siteDelegatesChart"></canvas>
               </div>
-              <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
-                <span>Getafe: 39 del. | San Pablo: 27 | Illescas: 25</span>
-                <span class="text-sky-400 font-bold">7 Comités</span>
+              <!-- Legend Grid for Site Delegates -->
+              <div class="grid grid-cols-2 gap-1.5 pt-2 border-t border-slate-800/80 text-[10px]">
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-600"></span><span class="text-slate-300 font-medium">CCOO: 64 del.</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600"></span><span class="text-slate-300 font-medium">SIPA: 26 del.</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span><span class="text-slate-300 font-medium">UGT: 33 del.</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span><span class="text-slate-300 font-medium">ATP: 24 del.</span></div>
+                <div class="flex items-center space-x-1.5 col-span-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span><span class="text-slate-300 font-medium">CGT: 20 del. (Total 167 del. en comités)</span></div>
               </div>
             </div>
           </div>
@@ -1146,7 +1140,7 @@
 
         <!-- ==================== APARTADO 2: RESULTADOS OFICIALES REFERÉNDUM 24-JULIO ==================== -->
         <div class="glass-card p-5 sm:p-6 rounded-2xl border-rose-500/30 space-y-6">
-          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+          <div class="border-b border-slate-800/80 pb-3.5 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="px-2 py-0.5 text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded uppercase tracking-wider">Apartado 2</span>
@@ -1157,47 +1151,47 @@
               </div>
               <p class="text-xs text-slate-400">Votación en urna con voto secreto que tumbó el preacuerdo de revisión salarial de la dirección y abrió la vía a la huelga indefinida.</p>
             </div>
-            <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit">
+            <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit flex-shrink-0">
               Preacuerdo Tumbado (49,15% NO)
             </span>
           </div>
 
           <!-- 4 Referendum KPIs -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-sky-500/30 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Participación Total</span>
-                <span class="text-sky-400 font-bold">12.674 votos</span>
+                <span class="font-medium text-slate-300">Participación Total</span>
+                <i data-lucide="activity" class="w-4 h-4 text-sky-400"></i>
               </div>
-              <p class="text-2xl font-black text-sky-400 mt-1">81,44%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Participación récord en la historia de Airbus España</span>
+              <p class="text-2xl font-black text-sky-400">81,44%</p>
+              <span class="text-[11px] text-slate-400 block font-mono">12.674 votos emitidos</span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-rose-500/30 rounded-xl bg-rose-950/10">
+            <div class="p-4 bg-slate-900/90 border border-rose-500/40 rounded-xl bg-rose-950/20 space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Votos en Contra (NO)</span>
-                <span class="text-rose-400 font-bold">6.229 votos</span>
+                <span class="font-bold text-rose-300">Votos en Contra (NO)</span>
+                <i data-lucide="thumbs-down" class="w-4 h-4 text-rose-400"></i>
               </div>
-              <p class="text-2xl font-black text-rose-400 mt-1">49,15%</p>
-              <span class="text-[10px] text-rose-300 block mt-0.5">Victoria del rechazo que desautorizó la oferta patronal</span>
+              <p class="text-2xl font-black text-rose-400">49,15%</p>
+              <span class="text-[11px] text-rose-300/90 block font-mono">6.229 votos (Victoria del rechazo)</span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-emerald-500/30 rounded-xl bg-emerald-950/10">
+            <div class="p-4 bg-slate-900/90 border border-emerald-500/40 rounded-xl bg-emerald-950/20 space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Votos a Favor (SÍ)</span>
-                <span class="text-emerald-400 font-bold">5.823 votos</span>
+                <span class="font-bold text-emerald-300">Votos a Favor (SÍ)</span>
+                <i data-lucide="thumbs-up" class="w-4 h-4 text-emerald-400"></i>
               </div>
-              <p class="text-2xl font-black text-emerald-400 mt-1">45,95%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Votos favorables al preacuerdo inicial de revisión</span>
+              <p class="text-2xl font-black text-emerald-400">45,95%</p>
+              <span class="text-[11px] text-emerald-300/90 block font-mono">5.823 votos favorables</span>
             </div>
 
-            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-1">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Votos Blanco / Nulos</span>
-                <span class="text-slate-400 font-bold">585 votos</span>
+                <span class="font-medium text-slate-300">Votos Blanco / Nulos</span>
+                <i data-lucide="circle-slash" class="w-4 h-4 text-slate-400"></i>
               </div>
-              <p class="text-2xl font-black text-slate-300 mt-1">4,62%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Votos en blanco (412) y nulos (173)</span>
+              <p class="text-2xl font-black text-slate-300">4,62%</p>
+              <span class="text-[11px] text-slate-400 block font-mono">585 votos (412 blanco, 173 nulos)</span>
             </div>
           </div>
 
@@ -1215,7 +1209,7 @@
                 </div>
                 <span class="px-2 py-0.5 text-[10px] font-bold bg-rose-500/20 text-rose-300 rounded">Victoria NO</span>
               </div>
-              <div class="h-64 relative flex items-center justify-center">
+              <div class="relative w-full h-64">
                 <canvas id="referendumPieChart"></canvas>
               </div>
               <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80 text-[10.5px] text-center">
@@ -1237,7 +1231,7 @@
                 </div>
                 <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">7 Factorías</span>
               </div>
-              <div class="h-64 relative">
+              <div class="relative w-full h-64">
                 <canvas id="referendumSitesChart"></canvas>
               </div>
               <div class="p-2.5 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-slate-300 flex items-center justify-between">
