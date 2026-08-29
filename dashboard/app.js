@@ -45,6 +45,9 @@ let companyDeliveriesChart = null;
 let shareholderPieChart = null;
 let unionShareChart = null;
 let unionEvolutionChart = null;
+let siteDelegatesChart = null;
+let referendumPieChart = null;
+let referendumSitesChart = null;
 let thermoFeedData = [];
 let belugaPollingInterval = null;
 let selectedSourceCategory = 'ALL';
@@ -1101,6 +1104,9 @@ function initShareholderPieChart() {
 function initUnionCharts() {
   initUnionShareChart();
   initUnionEvolutionChart();
+  initSiteDelegatesChart();
+  initReferendumPieChart();
+  initReferendumSitesChart();
   initUnionSitesBreakdown();
 }
 
@@ -1204,6 +1210,207 @@ function initUnionEvolutionChart() {
       },
       plugins: {
         legend: { labels: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } } }
+      }
+    }
+  });
+}
+
+function initSiteDelegatesChart() {
+  const ctx = document.getElementById('siteDelegatesChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (siteDelegatesChart) siteDelegatesChart.destroy();
+
+  const sites = conflictData?.trade_union_representation?.site_breakdown || [
+    { site_id: "getafe", name: "Getafe", delegates_by_union: { "SIPA": 13, "CCOO": 11, "ATP": 8, "CGT": 4, "UGT": 3 } },
+    { site_id: "san_pablo", name: "San Pablo", delegates_by_union: { "UGT": 9, "CCOO": 8, "SIPA": 5, "ATP": 3, "CGT": 2 } },
+    { site_id: "illescas", name: "Illescas", delegates_by_union: { "CCOO": 12, "CGT": 5, "UGT": 4, "ATP": 3, "SIPA": 1 } },
+    { site_id: "tablada", name: "Tablada", delegates_by_union: { "CCOO": 9, "UGT": 7, "CGT": 3, "ATP": 2, "SIPA": 0 } },
+    { site_id: "cadiz_cbc", name: "Cádiz (CBC)", delegates_by_union: { "CCOO": 8, "CGT": 5, "UGT": 4, "SIPA": 2, "ATP": 2 } },
+    { site_id: "barajas", name: "Barajas", delegates_by_union: { "CCOO": 8, "ATP": 6, "SIPA": 4, "UGT": 2, "CGT": 1 } },
+    { site_id: "albacete", name: "Albacete", delegates_by_union: { "CCOO": 8, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 0 } }
+  ];
+
+  const siteShortNames = {
+    'getafe': 'Getafe',
+    'illescas': 'Illescas',
+    'san_pablo': 'San Pablo',
+    'tablada': 'Tablada',
+    'cadiz_cbc': 'Cádiz',
+    'albacete': 'Albacete',
+    'barajas': 'Barajas'
+  };
+
+  const labels = sites.map(s => siteShortNames[s.site_id] || s.name.split(' ')[0]);
+
+  siteDelegatesChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'CCOO', data: sites.map(s => s.delegates_by_union?.['CCOO'] || 0), backgroundColor: '#dc2626', borderRadius: 2 },
+        { label: 'SIPA', data: sites.map(s => s.delegates_by_union?.['SIPA'] || 0), backgroundColor: '#0284c7', borderRadius: 2 },
+        { label: 'UGT', data: sites.map(s => s.delegates_by_union?.['UGT'] || 0), backgroundColor: '#ea580c', borderRadius: 2 },
+        { label: 'ATP', data: sites.map(s => s.delegates_by_union?.['ATP'] || 0), backgroundColor: '#9333ea', borderRadius: 2 },
+        { label: 'CGT', data: sites.map(s => s.delegates_by_union?.['CGT'] || 0), backgroundColor: '#16a34a', borderRadius: 2 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { stacked: true, grid: { color: 'rgba(51, 65, 85, 0.4)' }, ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 9.5 } } },
+        y: {
+          stacked: true,
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#94a3b8', stepSize: 5 },
+          title: { display: true, text: 'Nº Delegados', color: '#94a3b8', font: { size: 9.5, weight: 'bold' } }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#f8fafc',
+          bodyColor: '#cbd5e1',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 8
+        }
+      }
+    }
+  });
+}
+
+function initReferendumPieChart() {
+  const ctx = document.getElementById('referendumPieChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (referendumPieChart) referendumPieChart.destroy();
+
+  referendumPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Voto NO (Rechazo)', 'Voto SÍ (Aprobación)', 'Votos Blanco / Nulos'],
+      datasets: [
+        {
+          data: [49.15, 45.95, 4.62],
+          backgroundColor: ['#f43f5e', '#10b981', '#64748b'],
+          borderColor: '#0f172a',
+          borderWidth: 3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#f8fafc',
+          bodyColor: '#cbd5e1',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const val = context.raw || 0;
+              const votes = context.dataIndex === 0 ? '6.229 votos' : (context.dataIndex === 1 ? '5.823 votos' : '585 votos');
+              return ` ${label}: ${val}% (${votes})`;
+            }
+          }
+        }
+      },
+      cutout: '55%'
+    }
+  });
+}
+
+function initReferendumSitesChart() {
+  const ctx = document.getElementById('referendumSitesChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (referendumSitesChart) referendumSitesChart.destroy();
+
+  const sites = conflictData?.trade_union_representation?.site_breakdown || [];
+  // Sort by highest NO percentage to highlight the strongholds of rejection
+  const sortedSites = [...sites].sort((a, b) => (b.referendum_24j?.no_pct || 0) - (a.referendum_24j?.no_pct || 0));
+
+  const siteShortNames = {
+    'cadiz_cbc': 'Cádiz (CBC)',
+    'illescas': 'Illescas',
+    'getafe': 'Getafe',
+    'barajas': 'Barajas',
+    'san_pablo': 'San Pablo',
+    'tablada': 'Tablada',
+    'albacete': 'Albacete'
+  };
+
+  const labels = sortedSites.map(s => siteShortNames[s.site_id] || s.name.split(' ')[0]);
+  const noData = sortedSites.map(s => s.referendum_24j?.no_pct || 0);
+  const yesData = sortedSites.map(s => s.referendum_24j?.yes_pct || 0);
+  const turnoutData = sortedSites.map(s => s.referendum_24j?.turnout_pct || 0);
+
+  referendumSitesChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: '% Voto NO (Rechazo)',
+          data: noData,
+          backgroundColor: '#f43f5e',
+          borderRadius: 4
+        },
+        {
+          label: '% Voto SÍ (Aprobación)',
+          data: yesData,
+          backgroundColor: '#10b981',
+          borderRadius: 4
+        },
+        {
+          label: '% Participación',
+          data: turnoutData,
+          backgroundColor: '#38bdf8',
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } }
+        },
+        y: {
+          max: 100,
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#94a3b8', callback: v => `${v}%` },
+          title: { display: true, text: '% sobre Censo / Votantes', color: '#94a3b8', font: { size: 10, weight: 'bold' } }
+        }
+      },
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' }, padding: 12 }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#f8fafc',
+          bodyColor: '#cbd5e1',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              return ` ${context.dataset.label}: ${context.raw}%`;
+            }
+          }
+        }
       }
     }
   });

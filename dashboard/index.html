@@ -993,11 +993,14 @@
         <div class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30 space-y-5">
           <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
             <div>
-              <h2 class="text-base sm:text-lg font-black text-white flex items-center">
-                <i data-lucide="users" class="w-5 h-5 mr-2 text-amber-400"></i>
-                Mapa Social, Representación Sindical & Evolución Histórica en Airbus España
-              </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Correlación de fuerzas, distribución de delegados, evolución electoral (2015 - 2026) y la ruptura del modelo tradicional hacia la asamblea soberana.</p>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded uppercase tracking-wider">Apartado 1</span>
+                <h2 class="text-base sm:text-lg font-black text-white flex items-center">
+                  <i data-lucide="users" class="w-5 h-5 mr-2 text-amber-400"></i>
+                  Representación Sindical y Electoral (Global y por Factoría)
+                </h2>
+              </div>
+              <p class="text-xs text-slate-400">Correlación de fuerzas, distribución de 198 delegados estatales, evolución histórica de mayorías y composición por centro de trabajo.</p>
             </div>
             <div class="flex items-center gap-2">
               <span class="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg">
@@ -1031,42 +1034,42 @@
 
             <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Participación Referéndum 24-Jul</span>
-                <span class="text-sky-400 font-bold">Histórica</span>
+                <span>Comité Interempresas</span>
+                <span class="text-sky-400 font-bold">13 Asientos</span>
               </div>
-              <p class="text-2xl font-black text-sky-400 mt-1">81,44%</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Votación masiva en urna con voto secreto <a href="https://efe.com/economia/2026-07-25/plantilla-airbus-rechaza-preacuerdo-direccion-sindicatos/" target="_blank" class="text-sky-400 underline">[EFE]</a></span>
+              <p class="text-2xl font-black text-sky-400 mt-1">13 Asientos</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">CCOO: 5 | UGT: 3 | ATP: 2 | SIPA: 2 | CGT: 1</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
               <div class="flex items-center justify-between text-xs text-slate-400">
-                <span>Voto de Rechazo (Preacuerdo Tumbado)</span>
-                <span class="text-rose-400 font-bold">Punto Inflexión</span>
+                <span>Centros Industriales</span>
+                <span class="text-amber-400 font-bold">7 Plantas</span>
               </div>
-              <p class="text-2xl font-black text-rose-400 mt-1">49,15% NO</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">49,15% NO vs 45,95% SÍ (4,62% blanco/nulo) <a href="https://cincodias.elpais.com/companias/2026-07-25/los-trabajadores-de-airbus-votan-en-contra-del-acuerdo-con-la-empresa-de-revision-salarial-y-teletrabajo.html" target="_blank" class="text-sky-400 underline">[Cinco Días]</a></span>
+              <p class="text-2xl font-black text-amber-400 mt-1">7 Factorías</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Getafe, San Pablo, Illescas, Tablada, Cádiz, Barajas, Albacete</span>
             </div>
           </div>
 
-          <!-- Charts Row: Current Distribution & Historical Evolution -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
+          <!-- Charts Row: Current Distribution & Historical Evolution & Per-Site Delegates -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <!-- Chart 1: Current Distribution -->
             <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
                 <div>
                   <h3 class="text-xs font-bold text-white flex items-center">
                     <i data-lucide="pie-chart" class="w-4 h-4 mr-1.5 text-amber-400"></i>
-                    Distribución Actual de Representatividad Sindical
+                    Representación Sindical Estatal
                   </h3>
-                  <p class="text-[10px] text-slate-400">Porcentaje de votos y delegados en el Comité Interempresas</p>
+                  <p class="text-[10px] text-slate-400">% en Comité Interempresas</p>
                 </div>
-                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">198 Delegados</span>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">198 del.</span>
               </div>
-              <div class="h-64 relative flex items-center justify-center">
+              <div class="h-56 relative flex items-center justify-center">
                 <canvas id="unionShareChart"></canvas>
               </div>
               <!-- Legend Grid -->
-              <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80 text-[10.5px]">
+              <div class="grid grid-cols-2 gap-1.5 pt-2 border-t border-slate-800/80 text-[10px]">
                 <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-600"></span><span class="text-slate-300 font-medium">CCOO: 38,38% (76d)</span></div>
                 <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span><span class="text-slate-300 font-medium">UGT: 18,18% (36d)</span></div>
                 <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span><span class="text-slate-300 font-medium">ATP: 15,66% (31d)</span></div>
@@ -1076,170 +1079,58 @@
               </div>
             </div>
 
-            <!-- Chart 2: Historical Evolution (2015-2026) -->
+            <!-- Chart 2: Historical Evolution (2010-2026) -->
             <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
               <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
                 <div>
                   <h3 class="text-xs font-bold text-white flex items-center">
                     <i data-lucide="trending-down" class="w-4 h-4 mr-1.5 text-rose-400"></i>
-                    Evolución Histórica de la Hegemonía Sindical (2010 - 2026)
+                    Evolución de Mayorías (2010 - 2026)
                   </h3>
-                  <p class="text-[10px] text-slate-400">Erosión del pactismo tradicional y ascenso del sindicalismo de base</p>
+                  <p class="text-[10px] text-slate-400">Pérdida de la hegemonía bipartidista</p>
                 </div>
-                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">2010 - 2026</span>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">2010-2026</span>
               </div>
-              <div class="h-64 relative">
+              <div class="h-56 relative">
                 <canvas id="unionEvolutionChart"></canvas>
               </div>
-              <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10.5px] text-slate-400 flex items-center justify-between">
-                <span><strong class="text-slate-200">Tendencia:</strong> Pérdida continuada de CCOO/UGT (80,5% en 2015 $\rightarrow$ 61,0% en 2026).</span>
-                <span class="text-amber-400 font-bold">+19,5% bloque crítico</span>
+              <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
+                <span>CCOO+UGT: 80,5% (2015) → 56,6% (2026)</span>
+                <span class="text-amber-400 font-bold">+19,5% crítico</span>
               </div>
             </div>
-          </div>
 
-          <!-- Detailed Profiles of the 6 Trade Unions -->
-          <div class="space-y-3 pt-4 border-t border-slate-800">
-            <h3 class="text-sm font-bold text-white flex items-center">
-              <i data-lucide="id-card" class="w-4 h-4 mr-2 text-sky-400"></i>
-              Radiografía y Posicionamiento de las 6 Secciones Sindicales en Airbus España
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="unions-cards-container">
-              <!-- Populated dynamically or static fallback -->
-              <div class="p-4 bg-slate-900/80 border-l-4 border-red-600 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-red-400 block">CCOO (Comisiones Obreras)</span>
-                    <span class="text-[10px] text-slate-400">Sector Metal & Aeroespacial</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-red-500/20 text-red-300 rounded">38,38% (76 del.)</span>
+            <!-- Chart 3: NEW Per-Site Delegates Chart -->
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div>
+                  <h3 class="text-xs font-bold text-white flex items-center">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 mr-1.5 text-sky-400"></i>
+                    Delegados Electos por Factoría
+                  </h3>
+                  <p class="text-[10px] text-slate-400">Composición sindical de los 7 centros</p>
                 </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> Primera fuerza con 76 delegados. Firmó el preacuerdo de julio; tras el referéndum se sumó a la mediación en SIMA.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> Illescas (12d), Tablada (9d), Cádiz, Albacete, Getafe.</span>
-                  <a href="https://industria.ccoo.es/Aeroespacial" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: CCOO</a>
-                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">171 delegados</span>
               </div>
-
-              <div class="p-4 bg-slate-900/80 border-l-4 border-orange-600 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-orange-400 block">UGT (FICA)</span>
-                    <span class="text-[10px] text-slate-400">Federación de Industria</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-orange-500/20 text-orange-300 rounded">18,18% (36 del.)</span>
-                </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> Segunda fuerza histórica con 36 delegados. Co-convocante de la huelga indefinida desde el 24 de agosto.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> Sevilla (San Pablo y Tablada), Defensa y Espacio.</span>
-                  <a href="https://www.ugt.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: UGT</a>
-                </div>
+              <div class="h-56 relative">
+                <canvas id="siteDelegatesChart"></canvas>
               </div>
-
-              <div class="p-4 bg-slate-900/80 border-l-4 border-purple-600 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-purple-400 block">ATP-SAE</span>
-                    <span class="text-[10px] text-slate-400">Técnicos & Cuadros</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 rounded">15,66% (31 del.)</span>
-                </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> Tercera fuerza con 31 delegados. Representa a personal técnico y mandos cualificados.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> Ensayos en vuelo, certificación, oficinas técnicas.</span>
-                  <a href="https://ccoo.app/airbus/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: Interempresas</a>
-                </div>
-              </div>
-
-              <div class="p-4 bg-slate-900/80 border-l-4 border-sky-600 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-sky-400 block">SIPA (Independientes)</span>
-                    <span class="text-[10px] text-slate-400">Sindicato Profesional</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 rounded">15,15% (30 del.)</span>
-                </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> 30 delegados estatales y primera fuerza en Getafe (13 delegados). Dimisión de ejecutiva tras el referéndum.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> Getafe (13d), Ingeniería de Diseño, Oficinas.</span>
-                  <a href="https://www.sipa.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: SIPA</a>
-                </div>
-              </div>
-
-              <div class="p-4 bg-slate-900/80 border-l-4 border-emerald-600 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-emerald-400 block">CGT (Metal)</span>
-                    <span class="text-[10px] text-slate-400">Sindicato Asambleario</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-emerald-500/20 text-emerald-300 rounded">12,63% (25 del.)</span>
-                </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> 25 delegados. Co-convocante de la huelga indefinida y garante de los mandatos asamblearios.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> Talleres, composites en Illescas, Cádiz y Getafe.</span>
-                  <a href="https://cgt.org.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: CGT</a>
-                </div>
-              </div>
-
-              <div class="p-4 bg-slate-900/80 border-l-4 border-amber-500 rounded-xl space-y-2.5">
-                <div class="flex justify-between items-start">
-                  <div>
-                    <span class="text-xs font-black text-amber-400 block">ÚTIL (Independientes Libres)</span>
-                    <span class="text-[10px] text-slate-400">Sindicalismo de Base</span>
-                  </div>
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 rounded">Minoritario (&lt;3%)</span>
-                </div>
-                <p class="text-[11px] text-slate-300 leading-relaxed">
-                  <strong>Posicionamiento 2026:</strong> Presencia testimonial en centros del sur; co-convocante en mediación SIMA.
-                </p>
-                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
-                  <span><strong>Implantación:</strong> San Pablo Sur y áreas auxiliares.</span>
-                  <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: SIMA</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Social Breakdown Analysis Cards -->
-          <div class="mt-4 p-4 bg-amber-950/20 border border-amber-500/30 rounded-xl space-y-3">
-            <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center">
-              <i data-lucide="shield-alert" class="w-4 h-4 mr-1.5 text-amber-400"></i>
-              Claves Sociológicas del Conflicto de 2026: El Fin del Sindicalismo de Despacho
-            </h4>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
-              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
-                <strong class="text-amber-400 block">1. Desautorización en Urnas (24-Julio):</strong>
-                <p class="text-[11px] text-slate-400">La plantilla rompió la disciplina de voto tradicional, votando 49,15% NO contra un preacuerdo avalado por la mayoría del comité interempresas.</p>
-              </div>
-              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
-                <strong class="text-sky-400 block">2. Telegram (5.794 miembros) como Cortafuegos:</strong>
-                <p class="text-[11px] text-slate-400">La comunicación horizontal impidió la manipulación de comunicados y coordinó asambleas presenciales en todas las factorías simultáneamente.</p>
-              </div>
-              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
-                <strong class="text-emerald-400 block">3. Frente Único del Comité de Huelga:</strong>
-                <p class="text-[11px] text-slate-400">La negociación está subordinada a la asamblea soberana, impidiendo pactos bilaterales a espaldas de la plantilla.</p>
+              <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10px] text-slate-400 flex items-center justify-between">
+                <span>Getafe: 39 del. | San Pablo: 27 | Illescas: 25</span>
+                <span class="text-sky-400 font-bold">7 Comités</span>
               </div>
             </div>
           </div>
 
           <!-- Site-by-Site Electoral & Union Representation Breakdown -->
-          <div class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4 mt-6">
+          <div class="p-4 sm:p-5 bg-slate-950/70 rounded-xl border border-slate-800 space-y-4">
             <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
               <div>
-                <h3 class="text-sm sm:text-base font-bold text-white flex items-center">
-                  <i data-lucide="map-pin" class="w-5 h-5 mr-2 text-rose-400"></i>
-                  Mapa de Representación y Resultados Electorales por Centro de Trabajo
+                <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
+                  <i data-lucide="map-pin" class="w-4 h-4 mr-2 text-rose-400"></i>
+                  Explorador de Factorías: Censo, Delegados y Dinámica de Planta
                 </h3>
-                <p class="text-xs text-slate-400 mt-0.5">Distribución de delegados, censo laboral, dinámica asamblearia y resultados del Referéndum del 24 de Julio por factoría.</p>
+                <p class="text-[11px] text-slate-400 mt-0.5">Selecciona un centro de trabajo para auditar la distribución de delegados y el papel logístico en la huelga.</p>
               </div>
               <div class="flex flex-wrap gap-1.5" id="site-selector-buttons">
                 <!-- Site filter buttons populated dynamically -->
@@ -1249,6 +1140,259 @@
             <!-- Dynamic Site Breakdown Container -->
             <div id="site-breakdown-details-container" class="space-y-4">
               <!-- Rendered dynamically by app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== APARTADO 2: RESULTADOS OFICIALES REFERÉNDUM 24-JULIO ==================== -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-rose-500/30 space-y-6">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2 py-0.5 text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded uppercase tracking-wider">Apartado 2</span>
+                <h2 class="text-base sm:text-lg font-black text-white flex items-center">
+                  <i data-lucide="vote" class="w-5 h-5 mr-2 text-rose-400"></i>
+                  Resultados Oficiales del Referéndum del 24 de Julio: El Punto de Inflexión
+                </h2>
+              </div>
+              <p class="text-xs text-slate-400">Votación en urna con voto secreto que tumbó el preacuerdo de revisión salarial de la dirección y abrió la vía a la huelga indefinida.</p>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit">
+              Preacuerdo Tumbado (49,15% NO)
+            </span>
+          </div>
+
+          <!-- 4 Referendum KPIs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Participación Total</span>
+                <span class="text-sky-400 font-bold">12.674 votos</span>
+              </div>
+              <p class="text-2xl font-black text-sky-400 mt-1">81,44%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Participación récord en la historia de Airbus España</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-rose-500/30 rounded-xl bg-rose-950/10">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Votos en Contra (NO)</span>
+                <span class="text-rose-400 font-bold">6.229 votos</span>
+              </div>
+              <p class="text-2xl font-black text-rose-400 mt-1">49,15%</p>
+              <span class="text-[10px] text-rose-300 block mt-0.5">Victoria del rechazo que desautorizó la oferta patronal</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-emerald-500/30 rounded-xl bg-emerald-950/10">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Votos a Favor (SÍ)</span>
+                <span class="text-emerald-400 font-bold">5.823 votos</span>
+              </div>
+              <p class="text-2xl font-black text-emerald-400 mt-1">45,95%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Votos favorables al preacuerdo inicial de revisión</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Votos Blanco / Nulos</span>
+                <span class="text-slate-400 font-bold">585 votos</span>
+              </div>
+              <p class="text-2xl font-black text-slate-300 mt-1">4,62%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Votos en blanco (412) y nulos (173)</span>
+            </div>
+          </div>
+
+          <!-- 2 Dedicated Referendum Charts Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <!-- Chart A: Global Outcome (Doughnut) -->
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div>
+                  <h3 class="text-xs font-bold text-white flex items-center">
+                    <i data-lucide="pie-chart" class="w-4 h-4 mr-1.5 text-rose-400"></i>
+                    Escrutinio Global Estatal (24-Julio)
+                  </h3>
+                  <p class="text-[10px] text-slate-400">Porcentaje sobre votos emitidos (12.674)</p>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-rose-500/20 text-rose-300 rounded">Victoria NO</span>
+              </div>
+              <div class="h-64 relative flex items-center justify-center">
+                <canvas id="referendumPieChart"></canvas>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80 text-[10.5px] text-center">
+                <div class="p-1.5 bg-rose-950/30 rounded border border-rose-500/30"><span class="text-rose-400 font-bold block">NO: 49,15%</span><span class="text-[9px] text-slate-400">6.229 votos</span></div>
+                <div class="p-1.5 bg-emerald-950/30 rounded border border-emerald-500/30"><span class="text-emerald-400 font-bold block">SÍ: 45,95%</span><span class="text-[9px] text-slate-400">5.823 votos</span></div>
+                <div class="p-1.5 bg-slate-900 rounded border border-slate-800"><span class="text-slate-300 font-bold block">Blanco: 4,62%</span><span class="text-[9px] text-slate-400">585 votos</span></div>
+              </div>
+            </div>
+
+            <!-- Chart B: Comparative Referendum Results by Factory (2 cols) -->
+            <div class="lg:col-span-2 p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div>
+                  <h3 class="text-xs font-bold text-white flex items-center">
+                    <i data-lucide="bar-chart-2" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+                    Resultado del Referéndum por Factoría (% NO vs % SÍ vs % Participación)
+                  </h3>
+                  <p class="text-[10px] text-slate-400">Comparativa territorial: la brecha norte-sur y los bastiones del rechazo</p>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">7 Factorías</span>
+              </div>
+              <div class="h-64 relative">
+                <canvas id="referendumSitesChart"></canvas>
+              </div>
+              <div class="p-2.5 bg-amber-950/20 border border-amber-500/30 rounded-lg text-xs text-slate-300 flex items-center justify-between">
+                <span><strong>Clave Territorial:</strong> Cádiz (66,2% NO), Illescas (58,6% NO) y Getafe (54,2% NO) lideraron el rechazo frente al voto afirmativo ajustado de San Pablo (49,8% SÍ) y Tablada (51,2% SÍ).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== APARTADO 3: RADIOGRAFÍA DE SECCIONES SINDICALES ==================== -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/40 rounded uppercase tracking-wider">Apartado 3</span>
+                <h3 class="text-base font-bold text-white flex items-center">
+                  <i data-lucide="id-card" class="w-4 h-4 mr-2 text-sky-400"></i>
+                  Radiografía y Posicionamiento de las 6 Secciones Sindicales en Airbus España
+                </h3>
+              </div>
+              <p class="text-xs text-slate-400">Implantación por centro de trabajo, delegados electos, trayectoria histórica y postura ante la huelga indefinida.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="unions-cards-container">
+            <!-- Populated dynamically or static fallback -->
+            <div class="p-4 bg-slate-900/80 border-l-4 border-red-600 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-red-400 block">CCOO (Comisiones Obreras)</span>
+                  <span class="text-[10px] text-slate-400">Sector Metal & Aeroespacial</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-red-500/20 text-red-300 rounded">38,38% (76 del.)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> Primera fuerza con 76 delegados. Firmó el preacuerdo de julio; tras el referéndum se sumó a la mediación en SIMA.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> Illescas (12d), Tablada (9d), Cádiz, Albacete, Getafe.</span>
+                <a href="https://industria.ccoo.es/Aeroespacial" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: CCOO</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border-l-4 border-orange-600 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-orange-400 block">UGT (FICA)</span>
+                  <span class="text-[10px] text-slate-400">Federación de Industria</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-orange-500/20 text-orange-300 rounded">18,18% (36 del.)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> Segunda fuerza histórica con 36 delegados. Co-convocante de la huelga indefinida desde el 24 de agosto.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> Sevilla (San Pablo y Tablada), Defensa y Espacio.</span>
+                <a href="https://www.ugt.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: UGT</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border-l-4 border-purple-600 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-purple-400 block">ATP-SAE</span>
+                  <span class="text-[10px] text-slate-400">Técnicos & Cuadros</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 rounded">15,66% (31 del.)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> Tercera fuerza con 31 delegados. Representa a personal técnico y mandos cualificados.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> Ensayos en vuelo, certificación, oficinas técnicas.</span>
+                <a href="https://ccoo.app/airbus/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: Interempresas</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border-l-4 border-sky-600 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-sky-400 block">SIPA (Independientes)</span>
+                  <span class="text-[10px] text-slate-400">Sindicato Profesional</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 rounded">15,15% (30 del.)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> 30 delegados estatales y primera fuerza en Getafe (13 delegados). Dimisión de ejecutiva tras el referéndum.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> Getafe (13d), Ingeniería de Diseño, Oficinas.</span>
+                <a href="https://www.sipa.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: SIPA</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border-l-4 border-emerald-600 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-emerald-400 block">CGT (Metal)</span>
+                  <span class="text-[10px] text-slate-400">Sindicato Asambleario</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-emerald-500/20 text-emerald-300 rounded">12,63% (25 del.)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> 25 delegados. Co-convocante de la huelga indefinida y garante de los mandatos asamblearios.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> Talleres, composites en Illescas, Cádiz y Getafe.</span>
+                <a href="https://cgt.org.es/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: CGT</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border-l-4 border-amber-500 rounded-xl space-y-2.5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-black text-amber-400 block">ÚTIL (Independientes Libres)</span>
+                  <span class="text-[10px] text-slate-400">Sindicalismo de Base</span>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 rounded">Minoritario (&lt;3%)</span>
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                <strong>Posicionamiento 2026:</strong> Presencia testimonial en centros del sur; co-convocante en mediación SIMA.
+              </p>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800 flex justify-between items-center">
+                <span><strong>Implantación:</strong> San Pablo Sur y áreas auxiliares.</span>
+                <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[9px]">Fuente: SIMA</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== APARTADO 4: CLAVES SOCIOLÓGICAS ==================== -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30 space-y-4">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded uppercase tracking-wider">Apartado 4</span>
+                <h4 class="text-base font-bold text-amber-300 uppercase tracking-wider flex items-center">
+                  <i data-lucide="shield-alert" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+                  Claves Sociológicas del Conflicto de 2026: El Fin del Sindicalismo de Despacho
+                </h4>
+              </div>
+              <p class="text-xs text-slate-400">Los factores organizativos y tecnológicos que transformaron la dinámica negociadora en Airbus España.</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+            <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+              <strong class="text-amber-400 block">1. Desautorización en Urnas (24-Julio):</strong>
+              <p class="text-[11px] text-slate-400">La plantilla rompió la disciplina de voto tradicional, votando 49,15% NO contra un preacuerdo avalado por la mayoría del comité interempresas.</p>
+            </div>
+            <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+              <strong class="text-sky-400 block">2. Telegram (5.794 miembros) como Cortafuegos:</strong>
+              <p class="text-[11px] text-slate-400">La comunicación horizontal impidió la manipulación de comunicados y coordinó asambleas presenciales en todas las factorías simultáneamente.</p>
+            </div>
+            <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+              <strong class="text-emerald-400 block">3. Frente Único del Comité de Huelga:</strong>
+              <p class="text-[11px] text-slate-400">La negociación está subordinada a la asamblea soberana, impidiendo pactos bilaterales a espaldas de la plantilla.</p>
             </div>
           </div>
         </div>
