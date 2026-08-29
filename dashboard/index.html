@@ -81,7 +81,7 @@
       <!-- Direct Quick Navigation Shortcuts -->
       <div class="hidden lg:flex items-center space-x-1.5 bg-slate-950/70 p-1 rounded-xl border border-slate-800 text-[11px]">
         <button onclick="switchTab('tab-stock')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-rose-400 font-bold transition flex items-center">
-          <i data-lucide="trending-down" class="w-3.5 h-3.5 mr-1"></i> AIR.PA: 128,40€
+          <i data-lucide="trending-down" class="w-3.5 h-3.5 mr-1"></i> AIR.PA: 203,05€
         </button>
         <button onclick="switchTab('tab-company-health')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-emerald-400 font-bold transition flex items-center">
           <i data-lucide="building-2" class="w-3.5 h-3.5 mr-1"></i> Solvencia Airbus
@@ -152,7 +152,7 @@
                 <i data-lucide="trending-down" class="w-4 h-4 text-rose-400"></i>
                 <span>Acción & Mercados (AIR.PA)</span>
               </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">128,40 € (-12,5%)</span>
+              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">203,05 € (-8,3%)</span>
             </button>
 
             <button onclick="switchTab('tab-company-health')" id="btn-tab-company-health" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
@@ -160,7 +160,7 @@
                 <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
                 <span>Salud Financiera Airbus SE</span>
               </div>
-              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">8.626 ped.</span>
+              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">8.754 ped.</span>
             </button>
           </div>
         </div>
@@ -182,10 +182,11 @@
               <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">6 sindicatos</span>
             </button>
 
-            <button onclick="switchTab('tab-workflows')" id="btn-tab-workflows" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="git-merge" class="w-4 h-4 text-indigo-400"></i>
-              <span>Workflows & Escenarios</span>
+            <button onclick="switchTab('tab-historical-losses')" id="btn-tab-historical-losses" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
+              <i data-lucide="file-minus-2" class="w-4 h-4 text-rose-400"></i>
+              <span>Pérdidas Históricas (BOE)</span>
             </button>
+
             <button onclick="switchTab('tab-negotiation')" id="btn-tab-negotiation" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
               <i data-lucide="scale" class="w-4 h-4 text-emerald-400"></i>
               <span>Evolución & Brechas Negociación</span>
@@ -254,7 +255,7 @@
               <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
             </div>
             <p class="text-2xl font-black text-white mt-1">5.221 M€</p>
-            <p class="text-[11px] text-emerald-400 font-medium mt-0.5">EBIT Ajustado: 5.838 M€</p>
+            <p class="text-[11px] text-emerald-400 font-medium mt-0.5">EBIT Ajustado: 7.100 M€ <span class="text-slate-500 font-mono text-[9.5px]">[Airbus FY25]</span></p>
           </div>
 
           <div class="glass-card p-4 rounded-xl border-rose-500/30">
@@ -300,16 +301,15 @@
               <span id="slider-days-val" class="px-2.5 py-1 bg-blue-600 text-white font-extrabold text-xs rounded-md">7 días</span>
             </div>
           </div>
-
           <div>
             <input type="range" id="slider-days" min="1" max="45" value="7" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="updateAsymmetrySimulation()">
-            <div class="flex justify-between text-[10px] text-slate-500 font-bold mt-1">
-              <span>1 día (Buffer HTP)</span>
-              <span>3 días (Agotamiento)</span>
-              <span>7 días (FALs Paradas)</span>
-              <span>15 días (Crisis Trimestral)</span>
-              <span>30 días (Pérdida >600M€)</span>
-              <span>45 días</span>
+            <div class="flex justify-between text-[10px] text-slate-500 font-bold mt-1 gap-1 flex-wrap">
+              <button type="button" onclick="setAsymmetryDays(1)" class="hover:text-blue-400 transition cursor-pointer">1 día (Buffer HTP)</button>
+              <button type="button" onclick="setAsymmetryDays(3)" class="hover:text-blue-400 transition cursor-pointer">3 días (Agotamiento)</button>
+              <button type="button" onclick="setAsymmetryDays(7)" class="hover:text-blue-400 transition cursor-pointer">7 días (FALs Paradas)</button>
+              <button type="button" onclick="setAsymmetryDays(15)" class="hover:text-blue-400 transition cursor-pointer">15 días (Crisis Trimestral)</button>
+              <button type="button" onclick="setAsymmetryDays(30)" class="hover:text-blue-400 transition cursor-pointer">30 días (Pérdida >600M€)</button>
+              <button type="button" onclick="setAsymmetryDays(45)" class="hover:text-blue-400 transition cursor-pointer">45 días</button>
             </div>
           </div>
 
@@ -688,12 +688,12 @@
                 <i data-lucide="trending-down" class="w-5 h-5 mr-2 text-rose-400"></i>
                 Análisis Bursátil: Evolución de la Acción de Airbus SE (AIR.PA) Durante el Conflicto
               </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Seguimiento histórico de la cotización, capitalización de mercado y asimetría de costes frente a la masa salarial.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Datos oficiales de Euronext Paris & Airbus Investor Relations <span class="text-slate-500 font-mono text-[9.5px]">[Fuente: Euronext / ISIN NL0000235190]</span></p>
             </div>
-            <span class="px-3 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit flex items-center">
+            <a href="https://live.euronext.com/en/product/equities/NL0000235190-XPAR" target="_blank" class="px-3 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit flex items-center hover:bg-rose-500/30 transition">
               <span class="w-2 h-2 rounded-full bg-rose-500 mr-2 animate-pulse"></span>
-              AIR.PA / EURONEXT PARIS — 128,40 €
-            </span>
+              AIR.PA / EURONEXT PARIS — 203,05 €
+            </a>
           </div>
 
           <!-- 4 Executive Stock KPIs -->
@@ -701,19 +701,19 @@
             <div class="p-4 bg-slate-900/90 rounded-xl border border-rose-500/30">
               <div class="flex justify-between items-start">
                 <span class="text-xs font-bold text-slate-400">Cotización Actual (AIR.PA):</span>
-                <span class="text-[10px] font-black text-rose-400 bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">-12,53%</span>
+                <span class="text-[10px] font-black text-rose-400 bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">-8,25%</span>
               </div>
-              <p class="text-2xl font-black text-white font-mono mt-1" id="stock-kpi-price">128,40 €</p>
-              <span class="text-[10px] text-slate-500 block mt-0.5">-18,40 €/acción desde inicio del conflicto (146,80 €)</span>
+              <p class="text-2xl font-black text-white font-mono mt-1" id="stock-kpi-price">203,05 €</p>
+              <span class="text-[10px] text-slate-500 block mt-0.5">-18,25 €/acc. desde pico previo (221,30 €)</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 rounded-xl border border-rose-500/30">
               <div class="flex justify-between items-start">
                 <span class="text-xs font-bold text-slate-400">Capitalización de Mercado:</span>
-                <span class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">793M acc.</span>
+                <span class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">792,3M acc.</span>
               </div>
-              <p class="text-2xl font-black text-purple-300 font-mono mt-1" id="stock-kpi-mcap">101.821 M€</p>
-              <span class="text-[10px] text-rose-400 font-semibold block mt-0.5">-14.591 M€ evaporados en bolsa</span>
+              <p class="text-2xl font-black text-purple-300 font-mono mt-1" id="stock-kpi-mcap">160.872 M€</p>
+              <span class="text-[10px] text-rose-400 font-semibold block mt-0.5">-14.459 M€ en variación de valor bursátil</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-500/30">
@@ -730,8 +730,8 @@
                 <span class="text-xs font-bold text-slate-400">Ratio de Destrucción Bursátil:</span>
                 <span class="text-[10px] font-black text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">Apalancamiento</span>
               </div>
-              <p class="text-2xl font-black text-amber-400 font-mono mt-1">123,6x</p>
-              <span class="text-[10px] text-amber-300/90 font-medium block mt-0.5">Por cada 1€ denegado al trabajador, caen 123,6€ en bolsa</span>
+              <p class="text-2xl font-black text-amber-400 font-mono mt-1">122,5x</p>
+              <span class="text-[10px] text-amber-300/90 font-medium block mt-0.5">Por cada 1€ denegado al trabajador, caen 122,5€ en bolsa</span>
             </div>
           </div>
 
@@ -766,33 +766,32 @@
               <div class="space-y-2 text-xs">
                 <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
                   <div>
-                    <span class="text-sky-400 font-bold">16 de Julio (146,80 €):</span>
+                    <span class="text-sky-400 font-bold">16 de Julio (213,80 €):</span>
                     <p class="text-slate-300 text-[11px]">Rechazo unánime (~95% NO) de la oferta patronal del 5%. Primeras caídas de volumen.</p>
                   </div>
                   <span class="text-slate-400 font-mono font-bold">-0,8%</span>
                 </div>
                 <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
                   <div>
-                    <span class="text-amber-400 font-bold">24 de Julio (142,50 €):</span>
+                    <span class="text-amber-400 font-bold">24 de Julio (208,90 €):</span>
                     <p class="text-slate-300 text-[11px]">Referéndum en urna física: Las bases tumban el preacuerdo (51,13% NO). Dimisión de SIPA.</p>
                   </div>
                   <span class="text-rose-400 font-mono font-bold">-2,9%</span>
                 </div>
                 <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
                   <div>
-                    <span class="text-purple-400 font-bold">24 de Agosto (136,40 €):</span>
-                    <p class="text-slate-300 text-[11px]">Asamblea masiva en Getafe vota Huelga Indefinida. Rotura del soporte de 140 €.</p>
+                    <span class="text-purple-400 font-bold">24 de Agosto (204,20 €):</span>
+                    <p class="text-slate-300 text-[11px]">Asamblea masiva en Getafe vota Huelga Indefinida. Rotura del soporte de 205 €.</p>
                   </div>
                   <span class="text-rose-400 font-mono font-bold">-2,1%</span>
                 </div>
                 <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
                   <div>
-                    <span class="text-rose-400 font-bold">27-28 de Agosto (129,90 €):</span>
-                    <p class="text-slate-300 text-[11px]">Día 3-4 Huelga: Parada parcial de líneas A321 en Toulouse. 0 vuelos BelugaXL operados.</p>
+                    <span class="text-rose-400 font-bold">28 de Agosto (203,05 €):</span>
+                    <p class="text-slate-300 text-[11px]">Día 4 Huelga: Cierre semanal Euronext Paris a 203,05 €. 0 vuelos BelugaXL operados en Getafe.</p>
                   </div>
-                  <span class="text-rose-400 font-mono font-bold">-3,4%</span>
+                  <span class="text-rose-400 font-mono font-bold">-0,6%</span>
                 </div>
-              </div>
             </div>
 
             <!-- Right Panel: Investor Thesis & Management Vulnerability -->
@@ -824,6 +823,7 @@
           </div>
         </div>
       </div>
+    </div>
 
       <!-- ==================== TAB: COMPANY FINANCIAL HEALTH (ESTADO GENERAL HISTÓRICO Y ACTUAL) ==================== -->
       <div id="tab-company-health" class="tab-content hidden space-y-6">
@@ -835,11 +835,11 @@
                 <i data-lucide="building-2" class="w-5 h-5 mr-2 text-emerald-400"></i>
                 Estado Financiero, Operativo e Histórico de Airbus SE (2020 - 2026)
               </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Radiografía macroeconómica: Solvencia récord, cartera de pedidos garantizada a 10 años y capacidad financiera holgada.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Memoria Financiera Oficial Airbus SE & Rueda de Prensa de Resultados <span class="text-slate-500 font-mono text-[9.5px]">[Fuente: Airbus Press Release 19-Feb-2026]</span></p>
             </div>
-            <span class="px-3 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg w-fit">
+            <a href="https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results" target="_blank" class="px-3 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg w-fit hover:bg-emerald-500/30 transition">
               Calificación: A2 / A (Grado de Inversión Fuerte)
-            </span>
+            </a>
           </div>
 
           <!-- 4 Executive Corporate KPIs -->
@@ -849,8 +849,8 @@
                 <span class="text-xs font-bold text-slate-400">Ingresos Anuales (2025):</span>
                 <span class="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Récord</span>
               </div>
-              <p class="text-2xl font-black text-emerald-400 font-mono mt-1">73.500 M€</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">+47,2% de crecimiento acumulado desde 2020 (49.912 M€)</span>
+              <p class="text-2xl font-black text-emerald-400 font-mono mt-1">73.400 M€</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">+6,0% YoY vs 2024 (69.200 M€)</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-500/30">
@@ -859,16 +859,16 @@
                 <span class="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">+23,4% YoY</span>
               </div>
               <p class="text-2xl font-black text-emerald-300 font-mono mt-1">5.221 M€</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">EBIT ajustado de 6.200 M€ (17,0 M€/día de beneficio operativo)</span>
+              <span class="text-[10px] text-slate-400 block mt-0.5">EBIT Ajustado: 7.100 M€ (19,5 M€/día beneficio operativo)</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 rounded-xl border border-sky-500/30">
               <div class="flex justify-between items-start">
                 <span class="text-xs font-bold text-slate-400">Cartera de Pedidos Firme:</span>
-                <span class="text-[10px] font-black text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20">10,5 Años</span>
+                <span class="text-[10px] font-black text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20">11 Años</span>
               </div>
-              <p class="text-2xl font-black text-sky-400 font-mono mt-1">8.626 aviones</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Valorada en más de 554.000 M€ (Producción plena garantizada)</span>
+              <p class="text-2xl font-black text-sky-400 font-mono mt-1">8.754 aviones</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Valorada en más de 565.000 M€ (Producción plena garantizada)</span>
             </div>
 
             <div class="p-4 bg-slate-900/90 rounded-xl border border-purple-500/30">
@@ -877,7 +877,7 @@
                 <span class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">Solvencia</span>
               </div>
               <p class="text-2xl font-black text-purple-300 font-mono mt-1">10.700 M€</p>
-              <span class="text-[10px] text-slate-400 block mt-0.5">Caja bruta de 25.400 M€ (Sin problemas de liquidez)</span>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Caja bruta de 25.400 M€ / FCF: 4.600 M€</span>
             </div>
           </div>
 
@@ -889,7 +889,7 @@
                 <i data-lucide="bar-chart-3" class="w-4 h-4 mr-2 text-emerald-400"></i>
                 Evolución de Ingresos y Beneficio Neto Airbus SE (2020 - 2026)
               </h3>
-              <div class="h-64 w-full">
+              <div class="relative h-64 w-full">
                 <canvas id="companyRevenueChart"></canvas>
               </div>
             </div>
@@ -900,11 +900,10 @@
                 <i data-lucide="plane-takeoff" class="w-4 h-4 mr-2 text-sky-400"></i>
                 Entregas Comerciales Anuales y Ramp-up de Producción
               </h3>
-              <div class="h-64 w-full">
+              <div class="relative h-64 w-full">
                 <canvas id="companyDeliveriesChart"></canvas>
               </div>
             </div>
-          </div>
 
           <!-- Bottom Row: Shareholder Breakdown & Fairness Axiom -->
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -915,10 +914,9 @@
                   <i data-lucide="pie-chart" class="w-4 h-4 mr-2 text-indigo-400"></i>
                   Estructura Accionarial de Airbus SE
                 </h3>
-                <div class="h-44 w-full mt-2">
+                <div class="relative h-44 w-full mt-2 flex items-center justify-center">
                   <canvas id="shareholderPieChart"></canvas>
                 </div>
-              </div>
               <div class="space-y-1 text-[11px] border-t border-slate-800 pt-2 text-slate-300">
                 <div class="flex justify-between"><span>SOGEPA (Francia):</span><strong class="text-blue-400 font-mono">10,9% (86,4M acc.)</strong></div>
                 <div class="flex justify-between"><span>GZBV / KfW (Alemania):</span><strong class="text-amber-400 font-mono">10,8% (85,6M acc.)</strong></div>
@@ -941,19 +939,20 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
                   <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
                     <span class="text-slate-400 block font-medium">Dividendos Repartidos (2025):</span>
-                    <p class="text-lg font-black text-emerald-400 font-mono mt-0.5">2.458 M€</p>
-                    <span class="text-[10px] text-slate-500 block">3,10 €/acción a accionistas</span>
+                    <p class="text-lg font-black text-emerald-400 font-mono mt-0.5">2.535,3 M€</p>
+                    <span class="text-[10px] text-slate-500 block">3,20 €/acción [Propuesta AGM 2026]</span>
                   </div>
-
                   <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
-                    <span class="text-slate-400 block font-medium">Coste Plataforma Huelga España:</span>
-                    <p class="text-lg font-black text-white font-mono mt-0.5">118,0 M€</p>
-                    <span class="text-[10px] text-slate-500 block">+12% tablas + atrasos (15.562 trab.)</span>
+                    <span class="text-slate-400 block font-medium">Masa Salarial Total España:</span>
+                    <p class="text-lg font-black text-white font-mono mt-0.5">778,1 M€</p>
+                    <span class="text-[10px] text-slate-500 block">15.562 trabajadores en nómina</span>
                   </div>
-
-                  <div class="p-3 bg-slate-900 rounded-xl border border-emerald-500/30 text-xs">
-                    <span class="text-emerald-400 font-bold block">Ratio de Cobertura:</span>
-                    <p class="text-lg font-black text-emerald-400 font-mono mt-0.5">20,8 años</p>
+                  <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+                    <span class="text-slate-400 block font-medium">Cobertura de la Subida Salarial:</span>
+                    <p class="text-lg font-black text-amber-400 font-mono mt-0.5">21,5 Años</p>
+                    <span class="text-[10px] text-amber-300/80 block">1 solo año de dividendo paga 21,5 años de plataforma (118M€)</span>
+                  </div>
+                </div>
                     <span class="text-[10px] text-slate-400 block">Los dividendos de 1 año pagan 21 convenios</span>
                   </div>
                 </div>
@@ -1934,6 +1933,7 @@
           </div>
         </div>
       </div>
+    </div>
 
       <!-- ==================== TAB 6: 6-FILTER AUDITOR ==================== -->
       <div id="tab-checklist" class="tab-content hidden space-y-6">

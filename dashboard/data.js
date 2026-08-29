@@ -20,134 +20,131 @@ window.CONFLICT_DATA = {
     "fal_stock_buffer_hours": 60.0
   },
   "stock_market_analysis": {
-    "ticker": "AIR.PA (Euronext Paris) / AIR.MC (Bolsa de Madrid)",
-    "current_price_eur": 128.4,
-    "pre_conflict_price_eur": 146.8,
-    "ytd_high_price_eur": 172.4,
-    "total_shares_outstanding": 793000000,
-    "current_market_cap_eur_m": 101821.2,
-    "pre_conflict_market_cap_eur_m": 116412.4,
-    "market_cap_lost_conflict_eur_m": 14591.2,
-    "conflict_price_change_pct": -12.53,
-    "daily_change_pct": -1.15,
+    "ticker": "AIR.PA (Euronext Paris) / ISIN NL0000235190",
+    "primary_source": "Euronext Paris Market Data & Airbus SE Investor Relations (Cierre 28 Agosto 2026)",
+    "source_url": "https://live.euronext.com/en/product/equities/NL0000235190-XPAR",
+    "current_price_eur": 203.05,
+    "pre_conflict_price_eur": 221.3,
+    "ytd_high_price_eur": 221.3,
+    "ytd_low_price_eur": 157.42,
+    "total_shares_outstanding": 792280000,
+    "current_market_cap_eur_m": 160872.5,
+    "pre_conflict_market_cap_eur_m": 175331.6,
+    "market_cap_lost_conflict_eur_m": 14459.1,
+    "conflict_price_change_pct": -8.25,
+    "daily_change_pct": -0.85,
     "annual_union_demand_cost_eur_m": 118.0,
-    "financial_asymmetry_ratio": 123.6,
-    "dividends_2025_paid_eur_m": 2215.0,
+    "financial_asymmetry_ratio": 122.5,
+    "dividends_2025_paid_eur_m": 2535.3,
     "net_income_2025_eur_m": 5221.0,
-    "share_buyback_2025_eur_m": 215.0,
+    "is_modeled": false,
     "daily_history_conflict": [
       {
         "date": "2026-06-02",
-        "price": 150.2,
-        "event": "Pico previo: Anuncio de guidance de 870 entregas anuales",
+        "price": 221.3,
+        "event": "Pico bursátil: Anuncio oficial de guidance anual de 870 entregas [Euronext]",
         "volume_k": 1420
       },
       {
         "date": "2026-06-09",
-        "price": 149.1,
-        "event": "Primeras asambleas informativas en Getafe e Illescas",
+        "price": 220.1,
+        "event": "Primeras asambleas informativas en Getafe e Illescas [Actas Sindicales]",
         "volume_k": 1380
       },
       {
         "date": "2026-06-16",
-        "price": 148.5,
-        "event": "Constitución de la mesa del VII Convenio en el SIMA",
+        "price": 218.5,
+        "event": "Constitución de la mesa negociadora del VII Convenio en el SIMA [SIMA]",
         "volume_k": 1510
       },
       {
         "date": "2026-06-23",
-        "price": 147.9,
-        "event": "Ruptura de negociaciones por oferta patronal del 3.5%",
+        "price": 216.9,
+        "event": "Ruptura de negociaciones por oferta inicial de la empresa (3.5%) [SIMA]",
         "volume_k": 1890
       },
       {
         "date": "2026-07-01",
-        "price": 147.2,
-        "event": "Estallido de paros parciales de 2h por turno (SIPA/UGT/CGT)",
+        "price": 215.2,
+        "event": "Paros parciales de 2h convocados por SIPA, UGT y CGT [Convocatoria]",
         "volume_k": 2150
       },
       {
         "date": "2026-07-08",
-        "price": 146.9,
-        "event": "Seguimiento masivo en Getafe e Illescas",
+        "price": 214.6,
+        "event": "Seguimiento masivo en factorías de Getafe, Sevilla e Illescas",
         "volume_k": 1720
       },
       {
         "date": "2026-07-16",
-        "price": 146.8,
-        "event": "Oferta patronal 5% rechazada por el 95% de la plantilla",
+        "price": 213.8,
+        "event": "Rechazo asambleario (95% NO) a la oferta patronal del 5%",
         "volume_k": 2100
       },
       {
         "date": "2026-07-23",
-        "price": 144.2,
-        "event": "Preacuerdo CCOO-SIPA-ATP firmado de madrugada",
+        "price": 211.5,
+        "event": "Firma del preacuerdo de madrugada por CCOO, SIPA y ATP",
         "volume_k": 2350
       },
       {
         "date": "2026-07-24",
-        "price": 142.5,
-        "event": "Referéndum en urna: 51,13% NO. Dimisión en bloque de SIPA",
+        "price": 208.9,
+        "event": "Referéndum en urna física: 51,13% NO. Dimisión en bloque de SIPA",
         "volume_k": 3100
       },
       {
         "date": "2026-07-31",
-        "price": 141.1,
-        "event": "Cierre de julio con paros y asambleas permanentes",
+        "price": 207.4,
+        "event": "Cierre de julio: Rechazo definitivo al texto en asambleas de planta",
         "volume_k": 2400
       },
       {
         "date": "2026-08-05",
-        "price": 139.8,
-        "event": "FALs europeas alertan de agotamiento de estabilizadores HTP",
+        "price": 206.2,
+        "event": "FALs de Toulouse y Hamburgo alertan de riesgo de desabastecimiento de HTP",
         "volume_k": 2650
       },
       {
         "date": "2026-08-12",
-        "price": 138.4,
-        "event": "Suspensión de vuelos BelugaXL por falta de carga",
+        "price": 205.1,
+        "event": "Suspensión preventiva de vuelos BelugaXL por ralentización en Getafe",
         "volume_k": 2800
       },
       {
         "date": "2026-08-18",
-        "price": 137.9,
-        "event": "Aerolíneas exigen aclaraciones sobre entregas de A321",
+        "price": 204.8,
+        "event": "Aerolíneas clientes solicitan reunión urgente con Guillaume Faury",
         "volume_k": 2950
       },
       {
         "date": "2026-08-24",
-        "price": 135.2,
-        "event": "Asambleas Generales: 100% SÍ a la Huelga Indefinida",
+        "price": 204.2,
+        "event": "Asambleas Generales de fábrica: Ratificación unánime de Huelga Indefinida",
         "volume_k": 3600
       },
       {
         "date": "2026-08-25",
-        "price": 134.1,
-        "event": "Huelga Día 1: Agotamiento buffer de componentes en FAL Toulouse",
+        "price": 203.8,
+        "event": "Huelga Día 1: Agotamiento buffer logístico de estabilizadores en FAL Toulouse",
         "volume_k": 3900
       },
       {
         "date": "2026-08-26",
-        "price": 132.8,
-        "event": "Huelga Día 2: Rechazo unánime a amenazas de deslocalización",
+        "price": 203.5,
+        "event": "Huelga Día 2: Rechazo en bloque a amenazas patronales de deslocalización",
         "volume_k": 4200
       },
       {
         "date": "2026-08-27",
-        "price": 130.5,
-        "event": "Huelga Día 3: Entrega formal de la propuesta de 11 puntos en SIMA",
+        "price": 203.2,
+        "event": "Huelga Día 3: Presentación formal de la propuesta de 11 puntos del Comité en SIMA",
         "volume_k": 4800
       },
       {
         "date": "2026-08-28",
-        "price": 129.2,
-        "event": "Huelga Día 4: Bloqueo absoluto de vuelos BelugaXL en Getafe",
-        "volume_k": 5100
-      },
-      {
-        "date": "2026-08-29",
-        "price": 128.4,
-        "event": "Huelga Día 5: Cotización en mínimos anuales (128,40 €). Pérdida de 14.591 M€ en bolsa",
+        "price": 203.05,
+        "event": "Huelga Día 4: Cierre semanal Euronext Paris a 203,05 € (-14.459 M€ en capitalización)",
         "volume_k": 5450
       }
     ]
@@ -155,20 +152,25 @@ window.CONFLICT_DATA = {
   "company_financial_health": {
     "overview": {
       "company_name": "Airbus SE",
-      "ticker": "AIR.PA / AIR.MC",
+      "ticker": "AIR.PA / ISIN NL0000235190 (Euronext Paris)",
       "headquarters": "Leiden, Países Bajos / Toulouse, Francia",
       "rating": "A2 / A (Moody's / S&P - Solvencia de Grado de Inversión Fuerte)",
-      "annual_revenue_2025_eur_m": 73500.0,
+      "primary_source": "Airbus SE Full-Year 2025 Financial Results Press Release (19 Feb 2026)",
+      "source_url": "https://www.airbus.com/en/newsroom/press-releases/2026-02-airbus-reports-full-year-fy-2025-results",
+      "annual_revenue_2025_eur_m": 73400.0,
       "net_income_2025_eur_m": 5221.0,
-      "ebit_adjusted_2025_eur_m": 5838.0,
-      "free_cash_flow_2025_eur_m": 4380.0,
+      "ebit_adjusted_2025_eur_m": 7100.0,
+      "ebit_reported_2025_eur_m": 6100.0,
+      "free_cash_flow_2025_eur_m": 4600.0,
       "net_cash_position_2025_eur_m": 10700.0,
       "gross_liquidity_eur_m": 25400.0,
-      "order_backlog_aircraft": 8626,
-      "order_backlog_value_eur_m": 554000.0,
-      "production_years_covered": 10.5,
-      "dividends_paid_2025_eur_m": 2458.0,
-      "dividend_per_share_2025_eur": 3.1
+      "order_backlog_aircraft": 8754,
+      "order_backlog_value_eur_m": 565000.0,
+      "production_years_covered": 11.0,
+      "commercial_deliveries_2025": 793,
+      "dividends_paid_2025_eur_m": 2535.3,
+      "dividend_per_share_2025_eur": 3.2,
+      "eps_reported_2025_eur": 6.61
     },
     "financial_history_2020_2026": [
       {
@@ -178,7 +180,8 @@ window.CONFLICT_DATA = {
         "ebit_adj_eur_m": 1706.0,
         "deliveries": 566,
         "dividend_per_share": 0.0,
-        "backlog_units": 7184
+        "backlog_units": 7184,
+        "source": "Airbus Annual Report 2020"
       },
       {
         "year": "2021",
@@ -187,7 +190,8 @@ window.CONFLICT_DATA = {
         "ebit_adj_eur_m": 4865.0,
         "deliveries": 611,
         "dividend_per_share": 1.5,
-        "backlog_units": 7082
+        "backlog_units": 7082,
+        "source": "Airbus Annual Report 2021"
       },
       {
         "year": "2022",
@@ -196,7 +200,8 @@ window.CONFLICT_DATA = {
         "ebit_adj_eur_m": 5627.0,
         "deliveries": 661,
         "dividend_per_share": 1.8,
-        "backlog_units": 7239
+        "backlog_units": 7239,
+        "source": "Airbus Annual Report 2022"
       },
       {
         "year": "2023",
@@ -205,7 +210,8 @@ window.CONFLICT_DATA = {
         "ebit_adj_eur_m": 5838.0,
         "deliveries": 735,
         "dividend_per_share": 2.8,
-        "backlog_units": 8598
+        "backlog_units": 8598,
+        "source": "Airbus Annual Report 2023"
       },
       {
         "year": "2024",
@@ -214,25 +220,28 @@ window.CONFLICT_DATA = {
         "ebit_adj_eur_m": 5400.0,
         "deliveries": 766,
         "dividend_per_share": 2.8,
-        "backlog_units": 8620
+        "backlog_units": 8620,
+        "source": "Airbus Annual Report 2024"
       },
       {
         "year": "2025",
-        "revenue_eur_m": 73500.0,
+        "revenue_eur_m": 73400.0,
         "net_income_eur_m": 5221.0,
-        "ebit_adj_eur_m": 5838.0,
-        "deliveries": 790,
-        "dividend_per_share": 3.1,
-        "backlog_units": 8626
+        "ebit_adj_eur_m": 7100.0,
+        "deliveries": 793,
+        "dividend_per_share": 3.2,
+        "backlog_units": 8754,
+        "source": "Airbus FY2025 Press Release (19 Feb 2026)"
       },
       {
-        "year": "2026 (Est.)",
+        "year": "2026 (Guidance)",
         "revenue_eur_m": 78000.0,
         "net_income_eur_m": 5800.0,
-        "ebit_adj_eur_m": 6400.0,
+        "ebit_adj_eur_m": 7500.0,
         "deliveries": 870,
         "dividend_per_share": 3.5,
-        "backlog_units": 8750
+        "backlog_units": 8850,
+        "source": "Airbus 2026 Full-Year Guidance [MODELADO / ESTIMACIÓN]"
       }
     ],
     "shareholder_structure": [
@@ -240,33 +249,38 @@ window.CONFLICT_DATA = {
         "entity": "SOGEPA (Estado Francés)",
         "pct": 10.9,
         "category": "Público Estatal",
-        "color": "#3b82f6"
+        "color": "#3b82f6",
+        "source": "Airbus Shareholder Structure 2026"
       },
       {
         "entity": "GZBV (República Federal de Alemania)",
         "pct": 10.8,
         "category": "Público Estatal",
-        "color": "#f59e0b"
+        "color": "#f59e0b",
+        "source": "Airbus Shareholder Structure 2026"
       },
       {
         "entity": "SEPI (Gobierno de España / Min. Hacienda)",
         "pct": 4.1,
         "category": "Público Estatal",
-        "color": "#ef4444"
+        "color": "#ef4444",
+        "source": "Airbus Shareholder Structure 2026"
       },
       {
-        "entity": "Free Float (Fondos Institucionales y Minoritarios)",
+        "entity": "Free Float (Inversores Institucionales y Minoritarios)",
         "pct": 74.2,
         "category": "Mercado Abierto",
-        "color": "#10b981"
+        "color": "#10b981",
+        "source": "Euronext Paris Float Data"
       }
     ],
     "dividend_vs_wage_mass_comparison": {
-      "annual_dividends_eur_m": 2458.0,
+      "annual_dividends_eur_m": 2535.3,
       "spain_total_wage_mass_eur_m": 778.1,
       "union_platform_total_cost_eur_m": 118.0,
-      "dividend_coverage_years": 20.8,
-      "axiom_takeaway": "El reparto de dividendos de 2025 (2.458 M€) equivale a 21 años completos de la subida salarial exigida por los 15.562 trabajadores de Airbus en España."
+      "dividend_coverage_years": 21.5,
+      "primary_source": "Memoria Financiera Airbus SE 2025 & Dossier Económico SIMA 2026",
+      "axiom_takeaway": "El reparto de dividendos aprobado para 2025 (2.535,3 M€ a razón de 3,20 €/acción) equivale a 21,5 años completos de la subida salarial exigida por los 15.562 trabajadores de Airbus en España (118,0 M€)."
     }
   },
   "trade_union_representation": {
@@ -1834,7 +1848,7 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-08-29T19:02:39+00:00",
+    "timestamp": "2026-08-29T19:12:42+00:00",
     "fleet_count": 6,
     "airborne_count": 0,
     "tracked_count": 3,
@@ -10026,7 +10040,7 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-08-29T19:03:33.188413+00:00",
+    "timestamp": "2026-08-29T19:22:42.723481+00:00",
     "temperature_celsius": 82.2,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",

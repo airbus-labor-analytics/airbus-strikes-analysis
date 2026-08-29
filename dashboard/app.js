@@ -143,31 +143,32 @@ function switchTab(tabId) {
   if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
     sidebar.classList.add('-translate-x-full');
   }
-  if (normalizedTabId === 'tab-wages') {
-    setTimeout(() => {
+  setTimeout(() => {
+    if (normalizedTabId === 'tab-overview' || normalizedTabId === 'tab-kpis') {
+      initAsymmetryChart();
+      updateAsymmetrySimulation();
+    } else if (normalizedTabId === 'tab-wages') {
       initWagesChart();
       updateWageSimulation();
-    }, 60);
-  } else if (normalizedTabId === 'tab-thermometer') {
-    setTimeout(() => {
-      if (belugaHistoryChart) belugaHistoryChart.resize();
-    }, 60);
-  } else if (normalizedTabId === 'tab-stock') {
-    setTimeout(() => {
+    } else if (normalizedTabId === 'tab-thermometer') {
+      initBelugaHistoryChart();
+    } else if (normalizedTabId === 'tab-stock') {
       initAirbusStockChart();
-    }, 60);
-  } else if (normalizedTabId === 'tab-company-health') {
-    setTimeout(() => {
+    } else if (normalizedTabId === 'tab-company-health') {
       initCompanyHealthCharts();
-    }, 60);
-  } else if (normalizedTabId === 'tab-unions') {
-    setTimeout(() => {
+    } else if (normalizedTabId === 'tab-unions') {
       initUnionCharts();
-    }, 60);
-  } else if (normalizedTabId === 'tab-kpis') {
-    setTimeout(() => {
-      if (asymmetryChart) asymmetryChart.resize();
-    }, 60);
+    }
+    if (window.lucide) lucide.createIcons();
+  }, 60);
+}
+
+// ==================== ASYMMETRY SIMULATOR ====================
+function setAsymmetryDays(days) {
+  const slider = document.getElementById('slider-days');
+  if (slider) {
+    slider.value = days;
+    updateAsymmetrySimulation();
   }
 }
 
@@ -742,8 +743,8 @@ function initAirbusStockChart() {
       },
       scales: {
         y: {
-          min: 120,
-          max: 155,
+          min: Math.floor(Math.min(...prices) - 3),
+          max: Math.ceil(Math.max(...prices) + 3),
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
           ticks: {
             color: '#94a3b8',

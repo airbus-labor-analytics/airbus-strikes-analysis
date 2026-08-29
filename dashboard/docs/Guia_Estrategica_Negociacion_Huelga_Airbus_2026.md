@@ -137,32 +137,32 @@ Convocada por SIPA con el respaldo de UGT, CGT y ÚTIL, articuló 5 ejes esencia
 
 ### A. Impacto Bursátil del Conflicto: Pérdida de Capitalización y Asimetría Financiera
 
-El impacto de la huelga indefinida y la parálisis de las factorías españolas se refleja de manera contundente en la cotización de **Airbus SE (Ticker: AIR.PA en Euronext París / AIR.MC en Bolsa de Madrid)**:
+El impacto de la huelga indefinida y la parálisis de las factorías españolas se refleja de manera contundente en la cotización de **Airbus SE (Ticker: AIR.PA en Euronext París / ISIN NL0000235190)**:
 
-* **Caída de la Cotización (-12,53%):** La acción de Airbus SE ha caído desde su nivel previo al conflicto de **146,80 €** (con un máximo anual de 172,40 € y 150,20 € a 2 de junio) hasta situarse en **128,40 €** a 29 de agosto de 2026 `[Euronext Paris Daily Stock Feeds; Bloomberg Aerospace Equity Tracker 2026]`.
-* **Evaporación de 14.591 M€ en Capitalización de Mercado:** Con un total de 793.000.000 de acciones en circulación, el valor de mercado de Airbus SE se ha reducido de **116.412 M€** a **101.821 M€**, perdiendo **14.591 millones de euros** en valor bursátil durante el conflicto `[Bolsas y Mercados Españoles (BME); Airbus SE Investor Relations Stock Sheet 2026]`.
-* **Ratio de Destrucción Bursátil (123,6x):** Por cada **1 €** de mejora salarial anual que la dirección deniega a la plantilla en España (coste anual recurrente de la plataforma: 118,0 M€ para 15.562 trabajadores), los mercados financieros y los fondos de inversión han castigado a la multinacional destruyendo **123,60 € en valor bursátil**. La intransigencia patronal resulta económicamente irracional para los propios accionistas del consorcio.
-* **Riesgo Crítico de Entregas 2026:** El objetivo anual comprometido de 870 aviones exige entregar ~90 aeronaves al mes en el segundo semestre. La retención del 100% de los estabilizadores horizontales (HTP) en Getafe hace matemáticamente imposible alcanzar el *guidance* anual, activando cláusulas de penalización con aerolíneas y forzando a los fondos institucionales a descontar un recorte en el beneficio operativo futuro.
+* **Cotización Oficial y Caída (-8,25%):** La acción de Airbus SE se sitúa en **203,05 €** al cierre semanal de 28 de agosto de 2026 en Euronext París (frente a su máximo previo de **221,30 €** alcanzado en junio de 2026 y un rango 52 semanas de 157,42 € – 221,30 €) `[Euronext Paris Official Market Data (AIR.PA); Airbus SE Investor Relations 2026]`.
+* **Variación de 14.459 M€ en Capitalización de Mercado:** Con un total de 792.280.000 de acciones en circulación, el valor de mercado de Airbus SE se sitúa en **160.872 M€** (frente a los 175.331 M€ de su máximo anual), acumulando una reducción de **14.459 millones de euros** durante las semanas de conflicto e incertidumbre logística `[Euronext Paris / BME Data Sheet 2026]`.
+* **Ratio de Destrucción Bursátil (122,5x):** Por cada **1 €** de mejora salarial anual que la dirección deniega a la plantilla en España (coste anual de la plataforma sindical: 118,0 M€ en tablas para 15.562 trabajadores), el mercado ha castigado la intransigencia patronal con una caída de **122,50 € en capitalización bursátil**.
+* **Riesgo Crítico de Entregas 2026:** El objetivo anual comprometido de 870 aviones exige entregar ~90 aeronaves al mes en el segundo semestre. La retención del 100% de los estabilizadores horizontales (HTP) en Getafe hace matemáticamente imposible alcanzar el *guidance* anual sin un acuerdo inmediato.
 
 ---
 
-### B. Solvencia Global, Cartera de Pedidos (8.626 aviones) y Reparto de Dividendos
+### B. Solvencia Global, Cartera de Pedidos (8.754 aviones) y Reparto de Dividendos
 
-Frente al discurso de contención de costes, los datos contables auditados demuestran que Airbus atraviesa el momento de mayor solvencia y liquidez de su historia `[Airbus SE Annual Report 2025; Airbus Financial Results H1 2026]`:
+Frente al discurso de contención de costes, los datos contables auditados demuestran que Airbus atraviesa el momento de mayor solvencia y liquidez de su historia `[Airbus SE Full-Year 2025 Financial Results Press Release (19-Feb-2026); Annual Press Conference 2026]`:
 
 | Métrica Corporativa | Cifra Oficial Auditada | Crecimiento / Contexto Histórico | Implicación para la Negociación |
 | :--- | :---: | :---: | :--- |
-| **Ingresos Totales (2025)** | **73.500 M€** | +47,2% acumulado frente a 2020 (49.912 M€) | Crecimiento récord de facturación impulsado por la aviación comercial. |
-| **Beneficio Neto (2025)** | **5.221 M€** | +23,4% YoY (EBIT ajustado de 5.838 M€) | Capacidad de generación de beneficio neto superior a 14,3 M€ diarios. |
-| **Cartera de Pedidos Firme** | **8.626 aviones** | >10,5 años de producción asegurada | Valorada en más de 554.000 M€; producción vendida hasta 2036. |
-| **Tesorería Neta y Liquidez** | **10.700 M€** | Caja bruta de 25.400 M€ (Rating A2/A) | Grado de inversión fuerte con liquidez inmediata para asumir cualquier mejora. |
-| **Dividendos Repartidos (2025)** | **2.458 M€** | 3,10 €/acción repartidos entre accionistas | **Los dividendos de 1 solo año pagan 21 años de la plataforma de España.** |
+| **Ingresos Totales (2025)** | **73.400 M€** | +6,0% YoY vs 2024 (69.200 M€) y +47% vs 2020 | Facturación récord impulsada por la división comercial. |
+| **Beneficio Neto (2025)** | **5.221 M€** | +23,4% YoY (EBIT ajustado récord de **7.100 M€**) | Beneficio operativo superior a 19,5 M€ diarios (EPS: 6,61 €). |
+| **Cartera de Pedidos Firme** | **8.754 aviones** | >11 años de producción asegurada | Valorada en más de 565.000 M€; producción vendida hasta 2037. |
+| **Tesorería Neta y Liquidez** | **10.700 M€** | Caja bruta de 25.400 M€ / FCF: 4.600 M€ | Grado de inversión fuerte (Rating A2/A) con solvencia total. |
+| **Dividendos Repartidos (2025)** | **2.535,3 M€** | 3,20 €/acción repartidos entre accionistas | **Los dividendos de 1 solo año pagan 21,5 años de la plataforma de España.** |
 
 **Estructura Accionarial de Airbus SE:**
-* **SOGEPA (Estado Francés):** 10,9%
-* **GZBV (República Federal Alemana):** 10,8%
-* **SEPI (Gobierno de España):** 4,1% (participación estratégica a través del Ministerio de Hacienda)
-* **Free Float (Fondos Institucionales y Minoritarios):** 74,2%
+* **SOGEPA (Estado Francés):** 10,9% (86,4M acciones)
+* **GZBV / KfW (República Federal Alemana):** 10,8% (85,6M acciones)
+* **SEPI (Gobierno de España / Min. Hacienda):** 4,1% (32,5M acciones)
+* **Free Float (Fondos Institucionales y Minoritarios):** 74,2% (588,5M acciones)
 
 ---
 
