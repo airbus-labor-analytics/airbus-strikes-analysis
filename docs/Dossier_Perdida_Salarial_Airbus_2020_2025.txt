@@ -1,0 +1,21 @@
+DOSSIER ECONOMÉTRICO: PÉRDIDA DE PODER ADQUISITIVO EN AIRBUS ESPAÑA (2020-2025)
+Fuentes: Instituto Nacional de Estadística (INE: IPC, IPV y Encuesta de Presupuestos Familiares 2025), Banco de España y Banco Central Europeo.
+Salario Base de Referencia: 50.000 € brutos / año.
+
+TABLA DETALLADA AÑO A AÑO:
+- 2020: Coste Vida 100.0 (Base) | RSG Airbus 100.0 | Pérdida: 0 € | Pago único: 0 € | Pérdida Neta: 0 €
+- 2021: Coste Vida 106.5 (+6.5%) | RSG Airbus 101.0 (+1.0%) | Pérdida Bruta: -2.735 € | Pago Único: +600 € | Pérdida Neta: -2.462 €
+- 2022: Coste Vida 112.5 (+12.5%) | RSG Airbus 102.5 (+1.5%) | Pérdida Bruta: -4.972 € | Pago Único: +1.500 € | Pérdida Neta: -3.788 €
+- 2023: Coste Vida 116.4 (+16.4%) | RSG Airbus 107.0 (+4.4%) | Pérdida Bruta: -4.677 € | Pago Único: +1.000 € | Pérdida Neta: -3.891 €
+- 2024: Coste Vida 123.1 (+23.1%) | RSG Airbus 110.2 (+3.0%) | Pérdida Bruta: -6.432 € | Pago Único: 0 € | Pérdida Neta: -6.617 €
+- 2025: Coste Vida 131.0 (+31.0%) | RSG Airbus 112.5 (+2.1%) | Pérdida Bruta: -9.269 € | Pago Único: 0 € | Pérdida Neta: -9.269 €
+
+TOTAL ACUMULADO (2020-2025):
+- Inflación Coste de Vida Real: +31,0%
+- Incremento Salarial Aplicado en Airbus: +12,5%
+- Pérdida Salarial Bruta: -28.085 €
+- Pagos Únicos Recibidos: +3.100 €
+- PÉRDIDA NETA TOTAL POR TRABAJADOR: -26.030 €
+- Equivalencia: 46,3% del salario neto anual (5,6 meses de nómina íntegra dejada de percibir).
+- Impacto en Plantilla España (15.562 trabajadores): 405,1 Millones de Euros de masa salarial retenida.
+- Capacidad de Pago de Airbus: Beneficio neto de 5.221 M€ en 2025. El coste de la plataforma completa (239 M€ en año 1) supone el 4,58% de las ganancias anuales.

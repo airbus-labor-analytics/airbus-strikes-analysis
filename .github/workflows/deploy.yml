@@ -55,7 +55,7 @@ jobs:
       - name: Install Chromium for PDF Generation
         run: |
           sudo apt-get update
-          sudo apt-get install -y chromium-browser
+          sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
 
       - name: Compile Publication PDF
         run: |
