@@ -1,5 +1,37 @@
-// Airbus Spain 2026 Strike: Strategic & Financial Analytics Dashboard Controller (v4)
-// High-performance, modular, 100% fail-safe offline & online data binding suite
+// Airbus Spain 2026 Strike: Strategic & Financial Analytics Dashboard Controller (v5)
+// Hardened security, debounced search, responsive lifecycle & offline/online data suite
+
+// ==================== SECURITY & UTILITY HELPERS ====================
+function escapeHTML(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function sanitizeURL(url) {
+  if (!url) return '';
+  const clean = String(url).trim();
+  if (/^(https?:\/\/|\/|\.\/|#|data\/|docs\/)/i.test(clean)) {
+    return clean;
+  }
+  return '#';
+}
+
+function debounce(func, wait = 150) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 let conflictData = window.CONFLICT_DATA || null;
 let sourcesCatalogData = window.SOURCES_DATA || [];
@@ -18,6 +50,9 @@ let belugaPollingInterval = null;
 let selectedSourceCategory = 'ALL';
 let selectedTgCategory = 'ALL';
 let currentModalSource = null;
+
+const debouncedFilterSources = debounce(() => filterSources(), 150);
+const debouncedFilterTelegramDocs = debounce(() => filterTelegramDocs(), 150);
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) lucide.createIcons();
@@ -65,6 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash.replace('#', '');
     if (hash && document.getElementById(hash)) {
       switchTab(hash);
+    }
+  });
+
+  // 8. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (belugaPollingInterval) {
+        clearInterval(belugaPollingInterval);
+        belugaPollingInterval = null;
+      }
+    } else {
+      if (!belugaPollingInterval) {
+        startBelugaLivePolling();
+      }
     }
   });
 });
@@ -1870,16 +1919,21 @@ function renderSourcesList(sources) {
     const chars = s.char_count ? `${(s.char_count/1000).toFixed(1)}k caracteres` : (s.section || '');
     const cleanId = (s.id || `fuente-${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_');
 
+    const safeTitle = escapeHTML(s.title);
+    const safeSummary = s.summary ? `<p class="text-[11px] text-slate-400 line-clamp-1 leading-relaxed">${escapeHTML(s.summary)}</p>` : '';
+    const safeUrl = sanitizeURL(s.url);
+    const safeFilePath = sanitizeURL(s.file_path || `data/sources/${s.id}.txt`);
+
     return `
       <div class="p-3.5 bg-slate-900/80 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex flex-col sm:flex-row justify-between sm:items-center gap-3">
         <div class="space-y-1">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="px-2 py-0.5 text-[9px] font-extrabold rounded border ${catBadgeColor}">${cat}</span>
-            <span class="text-[10px] text-slate-400 font-mono">${s.type ? s.type.toUpperCase() : 'DOC'}</span>
-            <span class="text-[10px] text-slate-500 font-mono">${chars}</span>
+            <span class="px-2 py-0.5 text-[9px] font-extrabold rounded border ${catBadgeColor}">${escapeHTML(cat)}</span>
+            <span class="text-[10px] text-slate-400 font-mono">${escapeHTML(s.type ? s.type.toUpperCase() : 'DOC')}</span>
+            <span class="text-[10px] text-slate-500 font-mono">${escapeHTML(chars)}</span>
           </div>
-          <h4 class="text-xs font-bold text-white leading-snug">${s.title}</h4>
-          ${s.summary ? `<p class="text-[11px] text-slate-400 line-clamp-1 leading-relaxed">${s.summary}</p>` : ''}
+          <h4 class="text-xs font-bold text-white leading-snug">${safeTitle}</h4>
+          ${safeSummary}
         </div>
         <div class="flex items-center space-x-2 shrink-0">
           <button onclick="openSourceModal('${cleanId}')" class="px-2.5 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 rounded-lg text-xs font-bold transition flex items-center">
@@ -1887,11 +1941,11 @@ function renderSourcesList(sources) {
             Ver Contenido
           </button>
           ${s.url ? `
-            <a href="${s.url}" target="_blank" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition" title="Abrir URL original">
+            <a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition" title="Abrir URL original">
               <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           ` : `
-            <a href="${s.file_path || `data/sources/${s.id}.txt`}" download class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition" title="Descargar texto">
+            <a href="${safeFilePath}" download class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-lg transition" title="Descargar texto">
               <i data-lucide="download" class="w-3.5 h-3.5"></i>
             </a>
           `}
@@ -2061,29 +2115,38 @@ function renderTelegramDocs(docs) {
     return;
   }
 
-  container.innerHTML = docs.map(doc => `
-    <div class="p-3.5 bg-slate-900/80 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex flex-col sm:flex-row justify-between sm:items-center gap-3">
-      <div class="space-y-1">
-        <div class="flex items-center space-x-2">
-          <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">${doc.category}</span>
-          <span class="text-xs text-slate-400 font-mono">${doc.date}</span>
-          <span class="text-[10px] text-slate-500 font-mono">${(doc.size_chars ? (doc.size_chars/1000).toFixed(1) : 0)}k caracteres</span>
+  container.innerHTML = docs.map(doc => {
+    const safeTitle = escapeHTML(doc.title);
+    const safeCategory = escapeHTML(doc.category);
+    const safeSummary = escapeHTML(doc.summary);
+    const safeDate = escapeHTML(doc.date);
+    const cleanDocId = escapeHTML((doc.id || doc.title || '').replace(/[^a-zA-Z0-9_-]/g, '_'));
+    const safeFilePath = sanitizeURL(doc.file_path);
+
+    return `
+      <div class="p-3.5 bg-slate-900/80 hover:bg-slate-900 border border-slate-800 rounded-xl transition flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2">
+            <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">${safeCategory}</span>
+            <span class="text-xs text-slate-400 font-mono">${safeDate}</span>
+            <span class="text-[10px] text-slate-500 font-mono">${(doc.size_chars ? (doc.size_chars/1000).toFixed(1) : 0)}k caracteres</span>
+          </div>
+          <h5 class="text-xs font-bold text-white">${safeTitle}</h5>
+          <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">${safeSummary}</p>
         </div>
-        <h5 class="text-xs font-bold text-white">${doc.title}</h5>
-        <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">${doc.summary}</p>
+        <div class="flex items-center space-x-2 shrink-0">
+          <button onclick="openSourceModal('${cleanDocId}')" class="px-2.5 py-1.5 bg-sky-600/20 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/30 rounded-lg text-xs font-bold transition flex items-center">
+            <i data-lucide="eye" class="w-3.5 h-3.5 mr-1 text-sky-400"></i>
+            Ver Texto
+          </button>
+          <a href="${safeFilePath}" download class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center">
+            <i data-lucide="download" class="w-3.5 h-3.5 mr-1 text-slate-400"></i>
+            Descargar
+          </a>
+        </div>
       </div>
-      <div class="flex items-center space-x-2 shrink-0">
-        <button onclick="openSourceModal('${doc.id || doc.title}')" class="px-2.5 py-1.5 bg-sky-600/20 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/30 rounded-lg text-xs font-bold transition flex items-center">
-          <i data-lucide="eye" class="w-3.5 h-3.5 mr-1 text-sky-400"></i>
-          Ver Texto
-        </button>
-        <a href="${doc.file_path}" download class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-bold transition flex items-center">
-          <i data-lucide="download" class="w-3.5 h-3.5 mr-1 text-slate-400"></i>
-          Descargar
-        </a>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
   if (window.lucide) lucide.createIcons();
 }

@@ -25,7 +25,8 @@ except ImportError:
 
 @dataclass
 class IndustrialParameters:
-    total_workers_spain: int = 14000  # Direct workforce in Airbus Spain (15,562 including auxiliary contractors)
+    total_workers_spain: int = 14000  # Direct workforce in Airbus Spain
+    total_workforce_including_contractors: int = 15562  # Total electoral census including auxiliary contractors
     avg_annual_salary: float = 50000.0  # Euros
     airbus_se_net_profit_2025: float = 4960000000.0  # 4.960 B€ (Official Airbus FY2025 Results)
     airbus_se_ebit_adj_2025: float = 7100000000.0  # 7.100 B€ (Official Airbus FY2025 Results)
@@ -35,7 +36,6 @@ class IndustrialParameters:
     daily_delay_penalty_cost: float = 4200000.0  # 4.2 M€/day delivery delay penalties [Estimación / Modelo Operativo]
     getafe_htp_production_share: float = 1.00  # 100% of European HTPs for A320/A330/A350 in Getafe [Dato Verificado Primario]
     fal_stock_buffer_hours: float = 60.0  # 48h to 72h JIT line-side buffer [Estimación / Modelo Operativo]
-
 class StrikeAnalysisEngine:
     def __init__(self, params: IndustrialParameters = None):
         self.p = params or IndustrialParameters()
@@ -54,10 +54,14 @@ class StrikeAnalysisEngine:
         pct_of_2025_ebit = (total_first_year_cash_impact / self.p.airbus_se_ebit_adj_2025) * 100
 
         return {
+            "direct_workforce": self.p.total_workers_spain,
+            "total_electoral_census": self.p.total_workforce_including_contractors,
             "total_workers": self.p.total_workers_spain,
             "annual_wage_mass_spain_eur": wage_mass_spain,
             "cost_12pct_increase_eur": cost_12pct_tablas,
             "cost_one_time_payment_eur": cost_retroactive_atrasos,
+            "annual_recurrent_consolidated_cost_eur": total_annualized_cost,
+            "total_cost_year1_retroactive_eur": total_first_year_cash_impact,
             "total_first_year_impact_eur": total_first_year_cash_impact,
             "annualized_recurrent_cost_eur": total_annualized_cost,
             "pct_of_annual_net_profit": round(pct_of_2025_profit, 2),

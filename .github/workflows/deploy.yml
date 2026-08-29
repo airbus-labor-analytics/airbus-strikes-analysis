@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -52,6 +52,10 @@ jobs:
       - name: Run Econometric Analysis Engine
         run: |
           python3 src/analysis_engine.py
+
+      - name: Run Automated Test Suite
+        run: |
+          python3 -m unittest discover -s tests -p "test_*.py"
       - name: Install Chromium for PDF Generation
         run: |
           sudo apt-get update
