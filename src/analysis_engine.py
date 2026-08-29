@@ -866,31 +866,44 @@ class StrikeAnalysisEngine:
                 "category": "Negociación",
                 "badge": "Protocolo Asambleario",
                 "color": "blue",
+                "description": "Protocolo de actuación obligatorio para la mesa negociadora y las asambleas de fábrica ante la entrega de cualquier propuesta patronal en el SIMA.",
                 "objective": "Garantizar que ninguna oferta insuficiente se vote en urna sin filtro previo del Comité de Huelga.",
                 "steps": [
                     {
-                        "step": 1,
-                        "title": "Recepción Formal del Texto Escrito en SIMA",
-                        "condition": "Exigir documento oficial firmado por la dirección con números desglosados en tablas (prohibido someter a asamblea propuestas verbales o intenciones).",
-                        "gate": "Mandatorio"
+                        "step_num": 1,
+                        "title": "Recepción Formal del Texto Escrito en Sede SIMA",
+                        "action": "Exigir documento oficial rubricado por la dirección de Airbus con desglose numérico exacto en tablas. Queda terminantemente prohibido someter a deliberación asamblearia propuestas verbales o declaraciones de intenciones sin soporte documental vinculante.",
+                        "legal_basis": "Art. 8.2 RD-ley 17/1977 y Art. 4 Real Decreto 713/2010 (Registro de Convenios)",
+                        "warning_danger": "Ofertas verbales de 'compromisos de futuro' que luego se desvanecen en la redacción del convenio colectivo.",
+                        "safeguard": "Exigir copia sellada por los mediadores del SIMA antes de levantar la sesión negociadora.",
+                        "gate_badge": "Mandatorio"
                     },
                     {
-                        "step": 2,
+                        "step_num": 2,
                         "title": "Auditoría Técnica de los 6 Filtros Innegociables",
-                        "condition": "El Comité de Huelga coteja si cumple: 1) 12% base, 2) RSG IPC+1,5% sin topes, 3) 7.500€ atrasos, 4) Retirada Bradford, 5) Blindaje Relevo, 6) Paz condicionada.",
-                        "gate": "Filtro Técnico"
+                        "action": "El Comité de Huelga coteja el texto frente a los 6 requisitos irrenunciables: 1) 12% consolidable en tablas desde 01/01/2026, 2) RSG anual = IPC real + 1,5% sin topes ni absorciones, 3) Pago único retroactivo de mínimo 7.500 €, 4) Desistimiento judicial en IT (Bradford) y Bromo, 5) Blindaje del contrato de relevo al 100%, 6) Garantía de indemnidad y paz condicionada a publicación en BOE.",
+                        "legal_basis": "Art. 28.2 CE (Derecho de Huelga) y Art. 86 Estatuto de los Trabajadores",
+                        "warning_danger": "Pagas únicas 'caramelo' no consolidables ofrecidas a cambio de rebajar el porcentaje en tablas base.",
+                        "safeguard": "Verificar en simulador actuarial que el salario consolidado garantice el poder adquisitivo a largo plazo.",
+                        "gate_badge": "Filtro Técnico"
                     },
                     {
-                        "step": 3,
-                        "title": "Bifurcación de Decisión",
-                        "condition": "Si cumple < 4 filtros $\\rightarrow$ Rechazo inmediato en mesa sin desgastar a las bases.\nSi cumple $\\ge$ 5 filtros $\\rightarrow$ Traslado a Asamblea General y referéndum vinculante.",
-                        "gate": "Decisión Comité"
+                        "step_num": 3,
+                        "title": "Bifurcación de Decisión y Filtro de Mesa",
+                        "action": "Si la oferta cumple MENOS de 5 filtros -> Rechazo en mesa por el Comité de Huelga sin convocar referéndum para evitar el desgaste de las bases. Si cumple 5 o más filtros -> Se eleva a las Asambleas Generales de fábrica con informe de recomendación.",
+                        "legal_basis": "Reglamento del Comité Intercentros y Código de Huelga",
+                        "warning_danger": "Votar ofertas regresivas en urna genera fractura sindical y desgaste anímico innecesario.",
+                        "safeguard": "Unidad de acción del Comité de Huelga (SIPA, UGT, CGT, ÚTIL) manteniendo la consigna acordada.",
+                        "gate_badge": "Decisión Comité"
                     },
                     {
-                        "step": 4,
-                        "title": "Votación en Urna y Ratificación",
-                        "condition": "Votación secreta individual en fábrica. Si aprueba > 50% $\\rightarrow$ Firma condicionada a REGCON. Si rechaza $\\rightarrow$ Huelga indefinida automática.",
-                        "gate": "Voto Soberano"
+                        "step_num": 4,
+                        "title": "Votación Secreta en Urna y Ratificación Condicionada",
+                        "action": "Votación individual y secreta en las factorías (Getafe, Illescas, Puerto Real, Sevilla San Pablo y Tablada, Albacete). Si se aprueba por mayoría simple (>50%) -> Firma supeditada a publicación en REGCON. Si se rechaza -> Continuación inmediata de la huelga indefinida.",
+                        "legal_basis": "Art. 77 y 80 del Estatuto de los Trabajadores (Asambleas de Trabajadores)",
+                        "warning_danger": "Desconvocar la huelga antes de la entrada del acuerdo en el registro oficial de la Autoridad Laboral.",
+                        "safeguard": "Mantenimiento del preaviso de huelga legalmente vivo hasta la constancia fehaciente en REGCON/BOE.",
+                        "gate_badge": "Voto Soberano"
                     }
                 ]
             },
@@ -900,25 +913,35 @@ class StrikeAnalysisEngine:
                 "category": "Táctica",
                 "badge": "Blindaje Jurídico",
                 "color": "amber",
+                "description": "Mecanismo jurídico y logístico para gestionar propuestas de mediación con tregua sin perder la cobertura legal de la huelga.",
                 "objective": "Evitar la trampa legal de desconvocar la huelga antes de tener las firmas vinculantes en el BOE/REGCON.",
                 "steps": [
                     {
-                        "step": 1,
-                        "title": "Diferenciación Legal Estricta (RD-ley 17/1977 Art. 8.2)",
-                        "condition": "Una 'Pausa Temporal de Negociación' NO es una desconvocatoria. La huelga permanece viva jurídicamente.",
-                        "gate": "Mandatorio"
+                        "step_num": 1,
+                        "title": "Diferenciación Legal Estricta: Pausa vs. Desconvocatoria",
+                        "action": "Toda resolución asamblearia debe constar expresamente en acta como 'Pausa Temporal de Negociación por Plazo Determinado'. La huelga NO se desconvoca; permanece legalmente vigente (Art. 8.2 RD-ley 17/1977).",
+                        "legal_basis": "STC 11/1981 del Tribunal Constitucional (Garantía de Indemnidad)",
+                        "warning_danger": "Desconvocar formalmente obligaría a registrar un nuevo preaviso de 5 días hábiles, perdiendo la inercia del bloqueo industrial.",
+                        "safeguard": "Redacción blindada por los servicios jurídicos del Comité de Huelga entregada al SIMA.",
+                        "gate_badge": "Mandatorio"
                     },
                     {
-                        "step": 2,
-                        "title": "Plazo Improrrogable Acotado por Escrito",
-                        "condition": "Fijar un máximo estricto de 3 a 5 días laborables en sede SIMA. Si vence el plazo sin acuerdo completo, la huelga se reanuda de inmediato.",
-                        "gate": "Condición Temporal"
+                        "step_num": 2,
+                        "title": "Plazo Improrrogable Acotado por Escrito (3 a 5 Días)",
+                        "action": "Fijar un plazo perentorio de máximo 3 a 5 días laborables en mesa SIMA. Si vence la fecha límite sin preacuerdo íntegro firmado, la huelga se reanuda de forma automática al día siguiente sin trámite adicional.",
+                        "legal_basis": "Acuerdo de Mediación en SIMA vinculante entre partes",
+                        "warning_danger": "Negociaciones dilatadas 'sine die' utilizadas por la empresa para vaciar los almacenes de Getafe en vuelos nocturnos.",
+                        "safeguard": "Vigilar que no se autoricen vuelos extraordinarios de Beluga durante los días de tregua negociadora.",
+                        "gate_badge": "Condición Temporal"
                     },
                     {
-                        "step": 3,
-                        "title": "Papeleta de Huelga Activa al 100%",
-                        "condition": "Mantener los piquetes informativos y la logística de resistencia preparados para reactivar el bloqueo de Beluga en el minuto 1 tras vencer el plazo.",
-                        "gate": "Operatividad"
+                        "step_num": 3,
+                        "title": "Retención Logística y Piquetes en Estado de Alerta",
+                        "action": "Durante la pausa técnica, los piquetes informativos y comités de factoría mantienen la vigilancia en puertas y pistas. Ningún estabilizador HTP acumulado puede salir de Getafe sin autorización asamblearia.",
+                        "legal_basis": "Art. 6.6 RD-ley 17/1977 (Piquetes Informativos)",
+                        "warning_danger": "Carga furtiva de componentes o desvío a transportes terrestres especiales.",
+                        "safeguard": "Monitoreo 24/7 con radar BelugaWatch y control de accesos en factorías.",
+                        "gate_badge": "Operatividad"
                     }
                 ]
             },
@@ -928,25 +951,35 @@ class StrikeAnalysisEngine:
                 "category": "Presión Industrial",
                 "badge": "Máxima Asimetría 185x",
                 "color": "rose",
-                "objective": "Maximizar el estrangulamiento de las FALs europeas mientras se protege jurídicamente a los trabajadores.",
+                "description": "Operativa de resistencia y palanca de estrangulamiento de la cadena de suministro internacional de Airbus SE.",
+                "objective": "Maximizar el coste diario para Airbus SE (22,7 M€/día) mientras se minimiza el impacto económico y anímico en la plantilla.",
                 "steps": [
                     {
-                        "step": 1,
+                        "step_num": 1,
                         "title": "Control del Monopolio HTP en Getafe (LEGT)",
-                        "condition": "Retención del 100% de estabilizadores de cola en factoría. Agotamiento del stock buffer de Toulouse y Hamburgo en 48-72h.",
-                        "gate": "Palanca Crítica"
+                        "action": "Mantenimiento del bloqueo absoluto de las naves de estabilizadores. Las líneas de ensamblaje final (FALs) de Toulouse y Hamburgo agotan su stock de seguridad en 48-72 horas, paralizando entregas mundiales.",
+                        "legal_basis": "Cadena Logística Certificada EASA Part-21",
+                        "warning_danger": "Presiones de mandos intermedios alegando 'causas de fuerza mayor' para mover piezas terminadas.",
+                        "safeguard": "Denuncia inmediata por vulneración de derechos fundamentales ante cualquier movimiento no autorizado.",
+                        "gate_badge": "Palanca Crítica"
                     },
                     {
-                        "step": 2,
-                        "title": "Escudo contra Esquirolaje Ilícito (EASA Part-21 & STC 11/1981)",
-                        "condition": "Vigilancia de firmas técnicas y certificaciones de aeronavegabilidad. Denuncia inmediata ante Inspección de Trabajo ante desvíos de carga.",
-                        "gate": "Escudo Legal"
+                        "step_num": 2,
+                        "title": "Escudo contra Esquirolaje Ilícito Técnico e Interno",
+                        "action": "Supervisión estricta de certificaciones de aeronavegabilidad. Ningún ingeniero o directivo sin habilitación técnica específica de puesto puede firmar relevos de fabricación (STC 11/1981).",
+                        "legal_basis": "Art. 6.5 RD-ley 17/1977 y Jurisprudencia TS sobre Esquirolaje Tecnológico",
+                        "warning_danger": "Externalización encubierta de trabajos a subcontratas (Tier-1 / Tier-2) durante los días de paro.",
+                        "safeguard": "Actas de Inspección de Trabajo presenciales diarias en las factorías de Getafe, Illescas y Sevilla.",
+                        "gate_badge": "Escudo Legal"
                     },
                     {
-                        "step": 3,
-                        "title": "Escalada de Presión Política sobre la SEPI y Gobierno",
-                        "condition": "Exigir al Ministerio de Industria la protección de programas estratégicos de Defensa (Eurofighter, A400M, C295, SIRTAP) forzando a Faury a pactar.",
-                        "gate": "Palanca Política"
+                        "step_num": 3,
+                        "title": "Caja de Resistencia y Solidaridad Intercentros",
+                        "action": "Activación de los fondos de resistencia sindical y compensación solidaria para los puestos más expuestos a descuentos salariales, asegurando solvencia financiera indefinida.",
+                        "legal_basis": "Estatutos Sindicales y Fondos Mutuales de Resistencia",
+                        "warning_danger": "Desgaste económico individual en trabajadores con cargas hipotecarias elevadas.",
+                        "safeguard": "Microcréditos solidarios y exención de cuotas para trabajadores en huelga activa.",
+                        "gate_badge": "Solvencia Plantilla"
                     }
                 ]
             },
@@ -956,21 +989,137 @@ class StrikeAnalysisEngine:
                 "category": "Defensa Jurídica",
                 "badge": "Doctrina Constitucional",
                 "color": "purple",
-                "objective": "Neutralizar intentos de arbitraje obligatorio que cercenen el derecho fundamental de huelga.",
+                "description": "Estrategia jurídica para impugnar y neutralizar cualquier tentativa gubernamental o patronal de arbitraje obligatorio.",
+                "objective": "Defender el derecho fundamental de huelga frente a presiones políticas o decretos de servicios mínimos abusivos.",
                 "steps": [
                     {
-                        "step": 1,
-                        "title": "Inaplicabilidad de Servicios Esenciales",
-                        "condition": "Las líneas comerciales de Airbus SE son mercantiles privadas, no servicios públicos de primera necesidad (Art. 10 RD-ley 17/1977).",
-                        "gate": "Defensa Legal"
+                        "step_num": 1,
+                        "title": "Inaplicabilidad de la Doctrina de Servicios Esenciales",
+                        "action": "Acreditar ante la Autoridad Laboral que la fabricación de aviones comerciales (A320, A350) responde a compromisos estrictamente mercantiles y privados, no a necesidades de la comunidad (Art. 10 RD-ley 17/1977).",
+                        "legal_basis": "STC 11/1981, STC 26/1981 y STC 51/1986 del Tribunal Constitucional",
+                        "warning_danger": "Intentos de la dirección de calificar programas comerciales como 'estratégicos' para forzar laudos.",
+                        "safeguard": "Separación nítida en factorías entre líneas comerciales privadas y programas de Defensa nacional estricta.",
+                        "gate_badge": "Doctrina Legal"
                     },
                     {
-                        "step": 2,
-                        "title": "Recurso de Amparo ante la Audiencia Nacional",
-                        "condition": "Impugnación inmediata ante cualquier intento de imposición ministerial sin consentimiento expreso del Comité de Huelga.",
-                        "gate": "Vía Judicial"
+                        "step_num": 2,
+                        "title": "Recurso de Medidas Cautelarísimas ante la Audiencia Nacional",
+                        "action": "Interposición inmediata de recurso contencioso-administrativo con solicitud de suspensión cautelarísima si el Gobierno intentase imponer un árbitro sin acuerdo de ambas partes.",
+                        "legal_basis": "Art. 135 Ley Reguladora de la Jurisdicción Contencioso-Administrativa (LJCA)",
+                        "warning_danger": "Laudos forzosos redactados por consultoras afines a la patronal que congelan la masa salarial.",
+                        "safeguard": "Precedentes judiciales favorables (Sentencias AN sobre huelgas aeronáuticas y metal).",
+                        "gate_badge": "Vía Judicial"
                     }
                 ]
+            }
+        ]
+
+    def get_benchmarks(self) -> List[Dict[str, Any]]:
+        """Returns 8 comprehensive historical aerospace and industrial strike benchmarks."""
+        return [
+            {
+                "case": "Boeing IAM 751 (2024)",
+                "sector": "Aeroespacial Comercial (FALs Seattle)",
+                "duration": "53 días",
+                "strike_duration_days": 53,
+                "badge": "Victoria Histórica (+38%)",
+                "badgeColor": "emerald",
+                "initial_offer": "+25% en 4 años con pérdida de bono anual",
+                "final_agreement": "+38% directo a tablas en 4 años + Bono de firma de 12.000 $ + RSG 100% IPC + Contribución pensiones al 12%",
+                "result": "La asamblea rechazó un preacuerdo inicial del 25% y una segunda oferta del 35% hasta forzar el 38% consolidado y 12.000$ en mano.",
+                "lesson": "El control asambleario democrático y el rechazo a preacuerdos de despacho dobló el incremento salarial.",
+                "leverage_mechanism": "Paralización total de las entregas del 737 MAX y 777, provocando pérdidas de >50 M$/día a Boeing."
+            },
+            {
+                "case": "Spirit AeroSystems IAM 839 (2023)",
+                "sector": "Aeroestructuras & Fuselajes (Wichita, KS)",
+                "duration": "7 días",
+                "strike_duration_days": 7,
+                "badge": "Capitulación Rápida (+20,5%)",
+                "badgeColor": "emerald",
+                "initial_offer": "+16% con recortes de descansos y flexibilización de turnos",
+                "final_agreement": "+20,5% en tablas + Bono de 3.000 $ + Retirada de horas extra forzosas y blindaje de descansos",
+                "result": "Una huelga relámpago de 7 días paralizó el suministro de fuselajes de Boeing forzando una oferta sustancialmente mejorada.",
+                "lesson": "La asimetría en un componente monopolístico único otorga un poder de negociación multiplicador sin necesidad de huelgas extenuantes.",
+                "leverage_mechanism": "Monopolio exclusivo en la sección delantera del fuselaje del 737; Boeing amenazó con parada de FALs en 5 días."
+            },
+            {
+                "case": "Rolls-Royce Barnoldswick Unite (2020)",
+                "sector": "Motores de Aviación (Lancashire, UK)",
+                "duration": "9 semanas",
+                "strike_duration_days": 63,
+                "badge": "Blindaje Industrial (10 Años)",
+                "badgeColor": "blue",
+                "initial_offer": "Cierre de línea de álabes de turbina y deslocalización a Singapur",
+                "final_agreement": "Garantía de carga de trabajo por 10 años + Nuevo centro de excelencia en carbono + Cero despidos forzosos",
+                "result": "La plantilla resistió 9 semanas de paros rotativos y forzó a Rolls-Royce a firmar un pacto de reindustrialización histórica.",
+                "lesson": "Las huelgas por carga de trabajo y permanencia industrial se ganan resistiendo el intento de deslocalización técnica.",
+                "leverage_mechanism": "Álabes de titanio del motor Trent para el Airbus A350 y Boeing 787; aerolíneas internacionales presionaron a Rolls-Royce."
+            },
+            {
+                "case": "Airbus France Nantes/St-Nazaire (2022)",
+                "sector": "Aeroespacial Comercial (Airbus Atlantic)",
+                "duration": "4 días",
+                "strike_duration_days": 4,
+                "badge": "Bloqueo Logístico (+6,8%)",
+                "badgeColor": "sky",
+                "initial_offer": "+2,8% con cláusula de moderación por costes energéticos",
+                "final_agreement": "+6,8% incremento general + Paga de beneficios récord de 3.200 € + Revalorización de primas de turno",
+                "result": "Los paros en las fábricas de piezas de proa y fuselaje bloquearon los vuelos de Beluga a Toulouse en 48 horas.",
+                "lesson": "La dirección de Airbus capitula con extrema rapidez cuando ve amenazado el objetivo anual de entregas a aerolíneas comerciales.",
+                "leverage_mechanism": "Corte de suministro a la FAL de Toulouse a escasas semanas del cierre del ejercicio financiero anual."
+            },
+            {
+                "case": "John Deere UAW (2021)",
+                "sector": "Maquinaria Agrícola & Pesada (EEUU)",
+                "duration": "35 días",
+                "strike_duration_days": 35,
+                "badge": "Reincorporación COLA (+20%)",
+                "badgeColor": "emerald",
+                "initial_offer": "+10% en 6 años con eliminación de pensiones para nuevas incorporaciones",
+                "final_agreement": "+20% en tablas + Bono de 8.500 $ + Blindaje de RSG/COLA automático por inflación + Retirada de escala salarial dual",
+                "result": "Las bases rechazaron dos preacuerdos firmados por la cúpula sindical hasta forzar a la multinacional a restituir la cláusula de IPC.",
+                "lesson": "La asamblea soberana es la única garantía de que la inflación no devore los salarios en convenios plurianuales.",
+                "leverage_mechanism": "Campaña de cosecha en pleno auge; los concesionarios se quedaron sin tractores de recambio."
+            },
+            {
+                "case": "General Motors UAW (2023)",
+                "sector": "Automoción / Manufactura Avanzada (EEUU)",
+                "duration": "46 días",
+                "strike_duration_days": 46,
+                "badge": "Stand-Up Strike (+25%)",
+                "badgeColor": "indigo",
+                "initial_offer": "+9% general en 4,5 años",
+                "final_agreement": "+25% incremento base + Restitución de RSG por IPC (cost of living) + Eliminación de escalas salariales de entrada",
+                "result": "Estrategia 'Stand-Up Strike' parando plantas clave de forma selectiva para maximizar el daño con el menor coste de nómina para la plantilla.",
+                "lesson": "La huelga quirúrgica en cuellos de botella genera la máxima asimetría de costes entre empresa y trabajadores.",
+                "leverage_mechanism": "Parada de plantas de motores y transmisiones que suministraban a toda la red de ensamblaje de EEUU."
+            },
+            {
+                "case": "Navantia / Bahía de Cádiz Metal (2021)",
+                "sector": "Naval & Defensa (Cádiz/San Fernando)",
+                "duration": "9 días",
+                "strike_duration_days": 9,
+                "badge": "Blindaje RSG IPC Real",
+                "badgeColor": "amber",
+                "initial_offer": "Congelación con pagas variables ligadas a productividad no consolidable",
+                "final_agreement": "Subida vinculada al IPC real con revisión anual a tablas + Cero penalizaciones por bajas de IT",
+                "result": "Huelga general del sector del metal en Cádiz con paralización de los astilleros de Navantia y plantas auxiliares de Airbus Puerto Real.",
+                "lesson": "La movilización unitaria en la calle y la alianza de la industria auxiliar quiebra la postura de la patronal.",
+                "leverage_mechanism": "Bloqueo de accesos a polígonos industriales y retención de contratos estratégicos de exportación militar."
+            },
+            {
+                "case": "Acerinox Palmones (2024)",
+                "sector": "Siderurgia & Acero Inoxidable (Cádiz)",
+                "duration": "135 días",
+                "strike_duration_days": 135,
+                "badge": "Lección de Desgaste",
+                "badgeColor": "rose",
+                "initial_offer": "Flexibilidad de jornada de 5 a 3 turnos con recortes",
+                "final_agreement": "Acuerdo de mínimos por agotamiento económico de las familias tras 4,5 meses de huelga",
+                "result": "Conflicto extremadamente largo donde la falta de cuellos de botella inmediatos y la caída del precio del níquel jugaron a favor de la empresa.",
+                "lesson": "Sin asimetría crítica en la cadena JIT ni cajas de resistencia suficientes, una huelga de desgaste favorece al capital.",
+                "leverage_mechanism": "Falta de vulnerabilidad logística inmediata: la empresa tenía stock almacenado en clientes europeos."
             }
         ]
 
@@ -989,32 +1138,7 @@ class StrikeAnalysisEngine:
             "strike_timeline_30d": self.simulate_strike_timeline(30),
             "purchasing_power_model": self.get_purchasing_power_comparison(),
             "resolution_scenarios": self.get_resolution_scenarios(),
-            "benchmarks": [
-                {
-                    "case": "Boeing IAM 751 (2024)",
-                    "sector": "Aeroespacial Comercial",
-                    "strike_duration_days": 53,
-                    "initial_offer": "25% en 4 años",
-                    "final_agreement": "38% en tablas + 12.000$ bono de firma + IPC protegido",
-                    "key_lesson": "El control asambleario rechazó ofertas intermedias hasta doblar el coste para la empresa."
-                },
-                {
-                    "case": "Spirit AeroSystems IAM 839 (2023)",
-                    "sector": "Aeroestructuras / Fuselajes",
-                    "strike_duration_days": 7,
-                    "initial_offer": "16% con recortes de descansos",
-                    "final_agreement": "+20,5% en tablas + Retirada de recortes de jornada",
-                    "key_lesson": "La pausa táctica de 7 días forzó a la dirección a capitular por el estrangulamiento de la cadena de Boeing."
-                },
-                {
-                    "case": "Acerinox Palmones (2024)",
-                    "sector": "Siderurgia",
-                    "strike_duration_days": 135,
-                    "initial_offer": "Convenio con flexibilización",
-                    "final_agreement": "Acuerdo a la baja por agotamiento financiero",
-                    "key_lesson": "Sin asimetría crítica en JIT ni solvencia familiar, el conflicto largo desgasta a la plantilla."
-                }
-            ],
+            "benchmarks": self.get_benchmarks(),
             "timeline": self.get_conflict_timeline(),
             "negotiation_evolution": self.get_negotiation_evolution(),
             "historical_agreements_and_losses": self.get_historical_agreements_and_losses(),

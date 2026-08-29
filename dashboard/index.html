@@ -315,87 +315,168 @@
 
       <!-- ==================== TAB 2: JIT & FALS ==================== -->
       <div id="tab-jit" class="tab-content hidden space-y-6">
-        <div class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
-          <div class="border-b border-slate-800/80 pb-3">
-            <h2 class="text-base font-bold text-white flex items-center">
-              <i data-lucide="boxes" class="w-5 h-5 mr-2 text-sky-400"></i>
-              Arquitectura de la Cadena de Suministro Just-In-Time (JIT)
-            </h2>
-            <p class="text-xs text-slate-400 mt-0.5">Análisis de vulnerabilidad logística: Por qué la planta de Getafe ostenta un monopolio absoluto sobre el estabilizador horizontal (HTP).</p>
+        <!-- Header Card -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-sky-500/30 space-y-5">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h2 class="text-base sm:text-lg font-black text-white flex items-center">
+                <i data-lucide="boxes" class="w-5 h-5 mr-2 text-sky-400"></i>
+                Arquitectura de la Cadena de Suministro Just-In-Time (JIT) & Monopolio Industrial
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5">Análisis de asimetría logística: Por qué la paralización de las factorías españolas colapsa la producción mundial de Airbus SE en 48–72 horas.</p>
+            </div>
+            <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit">
+              Autonomía FALs: 48–72h
+            </span>
           </div>
 
+          <!-- 3 Strategic Pillar Cards -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs font-bold text-sky-400 flex items-center mb-1">
-                <i data-lucide="shield-alert" class="w-4 h-4 mr-1.5"></i> Monopolio Técnico HTP
-              </span>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-sky-500/30 hover:border-sky-500/50 transition space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-400 flex items-center">
+                  <i data-lucide="shield-alert" class="w-4 h-4 mr-1.5 text-sky-400"></i> Monopolio Técnico HTP (Getafe)
+                </span>
+                <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold bg-sky-500/20 text-sky-300 rounded">100% Cuota</span>
+              </div>
               <p class="text-xs text-slate-300 leading-relaxed">
-                El 100% de los estabilizadores horizontales (HTP) de los modelos A320, A321XLR, A330 y A350 se fabrican y ensamblan exclusivamente en la planta de Getafe. No existe factoría alternativa en Europa con utillajes homologados.
+                El 100% de los estabilizadores horizontales (HTP) de los modelos <strong>A320, A321neo, A321XLR, A330 y A350</strong> se fabrican exclusivamente en la planta de Getafe. No existe factoría alternativa en Europa con utillajes homologados por EASA.
               </p>
             </div>
 
-            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs font-bold text-amber-400 flex items-center mb-1">
-                <i data-lucide="timer" class="w-4 h-4 mr-1.5"></i> Buffer Crítico: 48-72h
-              </span>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-amber-500/30 hover:border-amber-500/50 transition space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-400 flex items-center">
+                  <i data-lucide="timer" class="w-4 h-4 mr-1.5 text-amber-400"></i> Buffer Crítico de Seguridad
+                </span>
+                <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold bg-amber-500/20 text-amber-300 rounded">2-3 Días Máx.</span>
+              </div>
               <p class="text-xs text-slate-300 leading-relaxed">
-                El modelo JIT de Airbus mantiene un stock de componentes en las FALs de Toulouse y Hamburgo limitado a entre 2 y 3 días de producción. La interrupción del flujo logístico paraliza las líneas de ensamblaje en menos de 72 horas.
+                El modelo JIT de Airbus mantiene un stock de piezas en las FALs de Toulouse y Hamburgo limitado a entre 2 y 3 días de cadencia. La interrupción del puente aéreo Beluga vacía el stock de seguridad en menos de 72 horas.
               </p>
             </div>
 
-            <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs font-bold text-emerald-400 flex items-center mb-1">
-                <i data-lucide="shield-check" class="w-4 h-4 mr-1.5"></i> Blindaje EASA Part-21
-              </span>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-emerald-500/30 hover:border-emerald-500/50 transition space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400 flex items-center">
+                  <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-400"></i> Blindaje Regulatorio EASA
+                </span>
+                <span class="px-1.5 py-0.5 text-[9px] font-mono font-bold bg-emerald-500/20 text-emerald-300 rounded">Part-21 / STC</span>
+              </div>
               <p class="text-xs text-slate-300 leading-relaxed">
-                La normativa aeronáutica europea prohíbe el desvío de planos o sustitución de técnicos sin certificación de cualificación previa. Cualquier intento de desvío de producción constituye esquirolaje ilícito (STC 11/1981).
+                La normativa aeronáutica comunitaria prohíbe el desvío de planos, utillajes o sustitución de técnicos sin certificación de cualificación previa. Cualquier intento de desvío de producción constituye esquirolaje ilícito (STC 11/1981).
               </p>
             </div>
           </div>
 
-          <!-- FALs cascade status table -->
-          <div class="mt-4 overflow-x-auto">
-            <table class="w-full text-left text-xs border border-slate-800 rounded-xl overflow-hidden">
-              <thead class="bg-slate-900 text-slate-400 font-bold uppercase text-[10px]">
-                <tr>
-                  <th class="p-3">Línea de Montaje Final (FAL)</th>
-                  <th class="p-3">Modelos Afectados</th>
-                  <th class="p-3">Componente Suministrado</th>
-                  <th class="p-3">Autonomía sin Getafe</th>
-                  <th class="p-3">Impacto Económico</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-800 text-slate-300 bg-slate-950/60">
-                <tr>
-                  <td class="p-3 font-bold text-white">Toulouse (Francia)</td>
-                  <td class="p-3">A320neo, A330neo, A350</td>
-                  <td class="p-3">Estabilizador Horizontal (HTP)</td>
-                  <td class="p-3 text-amber-400 font-semibold">48 horas</td>
-                  <td class="p-3 text-rose-400 font-bold">12,5 M€/día</td>
-                </tr>
-                <tr>
-                  <td class="p-3 font-bold text-white">Hamburgo (Alemania)</td>
-                  <td class="p-3">A321neo, A321XLR</td>
-                  <td class="p-3">HTP + Sección 19 Fuselaje</td>
-                  <td class="p-3 text-amber-400 font-semibold">60 horas</td>
-                  <td class="p-3 text-rose-400 font-bold">8,0 M€/día</td>
-                </tr>
-                <tr>
-                  <td class="p-3 font-bold text-white">Mobile, Alabama (EEUU)</td>
-                  <td class="p-3">A320 Family</td>
-                  <td class="p-3">Conjuntos HTP marítimos/aéreos</td>
-                  <td class="p-3 text-blue-400 font-semibold">5 días (tránsito)</td>
-                  <td class="p-3 text-rose-400 font-bold">2,2 M€/día</td>
-                </tr>
-                <tr>
-                  <td class="p-3 font-bold text-white">Sevilla San Pablo (España)</td>
-                  <td class="p-3">A400M, C295 (Defensa)</td>
-                  <td class="p-3">Línea Final Militar</td>
-                  <td class="p-3 text-rose-400 font-bold">Parada Inmediata</td>
-                  <td class="p-3 text-rose-400 font-bold">Presión SEPI/Ministerio</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- FALs Cascade Impact Matrix -->
+          <div class="mt-6 space-y-3">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1">
+              <h3 class="text-sm font-bold text-white flex items-center">
+                <span class="w-2 h-2 rounded-full bg-rose-500 mr-2"></span>
+                Impacto en Cadena en las Líneas de Ensamblaje Final (FALs Europeas y Mundiales)
+              </h3>
+              <span class="text-xs text-slate-400">Pérdida patronal diaria acumulada: <strong>22,7 M€ / día</strong></span>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-slate-900 text-slate-300 font-bold uppercase tracking-wider text-[11px] border-b border-slate-800">
+                  <tr>
+                    <th class="p-3.5">Línea de Montaje (FAL)</th>
+                    <th class="p-3.5">Modelos Afectados</th>
+                    <th class="p-3.5">Componente Suministrado</th>
+                    <th class="p-3.5 text-amber-400">Autonomía Buffer</th>
+                    <th class="p-3.5 text-rose-400">Coste Parada (€/día)</th>
+                    <th class="p-3.5 text-center">Estado Logístico</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 bg-slate-950/40 text-slate-300">
+                  <tr class="hover:bg-slate-900/50 transition">
+                    <td class="p-3.5 font-bold text-white flex items-center">
+                      <span class="w-1.5 h-1.5 rounded-full bg-rose-500 mr-2"></span>
+                      Toulouse (Francia)
+                    </td>
+                    <td class="p-3.5 text-slate-200">A320neo, A330neo, A350-900/1000</td>
+                    <td class="p-3.5 text-sky-300 font-medium">Estabilizador Horizontal (HTP) + Sección 19</td>
+                    <td class="p-3.5 text-amber-400 font-mono font-bold">48 horas</td>
+                    <td class="p-3.5 text-rose-400 font-mono font-black">12,5 M€ / día</td>
+                    <td class="p-3.5 text-center"><span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">PARADA INMINENTE</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/50 transition">
+                    <td class="p-3.5 font-bold text-white flex items-center">
+                      <span class="w-1.5 h-1.5 rounded-full bg-rose-500 mr-2"></span>
+                      Hamburgo Finkenwerder (Alemania)
+                    </td>
+                    <td class="p-3.5 text-slate-200">A321neo, A321XLR (Programa Estrella)</td>
+                    <td class="p-3.5 text-sky-300 font-medium">HTP + Revestimientos Fibra Carbono (Illescas)</td>
+                    <td class="p-3.5 text-amber-400 font-mono font-bold">60 horas</td>
+                    <td class="p-3.5 text-rose-400 font-mono font-black">8,0 M€ / día</td>
+                    <td class="p-3.5 text-center"><span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">STOCK CRÍTICO</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/50 transition">
+                    <td class="p-3.5 font-bold text-white flex items-center">
+                      <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></span>
+                      Mobile, Alabama (EEUU)
+                    </td>
+                    <td class="p-3.5 text-slate-200">A320 Family (Mercado Americano)</td>
+                    <td class="p-3.5 text-sky-300 font-medium">Conjuntos HTP embarcados en tránsito</td>
+                    <td class="p-3.5 text-sky-400 font-mono font-bold">5 días (tránsito)</td>
+                    <td class="p-3.5 text-rose-400 font-mono font-black">2,2 M€ / día</td>
+                    <td class="p-3.5 text-center"><span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">EN TRÁNSITO</span></td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/50 transition">
+                    <td class="p-3.5 font-bold text-white flex items-center">
+                      <span class="w-1.5 h-1.5 rounded-full bg-rose-500 mr-2"></span>
+                      Sevilla San Pablo (España)
+                    </td>
+                    <td class="p-3.5 text-slate-200">A400M, C295 (Defensa y Seguridad)</td>
+                    <td class="p-3.5 text-sky-300 font-medium">Línea de Ensamblaje Final Militar + Ensayos</td>
+                    <td class="p-3.5 text-rose-400 font-mono font-bold">Parada Inmediata</td>
+                    <td class="p-3.5 text-rose-400 font-mono font-black">Penalizaciones OTAN</td>
+                    <td class="p-3.5 text-center"><span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">BLOQUEO TOTAL</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Breakdown of Key Spanish Plants in Conflict -->
+          <div class="mt-6 border-t border-slate-800 pt-5 space-y-3">
+            <h3 class="text-sm font-bold text-white flex items-center">
+              <span class="w-2 h-2 rounded-full bg-sky-400 mr-2"></span>
+              Distribución Estratégica por Factorías en España
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5">
+                <span class="text-xs font-bold text-white flex items-center">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-sky-400"></i> Getafe (Madrid)
+                </span>
+                <p class="text-[11px] text-slate-400">Monopolio de HTP de A320/A330/A350, puente aéreo Beluga, Centro de Ensayos y Dirección General España.</p>
+                <span class="text-[10px] font-mono text-sky-300 font-bold block">Plantilla: ~6.200 trabajadores</span>
+              </div>
+              <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5">
+                <span class="text-xs font-bold text-white flex items-center">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-sky-400"></i> Illescas (Toledo)
+                </span>
+                <p class="text-[11px] text-slate-400">Fábrica de Materiales Compuestos de Alta Tecnología (Fibra de Carbono), sección inferior de ala A350 y empenajes.</p>
+                <span class="text-[10px] font-mono text-sky-300 font-bold block">Plantilla: ~1.100 trabajadores</span>
+              </div>
+              <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5">
+                <span class="text-xs font-bold text-white flex items-center">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-sky-400"></i> Sevilla (San Pablo & Tablada)
+                </span>
+                <p class="text-[11px] text-slate-400">FAL de A400M y C295, Centro de Entregas Militares, pre-FAL de aeroestructuras mayores y planta de Tablada.</p>
+                <span class="text-[10px] font-mono text-sky-300 font-bold block">Plantilla: ~4.100 trabajadores</span>
+              </div>
+              <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5">
+                <span class="text-xs font-bold text-white flex items-center">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-sky-400"></i> Cádiz (Puerto Real & El Puerto)
+                </span>
+                <p class="text-[11px] text-slate-400">Centro Bahía de Cádiz (CBC), cajón lateral de A350, timones de dirección y carenas ventrales de programas comerciales.</p>
+                <span class="text-[10px] font-mono text-sky-300 font-bold block">Plantilla: ~900 trabajadores</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -835,7 +916,7 @@
           </h2>
           <p class="text-xs text-slate-400 mb-4">Lecciones estratégicas de huelgas de alta tensión industrial en el sector aeronáutico y manufacturero.</p>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="benchmarks-container">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="benchmarks-container">
             <!-- Dynamically populated -->
           </div>
         </div>

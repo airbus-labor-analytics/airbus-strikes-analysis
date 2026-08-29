@@ -366,20 +366,50 @@ function initBenchmarks() {
   if (data.length === 0) return;
 
   container.innerHTML = data.map(b => `
-    <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-xl hover:border-slate-700 transition flex flex-col justify-between">
-      <div>
-        <div class="flex justify-between items-start">
-          <h4 class="text-sm font-bold text-white">${b.case}</h4>
-          <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-${b.badgeColor || 'emerald'}-500/20 text-${b.badgeColor || 'emerald'}-300 border border-${b.badgeColor || 'emerald'}-500/30">${b.badge}</span>
+    <div class="p-5 bg-slate-900/90 border border-slate-800 hover:border-slate-700 rounded-2xl transition flex flex-col justify-between space-y-4 shadow-lg hover:shadow-xl">
+      <div class="space-y-3">
+        <div class="flex justify-between items-start gap-2 border-b border-slate-800/80 pb-2.5">
+          <div>
+            <h4 class="text-sm font-bold text-white">${b.case}</h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">${b.sector || 'Sector Industrial'} • <span class="text-amber-400 font-bold">${b.duration || (b.strike_duration_days ? b.strike_duration_days + ' días' : '')}</span></p>
+          </div>
+          <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-${b.badgeColor || 'emerald'}-500/20 text-${b.badgeColor || 'emerald'}-300 border border-${b.badgeColor || 'emerald'}-500/40 shrink-0">
+            ${b.badge || 'Caso Histórico'}
+          </span>
         </div>
-        <p class="text-[11px] text-slate-400 mt-1">${b.sector} • ${b.duration}</p>
-        <p class="text-xs text-slate-200 mt-3 font-medium leading-relaxed">${b.result}</p>
+
+        <div class="grid grid-cols-1 gap-2 text-xs">
+          ${b.initial_offer ? `
+            <div class="p-2 bg-rose-950/20 border border-rose-500/20 rounded-lg">
+              <span class="text-[10px] font-extrabold uppercase text-rose-400 block mb-0.5">Oferta Inicial Patronal:</span>
+              <p class="text-slate-300 text-[11px] leading-relaxed">${b.initial_offer}</p>
+            </div>
+          ` : ''}
+          ${b.final_agreement ? `
+            <div class="p-2 bg-emerald-950/20 border border-emerald-500/20 rounded-lg">
+              <span class="text-[10px] font-extrabold uppercase text-emerald-400 block mb-0.5">Acuerdo Final Conquistado:</span>
+              <p class="text-slate-200 text-[11px] font-bold leading-relaxed">${b.final_agreement}</p>
+            </div>
+          ` : ''}
+        </div>
+
+        ${b.result ? `
+          <p class="text-xs text-slate-300 leading-relaxed">${b.result}</p>
+        ` : ''}
       </div>
-      <div class="mt-4 pt-2.5 border-t border-slate-800 text-[11px] text-slate-400">
-        <span class="text-blue-400 font-semibold">Lección:</span> ${b.lesson}
+
+      <div class="pt-3 border-t border-slate-800 space-y-2 text-[11px]">
+        <div class="p-2 bg-sky-950/30 border border-sky-500/20 rounded-lg text-sky-300">
+          <strong class="text-sky-400 font-bold">Palanca Clave:</strong> ${b.leverage_mechanism || b.lesson || 'Presión industrial asimétrica'}
+        </div>
+        <div class="text-slate-400">
+          <strong class="text-amber-400 font-bold">Lección para Airbus:</strong> ${b.lesson || b.key_lesson || ''}
+        </div>
       </div>
     </div>
   `).join('');
+
+  if (window.lucide) lucide.createIcons();
 }
 
 // ==================== WORKFLOWS ====================
@@ -391,28 +421,59 @@ function initWorkflows() {
   if (workflows.length === 0) return;
 
   container.innerHTML = workflows.map(wf => `
-    <div class="p-4 sm:p-5 bg-slate-900/80 border border-slate-800 rounded-2xl hover:border-slate-700 transition space-y-3">
-      <div class="flex items-center space-x-2">
-        <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">${wf.badge}</span>
-        <h3 class="text-xs sm:text-sm font-bold text-white">${wf.title}</h3>
+    <div class="p-5 bg-slate-900/90 border border-slate-800 hover:border-slate-700 rounded-2xl transition space-y-4 shadow-xl">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800/80 pb-3">
+        <div class="flex items-center space-x-2.5">
+          <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-${wf.color || 'indigo'}-500/20 text-${wf.color || 'indigo'}-300 border border-${wf.color || 'indigo'}-500/40">${wf.badge}</span>
+          <h3 class="text-sm sm:text-base font-bold text-white">${wf.title}</h3>
+        </div>
+        <span class="text-[11px] text-slate-400 font-mono bg-slate-950 px-2 py-0.5 rounded border border-slate-800">${wf.category || 'Protocolo'}</span>
       </div>
-      <p class="text-xs text-slate-400 leading-relaxed">${wf.description}</p>
-      
-      <div class="space-y-2 mt-3">
-        ${wf.steps.map(step => `
-          <div class="p-2.5 bg-slate-950/80 border border-slate-800/80 rounded-xl text-xs space-y-1">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-slate-200">${step.step}</span>
-              <span class="text-[10px] text-slate-500 font-mono">${step.condition || ''}</span>
+
+      <p class="text-xs text-slate-300 leading-relaxed">${wf.description || wf.objective || ''}</p>
+
+      <div class="space-y-3 pt-1">
+        ${(wf.steps || []).map(step => `
+          <div class="p-3.5 bg-slate-950/80 border border-slate-800/90 rounded-xl space-y-2 hover:border-slate-700/80 transition">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-xs font-bold text-white flex items-center">
+                <span class="w-5 h-5 rounded-full bg-slate-800 text-sky-400 font-mono text-[11px] font-black inline-flex items-center justify-center mr-2 shrink-0">${step.step_num || step.step}</span>
+                ${step.title}
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-sky-500/15 text-sky-300 border border-sky-500/30 shrink-0">
+                ${step.gate_badge || step.gate || 'Mandatorio'}
+              </span>
             </div>
-            <p class="text-slate-300 text-[11px]">${step.action}</p>
-            ${step.danger ? `<p class="text-rose-400 text-[10px] font-semibold">⚠️ Riesgo: ${step.danger}</p>` : ''}
-            ${step.safeguard ? `<p class="text-emerald-400 text-[10px] font-semibold">🛡️ Salvaguarda: ${step.safeguard}</p>` : ''}
+
+            <p class="text-xs text-slate-300 leading-relaxed">${step.action || step.condition}</p>
+
+            ${step.legal_basis ? `
+              <div class="text-[11px] text-sky-400 font-medium flex items-center pt-0.5">
+                <i data-lucide="scale" class="w-3.5 h-3.5 mr-1 text-sky-400 shrink-0"></i>
+                <span>${step.legal_basis}</span>
+              </div>
+            ` : ''}
+
+            ${step.warning_danger || step.danger ? `
+              <div class="p-2 bg-rose-950/30 border border-rose-500/25 rounded-lg text-[11px] text-rose-300 leading-relaxed flex items-start space-x-1.5">
+                <span class="font-bold text-rose-400 shrink-0">⚠️ Riesgo / Trampa:</span>
+                <span>${step.warning_danger || step.danger}</span>
+              </div>
+            ` : ''}
+
+            ${step.safeguard ? `
+              <div class="p-2 bg-emerald-950/30 border border-emerald-500/25 rounded-lg text-[11px] text-emerald-300 leading-relaxed flex items-start space-x-1.5">
+                <span class="font-bold text-emerald-400 shrink-0">🛡️ Salvaguarda:</span>
+                <span>${step.safeguard}</span>
+              </div>
+            ` : ''}
           </div>
         `).join('')}
       </div>
     </div>
   `).join('');
+
+  if (window.lucide) lucide.createIcons();
 }
 
 // ==================== HISTORICAL AGREEMENTS & LOSSES ====================
@@ -655,16 +716,37 @@ function initThermometerAndBeluga() {
         const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
 
         return `
-          <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5 hover:border-slate-700 transition">
+          <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
             <div class="flex justify-between items-center">
-              <span class="text-xs font-bold text-white font-mono">${ac.name || ac.id}</span>
-              <span class="px-1.5 py-0.5 text-[9px] font-bold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
+              <span class="text-xs font-bold text-white font-mono flex items-center gap-1.5">
+                <i data-lucide="plane" class="w-3.5 h-3.5 ${isAirborne ? 'text-amber-400' : 'text-slate-400'}"></i>
+                <span>${ac.name || ac.id}</span>
+              </span>
+              <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
             </div>
-            <p class="text-[11px] text-slate-300 font-medium">${routeText}</p>
-            <div class="text-[10px] font-mono text-slate-500">Matrícula: ${ac.registration || 'N/A'} • ${altText}</div>
+            <p class="text-xs text-slate-300 font-medium">${routeText}</p>
+            <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
+              <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
+              <span>${altText}</span>
+            </div>
           </div>
         `;
       }).join('');
+    }
+
+    // European Routes Status Grid
+    const routesGrid = document.getElementById('beluga-routes-grid');
+    const routes = beluga.historical_movements?.european_routes_distribution || [];
+    if (routesGrid && routes.length > 0) {
+      routesGrid.innerHTML = routes.map(r => `
+        <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1 hover:border-slate-700 transition">
+          <div class="flex justify-between items-center">
+            <span class="text-[11px] font-bold text-white font-mono">${r.route}</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-extrabold rounded bg-${r.color || 'blue'}-500/20 text-${r.color || 'blue'}-300 border border-${r.color || 'blue'}-500/30">${r.flights} vuelos</span>
+          </div>
+          <span class="text-[10px] text-${r.color || 'slate'}-400 font-semibold block">${r.status}</span>
+        </div>
+      `).join('');
     }
   }
 }
@@ -674,7 +756,7 @@ function renderThermoFeed(items) {
   if (!container) return;
 
   container.innerHTML = items.map(item => `
-    <div class="p-3 bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 rounded-xl transition space-y-1">
+    <div class="p-3.5 bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 rounded-xl transition space-y-1.5">
       <div class="flex justify-between items-center">
         <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded ${item.impact === 'BAD_FOR_AIRBUS' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">${item.source} • ${item.date}</span>
         <span class="text-[10px] text-slate-400 font-medium">${item.category}</span>
@@ -714,57 +796,133 @@ function initBelugaHistoryChart() {
   const ctx = document.getElementById('belugaHistoryChart')?.getContext('2d');
   if (!ctx) return;
 
-  const history = conflictData?.beluga_logistics?.historical_movements || [];
-  if (history.length === 0) return;
+  const history = conflictData?.beluga_logistics?.historical_movements;
+  if (!history) return;
+
+  let labels = [];
+  let flightsGetafe = [];
+  let baselineFlights = [];
+  let htpRetained = [];
+  let bufferToulouse = [];
+  let bufferHamburg = [];
+
+  if (history.weeks && Array.isArray(history.weeks)) {
+    labels = history.weeks;
+    flightsGetafe = history.getafe_flights_per_week || [];
+    baselineFlights = history.normal_baseline_flights || Array(labels.length).fill(14);
+    htpRetained = history.accumulated_htp_retained || [];
+    bufferToulouse = history.toulouse_fal_stock_buffer_pct || [];
+    bufferHamburg = history.hamburg_fal_stock_buffer_pct || [];
+  } else if (Array.isArray(history)) {
+    labels = history.map(h => h.week || h.name);
+    flightsGetafe = history.map(h => h.flights_to_getafe || 0);
+    baselineFlights = history.map(h => h.baseline_flights || 14);
+    htpRetained = history.map(h => h.htp_units_stockpiled || h.htp_retained || 0);
+    bufferToulouse = history.map(h => h.buffer_toulouse || 0);
+    bufferHamburg = history.map(h => h.buffer_hamburg || 0);
+  }
+
+  if (labels.length === 0) return;
 
   if (belugaHistoryChart) belugaHistoryChart.destroy();
 
   belugaHistoryChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: history.map(h => h.week),
+      labels: labels,
       datasets: [
         {
           type: 'bar',
-          label: 'Vuelos Beluga Getafe (Semanal)',
-          data: history.map(h => h.flights_to_getafe),
-          backgroundColor: history.map(h => h.flights_to_getafe === 0 ? '#ef4444' : '#3b82f6'),
-          borderRadius: 6
+          label: 'Vuelos Beluga Getafe (Real)',
+          data: flightsGetafe,
+          backgroundColor: flightsGetafe.map(f => f === 0 ? '#ef4444' : '#3b82f6'),
+          borderRadius: 6,
+          order: 3,
+          yAxisID: 'y'
         },
         {
           type: 'line',
-          label: 'Estabilizadores HTP Retenidos en Planta',
-          data: history.map(h => h.htp_units_stockpiled),
+          label: 'Normal Baseline (14 vuelos/sem)',
+          data: baselineFlights,
+          borderColor: '#64748b',
+          borderDash: [5, 5],
+          borderWidth: 1.5,
+          pointRadius: 0,
+          order: 4,
+          yAxisID: 'y'
+        },
+        {
+          type: 'line',
+          label: 'Estabilizadores HTP Retenidos en Getafe (Unidades)',
+          data: htpRetained,
           borderColor: '#f59e0b',
-          backgroundColor: 'rgba(245, 158, 11, 0.1)',
+          backgroundColor: 'rgba(245, 158, 11, 0.15)',
+          fill: true,
           yAxisID: 'y1',
           tension: 0.3,
-          borderWidth: 2
+          borderWidth: 2.5,
+          order: 1
+        },
+        {
+          type: 'line',
+          label: 'Buffer Stock FAL Toulouse (%)',
+          data: bufferToulouse,
+          borderColor: '#10b981',
+          borderWidth: 2,
+          borderDash: [3, 3],
+          pointRadius: 3,
+          yAxisID: 'y2',
+          tension: 0.2,
+          order: 2
         }
       ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
         y: {
+          type: 'linear',
+          position: 'left',
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
           ticks: { color: '#94a3b8' },
-          title: { display: true, text: 'Vuelos / semana', color: '#94a3b8', font: { size: 10 } }
+          title: { display: true, text: 'Vuelos / semana', color: '#94a3b8', font: { size: 10, weight: 'bold' } }
         },
         y1: {
+          type: 'linear',
           position: 'right',
           grid: { drawOnChartArea: false },
           ticks: { color: '#f59e0b' },
-          title: { display: true, text: 'HTP retenidos', color: '#f59e0b', font: { size: 10 } }
+          title: { display: true, text: 'HTP Retenidos (Uds)', color: '#f59e0b', font: { size: 10, weight: 'bold' } }
+        },
+        y2: {
+          type: 'linear',
+          position: 'right',
+          display: false,
+          min: 0,
+          max: 100
         },
         x: {
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
-          ticks: { color: '#94a3b8' }
+          ticks: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } }
         }
       },
       plugins: {
-        legend: { labels: { color: '#e2e8f0', font: { size: 11, weight: 'bold' } } }
+        legend: {
+          labels: { color: '#e2e8f0', font: { size: 11, weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#38bdf8',
+          bodyColor: '#f8fafc',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10
+        }
       }
     }
   });
