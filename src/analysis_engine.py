@@ -1118,7 +1118,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "+38% directo a tablas en 4 años + Bono de firma de 12.000 $ + RSG 100% IPC + Contribución pensiones al 12%",
                 "result": "La asamblea rechazó un preacuerdo inicial del 25% y una segunda oferta del 35% hasta forzar el 38% consolidado y 12.000$ en mano.",
                 "lesson": "El control asambleario democrático y el rechazo a preacuerdos de despacho dobló el incremento salarial.",
-                "leverage_mechanism": "Paralización total de las entregas del 737 MAX y 777, provocando pérdidas de >50 M$/día a Boeing."
+                "leverage_mechanism": "Paralización total de las entregas del 737 MAX y 777, provocando pérdidas de >50 M$/día a Boeing.",
+                "source_name": "IAM District 751 Official Agreements & SEC Boeing 10-K",
+                "source_url": "https://www.iam751.org/"
             },
             {
                 "case": "Spirit AeroSystems IAM 839 (2023)",
@@ -1131,7 +1133,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "+20,5% en tablas + Bono de 3.000 $ + Retirada de horas extra forzosas y blindaje de descansos",
                 "result": "Una huelga relámpago de 7 días paralizó el suministro de fuselajes de Boeing forzando una oferta sustancialmente mejorada.",
                 "lesson": "La asimetría en un componente monopolístico único otorga un poder de negociación multiplicador sin necesidad de huelgas extenuantes.",
-                "leverage_mechanism": "Monopolio exclusivo en la sección delantera del fuselaje del 737; Boeing amenazó con parada de FALs en 5 días."
+                "leverage_mechanism": "Monopolio exclusivo en la sección delantera del fuselaje del 737; Boeing amenazó con parada de FALs en 5 días.",
+                "source_name": "IAM District 839 Ratification Press Release",
+                "source_url": "https://www.iam839.org/"
             },
             {
                 "case": "Rolls-Royce Barnoldswick Unite (2020)",
@@ -1144,7 +1148,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "Garantía de carga de trabajo por 10 años + Nuevo centro de excelencia en carbono + Cero despidos forzosos",
                 "result": "La plantilla resistió 9 semanas de paros rotativos y forzó a Rolls-Royce a firmar un pacto de reindustrialización histórica.",
                 "lesson": "Las huelgas por carga de trabajo y permanencia industrial se ganan resistiendo el intento de deslocalización técnica.",
-                "leverage_mechanism": "Álabes de titanio del motor Trent para el Airbus A350 y Boeing 787; aerolíneas internacionales presionaron a Rolls-Royce."
+                "leverage_mechanism": "Álabes de titanio del motor Trent para el Airbus A350 y Boeing 787; aerolíneas internacionales presionaron a Rolls-Royce.",
+                "source_name": "Unite the Union Aerospace Historic Agreement (2021)",
+                "source_url": "https://www.unitetheunion.org/"
             },
             {
                 "case": "Airbus France Nantes/St-Nazaire (2022)",
@@ -1157,7 +1163,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "+6,8% incremento general + Paga de beneficios récord de 3.200 € + Revalorización de primas de turno",
                 "result": "Los paros en las fábricas de piezas de proa y fuselaje bloquearon los vuelos de Beluga a Toulouse en 48 horas.",
                 "lesson": "La dirección de Airbus capitula con extrema rapidez cuando ve amenazado el objetivo anual de entregas a aerolíneas comerciales.",
-                "leverage_mechanism": "Corte de suministro a la FAL de Toulouse a escasas semanas del cierre del ejercicio financiero anual."
+                "leverage_mechanism": "Corte de suministro a la FAL de Toulouse a escasas semanas del cierre del ejercicio financiero anual.",
+                "source_name": "FO Airbus Operations Toulouse & CFE-CGC Accord Salarial",
+                "source_url": "https://www.fo-airbus-operations-toulouse.fr/actus/i/61724303/article-n-907"
             },
             {
                 "case": "John Deere UAW (2021)",
@@ -1170,7 +1178,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "+20% en tablas + Bono de 8.500 $ + Blindaje de RSG/COLA automático por inflación + Retirada de escala salarial dual",
                 "result": "Las bases rechazaron dos preacuerdos firmados por la cúpula sindical hasta forzar a la multinacional a restituir la cláusula de IPC.",
                 "lesson": "La asamblea soberana es la única garantía de que la inflación no devore los salarios en convenios plurianuales.",
-                "leverage_mechanism": "Campaña de cosecha en pleno auge; los concesionarios se quedaron sin tractores de recambio."
+                "leverage_mechanism": "Campaña de cosecha en pleno auge; los concesionarios se quedaron sin tractores de recambio.",
+                "source_name": "UAW Official Contract Ratification Archive",
+                "source_url": "https://uaw.org/"
             },
             {
                 "case": "General Motors UAW (2023)",
@@ -1183,7 +1193,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "+25% incremento base + Restitución de RSG por IPC (cost of living) + Eliminación de escalas salariales de entrada",
                 "result": "Estrategia 'Stand-Up Strike' parando plantas clave de forma selectiva para maximizar el daño con el menor coste de nómina para la plantilla.",
                 "lesson": "La huelga quirúrgica en cuellos de botella genera la máxima asimetría de costes entre empresa y trabajadores.",
-                "leverage_mechanism": "Parada de plantas de motores y transmisiones que suministraban a toda la red de ensamblaje de EEUU."
+                "leverage_mechanism": "Parada de plantas de motores y transmisiones que suministraban a toda la red de ensamblaje de EEUU.",
+                "source_name": "UAW Stand Up Strike Victory Summary",
+                "source_url": "https://uaw.org/stand-up-strike/"
             },
             {
                 "case": "Navantia / Bahía de Cádiz Metal (2021)",
@@ -1196,7 +1208,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "Subida vinculada al IPC real con revisión anual a tablas + Cero penalizaciones por bajas de IT",
                 "result": "Huelga general del sector del metal en Cádiz con paralización de los astilleros de Navantia y plantas auxiliares de Airbus Puerto Real.",
                 "lesson": "La movilización unitaria en la calle y la alianza de la industria auxiliar quiebra la postura de la patronal.",
-                "leverage_mechanism": "Bloqueo de accesos a polígonos industriales y retención de contratos estratégicos de exportación militar."
+                "leverage_mechanism": "Bloqueo de accesos a polígonos industriales y retención de contratos estratégicos de exportación militar.",
+                "source_name": "BOJA & Convenio Colectivo Metal Cádiz (BOE)",
+                "source_url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2023-8181"
             },
             {
                 "case": "Acerinox Palmones (2024)",
@@ -1209,7 +1223,9 @@ class StrikeAnalysisEngine:
                 "final_agreement": "Acuerdo de mínimos por agotamiento económico de las familias tras 4,5 meses de huelga",
                 "result": "Conflicto extremadamente largo donde la falta de cuellos de botella inmediatos y la caída del precio del níquel jugaron a favor de la empresa.",
                 "lesson": "Sin asimetría crítica en la cadena JIT ni cajas de resistencia suficientes, una huelga de desgaste favorece al capital.",
-                "leverage_mechanism": "Falta de vulnerabilidad logística inmediata: la empresa tenía stock almacenado en clientes europeos."
+                "leverage_mechanism": "Falta de vulnerabilidad logística inmediata: la empresa tenía stock almacenado en clientes europeos.",
+                "source_name": "Resolución SIMA & Registro Oficial de Conflictos Colectivos",
+                "source_url": "https://www.sima-fasp.net/"
             }
         ]
     def get_stock_market_analysis(self) -> Dict[str, Any]:
