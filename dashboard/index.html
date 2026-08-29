@@ -76,11 +76,27 @@
       </div>
     </div>
 
-    <!-- Right header actions -->
+    <!-- Right header actions & Quick Shortcuts -->
     <div class="flex items-center space-x-2 sm:space-x-3">
+      <!-- Direct Quick Navigation Shortcuts -->
+      <div class="hidden lg:flex items-center space-x-1.5 bg-slate-950/70 p-1 rounded-xl border border-slate-800 text-[11px]">
+        <button onclick="switchTab('tab-stock')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-rose-400 font-bold transition flex items-center">
+          <i data-lucide="trending-down" class="w-3.5 h-3.5 mr-1"></i> AIR.PA: 128,40€
+        </button>
+        <button onclick="switchTab('tab-company-health')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-emerald-400 font-bold transition flex items-center">
+          <i data-lucide="building-2" class="w-3.5 h-3.5 mr-1"></i> Solvencia Airbus
+        </button>
+        <button onclick="switchTab('tab-unions')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-amber-400 font-bold transition flex items-center">
+          <i data-lucide="users" class="w-3.5 h-3.5 mr-1"></i> Mapa Sindical
+        </button>
+        <button onclick="switchTab('tab-wages')" class="px-2 py-1 rounded-lg hover:bg-slate-800 text-sky-400 font-bold transition flex items-center">
+          <i data-lucide="calculator" class="w-3.5 h-3.5 mr-1"></i> Simulador IPC
+        </button>
+      </div>
+
       <div class="hidden md:flex items-center px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
         <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
-        <span>Asimetría Financiera: <strong>185x</strong></span>
+        <span>Asimetría: <strong>185x</strong></span>
       </div>
 
       <a href="docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf" download class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 transition">
@@ -130,6 +146,22 @@
               </div>
               <span class="px-1.5 py-0.5 text-[10px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">85.5°C</span>
             </button>
+
+            <button onclick="switchTab('tab-stock')" id="btn-tab-stock" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
+              <div class="flex items-center space-x-2.5">
+                <i data-lucide="trending-down" class="w-4 h-4 text-rose-400"></i>
+                <span>Acción & Mercados (AIR.PA)</span>
+              </div>
+              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded">128,40 € (-12,5%)</span>
+            </button>
+
+            <button onclick="switchTab('tab-company-health')" id="btn-tab-company-health" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
+              <div class="flex items-center space-x-2.5">
+                <i data-lucide="building-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>Salud Financiera Airbus SE</span>
+              </div>
+              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">8.626 ped.</span>
+            </button>
           </div>
         </div>
 
@@ -142,11 +174,18 @@
               <span>Workflows & Escenarios</span>
             </button>
 
-            <button onclick="switchTab('tab-historical-losses')" id="btn-tab-historical-losses" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
-              <i data-lucide="file-text" class="w-4 h-4 text-rose-400"></i>
-              <span>Convenios BOE, Pérdidas & Traiciones</span>
+            <button onclick="switchTab('tab-unions')" id="btn-tab-unions" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center justify-between transition">
+              <div class="flex items-center space-x-2.5">
+                <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
+                <span>Mapa Social & Sindicatos</span>
+              </div>
+              <span class="px-1.5 py-0.5 text-[9px] font-extrabold bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">6 sindicatos</span>
             </button>
 
+            <button onclick="switchTab('tab-workflows')" id="btn-tab-workflows" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
+              <i data-lucide="git-merge" class="w-4 h-4 text-indigo-400"></i>
+              <span>Workflows & Escenarios</span>
+            </button>
             <button onclick="switchTab('tab-negotiation')" id="btn-tab-negotiation" class="tab-btn w-full px-3 py-2 rounded-lg text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800/70 flex items-center space-x-2.5 transition">
               <i data-lucide="scale" class="w-4 h-4 text-emerald-400"></i>
               <span>Evolución & Brechas Negociación</span>
@@ -639,6 +678,540 @@
           </div>
         </div>
       </div>
+      <!-- ==================== TAB: STOCK MARKET & AIRBUS SHARE PRICE ==================== -->
+      <div id="tab-stock" class="tab-content hidden space-y-6">
+        <!-- Stock Header Card -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-rose-500/30 space-y-5">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h2 class="text-base font-bold text-white flex items-center">
+                <i data-lucide="trending-down" class="w-5 h-5 mr-2 text-rose-400"></i>
+                Análisis Bursátil: Evolución de la Acción de Airbus SE (AIR.PA) Durante el Conflicto
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5">Seguimiento histórico de la cotización, capitalización de mercado y asimetría de costes frente a la masa salarial.</p>
+            </div>
+            <span class="px-3 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg w-fit flex items-center">
+              <span class="w-2 h-2 rounded-full bg-rose-500 mr-2 animate-pulse"></span>
+              AIR.PA / EURONEXT PARIS — 128,40 €
+            </span>
+          </div>
+
+          <!-- 4 Executive Stock KPIs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-rose-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Cotización Actual (AIR.PA):</span>
+                <span class="text-[10px] font-black text-rose-400 bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20">-12,53%</span>
+              </div>
+              <p class="text-2xl font-black text-white font-mono mt-1" id="stock-kpi-price">128,40 €</p>
+              <span class="text-[10px] text-slate-500 block mt-0.5">-18,40 €/acción desde inicio del conflicto (146,80 €)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-rose-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Capitalización de Mercado:</span>
+                <span class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">793M acc.</span>
+              </div>
+              <p class="text-2xl font-black text-purple-300 font-mono mt-1" id="stock-kpi-mcap">101.821 M€</p>
+              <span class="text-[10px] text-rose-400 font-semibold block mt-0.5">-14.591 M€ evaporados en bolsa</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Coste Anual Plataforma 12%:</span>
+                <span class="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">15.562 trab.</span>
+              </div>
+              <p class="text-2xl font-black text-emerald-400 font-mono mt-1">118,0 M€</p>
+              <span class="text-[10px] text-slate-500 block mt-0.5">Incremento consolidable + atrasos en tablas</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-amber-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Ratio de Destrucción Bursátil:</span>
+                <span class="text-[10px] font-black text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">Apalancamiento</span>
+              </div>
+              <p class="text-2xl font-black text-amber-400 font-mono mt-1">123,6x</p>
+              <span class="text-[10px] text-amber-300/90 font-medium block mt-0.5">Por cada 1€ denegado al trabajador, caen 123,6€ en bolsa</span>
+            </div>
+          </div>
+
+          <!-- Interactive Stock History Chart -->
+          <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800 space-y-3">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <div>
+                <h3 class="text-xs sm:text-sm font-black text-white flex items-center">
+                  <i data-lucide="line-chart" class="w-4 h-4 mr-2 text-rose-400"></i>
+                  Evolución Diaria de la Cotización AIR.PA (Junio - Agosto 2026) e Hitos del Conflicto
+                </h3>
+                <p class="text-[11px] text-slate-400">Impacto en tiempo real de los rechazos asamblearios, la huelga indefinida y la parada de las FALs en el precio de la acción.</p>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-[10px] text-slate-400 font-bold">Rango:</span>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-white rounded border border-slate-700">Conflicto 2026 (Diario)</span>
+              </div>
+            </div>
+            <div class="h-72 w-full">
+              <canvas id="airbusStockChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Two Stock Analysis Panels -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Left Panel: Conflict Milestones & Stock Reaction -->
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-slate-800 space-y-3">
+              <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
+                <i data-lucide="milestone" class="w-4 h-4 mr-2 text-sky-400"></i>
+                Cronología Bursátil: Hitos del Conflicto & Reacción de Inversores
+              </h3>
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
+                  <div>
+                    <span class="text-sky-400 font-bold">16 de Julio (146,80 €):</span>
+                    <p class="text-slate-300 text-[11px]">Rechazo unánime (~95% NO) de la oferta patronal del 5%. Primeras caídas de volumen.</p>
+                  </div>
+                  <span class="text-slate-400 font-mono font-bold">-0,8%</span>
+                </div>
+                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
+                  <div>
+                    <span class="text-amber-400 font-bold">24 de Julio (142,50 €):</span>
+                    <p class="text-slate-300 text-[11px]">Referéndum en urna física: Las bases tumban el preacuerdo (51,13% NO). Dimisión de SIPA.</p>
+                  </div>
+                  <span class="text-rose-400 font-mono font-bold">-2,9%</span>
+                </div>
+                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
+                  <div>
+                    <span class="text-purple-400 font-bold">24 de Agosto (136,40 €):</span>
+                    <p class="text-slate-300 text-[11px]">Asamblea masiva en Getafe vota Huelga Indefinida. Rotura del soporte de 140 €.</p>
+                  </div>
+                  <span class="text-rose-400 font-mono font-bold">-2,1%</span>
+                </div>
+                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
+                  <div>
+                    <span class="text-rose-400 font-bold">27-28 de Agosto (129,90 €):</span>
+                    <p class="text-slate-300 text-[11px]">Día 3-4 Huelga: Parada parcial de líneas A321 en Toulouse. 0 vuelos BelugaXL operados.</p>
+                  </div>
+                  <span class="text-rose-400 font-mono font-bold">-3,4%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Investor Thesis & Management Vulnerability -->
+            <div class="p-4 bg-rose-950/20 rounded-xl border border-rose-500/30 space-y-3 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
+                  <i data-lucide="alert-octagon" class="w-4 h-4 mr-2 text-rose-400"></i>
+                  Por Qué los Fondos e Inversores Castigan la Intransigencia de Airbus
+                </h3>
+                <ul class="space-y-2 text-xs text-slate-300 mt-2">
+                  <li class="flex items-start space-x-2">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-400 mt-0.5 shrink-0"></i>
+                    <span><strong>Riesgo Crítico de Entregas 2026:</strong> El objetivo anual de 870 aviones exige entregar ~90 aeronaves/mes en Q3 y Q4. La falta de estabilizadores HTP de Getafe hace imposible cumplir el guidance anual.</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-400 mt-0.5 shrink-0"></i>
+                    <span><strong>Penalizaciones Contractuales con Aerolíneas:</strong> Los retrasos en el A321XLR activan cláusulas de indemnización de hasta 4,2 M€/día pagaderas a aerolíneas clientes.</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-rose-400 mt-0.5 shrink-0"></i>
+                    <span><strong>Irracionalidad Económica de la Dirección:</strong> Por ahorrarse 25 M€ de diferencia en tablas, la dirección está asumiendo una pérdida bursátil de 14.590 M€ y un lucro cesante de 18,5 M€/día.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-[11px] text-amber-300 font-bold">
+                Conclusión: La presión de los accionistas sobre Guillaume Faury forzará a la multinacional a ceder antes de que el daño trimestral se consolide en los resultados del Q3.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== TAB: COMPANY FINANCIAL HEALTH (ESTADO GENERAL HISTÓRICO Y ACTUAL) ==================== -->
+      <div id="tab-company-health" class="tab-content hidden space-y-6">
+        <!-- Company Health Header Card -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-emerald-500/30 space-y-5">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h2 class="text-base font-bold text-white flex items-center">
+                <i data-lucide="building-2" class="w-5 h-5 mr-2 text-emerald-400"></i>
+                Estado Financiero, Operativo e Histórico de Airbus SE (2020 - 2026)
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5">Radiografía macroeconómica: Solvencia récord, cartera de pedidos garantizada a 10 años y capacidad financiera holgada.</p>
+            </div>
+            <span class="px-3 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg w-fit">
+              Calificación: A2 / A (Grado de Inversión Fuerte)
+            </span>
+          </div>
+
+          <!-- 4 Executive Corporate KPIs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Ingresos Anuales (2025):</span>
+                <span class="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">Récord</span>
+              </div>
+              <p class="text-2xl font-black text-emerald-400 font-mono mt-1">73.500 M€</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">+47,2% de crecimiento acumulado desde 2020 (49.912 M€)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-emerald-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Beneficio Neto Anual (2025):</span>
+                <span class="text-[10px] font-black text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">+23,4% YoY</span>
+              </div>
+              <p class="text-2xl font-black text-emerald-300 font-mono mt-1">5.221 M€</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">EBIT ajustado de 6.200 M€ (17,0 M€/día de beneficio operativo)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-sky-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Cartera de Pedidos Firme:</span>
+                <span class="text-[10px] font-black text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20">10,5 Años</span>
+              </div>
+              <p class="text-2xl font-black text-sky-400 font-mono mt-1">8.626 aviones</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Valorada en más de 554.000 M€ (Producción plena garantizada)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-purple-500/30">
+              <div class="flex justify-between items-start">
+                <span class="text-xs font-bold text-slate-400">Posición Neta de Tesorería:</span>
+                <span class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded border border-purple-500/20">Solvencia</span>
+              </div>
+              <p class="text-2xl font-black text-purple-300 font-mono mt-1">10.700 M€</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Caja bruta de 25.400 M€ (Sin problemas de liquidez)</span>
+            </div>
+          </div>
+
+          <!-- 2 Historical Charts (Revenue/Profits & Deliveries) -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- Chart 1: Revenue & Net Income Evolution -->
+            <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800 space-y-3">
+              <h3 class="text-xs sm:text-sm font-black text-white flex items-center">
+                <i data-lucide="bar-chart-3" class="w-4 h-4 mr-2 text-emerald-400"></i>
+                Evolución de Ingresos y Beneficio Neto Airbus SE (2020 - 2026)
+              </h3>
+              <div class="h-64 w-full">
+                <canvas id="companyRevenueChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Aircraft Deliveries & Ramp-up -->
+            <div class="p-4 bg-slate-950/70 rounded-xl border border-slate-800 space-y-3">
+              <h3 class="text-xs sm:text-sm font-black text-white flex items-center">
+                <i data-lucide="plane-takeoff" class="w-4 h-4 mr-2 text-sky-400"></i>
+                Entregas Comerciales Anuales y Ramp-up de Producción
+              </h3>
+              <div class="h-64 w-full">
+                <canvas id="companyDeliveriesChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Shareholder Breakdown & Fairness Axiom -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <!-- Shareholder Pie Chart & Details -->
+            <div class="p-4 bg-slate-900/90 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xs sm:text-sm font-bold text-white flex items-center">
+                  <i data-lucide="pie-chart" class="w-4 h-4 mr-2 text-indigo-400"></i>
+                  Estructura Accionarial de Airbus SE
+                </h3>
+                <div class="h-44 w-full mt-2">
+                  <canvas id="shareholderPieChart"></canvas>
+                </div>
+              </div>
+              <div class="space-y-1 text-[11px] border-t border-slate-800 pt-2 text-slate-300">
+                <div class="flex justify-between"><span>SOGEPA (Francia):</span><strong class="text-blue-400 font-mono">10,9% (86,4M acc.)</strong></div>
+                <div class="flex justify-between"><span>GZBV / KfW (Alemania):</span><strong class="text-amber-400 font-mono">10,8% (85,6M acc.)</strong></div>
+                <div class="flex justify-between"><span>SEPI (España):</span><strong class="text-red-400 font-mono">4,1% (32,5M acc.)</strong></div>
+                <div class="flex justify-between"><span>Capital Flotante / Fondos:</span><strong class="text-emerald-400 font-mono">74,2% (588,5M acc.)</strong></div>
+              </div>
+            </div>
+
+            <!-- Fairness Axiom & Dividends vs. Spain Wage Mass (2 Cols) -->
+            <div class="lg:col-span-2 p-5 bg-emerald-950/20 border border-emerald-500/40 rounded-xl space-y-4 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center border-b border-emerald-500/30 pb-2.5">
+                  <h3 class="text-sm font-black text-white flex items-center">
+                    <i data-lucide="scale" class="w-4 h-4 mr-2 text-emerald-400"></i>
+                    Axioma de Viabilidad: Dividendos Millonarios vs. Masa Salarial de España
+                  </h3>
+                  <span class="px-2 py-0.5 text-[9px] font-black bg-emerald-500/20 text-emerald-300 rounded border border-emerald-500/30">100% Asumible</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
+                  <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+                    <span class="text-slate-400 block font-medium">Dividendos Repartidos (2025):</span>
+                    <p class="text-lg font-black text-emerald-400 font-mono mt-0.5">2.458 M€</p>
+                    <span class="text-[10px] text-slate-500 block">3,10 €/acción a accionistas</span>
+                  </div>
+
+                  <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+                    <span class="text-slate-400 block font-medium">Coste Plataforma Huelga España:</span>
+                    <p class="text-lg font-black text-white font-mono mt-0.5">118,0 M€</p>
+                    <span class="text-[10px] text-slate-500 block">+12% tablas + atrasos (15.562 trab.)</span>
+                  </div>
+
+                  <div class="p-3 bg-slate-900 rounded-xl border border-emerald-500/30 text-xs">
+                    <span class="text-emerald-400 font-bold block">Ratio de Cobertura:</span>
+                    <p class="text-lg font-black text-emerald-400 font-mono mt-0.5">20,8 años</p>
+                    <span class="text-[10px] text-slate-400 block">Los dividendos de 1 año pagan 21 convenios</span>
+                  </div>
+                </div>
+
+                <div class="space-y-2 text-xs text-slate-300 mt-4 leading-relaxed bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                  <p>
+                    <strong class="text-white">Aritmética Inapelable:</strong> Airbus SE genera más de <strong class="text-emerald-400">17,0 millones de euros de EBIT cada día</strong>. Con el beneficio operativo de solo <strong class="text-emerald-300">6,9 días de trabajo</strong> (menos de una semana), la multinacional cubre el coste anual íntegro del incremento salarial exigido por toda la plantilla de España.
+                  </p>
+                  <p class="text-[11px] text-slate-400">
+                    Las alegaciones patronales de «falta de presupuesto» o «amenazas de deslocalización» carecen de cualquier fundamento contable ante una empresa con 10.700 M€ de caja neta y 10 años de pedidos récord garantizados.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ==================== TAB: TRADE UNIONS & SOCIAL LANDSCAPE (MAPA SOCIAL Y SINDICATOS) ==================== -->
+      <div id="tab-unions" class="tab-content hidden space-y-6">
+        <!-- Header Card -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30 space-y-5">
+          <div class="border-b border-slate-800/80 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h2 class="text-base sm:text-lg font-black text-white flex items-center">
+                <i data-lucide="users" class="w-5 h-5 mr-2 text-amber-400"></i>
+                Mapa Social, Representación Sindical & Evolución Histórica en Airbus España
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5">Correlación de fuerzas, distribución de delegados, evolución electoral (2015 - 2026) y la ruptura del modelo tradicional hacia la asamblea soberana.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-lg">
+                Censo: 15.562 Trabajadores
+              </span>
+              <span class="px-2.5 py-1 text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 rounded-lg hidden sm:inline-block">
+                184 Delegados
+              </span>
+            </div>
+          </div>
+
+          <!-- 4 Social & Electoral KPIs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Bipartidismo (CCOO + UGT)</span>
+                <span class="text-rose-400 font-bold">-19,5% vs 2015</span>
+              </div>
+              <p class="text-2xl font-black text-white mt-1">61,0%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">113 delegados (mínimo histórico conjunto)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Bloque Independiente & Crítico</span>
+                <span class="text-emerald-400 font-bold">Máximo Récord</span>
+              </div>
+              <p class="text-2xl font-black text-amber-400 mt-1">39,0%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">71 delegados (SIPA 18,5%, CGT 9,4%, ATP 7,1%, ÚTIL 4%)</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Participación Referéndum 24-Jul</span>
+                <span class="text-sky-400 font-bold">Histórica</span>
+              </div>
+              <p class="text-2xl font-black text-sky-400 mt-1">81,44%</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Votación masiva en urna con voto secreto</span>
+            </div>
+
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Voto de Castigo (Preacuerdo Tumbado)</span>
+                <span class="text-rose-400 font-bold">Punto Inflexión</span>
+              </div>
+              <p class="text-2xl font-black text-rose-400 mt-1">51,13% NO</p>
+              <span class="text-[10px] text-slate-400 block mt-0.5">Desautorizó el pacto CCOO-SIPA-ATP y forzó la huelga</span>
+            </div>
+          </div>
+
+          <!-- Charts Row: Current Distribution & Historical Evolution -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
+            <!-- Chart 1: Current Distribution -->
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div>
+                  <h3 class="text-xs font-bold text-white flex items-center">
+                    <i data-lucide="pie-chart" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+                    Distribución Actual de Representatividad Sindical
+                  </h3>
+                  <p class="text-[10px] text-slate-400">Porcentaje de votos y delegados en el Comité Interempresas</p>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">184 Delegados</span>
+              </div>
+              <div class="h-64 relative flex items-center justify-center">
+                <canvas id="unionShareChart"></canvas>
+              </div>
+              <!-- Legend Grid -->
+              <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800/80 text-[10.5px]">
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-600"></span><span class="text-slate-300 font-medium">CCOO: 36,8% (68d)</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span><span class="text-slate-300 font-medium">UGT: 24,2% (45d)</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-600"></span><span class="text-slate-300 font-medium">SIPA: 18,5% (34d)</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span><span class="text-slate-300 font-medium">CGT: 9,4% (17d)</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span><span class="text-slate-300 font-medium">ATP: 7,1% (13d)</span></div>
+                <div class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span class="text-slate-300 font-medium">ÚTIL: 4,0% (7d)</span></div>
+              </div>
+            </div>
+
+            <!-- Chart 2: Historical Evolution (2015-2026) -->
+            <div class="p-4 bg-slate-900/90 border border-slate-800 rounded-xl space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div>
+                  <h3 class="text-xs font-bold text-white flex items-center">
+                    <i data-lucide="trending-down" class="w-4 h-4 mr-1.5 text-rose-400"></i>
+                    Evolución Histórica de la Hegemonía Sindical (2010 - 2026)
+                  </h3>
+                  <p class="text-[10px] text-slate-400">Erosión del pactismo tradicional y ascenso del sindicalismo de base</p>
+                </div>
+                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-slate-300 rounded">2010 - 2026</span>
+              </div>
+              <div class="h-64 relative">
+                <canvas id="unionEvolutionChart"></canvas>
+              </div>
+              <div class="p-2 bg-slate-950/60 rounded-lg border border-slate-800 text-[10.5px] text-slate-400 flex items-center justify-between">
+                <span><strong class="text-slate-200">Tendencia:</strong> Pérdida continuada de CCOO/UGT (80,5% en 2015 $\rightarrow$ 61,0% en 2026).</span>
+                <span class="text-amber-400 font-bold">+19,5% bloque crítico</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detailed Profiles of the 6 Trade Unions -->
+          <div class="space-y-3 pt-4 border-t border-slate-800">
+            <h3 class="text-sm font-bold text-white flex items-center">
+              <i data-lucide="id-card" class="w-4 h-4 mr-2 text-sky-400"></i>
+              Radiografía y Posicionamiento de las 6 Secciones Sindicales en Airbus España
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="unions-cards-container">
+              <!-- Populated dynamically or static fallback -->
+              <div class="p-4 bg-slate-900/80 border-l-4 border-red-600 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-red-400 block">CCOO (Comisiones Obreras)</span>
+                    <span class="text-[10px] text-slate-400">Sector Metal & Aeroespacial</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-red-500/20 text-red-300 rounded">36,8% (68 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Firmó el preacuerdo del 23 de julio. Tras el 51,13% NO en urnas, sus bases se sumaron a la huelga indefinida forzando al sindicato a secundar los paros.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> Mayoría en Montaje y Logística en Getafe e Illescas.
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-900/80 border-l-4 border-orange-600 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-orange-400 block">UGT (FICA)</span>
+                    <span class="text-[10px] text-slate-400">Federación de Industria</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-orange-500/20 text-orange-300 rounded">24,2% (45 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Co-convocante de la huelga indefinida desde el 24 de agosto. Rechazó el ultimátum patronal y exige 12% en tablas e IPC sin techo.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> Fuerte implantación en Sevilla (San Pablo y Tablada) y Defensa.
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-900/80 border-l-4 border-sky-600 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-sky-400 block">SIPA (Independientes)</span>
+                    <span class="text-[10px] text-slate-400">Sindicato Profesional</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 rounded">18,5% (34 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Inició paros el 1-Jul. Su cúpula dimitió en bloque tras avalar el preacuerdo rechazado por el 51,13% NO. Sus afiliados están en huelga activa.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> Mayoría en Ingeniería de Diseño, Gestión de Programas y Oficinas.
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-900/80 border-l-4 border-emerald-600 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-emerald-400 block">CGT (Metal)</span>
+                    <span class="text-[10px] text-slate-400">Sindicato Asambleario</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-emerald-500/20 text-emerald-300 rounded">9,4% (17 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Co-convocante de la huelga indefinida. Impulsó el censo de 3.430 trabajadores y defiende los 6 Filtros Innegociables en asamblea.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> Talleres de fabricación, mecanizado, Illescas y Cádiz.
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-900/80 border-l-4 border-purple-600 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-purple-400 block">ATP-SAE</span>
+                    <span class="text-[10px] text-slate-400">Técnicos & Cuadros</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 rounded">7,1% (13 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Firmó el preacuerdo del 23 de julio. Representa a cuadros intermedios y personal técnico especializado.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> Ensayos en vuelo, certificación y mandos técnicos.
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-900/80 border-l-4 border-amber-500 rounded-xl space-y-2.5">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-black text-amber-400 block">ÚTIL (Independientes Libres)</span>
+                    <span class="text-[10px] text-slate-400">Sindicalismo de Base</span>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 rounded">4,0% (7 del.)</span>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                  <strong>Posicionamiento 2026:</strong> Co-convocante de la huelga indefinida. Exige soberanía asamblearia y votación en urna para cualquier propuesta de convenio.
+                </p>
+                <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800">
+                  <strong>Implantación:</strong> San Pablo Sur, líneas de vuelo y servicios auxiliares.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Breakdown Analysis Cards -->
+          <div class="mt-4 p-4 bg-amber-950/20 border border-amber-500/30 rounded-xl space-y-3">
+            <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center">
+              <i data-lucide="shield-alert" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+              Claves Sociológicas del Conflicto de 2026: El Fin del Sindicalismo de Despacho
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+                <strong class="text-amber-400 block">1. Desautorización en Urnas (24-Julio):</strong>
+                <p class="text-[11px] text-slate-400">La plantilla rompió la disciplina de voto tradicional, votando 51,13% NO contra un preacuerdo avalado por el 62% del comité interempresas.</p>
+              </div>
+              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+                <strong class="text-sky-400 block">2. Telegram (5.794 miembros) como Cortafuegos:</strong>
+                <p class="text-[11px] text-slate-400">La comunicación horizontal impidió la manipulación de comunicados y coordinó asambleas presenciales en todas las factorías simultáneamente.</p>
+              </div>
+              <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 space-y-1">
+                <strong class="text-emerald-400 block">3. Frente Único del Comité de Huelga:</strong>
+                <p class="text-[11px] text-slate-400">La negociación está subordinada a la asamblea soberana, impidiendo pactos bilaterales a espaldas de la plantilla.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- ==================== TAB 3: WORKFLOWS & DECISION TREES ==================== -->
       <div id="tab-workflows" class="tab-content hidden space-y-6">
@@ -866,8 +1439,7 @@
             </span>
           </div>
 
-          <!-- Employee Profile Customization Parameters Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-slate-950/60 p-4 rounded-xl border border-slate-800">
             <!-- 1. Gross Annual Salary -->
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1 flex items-center justify-between">
@@ -879,27 +1451,27 @@
                 <input type="number" id="sim-salary" value="50000" step="1000" min="20000" max="150000" class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-8 pr-3 py-2 text-xs sm:text-sm text-white font-bold focus:border-emerald-500 focus:outline-none" oninput="updateWageSimulation()">
               </div>
               <!-- Quick Presets -->
-              <div class="flex gap-1.5 mt-2">
-                <button type="button" onclick="setSalaryPreset(34000)" class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">34k (Taller)</button>
-                <button type="button" onclick="setSalaryPreset(50000)" class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">50k (Ingeniero)</button>
-                <button type="button" onclick="setSalaryPreset(68000)" class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">68k (Sénior)</button>
+              <div class="flex gap-1 mt-2">
+                <button type="button" onclick="setSalaryPreset(34000)" class="px-1.5 py-0.5 text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">34k (Taller)</button>
+                <button type="button" onclick="setSalaryPreset(50000)" class="px-1.5 py-0.5 text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">50k (Ing.)</button>
+                <button type="button" onclick="setSalaryPreset(68000)" class="px-1.5 py-0.5 text-[9px] font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 rounded">68k (Sénior)</button>
               </div>
             </div>
 
             <!-- 2. Professional Category & Seniority -->
             <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Grupo Profesional / Categoría:</label>
-              <select id="sim-category" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
-                <option value="operario">Grupo 1 - Operarios y Talleres Especializados</option>
-                <option value="empleado">Grupo 2 - Empleados y Administrativos</option>
-                <option value="ingeniero" selected>Grupo 3 - Técnicos, Especialistas e Ingenieros</option>
-                <option value="mando">Grupo 4 - Mandos Intermedios y Jefes de Equipo</option>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Grupo Profesional:</label>
+              <select id="sim-category" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
+                <option value="operario">Grupo 1 - Operarios y Taller</option>
+                <option value="empleado">Grupo 2 - Empleados / Admin</option>
+                <option value="ingeniero" selected>Grupo 3 - Técnicos / Ingenieros</option>
+                <option value="mando">Grupo 4 - Mandos Intermedios</option>
               </select>
 
               <div class="mt-2">
                 <label class="block text-[11px] text-slate-400 mb-0.5">Antigüedad (Trienios):</label>
-                <select id="sim-trienios" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
-                  <option value="0">0 trienios (Nuevo ingreso)</option>
+                <select id="sim-trienios" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
+                  <option value="0">0 trienios (Nuevo)</option>
                   <option value="1">1 trienio (3 años)</option>
                   <option value="2" selected>2 trienios (6 años)</option>
                   <option value="3">3 trienios (9 años)</option>
@@ -911,210 +1483,280 @@
 
             <!-- 3. Work Shift & Telework -->
             <div>
-              <label class="block text-xs font-bold text-slate-300 mb-1">Régimen de Turnos / Jornada:</label>
-              <select id="sim-shift" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
-                <option value="ordinaria" selected>Jornada Ordinaria (Sin turnicidad)</option>
-                <option value="turnos_2">Turno Rotativo M/T (+8% Plus)</option>
-                <option value="turnos_3">Turno Continuo M/T/N (+18% Plus)</option>
-                <option value="quinto_turno">5º Turno Fin de Semana (+25% Plus)</option>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Régimen de Turnos:</label>
+              <select id="sim-shift" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
+                <option value="ordinaria" selected>Jornada Ordinaria (0%)</option>
+                <option value="turnos_2">Turno M/T (+8%)</option>
+                <option value="turnos_3">Turno Continuo (+18%)</option>
+                <option value="quinto_turno">5º Turno Finde (+25%)</option>
               </select>
 
               <div class="mt-2">
-                <label class="block text-[11px] text-slate-400 mb-0.5">Días de Teletrabajo / Semana:</label>
-                <select id="sim-telework" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
-                  <option value="0">0 días (100% presencial en planta)</option>
+                <label class="block text-[11px] text-slate-400 mb-0.5">Días Teletrabajo / Sem:</label>
+                <select id="sim-telework" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
+                  <option value="0">0 días (100% presencial)</option>
                   <option value="1">1 día / semana</option>
-                  <option value="2" selected>2 días / semana (40% jornada)</option>
-                  <option value="3">3 días / semana (60% jornada)</option>
+                  <option value="2" selected>2 días / sem (40%)</option>
+                  <option value="3">3 días / sem (60%)</option>
                 </select>
               </div>
             </div>
 
-            <!-- 4. Strike Days, Pension Plan & April Effect -->
+            <!-- 4. Strike Days & Pension Plan -->
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1 flex items-center justify-between">
-                <span>Días de Huelga Secundados:</span>
+                <span>Días de Huelga:</span>
                 <span class="text-[10px] text-amber-400 font-bold" id="sim-strike-days-val">5 días</span>
               </label>
               <input type="range" id="sim-strike-days" min="0" max="15" value="5" step="1" class="w-full accent-amber-500 cursor-pointer" oninput="document.getElementById('sim-strike-days-val').textContent = this.value + ' días'; updateWageSimulation()">
 
               <div class="mt-2.5">
-                <label class="block text-[11px] text-slate-400 mb-0.5">Aportación Plan Pensiones Airbus (%):</label>
-                <select id="sim-pension-rate" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
-                  <option value="3.5">3,5% Salario Base (VI Convenio)</option>
-                  <option value="4.5" selected>4,5% Salario Base (Estándar)</option>
-                  <option value="5.5">5,5% Salario Base (Exigencia VII Convenio)</option>
+                <label class="block text-[11px] text-slate-400 mb-0.5">Plan Pensiones Airbus:</label>
+                <select id="sim-pension-rate" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-300 font-medium focus:border-emerald-500 focus:outline-none" onchange="updateWageSimulation()">
+                  <option value="3.5">3,5% Base (VI Convenio)</option>
+                  <option value="4.5" selected>4,5% Base (Estándar)</option>
+                  <option value="5.5">5,5% Base (Exigencia VII)</option>
                 </select>
               </div>
             </div>
-          </div>
 
-          <!-- EFECTO ABRIL INTERACTIVE AUDIT PANEL -->
-          <div class="p-4 bg-rose-950/30 border border-rose-500/40 rounded-xl space-y-3">
-            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-rose-500/30 pb-2.5">
-              <div class="flex items-center space-x-2">
-                <span class="p-1.5 bg-rose-500/20 text-rose-400 rounded-lg border border-rose-500/40">
-                  <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-                </span>
-                <div>
-                  <h3 class="text-xs sm:text-sm font-black text-white flex items-center">
-                    Auditoría Actuarial: ¿Qué es la Trampa del "Efecto Abril" y Cómo Destroza el Acuerdo?
-                  </h3>
-                  <p class="text-[11px] text-rose-300/90">La dirección propone aplicar las subidas desde el 1 de abril sin retroactividad a 1 de enero, amputando el primer trimestre de cada año.</p>
+            <!-- 5. MACRO SIMULATOR: INFLATION / IPC ESTIMATED -->
+            <div class="bg-amber-950/20 p-2.5 rounded-xl border border-amber-500/40">
+              <label class="block text-xs font-bold text-amber-300 mb-1 flex items-center justify-between">
+                <span class="flex items-center"><i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1 text-amber-400"></i> IPC Anual Estimado:</span>
+                <span class="text-[11px] text-amber-400 font-black font-mono" id="sim-ipc-badge">2,5%</span>
+              </label>
+              <input type="range" id="sim-ipc-rate" min="0.5" max="8.0" value="2.5" step="0.1" class="w-full accent-amber-400 cursor-pointer" oninput="document.getElementById('sim-ipc-badge').textContent = parseFloat(this.value).toFixed(1).replace('.', ',') + '%'; updateWageSimulation()">
+              
+              <!-- Presets for IPC -->
+              <div class="grid grid-cols-2 gap-1 mt-2">
+                <button type="button" onclick="setIpcPreset(1.5)" class="px-1 py-0.5 text-[8.5px] font-bold bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700">1,5% (BCE)</button>
+                <button type="button" onclick="setIpcPreset(2.5)" class="px-1 py-0.5 text-[8.5px] font-bold bg-amber-950 hover:bg-amber-900 text-amber-300 rounded border border-amber-700/60">2,5% (Estándar)</button>
+                <button type="button" onclick="setIpcPreset(3.8)" class="px-1 py-0.5 text-[8.5px] font-bold bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700">3,8% (Media Esp)</button>
+                <button type="button" onclick="setIpcPreset(5.5)" class="px-1 py-0.5 text-[8.5px] font-bold bg-rose-950 hover:bg-rose-900 text-rose-300 rounded border border-rose-700/60">5,5% (Crisis)</button>
+              </div>
+            </div>
+          </div>
+          <!-- AUDIT PANELS: EFECTO ABRIL & SENSIBILIDAD AL IPC -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <!-- PANEL 1: EFECTO ABRIL -->
+            <div class="p-4 bg-rose-950/30 border border-rose-500/40 rounded-xl space-y-3 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-rose-500/30 pb-2.5">
+                  <div class="flex items-center space-x-2">
+                    <span class="p-1.5 bg-rose-500/20 text-rose-400 rounded-lg border border-rose-500/40">
+                      <i data-lucide="scissors" class="w-4 h-4"></i>
+                    </span>
+                    <div>
+                      <h3 class="text-xs sm:text-sm font-black text-white">Trampa del "Efecto Abril"</h3>
+                      <p class="text-[10px] text-rose-300/90">Amputación del incremento salarial en Q1 (Ene-Mar)</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-1.5 bg-slate-900/90 p-1 rounded-lg border border-slate-700">
+                    <span class="text-[10px] font-bold text-slate-300">Activar:</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" id="sim-efecto-abril" class="sr-only peer" onchange="updateWageSimulation()">
+                      <div class="w-7 h-4 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-rose-600"></div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 mt-2.5 text-xs">
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Pérdida Q1 (Ene-Mar):</span>
+                    <p class="text-sm font-black text-rose-400 font-mono" id="ea-loss-q1">-1.500 €</p>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Merma Paga Extra Junio:</span>
+                    <p class="text-sm font-black text-amber-400 font-mono" id="ea-loss-extra">-214 €</p>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Menor Aportación Pensiones:</span>
+                    <p class="text-sm font-black text-rose-400 font-mono" id="ea-loss-pension">-82 €</p>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Ahorro Patronal Total:</span>
+                    <p class="text-sm font-black text-purple-400 font-mono" id="ea-loss-total-airbus">-23,3 M€</p>
+                  </div>
                 </div>
               </div>
-
-              <!-- Toggle Button -->
-              <div class="flex items-center space-x-2 bg-slate-900/90 p-1.5 rounded-xl border border-slate-700">
-                <span class="text-[11px] font-bold text-slate-300">Simular con Efecto Abril:</span>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" id="sim-efecto-abril" class="sr-only peer" onchange="updateWageSimulation()">
-                  <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-rose-600"></div>
-                </label>
-              </div>
+              <p class="text-[10px] text-slate-300 border-t border-rose-500/20 pt-1.5 mt-2">
+                <strong class="text-rose-400">Veredicto:</strong> Reduce la subida real del primer año del 12% al <strong class="text-white">9,0%</strong> sin atrasos.
+              </p>
             </div>
 
-            <!-- 4 Metrics of April Effect Impact -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block font-medium">Pérdida Directa Q1 (Ene-Mar):</span>
-                <p class="text-base sm:text-lg font-black text-rose-400 font-mono mt-0.5" id="ea-loss-q1">-1.500 €</p>
-                <span class="text-[10px] text-slate-400 block">-25% del incremento anual perdido</span>
-              </div>
+            <!-- PANEL 2: SENSIBILIDAD AL IPC Y PODER ADQUISITIVO -->
+            <div class="p-4 bg-amber-950/25 border border-amber-500/40 rounded-xl space-y-3 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center border-b border-amber-500/30 pb-2.5">
+                  <div class="flex items-center space-x-2">
+                    <span class="p-1.5 bg-amber-500/20 text-amber-400 rounded-lg border border-amber-500/40">
+                      <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    </span>
+                    <div>
+                      <h3 class="text-xs sm:text-sm font-black text-white">Auditoría de Impacto del IPC (Inflación)</h3>
+                      <p class="text-[10px] text-amber-300/90">Erosión del poder adquisitivo a 5 años (<span id="ipc-audit-rate-label">2,5%</span> anual)</p>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 text-[9px] font-black bg-amber-500/20 text-amber-300 rounded border border-amber-500/40">Macroanálisis</span>
+                </div>
 
-              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block font-medium">Impacto en Paga Extra Junio:</span>
-                <p class="text-base sm:text-lg font-black text-amber-400 font-mono mt-0.5" id="ea-loss-extra">-214 €</p>
-                <span class="text-[10px] text-slate-400 block">Prorrateo reducido (devengo semestral)</span>
+                <div class="grid grid-cols-2 gap-2 mt-2.5 text-xs">
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-rose-400 font-bold block">Pérdida Real Oferta Empresa:</span>
+                    <p class="text-sm font-black text-rose-400 font-mono" id="ipc-audit-loss-co">-11,8% (-6.250 €)</p>
+                    <span class="text-[9px] text-slate-500">Poder de compra real Año 5</span>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-emerald-400 font-bold block">Ganancia Real Comité (RSG):</span>
+                    <p class="text-sm font-black text-emerald-400 font-mono" id="ipc-audit-gain-union">+18,9% (+9.450 €)</p>
+                    <span class="text-[9px] text-slate-500">Por encima de toda inflación</span>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Inflación Acumulada 5 Años:</span>
+                    <p class="text-sm font-black text-amber-400 font-mono" id="ipc-audit-cum-inflation">+13,1%</p>
+                    <span class="text-[9px] text-slate-500">Índice precios 2026-2030</span>
+                  </div>
+                  <div class="p-2 bg-slate-900/80 rounded-lg border border-slate-800">
+                    <span class="text-[10px] text-slate-400 block">Brecha Salarial Año 5:</span>
+                    <p class="text-sm font-black text-emerald-300 font-mono" id="ipc-audit-gap-5yr">+15.700 €/año</p>
+                    <span class="text-[9px] text-slate-500">Diferencia anual en nómina</span>
+                  </div>
+                </div>
               </div>
-
-              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block font-medium">Pérdida en Plan de Pensiones:</span>
-                <p class="text-base sm:text-lg font-black text-rose-400 font-mono mt-0.5" id="ea-loss-pension">-82 €</p>
-                <span class="text-[10px] text-slate-400 block">Menor aportación patronal trimestral</span>
-              </div>
-
-              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block font-medium">Ahorro Patronal Airbus (15.562 trab.):</span>
-                <p class="text-base sm:text-lg font-black text-purple-400 font-mono mt-0.5" id="ea-loss-total-airbus">-23,3 M€</p>
-                <span class="text-[10px] text-slate-400 block">Dinero extraído de la masa salarial</span>
-              </div>
+              <p class="text-[10px] text-slate-300 border-t border-amber-500/20 pt-1.5 mt-2">
+                <strong class="text-amber-400">Axioma:</strong> Sin cláusula RSG real (IPC + 1,5%), cualquier oferta patronal fija se convierte en una bajada encubierta de sueldo.
+              </p>
             </div>
-
-            <p class="text-[11px] text-slate-300 leading-relaxed border-t border-rose-500/20 pt-2">
-              <strong class="text-rose-400 font-bold">Veredicto de Asamblea (Getafe, 24/08/2026):</strong> El Efecto Abril es una cláusula trampa que diluye la subida real consolidada. Si una oferta del 12% se aplica en abril sin atrasos de enero a marzo, la subida real del primer año se reduce automáticamente al <strong class="text-white">9,0%</strong> y resta hasta <strong class="text-rose-300">1.796 € brutos</strong> a cada trabajador.
-            </p>
           </div>
-          <!-- 3 Comparative Scenario Cards -->
+          <!-- 3 Comparative Scenario Cards (with 5-Year Inflation Sensitivity) -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             <!-- Scenario 1: Oferta Empresa -->
-            <div class="bg-slate-900/90 p-4 rounded-xl border border-rose-500/30 space-y-3 relative overflow-hidden">
-              <div class="flex justify-between items-start">
-                <div>
-                  <span class="text-xs font-bold text-rose-400 uppercase tracking-wider block">1. Oferta Patronal Airbus</span>
-                  <h3 class="text-sm font-black text-white mt-0.5">+5,0% Fraccionado</h3>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-rose-500/30 space-y-3 relative overflow-hidden flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-bold text-rose-400 uppercase tracking-wider block">1. Oferta Patronal Airbus</span>
+                    <h3 class="text-sm font-black text-white mt-0.5">+5,0% Fraccionado</h3>
+                  </div>
+                  <span class="px-2 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded">Insuficiente</span>
                 </div>
-                <span class="px-2 py-0.5 text-[9px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded">Insuficiente</span>
-              </div>
 
-              <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Nuevo Salario Tablas:</span>
-                  <strong class="text-white font-mono" id="scen-co-salary">52.500 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
-                  <strong class="text-rose-300 font-mono" id="scen-co-monthly">+178 €/mes</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Paga Única Atrasos:</span>
-                  <strong class="text-slate-300 font-mono">+2.000 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Garantía IPC Real:</span>
-                  <strong class="text-rose-400 font-bold">0% (Sin blindaje)</strong>
-                </div>
-                <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
-                  <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
-                  <strong class="text-rose-400 font-black text-sm" id="scen-co-net-total">+3.250 €</strong>
+                <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Tablas Año 1 (2026):</span>
+                    <strong class="text-white font-mono" id="scen-co-salary">52.500 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Nominal Año 5 (2030):</span>
+                    <strong class="text-slate-300 font-mono" id="scen-co-salary-5yr">53.818 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-rose-400 font-semibold">Poder Compra Real Año 5:</span>
+                    <strong class="text-rose-400 font-mono font-black" id="scen-co-real-5yr">47.566 € (-11,8%)</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
+                    <strong class="text-rose-300 font-mono" id="scen-co-monthly">+178 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Garantía IPC Real:</span>
+                    <strong class="text-rose-400 font-bold">0% (Sin blindaje)</strong>
+                  </div>
+                  <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
+                    <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
+                    <strong class="text-rose-400 font-black text-sm" id="scen-co-net-total">+3.250 €</strong>
+                  </div>
                 </div>
               </div>
-              <div class="text-[10px] text-rose-400/90 bg-rose-500/10 p-2 rounded-lg border border-rose-500/20">
-                Consolida solo 2,5% en 2026 y 2,5% diferido en 2027. Pierdes entre 15% y 19% de poder adquisitivo acumulado.
+              <div class="text-[10px] text-rose-400/90 bg-rose-500/10 p-2 rounded-lg border border-rose-500/20 mt-2">
+                Al no tener RSG, la inflación devora el sueldo. En 5 años pierdes un <strong class="text-rose-300 font-bold" id="scen-co-loss-badge">-11,8%</strong> de poder adquisitivo real.
               </div>
             </div>
 
             <!-- Scenario 2: Punto de Equilibrio SIMA -->
-            <div class="bg-slate-900/90 p-4 rounded-xl border border-blue-500/30 space-y-3 relative overflow-hidden">
-              <div class="flex justify-between items-start">
-                <div>
-                  <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">2. Preacuerdo Potencial SIMA</span>
-                  <h3 class="text-sm font-black text-white mt-0.5">+9,5% Consolidado</h3>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-blue-500/30 space-y-3 relative overflow-hidden flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-wider block">2. Preacuerdo Potencial SIMA</span>
+                    <h3 class="text-sm font-black text-white mt-0.5">+9,5% Consolidado</h3>
+                  </div>
+                  <span class="px-2 py-0.5 text-[9px] font-extrabold bg-blue-500/20 text-blue-300 border border-blue-500/40 rounded">Equilibrio</span>
                 </div>
-                <span class="px-2 py-0.5 text-[9px] font-extrabold bg-blue-500/20 text-blue-300 border border-blue-500/40 rounded">Equilibrio</span>
-              </div>
 
-              <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Nuevo Salario Tablas:</span>
-                  <strong class="text-white font-mono" id="scen-med-salary">54.750 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
-                  <strong class="text-blue-300 font-mono" id="scen-med-monthly">+339 €/mes</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Paga Única Atrasos:</span>
-                  <strong class="text-slate-300 font-mono">+5.000 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Garantía IPC Real:</span>
-                  <strong class="text-blue-400 font-bold">100% IPC anual</strong>
-                </div>
-                <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
-                  <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
-                  <strong class="text-blue-400 font-black text-sm" id="scen-med-net-total">+6.840 €</strong>
+                <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Tablas Año 1 (2026):</span>
+                    <strong class="text-white font-mono" id="scen-med-salary">54.750 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Nominal Año 5 (2030):</span>
+                    <strong class="text-blue-300 font-mono" id="scen-med-salary-5yr">60.435 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-blue-400 font-semibold">Poder Compra Real Año 5:</span>
+                    <strong class="text-blue-400 font-mono font-black" id="scen-med-real-5yr">54.750 € (100% IPC)</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
+                    <strong class="text-blue-300 font-mono" id="scen-med-monthly">+339 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Garantía IPC Real:</span>
+                    <strong class="text-blue-400 font-bold">100% IPC anual</strong>
+                  </div>
+                  <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
+                    <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
+                    <strong class="text-blue-400 font-black text-sm" id="scen-med-net-total">+6.840 €</strong>
+                  </div>
                 </div>
               </div>
-              <div class="text-[10px] text-blue-400/90 bg-blue-500/10 p-2 rounded-lg border border-blue-500/20">
-                Recupera la inflación básica pero exige renuncia parcial a la cláusula Bradford y limita los atrasos a 5.000 €.
+              <div class="text-[10px] text-blue-400/90 bg-blue-500/10 p-2 rounded-lg border border-blue-500/20 mt-2">
+                Empata exactamente con el IPC pero no genera ganancia adicional en el poder de compra más allá de la subida inicial.
               </div>
             </div>
 
             <!-- Scenario 3: Plataforma Unitaria del Comité -->
-            <div class="bg-slate-900/90 p-4 rounded-xl border border-emerald-500/50 space-y-3 relative overflow-hidden shadow-lg shadow-emerald-950/40">
-              <div class="flex justify-between items-start">
-                <div>
-                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">3. Plataforma del Comité</span>
-                  <h3 class="text-sm font-black text-white mt-0.5">+12,0% Íntegro en Tablas</h3>
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-emerald-500/50 space-y-3 relative overflow-hidden shadow-lg shadow-emerald-950/40 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">3. Plataforma del Comité</span>
+                    <h3 class="text-sm font-black text-white mt-0.5">+12,0% Íntegro en Tablas</h3>
+                  </div>
+                  <span class="px-2 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded">Objetivo Huelga</span>
                 </div>
-                <span class="px-2 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded">Objetivo Huelga</span>
-              </div>
 
-              <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Nuevo Salario Tablas:</span>
-                  <strong class="text-emerald-400 font-mono font-bold" id="scen-union-salary">56.000 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
-                  <strong class="text-emerald-300 font-mono font-bold" id="scen-union-monthly">+428 €/mes</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Paga Única Retroactiva:</span>
-                  <strong class="text-emerald-300 font-mono font-bold">+7.500 €</strong>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate-400">Garantía IPC Real:</span>
-                  <strong class="text-emerald-400 font-bold">IPC + 1,5% (Sin topes)</strong>
-                </div>
-                <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
-                  <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
-                  <strong class="text-emerald-400 font-black text-sm" id="scen-union-net-total">+10.250 €</strong>
+                <div class="space-y-1.5 border-t border-slate-800 pt-2.5 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Tablas Año 1 (2026):</span>
+                    <strong class="text-emerald-400 font-mono font-bold" id="scen-union-salary">56.000 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Salario Nominal Año 5 (2030):</span>
+                    <strong class="text-emerald-300 font-mono font-bold" id="scen-union-salary-5yr">65.512 €</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-emerald-400 font-semibold">Poder Compra Real Año 5:</span>
+                    <strong class="text-emerald-400 font-mono font-black" id="scen-union-real-5yr">59.435 € (+18,9%)</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
+                    <strong class="text-emerald-300 font-mono font-bold" id="scen-union-monthly">+428 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Garantía IPC Real:</span>
+                    <strong class="text-emerald-400 font-bold">IPC + 1,5% (Sin topes)</strong>
+                  </div>
+                  <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
+                    <span class="text-slate-300 font-bold">Beneficio Neto Año 1:</span>
+                    <strong class="text-emerald-400 font-black text-sm" id="scen-union-net-total">+10.250 €</strong>
+                  </div>
                 </div>
               </div>
-              <div class="text-[10px] text-emerald-400/90 bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/20">
-                Blindaje integral: Consolidación total a 1 de enero de 2026, 7.500 € en mano, teletrabajo compensado y anulación de Bradford.
+              <div class="text-[10px] text-emerald-400/90 bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/20 mt-2">
+                Blindaje integral: La cláusula RSG (IPC + 1,5%) garantiza una ganancia real de poder adquisitivo de <strong class="text-emerald-300 font-bold" id="scen-union-gain-badge">+18,9%</strong> acumulado en 5 años.
               </div>
             </div>
           </div>
@@ -1205,7 +1847,27 @@
                       <td class="p-2.5 text-right text-emerald-400 text-xs sm:text-sm font-black" id="tb-tot-union">70.166 €</td>
                       <td class="p-2.5 text-right text-emerald-300 text-xs sm:text-sm font-black" id="tb-tot-diff">+11.414 €</td>
                     </tr>
-                  </tbody>
+                    <!-- 5-Year Inflation Impact Rows -->
+                    <tr class="bg-slate-950/70 border-t border-slate-800 text-[10.5px]">
+                      <td class="p-2.5 font-sans font-bold text-amber-300 flex items-center">
+                        <i data-lucide="calendar" class="w-3.5 h-3.5 mr-1.5 text-amber-400"></i>
+                        Salario Nominal Año 5 (2030)
+                      </td>
+                      <td class="p-2.5 text-right text-slate-500" id="tb-5yr-cur-nom">50.000 €</td>
+                      <td class="p-2.5 text-right text-rose-300 font-bold" id="tb-5yr-co-nom">53.818 €</td>
+                      <td class="p-2.5 text-right text-emerald-400 font-black" id="tb-5yr-union-nom">65.512 €</td>
+                      <td class="p-2.5 text-right text-emerald-300 font-black" id="tb-5yr-diff-nom">+11.694 €/año</td>
+                    </tr>
+                    <tr class="bg-amber-950/20 border-t border-amber-500/20 text-[10.5px]">
+                      <td class="p-2.5 font-sans font-bold text-amber-400 flex items-center">
+                        <i data-lucide="trending-down" class="w-3.5 h-3.5 mr-1.5 text-amber-400"></i>
+                        Poder Compra Real Año 5 (Deflactado)
+                      </td>
+                      <td class="p-2.5 text-right text-rose-400 font-mono" id="tb-5yr-cur-real">44.191 € (-11,6%)</td>
+                      <td class="p-2.5 text-right text-rose-400 font-bold font-mono" id="tb-5yr-co-real">47.566 € (-4,9%)</td>
+                      <td class="p-2.5 text-right text-emerald-400 font-black font-mono" id="tb-5yr-union-real">57.901 € (+15,8%)</td>
+                      <td class="p-2.5 text-right text-emerald-300 font-black font-mono" id="tb-5yr-diff-real">+10.335 € real</td>
+                    </tr>
                 </table>
               </div>
             </div>

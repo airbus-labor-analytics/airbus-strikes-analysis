@@ -19,6 +19,388 @@ window.CONFLICT_DATA = {
     "getafe_htp_production_share": 1.0,
     "fal_stock_buffer_hours": 60.0
   },
+  "stock_market_analysis": {
+    "ticker": "AIR.PA (Euronext Paris) / AIR.MC (Bolsa de Madrid)",
+    "current_price_eur": 128.4,
+    "pre_conflict_price_eur": 146.8,
+    "ytd_high_price_eur": 172.4,
+    "total_shares_outstanding": 793000000,
+    "current_market_cap_eur_m": 101821.2,
+    "pre_conflict_market_cap_eur_m": 116412.4,
+    "market_cap_lost_conflict_eur_m": 14591.2,
+    "conflict_price_change_pct": -12.53,
+    "daily_change_pct": -1.15,
+    "annual_union_demand_cost_eur_m": 118.0,
+    "financial_asymmetry_ratio": 123.6,
+    "dividends_2025_paid_eur_m": 2215.0,
+    "net_income_2025_eur_m": 5221.0,
+    "share_buyback_2025_eur_m": 215.0,
+    "daily_history_conflict": [
+      {
+        "date": "2026-06-02",
+        "price": 150.2,
+        "event": "Pico previo: Anuncio de guidance de 870 entregas anuales",
+        "volume_k": 1420
+      },
+      {
+        "date": "2026-06-09",
+        "price": 149.1,
+        "event": "Primeras asambleas informativas en Getafe e Illescas",
+        "volume_k": 1380
+      },
+      {
+        "date": "2026-06-16",
+        "price": 148.5,
+        "event": "Constitución de la mesa del VII Convenio en el SIMA",
+        "volume_k": 1510
+      },
+      {
+        "date": "2026-06-23",
+        "price": 147.9,
+        "event": "Ruptura de negociaciones por oferta patronal del 3.5%",
+        "volume_k": 1890
+      },
+      {
+        "date": "2026-07-01",
+        "price": 147.2,
+        "event": "Estallido de paros parciales de 2h por turno (SIPA/UGT/CGT)",
+        "volume_k": 2150
+      },
+      {
+        "date": "2026-07-08",
+        "price": 146.9,
+        "event": "Seguimiento masivo en Getafe e Illescas",
+        "volume_k": 1720
+      },
+      {
+        "date": "2026-07-16",
+        "price": 146.8,
+        "event": "Oferta patronal 5% rechazada por el 95% de la plantilla",
+        "volume_k": 2100
+      },
+      {
+        "date": "2026-07-23",
+        "price": 144.2,
+        "event": "Preacuerdo CCOO-SIPA-ATP firmado de madrugada",
+        "volume_k": 2350
+      },
+      {
+        "date": "2026-07-24",
+        "price": 142.5,
+        "event": "Referéndum en urna: 51,13% NO. Dimisión en bloque de SIPA",
+        "volume_k": 3100
+      },
+      {
+        "date": "2026-07-31",
+        "price": 141.1,
+        "event": "Cierre de julio con paros y asambleas permanentes",
+        "volume_k": 2400
+      },
+      {
+        "date": "2026-08-05",
+        "price": 139.8,
+        "event": "FALs europeas alertan de agotamiento de estabilizadores HTP",
+        "volume_k": 2650
+      },
+      {
+        "date": "2026-08-12",
+        "price": 138.4,
+        "event": "Suspensión de vuelos BelugaXL por falta de carga",
+        "volume_k": 2800
+      },
+      {
+        "date": "2026-08-18",
+        "price": 137.9,
+        "event": "Aerolíneas exigen aclaraciones sobre entregas de A321",
+        "volume_k": 2950
+      },
+      {
+        "date": "2026-08-24",
+        "price": 135.2,
+        "event": "Asambleas Generales: 100% SÍ a la Huelga Indefinida",
+        "volume_k": 3600
+      },
+      {
+        "date": "2026-08-25",
+        "price": 134.1,
+        "event": "Huelga Día 1: Agotamiento buffer de componentes en FAL Toulouse",
+        "volume_k": 3900
+      },
+      {
+        "date": "2026-08-26",
+        "price": 132.8,
+        "event": "Huelga Día 2: Rechazo unánime a amenazas de deslocalización",
+        "volume_k": 4200
+      },
+      {
+        "date": "2026-08-27",
+        "price": 130.5,
+        "event": "Huelga Día 3: Entrega formal de la propuesta de 11 puntos en SIMA",
+        "volume_k": 4800
+      },
+      {
+        "date": "2026-08-28",
+        "price": 129.2,
+        "event": "Huelga Día 4: Bloqueo absoluto de vuelos BelugaXL en Getafe",
+        "volume_k": 5100
+      },
+      {
+        "date": "2026-08-29",
+        "price": 128.4,
+        "event": "Huelga Día 5: Cotización en mínimos anuales (128,40 €). Pérdida de 14.591 M€ en bolsa",
+        "volume_k": 5450
+      }
+    ]
+  },
+  "company_financial_health": {
+    "overview": {
+      "company_name": "Airbus SE",
+      "ticker": "AIR.PA / AIR.MC",
+      "headquarters": "Leiden, Países Bajos / Toulouse, Francia",
+      "rating": "A2 / A (Moody's / S&P - Solvencia de Grado de Inversión Fuerte)",
+      "annual_revenue_2025_eur_m": 73500.0,
+      "net_income_2025_eur_m": 5221.0,
+      "ebit_adjusted_2025_eur_m": 5838.0,
+      "free_cash_flow_2025_eur_m": 4380.0,
+      "net_cash_position_2025_eur_m": 10700.0,
+      "gross_liquidity_eur_m": 25400.0,
+      "order_backlog_aircraft": 8626,
+      "order_backlog_value_eur_m": 554000.0,
+      "production_years_covered": 10.5,
+      "dividends_paid_2025_eur_m": 2458.0,
+      "dividend_per_share_2025_eur": 3.1
+    },
+    "financial_history_2020_2026": [
+      {
+        "year": "2020",
+        "revenue_eur_m": 49912.0,
+        "net_income_eur_m": -1133.0,
+        "ebit_adj_eur_m": 1706.0,
+        "deliveries": 566,
+        "dividend_per_share": 0.0,
+        "backlog_units": 7184
+      },
+      {
+        "year": "2021",
+        "revenue_eur_m": 52149.0,
+        "net_income_eur_m": 4213.0,
+        "ebit_adj_eur_m": 4865.0,
+        "deliveries": 611,
+        "dividend_per_share": 1.5,
+        "backlog_units": 7082
+      },
+      {
+        "year": "2022",
+        "revenue_eur_m": 58763.0,
+        "net_income_eur_m": 4247.0,
+        "ebit_adj_eur_m": 5627.0,
+        "deliveries": 661,
+        "dividend_per_share": 1.8,
+        "backlog_units": 7239
+      },
+      {
+        "year": "2023",
+        "revenue_eur_m": 65446.0,
+        "net_income_eur_m": 3789.0,
+        "ebit_adj_eur_m": 5838.0,
+        "deliveries": 735,
+        "dividend_per_share": 2.8,
+        "backlog_units": 8598
+      },
+      {
+        "year": "2024",
+        "revenue_eur_m": 69200.0,
+        "net_income_eur_m": 4232.0,
+        "ebit_adj_eur_m": 5400.0,
+        "deliveries": 766,
+        "dividend_per_share": 2.8,
+        "backlog_units": 8620
+      },
+      {
+        "year": "2025",
+        "revenue_eur_m": 73500.0,
+        "net_income_eur_m": 5221.0,
+        "ebit_adj_eur_m": 5838.0,
+        "deliveries": 790,
+        "dividend_per_share": 3.1,
+        "backlog_units": 8626
+      },
+      {
+        "year": "2026 (Est.)",
+        "revenue_eur_m": 78000.0,
+        "net_income_eur_m": 5800.0,
+        "ebit_adj_eur_m": 6400.0,
+        "deliveries": 870,
+        "dividend_per_share": 3.5,
+        "backlog_units": 8750
+      }
+    ],
+    "shareholder_structure": [
+      {
+        "entity": "SOGEPA (Estado Francés)",
+        "pct": 10.9,
+        "category": "Público Estatal",
+        "color": "#3b82f6"
+      },
+      {
+        "entity": "GZBV (República Federal de Alemania)",
+        "pct": 10.8,
+        "category": "Público Estatal",
+        "color": "#f59e0b"
+      },
+      {
+        "entity": "SEPI (Gobierno de España / Min. Hacienda)",
+        "pct": 4.1,
+        "category": "Público Estatal",
+        "color": "#ef4444"
+      },
+      {
+        "entity": "Free Float (Fondos Institucionales y Minoritarios)",
+        "pct": 74.2,
+        "category": "Mercado Abierto",
+        "color": "#10b981"
+      }
+    ],
+    "dividend_vs_wage_mass_comparison": {
+      "annual_dividends_eur_m": 2458.0,
+      "spain_total_wage_mass_eur_m": 778.1,
+      "union_platform_total_cost_eur_m": 118.0,
+      "dividend_coverage_years": 20.8,
+      "axiom_takeaway": "El reparto de dividendos de 2025 (2.458 M€) equivale a 21 años completos de la subida salarial exigida por los 15.562 trabajadores de Airbus en España."
+    }
+  },
+  "trade_union_representation": {
+    "metadata": {
+      "electoral_scope": "Elecciones Sindicales Airbus España (Getafe, San Pablo, Tablada, Illescas, Puerto Real/Cádiz, Albacete, Barajas)",
+      "total_census_workers": 15562,
+      "total_delegates": 184,
+      "interempresas_seats": 13
+    },
+    "current_shares": [
+      {
+        "union_code": "CCOO",
+        "name": "CCOO (Comisiones Obreras - Industria)",
+        "pct": 36.8,
+        "delegates": 68,
+        "interempresas_seats": 5,
+        "color": "#dc2626",
+        "historical_trajectory": "Mayoría tradicional en la Comisión Negociadora. Firmante de los Convenios V (2015) y VI (2021) que causaron la pérdida del 20,9%-24,4% de poder adquisitivo.",
+        "stance_conflict_2026": "Firmó el preacuerdo de madrugada del 23 de julio. Tras el 51,13% NO en referéndum, sus bases forzaron a la dirección sindical a secundar los paros.",
+        "workplace_strength": "Fuerte en talleres de montaje, estructuras y logística en Getafe e Illescas."
+      },
+      {
+        "union_code": "UGT",
+        "name": "UGT (FICA - Metal y Aeroespacial)",
+        "pct": 24.2,
+        "delegates": 45,
+        "interempresas_seats": 3,
+        "color": "#ea580c",
+        "historical_trajectory": "Segunda fuerza histórica. Cogestor tradicional de acuerdos marco; firmante histórico de los convenios del consorcio.",
+        "stance_conflict_2026": "Co-convocante oficial de la huelga indefinida desde el 24 de agosto. Ruptura total con la dirección de RRHH por las amenazas de deslocalización.",
+        "workplace_strength": "Predominio en Sevilla (San Pablo y Tablada) y factorías de Defensa y Espacio."
+      },
+      {
+        "union_code": "SIPA",
+        "name": "SIPA (Sindicato Independiente de Profesionales Aeronáuticos)",
+        "pct": 18.5,
+        "delegates": 34,
+        "interempresas_seats": 2,
+        "color": "#0284c7",
+        "historical_trajectory": "Nacido de una escisión técnica en 2018; crecimiento acelerado entre personal de oficinas, ingeniería y programas comerciales.",
+        "stance_conflict_2026": "Convocó los paros iniciales del 1 de julio. Firmó el preacuerdo patronal del 23 de julio, lo que provocó la dimisión en bloque de su ejecutiva tras el 51,13% NO. Sus bases se integraron plenamente en el Comité de Huelga.",
+        "workplace_strength": "Mayoría en Ingeniería de Diseño, Gestión de Programas y Oficinas Centrales en Getafe y San Pablo."
+      },
+      {
+        "union_code": "CGT",
+        "name": "CGT (Confederación General del Trabajo - Sector Metal)",
+        "pct": 9.4,
+        "delegates": 17,
+        "interempresas_seats": 1,
+        "color": "#16a34a",
+        "historical_trajectory": "Sindicato asambleario combativo. Votó en contra sistemáticamente de los convenios con pérdida de RSG; motor de la resistencia en Cádiz.",
+        "stance_conflict_2026": "Co-convocante de la huelga indefinida. Impulsor del censo presencial (3.430 trabajadores censados en 48h) y garante del mandato asambleario de los 6 Filtros Innegociables.",
+        "workplace_strength": "Gran influencia en talleres mecánicos, aeroestructuras de fibra en Illescas y Puerto Real/Cádiz."
+      },
+      {
+        "union_code": "ATP_SAE",
+        "name": "ATP-SAE (Asociación de Técnicos y Profesionales / Sindicato Aeronáutico Español)",
+        "pct": 7.1,
+        "delegates": 13,
+        "interempresas_seats": 1,
+        "color": "#9333ea",
+        "historical_trajectory": "Sindicato corporativo de mandos intermedios, técnicos superiores y pilotos de pruebas.",
+        "stance_conflict_2026": "Firmante del preacuerdo del 23 de julio. Muy criticado en las asambleas generales de fábrica por avalar la fragmentación de la subida salarial.",
+        "workplace_strength": "Presencia en Ensayos en Vuelo, Control de Calidad y Mandos Intermedios."
+      },
+      {
+        "union_code": "UTIL",
+        "name": "ÚTIL (Unión de Trabajadores Independientes y Libres)",
+        "pct": 4.0,
+        "delegates": 7,
+        "interempresas_seats": 1,
+        "color": "#f59e0b",
+        "historical_trajectory": "Sindicato de base asambleario surgido del descontento en factorías del sur.",
+        "stance_conflict_2026": "Co-convocante de la huelga indefinida desde el 24 de agosto. Defensor a ultranza de la votación secreta en urna para cualquier acuerdo.",
+        "workplace_strength": "Concentración en San Pablo Sur y subcontratas integradas en factoría."
+      }
+    ],
+    "historical_evolution": [
+      {
+        "period": "2010 - 2015",
+        "ccoo_pct": 46.5,
+        "ugt_pct": 34.0,
+        "sipa_pct": 0.0,
+        "cgt_pct": 11.5,
+        "atp_pct": 5.0,
+        "util_pct": 3.0,
+        "context": "Hegemonía absoluta del bipartidismo sindical CCOO-UGT (>80% de representatividad). Firma del V Convenio Colectivo."
+      },
+      {
+        "period": "2015 - 2019",
+        "ccoo_pct": 42.0,
+        "ugt_pct": 30.5,
+        "sipa_pct": 9.5,
+        "cgt_pct": 9.0,
+        "atp_pct": 6.0,
+        "util_pct": 3.0,
+        "context": "Emergencia de SIPA en oficinas técnicas. Descontento inicial por pérdida de cláusulas de revisión salarial reales."
+      },
+      {
+        "period": "2019 - 2023",
+        "ccoo_pct": 38.2,
+        "ugt_pct": 26.0,
+        "sipa_pct": 16.0,
+        "cgt_pct": 8.8,
+        "atp_pct": 7.0,
+        "util_pct": 4.0,
+        "context": "Cierre de la planta de Puerto Real (2021) y firma del VI Convenio. Ruptura de la cohesión sindical tradicional."
+      },
+      {
+        "period": "2023 - 2026",
+        "ccoo_pct": 36.8,
+        "ugt_pct": 24.2,
+        "sipa_pct": 18.5,
+        "cgt_pct": 9.4,
+        "atp_pct": 7.1,
+        "util_pct": 4.0,
+        "context": "Máxima fragmentación. CCOO y UGT bajan por primera vez del 61% conjunto. Consolidación de sindicatos independientes y asamblearios."
+      }
+    ],
+    "social_breakdown_insights": [
+      {
+        "title": "La Ruptura del Modelo de 'Paz Social Comprada'",
+        "desc": "Durante dos décadas, la dirección de Airbus garantizaba la estabilidad productiva negociando exclusivamente con las cúpulas de CCOO y UGT. Este modelo colapsó definitivamente el 24 de julio de 2026, cuando el 51,13% de la plantilla en urna desautorizó el preacuerdo firmado de madrugada."
+      },
+      {
+        "title": "El Canal Telegram (5.794 miembros) como Contrapoder Informativo",
+        "desc": "El canal autogestionado 'EnfadadosconAirbus' ha neutralizado la censura y los comunicados corporativos, permitiendo que la plantilla audite en tiempo real cada documento del SIMA y coordine asambleas simultáneas en Getafe, San Pablo, Tablada e Illescas."
+      },
+      {
+        "title": "Frente Único del Comité de Huelga (UGT + CGT + ÚTIL + Bases de SIPA y CCOO)",
+        "desc": "La huelga indefinida no está dirigida por un sindicato individual, sino por el Comité de Huelga Unificado surgido de la asamblea masiva, lo que blinda la negociación contra pactos bilaterales secretos."
+      }
+    ]
+  },
   "platform_cost": {
     "total_workers": 15562,
     "annual_wage_mass_spain_eur": 778100000.0,
@@ -1452,7 +1834,7 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-08-29T18:42:35+00:00",
+    "timestamp": "2026-08-29T19:02:39+00:00",
     "fleet_count": 6,
     "airborne_count": 0,
     "tracked_count": 3,
@@ -9644,17 +10026,17 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-08-29T18:42:43.631638+00:00",
-    "temperature_celsius": 82.6,
+    "timestamp": "2026-08-29T19:03:33.188413+00:00",
+    "temperature_celsius": 82.2,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
     "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.",
-    "bad_for_airbus_count": 67,
+    "bad_for_airbus_count": 68,
     "good_for_airbus_count": 3,
-    "neutral_count": 15,
-    "total_items_monitored": 85,
-    "bad_for_airbus_percentage": 78.8,
-    "good_for_airbus_percentage": 3.5,
+    "neutral_count": 16,
+    "total_items_monitored": 87,
+    "bad_for_airbus_percentage": 78.2,
+    "good_for_airbus_percentage": 3.4,
     "channels_distribution": {
       "Reddit": 1,
       "Twitter / X": 1,
@@ -9662,7 +10044,7 @@ window.CONFLICT_DATA = {
       "Telegram": 1,
       "Corporate PR": 1,
       "Prensa Nacional & Economía": 55,
-      "Aviation & Industry Press": 7,
+      "Aviation & Industry Press": 9,
       "Labor & Negociación": 13,
       "Logística & Cadena JIT": 5
     },
@@ -10329,28 +10711,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-56",
-        "source": "Forecast International",
-        "channel": "Aviation & Industry Press",
-        "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
-        "date": "Tue, 02 Jan 2024",
-        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdnF3emNlSFZvY1paNk94cVJOR2tIV1c3OGVGM3hPbENmOVNpVXE3bFRZWEpXNXQ5aU8xdVI0eTFOdVdVZVJkNjJqd2tiYmFUZXVzS1ktZjRmc2doR2diUTRnc0dSUmgyZGtESllLZ2RFZ2p3NW5tT3k1THZrejFzQWhnSjZEbTl3RGQ5aXpUQ2FxQTBjdVBoanBRdXBJMU1VNjgyREFncmJiaHZvcGpKeXdhZEFIWmYtNmxJNGRiMmk?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
-      },
-      {
-        "id": "rss-57",
-        "source": "AeroTime",
-        "channel": "Aviation & Industry Press",
-        "title": "Airbus warns customers of aircraft delivery delays: report",
-        "date": "Tue, 18 Apr 2023",
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdlZZVE50a0hlNzFxRmlnNm5KYWhneU1abW5VOWtQT3EtNlRUdTRmRzU2Rk9JdDU1T1ZOdHEwSGd1NTRWZDI5Ykx6N01MX2VSVzJPcUhCLXFCVGFZVVR1MHctUEdiTzd1d29JeEh3RHBOVGI5S2RXWXA0LXFXaEZiSlZDeEZxcWRES2QwMXBvcUNyOTRkMEhB0gGcAUFVX3lxTFBVWFhPeEhUbEdTWktkTlZhdVV4MjZuMDJ0Vi1Iam9CRzJXZTFFN3RFUUpGZ3hiR2N2eFZYN0hrbGV2c3JOcFdROFBVNlhhWE9SWENuUmFkUjVNbkNHYVdzbzZUTGRNLWtlOXhKcTFCTjF0RVJGcDVGRGZUbGpTUnduc1F4ZlhlNnJ4UVN3cnVNVjIzTjBMcC0xak4tSw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-58",
         "source": "Air Data News",
         "channel": "Aviation & Industry Press",
         "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
@@ -10361,40 +10721,51 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
       },
       {
-        "id": "rss-59",
-        "source": "Simple Flying",
+        "id": "rss-57",
+        "source": "Crikey",
         "channel": "Aviation & Industry Press",
-        "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
-        "date": "Fri, 08 Nov 2024",
-        "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9neVIyUGQ0RjVwdVY5YWxzeVJFdDRiOGhsOU9aM1I4dXdSNHNSb3hMTVlGZ0hyVTR4ZDM5NThGTEI4eDQwRkZDUkVIN1ByanJqT2IweGdyZHg1aTNab1BfdGs3TnVWV2RMRXR2T3lJTjR2cmNKY1B3T1ZyZWFyZw?oc=5",
+        "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
+        "date": "Tue, 23 Jun 2026",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
         "category": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
+      },
+      {
+        "id": "rss-58",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Lufthansa Group Is Losing $540 Million A Year To Aircraft Delivery Delays",
+        "date": "Tue, 09 Jul 2024",
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRmIzdVZZV0lwc2xrZlBQN0hfMDkyVlF1dVVEUG9BN184YVhOLVIwZ2Q0RUVMVC1JN2M0a1BuT3laR01Oc3VYRkJId0lTdjF5TG1SU3RXbGNQcjFxdjgzcGtiVGlqZHRuQ3dtLUN5a0ZJaHI4am16ZzR6V0dZQnpWS0JvYWU4bDNxaVg1Vm5lY1h6TEJp?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-59",
+        "source": "Forecast International",
+        "channel": "Aviation & Industry Press",
+        "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
+        "date": "Tue, 02 Jan 2024",
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdnF3emNlSFZvY1paNk94cVJOR2tIV1c3OGVGM3hPbENmOVNpVXE3bFRZWEpXNXQ5aU8xdVI0eTFOdVdVZVJkNjJqd2tiYmFUZXVzS1ktZjRmc2doR2diUTRnc0dSUmgyZGtESllLZ2RFZ2p3NW5tT3k1THZrejFzQWhnSjZEbTl3RGQ5aXpUQ2FxQTBjdVBoanBRdXBJMU1VNjgyREFncmJiaHZvcGpKeXdhZEFIWmYtNmxJNGRiMmk?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
         "id": "rss-60",
-        "source": "Key Aero",
+        "source": "AeroTime",
         "channel": "Aviation & Industry Press",
-        "title": "THAI A350 DELIVERY",
-        "date": "Thu, 14 Dec 2017",
-        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQUYtNHl6aDVSTVJ3eVU3TmlnN3F2YVZmSzFLX1hYX1RCTENfU3FxeF9JRVJab2xlWEktQ0p6WDN1UlFmenZVTHRBZ2tuc2FaNmlCS0o1NUhzanM?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
+        "title": "Airbus warns customers of aircraft delivery delays: report",
+        "date": "Tue, 18 Apr 2023",
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdlZZVE50a0hlNzFxRmlnNm5KYWhneU1abW5VOWtQT3EtNlRUdTRmRzU2Rk9JdDU1T1ZOdHEwSGd1NTRWZDI5Ykx6N01MX2VSVzJPcUhCLXFCVGFZVVR1MHctUEdiTzd1d29JeEh3RHBOVGI5S2RXWXA0LXFXaEZiSlZDeEZxcWRES2QwMXBvcUNyOTRkMEhB0gGcAUFVX3lxTFBVWFhPeEhUbEdTWktkTlZhdVV4MjZuMDJ0Vi1Iam9CRzJXZTFFN3RFUUpGZ3hiR2N2eFZYN0hrbGV2c3JOcFdROFBVNlhhWE9SWENuUmFkUjVNbkNHYVdzbzZUTGRNLWtlOXhKcTFCTjF0RVJGcDVGRGZUbGpTUnduc1F4ZlhlNnJ4UVN3cnVNVjIzTjBMcC0xak4tSw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-61",
-        "source": "AeroTime",
-        "channel": "Aviation & Industry Press",
-        "title": "Behind the scenes at ATR’s turboprop factory",
-        "date": "Fri, 21 Feb 2025",
-        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOU0VZTEpwNmZfRnpnVGhjVDlJZng2NkI2M2JRcmo4UmIwZHF1aHY5LTRVN1dIdlNWZ3VMb3pDVUZrYTRycTloeUdteDkwbEIwcEpiNTZqN0Q4NzlNb1lwNFdyLVBWMHVqckRtOUtJQWxkajBnczVUVFB2OEJYRWZJTkpTV0fSAYoBQVVfeXFMTmE1ZndUMHJSR05FNF92UXVRdTlaZ2pkT0NaMlY4Mi01RmQwcngwbXVlNFFaLVo0WnpKZFNiRV81bzBSdl9HQ2ptNG1xSDE3bXhCZnJIOEU2Nm1tT1B2MVFmOC15dWNyWENLaFRaNktSb2QtelU3N0JCVDNzSHdZRWd1SVRfb1FQVmdn?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
-      },
-      {
-        "id": "rss-62",
         "source": "Simple Flying",
         "channel": "Aviation & Industry Press",
         "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
@@ -10405,7 +10776,40 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
+        "id": "rss-62",
+        "source": "Key Aero",
+        "channel": "Aviation & Industry Press",
+        "title": "THAI A350 DELIVERY",
+        "date": "Thu, 14 Dec 2017",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQUYtNHl6aDVSTVJ3eVU3TmlnN3F2YVZmSzFLX1hYX1RCTENfU3FxeF9JRVJab2xlWEktQ0p6WDN1UlFmenZVTHRBZ2tuc2FaNmlCS0o1NUhzanM?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
+      },
+      {
         "id": "rss-63",
+        "source": "AeroTime",
+        "channel": "Aviation & Industry Press",
+        "title": "Behind the scenes at ATR’s turboprop factory",
+        "date": "Fri, 21 Feb 2025",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOU0VZTEpwNmZfRnpnVGhjVDlJZng2NkI2M2JRcmo4UmIwZHF1aHY5LTRVN1dIdlNWZ3VMb3pDVUZrYTRycTloeUdteDkwbEIwcEpiNTZqN0Q4NzlNb1lwNFdyLVBWMHVqckRtOUtJQWxkajBnczVUVFB2OEJYRWZJTkpTV0fSAYoBQVVfeXFMTmE1ZndUMHJSR05FNF92UXVRdTlaZ2pkT0NaMlY4Mi01RmQwcngwbXVlNFFaLVo0WnpKZFNiRV81bzBSdl9HQ2ptNG1xSDE3bXhCZnJIOEU2Nm1tT1B2MVFmOC15dWNyWENLaFRaNktSb2QtelU3N0JCVDNzSHdZRWd1SVRfb1FQVmdn?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
+      },
+      {
+        "id": "rss-64",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
+        "date": "Fri, 08 Nov 2024",
+        "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9neVIyUGQ0RjVwdVY5YWxzeVJFdDRiOGhsOU9aM1I4dXdSNHNSb3hMTVlGZ0hyVTR4ZDM5NThGTEI4eDQwRkZDUkVIN1ByanJqT2IweGdyZHg1aTNab1BfdGs3TnVWV2RMRXR2T3lJTjR2cmNKY1B3T1ZyZWFyZw?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-65",
         "source": "Economía Digital",
         "channel": "Labor & Negociación",
         "title": "Airbus mueve ficha para frenar la huelga: subirá los sueldos un 7,6% y los ligará al IPC",
@@ -10416,7 +10820,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-64",
+        "id": "rss-66",
         "source": "Industry Talks",
         "channel": "Labor & Negociación",
         "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
@@ -10427,7 +10831,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-65",
+        "id": "rss-67",
         "source": "Diario en Positivo",
         "channel": "Labor & Negociación",
         "title": "Airbus propone subir sueldos con el IPC y un 7,6% y sigue con teletrabajo",
@@ -10438,7 +10842,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
       },
       {
-        "id": "rss-66",
+        "id": "rss-68",
         "source": "Infobae",
         "channel": "Labor & Negociación",
         "title": "Airbus ofrece ligar los sueldos al IPC real y un 7,6% más para frenar la huelga y mantiene el teletrabajo",
@@ -10449,7 +10853,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-67",
+        "id": "rss-69",
         "source": "Córdoba Buenas Noticias",
         "channel": "Labor & Negociación",
         "title": "Airbus propone atar sueldos al IPC real y subir un 7,6% para evitar huelga",
@@ -10460,7 +10864,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-68",
+        "id": "rss-70",
         "source": "Demócrata",
         "channel": "Labor & Negociación",
         "title": "Las claves de la huelga de Airbus: por qué la plantilla mantiene los paros indefinidos",
@@ -10471,7 +10875,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-69",
+        "id": "rss-71",
         "source": "Albaceteabierto",
         "channel": "Labor & Negociación",
         "title": "Airbus propone aumentar sueldos al IPC real y 7,6%",
@@ -10482,7 +10886,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Albaceteabierto."
       },
       {
-        "id": "rss-70",
+        "id": "rss-72",
         "source": "El Economista",
         "channel": "Labor & Negociación",
         "title": "Airbus pide mediación al SIMA para reconducir la negociación con su plantilla y alejar la amenaza de huelga",
@@ -10493,7 +10897,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-71",
+        "id": "rss-73",
         "source": "Europa Press",
         "channel": "Labor & Negociación",
         "title": "Airbus pide una mediación del SIMA para acercar posturas tras el rechazo de los trabajadores al acuerdo",
@@ -10504,7 +10908,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-72",
+        "id": "rss-74",
         "source": "ABC",
         "channel": "Labor & Negociación",
         "title": "Los sindicatos anuncian una nueva huelga en Airbus para después del verano",
@@ -10515,7 +10919,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-73",
+        "id": "rss-75",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "Airbus liga salarios al IPC y ofrece recuperar un 7,6% hasta 2030",
@@ -10526,7 +10930,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
       },
       {
-        "id": "rss-74",
+        "id": "rss-76",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "La plantilla de Airbus vota seguir en huelga en Illescas y Albacete",
@@ -10537,7 +10941,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-75",
+        "id": "rss-77",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "Airbus pide mediación al SIMA tras el rechazo del preacuerdo",
@@ -10548,7 +10952,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
       },
       {
-        "id": "rss-76",
+        "id": "rss-78",
         "source": "Cathay Pacific",
         "channel": "Logística & Cadena JIT",
         "title": "A plane of many parts: tracing the global supply chain of an A350",
@@ -10559,7 +10963,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cathay Pacific."
       },
       {
-        "id": "rss-77",
+        "id": "rss-79",
         "source": "Simple Flying",
         "channel": "Logística & Cadena JIT",
         "title": "A 5-Step Guide To The Supply Chain Required To Produce Airbus A350s",
@@ -10570,7 +10974,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
-        "id": "rss-78",
+        "id": "rss-80",
         "source": "North Wales Live",
         "channel": "Logística & Cadena JIT",
         "title": "LOOK: Airbus' £30m Beluga station ensures wind does not halt play",
@@ -10581,7 +10985,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en North Wales Live. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-79",
+        "id": "rss-81",
         "source": "STAT Times",
         "channel": "Logística & Cadena JIT",
         "title": "Airbus ships first A350F Section 19 to Hamburg",
@@ -10592,7 +10996,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en STAT Times."
       },
       {
-        "id": "rss-80",
+        "id": "rss-82",
         "source": "The Times of India",
         "channel": "Logística & Cadena JIT",
         "title": "Giant of the skies: Kolkata welcomes Airbus Beluga XL for its inaugural stop",

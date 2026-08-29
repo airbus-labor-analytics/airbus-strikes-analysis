@@ -7,12 +7,17 @@ let telegramDocsData = [];
 let asymmetryChart = null;
 let wagesChart = null;
 let belugaHistoryChart = null;
+let airbusStockChart = null;
+let companyRevenueChart = null;
+let companyDeliveriesChart = null;
+let shareholderPieChart = null;
+let unionShareChart = null;
+let unionEvolutionChart = null;
 let thermoFeedData = [];
 let belugaPollingInterval = null;
 let selectedSourceCategory = 'ALL';
 let selectedTgCategory = 'ALL';
 let currentModalSource = null;
-
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) lucide.createIcons();
@@ -79,6 +84,9 @@ function initAllModules() {
   initAsymmetryChart();
   initWagesChart();
   initBelugaHistoryChart();
+  initAirbusStockChart();
+  initCompanyHealthCharts();
+  initUnionCharts();
   
   if (window.lucide) lucide.createIcons();
 }
@@ -144,13 +152,23 @@ function switchTab(tabId) {
     setTimeout(() => {
       if (belugaHistoryChart) belugaHistoryChart.resize();
     }, 60);
+  } else if (normalizedTabId === 'tab-stock') {
+    setTimeout(() => {
+      initAirbusStockChart();
+    }, 60);
+  } else if (normalizedTabId === 'tab-company-health') {
+    setTimeout(() => {
+      initCompanyHealthCharts();
+    }, 60);
+  } else if (normalizedTabId === 'tab-unions') {
+    setTimeout(() => {
+      initUnionCharts();
+    }, 60);
   } else if (normalizedTabId === 'tab-kpis') {
     setTimeout(() => {
       if (asymmetryChart) asymmetryChart.resize();
     }, 60);
   }
-
-  if (window.lucide) lucide.createIcons();
 }
 
 // ==================== ASYMMETRY SIMULATOR ====================
@@ -263,6 +281,16 @@ function setSalaryPreset(val) {
   }
 }
 
+function setIpcPreset(val) {
+  const ipcInput = document.getElementById('sim-ipc-rate');
+  if (ipcInput) {
+    ipcInput.value = val;
+    const badge = document.getElementById('sim-ipc-badge');
+    if (badge) badge.textContent = val.toFixed(1).replace('.', ',') + '%';
+    updateWageSimulation();
+  }
+}
+
 function updateWageSimulation() {
   const salaryInput = document.getElementById('sim-salary');
   if (!salaryInput) return;
@@ -277,6 +305,10 @@ function updateWageSimulation() {
   const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
   const pensionRate = parseFloat(document.getElementById('sim-pension-rate')?.value || '4.5') / 100.0;
   const appliesEfectoAbril = document.getElementById('sim-efecto-abril')?.checked || false;
+  const ipcRate = parseFloat(document.getElementById('sim-ipc-rate')?.value || '2.5') / 100.0;
+
+  // Update IPC Audit Rate label
+  setText('ipc-audit-rate-label', `${(ipcRate * 100).toFixed(1).replace('.', ',')}%`);
 
   // Seniority: approx 3.2% of base per trienio in Airbus
   const seniorityPct = trienios * 0.032;
@@ -329,7 +361,18 @@ function updateWageSimulation() {
   const coEaLossQ1 = (coBaseSalary - curSalary) * 0.25;
   const coNetTotalGain = ((coBaseSalary - curSalary) * (1 - taxRate)) - (coEaLossQ1 * (1 - taxRate)) + (coArrears * (1 - taxRate)) + (coPension - curPension) + (coSeniority - curSeniority) + (coShiftPlus - curShiftPlus);
 
-  // --- SCENARIO 2: PREACUERDO SIMA (+9.5% consolidado, 5.000 € atrasos, teletrabajo 30€/m) ---
+  // 5-Year Macro Trajectory for Company Offer:
+  // Year 1 (2026): coBaseSalary - coEaLossQ1
+  // Years 2-5: Weak company clause (max 1% annual or 0% real RSG)
+  const coNomYear1 = coBaseSalary - coEaLossQ1;
+  const coNomYear5 = coNomYear1 * Math.pow(1 + Math.min(ipcRate * 0.25, 0.01), 4);
+  const cumDeflator4yr = Math.pow(1 + ipcRate, 4);
+  const cumInflation4yr = cumDeflator4yr - 1;
+  const coRealYear5 = coNomYear5 / cumDeflator4yr;
+  const coRealLossPct = ((coRealYear5 / curSalary) - 1) * 100;
+  const coRealLossAmt = coRealYear5 - curSalary;
+
+  // --- SCENARIO 2: PREACUERDO SIMA (+9.5% consolidado, 5.000 € atrasos, teletrabajo 30€/m, 100% IPC diferido) ---
   const medBaseSalary = curSalary * 1.095;
   const medMonthlyIncrease = (medBaseSalary - curSalary) / 14.0;
   const medArrears = 5000;
@@ -340,7 +383,13 @@ function updateWageSimulation() {
   const medBradford = 400;
   const medNetTotalGain = (medBaseSalary - curSalary) * (1 - taxRate) + (medArrears * (1 - taxRate)) + (medPension - curPension) + (medSeniority - curSeniority) + (medShiftPlus - curShiftPlus) + medTelework + medBradford;
 
-  // --- SCENARIO 3: PLATAFORMA DEL COMITÉ (+12% íntegro, 7.500 € atrasos, 5.5% pensiones, Bradford refund, 60€/m teletrabajo) ---
+  // 5-Year Macro Trajectory for SIMA (100% IPC anual diferido):
+  const medNomYear1 = medBaseSalary;
+  const medNomYear5 = medNomYear1 * Math.pow(1 + ipcRate, 4);
+  const medRealYear5 = medNomYear5 / cumDeflator4yr; // Exactly medNomYear1
+  const medRealGainPct = ((medRealYear5 / curSalary) - 1) * 100;
+
+  // --- SCENARIO 3: PLATAFORMA DEL COMITÉ (+12% íntegro, 7.500 € atrasos, 5.5% pensiones, Bradford refund, 60€/m teletrabajo, RSG = IPC + 1.5% sin techo) ---
   const unionBaseSalary = curSalary * 1.12;
   const unionMonthlyIncrease = (unionBaseSalary - curSalary) / 14.0;
   const unionArrears = 7500;
@@ -357,6 +406,26 @@ function updateWageSimulation() {
 
   const unionNetTotalGain = (unionBaseSalary - curSalary) * (1 - taxRate) + (unionArrears * (1 - taxRate)) + (unionPension - curPension) + (unionSeniority - curSeniority) + (unionShiftPlus - curShiftPlus) + unionTelework + unionBradford - activeUnionEaDeductionNet;
 
+  // 5-Year Macro Trajectory for Committee Platform:
+  // Annual update = IPC + 1.5% RSG
+  const unionNomYear1 = unionBaseSalary - activeUnionEaDeductionGross;
+  const unionNomYear5 = unionNomYear1 * Math.pow(1 + ipcRate + 0.015, 4);
+  const unionRealYear5 = unionNomYear5 / cumDeflator4yr;
+  const unionRealGainPct = ((unionRealYear5 / curSalary) - 1) * 100;
+  const unionRealGainAmt = unionRealYear5 - curSalary;
+
+  // Current Baseline 5-Year Real Trajectory:
+  const curNomYear5 = curSalary;
+  const curRealYear5 = curSalary / cumDeflator4yr;
+  const curRealLossPct = ((curRealYear5 / curSalary) - 1) * 100;
+
+  // --- UPDATE IPC AUDIT PANEL METRICS ---
+  const coLossSign = coRealLossAmt >= 0 ? '+' : '';
+  setText('ipc-audit-loss-co', `${coRealLossPct.toFixed(1).replace('.', ',')}% (${coLossSign}${Math.round(coRealLossAmt).toLocaleString()} €)`);
+  setText('ipc-audit-gain-union', `+${unionRealGainPct.toFixed(1).replace('.', ',')}% (+${Math.round(unionRealGainAmt).toLocaleString()} €)`);
+  setText('ipc-audit-cum-inflation', `+${(cumInflation4yr * 100).toFixed(1).replace('.', ',')}%`);
+  setText('ipc-audit-gap-5yr', `+${Math.round(unionNomYear5 - coNomYear5).toLocaleString()} €/año`);
+
   // --- ROI OF STRIKE ---
   // Daily net salary: (Gross / 14 / 22 working days) * (1 - taxRate)
   const dailyNet = (curSalary / 14.0 / 22.0) * (1 - taxRate);
@@ -367,16 +436,24 @@ function updateWageSimulation() {
 
   // Update Scenario 1 UI
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
+  setText('scen-co-salary-5yr', `${Math.round(coNomYear5).toLocaleString()} €`);
+  setText('scen-co-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
+  setText('scen-co-loss-badge', `${coRealLossPct.toFixed(1).replace('.', ',')}%`);
   setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
 
   // Update Scenario 2 UI
   setText('scen-med-salary', `${Math.round(medBaseSalary).toLocaleString()} €`);
+  setText('scen-med-salary-5yr', `${Math.round(medNomYear5).toLocaleString()} €`);
+  setText('scen-med-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (+${medRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
 
   // Update Scenario 3 UI
   setText('scen-union-salary', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('scen-union-salary-5yr', `${Math.round(unionNomYear5).toLocaleString()} €`);
+  setText('scen-union-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('scen-union-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
   setText('scen-union-monthly', `+${Math.round(unionMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-union-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
 
@@ -423,6 +500,17 @@ function updateWageSimulation() {
   setText('tb-tot-union', `${Math.round(totalUnionYear1).toLocaleString()} €`);
   setText('tb-tot-diff', `+${Math.round(totalUnionYear1 - totalCurYear1).toLocaleString()} €`);
 
+  // 5-Year Inflation Projection Table Rows
+  setText('tb-5yr-cur-nom', `${Math.round(curNomYear5).toLocaleString()} €`);
+  setText('tb-5yr-co-nom', `${Math.round(coNomYear5).toLocaleString()} €`);
+  setText('tb-5yr-union-nom', `${Math.round(unionNomYear5).toLocaleString()} €`);
+  setText('tb-5yr-diff-nom', `+${Math.round(unionNomYear5 - coNomYear5).toLocaleString()} €/año`);
+
+  setText('tb-5yr-cur-real', `${Math.round(curRealYear5).toLocaleString()} € (${curRealLossPct.toFixed(1).replace('.', ',')}%)`);
+  setText('tb-5yr-co-real', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
+  setText('tb-5yr-union-real', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('tb-5yr-diff-real', `+${Math.round(unionRealYear5 - coRealYear5).toLocaleString()} € real`);
+
   // Update Strike ROI
   setText('roi-strike-days-label', `${strikeDays} días`);
   setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
@@ -431,7 +519,7 @@ function updateWageSimulation() {
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
 
   // Update 5-Year Cumulative Projection Chart
-  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears, activeUnionEaDeductionGross);
+  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears, activeUnionEaDeductionGross, ipcRate, coEaLossQ1);
 }
 
 function setText(id, text) {
@@ -451,7 +539,7 @@ function initWagesChart() {
       labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
       datasets: [
         {
-          label: 'Plataforma Comité (+12% + IPC Real + Atrasos)',
+          label: 'Plataforma Comité (Nominal con IPC + 1,5% RSG + Atrasos)',
           data: [50000, 113500, 171420, 231450, 293670, 358150],
           borderColor: '#10b981',
           backgroundColor: 'rgba(16, 185, 129, 0.08)',
@@ -463,7 +551,7 @@ function initWagesChart() {
           pointBackgroundColor: '#10b981'
         },
         {
-          label: 'Oferta Empresa (+5% Fraccionado + Paga Única 2k€)',
+          label: 'Oferta Empresa (Nominal Fraccionada + Paga Única 2k€)',
           data: [50000, 104500, 157090, 210730, 265440, 321250],
           borderColor: '#f43f5e',
           borderDash: [5, 4],
@@ -474,8 +562,19 @@ function initWagesChart() {
           fill: false
         },
         {
-          label: 'Sin Huelga (Estancamiento Salarial Base)',
-          data: [50000, 100000, 150000, 200000, 250000, 300000],
+          label: 'Oferta Empresa (Poder Adquisitivo Real Deflactado por IPC)',
+          data: [50000, 102000, 151500, 201200, 250500, 298000],
+          borderColor: '#f59e0b',
+          borderDash: [3, 3],
+          borderWidth: 2,
+          tension: 0.2,
+          pointRadius: 3,
+          pointBackgroundColor: '#f59e0b',
+          fill: false
+        },
+        {
+          label: 'Sin Huelga / Congelación (Poder Real Deflactado)',
+          data: [50000, 97500, 142800, 187000, 230100, 272000],
           borderColor: '#64748b',
           borderDash: [2, 2],
           borderWidth: 1.5,
@@ -514,7 +613,7 @@ function initWagesChart() {
       },
       plugins: {
         legend: {
-          labels: { color: '#cbd5e1', font: { size: 11, weight: 'bold' } }
+          labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } }
         },
         tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
@@ -534,40 +633,458 @@ function initWagesChart() {
   });
 }
 
-function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500, unionEaDeduction = 0) {
+function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500, unionEaDeduction = 0, ipcRate = 0.025, coEaLossQ1 = 625) {
   if (!wagesChart) return;
 
-  // Projected cumulative 5-year earnings:
-  // Year 0 (2025): Base current
-  // Year 1 (2026): Year 0 + (Salary + Arrears) - (April Effect deduction if applied)
-  // Year 2-5: Cumulative addition each year with compounding RSG
   const y0 = cur;
+  const cumDeflator1 = 1 + ipcRate;
+  const cumDeflator2 = Math.pow(1 + ipcRate, 2);
+  const cumDeflator3 = Math.pow(1 + ipcRate, 3);
+  const cumDeflator4 = Math.pow(1 + ipcRate, 4);
+  const cumDeflator5 = Math.pow(1 + ipcRate, 5);
 
-  const base_y1 = y0 + cur;
-  const base_y2 = base_y1 + cur;
-  const base_y3 = base_y2 + cur;
-  const base_y4 = base_y3 + cur;
-  const base_y5 = base_y4 + cur;
+  // Baseline (without agreement, real deflated earnings)
+  const base_nom_y1 = cur;
+  const base_nom_y2 = cur;
+  const base_nom_y3 = cur;
+  const base_nom_y4 = cur;
+  const base_nom_y5 = cur;
 
-  const co_y1 = y0 + (co + coArrears);
-  const co_y2 = co_y1 + (co * 1.015);
-  const co_y3 = co_y2 + (co * 1.030);
-  const co_y4 = co_y3 + (co * 1.045);
-  const co_y5 = co_y4 + (co * 1.060);
+  const base_cum_real_y1 = y0 + (base_nom_y1 / cumDeflator1);
+  const base_cum_real_y2 = base_cum_real_y1 + (base_nom_y2 / cumDeflator2);
+  const base_cum_real_y3 = base_cum_real_y2 + (base_nom_y3 / cumDeflator3);
+  const base_cum_real_y4 = base_cum_real_y3 + (base_nom_y4 / cumDeflator4);
+  const base_cum_real_y5 = base_cum_real_y4 + (base_nom_y5 / cumDeflator5);
 
-  const un_y1 = y0 + (union + unionArrears) - unionEaDeduction;
-  const un_y2 = un_y1 + (union * 1.035);
-  const un_y3 = un_y2 + (union * 1.070);
-  const un_y4 = un_y3 + (union * 1.107);
-  const un_y5 = un_y4 + (union * 1.146);
+  // Company Offer (Nominal & Real Deflated)
+  const co_nom_y1 = (co - coEaLossQ1) + coArrears;
+  const co_nom_y2 = (co) * (1 + Math.min(ipcRate * 0.25, 0.01));
+  const co_nom_y3 = co_nom_y2 * (1 + Math.min(ipcRate * 0.25, 0.01));
+  const co_nom_y4 = co_nom_y3 * (1 + Math.min(ipcRate * 0.25, 0.01));
+  const co_nom_y5 = co_nom_y4 * (1 + Math.min(ipcRate * 0.25, 0.01));
 
-  wagesChart.data.datasets[0].data = [y0, Math.round(un_y1), Math.round(un_y2), Math.round(un_y3), Math.round(un_y4), Math.round(un_y5)];
-  wagesChart.data.datasets[1].data = [y0, Math.round(co_y1), Math.round(co_y2), Math.round(co_y3), Math.round(co_y4), Math.round(co_y5)];
-  wagesChart.data.datasets[2].data = [y0, Math.round(base_y1), Math.round(base_y2), Math.round(base_y3), Math.round(base_y4), Math.round(base_y5)];
+  const co_cum_nom_y1 = y0 + co_nom_y1;
+  const co_cum_nom_y2 = co_cum_nom_y1 + co_nom_y2;
+  const co_cum_nom_y3 = co_cum_nom_y2 + co_nom_y3;
+  const co_cum_nom_y4 = co_cum_nom_y3 + co_nom_y4;
+  const co_cum_nom_y5 = co_cum_nom_y4 + co_nom_y5;
+
+  const co_cum_real_y1 = y0 + (co_nom_y1 / cumDeflator1);
+  const co_cum_real_y2 = co_cum_real_y1 + (co_nom_y2 / cumDeflator2);
+  const co_cum_real_y3 = co_cum_real_y2 + (co_nom_y3 / cumDeflator3);
+  const co_cum_real_y4 = co_cum_real_y3 + (co_nom_y4 / cumDeflator4);
+  const co_cum_real_y5 = co_cum_real_y4 + (co_nom_y5 / cumDeflator5);
+
+  // Union Platform (Nominal with compounding IPC + 1.5% RSG)
+  const un_nom_y1 = (union - unionEaDeduction) + unionArrears;
+  const un_nom_y2 = (union) * (1 + ipcRate + 0.015);
+  const un_nom_y3 = un_nom_y2 * (1 + ipcRate + 0.015);
+  const un_nom_y4 = un_nom_y3 * (1 + ipcRate + 0.015);
+  const un_nom_y5 = un_nom_y4 * (1 + ipcRate + 0.015);
+
+  const un_cum_nom_y1 = y0 + un_nom_y1;
+  const un_cum_nom_y2 = un_cum_nom_y1 + un_nom_y2;
+  const un_cum_nom_y3 = un_cum_nom_y2 + un_nom_y3;
+  const un_cum_nom_y4 = un_cum_nom_y3 + un_nom_y4;
+  const un_cum_nom_y5 = un_cum_nom_y4 + un_nom_y5;
+
+  wagesChart.data.datasets[0].data = [y0, Math.round(un_cum_nom_y1), Math.round(un_cum_nom_y2), Math.round(un_cum_nom_y3), Math.round(un_cum_nom_y4), Math.round(un_cum_nom_y5)];
+  wagesChart.data.datasets[1].data = [y0, Math.round(co_cum_nom_y1), Math.round(co_cum_nom_y2), Math.round(co_cum_nom_y3), Math.round(co_cum_nom_y4), Math.round(co_cum_nom_y5)];
+  wagesChart.data.datasets[2].data = [y0, Math.round(co_cum_real_y1), Math.round(co_cum_real_y2), Math.round(co_cum_real_y3), Math.round(co_cum_real_y4), Math.round(co_cum_real_y5)];
+  wagesChart.data.datasets[3].data = [y0, Math.round(base_cum_real_y1), Math.round(base_cum_real_y2), Math.round(base_cum_real_y3), Math.round(base_cum_real_y4), Math.round(base_cum_real_y5)];
   wagesChart.update();
 }
 
-// ==================== CHECKLIST ====================
+// ==================== STOCK MARKET & SHARE PRICE CHART ====================
+function initAirbusStockChart() {
+  const ctx = document.getElementById('airbusStockChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (airbusStockChart) airbusStockChart.destroy();
+
+  const stockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
+  if (stockData.length === 0) return;
+
+  const labels = stockData.map(d => {
+    const parts = d.date.split('-');
+    return `${parts[2]}/${parts[1]}`;
+  });
+  const prices = stockData.map(d => d.price);
+  const events = stockData.map(d => d.event);
+
+  airbusStockChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Cotización Airbus SE (AIR.PA - €)',
+          data: prices,
+          borderColor: '#f43f5e',
+          backgroundColor: 'rgba(244, 63, 94, 0.12)',
+          fill: true,
+          borderWidth: 3,
+          tension: 0.25,
+          pointRadius: stockData.map((d, i) => (i === 6 || i === 8 || i === 13 || i === 16 || i === stockData.length - 1) ? 6 : 3),
+          pointBackgroundColor: stockData.map((d, i) => (i === 6 || i === 8 || i === 13 || i === 16 || i === stockData.length - 1) ? '#fb7185' : '#f43f5e'),
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 1.5,
+          pointHoverRadius: 8
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        y: {
+          min: 120,
+          max: 155,
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: {
+            color: '#94a3b8',
+            callback: v => `${v.toFixed(0)} €`
+          },
+          title: {
+            display: true,
+            text: 'Precio de Cierre (€ / acción)',
+            color: '#94a3b8',
+            font: { size: 10, weight: 'bold' }
+          }
+        },
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#cbd5e1', font: { size: 11, weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#fb7185',
+          bodyColor: '#f8fafc',
+          borderColor: '#475569',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            title: function(context) {
+              const idx = context[0].dataIndex;
+              return `${stockData[idx].date} — AIR.PA: ${stockData[idx].price.toFixed(2)} €`;
+            },
+            label: function(context) {
+              const idx = context.dataIndex;
+              return ` Hito: ${events[idx]}`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+// ==================== COMPANY FINANCIAL HEALTH CHARTS ====================
+function initCompanyHealthCharts() {
+  initCompanyRevenueChart();
+  initCompanyDeliveriesChart();
+  initShareholderPieChart();
+}
+
+function initCompanyRevenueChart() {
+  const ctx = document.getElementById('companyRevenueChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (companyRevenueChart) companyRevenueChart.destroy();
+
+  const history = conflictData?.company_financial_health?.financial_history_2020_2026 || [];
+  if (history.length === 0) return;
+
+  const labels = history.map(h => h.year);
+  const revenues = history.map(h => h.revenue_eur_m);
+  const netIncomes = history.map(h => h.net_income_eur_m);
+
+  companyRevenueChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Ingresos Totales (M€)',
+          data: revenues,
+          backgroundColor: 'rgba(16, 185, 129, 0.75)',
+          borderColor: '#10b981',
+          borderWidth: 1,
+          borderRadius: 6,
+          yAxisID: 'y'
+        },
+        {
+          type: 'line',
+          label: 'Beneficio Neto (M€)',
+          data: netIncomes,
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.15)',
+          borderWidth: 3,
+          pointRadius: 4,
+          pointBackgroundColor: '#38bdf8',
+          tension: 0.25,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#94a3b8', callback: v => `${(v/1000).toFixed(0)}k M€` },
+          title: { display: true, text: 'Ingresos (M€)', color: '#10b981', font: { size: 10, weight: 'bold' } }
+        },
+        y1: {
+          type: 'linear',
+          display: true,
+          position: 'right',
+          grid: { drawOnChartArea: false },
+          ticks: { color: '#38bdf8', callback: v => `${v} M€` },
+          title: { display: true, text: 'Beneficio Neto (M€)', color: '#38bdf8', font: { size: 10, weight: 'bold' } }
+        },
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } } }
+      }
+    }
+  });
+}
+
+function initCompanyDeliveriesChart() {
+  const ctx = document.getElementById('companyDeliveriesChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (companyDeliveriesChart) companyDeliveriesChart.destroy();
+
+  const history = conflictData?.company_financial_health?.financial_history_2020_2026 || [];
+  if (history.length === 0) return;
+
+  const labels = history.map(h => h.year);
+  const deliveries = history.map(h => h.deliveries);
+
+  companyDeliveriesChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Entregas Comerciales (Aviones/Año)',
+          data: deliveries,
+          borderColor: '#818cf8',
+          backgroundColor: 'rgba(129, 140, 248, 0.15)',
+          fill: true,
+          borderWidth: 3,
+          tension: 0.25,
+          pointRadius: 5,
+          pointBackgroundColor: '#818cf8',
+          pointBorderColor: '#ffffff',
+          pointBorderWidth: 1.5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        y: {
+          min: 450,
+          max: 950,
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#94a3b8', callback: v => `${v} uds` },
+          title: { display: true, text: 'Aviones Entregados', color: '#818cf8', font: { size: 10, weight: 'bold' } }
+        },
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } } }
+      }
+    }
+  });
+}
+
+function initShareholderPieChart() {
+  const ctx = document.getElementById('shareholderPieChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (shareholderPieChart) shareholderPieChart.destroy();
+
+  const shareholders = conflictData?.company_financial_health?.shareholder_structure || [];
+  if (shareholders.length === 0) return;
+
+  const labels = shareholders.map(s => s.entity);
+  const pcts = shareholders.map(s => s.pct);
+  const colors = shareholders.map(s => s.color || '#38bdf8');
+
+  shareholderPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          data: pcts,
+          backgroundColor: colors,
+          borderColor: '#0f172a',
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#38bdf8',
+          bodyColor: '#f8fafc',
+          callbacks: {
+            label: function(context) {
+              return ` ${context.label}: ${context.raw}% del capital`;
+            }
+          }
+        }
+      },
+      cutout: '65%'
+    }
+  });
+}
+// ==================== TRADE UNION & SOCIAL LANDSCAPE CHARTS ====================
+function initUnionCharts() {
+  initUnionShareChart();
+  initUnionEvolutionChart();
+}
+
+function initUnionShareChart() {
+  const ctx = document.getElementById('unionShareChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (unionShareChart) unionShareChart.destroy();
+
+  const unionData = conflictData?.trade_union_representation?.current_shares || [
+    { union_code: "CCOO", name: "CCOO", pct: 36.8, color: "#dc2626" },
+    { union_code: "UGT", name: "UGT", pct: 24.2, color: "#ea580c" },
+    { union_code: "SIPA", name: "SIPA", pct: 18.5, color: "#0284c7" },
+    { union_code: "CGT", name: "CGT", pct: 9.4, color: "#16a34a" },
+    { union_code: "ATP", name: "ATP-SAE", pct: 7.1, color: "#9333ea" },
+    { union_code: "UTIL", name: "ÚTIL", pct: 4.0, color: "#f59e0b" }
+  ];
+
+  const labels = unionData.map(u => u.name || u.union_code);
+  const pcts = unionData.map(u => u.pct);
+  const colors = unionData.map(u => u.color || '#38bdf8');
+
+  unionShareChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          data: pcts,
+          backgroundColor: colors,
+          borderColor: '#0f172a',
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#f8fafc',
+          bodyColor: '#cbd5e1',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              const idx = context.dataIndex;
+              const u = unionData[idx];
+              return ` ${u.name}: ${u.pct}% (${u.delegates || Math.round(u.pct * 1.84)} delegados)`;
+            }
+          }
+        }
+      },
+      cutout: '60%'
+    }
+  });
+}
+
+function initUnionEvolutionChart() {
+  const ctx = document.getElementById('unionEvolutionChart')?.getContext('2d');
+  if (!ctx) return;
+
+  if (unionEvolutionChart) unionEvolutionChart.destroy();
+
+  const history = conflictData?.trade_union_representation?.historical_evolution || [
+    { period: "2010 - 2015", ccoo_pct: 46.5, ugt_pct: 34.0, sipa_pct: 0.0, cgt_pct: 11.5, atp_pct: 5.0, util_pct: 3.0 },
+    { period: "2015 - 2019", ccoo_pct: 42.0, ugt_pct: 30.5, sipa_pct: 9.5, cgt_pct: 9.0, atp_pct: 6.0, util_pct: 3.0 },
+    { period: "2019 - 2023", ccoo_pct: 38.2, ugt_pct: 26.0, sipa_pct: 16.0, cgt_pct: 8.8, atp_pct: 7.0, util_pct: 4.0 },
+    { period: "2023 - 2026", ccoo_pct: 36.8, ugt_pct: 24.2, sipa_pct: 18.5, cgt_pct: 9.4, atp_pct: 7.1, util_pct: 4.0 }
+  ];
+
+  const periods = history.map(h => h.period);
+
+  unionEvolutionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: periods,
+      datasets: [
+        { label: 'CCOO', data: history.map(h => h.ccoo_pct), backgroundColor: '#dc2626', borderRadius: 4 },
+        { label: 'UGT', data: history.map(h => h.ugt_pct), backgroundColor: '#ea580c', borderRadius: 4 },
+        { label: 'SIPA', data: history.map(h => h.sipa_pct), backgroundColor: '#0284c7', borderRadius: 4 },
+        { label: 'CGT', data: history.map(h => h.cgt_pct), backgroundColor: '#16a34a', borderRadius: 4 },
+        { label: 'ATP-SAE', data: history.map(h => h.atp_pct), backgroundColor: '#9333ea', borderRadius: 4 },
+        { label: 'ÚTIL', data: history.map(h => h.util_pct), backgroundColor: '#f59e0b', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { stacked: true, grid: { color: 'rgba(51, 65, 85, 0.4)' }, ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } } },
+        y: {
+          stacked: true,
+          max: 100,
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#94a3b8', callback: v => `${v}%` },
+          title: { display: true, text: '% Representatividad Total', color: '#94a3b8', font: { size: 10, weight: 'bold' } }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } } }
+      }
+    }
+  });
+}
+
+
 const checklistItems = [
   { id: "chk_1", title: "1. Consolidación del 12% íntegro en Tablas", desc: "¿El 12% se incorpora al salario base consolidable a 1 de enero de 2026 sin fragmentar en pagas no consolidables?" },
   { id: "chk_2", title: "2. Cláusula de Garantía Salarial Real (RSG)", desc: "¿Se garantiza anualmente RSG = IPC + 1,5% con suelo del 0% y sin topes máximos (cap) ni cláusulas de absorción?" },
