@@ -135,6 +135,20 @@ function switchTab(tabId) {
   if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
     sidebar.classList.add('-translate-x-full');
   }
+  if (normalizedTabId === 'tab-wages') {
+    setTimeout(() => {
+      initWagesChart();
+      updateWageSimulation();
+    }, 60);
+  } else if (normalizedTabId === 'tab-thermometer') {
+    setTimeout(() => {
+      if (belugaHistoryChart) belugaHistoryChart.resize();
+    }, 60);
+  } else if (normalizedTabId === 'tab-kpis') {
+    setTimeout(() => {
+      if (asymmetryChart) asymmetryChart.resize();
+    }, 60);
+  }
 
   if (window.lucide) lucide.createIcons();
 }
@@ -240,36 +254,153 @@ function initAsymmetryChart() {
   });
 }
 
-// ==================== WAGE SIMULATOR ====================
+// ==================== WAGE & TOTAL BENEFITS SIMULATOR ====================
+function setSalaryPreset(val) {
+  const salaryInput = document.getElementById('sim-salary');
+  if (salaryInput) {
+    salaryInput.value = val;
+    updateWageSimulation();
+  }
+}
+
 function updateWageSimulation() {
   const salaryInput = document.getElementById('sim-salary');
   if (!salaryInput) return;
   const curSalary = parseFloat(salaryInput.value) || 50000;
 
-  const newBaseSalary = curSalary * 1.12;
-  const monthlyIncrease = (newBaseSalary - curSalary) / 14.0;
-  const arrearsPayment = 7500;
+  const badgeEl = document.getElementById('sim-salary-badge');
+  if (badgeEl) badgeEl.textContent = `${curSalary.toLocaleString()} €`;
 
+  const trienios = parseInt(document.getElementById('sim-trienios')?.value || '2', 10);
+  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
+  const teleworkDays = parseInt(document.getElementById('sim-telework')?.value || '2', 10);
+  const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
+  const pensionRate = parseFloat(document.getElementById('sim-pension-rate')?.value || '4.5') / 100.0;
+
+  // Seniority: approx 3.2% of base per trienio in Airbus
+  const seniorityPct = trienios * 0.032;
+  const curSeniority = curSalary * seniorityPct;
+
+  // Shift plus rates
+  let shiftPct = 0.0;
+  if (shift === 'turnos_2') shiftPct = 0.08;
+  else if (shift === 'turnos_3') shiftPct = 0.18;
+  else if (shift === 'quinto_turno') shiftPct = 0.25;
+  const curShiftPlus = curSalary * shiftPct;
+
+  const curPension = curSalary * pensionRate;
+  const curTotalPackage = curSalary + curSeniority + curShiftPlus + curPension;
+
+  // Estimated effective tax rate (IRPF + SS)
+  let taxRate = 0.26;
+  if (curSalary > 65000) taxRate = 0.33;
+  else if (curSalary > 45000) taxRate = 0.28;
+  else if (curSalary < 32000) taxRate = 0.21;
+
+  // --- SCENARIO 1: OFERTA EMPRESA (+5% fraccionado, 2.000 € paga única, 0% teletrabajo, no Bradford) ---
   const coBaseSalary = curSalary * 1.05;
   const coMonthlyIncrease = (coBaseSalary - curSalary) / 14.0;
   const coArrears = 2000;
+  const coSeniority = coBaseSalary * seniorityPct;
+  const coShiftPlus = coBaseSalary * shiftPct;
+  const coPension = coBaseSalary * pensionRate;
+  const coTelework = 0;
+  const coBradford = 0;
+  const coNetTotalGain = (coBaseSalary - curSalary) * (1 - taxRate) + (coArrears * (1 - taxRate)) + (coPension - curPension) + (coSeniority - curSeniority) + (coShiftPlus - curShiftPlus);
 
-  const resUnionSalary = document.getElementById('sim-res-union-salary');
-  const resUnionMonthly = document.getElementById('sim-res-union-monthly');
-  const resUnionArrears = document.getElementById('sim-res-union-arrears');
-  const resCoSalary = document.getElementById('sim-res-co-salary');
-  const resCoMonthly = document.getElementById('sim-res-co-monthly');
-  const resCoArrears = document.getElementById('sim-res-co-arrears');
+  // --- SCENARIO 2: PREACUERDO SIMA (+9.5% consolidado, 5.000 € atrasos, teletrabajo 30€/m) ---
+  const medBaseSalary = curSalary * 1.095;
+  const medMonthlyIncrease = (medBaseSalary - curSalary) / 14.0;
+  const medArrears = 5000;
+  const medSeniority = medBaseSalary * seniorityPct;
+  const medShiftPlus = medBaseSalary * shiftPct;
+  const medPension = medBaseSalary * (pensionRate + 0.005);
+  const medTelework = teleworkDays > 0 ? (teleworkDays * 18 * 12) : 0;
+  const medBradford = 400;
+  const medNetTotalGain = (medBaseSalary - curSalary) * (1 - taxRate) + (medArrears * (1 - taxRate)) + (medPension - curPension) + (medSeniority - curSeniority) + (medShiftPlus - curShiftPlus) + medTelework + medBradford;
 
-  if (resUnionSalary) resUnionSalary.textContent = `${Math.round(newBaseSalary).toLocaleString()} €/año`;
-  if (resUnionMonthly) resUnionMonthly.textContent = `+${Math.round(monthlyIncrease).toLocaleString()} €/mes (14 pagas)`;
-  if (resUnionArrears) resUnionArrears.textContent = `+${arrearsPayment.toLocaleString()} €`;
+  // --- SCENARIO 3: PLATAFORMA DEL COMITÉ (+12% íntegro, 7.500 € atrasos, 5.5% pensiones, Bradford refund, 60€/m teletrabajo) ---
+  const unionBaseSalary = curSalary * 1.12;
+  const unionMonthlyIncrease = (unionBaseSalary - curSalary) / 14.0;
+  const unionArrears = 7500;
+  const unionSeniority = unionBaseSalary * seniorityPct;
+  const unionShiftPlus = unionBaseSalary * shiftPct;
+  const unionPensionRate = Math.max(pensionRate, 0.055);
+  const unionPension = unionBaseSalary * unionPensionRate;
+  const unionTelework = teleworkDays > 0 ? (teleworkDays >= 2 ? 720 : 360) : 0;
+  const unionBradford = curSalary > 45000 ? 850 : 600;
+  const unionNetTotalGain = (unionBaseSalary - curSalary) * (1 - taxRate) + (unionArrears * (1 - taxRate)) + (unionPension - curPension) + (unionSeniority - curSeniority) + (unionShiftPlus - curShiftPlus) + unionTelework + unionBradford;
 
-  if (resCoSalary) resCoSalary.textContent = `${Math.round(coBaseSalary).toLocaleString()} €/año`;
-  if (resCoMonthly) resCoMonthly.textContent = `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes (14 pagas)`;
-  if (resCoArrears) resCoArrears.textContent = `+${coArrears.toLocaleString()} € (abril 2027)`;
+  // --- ROI OF STRIKE ---
+  // Daily net salary: (Gross / 14 / 22 working days) * (1 - taxRate)
+  const dailyNet = (curSalary / 14.0 / 22.0) * (1 - taxRate);
+  const totalStrikeCost = dailyNet * strikeDays;
+  const netMonthlyGainInPocket = (unionMonthlyIncrease) * (1 - taxRate);
+  const amortizationMonths = netMonthlyGainInPocket > 0 ? (totalStrikeCost / netMonthlyGainInPocket) : 0.0;
+  const gain5Years = ((unionBaseSalary - curSalary) * 5 * (1 - taxRate)) + (unionArrears * (1 - taxRate)) + ((unionPension - curPension) * 5) + ((unionSeniority - curSeniority) * 5) + (unionTelework * 5) + unionBradford - totalStrikeCost;
 
-  updateWagesChart(curSalary, newBaseSalary, coBaseSalary);
+  // Update Scenario 1 UI
+  setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
+  setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
+
+  // Update Scenario 2 UI
+  setText('scen-med-salary', `${Math.round(medBaseSalary).toLocaleString()} €`);
+  setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
+
+  // Update Scenario 3 UI
+  setText('scen-union-salary', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('scen-union-monthly', `+${Math.round(unionMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-union-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
+
+  // Update Breakdown Table
+  setText('tb-base-cur', `${Math.round(curSalary).toLocaleString()} €`);
+  setText('tb-base-co', `${Math.round(coBaseSalary).toLocaleString()} €`);
+  setText('tb-base-union', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('tb-base-diff', `+${Math.round(unionBaseSalary - curSalary).toLocaleString()} €/año`);
+
+  setText('tb-month-cur', `${Math.round(curSalary / 14.0).toLocaleString()} €`);
+  setText('tb-month-co', `${Math.round(coBaseSalary / 14.0).toLocaleString()} €`);
+  setText('tb-month-union', `${Math.round(unionBaseSalary / 14.0).toLocaleString()} €`);
+  setText('tb-month-diff', `+${Math.round(unionMonthlyIncrease).toLocaleString()} €/mes`);
+
+  setText('tb-pen-cur', `${Math.round(curPension).toLocaleString()} €`);
+  setText('tb-pen-co', `${Math.round(coPension).toLocaleString()} €`);
+  setText('tb-pen-union', `${Math.round(unionPension).toLocaleString()} €`);
+  setText('tb-pen-diff', `+${Math.round(unionPension - curPension).toLocaleString()} €/año`);
+
+  setText('tb-plus-cur', `${Math.round(curSeniority + curShiftPlus).toLocaleString()} €`);
+  setText('tb-plus-co', `${Math.round(coSeniority + coShiftPlus).toLocaleString()} €`);
+  setText('tb-plus-union', `${Math.round(unionSeniority + unionShiftPlus).toLocaleString()} €`);
+  setText('tb-plus-diff', `+${Math.round((unionSeniority + unionShiftPlus) - (curSeniority + curShiftPlus)).toLocaleString()} €/año`);
+
+  setText('tb-tele-union', `${unionTelework.toLocaleString()} €`);
+  setText('tb-tele-diff', `+${unionTelework.toLocaleString()} €/año`);
+
+  const totalCurYear1 = curSalary + curSeniority + curShiftPlus + curPension;
+  const totalCoYear1 = coBaseSalary + coSeniority + coShiftPlus + coPension + coArrears;
+  const totalUnionYear1 = unionBaseSalary + unionSeniority + unionShiftPlus + unionPension + unionArrears + unionTelework + unionBradford;
+
+  setText('tb-tot-cur', `${Math.round(totalCurYear1).toLocaleString()} €`);
+  setText('tb-tot-co', `${Math.round(totalCoYear1).toLocaleString()} €`);
+  setText('tb-tot-union', `${Math.round(totalUnionYear1).toLocaleString()} €`);
+  setText('tb-tot-diff', `+${Math.round(totalUnionYear1 - totalCurYear1).toLocaleString()} €`);
+
+  // Update Strike ROI
+  setText('roi-strike-days-label', `${strikeDays} días`);
+  setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
+  setText('roi-monthly-gain', `+${Math.round(netMonthlyGainInPocket).toLocaleString()} € netos/mes`);
+  setText('roi-amortization-time', strikeDays === 0 ? '0 días' : `${amortizationMonths.toFixed(1)} meses (${Math.round(amortizationMonths * 4.3)} semanas)`);
+  setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
+
+  // Update 5-Year Cumulative Projection Chart
+  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears);
+}
+
+function setText(id, text) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = text;
 }
 
 function initWagesChart() {
@@ -279,36 +410,124 @@ function initWagesChart() {
   if (wagesChart) wagesChart.destroy();
 
   wagesChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels: ['Salario Actual (2025)', 'Oferta Empresa (+5%)', 'Plataforma Comité (+12%)'],
+      labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
       datasets: [
         {
-          label: 'Salario Base Anual Consolidado (€)',
-          data: [50000, 52500, 56000],
-          backgroundColor: ['#475569', '#f43f5e', '#10b981'],
-          borderRadius: 8
+          label: 'Plataforma Comité (+12% + IPC Real + Atrasos)',
+          data: [50000, 113500, 171420, 231450, 293670, 358150],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.08)',
+          fill: true,
+          borderWidth: 3,
+          tension: 0.2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#10b981'
+        },
+        {
+          label: 'Oferta Empresa (+5% Fraccionado + Paga Única 2k€)',
+          data: [50000, 104500, 157090, 210730, 265440, 321250],
+          borderColor: '#f43f5e',
+          borderDash: [5, 4],
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 3,
+          pointBackgroundColor: '#f43f5e',
+          fill: false
+        },
+        {
+          label: 'Sin Huelga (Estancamiento Salarial Base)',
+          data: [50000, 100000, 150000, 200000, 250000, 300000],
+          borderColor: '#64748b',
+          borderDash: [2, 2],
+          borderWidth: 1.5,
+          tension: 0.1,
+          pointRadius: 2,
+          pointBackgroundColor: '#64748b',
+          fill: false
         }
       ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
       scales: {
         y: {
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
-          ticks: { color: '#94a3b8', callback: v => `${(v/1000).toFixed(0)}k €` }
+          ticks: {
+            color: '#94a3b8',
+            callback: v => `${(v/1000).toFixed(0)}k €`
+          },
+          title: {
+            display: true,
+            text: 'Ingresos Acumulados Brutos (€)',
+            color: '#94a3b8',
+            font: { size: 10, weight: 'bold' }
+          }
         },
-        x: { ticks: { color: '#e2e8f0', font: { weight: 'bold' } } }
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 11 } }
+        }
       },
-      plugins: { legend: { display: false } }
+      plugins: {
+        legend: {
+          labels: { color: '#cbd5e1', font: { size: 11, weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#38bdf8',
+          bodyColor: '#f8fafc',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              return ` ${context.dataset.label}: ${Math.round(context.raw).toLocaleString()} € acumulados`;
+            }
+          }
+        }
+      }
     }
   });
 }
 
-function updateWagesChart(cur, union, co) {
+function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500) {
   if (!wagesChart) return;
-  wagesChart.data.datasets[0].data = [cur, co, union];
+
+  // Projected cumulative 5-year earnings:
+  // Year 0 (2025): Base current
+  // Year 1 (2026): Year 0 + (Salary + Arrears)
+  // Year 2-5: Cumulative addition each year with compounding RSG
+  const y0 = cur;
+
+  const base_y1 = y0 + cur;
+  const base_y2 = base_y1 + cur;
+  const base_y3 = base_y2 + cur;
+  const base_y4 = base_y3 + cur;
+  const base_y5 = base_y4 + cur;
+
+  const co_y1 = y0 + (co + coArrears);
+  const co_y2 = co_y1 + (co * 1.015);
+  const co_y3 = co_y2 + (co * 1.030);
+  const co_y4 = co_y3 + (co * 1.045);
+  const co_y5 = co_y4 + (co * 1.060);
+
+  const un_y1 = y0 + (union + unionArrears);
+  const un_y2 = un_y1 + (union * 1.035);
+  const un_y3 = un_y2 + (union * 1.070);
+  const un_y4 = un_y3 + (union * 1.107);
+  const un_y5 = un_y4 + (union * 1.146);
+
+  wagesChart.data.datasets[0].data = [y0, Math.round(un_y1), Math.round(un_y2), Math.round(un_y3), Math.round(un_y4), Math.round(un_y5)];
+  wagesChart.data.datasets[1].data = [y0, Math.round(co_y1), Math.round(co_y2), Math.round(co_y3), Math.round(co_y4), Math.round(co_y5)];
+  wagesChart.data.datasets[2].data = [y0, Math.round(base_y1), Math.round(base_y2), Math.round(base_y3), Math.round(base_y4), Math.round(base_y5)];
   wagesChart.update();
 }
 
