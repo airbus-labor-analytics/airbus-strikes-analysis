@@ -276,6 +276,7 @@ function updateWageSimulation() {
   const teleworkDays = parseInt(document.getElementById('sim-telework')?.value || '2', 10);
   const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
   const pensionRate = parseFloat(document.getElementById('sim-pension-rate')?.value || '4.5') / 100.0;
+  const appliesEfectoAbril = document.getElementById('sim-efecto-abril')?.checked || false;
 
   // Seniority: approx 3.2% of base per trienio in Airbus
   const seniorityPct = trienios * 0.032;
@@ -297,7 +298,25 @@ function updateWageSimulation() {
   else if (curSalary > 45000) taxRate = 0.28;
   else if (curSalary < 32000) taxRate = 0.21;
 
-  // --- SCENARIO 1: OFERTA EMPRESA (+5% fraccionado, 2.000 € paga única, 0% teletrabajo, no Bradford) ---
+  // --- EFECTO ABRIL ACTUARIAL CALCULATIONS ---
+  // Base annual raise under Union Platform (12%)
+  const unionAnnualGrossRaise = curSalary * 0.12;
+  const eaLossQ1Gross = unionAnnualGrossRaise * 0.25; // 3 months (Jan-Mar)
+  const eaLossJuneExtraGross = (unionAnnualGrossRaise / 14.0) * 0.5; // June extra pay reduced devengo (3/6 months)
+  const eaUnionPensionRate = Math.max(pensionRate, 0.055);
+  const eaLossPensionGross = ((curSalary * 1.12 * eaUnionPensionRate) - curPension) * 0.25;
+  const eaTotalIndividualGross = eaLossQ1Gross + eaLossJuneExtraGross + eaLossPensionGross;
+  const eaTotalIndividualNet = eaTotalIndividualGross * (1 - taxRate);
+  const totalWorkers = conflictData?.parameters?.total_workers_spain || 15562;
+  const eaTotalAirbusSavedM = (eaTotalIndividualGross * totalWorkers) / 1e6;
+
+  // Update Efecto Abril Audit Panel Metrics
+  setText('ea-loss-q1', `-${Math.round(eaLossQ1Gross).toLocaleString()} €`);
+  setText('ea-loss-extra', `-${Math.round(eaLossJuneExtraGross).toLocaleString()} €`);
+  setText('ea-loss-pension', `-${Math.round(eaLossPensionGross).toLocaleString()} €`);
+  setText('ea-loss-total-airbus', `-${eaTotalAirbusSavedM.toFixed(1)} M€`);
+
+  // --- SCENARIO 1: OFERTA EMPRESA (+5% fraccionado, 2.000 € paga única, 0% teletrabajo, no Bradford, con Efecto Abril aplicado) ---
   const coBaseSalary = curSalary * 1.05;
   const coMonthlyIncrease = (coBaseSalary - curSalary) / 14.0;
   const coArrears = 2000;
@@ -306,7 +325,9 @@ function updateWageSimulation() {
   const coPension = coBaseSalary * pensionRate;
   const coTelework = 0;
   const coBradford = 0;
-  const coNetTotalGain = (coBaseSalary - curSalary) * (1 - taxRate) + (coArrears * (1 - taxRate)) + (coPension - curPension) + (coSeniority - curSeniority) + (coShiftPlus - curShiftPlus);
+  // Company offer inherently applies April effect (losing Q1 of the 5%)
+  const coEaLossQ1 = (coBaseSalary - curSalary) * 0.25;
+  const coNetTotalGain = ((coBaseSalary - curSalary) * (1 - taxRate)) - (coEaLossQ1 * (1 - taxRate)) + (coArrears * (1 - taxRate)) + (coPension - curPension) + (coSeniority - curSeniority) + (coShiftPlus - curShiftPlus);
 
   // --- SCENARIO 2: PREACUERDO SIMA (+9.5% consolidado, 5.000 € atrasos, teletrabajo 30€/m) ---
   const medBaseSalary = curSalary * 1.095;
@@ -329,7 +350,12 @@ function updateWageSimulation() {
   const unionPension = unionBaseSalary * unionPensionRate;
   const unionTelework = teleworkDays > 0 ? (teleworkDays >= 2 ? 720 : 360) : 0;
   const unionBradford = curSalary > 45000 ? 850 : 600;
-  const unionNetTotalGain = (unionBaseSalary - curSalary) * (1 - taxRate) + (unionArrears * (1 - taxRate)) + (unionPension - curPension) + (unionSeniority - curSeniority) + (unionShiftPlus - curShiftPlus) + unionTelework + unionBradford;
+
+  // If toggle applies Efecto Abril, deduct the individual loss
+  const activeUnionEaDeductionNet = appliesEfectoAbril ? eaTotalIndividualNet : 0;
+  const activeUnionEaDeductionGross = appliesEfectoAbril ? eaTotalIndividualGross : 0;
+
+  const unionNetTotalGain = (unionBaseSalary - curSalary) * (1 - taxRate) + (unionArrears * (1 - taxRate)) + (unionPension - curPension) + (unionSeniority - curSeniority) + (unionShiftPlus - curShiftPlus) + unionTelework + unionBradford - activeUnionEaDeductionNet;
 
   // --- ROI OF STRIKE ---
   // Daily net salary: (Gross / 14 / 22 working days) * (1 - taxRate)
@@ -337,7 +363,7 @@ function updateWageSimulation() {
   const totalStrikeCost = dailyNet * strikeDays;
   const netMonthlyGainInPocket = (unionMonthlyIncrease) * (1 - taxRate);
   const amortizationMonths = netMonthlyGainInPocket > 0 ? (totalStrikeCost / netMonthlyGainInPocket) : 0.0;
-  const gain5Years = ((unionBaseSalary - curSalary) * 5 * (1 - taxRate)) + (unionArrears * (1 - taxRate)) + ((unionPension - curPension) * 5) + ((unionSeniority - curSeniority) * 5) + (unionTelework * 5) + unionBradford - totalStrikeCost;
+  const gain5Years = ((unionBaseSalary - curSalary) * 5 * (1 - taxRate)) + (unionArrears * (1 - taxRate)) + ((unionPension - curPension) * 5) + ((unionSeniority - curSeniority) * 5) + (unionTelework * 5) + unionBradford - totalStrikeCost - activeUnionEaDeductionNet;
 
   // Update Scenario 1 UI
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
@@ -378,9 +404,19 @@ function updateWageSimulation() {
   setText('tb-tele-union', `${unionTelework.toLocaleString()} €`);
   setText('tb-tele-diff', `+${unionTelework.toLocaleString()} €/año`);
 
+  // Efecto Abril table row
+  setText('tb-ea-co', `-${Math.round(coEaLossQ1).toLocaleString()} €`);
+  if (appliesEfectoAbril) {
+    setText('tb-ea-union', `-${Math.round(eaTotalIndividualGross).toLocaleString()} € (Efecto Abril)`);
+    setText('tb-ea-diff', `-${Math.round(eaTotalIndividualGross - coEaLossQ1).toLocaleString()} €`);
+  } else {
+    setText('tb-ea-union', `0 € (100% Retroactivo)`);
+    setText('tb-ea-diff', `+${Math.round(coEaLossQ1).toLocaleString()} € blindados`);
+  }
+
   const totalCurYear1 = curSalary + curSeniority + curShiftPlus + curPension;
-  const totalCoYear1 = coBaseSalary + coSeniority + coShiftPlus + coPension + coArrears;
-  const totalUnionYear1 = unionBaseSalary + unionSeniority + unionShiftPlus + unionPension + unionArrears + unionTelework + unionBradford;
+  const totalCoYear1 = coBaseSalary + coSeniority + coShiftPlus + coPension + coArrears - coEaLossQ1;
+  const totalUnionYear1 = unionBaseSalary + unionSeniority + unionShiftPlus + unionPension + unionArrears + unionTelework + unionBradford - activeUnionEaDeductionGross;
 
   setText('tb-tot-cur', `${Math.round(totalCurYear1).toLocaleString()} €`);
   setText('tb-tot-co', `${Math.round(totalCoYear1).toLocaleString()} €`);
@@ -395,7 +431,7 @@ function updateWageSimulation() {
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
 
   // Update 5-Year Cumulative Projection Chart
-  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears);
+  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears, activeUnionEaDeductionGross);
 }
 
 function setText(id, text) {
@@ -498,12 +534,12 @@ function initWagesChart() {
   });
 }
 
-function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500) {
+function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500, unionEaDeduction = 0) {
   if (!wagesChart) return;
 
   // Projected cumulative 5-year earnings:
   // Year 0 (2025): Base current
-  // Year 1 (2026): Year 0 + (Salary + Arrears)
+  // Year 1 (2026): Year 0 + (Salary + Arrears) - (April Effect deduction if applied)
   // Year 2-5: Cumulative addition each year with compounding RSG
   const y0 = cur;
 
@@ -519,7 +555,7 @@ function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500)
   const co_y4 = co_y3 + (co * 1.045);
   const co_y5 = co_y4 + (co * 1.060);
 
-  const un_y1 = y0 + (union + unionArrears);
+  const un_y1 = y0 + (union + unionArrears) - unionEaDeduction;
   const un_y2 = un_y1 + (union * 1.035);
   const un_y3 = un_y2 + (union * 1.070);
   const un_y4 = un_y3 + (union * 1.107);

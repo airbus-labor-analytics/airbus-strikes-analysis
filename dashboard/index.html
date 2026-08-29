@@ -930,7 +930,7 @@
               </div>
             </div>
 
-            <!-- 4. Strike Days Participated & Pension Plan -->
+            <!-- 4. Strike Days, Pension Plan & April Effect -->
             <div>
               <label class="block text-xs font-bold text-slate-300 mb-1 flex items-center justify-between">
                 <span>Días de Huelga Secundados:</span>
@@ -949,6 +949,62 @@
             </div>
           </div>
 
+          <!-- EFECTO ABRIL INTERACTIVE AUDIT PANEL -->
+          <div class="p-4 bg-rose-950/30 border border-rose-500/40 rounded-xl space-y-3">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-rose-500/30 pb-2.5">
+              <div class="flex items-center space-x-2">
+                <span class="p-1.5 bg-rose-500/20 text-rose-400 rounded-lg border border-rose-500/40">
+                  <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                </span>
+                <div>
+                  <h3 class="text-xs sm:text-sm font-black text-white flex items-center">
+                    Auditoría Actuarial: ¿Qué es la Trampa del "Efecto Abril" y Cómo Destroza el Acuerdo?
+                  </h3>
+                  <p class="text-[11px] text-rose-300/90">La dirección propone aplicar las subidas desde el 1 de abril sin retroactividad a 1 de enero, amputando el primer trimestre de cada año.</p>
+                </div>
+              </div>
+
+              <!-- Toggle Button -->
+              <div class="flex items-center space-x-2 bg-slate-900/90 p-1.5 rounded-xl border border-slate-700">
+                <span class="text-[11px] font-bold text-slate-300">Simular con Efecto Abril:</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="sim-efecto-abril" class="sr-only peer" onchange="updateWageSimulation()">
+                  <div class="w-9 h-5 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-rose-600"></div>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4 Metrics of April Effect Impact -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block font-medium">Pérdida Directa Q1 (Ene-Mar):</span>
+                <p class="text-base sm:text-lg font-black text-rose-400 font-mono mt-0.5" id="ea-loss-q1">-1.500 €</p>
+                <span class="text-[10px] text-slate-400 block">-25% del incremento anual perdido</span>
+              </div>
+
+              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block font-medium">Impacto en Paga Extra Junio:</span>
+                <p class="text-base sm:text-lg font-black text-amber-400 font-mono mt-0.5" id="ea-loss-extra">-214 €</p>
+                <span class="text-[10px] text-slate-400 block">Prorrateo reducido (devengo semestral)</span>
+              </div>
+
+              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block font-medium">Pérdida en Plan de Pensiones:</span>
+                <p class="text-base sm:text-lg font-black text-rose-400 font-mono mt-0.5" id="ea-loss-pension">-82 €</p>
+                <span class="text-[10px] text-slate-400 block">Menor aportación patronal trimestral</span>
+              </div>
+
+              <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block font-medium">Ahorro Patronal Airbus (15.562 trab.):</span>
+                <p class="text-base sm:text-lg font-black text-purple-400 font-mono mt-0.5" id="ea-loss-total-airbus">-23,3 M€</p>
+                <span class="text-[10px] text-slate-400 block">Dinero extraído de la masa salarial</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-300 leading-relaxed border-t border-rose-500/20 pt-2">
+              <strong class="text-rose-400 font-bold">Veredicto de Asamblea (Getafe, 24/08/2026):</strong> El Efecto Abril es una cláusula trampa que diluye la subida real consolidada. Si una oferta del 12% se aplica en abril sin atrasos de enero a marzo, la subida real del primer año se reduce automáticamente al <strong class="text-white">9,0%</strong> y resta hasta <strong class="text-rose-300">1.796 € brutos</strong> a cada trabajador.
+            </p>
+          </div>
           <!-- 3 Comparative Scenario Cards -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             <!-- Scenario 1: Oferta Empresa -->
@@ -1121,9 +1177,19 @@
                     <tr>
                       <td class="p-2.5 font-sans font-medium text-slate-200">Paga Única / Atrasos Retroactivos</td>
                       <td class="p-2.5 text-right text-slate-400">0 €</td>
-                      <td class="p-2.5 text-right text-rose-300">+2.000 €</td>
-                      <td class="p-2.5 text-right text-emerald-400 font-bold">+7.500 €</td>
-                      <td class="p-2.5 text-right text-emerald-300 font-bold">+5.500 € más</td>
+                      <td class="p-2.5 text-right text-rose-300" id="tb-arr-co">+2.000 €</td>
+                      <td class="p-2.5 text-right text-emerald-400 font-bold" id="tb-arr-union">+7.500 €</td>
+                      <td class="p-2.5 text-right text-emerald-300 font-bold" id="tb-arr-diff">+5.500 € más</td>
+                    </tr>
+                    <tr id="row-tb-efecto-abril" class="bg-rose-950/20 text-rose-300">
+                      <td class="p-2.5 font-sans font-semibold flex items-center text-rose-400">
+                        <i data-lucide="scissors" class="w-3.5 h-3.5 mr-1.5 text-rose-400"></i>
+                        Pérdida por Efecto Abril (Q1 Ene-Mar)
+                      </td>
+                      <td class="p-2.5 text-right text-slate-400">0 €</td>
+                      <td class="p-2.5 text-right text-rose-400 font-bold" id="tb-ea-co">-625 €</td>
+                      <td class="p-2.5 text-right text-emerald-400 font-bold" id="tb-ea-union">0 € (100% Retroactivo)</td>
+                      <td class="p-2.5 text-right text-emerald-300 font-bold" id="tb-ea-diff">+625 € blindados</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-sans font-medium text-slate-200">Devolución IT Bradford Estimada</td>
