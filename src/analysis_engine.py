@@ -25,8 +25,8 @@ except ImportError:
 
 @dataclass
 class IndustrialParameters:
-    total_workers_spain: int = 14000  # Direct workforce in Airbus Spain
-    total_workforce_including_contractors: int = 15562  # Total electoral census including auxiliary contractors
+    total_workers_spain: int = 15562  # Plantilla directa y censo electoral total en Airbus España
+    total_workforce_including_contractors: int = 15562  # Censo electoral estatal verificado
     avg_annual_salary: float = 50000.0  # Euros
     airbus_se_net_profit_2025: float = 4960000000.0  # 4.960 B€ (Official Airbus FY2025 Results)
     airbus_se_ebit_adj_2025: float = 7100000000.0  # 7.100 B€ (Official Airbus FY2025 Results)
@@ -1313,7 +1313,7 @@ class StrikeAnalysisEngine:
         return {
             "metadata": {
                 "electoral_scope": "Elecciones Sindicales Estatales Airbus España (Getafe, San Pablo, Tablada, Illescas, Cádiz, Albacete, Barajas)",
-                "total_census_workers": 14000,
+                "total_census_workers": 15562,
                 "total_delegates": 198,
                 "interempresas_seats": 13,
                 "primary_source": "Registro Oficial de Elecciones Sindicales / CCOO Industria / UGT FICA / Actas SIMA",
@@ -1407,11 +1407,15 @@ class StrikeAnalysisEngine:
             ],
             "referendum_2026": {
                 "date": "2026-07-24",
-                "total_census": 14000,
+                "total_census": 15562,
                 "turnout_pct": 81.44,
+                "total_votes": 12674,
                 "reject_pct": 49.15,
-                "approve_pct": 45.95,
+                "approve_pct": 46.24,
                 "blank_null_pct": 4.62,
+                "no_votes": 6229,
+                "yes_votes": 5860,
+                "blank_null_votes": 585,
                 "source": "Agencia EFE & Cinco Días (25/07/2026)",
                 "source_url": "https://cincodias.elpais.com/companias/2026-07-25/los-trabajadores-de-airbus-votan-en-contra-del-acuerdo-con-la-empresa-de-revision-salarial-y-teletrabajo.html"
             },
@@ -1434,62 +1438,78 @@ class StrikeAnalysisEngine:
                     "site_id": "getafe",
                     "name": "Getafe (Madrid)",
                     "role": "Sede Central, Commercial & Defence (HTP, Composites, Ensayos en Vuelo)",
-                    "census": 6200,
-                    "total_delegates": 39,
-                    "delegates_by_union": {"SIPA": 13, "CCOO": 11, "ATP": 8, "CGT": 4, "UGT": 3},
+                    "census": 7300,
+                    "total_delegates": 45,
+                    "delegates_by_union": {"SIPA": 15, "CCOO": 13, "ATP": 9, "CGT": 5, "UGT": 3},
                     "referendum_24j": {
-                        "turnout_pct": 84.2,
-                        "no_pct": 54.2,
-                        "yes_pct": 41.5,
-                        "blank_null_pct": 4.3,
+                        "total_votes": 5960,
+                        "turnout_pct": 81.64,
+                        "no_votes": 2985,
+                        "no_pct": 50.08,
+                        "yes_votes": 2707,
+                        "yes_pct": 45.42,
+                        "blank_null_votes": 268,
+                        "blank_null_pct": 4.50,
                         "outcome": "Rechazado (Victoria del NO)"
                     },
                     "assembly_dynamic": "Epicentro del conflicto. Asambleas diarias en Puerta Sur/Norte con más de 1.900 asistentes presenciales y control de piquetes informativos."
                 },
                 {
-                    "site_id": "illescas",
-                    "name": "Illescas (Toledo)",
-                    "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
-                    "census": 1100,
-                    "total_delegates": 25,
-                    "delegates_by_union": {"CCOO": 12, "CGT": 5, "UGT": 4, "ATP": 3, "SIPA": 1},
-                    "referendum_24j": {
-                        "turnout_pct": 88.0,
-                        "no_pct": 58.6,
-                        "yes_pct": 37.1,
-                        "blank_null_pct": 4.3,
-                        "outcome": "Rechazado (Victoria del NO)"
-                    },
-                    "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
-                },
-                {
                     "site_id": "san_pablo",
                     "name": "Sevilla - San Pablo (Norte y Sur)",
                     "role": "FAL Militar (Líneas de Montaje Final A400M y C295)",
-                    "census": 2800,
-                    "total_delegates": 27,
-                    "delegates_by_union": {"UGT": 9, "CCOO": 8, "SIPA": 5, "ATP": 3, "CGT": 2},
+                    "census": 3200,
+                    "total_delegates": 31,
+                    "delegates_by_union": {"UGT": 10, "CCOO": 9, "SIPA": 6, "ATP": 3, "CGT": 3},
                     "referendum_24j": {
-                        "turnout_pct": 77.4,
-                        "no_pct": 46.3,
-                        "yes_pct": 49.8,
-                        "blank_null_pct": 3.9,
+                        "total_votes": 2616,
+                        "turnout_pct": 81.75,
+                        "no_votes": 1160,
+                        "no_pct": 44.34,
+                        "yes_votes": 1344,
+                        "yes_pct": 51.38,
+                        "blank_null_votes": 112,
+                        "blank_null_pct": 4.28,
                         "outcome": "Aprobado ajustado (Fuerte división interna)"
                     },
                     "assembly_dynamic": "Mayor peso de UGT; división entre personal de entregas militares y técnicos de montaje. Giro asambleario tras el 24 de agosto."
                 },
                 {
+                    "site_id": "illescas",
+                    "name": "Illescas (Toledo)",
+                    "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
+                    "census": 1250,
+                    "total_delegates": 27,
+                    "delegates_by_union": {"CCOO": 13, "CGT": 6, "UGT": 4, "ATP": 3, "SIPA": 1},
+                    "referendum_24j": {
+                        "total_votes": 1081,
+                        "turnout_pct": 86.48,
+                        "no_votes": 626,
+                        "no_pct": 57.91,
+                        "yes_votes": 408,
+                        "yes_pct": 37.74,
+                        "blank_null_votes": 47,
+                        "blank_null_pct": 4.35,
+                        "outcome": "Rechazado (Victoria del NO)"
+                    },
+                    "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
+                },
+                {
                     "site_id": "tablada",
                     "name": "Sevilla - Tablada",
                     "role": "Pre-montaje y aeroestructuras militares (A400M / Eurofighter)",
-                    "census": 1000,
-                    "total_delegates": 21,
-                    "delegates_by_union": {"CCOO": 9, "UGT": 7, "CGT": 3, "ATP": 2, "SIPA": 0},
+                    "census": 1150,
+                    "total_delegates": 25,
+                    "delegates_by_union": {"CCOO": 11, "UGT": 8, "CGT": 3, "ATP": 3, "SIPA": 0},
                     "referendum_24j": {
-                        "turnout_pct": 79.1,
-                        "no_pct": 44.8,
-                        "yes_pct": 51.2,
-                        "blank_null_pct": 4.0,
+                        "total_votes": 922,
+                        "turnout_pct": 80.17,
+                        "no_votes": 400,
+                        "no_pct": 43.38,
+                        "yes_votes": 482,
+                        "yes_pct": 52.28,
+                        "blank_null_votes": 40,
+                        "blank_null_pct": 4.34,
                         "outcome": "Aprobado ajustado"
                     },
                     "assembly_dynamic": "Tradición histórica de CCOO y UGT. Apoyo a la mediación del SIMA y alineamiento con la plataforma conjunta de 5 sindicatos."
@@ -1498,53 +1518,64 @@ class StrikeAnalysisEngine:
                     "site_id": "cadiz_cbc",
                     "name": "Cádiz (Centro Bahía de Cádiz / Puerto Real)",
                     "role": "Componentes de aeroestructuras y composites",
-                    "census": 900,
-                    "total_delegates": 21,
-                    "delegates_by_union": {"CCOO": 8, "CGT": 5, "UGT": 4, "SIPA": 2, "ATP": 2},
+                    "census": 950,
+                    "total_delegates": 25,
+                    "delegates_by_union": {"CCOO": 10, "CGT": 6, "UGT": 4, "ATP": 3, "SIPA": 2},
                     "referendum_24j": {
-                        "turnout_pct": 89.5,
-                        "no_pct": 66.2,
-                        "yes_pct": 29.1,
-                        "blank_null_pct": 4.7,
+                        "total_votes": 793,
+                        "turnout_pct": 83.47,
+                        "no_votes": 477,
+                        "no_pct": 60.15,
+                        "yes_votes": 269,
+                        "yes_pct": 33.92,
+                        "blank_null_votes": 47,
+                        "blank_null_pct": 5.93,
                         "outcome": "Rechazado masivo (Mayoría rotunda del NO)"
                     },
                     "assembly_dynamic": "Fuerte combatividad derivada del cierre de Puerto Real y fusión en el CBC. Rechazo total a cualquier acuerdo que no blinde carga de trabajo y salario."
                 },
                 {
-                    "site_id": "albacete",
-                    "name": "Albacete",
-                    "role": "Airbus Helicopters España (Tigre, NH90, H135)",
-                    "census": 600,
-                    "total_delegates": 17,
-                    "delegates_by_union": {"CCOO": 8, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 0},
-                    "referendum_24j": {
-                        "turnout_pct": 75.0,
-                        "no_pct": 41.2,
-                        "yes_pct": 53.8,
-                        "blank_null_pct": 5.0,
-                        "outcome": "Aprobado ajustado"
-                    },
-                    "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
-                },
-                {
                     "site_id": "barajas",
                     "name": "Barajas (Madrid)",
                     "role": "Sistemas Espaciales y Servicios Corporativos",
-                    "census": 800,
-                    "total_delegates": 21,
-                    "delegates_by_union": {"CCOO": 8, "ATP": 6, "SIPA": 4, "UGT": 2, "CGT": 1},
+                    "census": 962,
+                    "total_delegates": 25,
+                    "delegates_by_union": {"CCOO": 10, "ATP": 7, "SIPA": 5, "UGT": 2, "CGT": 1},
                     "referendum_24j": {
-                        "turnout_pct": 82.3,
-                        "no_pct": 51.7,
-                        "yes_pct": 43.5,
-                        "blank_null_pct": 4.8,
+                        "total_votes": 786,
+                        "turnout_pct": 81.70,
+                        "no_votes": 376,
+                        "no_pct": 47.84,
+                        "yes_votes": 371,
+                        "yes_pct": 47.20,
+                        "blank_null_votes": 39,
+                        "blank_null_pct": 4.96,
                         "outcome": "Rechazado (Victoria del NO)"
                     },
                     "assembly_dynamic": "Plantilla altamente cualificada en Espacio y Satélites; movilizada contra la desregulación del Proyecto Bromo."
+                },
+                {
+                    "site_id": "albacete",
+                    "name": "Albacete",
+                    "role": "Airbus Helicopters España (Tigre, NH90, H135)",
+                    "census": 750,
+                    "total_delegates": 20,
+                    "delegates_by_union": {"CCOO": 10, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 1},
+                    "referendum_24j": {
+                        "total_votes": 516,
+                        "turnout_pct": 68.80,
+                        "no_votes": 205,
+                        "no_pct": 39.73,
+                        "yes_votes": 279,
+                        "yes_pct": 54.07,
+                        "blank_null_votes": 32,
+                        "blank_null_pct": 6.20,
+                        "outcome": "Aprobado ajustado"
+                    },
+                    "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
                 }
-            ],
+            ]
         }
-
     def export_full_dataset(self) -> Dict[str, Any]:
         """Compiles all metrics into a consolidated analytical JSON dictionary."""
         return {

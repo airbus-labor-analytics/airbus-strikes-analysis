@@ -23,24 +23,23 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
 
     def test_industrial_parameters_consistency(self):
         """Validates default industrial parameters for Airbus Spain."""
-        self.assertEqual(self.params.total_workers_spain, 14000)
+        self.assertEqual(self.params.total_workers_spain, 15562)
         self.assertEqual(self.params.total_workforce_including_contractors, 15562)
         self.assertEqual(self.params.avg_annual_salary, 50000.0)
         self.assertEqual(self.params.airbus_se_net_profit_2025, 4960000000.0)
         self.assertEqual(self.params.annual_delivery_target_2026, 870)
         self.assertEqual(self.params.getafe_htp_production_share, 1.0)
         self.assertEqual(self.params.fal_stock_buffer_hours, 60.0)
-
     def test_platform_cost_calculation(self):
         """Validates exact cost calculation of union demands (12% + 7500€ + Social Security)."""
         cost = self.engine.calculate_cost_of_platform()
 
-        expected_wage_mass = 14000 * 50000.0  # 700 M€
-        expected_12pct = expected_wage_mass * 0.12  # 84 M€
-        expected_retroactive = 14000 * 7500.0  # 105 M€
-        expected_ss_extra = expected_12pct * 0.31  # 26.04 M€
-        expected_annual_recurrent = expected_12pct + expected_ss_extra  # 110.04 M€
-        expected_first_year_total = expected_annual_recurrent + expected_retroactive  # 215.04 M€
+        expected_wage_mass = 15562 * 50000.0  # 778.1 M€
+        expected_12pct = expected_wage_mass * 0.12  # 93.372 M€
+        expected_retroactive = 15562 * 7500.0  # 116.715 M€
+        expected_ss_extra = expected_12pct * 0.31  # 28.945 M€
+        expected_annual_recurrent = expected_12pct + expected_ss_extra  # 122.317 M€
+        expected_first_year_total = expected_annual_recurrent + expected_retroactive  # 239.032 M€
 
         self.assertAlmostEqual(cost["annual_wage_mass_spain_eur"], expected_wage_mass, delta=1.0)
         self.assertAlmostEqual(cost["cost_12pct_increase_eur"], expected_12pct, delta=1.0)
@@ -51,7 +50,6 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         # Ensure % of profit is < 5%
         self.assertLess(cost["pct_of_annual_net_profit"], 5.0)
         self.assertGreater(cost["pct_of_annual_net_profit"], 4.0)
-
     def test_strike_timeline_jit_transition(self):
         """Validates supply chain buffer exhaustion transition from Spanish plant to European FALs."""
         timeline = self.engine.simulate_strike_timeline(days=10)
@@ -99,23 +97,57 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         union_data = self.engine.get_trade_union_representation()
         self.assertIn("site_breakdown", union_data)
         sites = union_data["site_breakdown"]
-        self.assertGreaterEqual(len(sites), 7)
+        self.assertEqual(len(sites), 7)
 
-        # Total direct factory census across 7 main sites (~13,400)
+        # Total direct factory census across 7 main sites (15,562)
         total_census = sum(s["census"] for s in sites)
-        self.assertEqual(total_census, 13400)
+        self.assertEqual(total_census, 15562)
 
-        # Total plant committee delegates across 7 main sites
+        # Total plant committee delegates across 7 main sites (198)
         total_delegates = sum(s["total_delegates"] for s in sites)
-        self.assertEqual(total_delegates, 171)
+        self.assertEqual(total_delegates, 198)
+
+        # Sum by union across all sites must match state-wide delegate count
+        union_sums = {"CCOO": 0, "UGT": 0, "ATP": 0, "SIPA": 0, "CGT": 0}
+        for s in sites:
+            for u, count in s["delegates_by_union"].items():
+                union_sums[u] += count
+
+        expected_shares = {"CCOO": 76, "UGT": 36, "ATP": 31, "SIPA": 30, "CGT": 25}
+        self.assertEqual(union_sums, expected_shares)
 
         # Check Getafe specific delegates and referendum
         getafe = next(s for s in sites if s["site_id"] == "getafe")
-        self.assertEqual(getafe["total_delegates"], 39)
-        self.assertEqual(getafe["delegates_by_union"]["SIPA"], 13)
-        self.assertEqual(getafe["delegates_by_union"]["CCOO"], 11)
+        self.assertEqual(getafe["total_delegates"], 45)
+        self.assertEqual(getafe["delegates_by_union"]["SIPA"], 15)
+        self.assertEqual(getafe["delegates_by_union"]["CCOO"], 13)
         self.assertGreater(getafe["referendum_24j"]["no_pct"], 50.0)
+    def test_trade_union_delegates_exact_match(self):
+        """Validates that total and union delegates across all sites match exactly 198."""
+        tu = self.engine.get_trade_union_representation()
+        shares = tu["current_shares"]
+        sites = tu["site_breakdown"]
 
+        # 1. Total across current_shares
+        total_shares = sum(u.get("delegates", 0) for u in shares)
+        self.assertEqual(total_shares, 198)
+
+        # 2. Total across sites
+        total_sites = sum(s.get("total_delegates", 0) for s in sites)
+        self.assertEqual(total_sites, 198)
+
+        # 3. Sum by union across all sites
+        union_sums = {}
+        for s in sites:
+            for u, count in s.get("delegates_by_union", {}).items():
+                union_sums[u] = union_sums.get(u, 0) + count
+
+        self.assertEqual(union_sums.get("CCOO"), 76)
+        self.assertEqual(union_sums.get("UGT"), 36)
+        self.assertEqual(union_sums.get("ATP"), 31)
+        self.assertEqual(union_sums.get("SIPA"), 30)
+        self.assertEqual(union_sums.get("CGT"), 25)
+        self.assertEqual(sum(union_sums.values()), 198)
     def test_company_offer_detailed_breakdown(self):
         """Validates the 5 key negotiation points in company_offer_detailed_breakdown."""
         nego = self.engine.get_negotiation_evolution()

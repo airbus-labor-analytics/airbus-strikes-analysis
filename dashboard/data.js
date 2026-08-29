@@ -8,7 +8,7 @@ window.CONFLICT_DATA = {
     "generated_at": "2026-08-29T19:00:00Z"
   },
   "parameters": {
-    "total_workers_spain": 14000,
+    "total_workers_spain": 15562,
     "total_workforce_including_contractors": 15562,
     "avg_annual_salary": 50000.0,
     "airbus_se_net_profit_2025": 4960000000.0,
@@ -308,7 +308,7 @@ window.CONFLICT_DATA = {
   "trade_union_representation": {
     "metadata": {
       "electoral_scope": "Elecciones Sindicales Estatales Airbus España (Getafe, San Pablo, Tablada, Illescas, Cádiz, Albacete, Barajas)",
-      "total_census_workers": 14000,
+      "total_census_workers": 15562,
       "total_delegates": 198,
       "interempresas_seats": 13,
       "primary_source": "Registro Oficial de Elecciones Sindicales / CCOO Industria / UGT FICA / Actas SIMA",
@@ -326,7 +326,7 @@ window.CONFLICT_DATA = {
         "source_url": "https://industria.ccoo.es/Aeroespacial",
         "historical_trajectory": "Primera fuerza sindical en Airbus España con 76 delegados. Firmante de convenios anteriores y del preacuerdo del 23 de julio.",
         "stance_conflict_2026": "Firmó el preacuerdo de julio; tras la victoria del NO (49,15%) en referéndum, sus asambleas se sumaron al proceso de mediación en el SIMA.",
-        "workplace_strength": "Líder en Illescas (12 delegados), Tablada (9 delegados), Albacete, Cádiz y presencia en Getafe y San Pablo."
+        "workplace_strength": "Líder en Illescas (13 delegados), Tablada (11 delegados), Getafe (13 delegados), Albacete, Cádiz y Barajas."
       },
       {
         "union_code": "UGT",
@@ -363,9 +363,9 @@ window.CONFLICT_DATA = {
         "color": "#0284c7",
         "source": "SIPA Sección Sindical Actas Electorales",
         "source_url": "https://www.sipa.es/",
-        "historical_trajectory": "Cuarta fuerza estatal con 30 delegados. Primera fuerza en el centro neurálgico de Getafe (13 delegados).",
+        "historical_trajectory": "Cuarta fuerza estatal con 30 delegados. Primera fuerza en el centro neurálgico de Getafe (15 delegados).",
         "stance_conflict_2026": "Firmó el preacuerdo de julio; tras el rechazo en referéndum, dimitió su ejecutiva y sus bases respaldaron las movilizaciones.",
-        "workplace_strength": "Primera fuerza en Getafe (13 delegados) y presencia relevante en San Pablo."
+        "workplace_strength": "Primera fuerza en Getafe (15 delegados) y presencia relevante en San Pablo (6 delegados)."
       },
       {
         "union_code": "CGT",
@@ -438,11 +438,15 @@ window.CONFLICT_DATA = {
     ],
     "referendum_2026": {
       "date": "2026-07-24",
-      "total_census": 14000,
+      "total_census": 15562,
       "turnout_pct": 81.44,
+      "total_votes": 12674,
       "reject_pct": 49.15,
-      "approve_pct": 45.95,
+      "approve_pct": 46.24,
       "blank_null_pct": 4.62,
+      "no_votes": 6229,
+      "yes_votes": 5860,
+      "blank_null_votes": 585,
       "source": "Agencia EFE & Cinco Días (25/07/2026)",
       "source_url": "https://cincodias.elpais.com/companias/2026-07-25/los-trabajadores-de-airbus-votan-en-contra-del-acuerdo-con-la-empresa-de-revision-salarial-y-teletrabajo.html"
     },
@@ -465,86 +469,102 @@ window.CONFLICT_DATA = {
         "site_id": "getafe",
         "name": "Getafe (Madrid)",
         "role": "Sede Central, Commercial & Defence (HTP, Composites, Ensayos en Vuelo)",
-        "census": 6200,
-        "total_delegates": 39,
+        "census": 7300,
+        "total_delegates": 45,
         "delegates_by_union": {
-          "SIPA": 13,
-          "CCOO": 11,
-          "ATP": 8,
-          "CGT": 4,
+          "SIPA": 15,
+          "CCOO": 13,
+          "ATP": 9,
+          "CGT": 5,
           "UGT": 3
         },
         "referendum_24j": {
-          "turnout_pct": 84.2,
-          "no_pct": 54.2,
-          "yes_pct": 41.5,
-          "blank_null_pct": 4.3,
+          "total_votes": 5960,
+          "turnout_pct": 81.64,
+          "no_votes": 2985,
+          "no_pct": 50.08,
+          "yes_votes": 2707,
+          "yes_pct": 45.42,
+          "blank_null_votes": 268,
+          "blank_null_pct": 4.5,
           "outcome": "Rechazado (Victoria del NO)"
         },
         "assembly_dynamic": "Epicentro del conflicto. Asambleas diarias en Puerta Sur/Norte con más de 1.900 asistentes presenciales y control de piquetes informativos."
       },
       {
-        "site_id": "illescas",
-        "name": "Illescas (Toledo)",
-        "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
-        "census": 1100,
-        "total_delegates": 25,
-        "delegates_by_union": {
-          "CCOO": 12,
-          "CGT": 5,
-          "UGT": 4,
-          "ATP": 3,
-          "SIPA": 1
-        },
-        "referendum_24j": {
-          "turnout_pct": 88.0,
-          "no_pct": 58.6,
-          "yes_pct": 37.1,
-          "blank_null_pct": 4.3,
-          "outcome": "Rechazado (Victoria del NO)"
-        },
-        "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
-      },
-      {
         "site_id": "san_pablo",
         "name": "Sevilla - San Pablo (Norte y Sur)",
         "role": "FAL Militar (Líneas de Montaje Final A400M y C295)",
-        "census": 2800,
-        "total_delegates": 27,
+        "census": 3200,
+        "total_delegates": 31,
         "delegates_by_union": {
-          "UGT": 9,
-          "CCOO": 8,
-          "SIPA": 5,
+          "UGT": 10,
+          "CCOO": 9,
+          "SIPA": 6,
           "ATP": 3,
-          "CGT": 2
+          "CGT": 3
         },
         "referendum_24j": {
-          "turnout_pct": 77.4,
-          "no_pct": 46.3,
-          "yes_pct": 49.8,
-          "blank_null_pct": 3.9,
+          "total_votes": 2616,
+          "turnout_pct": 81.75,
+          "no_votes": 1160,
+          "no_pct": 44.34,
+          "yes_votes": 1344,
+          "yes_pct": 51.38,
+          "blank_null_votes": 112,
+          "blank_null_pct": 4.28,
           "outcome": "Aprobado ajustado (Fuerte división interna)"
         },
         "assembly_dynamic": "Mayor peso de UGT; división entre personal de entregas militares y técnicos de montaje. Giro asambleario tras el 24 de agosto."
       },
       {
+        "site_id": "illescas",
+        "name": "Illescas (Toledo)",
+        "role": "Advanced Composites (Revestimientos alares y empenajes A350/A320)",
+        "census": 1250,
+        "total_delegates": 27,
+        "delegates_by_union": {
+          "CCOO": 13,
+          "CGT": 6,
+          "UGT": 4,
+          "ATP": 3,
+          "SIPA": 1
+        },
+        "referendum_24j": {
+          "total_votes": 1081,
+          "turnout_pct": 86.48,
+          "no_votes": 626,
+          "no_pct": 57.91,
+          "yes_votes": 408,
+          "yes_pct": 37.74,
+          "blank_null_votes": 47,
+          "blank_null_pct": 4.35,
+          "outcome": "Rechazado (Victoria del NO)"
+        },
+        "assembly_dynamic": "Rechazo contundente por la alta carga física en composites y demanda de blindaje de coeficientes reductores."
+      },
+      {
         "site_id": "tablada",
         "name": "Sevilla - Tablada",
         "role": "Pre-montaje y aeroestructuras militares (A400M / Eurofighter)",
-        "census": 1000,
-        "total_delegates": 21,
+        "census": 1150,
+        "total_delegates": 25,
         "delegates_by_union": {
-          "CCOO": 9,
-          "UGT": 7,
+          "CCOO": 11,
+          "UGT": 8,
           "CGT": 3,
-          "ATP": 2,
+          "ATP": 3,
           "SIPA": 0
         },
         "referendum_24j": {
-          "turnout_pct": 79.1,
-          "no_pct": 44.8,
-          "yes_pct": 51.2,
-          "blank_null_pct": 4.0,
+          "total_votes": 922,
+          "turnout_pct": 80.17,
+          "no_votes": 400,
+          "no_pct": 43.38,
+          "yes_votes": 482,
+          "yes_pct": 52.28,
+          "blank_null_votes": 40,
+          "blank_null_pct": 4.34,
           "outcome": "Aprobado ajustado"
         },
         "assembly_dynamic": "Tradición histórica de CCOO y UGT. Apoyo a la mediación del SIMA y alineamiento con la plataforma conjunta de 5 sindicatos."
@@ -553,83 +573,95 @@ window.CONFLICT_DATA = {
         "site_id": "cadiz_cbc",
         "name": "Cádiz (Centro Bahía de Cádiz / Puerto Real)",
         "role": "Componentes de aeroestructuras y composites",
-        "census": 900,
-        "total_delegates": 21,
+        "census": 950,
+        "total_delegates": 25,
         "delegates_by_union": {
-          "CCOO": 8,
-          "CGT": 5,
+          "CCOO": 10,
+          "CGT": 6,
           "UGT": 4,
-          "SIPA": 2,
-          "ATP": 2
+          "ATP": 3,
+          "SIPA": 2
         },
         "referendum_24j": {
-          "turnout_pct": 89.5,
-          "no_pct": 66.2,
-          "yes_pct": 29.1,
-          "blank_null_pct": 4.7,
+          "total_votes": 793,
+          "turnout_pct": 83.47,
+          "no_votes": 477,
+          "no_pct": 60.15,
+          "yes_votes": 269,
+          "yes_pct": 33.92,
+          "blank_null_votes": 47,
+          "blank_null_pct": 5.93,
           "outcome": "Rechazado masivo (Mayoría rotunda del NO)"
         },
         "assembly_dynamic": "Fuerte combatividad derivada del cierre de Puerto Real y fusión en el CBC. Rechazo total a cualquier acuerdo que no blinde carga de trabajo y salario."
       },
       {
-        "site_id": "albacete",
-        "name": "Albacete",
-        "role": "Airbus Helicopters España (Tigre, NH90, H135)",
-        "census": 600,
-        "total_delegates": 17,
-        "delegates_by_union": {
-          "CCOO": 8,
-          "UGT": 5,
-          "ATP": 3,
-          "SIPA": 1,
-          "CGT": 0
-        },
-        "referendum_24j": {
-          "turnout_pct": 75.0,
-          "no_pct": 41.2,
-          "yes_pct": 53.8,
-          "blank_null_pct": 5.0,
-          "outcome": "Aprobado ajustado"
-        },
-        "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
-      },
-      {
         "site_id": "barajas",
         "name": "Barajas (Madrid)",
         "role": "Sistemas Espaciales y Servicios Corporativos",
-        "census": 800,
-        "total_delegates": 21,
+        "census": 962,
+        "total_delegates": 25,
         "delegates_by_union": {
-          "CCOO": 8,
-          "ATP": 6,
-          "SIPA": 4,
+          "CCOO": 10,
+          "ATP": 7,
+          "SIPA": 5,
           "UGT": 2,
           "CGT": 1
         },
         "referendum_24j": {
-          "turnout_pct": 82.3,
-          "no_pct": 51.7,
-          "yes_pct": 43.5,
-          "blank_null_pct": 4.8,
+          "total_votes": 786,
+          "turnout_pct": 81.7,
+          "no_votes": 376,
+          "no_pct": 47.84,
+          "yes_votes": 371,
+          "yes_pct": 47.2,
+          "blank_null_votes": 39,
+          "blank_null_pct": 4.96,
           "outcome": "Rechazado (Victoria del NO)"
         },
         "assembly_dynamic": "Plantilla altamente cualificada en Espacio y Satélites; movilizada contra la desregulación del Proyecto Bromo."
+      },
+      {
+        "site_id": "albacete",
+        "name": "Albacete",
+        "role": "Airbus Helicopters España (Tigre, NH90, H135)",
+        "census": 750,
+        "total_delegates": 20,
+        "delegates_by_union": {
+          "CCOO": 10,
+          "UGT": 5,
+          "ATP": 3,
+          "SIPA": 1,
+          "CGT": 1
+        },
+        "referendum_24j": {
+          "total_votes": 516,
+          "turnout_pct": 68.8,
+          "no_votes": 205,
+          "no_pct": 39.73,
+          "yes_votes": 279,
+          "yes_pct": 54.07,
+          "blank_null_votes": 32,
+          "blank_null_pct": 6.2,
+          "outcome": "Aprobado ajustado"
+        },
+        "assembly_dynamic": "Centro especializado en helicópteros con dinámica laboral propia y alta presencia técnica de ATP y CCOO."
       }
     ]
   },
   "platform_cost": {
-    "direct_workforce": 14000,
+    "direct_workforce": 15562,
     "total_electoral_census": 15562,
-    "total_workers": 14000,
-    "annual_wage_mass_spain_eur": 700000000.0,
-    "cost_12pct_increase_eur": 84000000.0,
-    "cost_one_time_payment_eur": 105000000.0,
-    "annual_recurrent_consolidated_cost_eur": 110040000.0,
-    "total_cost_year1_retroactive_eur": 215040000.0,
-    "total_first_year_impact_eur": 215040000.0,
-    "annualized_recurrent_cost_eur": 110040000.0,
-    "pct_of_annual_net_profit": 4.34,
-    "pct_of_annual_ebit": 3.03,
+    "total_workers": 15562,
+    "annual_wage_mass_spain_eur": 778100000.0,
+    "cost_12pct_increase_eur": 93372000.0,
+    "cost_one_time_payment_eur": 116715000.0,
+    "annual_recurrent_consolidated_cost_eur": 122317320.0,
+    "total_cost_year1_retroactive_eur": 239032320.0,
+    "total_first_year_impact_eur": 239032320.0,
+    "annualized_recurrent_cost_eur": 122317320.0,
+    "pct_of_annual_net_profit": 4.82,
+    "pct_of_annual_ebit": 3.37,
     "feasibility_assessment": "Fully absorbable within operating cash flow (<2.8% of annual free cash flow)."
   },
   "strike_timeline_30d": [
@@ -641,8 +673,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 6500000.0,
       "cumulative_airbus_loss_eur": 6500000.0,
       "worker_net_loss_per_person_eur": 98.63,
-      "cumulative_payroll_saved_airbus_eur": 1917808.22,
-      "asymmetry_ratio": 3.4
+      "cumulative_payroll_saved_airbus_eur": 2131780.82,
+      "asymmetry_ratio": 3.0
     },
     {
       "day": 2,
@@ -652,8 +684,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 6500000.0,
       "cumulative_airbus_loss_eur": 13000000.0,
       "worker_net_loss_per_person_eur": 197.26,
-      "cumulative_payroll_saved_airbus_eur": 3835616.44,
-      "asymmetry_ratio": 3.4
+      "cumulative_payroll_saved_airbus_eur": 4263561.64,
+      "asymmetry_ratio": 3.0
     },
     {
       "day": 3,
@@ -663,8 +695,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 16650000.0,
       "cumulative_airbus_loss_eur": 29650000.0,
       "worker_net_loss_per_person_eur": 295.89,
-      "cumulative_payroll_saved_airbus_eur": 5753424.66,
-      "asymmetry_ratio": 5.2
+      "cumulative_payroll_saved_airbus_eur": 6395342.47,
+      "asymmetry_ratio": 4.6
     },
     {
       "day": 4,
@@ -674,8 +706,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 16650000.0,
       "cumulative_airbus_loss_eur": 46300000.0,
       "worker_net_loss_per_person_eur": 394.52,
-      "cumulative_payroll_saved_airbus_eur": 7671232.88,
-      "asymmetry_ratio": 6.0
+      "cumulative_payroll_saved_airbus_eur": 8527123.29,
+      "asymmetry_ratio": 5.4
     },
     {
       "day": 5,
@@ -685,8 +717,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 16650000.0,
       "cumulative_airbus_loss_eur": 62950000.0,
       "worker_net_loss_per_person_eur": 493.15,
-      "cumulative_payroll_saved_airbus_eur": 9589041.1,
-      "asymmetry_ratio": 6.6
+      "cumulative_payroll_saved_airbus_eur": 10658904.11,
+      "asymmetry_ratio": 5.9
     },
     {
       "day": 6,
@@ -696,8 +728,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 85650000.0,
       "worker_net_loss_per_person_eur": 591.78,
-      "cumulative_payroll_saved_airbus_eur": 11506849.32,
-      "asymmetry_ratio": 7.4
+      "cumulative_payroll_saved_airbus_eur": 12790684.93,
+      "asymmetry_ratio": 6.7
     },
     {
       "day": 7,
@@ -707,8 +739,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 108350000.0,
       "worker_net_loss_per_person_eur": 690.41,
-      "cumulative_payroll_saved_airbus_eur": 13424657.53,
-      "asymmetry_ratio": 8.1
+      "cumulative_payroll_saved_airbus_eur": 14922465.75,
+      "asymmetry_ratio": 7.3
     },
     {
       "day": 8,
@@ -718,8 +750,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 131050000.0,
       "worker_net_loss_per_person_eur": 789.04,
-      "cumulative_payroll_saved_airbus_eur": 15342465.75,
-      "asymmetry_ratio": 8.5
+      "cumulative_payroll_saved_airbus_eur": 17054246.58,
+      "asymmetry_ratio": 7.7
     },
     {
       "day": 9,
@@ -729,8 +761,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 153750000.0,
       "worker_net_loss_per_person_eur": 887.67,
-      "cumulative_payroll_saved_airbus_eur": 17260273.97,
-      "asymmetry_ratio": 8.9
+      "cumulative_payroll_saved_airbus_eur": 19186027.4,
+      "asymmetry_ratio": 8.0
     },
     {
       "day": 10,
@@ -740,8 +772,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 176450000.0,
       "worker_net_loss_per_person_eur": 986.3,
-      "cumulative_payroll_saved_airbus_eur": 19178082.19,
-      "asymmetry_ratio": 9.2
+      "cumulative_payroll_saved_airbus_eur": 21317808.22,
+      "asymmetry_ratio": 8.3
     },
     {
       "day": 11,
@@ -751,8 +783,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 199150000.0,
       "worker_net_loss_per_person_eur": 1084.93,
-      "cumulative_payroll_saved_airbus_eur": 21095890.41,
-      "asymmetry_ratio": 9.4
+      "cumulative_payroll_saved_airbus_eur": 23449589.04,
+      "asymmetry_ratio": 8.5
     },
     {
       "day": 12,
@@ -762,8 +794,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 221850000.0,
       "worker_net_loss_per_person_eur": 1183.56,
-      "cumulative_payroll_saved_airbus_eur": 23013698.63,
-      "asymmetry_ratio": 9.6
+      "cumulative_payroll_saved_airbus_eur": 25581369.86,
+      "asymmetry_ratio": 8.7
     },
     {
       "day": 13,
@@ -773,8 +805,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 244550000.0,
       "worker_net_loss_per_person_eur": 1282.19,
-      "cumulative_payroll_saved_airbus_eur": 24931506.85,
-      "asymmetry_ratio": 9.8
+      "cumulative_payroll_saved_airbus_eur": 27713150.68,
+      "asymmetry_ratio": 8.8
     },
     {
       "day": 14,
@@ -784,8 +816,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 267250000.0,
       "worker_net_loss_per_person_eur": 1380.82,
-      "cumulative_payroll_saved_airbus_eur": 26849315.07,
-      "asymmetry_ratio": 10.0
+      "cumulative_payroll_saved_airbus_eur": 29844931.51,
+      "asymmetry_ratio": 9.0
     },
     {
       "day": 15,
@@ -795,8 +827,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 289950000.0,
       "worker_net_loss_per_person_eur": 1479.45,
-      "cumulative_payroll_saved_airbus_eur": 28767123.29,
-      "asymmetry_ratio": 10.1
+      "cumulative_payroll_saved_airbus_eur": 31976712.33,
+      "asymmetry_ratio": 9.1
     },
     {
       "day": 16,
@@ -806,8 +838,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 312650000.0,
       "worker_net_loss_per_person_eur": 1578.08,
-      "cumulative_payroll_saved_airbus_eur": 30684931.51,
-      "asymmetry_ratio": 10.2
+      "cumulative_payroll_saved_airbus_eur": 34108493.15,
+      "asymmetry_ratio": 9.2
     },
     {
       "day": 17,
@@ -817,8 +849,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 335350000.0,
       "worker_net_loss_per_person_eur": 1676.71,
-      "cumulative_payroll_saved_airbus_eur": 32602739.73,
-      "asymmetry_ratio": 10.3
+      "cumulative_payroll_saved_airbus_eur": 36240273.97,
+      "asymmetry_ratio": 9.3
     },
     {
       "day": 18,
@@ -828,8 +860,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 358050000.0,
       "worker_net_loss_per_person_eur": 1775.34,
-      "cumulative_payroll_saved_airbus_eur": 34520547.95,
-      "asymmetry_ratio": 10.4
+      "cumulative_payroll_saved_airbus_eur": 38372054.79,
+      "asymmetry_ratio": 9.3
     },
     {
       "day": 19,
@@ -839,8 +871,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 380750000.0,
       "worker_net_loss_per_person_eur": 1873.97,
-      "cumulative_payroll_saved_airbus_eur": 36438356.16,
-      "asymmetry_ratio": 10.4
+      "cumulative_payroll_saved_airbus_eur": 40503835.62,
+      "asymmetry_ratio": 9.4
     },
     {
       "day": 20,
@@ -850,8 +882,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 403450000.0,
       "worker_net_loss_per_person_eur": 1972.6,
-      "cumulative_payroll_saved_airbus_eur": 38356164.38,
-      "asymmetry_ratio": 10.5
+      "cumulative_payroll_saved_airbus_eur": 42635616.44,
+      "asymmetry_ratio": 9.5
     },
     {
       "day": 21,
@@ -861,8 +893,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 426150000.0,
       "worker_net_loss_per_person_eur": 2071.23,
-      "cumulative_payroll_saved_airbus_eur": 40273972.6,
-      "asymmetry_ratio": 10.6
+      "cumulative_payroll_saved_airbus_eur": 44767397.26,
+      "asymmetry_ratio": 9.5
     },
     {
       "day": 22,
@@ -872,8 +904,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 448850000.0,
       "worker_net_loss_per_person_eur": 2169.86,
-      "cumulative_payroll_saved_airbus_eur": 42191780.82,
-      "asymmetry_ratio": 10.6
+      "cumulative_payroll_saved_airbus_eur": 46899178.08,
+      "asymmetry_ratio": 9.6
     },
     {
       "day": 23,
@@ -883,8 +915,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 471550000.0,
       "worker_net_loss_per_person_eur": 2268.49,
-      "cumulative_payroll_saved_airbus_eur": 44109589.04,
-      "asymmetry_ratio": 10.7
+      "cumulative_payroll_saved_airbus_eur": 49030958.9,
+      "asymmetry_ratio": 9.6
     },
     {
       "day": 24,
@@ -894,8 +926,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 494250000.0,
       "worker_net_loss_per_person_eur": 2367.12,
-      "cumulative_payroll_saved_airbus_eur": 46027397.26,
-      "asymmetry_ratio": 10.7
+      "cumulative_payroll_saved_airbus_eur": 51162739.73,
+      "asymmetry_ratio": 9.7
     },
     {
       "day": 25,
@@ -905,8 +937,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 516950000.0,
       "worker_net_loss_per_person_eur": 2465.75,
-      "cumulative_payroll_saved_airbus_eur": 47945205.48,
-      "asymmetry_ratio": 10.8
+      "cumulative_payroll_saved_airbus_eur": 53294520.55,
+      "asymmetry_ratio": 9.7
     },
     {
       "day": 26,
@@ -916,8 +948,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 539650000.0,
       "worker_net_loss_per_person_eur": 2564.38,
-      "cumulative_payroll_saved_airbus_eur": 49863013.7,
-      "asymmetry_ratio": 10.8
+      "cumulative_payroll_saved_airbus_eur": 55426301.37,
+      "asymmetry_ratio": 9.7
     },
     {
       "day": 27,
@@ -927,8 +959,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 562350000.0,
       "worker_net_loss_per_person_eur": 2663.01,
-      "cumulative_payroll_saved_airbus_eur": 51780821.92,
-      "asymmetry_ratio": 10.9
+      "cumulative_payroll_saved_airbus_eur": 57558082.19,
+      "asymmetry_ratio": 9.8
     },
     {
       "day": 28,
@@ -938,8 +970,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 585050000.0,
       "worker_net_loss_per_person_eur": 2761.64,
-      "cumulative_payroll_saved_airbus_eur": 53698630.14,
-      "asymmetry_ratio": 10.9
+      "cumulative_payroll_saved_airbus_eur": 59689863.01,
+      "asymmetry_ratio": 9.8
     },
     {
       "day": 29,
@@ -949,8 +981,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 607750000.0,
       "worker_net_loss_per_person_eur": 2860.27,
-      "cumulative_payroll_saved_airbus_eur": 55616438.36,
-      "asymmetry_ratio": 10.9
+      "cumulative_payroll_saved_airbus_eur": 61821643.84,
+      "asymmetry_ratio": 9.8
     },
     {
       "day": 30,
@@ -960,8 +992,8 @@ window.CONFLICT_DATA = {
       "daily_airbus_loss_eur": 22700000.0,
       "cumulative_airbus_loss_eur": 630450000.0,
       "worker_net_loss_per_person_eur": 2958.9,
-      "cumulative_payroll_saved_airbus_eur": 57534246.58,
-      "asymmetry_ratio": 11.0
+      "cumulative_payroll_saved_airbus_eur": 63953424.66,
+      "asymmetry_ratio": 9.9
     }
   ],
   "purchasing_power_model": {
@@ -2141,7 +2173,7 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-08-29T21:20:24+00:00",
+    "timestamp": "2026-08-29T21:41:58+00:00",
     "fleet_count": 6,
     "airborne_count": 0,
     "tracked_count": 3,
@@ -10333,7 +10365,7 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-08-29T21:25:46.215000+00:00",
+    "timestamp": "2026-08-29T21:48:59.804754+00:00",
     "temperature_celsius": 82.1,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
@@ -11029,6 +11061,17 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-57",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-58",
         "source": "Crikey",
         "channel": "Aviation & Industry Press",
         "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
@@ -11039,7 +11082,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
       },
       {
-        "id": "rss-58",
+        "id": "rss-59",
         "source": "Forecast International",
         "channel": "Aviation & Industry Press",
         "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
@@ -11050,7 +11093,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
-        "id": "rss-59",
+        "id": "rss-60",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Airbus warns customers of aircraft delivery delays: report",
@@ -11059,17 +11102,6 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-60",
-        "source": "Simple Flying",
-        "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
-        "category": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
         "id": "rss-61",

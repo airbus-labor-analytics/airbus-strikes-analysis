@@ -1221,13 +1221,13 @@ function initSiteDelegatesChart() {
   if (siteDelegatesChart) siteDelegatesChart.destroy();
 
   const sites = conflictData?.trade_union_representation?.site_breakdown || [
-    { site_id: "getafe", name: "Getafe", delegates_by_union: { "SIPA": 13, "CCOO": 11, "ATP": 8, "CGT": 4, "UGT": 3 } },
-    { site_id: "san_pablo", name: "San Pablo", delegates_by_union: { "UGT": 9, "CCOO": 8, "SIPA": 5, "ATP": 3, "CGT": 2 } },
-    { site_id: "illescas", name: "Illescas", delegates_by_union: { "CCOO": 12, "CGT": 5, "UGT": 4, "ATP": 3, "SIPA": 1 } },
-    { site_id: "tablada", name: "Tablada", delegates_by_union: { "CCOO": 9, "UGT": 7, "CGT": 3, "ATP": 2, "SIPA": 0 } },
-    { site_id: "cadiz_cbc", name: "Cádiz (CBC)", delegates_by_union: { "CCOO": 8, "CGT": 5, "UGT": 4, "SIPA": 2, "ATP": 2 } },
-    { site_id: "barajas", name: "Barajas", delegates_by_union: { "CCOO": 8, "ATP": 6, "SIPA": 4, "UGT": 2, "CGT": 1 } },
-    { site_id: "albacete", name: "Albacete", delegates_by_union: { "CCOO": 8, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 0 } }
+    { site_id: "getafe", name: "Getafe", delegates_by_union: { "SIPA": 15, "CCOO": 13, "ATP": 9, "CGT": 5, "UGT": 3 } },
+    { site_id: "san_pablo", name: "San Pablo", delegates_by_union: { "UGT": 10, "CCOO": 9, "SIPA": 6, "ATP": 3, "CGT": 3 } },
+    { site_id: "illescas", name: "Illescas", delegates_by_union: { "CCOO": 13, "CGT": 6, "UGT": 4, "ATP": 3, "SIPA": 1 } },
+    { site_id: "tablada", name: "Tablada", delegates_by_union: { "CCOO": 11, "UGT": 8, "CGT": 3, "ATP": 3, "SIPA": 0 } },
+    { site_id: "cadiz_cbc", name: "Cádiz (CBC)", delegates_by_union: { "CCOO": 10, "CGT": 6, "UGT": 4, "ATP": 3, "SIPA": 2 } },
+    { site_id: "barajas", name: "Barajas", delegates_by_union: { "CCOO": 10, "ATP": 7, "SIPA": 5, "UGT": 2, "CGT": 1 } },
+    { site_id: "albacete", name: "Albacete", delegates_by_union: { "CCOO": 10, "UGT": 5, "ATP": 3, "SIPA": 1, "CGT": 1 } }
   ];
 
   const siteShortNames = {
@@ -1669,6 +1669,9 @@ function initBenchmarks() {
         <div class="text-slate-400">
           <strong class="text-amber-400 font-bold">Lección para Airbus:</strong> ${b.lesson || b.key_lesson || ''}
         </div>
+        <div class="text-right pt-1">
+          <a href="${b.source_url || 'https://www.iam751.org/'}" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Fuente: ${b.source_name || 'Registro Sindical / Prensa Sectorial'}]</a>
+        </div>
       </div>
     </div>
   `).join('');
@@ -1770,7 +1773,7 @@ function initHistoricalLosses() {
           <span class="text-xs font-black text-white">${c.name}</span>
           <span class="px-2 py-0.5 text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded">Oficial BOE</span>
         </div>
-        <span class="text-[11px] text-sky-400 font-mono block">${c.boe_reference}</span>
+        <a href="${c.url || 'https://www.boe.es/diario_boe/txt.php?id=' + (c.boe_id || 'BOE-A-2021-19616')}" target="_blank" class="text-[11px] text-sky-400 underline font-mono block">${c.boe_reference} [Ver en BOE]</a>
         <p class="text-xs text-slate-300 leading-relaxed mt-2"><strong class="text-slate-200">Firmantes:</strong> ${c.parties_signatory}</p>
         <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-300">Cláusulas Clave:</strong> ${c.key_clauses}</p>
         <div class="p-2 bg-rose-950/30 border border-rose-500/20 rounded-lg text-[11px] text-rose-300 mt-2">
@@ -1790,8 +1793,7 @@ function initHistoricalLosses() {
             <i data-lucide="alert-triangle" class="w-4 h-4 mr-1.5 text-amber-400"></i>
             ${p.event}
           </h4>
-          <span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-2 py-0.5 rounded">${p.actors}</span>
-        </div>
+          <span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-2 py-0.5 rounded">${p.actors} <a href="https://t.me/+MnuqJDCAAgYyMGQ0" target="_blank" class="text-sky-400 underline ml-1">[Acta / Asambleas]</a></span>
         <p class="text-xs text-slate-300 leading-relaxed">${p.description}</p>
         ${p.content_signed ? `<div class="text-xs text-slate-400"><strong class="text-slate-300">Contenido del Preacuerdo:</strong> ${p.content_signed}</div>` : ''}
         ${p.assembly_reaction ? `<div class="text-xs text-rose-400"><strong class="text-rose-300">Respuesta de las Asambleas:</strong> ${p.assembly_reaction}</div>` : ''}
