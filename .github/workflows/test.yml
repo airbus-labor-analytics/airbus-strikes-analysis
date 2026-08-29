@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install || true
+          npm install --no-audit || true
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: 1. Validate External Sources & Citations Integrity
@@ -76,11 +76,9 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies & Chromium
+      - name: Install dependencies
         run: |
-          npm install || true
-          sudo apt-get update
-          sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
+          npm install --no-audit || true
 
       - name: Compile PDF Guide
         run: |

@@ -24,12 +24,24 @@ def check_dependencies():
         print("Error: Node.js is required but not found in PATH.", file=sys.stderr)
         sys.exit(1)
 
-    browser_bin = shutil.which("chromium") or shutil.which("google-chrome") or shutil.which("chrome")
-    if not browser_bin:
-        print("Error: Chromium/Google Chrome is required for PDF printing.", file=sys.stderr)
-        sys.exit(1)
-    return browser_bin
+    candidates = [
+        shutil.which("chromium"),
+        shutil.which("google-chrome"),
+        shutil.which("google-chrome-stable"),
+        shutil.which("chromium-browser"),
+        shutil.which("chrome"),
+        "/usr/bin/google-chrome",
+        "/usr/bin/google-chrome-stable",
+        "/usr/bin/chromium-browser",
+        "/usr/bin/chromium",
+        "/snap/bin/chromium",
+    ]
+    for c in candidates:
+        if c and os.path.exists(c) and os.access(c, os.X_OK):
+            return str(c)
 
+    print("Error: Chromium/Google Chrome is required for PDF printing.", file=sys.stderr)
+    sys.exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description="Generate Executive PDF for Airbus Strike Analysis.")

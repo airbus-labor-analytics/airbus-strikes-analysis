@@ -34,7 +34,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install || true
+          npm install --no-audit || true
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: 1. Validate External Sources & Citations
@@ -53,10 +53,10 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p "test_*.py"
 
-      - name: 5. Install Chromium for Publication PDF
+      - name: 5. Verify Headless Chrome for Publication PDF
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
+          echo "Checking available browser binaries..."
+          which google-chrome || which google-chrome-stable || which chromium || which chromium-browser || echo "No standard binary found"
 
       - name: 6. Compile Publication PDF
         run: |
