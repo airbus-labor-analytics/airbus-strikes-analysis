@@ -188,19 +188,40 @@ El análisis econométrico comparativo entre la oferta patronal fija (sin cláus
   * Con una inflación media estándar del **2,5% anual** (objetivo BCE + diferencial), el IPC acumulado a 5 años es del **+10,4%** `[Fuente: BCE Proyecciones Macroeconómicas: https://www.ecb.europa.eu/]`.
   * En un escenario de reactivación inflacionaria del **5,5% anual**, la inflación acumulada a 5 años alcanza el **+23,9%** `[Fuente: Banco de España - Boletín Económico: https://www.bde.es/]`.
 
-* **Trayectoria Salarial a 5 Años (Salario Base de 50.000 €):**
+* **Trayectoria y Comparativa Salarial Bruta y Neta (Salario Base de 50.000 €, Tipo Efectivo IRPF+SS: 28%):**
 
-| Variable / Escenario | Situación Actual (Sin Convenio) | Oferta Empresa (+5% Fracc. + 1% débil) | Plataforma Comité (+12% Tablas + IPC+1,5% RSG) | Ganancia / Ventaja para la Plantilla | Fuente de Proyección |
+| Variable / Concepto Retributivo | Situación Actual (Sin Convenio) | Oferta Empresa (+5% Fracc. + 1% débil) | Plataforma Comité (+12% Tablas + IPC+1,5% RSG) | Ganancia / Ventaja para la Plantilla | Fuente de Proyección |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Salario Tablas Año 1 (2026)** | 50.000 € | 52.500 € | **56.000 €** | +3.500 €/año en tablas | [Propuesta SIMA 27/08](https://www.sima-fasp.net/) |
-| **Salario Nominal Año 5 (2030)** | 50.000 € | 53.184 € | **65.512 €** | **+12.328 €/año en nómina** | [Modelo Econométrico Dossier v8](https://www.ine.es/) |
-| **Poder Compra Real Año 5 (IPC 2,5%)** | 45.289 € (-9,4%) | 48.182 € (**-3,6% de pérdida real**) | **59.351 € (+18,7% ganancia real)** | **+11.169 € de poder adquisitivo real** | [INE Simulador IPC](https://www.ine.es/) |
-| **Poder Compra Real Año 5 (IPC 5,5%)** | 40.355 € (-19,3%) | 43.575 € (**-12,9% de pérdida real**) | **59.253 € (+18,5% ganancia real)** | **+15.678 € blindados frente a crisis** | [BdE Previsiones Inflación](https://www.bde.es/) |
-| **Aumento Bruto Mensual (14 pagas)** | 0 € | +179 €/mes | **+429 €/mes** | +250 €/mes adicionales de inmediato | [BOE Tablas Salariales](https://www.boe.es/) |
-| **Paga Única / Atrasos Retroactivos** | 0 € | 2.000 € (No consolidable) | **7.500 € (Atrasos netos/brutos)** | +5.500 € en compensación inicial | [Dossier Salarial Airbus](https://t.me/+MnuqJDCAAgYyMGQ0) |
+| **Salario Tablas Año 1 (Bruto)** | 50.000 € | 52.500 € | **56.000 €** | +3.500 €/año en tablas | [Propuesta SIMA 27/08](https://www.sima-fasp.net/) |
+| **Nómina Mensual Bruta (14 pagas)** | 3.571 €/mes | 3.750 €/mes (+179 €/m) | **4.000 €/mes (+429 €/m)** | **+250 €/mes brutos más** | [BOE Tablas Salariales](https://www.boe.es/) |
+| **Nómina Mensual Neta (14 pagas)** | 2.571 €/mes | 2.700 €/mes (+129 €/m) | **2.880 €/mes (+309 €/m)** | **+180 €/mes netos directos al bolsillo** | [Cálculo Fiscal IRPF/SS](https://www.agenciatributaria.es/) |
+| **Paga Única / Atrasos No Consolidables** | 0 € | 2.000 € (1.440 € netos) | **7.500 € (5.400 € netos)** | **+5.500 € brutos (+3.960 € netos)** | [Dossier Salarial Airbus](https://t.me/+MnuqJDCAAgYyMGQ0) |
+| **Aportación Plan Pensiones (+4,5% / 5,5%)**| 2.250 € | 2.363 € | **3.080 €** | +717 €/año en aportación futura | [Plan de Pensiones Airbus](https://www.boe.es/) |
+| **Compensación Teletrabajo (2 días/sem)** | 0 € | 0 € | **720 € netos/año** | +60 €/mes por gastos derivados | [Ley 10/2021 Teletrabajo](https://www.boe.es/) |
+| **Pérdida por Efecto Abril (Q1 Ene-Mar)** | 0 € | -625 € (-450 € netos) | **0 € (100% Blindado y Retroactivo)** | **+450 € netos recuperados** | [Auditoría Actuarial Dossier](https://www.ine.es/) |
+| **Beneficio Neto Total Año 1 (En Bolsillo)**| **0 €** | **+3.063 € netos** | **+12.504 € netos** | **+9.441 € netos de ganancia real** | [Simulador Financiero](https://www.sima-fasp.net/) |
+| **Salario Nominal Bruto Año 5 (2030)** | 50.000 € | 53.875 € | **65.512 €** | **+11.637 €/año en nómina** | [Modelo Econométrico Dossier v8](https://www.ine.es/) |
+| **Poder Compra Real Año 5 (IPC 2,5% - 3,0%)** | 43.070 € (-13,9%) | 46.408 € (**-7,2% de pérdida real**) | **59.435 € (+18,9% ganancia real)** | **+13.027 € de poder adquisitivo real** | [INE Simulador IPC](https://www.ine.es/) |
 
-**Conclusión Axiomática:** Cualquier oferta patronal con un porcentaje fijo sin cláusula de **Revisión Salarial Garantizada (RSG = IPC + 1,5% sin topes)** se convierte, por efecto de la inflación compuesta, en una **bajada encubierta de sueldo real a medio y largo plazo**.
+```
+┌──────────────────────────────────────────────────────────────────────────────────────────┐
+│                         DESGLOSE EXACTO DEL BENEFICIO NETO EN AÑO 1                      │
+├────────────────────────────────────────┬────────────────────────┬────────────────────────┤
+│ Concepto Económico Computado           │ Oferta Patronal (+5%)  │ Plataforma Comité (12%)│
+├────────────────────────────────────────┼────────────────────────┼────────────────────────┤
+│ 1. Subida Tablas Neta (12 meses x 72%) │ +1.800,00 €            │ +4.320,00 €            │
+│ 2. Ajuste Efecto Abril (Q1 perdido)    │   -450,00 €            │      0,00 € (Blindado) │
+│ 3. Paga Única / Atrasos Netos          │ +1.440,00 € (2.000 €)  │ +5.400,00 € (7.500 €)  │
+│ 4. Mejora Aportación Plan Pensiones    │   +112,50 €            │   +830,00 €            │
+│ 5. Mejora Plus Antigüedad (2 trienios) │   +160,00 €            │   +384,00 €            │
+│ 6. Compensación Teletrabajo Universal  │      0,00 €            │   +720,00 €            │
+│ 7. Devolución Bradford IT Estimada     │      0,00 €            │   +850,00 €            │
+├────────────────────────────────────────┼────────────────────────┼────────────────────────┤
+│ TOTAL BENEFICIO NETO EN EL BOLSILLO:   │ +3.062,50 € ≈ +3.063 € │ +12.504,00 €           │
+└────────────────────────────────────────┴────────────────────────┴────────────────────────┘
+```
 
+**Conclusión Axiomática:** La oferta de la empresa produce una ilusión de liquidez en el primer año gracias a la paga única ($+3.063\text{ \euro}$ netos), pero como no tiene Cláusula de Revisión Salarial Garantizada (RSG) y merma las tablas, a partir del segundo año la inflación devora el sueldo, generando una **pérdida neta del $-7,2\%$ en 5 años**. En contraste, la plataforma del Comité genera **$+12.504\text{ \euro}$ netos el primer año** y **$+18,9\%$ de ganancia de poder adquisitivo acumulada a 5 años**.
 ---
 
 ## 5. Mapa Social, Representación Sindical y Evolución Histórica (2010 - 2026)

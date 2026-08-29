@@ -561,12 +561,18 @@ function updateWageSimulation() {
   const amortizationMonths = netMonthlyGainInPocket > 0 ? (totalStrikeCost / netMonthlyGainInPocket) : 0.0;
   const gain5Years = ((unionBaseSalary - curSalary) * 5 * (1 - taxRate)) + (unionArrears * (1 - taxRate)) + ((unionPension - curPension) * 5) + ((unionSeniority - curSeniority) * 5) + (unionTelework * 5) + unionBradford - totalStrikeCost - activeUnionEaDeductionNet;
 
+  // Net Monthly Increases (14 payments, after IRPF + SS)
+  const coNetMonthlyIncrease = coMonthlyIncrease * (1 - taxRate);
+  const medNetMonthlyIncrease = medMonthlyIncrease * (1 - taxRate);
+  const unionNetMonthlyIncrease = unionMonthlyIncrease * (1 - taxRate);
+
   // Update Scenario 1 UI
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
   setText('scen-co-salary-5yr', `${Math.round(coNomYear5).toLocaleString()} €`);
   setText('scen-co-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-co-loss-badge', `${coRealLossPct.toFixed(1).replace('.', ',')}%`);
   setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-co-net-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
 
   // Update Scenario 2 UI
@@ -574,6 +580,7 @@ function updateWageSimulation() {
   setText('scen-med-salary-5yr', `${Math.round(medNomYear5).toLocaleString()} €`);
   setText('scen-med-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (+${medRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-med-net-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
 
   // Update Scenario 3 UI
@@ -582,8 +589,8 @@ function updateWageSimulation() {
   setText('scen-union-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-union-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
   setText('scen-union-monthly', `+${Math.round(unionMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('scen-union-net-monthly', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-union-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
-
   // Update Breakdown Table
   setText('tb-base-cur', `${Math.round(curSalary).toLocaleString()} €`);
   setText('tb-base-co', `${Math.round(coBaseSalary).toLocaleString()} €`);
@@ -595,6 +602,14 @@ function updateWageSimulation() {
   setText('tb-month-union', `${Math.round(unionBaseSalary / 14.0).toLocaleString()} €`);
   setText('tb-month-diff', `+${Math.round(unionMonthlyIncrease).toLocaleString()} €/mes`);
 
+  // Net Monthly Payroll (14 payments)
+  const curNetMonth = (curSalary / 14.0) * (1 - taxRate);
+  const coNetMonth = (coBaseSalary / 14.0) * (1 - taxRate);
+  const unionNetMonth = (unionBaseSalary / 14.0) * (1 - taxRate);
+  setText('tb-month-net-cur', `${Math.round(curNetMonth).toLocaleString()} €`);
+  setText('tb-month-net-co', `${Math.round(coNetMonth).toLocaleString()} €`);
+  setText('tb-month-net-union', `${Math.round(unionNetMonth).toLocaleString()} €`);
+  setText('tb-month-net-diff', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes netos`);
   setText('tb-pen-cur', `${Math.round(curPension).toLocaleString()} €`);
   setText('tb-pen-co', `${Math.round(coPension).toLocaleString()} €`);
   setText('tb-pen-union', `${Math.round(unionPension).toLocaleString()} €`);
@@ -626,6 +641,11 @@ function updateWageSimulation() {
   setText('tb-tot-co', `${Math.round(totalCoYear1).toLocaleString()} €`);
   setText('tb-tot-union', `${Math.round(totalUnionYear1).toLocaleString()} €`);
   setText('tb-tot-diff', `+${Math.round(totalUnionYear1 - totalCurYear1).toLocaleString()} €`);
+  // Net Total Benefit in Pocket
+  setText('tb-net-tot-cur', `0 €`);
+  setText('tb-net-tot-co', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
+  setText('tb-net-tot-union', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
+  setText('tb-net-tot-diff', `+${Math.round(unionNetTotalGain - coNetTotalGain).toLocaleString()} € más`);
 
   // 5-Year Inflation Projection Table Rows
   setText('tb-5yr-cur-nom', `${Math.round(curNomYear5).toLocaleString()} €`);

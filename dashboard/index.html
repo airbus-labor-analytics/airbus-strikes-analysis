@@ -1856,7 +1856,11 @@
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
-                    <strong class="text-rose-300 font-mono" id="scen-co-monthly">+178 €/mes</strong>
+                    <strong class="text-rose-300 font-mono" id="scen-co-monthly">+179 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400 font-medium text-rose-400/90">Aumento Neto / Mes (14p):</span>
+                    <strong class="text-rose-300 font-mono font-bold" id="scen-co-net-monthly">+129 €/mes</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Garantía IPC Real:</span>
@@ -1902,6 +1906,10 @@
                     <strong class="text-blue-300 font-mono" id="scen-med-monthly">+339 €/mes</strong>
                   </div>
                   <div class="flex justify-between">
+                    <span class="text-slate-400 font-medium text-blue-400/90">Aumento Neto / Mes (14p):</span>
+                    <strong class="text-blue-300 font-mono font-bold" id="scen-med-net-monthly">+244 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
                     <span class="text-slate-400">Garantía IPC Real:</span>
                     <strong class="text-blue-400 font-bold">100% IPC anual</strong>
                   </div>
@@ -1943,6 +1951,10 @@
                   <div class="flex justify-between">
                     <span class="text-slate-400">Aumento Bruto / Mes (14p):</span>
                     <strong class="text-emerald-300 font-mono font-bold" id="scen-union-monthly">+428 €/mes</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400 font-medium text-emerald-400/90">Aumento Neto / Mes (14p):</span>
+                    <strong class="text-emerald-300 font-mono font-black" id="scen-union-net-monthly">+308 €/mes</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Garantía IPC Real:</span>
@@ -1993,6 +2005,16 @@
                       <td class="p-2.5 text-right text-rose-300" id="tb-month-co">3.750 €</td>
                       <td class="p-2.5 text-right text-emerald-400 font-bold" id="tb-month-union">4.000 €</td>
                       <td class="p-2.5 text-right text-emerald-300 font-bold" id="tb-month-diff">+428 €/mes</td>
+                    </tr>
+                    <tr class="bg-slate-900/80">
+                      <td class="p-2.5 font-sans font-medium text-sky-300 flex items-center">
+                        <i data-lucide="wallet" class="w-3.5 h-3.5 mr-1.5 text-sky-400"></i>
+                        Nómina Mensual Neta (14 pagas / IRPF+SS)
+                      </td>
+                      <td class="p-2.5 text-right text-slate-400" id="tb-month-net-cur">2.571 €</td>
+                      <td class="p-2.5 text-right text-rose-300 font-semibold" id="tb-month-net-co">2.700 €</td>
+                      <td class="p-2.5 text-right text-emerald-400 font-bold" id="tb-month-net-union">2.880 €</td>
+                      <td class="p-2.5 text-right text-emerald-300 font-bold" id="tb-month-net-diff">+308 €/mes netos</td>
                     </tr>
                     <tr>
                       <td class="p-2.5 font-sans font-medium text-slate-200">Aportación Plan Pensiones</td>
@@ -2045,6 +2067,16 @@
                       <td class="p-2.5 text-right text-rose-400" id="tb-tot-co">58.752 €</td>
                       <td class="p-2.5 text-right text-emerald-400 text-xs sm:text-sm font-black" id="tb-tot-union">70.166 €</td>
                       <td class="p-2.5 text-right text-emerald-300 text-xs sm:text-sm font-black" id="tb-tot-diff">+11.414 €</td>
+                    </tr>
+                    <tr class="bg-slate-950/90 font-bold border-t border-slate-700/80">
+                      <td class="p-2.5 font-sans text-emerald-400 font-bold flex items-center">
+                        <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i>
+                        BENEFICIO NETO TOTAL AÑO 1 (De Bolsillo)
+                      </td>
+                      <td class="p-2.5 text-right text-slate-400" id="tb-net-tot-cur">0 €</td>
+                      <td class="p-2.5 text-right text-rose-300 font-bold" id="tb-net-tot-co">+3.063 €</td>
+                      <td class="p-2.5 text-right text-emerald-400 text-xs sm:text-sm font-black" id="tb-net-tot-union">+10.250 €</td>
+                      <td class="p-2.5 text-right text-emerald-300 text-xs sm:text-sm font-black" id="tb-net-tot-diff">+7.187 € más</td>
                     </tr>
                     <!-- 5-Year Inflation Impact Rows -->
                     <tr class="bg-slate-950/70 border-t border-slate-800 text-[10.5px]">
