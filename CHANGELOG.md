@@ -2,6 +2,18 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [003-simplify-dashboard-patch1] - 2026-08-31
+
+### Added
+- **Constitution Principle VI**: *Viewport & Canvas Lifecycle Management* requiring `scrollTop = 0` and `.resize()` handlers.
+- Static HTML DOM hierarchy & tag balancer in `src/validate_sources.py`.
+- Dedicated UI & lifecycle integration test suite (`tests/test_dashboard_ui.py`) bringing suite to 25 tests.
+
+### Fixed
+- Repaired DOM hierarchy mismatch in Module 3 (`tab-purchasing-power`) restoring full-width `wagesChart` rendering.
+- Resolved scroll retention on tab switch by resetting `mainContainer.scrollTop = 0`.
+- Fixed Chart.js canvas resize glitch on tab transitions.
+
 ## [003-simplify-dashboard] - 2026-08-31
 
 ### Added
