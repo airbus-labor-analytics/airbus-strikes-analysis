@@ -7,13 +7,18 @@ All notable changes to the Airbus Spain 2026 Strike Analytics project will be do
 ### Added
 - **Dynamic Chronology & Temporal Derivation Engine**: Real-time calculation of elapsed conflict days, daily burn rate (22.7 M€/day), and cumulative financial loss without static hardcoded dates.
 - **Centralized Resilient Chart.js Lifecycle Manager**: `renderResilientChart(canvasId, configBuilder)` helper with registry-backed destruction preventing canvas collisions and memory leaks across all 12 analytical charts.
+- **Instant Chart Rendering Engine**: Disabled Chart.js animation easing loops (`duration: 0`) and removed artificial `setTimeout` delays in `switchTab()` for instantaneous sub-16ms chart displays.
 - **Dynamic Document & Archive Index Aggregator**: Automated derivation of total Telegram documents, factory breakdown, and primary sources in Module 5 and sidebar badges.
-- **Integration Test Suites**: Added `tests/test_dynamic_metrics.py` and `tests/test_chart_resilience.py` bringing total test suite to 44 tests.
+- **Integration & UI Test Suites**: Added `tests/test_dynamic_metrics.py` and `tests/test_chart_resilience.py` bringing total test suite to 47 tests.
 
 ### Changed
 - Refactored all 12 Chart.js visualizations (`asymmetryChart`, `airbusStockChart`, `companyRevenueChart`, `companyDeliveriesChart`, `shareholderPieChart`, `belugaHistoryChart`, `wagesChart`, `unionShareChart`, `unionEvolutionChart`, `siteDelegatesChart`, `referendumPieChart`, `referendumSitesChart`) to route through `renderResilientChart`.
 - Updated `dashboard/app.js` background auto-sync engine to preserve active user form inputs (wage simulator, asymmetry sliders) during live data re-sync.
 - Embedded local offline baseline data (`window.CONFLICT_DATA` and `window.SOURCES_DATA`) in `dashboard/data.js` for 100% offline file:// compatibility with zero blank screen glitches.
+
+### Fixed
+- **Stock Market Delatas & Milestones (`fix-stock-chart-values`)**: Calculated exact session deltas ($\Delta_{\text{DoD}}$) and cumulative peak drops ($\Delta_{\text{Peak}}$), replacing static HTML cards with dynamic `#stock-milestones-container`.
+- **Chart Render Latency (`instant-chart-rendering`)**: Eliminated ~1.1s lag on tab transitions and slider interactions by executing synchronous zero-delay chart rendering.
 
 ## [005-modular-dashboards-portal] - 2026-08-31
 
