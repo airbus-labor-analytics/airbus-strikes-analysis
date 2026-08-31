@@ -160,5 +160,11 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn('id="stock-milestones-container"', self.html_content, "Missing #stock-milestones-container in index.html")
         self.assertIn("function renderStockMilestones(", self.app_js_content, "Missing renderStockMilestones() in app.js")
 
+    def test_instant_chart_rendering_configuration(self):
+        """Validates that Chart.js animations are disabled globally for instant rendering."""
+        self.assertIn("Chart.defaults.animation = false", self.app_js_content, "Missing Chart.defaults.animation = false in app.js")
+        self.assertIn("Chart.defaults.responsiveAnimationDuration = 0", self.app_js_content, "Missing Chart.defaults.responsiveAnimationDuration = 0 in app.js")
+        self.assertNotIn("setTimeout(() => {", self.app_js_content[self.app_js_content.find("function switchTab"):self.app_js_content.find("function switchTab") + 1500], "switchTab should not have artificial setTimeout delay")
+
 if __name__ == "__main__":
     unittest.main()

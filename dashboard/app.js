@@ -93,6 +93,15 @@ function updateDynamicChronologyDOM() {
 }
 
 // ==================== RESILIENT CHART LIFECYCLE ENGINE ====================
+// Disable animations globally for instantaneous, zero-latency rendering across all charts & updates
+if (typeof Chart !== 'undefined') {
+  Chart.defaults.animation = false;
+  Chart.defaults.responsiveAnimationDuration = 0;
+  if (Chart.defaults.transitions && Chart.defaults.transitions.active) {
+    Chart.defaults.transitions.active.animation = { duration: 0 };
+  }
+}
+
 function renderResilientChart(canvasId, configBuilder) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return null;
@@ -117,14 +126,21 @@ function renderResilientChart(canvasId, configBuilder) {
     }
   }
 
-  // 2. Build configuration with error boundary
+  // 2. Build configuration with error boundary and instant rendering
   try {
     if (typeof Chart === 'undefined') {
       console.warn('Chart.js library not loaded yet.');
       return null;
     }
+    // Ensure Chart defaults remain zero-delay
+    Chart.defaults.animation = false;
+    Chart.defaults.responsiveAnimationDuration = 0;
+
     const config = typeof configBuilder === 'function' ? configBuilder(ctx) : configBuilder;
     if (config) {
+      if (!config.options) config.options = {};
+      config.options.animation = false;
+      config.options.responsiveAnimationDuration = 0;
       const newChart = new Chart(ctx, config);
       chartRegistry[canvasId] = newChart;
       return newChart;
@@ -487,43 +503,41 @@ function switchTab(tabId) {
     }
   }
 
-  // Schedule chart initializations after DOM unhides
+  // Render active module charts immediately on next frame without artificial timeout
   requestAnimationFrame(() => {
-    setTimeout(() => {
-      if (normalizedTabId === 'tab-overview') {
-        initAsymmetryChart();
-        updateAsymmetrySimulation();
-        initAirbusStockChart();
-        initCompanyHealthCharts();
-      } else if (normalizedTabId === 'tab-industrial') {
-        initBelugaHistoryChart();
-        initThermometerAndBeluga();
-      } else if (normalizedTabId === 'tab-purchasing-power') {
-        initWagesChart();
-        updateWageSimulation();
-        initHistoricalLosses();
-        initNegotiationEvolution();
-      } else if (normalizedTabId === 'tab-union-force') {
-        initUnionCharts();
-        initTimeline();
-        initWorkflows();
-      } else if (normalizedTabId === 'tab-evidence') {
-        initSources();
-        initTelegramArchive();
-        initBenchmarks();
+    if (normalizedTabId === 'tab-overview') {
+      initAsymmetryChart();
+      updateAsymmetrySimulation();
+      initAirbusStockChart();
+      initCompanyHealthCharts();
+    } else if (normalizedTabId === 'tab-industrial') {
+      initBelugaHistoryChart();
+      initThermometerAndBeluga();
+    } else if (normalizedTabId === 'tab-purchasing-power') {
+      initWagesChart();
+      updateWageSimulation();
+      initHistoricalLosses();
+      initNegotiationEvolution();
+    } else if (normalizedTabId === 'tab-union-force') {
+      initUnionCharts();
+      initTimeline();
+      initWorkflows();
+    } else if (normalizedTabId === 'tab-evidence') {
+      initSources();
+      initTelegramArchive();
+      initBenchmarks();
+    }
+
+    // Ensure all active Chart.js instances perform a clean immediate resize
+    const activeCanvases = activeTab ? activeTab.querySelectorAll('canvas') : [];
+    activeCanvases.forEach(canvas => {
+      const chartInstance = typeof Chart !== 'undefined' && Chart.getChart ? Chart.getChart(canvas) : null;
+      if (chartInstance && typeof chartInstance.resize === 'function') {
+        chartInstance.resize();
       }
+    });
 
-      // Ensure all active Chart.js instances perform a clean resize
-      const activeCanvases = activeTab ? activeTab.querySelectorAll('canvas') : [];
-      activeCanvases.forEach(canvas => {
-        const chartInstance = Chart.getChart(canvas);
-        if (chartInstance && typeof chartInstance.resize === 'function') {
-          chartInstance.resize();
-        }
-      });
-
-      if (window.lucide) lucide.createIcons();
-    }, 60);
+    if (window.lucide) lucide.createIcons();
   });
 }
 // ==================== ASYMMETRY SIMULATOR ====================
@@ -1043,30 +1057,11 @@ function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500,
   const co_cum_nom_y4 = co_cum_nom_y3 + co_nom_y4;
   const co_cum_nom_y5 = co_cum_nom_y4 + co_nom_y5;
 
-  const co_cum_real_y1 = y0 + (co_nom_y1 / cumDeflator1);
-  const co_cum_real_y2 = co_cum_real_y1 + (co_nom_y2 / cumDeflator2);
-  const co_cum_real_y3 = co_cum_real_y2 + (co_nom_y3 / cumDeflator3);
-  const co_cum_real_y4 = co_cum_real_y3 + (co_nom_y4 / cumDeflator4);
-  const co_cum_real_y5 = co_cum_real_y4 + (co_nom_y5 / cumDeflator5);
-
-  // Union Platform (Nominal with compounding IPC + 1.5% RSG)
-  const un_nom_y1 = (union - unionEaDeduction) + unionArrears;
-  const un_nom_y2 = (union) * (1 + ipcRate + 0.015);
-  const un_nom_y3 = un_nom_y2 * (1 + ipcRate + 0.015);
-  const un_nom_y4 = un_nom_y3 * (1 + ipcRate + 0.015);
-  const un_nom_y5 = un_nom_y4 * (1 + ipcRate + 0.015);
-
-  const un_cum_nom_y1 = y0 + un_nom_y1;
-  const un_cum_nom_y2 = un_cum_nom_y1 + un_nom_y2;
-  const un_cum_nom_y3 = un_cum_nom_y2 + un_nom_y3;
-  const un_cum_nom_y4 = un_cum_nom_y3 + un_nom_y4;
-  const un_cum_nom_y5 = un_cum_nom_y4 + un_nom_y5;
-
   wagesChart.data.datasets[0].data = [y0, Math.round(un_cum_nom_y1), Math.round(un_cum_nom_y2), Math.round(un_cum_nom_y3), Math.round(un_cum_nom_y4), Math.round(un_cum_nom_y5)];
   wagesChart.data.datasets[1].data = [y0, Math.round(co_cum_nom_y1), Math.round(co_cum_nom_y2), Math.round(co_cum_nom_y3), Math.round(co_cum_nom_y4), Math.round(co_cum_nom_y5)];
   wagesChart.data.datasets[2].data = [y0, Math.round(co_cum_real_y1), Math.round(co_cum_real_y2), Math.round(co_cum_real_y3), Math.round(co_cum_real_y4), Math.round(co_cum_real_y5)];
   wagesChart.data.datasets[3].data = [y0, Math.round(base_cum_real_y1), Math.round(base_cum_real_y2), Math.round(base_cum_real_y3), Math.round(base_cum_real_y4), Math.round(base_cum_real_y5)];
-  wagesChart.update();
+  wagesChart.update('none');
 }
 
 // ==================== STOCK MARKET & SHARE PRICE CHART ====================
