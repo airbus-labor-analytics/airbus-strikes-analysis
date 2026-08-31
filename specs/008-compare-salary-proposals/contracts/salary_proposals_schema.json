@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SalaryProposalsComparisonSchema",
+  "type": "object",
+  "required": [
+    "proposals",
+    "comparison_matrix",
+    "projections"
+  ],
+  "properties": {
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "proposer",
+          "date_presented",
+          "initial_increase_pct",
+          "arrears_lump_sum_eur",
+          "rsg_formula"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "proposer": { "type": "string" },
+          "date_presented": { "type": "string" },
+          "status": { "type": "string" },
+          "initial_increase_pct": { "type": "number" },
+          "consolidation_date": { "type": "string" },
+          "arrears_lump_sum_eur": { "type": "number" },
+          "rsg_formula": { "type": "string" },
+          "rsg_cap_pct": { "type": ["number", "null"] },
+          "duration_years": { "type": "integer" },
+          "source_ref": { "type": "string" }
+        }
+      }
+    },
+    "comparison_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dimension_id",
+          "topic",
+          "category",
+          "company_offer",
+          "cgt_offer",
+          "strike_committee_offer",
+          "key_difference"
+        ],
+        "properties": {
+          "dimension_id": { "type": "string" },
+          "topic": { "type": "string" },
+          "category": { "type": "string" },
+          "company_offer": { "type": "string" },
+          "cgt_offer": { "type": "string" },
+          "strike_committee_offer": { "type": "string" },
+          "key_difference": { "type": "string" },
+          "source_citation": { "type": "string" }
+        }
+      }
+    },
+    "projections": {
+      "type": "object",
+      "required": [
+        "base_salary",
+        "cpi_rate",
+        "years",
+        "company",
+        "cgt",
+        "strike_committee"
+      ],
+      "properties": {
+        "base_salary": { "type": "number" },
+        "cpi_rate": { "type": "number" },
+        "years": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "company": { "$ref": "#/definitions/ProposalProjection" },
+        "cgt": { "$ref": "#/definitions/ProposalProjection" },
+        "strike_committee": { "$ref": "#/definitions/ProposalProjection" }
+      }
+    }
+  },
+  "definitions": {
+    "ProposalProjection": {
+      "type": "object",
+      "required": [
+        "yearly_nominal_wages",
+        "yearly_real_wages",
+        "cumulative_nominal",
+        "cumulative_real",
+        "total_5yr_nominal",
+        "total_5yr_real"
+      ],
+      "properties": {
+        "yearly_nominal_wages": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "yearly_real_wages": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "cumulative_nominal": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "cumulative_real": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "total_5yr_nominal": { "type": "number" },
+        "total_5yr_real": { "type": "number" }
+      }
+    }
+  }
+}
