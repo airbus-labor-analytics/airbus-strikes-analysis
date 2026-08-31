@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DynamicChronologyContract",
+  "description": "Validation contract for dynamic strike duration and cumulative cost metrics",
+  "type": "object",
+  "required": [
+    "start_timestamp",
+    "elapsed_days",
+    "elapsed_hours",
+    "daily_rate",
+    "cumulative_cost"
+  ],
+  "properties": {
+    "start_timestamp": { "type": "string" },
+    "elapsed_days": { "type": "integer", "minimum": 1 },
+    "elapsed_hours": { "type": "number", "minimum": 0 },
+    "daily_rate": { "type": "number", "const": 22.7 },
+    "cumulative_cost": { "type": "number", "minimum": 0 }
+  }
+}
