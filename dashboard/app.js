@@ -1936,6 +1936,10 @@ function initHistoricalLosses() {
 }
 
 // ==================== NEGOTIATION EVOLUTION & GAP ANALYSIS ====================
+function renderSensitiveBadge(tooltip = "Información provisional en revisión / negociación activa") {
+  return `<span class="badge-sensitive" title="${escapeHTML(tooltip)}"><i data-lucide="alert-triangle" class="w-3 h-3 text-amber-400"></i> [WARN] Información Sensible en Revisión</span>`;
+}
+
 function initNegotiationEvolution() {
   const evo = conflictData?.negotiation_evolution;
   if (!evo) return;
@@ -2007,6 +2011,40 @@ function initNegotiationEvolution() {
         </tr>
       `;
     }).join('');
+  }
+
+  // 4. Render 11-Point Strike Committee Platform
+  const committeeGrid = document.getElementById('committee-11points-grid');
+  const platformPoints = conflictData?.negotiation?.committee_11_points_summary?.points || [
+    { num: 1, title: "Desistimiento Recurso TS sobre IT", description: "Compromiso de no retirada del complemento IT y devolución de cantidades descontadas en octubre 2026." },
+    { num: 2, title: "Recuperación Poder Adquisitivo", description: "Paga 7500€ no consolidable, subida del 12% a tablas desde 1-ene-2026 e IPC+1.5% anual en 2026/2027." },
+    { num: 3, title: "Teletrabajo Universal", description: "Mínimo 40% de jornada trimestral vinculante con reversibilidad exclusiva por el trabajador." },
+    { num: 4, title: "Vacaciones Flexibles", description: "Mantenimiento de 2 semanas de cierre completo y 2 semanas en días sueltos flexibles." },
+    { num: 5, title: "Comedor Universal Gratuito", description: "Acceso gratuito sin copagos para todos los turnos y centros de Airbus España." },
+    { num: 6, title: "Transporte Colectivo", description: "Mantenimiento íntegro de rutas, frecuencias y presupuesto adicional para nuevas paradas." },
+    { num: 7, title: "Flexibilidad Horaria Taller", description: "Extensión de 1 hora de flexibilidad de entrada y salida a personal de taller." },
+    { num: 8, title: "Garantías Proyecto Bromo", description: "Subrogación bajo art. 44.1 ET, movilidad prioritaria en Airbus y renuncia a despidos." },
+    { num: 9, title: "Carga de Trabajo Airbus Cádiz", description: "Plan 2026 vinculante de dotación de carga de trabajo y garantía de plantilla mínima." },
+    { num: 10, title: "Catálogo de Puestos (LMA, 5R)", description: "Inclusión formal en catálogo tipo de LMA, rodadores y puestos GP3-5R con complementos." },
+    { num: 11, title: "Compensación Huelga", description: "Compensación económica extraordinaria del 100% de los días de huelga de 2026." }
+  ];
+
+  if (committeeGrid && platformPoints) {
+    committeeGrid.innerHTML = platformPoints.map(p => `
+      <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-emerald-500/30 transition">
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-black text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Punto ${p.num}</span>
+            <span class="text-xs font-bold text-slate-200">${escapeHTML(p.title)}</span>
+          </div>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">${escapeHTML(p.description)}</p>
+        </div>
+        <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex justify-between items-center text-[10px] text-slate-500">
+          <span class="text-amber-400/90 font-medium">SIMA 27/08/2026</span>
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+        </div>
+      </div>
+    `).join('');
   }
   // 4. Render Point-by-Point Offer Breakdown with Expandable Explanations
   initDetailedOffers();

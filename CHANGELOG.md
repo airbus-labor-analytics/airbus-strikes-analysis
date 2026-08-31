@@ -2,6 +2,20 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [006-sync-strike-data-updates] - 2026-08-31
+
+### Added
+- **Interactive Validation Gate**: Autonomous manifest generator in `src/parsers/telegram_parser.py` parsing SIMA filings, 11-point platforms, and assembly resolutions.
+- Ingestion review CLI in `src/data_ingestion.py` (`--interactive-review`, `--apply-all`) with itemized Markdown diff table and atomic commit.
+- Sensitive information badging: high-contrast Amber badge CSS tokens (`.badge-sensitive`) and tooltip helpers in `dashboard/index.html` and `dashboard/app.js`.
+- Dynamic 11-Point Strike Committee Platform section in the Purchasing Power & Negotiation dashboard tab.
+- Comprehensive unit tests in `tests/test_data_ingestion.py` and `tests/test_dashboard_ui.py` bringing total suite to 31 tests.
+
+### Changed
+- Synchronized canonical datasets (`data/conflict_metrics.json`, `dashboard/data.js`, `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md`) with latest SIMA 27/08 terms (7,500 € lump-sum, 12% retroactive table increase, IPC+1.5%).
+- Extended `AtomicTransaction` in `src/atomic_writer.py` with Python context manager protocol (`__enter__` / `__exit__`).
+- Enhanced `src/parsers/config_loader.py` with polymorphic `get_source_by_id` and environment overrides.
+
 ## [003-simplify-dashboard-patch1] - 2026-08-31
 
 ### Added

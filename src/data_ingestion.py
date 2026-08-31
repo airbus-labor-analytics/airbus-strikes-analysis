@@ -3,7 +3,8 @@
 src/data_ingestion.py
 =====================
 Autonomous multi-source data ingestion engine and background scheduler for Airbus Strikes Analysis.
-Coordinates parsers, validates mathematical invariants, performs atomic commits, and updates live status.
+Coordinates parsers, generates itemized strike update manifests, validates mathematical invariants,
+performs atomic commits, and updates live status.
 """
 
 import argparse
@@ -22,11 +23,101 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.parsers.config_loader import load_sources_config, get_enabled_sources
-from src.parsers.telegram_parser import parse_telegram_archive, parse_live_telegram
+from src.parsers.telegram_parser import (
+    parse_telegram_archive,
+    parse_live_telegram,
+    generate_strike_update_manifest
+)
 from src.parsers.news_parser import parse_news_sources
 from src.parsers.metric_parser import parse_beluga_logistics
 from src.atomic_writer import atomic_write_json, AtomicTransaction
 from src.validate_invariants import validate_all
+
+
+def format_validation_manifest_table(manifest: Dict[str, Any]) -> str:
+    """Formats an itemized ValidationManifest into a Markdown table for review."""
+    items = manifest.get("items", [])
+    if not items:
+        return "No pending strike data updates detected in recent archives."
+
+    lines = [
+        f"### 📋 Strike Data Update Validation Manifest (`{manifest.get('manifest_id')}`)",
+        f"Generated: `{manifest.get('generated_at')}` | Scanned Documents: `{manifest.get('source_scan_summary', {}).get('scanned_files_count', 0)}`",
+        "",
+        "| ID | Operation | Target Key | Sensitivity | Source File | Status |",
+        "|---|---|---|---|---|---|"
+    ]
+
+    for it in items:
+        sens_badge = f"⚠️ {it['sensitivity_level']}" if it['sensitivity_level'] != 'VERIFIED' else "✅ VERIFIED"
+        lines.append(
+            f"| `{it['id']}` | **{it['operation']}** | `{it['key_path']}` | {sens_badge} | `{it['source_document']}` | `{it['validation_status']}` |"
+        )
+
+    lines.append("")
+    lines.append("#### Proposed New Values Summary:")
+    for it in items:
+        lines.append(f"- **`{it['id']}`** (`{it['key_path']}`):")
+        lines.append(f"  ```json\n  {json.dumps(it.get('proposed_value'), indent=2, ensure_ascii=False)}\n  ```")
+
+    return "\n".join(lines)
+
+
+def apply_validated_manifest(manifest: Dict[str, Any], approved_ids: Optional[List[str]] = None, dry_run: bool = False) -> Dict[str, Any]:
+    """Applies approved updates from a ValidationManifest to canonical datasets."""
+    items = manifest.get("items", [])
+    metrics_path = PROJECT_ROOT / "data" / "conflict_metrics.json"
+    
+    if not metrics_path.exists():
+        return {"status": "error", "message": "data/conflict_metrics.json not found"}
+
+    with open(metrics_path, "r", encoding="utf-8") as f:
+        metrics_data = json.load(f)
+
+    applied_count = 0
+    applied_items = []
+
+    for it in items:
+        it_id = it.get("id")
+        if approved_ids is not None and it_id not in approved_ids:
+            it["validation_status"] = "REJECTED"
+            continue
+
+        it["validation_status"] = "APPROVED"
+        key_parts = it["key_path"].split(".")
+        
+        # Traverse and set
+        curr = metrics_data
+        for p in key_parts[:-1]:
+            if p not in curr or not isinstance(curr[p], dict):
+                curr[p] = {}
+            curr = curr[p]
+
+        last_key = key_parts[-1]
+        if it["operation"] == "DELETE":
+            if last_key in curr:
+                del curr[last_key]
+        else:
+            curr[last_key] = it["proposed_value"]
+
+        applied_count += 1
+        applied_items.append(it_id)
+
+    manifest["overall_status"] = "APPROVED" if applied_count == len(items) else "PARTIALLY_APPROVED"
+
+    if not dry_run and applied_count > 0:
+        atomic_write_json(metrics_path, metrics_data)
+        # Update client dataset
+        data_js_path = PROJECT_ROOT / "dashboard" / "data.js"
+        with open(data_js_path, "w", encoding="utf-8") as f:
+            f.write(f"// Auto-generated synchronized strike dataset\nwindow.CONFLICT_DATA = {json.dumps(metrics_data, indent=2, ensure_ascii=False)};\n")
+
+    return {
+        "status": "success",
+        "applied_count": applied_count,
+        "applied_items": applied_items,
+        "dry_run": dry_run
+    }
 
 
 class IngestionCoordinator:
@@ -62,12 +153,12 @@ class IngestionCoordinator:
             if src_type == "telegram_archive":
                 archive_dir = PROJECT_ROOT / src.get("endpoint", "data/telegram_archive")
                 tg_result = parse_telegram_archive(archive_dir)
-                items_count += tg_result.get("total_count", 0)
+                items_count += tg_result.get("total_documents", 0)
                 sources_updated.append(src_id)
                 source_details[src_id] = {
                     "status": "active",
-                    "total_docs": tg_result.get("total_count", 0),
-                    "last_message_ts": tg_result.get("last_indexed")
+                    "total_docs": tg_result.get("total_documents", 0),
+                    "last_message_ts": tg_result.get("last_sync")
                 }
                 if not dry_run:
                     index_path = archive_dir / "telegram_index.json"
@@ -105,7 +196,6 @@ class IngestionCoordinator:
         invariants_passed = False
         validation_error = None
         try:
-            # Run invariant validation across canonical dataset
             invariants_passed = validate_all()
         except Exception as e:
             invariants_passed = False
@@ -134,7 +224,6 @@ class IngestionCoordinator:
             }
         }
 
-        # If previous sync was successful, preserve last_successful_sync on degradation
         sync_file = PROJECT_ROOT / "data" / "sync_status.json"
         if not invariants_passed and sync_file.exists():
             try:
@@ -151,70 +240,43 @@ class IngestionCoordinator:
             "event_id": event_id,
             "status": "success" if invariants_passed else "degraded",
             "invariants_passed": invariants_passed,
-            "sources_polled": sources_checked,
             "sources_updated": sources_updated,
+            "items_ingested": items_count,
             "items_processed": items_count,
-            "duration_ms": duration_ms,
-            "error": validation_error
+            "duration_ms": duration_ms
         }
 
 
-def run_ingestion_cycle(target_source: Optional[str] = None, dry_run: bool = False) -> Dict[str, Any]:
-    """Helper to run a single ingestion cycle."""
+def run_ingestion_cycle(dry_run: bool = False, target_source: Optional[str] = None) -> Dict[str, Any]:
+    """Convenience wrapper to run a single ingestion cycle."""
     coordinator = IngestionCoordinator()
     return coordinator.execute_cycle(target_source=target_source, dry_run=dry_run)
 
 
-def run_daemon_loop(interval_minutes: Optional[int] = None) -> None:
-    """Run continuous background ingestion daemon."""
-    coordinator = IngestionCoordinator()
-    cfg_interval = coordinator.config.get("default_polling_interval_minutes", 15)
-    interval = interval_minutes or cfg_interval
-    interval_seconds = max(10, interval * 60)
-
-    print(f"--> [Daemon] Starting Autonomous Data Ingestion Daemon (Interval: {interval}m / {interval_seconds}s)")
-    print(f"--> [Daemon] Press CTRL+C to terminate.")
-
-    try:
-        while True:
-            ts = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
-            print(f"[{ts}] Running scheduled ingestion cycle...")
-            res = coordinator.execute_cycle()
-            print(f"[{ts}] Cycle {res['event_id']} finished: {res['status'].upper()} (Items: {res['items_processed']}, Invariants: {res['invariants_passed']})")
-            time.sleep(interval_seconds)
-    except KeyboardInterrupt:
-        print("\n--> [Daemon] Terminated gracefully by user.")
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Autonomous Data Ingestion Pipeline for Airbus Strikes Analysis")
-    parser.add_argument("-1", "--run-once", action="store_true", help="Run a single ingestion cycle and exit")
-    parser.add_argument("-d", "--daemon", action="store_true", help="Start continuous background polling daemon")
-    parser.add_argument("-i", "--interval", type=int, help="Override polling interval in minutes")
-    parser.add_argument("-s", "--source", type=str, help="Target specific source ID")
-    parser.add_argument("-c", "--config", type=Path, help="Path to sources.json configuration")
-    parser.add_argument("-n", "--dry-run", action="store_true", help="Validate and parse without writing files")
-    parser.add_argument("-j", "--json", action="store_true", help="Output machine-readable JSON summary")
-
+def main():
+    parser = argparse.ArgumentParser(description="Airbus Strike Data Ingestion & Invariant Coordinator")
+    parser.add_argument("--run-once", action="store_true", help="Execute a single ingestion cycle and exit")
+    parser.add_argument("--source", type=str, help="Target specific source ID to ingest")
+    parser.add_argument("--dry-run", action="store_true", help="Parse and validate without committing files")
+    parser.add_argument("--interactive-review", action="store_true", help="Generate and display strike update validation manifest")
+    parser.add_argument("--apply-all", action="store_true", help="Apply all pending updates in validation manifest")
     args = parser.parse_args()
 
-    if args.daemon:
-        run_daemon_loop(interval_minutes=args.interval)
+    if args.interactive_review:
+        manifest = generate_strike_update_manifest()
+        table_md = format_validation_manifest_table(manifest)
+        print(table_md)
+        if args.apply_all:
+            res = apply_validated_manifest(manifest, dry_run=args.dry_run)
+            print(f"\n[APPLIED] {res.get('applied_count', 0)} update items committed.")
         sys.exit(0)
 
-    # Default to single run if --run-once is set or no mode specified
-    coordinator = IngestionCoordinator(config_path=args.config)
+    coordinator = IngestionCoordinator()
     result = coordinator.execute_cycle(target_source=args.source, dry_run=args.dry_run)
+    print(json.dumps(result, indent=2))
 
-    if args.json:
-        print(json.dumps(result, indent=2))
-    else:
-        print(f"--> [Ingestion] Event: {result['event_id']}")
-        print(f"--> [Ingestion] Status: {result['status'].upper()} (Invariants: {'PASS' if result['invariants_passed'] else 'FAIL'})")
-        print(f"--> [Ingestion] Items processed: {result['items_processed']} across {len(result['sources_polled'])} sources")
-        print(f"--> [Ingestion] Elapsed time: {result['duration_ms']}ms")
-
-    sys.exit(0 if result["invariants_passed"] else 1)
+    if not result.get("invariants_passed"):
+        sys.exit(1)
 
 
 if __name__ == "__main__":

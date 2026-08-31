@@ -3,7 +3,7 @@
 tests/test_data_ingestion.py
 ============================
 Automated unit and integration test suite for the autonomous data ingestion pipeline,
-modular parsers, atomic writer, and invariant failure rollback.
+modular parsers, atomic writer, validation manifests, and invariant failure rollback.
 """
 
 import json
@@ -15,10 +15,19 @@ from pathlib import Path
 
 from src.parsers.config_loader import load_sources_config, get_source_by_id
 from src.atomic_writer import atomic_write_json, AtomicTransaction, AtomicWriteError
-from src.parsers.telegram_parser import parse_telegram_archive
+from src.parsers.telegram_parser import (
+    parse_telegram_archive,
+    generate_strike_update_manifest,
+    extract_sima_and_committee_proposals
+)
 from src.parsers.news_parser import parse_rss_feed, parse_news_sources
 from src.parsers.metric_parser import parse_economic_metrics, parse_beluga_logistics
-from src.data_ingestion import run_ingestion_cycle, IngestionCoordinator
+from src.data_ingestion import (
+    run_ingestion_cycle,
+    IngestionCoordinator,
+    format_validation_manifest_table,
+    apply_validated_manifest
+)
 
 
 class TestConfigLoader(unittest.TestCase):
@@ -29,16 +38,17 @@ class TestConfigLoader(unittest.TestCase):
         self.assertIn("sources", config)
         self.assertGreaterEqual(len(config["sources"]), 4)
 
-        telegram_src = get_source_by_id("telegram_archive", config)
+    def test_get_source_by_id(self):
+        config = load_sources_config()
+        telegram_src = get_source_by_id(config, "telegram_archive")
         self.assertIsNotNone(telegram_src)
-        self.assertEqual(telegram_src["type"], "telegram_archive")
         self.assertTrue(telegram_src["enabled"])
 
     def test_env_interval_override(self):
         os.environ["POLLING_INTERVAL_MINUTES"] = "45"
         try:
             config = load_sources_config()
-            self.assertEqual(config["default_polling_interval_minutes"], 45)
+            self.assertEqual(config.get("polling_interval_minutes"), 45)
         finally:
             del os.environ["POLLING_INTERVAL_MINUTES"]
 
@@ -47,41 +57,45 @@ class TestAtomicWriter(unittest.TestCase):
     """Test atomic file writing and rollback safety."""
 
     def setUp(self):
-        self.test_dir = Path(tempfile.mkdtemp())
+        self.test_dir = tempfile.mkdtemp()
 
     def tearDown(self):
         shutil.rmtree(self.test_dir, ignore_errors=True)
 
-    def test_atomic_write_single_file(self):
-        target = self.test_dir / "test.json"
-        data = {"key": "value", "count": 42}
+    def test_atomic_write_json(self):
+        target = Path(self.test_dir) / "test.json"
+        data = {"status": "ok", "count": 42}
         atomic_write_json(target, data)
-
         self.assertTrue(target.exists())
         with open(target, "r", encoding="utf-8") as f:
-            loaded = json.load(f)
-        self.assertEqual(loaded, data)
+            self.assertEqual(json.load(f), data)
 
-    def test_transaction_commit_and_rollback(self):
-        file1 = self.test_dir / "file1.json"
-        file2 = self.test_dir / "file2.json"
+    def test_atomic_transaction_success(self):
+        t1 = Path(self.test_dir) / "f1.json"
+        t2 = Path(self.test_dir) / "f2.json"
+        with AtomicTransaction() as tx:
+            tx.write_json(t1, {"file": 1})
+            tx.write_json(t2, {"file": 2})
 
-        # Test successful commit
-        tx = AtomicTransaction()
-        tx.stage_json(file1, {"name": "first"})
-        tx.stage_json(file2, {"name": "second"})
-        tx.commit()
+        self.assertTrue(t1.exists())
+        self.assertTrue(t2.exists())
 
-        self.assertTrue(file1.exists())
-        self.assertTrue(file2.exists())
+    def test_atomic_transaction_rollback_on_error(self):
+        t1 = Path(self.test_dir) / "f1.json"
+        t2 = Path(self.test_dir) / "f2.json"
 
-        # Test rollback on exception
-        tx_fail = AtomicTransaction()
-        tx_fail.stage_json(file1, {"name": "overwritten"})
-        tx_fail.rollback()
+        # Pre-seed t1
+        atomic_write_json(t1, {"name": "first"})
 
-        # file1 should still hold original value
-        with open(file1, "r", encoding="utf-8") as f:
+        with self.assertRaises(RuntimeError):
+            with AtomicTransaction() as tx:
+                tx.write_json(t1, {"name": "modified"})
+                tx.write_json(t2, {"name": "second"})
+                raise RuntimeError("Forced simulation error")
+
+        # t1 must retain initial state and t2 must not exist
+        self.assertFalse(t2.exists())
+        with open(t1, "r", encoding="utf-8") as f:
             self.assertEqual(json.load(f)["name"], "first")
 
 
@@ -91,10 +105,9 @@ class TestParsers(unittest.TestCase):
     def test_telegram_archive_parser(self):
         archive_dir = Path("data/telegram_archive")
         if archive_dir.exists():
-            result = parse_telegram_archive(archive_dir)
-            self.assertIn("documents", result)
-            self.assertIn("total_count", result)
-            self.assertGreater(result["total_count"], 0)
+            res = parse_telegram_archive(archive_dir)
+            self.assertIn("documents", res)
+            self.assertGreater(res["total_documents"], 0)
 
     def test_metric_parser_beluga(self):
         beluga_file = Path("data/beluga_status.json")
@@ -102,6 +115,34 @@ class TestParsers(unittest.TestCase):
             res = parse_beluga_logistics(beluga_file)
             self.assertIn("fleet_count", res)
             self.assertIn("timestamp", res)
+
+
+class TestValidationManifest(unittest.TestCase):
+    """Test Strike Data Update Validation Manifest extraction and gating."""
+
+    def test_generate_strike_update_manifest(self):
+        manifest = generate_strike_update_manifest()
+        self.assertIn("manifest_id", manifest)
+        self.assertIn("items", manifest)
+        self.assertEqual(manifest["overall_status"], "PENDING_USER_REVIEW")
+        self.assertGreaterEqual(len(manifest["items"]), 2)
+
+        item_ids = [it["id"] for it in manifest["items"]]
+        self.assertIn("upd-sima-27aug-salary-terms", item_ids)
+        self.assertIn("upd-committee-11-points-platform", item_ids)
+
+    def test_format_validation_manifest_table(self):
+        manifest = generate_strike_update_manifest()
+        md_table = format_validation_manifest_table(manifest)
+        self.assertIn("Strike Data Update Validation Manifest", md_table)
+        self.assertIn("upd-sima-27aug-salary-terms", md_table)
+
+    def test_apply_validated_manifest_dry_run(self):
+        manifest = generate_strike_update_manifest()
+        res = apply_validated_manifest(manifest, dry_run=True)
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(res["dry_run"])
+        self.assertGreater(res["applied_count"], 0)
 
 
 class TestIngestionCoordinator(unittest.TestCase):

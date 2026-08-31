@@ -51,6 +51,18 @@
       background: rgba(51, 65, 85, 0.8);
       border-radius: 3px;
     }
+    .badge-sensitive {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.125rem 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      background-color: rgba(245, 158, 11, 0.15);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 0.375rem;
+    }
   </style>
 </head>
 <body class="h-full flex flex-col bg-slate-950 antialiased overflow-hidden">
@@ -1610,6 +1622,23 @@
                   <!-- Dynamically populated from negotiation_evolution.current_gap_analysis -->
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          <!-- Sub-Section 4: 11-Point Strike Committee Platform (SIMA 27/08/2026) -->
+          <div class="mt-8 space-y-3 border-t border-slate-800 pt-6">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+              <h3 class="text-sm font-bold text-white flex items-center">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
+                4. Plataforma Unificada de 11 Puntos del Comité de Huelga (27 de Agosto de 2026)
+              </h3>
+              <span class="badge-sensitive" title="Información provisional de mediación en el SIMA pendiente de ratificación en asamblea soberana">
+                <i data-lucide="alert-triangle" class="w-3 h-3 text-amber-400"></i> [WARN] Información Sensible en Revisión / Negociación Activa
+              </span>
+            </div>
+            <p class="text-xs text-slate-400">Plataforma formal presentada en la sede del SIMA durante la mediación del 27/08/2026. <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[10px]">[Fuente: Documento Comité de Huelga]</a></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-3" id="committee-11points-grid">
+              <!-- Dynamically populated from negotiation.committee_11_points_summary -->
             </div>
           </div>
 

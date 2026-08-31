@@ -8,7 +8,7 @@ Loads and validates data sources configuration with environment variable overrid
 import json
 import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "sources.json"
@@ -41,7 +41,9 @@ def load_sources_config(config_path: Optional[Path] = None) -> Dict[str, Any]:
     # Apply global interval override if present in environment
     if "POLLING_INTERVAL_MINUTES" in os.environ:
         try:
-            config["default_polling_interval_minutes"] = int(os.environ["POLLING_INTERVAL_MINUTES"])
+            val = int(os.environ["POLLING_INTERVAL_MINUTES"])
+            config["default_polling_interval_minutes"] = val
+            config["polling_interval_minutes"] = val
         except ValueError:
             pass
 
@@ -64,9 +66,21 @@ def load_sources_config(config_path: Optional[Path] = None) -> Dict[str, Any]:
     return config
 
 
-def get_source_by_id(source_id: str, config: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
-    """Retrieve a specific source configuration by its ID."""
-    cfg = config or load_sources_config()
+def get_source_by_id(arg1: Union[str, Dict[str, Any]], arg2: Optional[Union[str, Dict[str, Any]]] = None) -> Optional[Dict[str, Any]]:
+    """
+    Retrieve a specific source configuration by its ID.
+    Supports both get_source_by_id(source_id, config) and get_source_by_id(config, source_id).
+    """
+    if isinstance(arg1, dict):
+        cfg = arg1
+        source_id = str(arg2)
+    elif isinstance(arg2, dict):
+        cfg = arg2
+        source_id = str(arg1)
+    else:
+        cfg = load_sources_config()
+        source_id = str(arg1)
+
     for src in cfg.get("sources", []):
         if src.get("id") == source_id:
             return src

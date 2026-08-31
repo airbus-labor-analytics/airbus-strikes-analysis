@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StrikeDataValidationManifestContract",
+  "type": "object",
+  "required": ["manifest_id", "generated_at", "items", "overall_status"],
+  "properties": {
+    "manifest_id": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_scan_summary": {
+      "type": "object",
+      "properties": {
+        "scanned_files_count": { "type": "integer" },
+        "new_sources_detected": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": ["PENDING_USER_REVIEW", "PARTIALLY_APPROVED", "APPROVED", "REJECTED"]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "operation",
+          "target_dataset",
+          "key_path",
+          "source_document",
+          "sensitivity_level",
+          "validation_status"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "operation": { "type": "string", "enum": ["ADD", "MODIFY", "DELETE"] },
+          "target_dataset": { "type": "string" },
+          "key_path": { "type": "string" },
+          "old_value": {},
+          "proposed_value": {},
+          "source_document": { "type": "string" },
+          "sensitivity_level": {
+            "type": "string",
+            "enum": ["VERIFIED", "SENSITIVE_UNREVIEWED", "PROVISIONAL_NEGOTIATION"]
+          },
+          "validation_status": {
+            "type": "string",
+            "enum": ["PENDING", "APPROVED", "REJECTED"]
+          }
+        }
+      }
+    }
+  }
+}
