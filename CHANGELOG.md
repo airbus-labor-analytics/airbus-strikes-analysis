@@ -2,6 +2,18 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [005-modular-dashboards-portal] - 2026-08-31
+
+### Added
+- **Welcome Portal Hub & Visual Site Map (`tab-portal` / `#portal`)**: Landing interface featuring founding mission principles, 4 executive flash KPIs (15,562 workers, -14.4B€ market delta, 60h buffer, -26,027€ loss), and an interactive 5-card navigation grid to decoupled analytical modules.
+- **Dynamic Beluga Logistics & Component Retention (`004-beluga-dynamic-metrics`)**: Algorithmic derivation of weekly ADS-B flight throughput, accumulated Getafe HTP component retentions, and FAL buffer exhaustion rates from flight logs.
+- Unit test suite in `tests/test_beluga_tracker.py` validating dynamic formulas and schema conformance, bringing total test suite to 36 tests.
+
+### Changed
+- Refactored `src/beluga_tracker.py` and `src/parsers/metric_parser.py` replacing static arrays with dynamic calculations.
+- Updated `dashboard/app.js` and `dashboard/index.html` to establish `tab-portal` as default route with direct shorthand aliases (`#financiero`, `#logistica`, `#salarios`, `#sindical`, `#evidencias`).
+- Updated `tests/test_dashboard_ui.py` and `src/validate_sources.py` validating 6-tab routing matrix and DOM integrity.
+
 ## [006-sync-strike-data-updates] - 2026-08-31
 
 ### Added
