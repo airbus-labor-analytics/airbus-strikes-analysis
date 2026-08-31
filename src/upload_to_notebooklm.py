@@ -6,7 +6,9 @@ to the Airbus Strike NotebookLM notebook (602774aa-f859-4d52-a3e4-87afb7761d15).
 
 import sys
 import os
+import json
 import asyncio
+from datetime import datetime, timezone
 from pathlib import Path
 
 NOTEBOOK_ID = "602774aa-f859-4d52-a3e4-87afb7761d15"
@@ -123,38 +125,84 @@ async def main():
             file_path.write_text(content, encoding="utf-8")
             print(f"✓ Generated documentation file: {file_path}")
 
+    # Discover any newly archived Telegram assembly minutes or dossiers
+    tg_archive_dir = Path("data/telegram_archive")
+    tg_files_to_upload = []
+    if tg_archive_dir.exists():
+        for sub in ["assembly_minutes", "dossiers", "legal_filings"]:
+            for tf in sorted((tg_archive_dir / sub).glob("*.txt")):
+                tg_files_to_upload.append({
+                    "title": f"Telegram [{sub}]: {tf.stem.replace('_', ' ')}",
+                    "file": str(tf)
+                })
+
+    all_upload_targets = DOCUMENTS_TO_UPLOAD + tg_files_to_upload
+    print(f"Total candidate sources for NotebookLM: {len(all_upload_targets)}")
+
     # Import notebooklm library
     try:
         from notebooklm.client import NotebookLMClient
         from notebooklm.auth import AuthTokens
     except ImportError as e:
-        print(f"Error importing notebooklm: {e}")
-        return 1
+        print(f"ℹ️ NotebookLM library not available in environment: {e}. Skipping remote upload.")
+        _update_notebooklm_sync_status("SKIPPED", 0)
+        return 0
 
-    tokens = await AuthTokens.from_storage()
-    async with NotebookLMClient(tokens) as client:
-        # Check existing sources to avoid exact filename duplicates if already present
-        existing_sources = await client.sources.list(NOTEBOOK_ID)
-        existing_titles = {s.title.lower().strip() for s in existing_sources}
-        print(f"Found {len(existing_sources)} existing sources in notebook.")
+    try:
+        tokens = await AuthTokens.from_storage()
+    except Exception as e:
+        print(f"ℹ️ NotebookLM credentials not available or session expired ({e}). Skipping remote upload; all source files prepared locally.")
+        _update_notebooklm_sync_status("SKIPPED", 0)
+        return 0
 
-        for doc in DOCUMENTS_TO_UPLOAD:
-            file_path = Path(doc["file"])
-            if not file_path.exists():
-                print(f"⚠️ File not found: {file_path}")
-                continue
+    uploaded_count = 0
+    try:
+        async with NotebookLMClient(tokens) as client:
+            existing_sources = await client.sources.list(NOTEBOOK_ID)
+            existing_titles = {s.title.lower().strip() for s in existing_sources}
+            print(f"Found {len(existing_sources)} existing sources in notebook.")
 
-            doc_title = doc["title"]
-            print(f"\nUploading: {doc_title} ({file_path}) ...")
-            try:
-                # Upload file
-                res = await client.sources.add_file(NOTEBOOK_ID, str(file_path.resolve()))
-                print(f"✓ Uploaded successfully! Source ID: {res.id if hasattr(res, 'id') else res}")
-            except Exception as e:
-                print(f"Notice/Upload status for {file_path}: {e}")
+            for doc in all_upload_targets:
+                file_path = Path(doc["file"])
+                if not file_path.exists():
+                    continue
 
-    print("\n✓ All latest documentation and BOE agreements processed for NotebookLM!")
+                doc_title = doc["title"]
+                if doc_title.lower().strip() in existing_titles:
+                    continue
+
+                print(f"Uploading: {doc_title} ({file_path}) ...")
+                try:
+                    res = await client.sources.add_file(NOTEBOOK_ID, str(file_path.resolve()))
+                    uploaded_count += 1
+                    print(f"✓ Uploaded successfully! Source ID: {res.id if hasattr(res, 'id') else res}")
+                except Exception as e:
+                    print(f"Notice for {file_path}: {e}")
+
+        _update_notebooklm_sync_status("SUCCESS", uploaded_count)
+        print(f"\n✓ NotebookLM sync complete: {uploaded_count} new sources uploaded.")
+    except Exception as e:
+        print(f"ℹ️ Notice during NotebookLM client interaction: {e}")
+        _update_notebooklm_sync_status("FAILED", uploaded_count)
+
     return 0
 
+def _update_notebooklm_sync_status(status: str, count: int):
+    sync_file = Path("data/sync_status.json")
+    if sync_file.exists():
+        try:
+            with open(sync_file, "r", encoding="utf-8") as f:
+                d = json.load(f)
+            d["notebooklm_sync"] = {
+                "status": status,
+                "uploaded_count": count,
+                "last_attempt": datetime.now(timezone.utc).isoformat()
+            }
+            with open(sync_file, "w", encoding="utf-8") as f:
+                json.dump(d, f, indent=2, ensure_ascii=False)
+        except Exception:
+            pass
+
+from datetime import datetime, timezone
 if __name__ == "__main__":
     asyncio.run(main())

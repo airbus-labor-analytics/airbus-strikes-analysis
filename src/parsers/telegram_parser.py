@@ -106,6 +106,18 @@ def parse_telegram_archive(archive_path: Optional[Path] = None) -> Dict[str, Any
 
     result = {
         "source": "EnfadadosconAirbus Telegram Archive",
+        "channel_metadata": {
+            "name": "EnfadadosconAirbus",
+            "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+            "type": "Canal Oficial Asambleas Huelga Airbus España",
+            "total_members": 5794,
+            "status": "Activo / En seguimiento continuo",
+            "last_sync": datetime.now(timezone.utc).isoformat()
+        },
+        "stats": {
+            "total_documents": len(all_docs),
+            "categories": category_counts
+        },
         "last_sync": datetime.now(timezone.utc).isoformat(),
         "total_documents": len(all_docs),
         "categories_breakdown": category_counts,
