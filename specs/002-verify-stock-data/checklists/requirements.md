@@ -1,4 +1,4 @@
-# Specification Quality Checklist: Full Audit, Verification & Purge of Unverified Airbus Stock Data
+# Specification Quality Checklist: Full Platform-Wide Data Audit, Verification & Zero-Unverified-Data Purge
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning  
 **Created**: 2026-08-31  

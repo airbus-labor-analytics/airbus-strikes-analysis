@@ -1,65 +1,72 @@
-# Feature Specification: Full Audit, Verification & Purge of Unverified Airbus Stock Data
+# Feature Specification: Full Platform-Wide Data Audit, Verification & Zero-Unverified-Data Purge
 
 **Feature Branch**: `002-verify-stock-data`  
 **Created**: 2026-08-31  
 **Status**: Draft  
-**Input**: User description: "la parte de los valores de las acciones de airbus es incorrecta, los valores historicos son incorrectos, deben ser todos los valores e información verificados y los valores correctos, un pequeño fallo en alguna de la información que aparece la web, puede quitar toda la credebilidad de la misma, que es de especial sensibilidad, si existen datos no verificados o incorrectos, mejor que no esten"
+**Input**: User description: "no solo ha de ser con los valores de las acciones, tiene que ser con todos los datos que aparecen en la web. Un pequeño fallo en alguna de la información que aparece la web, puede quitar toda la credibilidad de la misma, que es de especial sensibilidad, si existen datos no verificados o incorrectos, mejor que no estén"
+
+---
+
+## Clarifications
+
+### Session 2026-08-31
+- Q: Should the data audit and zero-unverified-data purge apply exclusively to stock figures or across all web metrics? → A: **Whole-Platform Scope**: Every metric, table, chart, census number, delegate matrix, referendum tally, wage simulation parameter, Beluga flight log, timeline event, and assembly summary across the entire website, JSON datasets, and documentation must be audited and verified against authenticated primary sources. Any unverified or inaccurate data point must be purged immediately to guarantee 100% institutional credibility.
 
 ---
 
 ## User Scenarios & Testing *(mandatory)*
 
-### User Story 1 - Full Audit & Purge of Unverified Stock Values (Priority: P1) 🎯 MVP
+### User Story 1 - Whole-Platform Data Audit & Purge of Unverified Content (Priority: P1) 🎯 MVP
 
-As an analyst, union representative, or public observer inspecting the Airbus conflict dashboard, I need all equity and stock market figures to be 100% accurate and strictly verified against official market registries, so that zero unverified, synthetic, or inaccurate historical stock values appear on the website and compromise its credibility.
+As an analyst, union delegate, worker, or public observer accessing the Airbus Spain Strike Analytics Suite, I need every single figure, chart, table, and claim across all 15 dashboard tabs and reports to be 100% verified against primary sources, with all unverified, speculative, or synthetic figures completely purged, so that the credibility of the entire platform is unassailable.
 
-**Why this priority**: Absolute credibility is paramount for a labor dispute analytics suite. A single incorrect, synthetic, or unverified number destroys institutional trust. The core policy is: *if any data is unverified or incorrect, it must be purged immediately*.
+**Why this priority**: In labor conflicts and collective bargaining analysis, even a minor discrepancy or unverified figure destroys the platform's credibility. The fundamental governing rule is: *if any data point is unverified or incorrect, it MUST NOT exist on the web*.
 
-**Independent Test**: Can be verified by running a full audit on `data/conflict_metrics.json`, `dashboard/data.js`, `dashboard/app.js`, `dashboard/index.html`, and `docs/` to confirm that 0 unverified or synthetic daily stock price points exist in the active dataset.
+**Independent Test**: Can be verified by running a repository-wide data audit script across `data/`, `src/`, `dashboard/`, and `docs/`, confirming that 0 unverified or synthetic numbers remain in canonical datasets or client presentation templates.
 
 **Acceptance Scenarios**:
 
-1. **Given** the historical stock data series in the platform, **When** audited against official Euronext Paris / Airbus IR publications, **Then** all unverified, estimated, or fabricated historical daily stock figures are removed or replaced with authentic, timestamped closing quotes.
-2. **Given** any metric displayed in the web dashboard's Stock Market tab (`tab-stock`), **When** inspected by a user or third-party auditor, **Then** each number (closing price, market cap, shares outstanding, financial ratios) maps directly to verified official filings with zero speculative gaps.
-3. **Given** an unverified or uncertain financial figure, **When** processed by the ingestion or presentation engines, **Then** the system omits the unverified figure rather than presenting an estimate.
+1. **Given** all dataset files (`data/conflict_metrics.json`, `data/beluga_status.json`, `data/thermometer_data.json`, `data/telegram_archive/`), **When** audited against primary sources (BOE, SIMA, Euronext, Airbus IR, INE), **Then** all unverified, estimated, or fabricated data points are completely removed or replaced with authentic, verified facts.
+2. **Given** any metric displayed in any tab of the web dashboard (Overview, Stock Market, Solvency, Plant Census, Union Representation, Wage Simulator, Beluga Logistics, Timeline, Telegram Archive, Legal Dossier), **When** inspected by a user, **Then** every single value is traceable to an official primary source URL or document excerpt.
+3. **Given** an unverified or uncertain figure, **When** processed by the ingestion engine or rendered on the dashboard, **Then** the system omits the figure entirely rather than displaying an unverified approximation.
 
 ---
 
-### User Story 2 - Strict Verification & Grounding of Canonical Market Metrics (Priority: P2)
+### User Story 2 - Rigorous Primary Source Grounding Across All 15 Dashboard Domains (Priority: P2)
 
-As a stakeholder reviewing the financial asymmetry analysis, I need the canonical Airbus SE market metrics (Ticker AIR.PA, ISIN NL0000235190, shares outstanding ~792.3M, official 2024–2026 fiscal figures) to be rigorously documented, mathematically consistent, and backed by direct primary source URLs.
+As a negotiator or journalist reviewing the dossier and dashboard, I need every domain area (Plant Census: 15,562 workers, 198 delegates; 24-J Referendum: 6,229 NO vs 5,860 YES; Historical Purchasing Power Loss: -28,085 € gross; Airbus 2025 Financials: 73.4B€ revenue, 7.1B€ EBIT, 4.96B€ profit; Stock AIR.PA: Euronext Paris data) to display direct, clickable primary source links.
 
-**Why this priority**: Demonstrating the financial asymmetry between worker demands (e.g. 118.0 M€) and company capital destruction requires undeniable mathematical precision rooted in official corporate disclosures (Airbus SE Annual Reports and Euronext Paris).
+**Why this priority**: Transparency and rigorous source citations prevent misinformation claims and provide verifiable evidentiary grounding for all union arguments and economic models.
 
-**Independent Test**: Can be verified by running `src/validate_invariants.py` and `src/validate_sources.py` to confirm that all market cap calculations ($P \times S$), financial destruction ratios, and official IR links validate with zero errors.
+**Independent Test**: Can be verified by running `python3 src/validate_sources.py` and checking that 100% of sections, benchmarks, and interactive charts contain verified primary source citations that resolve successfully.
 
 **Acceptance Scenarios**:
 
-1. **Given** the canonical share count ($S = 792,300,000$ shares) and verified market closing prices, **When** market capitalization is calculated, **Then** the resulting value matches $P \times S$ with exact precision and references the Euronext Paris product sheet.
-2. **Given** financial balance metrics (EBIT Adjusted 7,100 M€, Net Income 4,960 M€, Dividends Paid 2,535.3 M€), **When** displayed in the company solvency and stock sections, **Then** they reference Airbus SE Full-Year 2025 financial disclosures.
+1. **Given** plant census numbers (Getafe, Illescas, Puerto Real, San Pablo, Tablada, CBC, Albacete), **When** viewed on the Plant & Union Map tab, **Then** they match official 2023–2024 Comité de Empresa election certificates.
+2. **Given** wage loss simulations and cumulative inflation figures (2020–2025: 18.25% IPC vs 12.0% convenios), **When** computed in the simulator, **Then** the IPC rates match official INE historical series and BOE collective agreements (V & VI Convenio Colectivo Airbus).
 
 ---
 
-### User Story 3 - Automated Market Data Invariant Gates (Priority: P3)
+### User Story 3 - Automated Whole-Dataset Invariant Gates & Regression Protection (Priority: P3)
 
-As a maintainer of the analysis pipeline, I need automated validation rules that gate all future market data updates, ensuring no unverified stock price or mismatched market cap can be committed or rendered.
+As a maintainer of the analysis platform, I need comprehensive automated validation rules in `src/validate_invariants.py` and `src/validate_sources.py` covering all data domains, preventing any unverified, unbalanced, or mathematically inconsistent metric from being committed or deployed.
 
-**Why this priority**: Prevents future regressions or accidental insertion of unverified data during automatic data ingestion or manual edits.
+**Why this priority**: Ensures that future data ingestion cycles or content updates automatically enforce the Zero Unverified Data Policy and mathematical integrity rules.
 
-**Independent Test**: Can be verified by running `python3 -m unittest discover tests` and `python3 src/validate_invariants.py`, including new automated tests checking that every market data object contains verified primary source links and adheres to algebraic invariants.
+**Independent Test**: Can be verified by running `python3 -m unittest discover tests`, `python3 src/validate_invariants.py`, and `python3 src/validate_sources.py`, passing with 100% compliance across all 11+ mathematical and factual invariant rules.
 
 **Acceptance Scenarios**:
 
-1. **Given** an ingestion run with updated market quotes, **When** invariant validation runs, **Then** it validates the price bounds, market cap formula, share count consistency, and primary source URL.
-2. **Given** any broken or missing citation on a stock metric, **When** `src/validate_sources.py` runs, **Then** the validation fails and blocks the release.
+1. **Given** any new or updated dataset, **When** `src/validate_invariants.py` executes, **Then** it validates plant census sums, union delegate balances, referendum voter conservation, shareholder structure sums, market cap formulas ($P \times S$), financial statement balances, and wage loss arithmetic.
+2. **Given** any missing citation link, unverified field, or mathematical discrepancy, **When** validation executes, **Then** the process immediately aborts the update and flags the exact unverified item.
 
 ---
 
 ### Edge Cases
 
-- **Lack of Official Intraday/Daily Historical Granularity**: If official historical daily price tables for specific past dates cannot be authenticated with a verified primary source citation, the system MUST collapse or purge the unverified daily points, presenting only verified snapshot dates or official quarterly/annual market milestones.
-- **Corporate Action or Share Count Changes**: If Airbus SE executes share buybacks, ESOP issuances, or capital reductions, the system MUST source the updated share count strictly from official AGM / Universal Registration Documents and update the invariant baseline.
-- **Third-Party API Discrepancies**: If a financial feed returns an unverified or delayed quote that contradicts official Euronext closing data, the official Euronext Paris closing price takes absolute precedence.
+- **Unavailable Historical Granularity (Stock, Logistics, Assemblies)**: When official daily records for specific past dates cannot be authenticated with a verified primary source citation, the system MUST NOT interpolate synthetic numbers; it must render only verified snapshot dates and authenticated milestones.
+- **Contradictory Press Reports**: When media outlets report conflicting figures (e.g. strike participation percentages), the official SIMA minutes, Comité de Huelga official press releases, or physical ballot counts take precedence; unverified media estimates must be discarded.
+- **Zero-Data Fallback**: When an entire subsection lacks verified primary source backing, the entire subsection is removed from the web dashboard and report rather than displaying ungrounded content.
 
 ---
 
@@ -67,25 +74,26 @@ As a maintainer of the analysis pipeline, I need automated validation rules that
 
 ### Functional Requirements
 
-- **FR-001**: System MUST conduct a comprehensive audit across all datasets (`data/conflict_metrics.json`, `data/telegram_archive/`, `dashboard/data.js`), scripts (`src/`), and UI templates (`dashboard/index.html`, `dashboard/app.js`) to identify and purge all unverified, simulated, or inaccurate historical stock values.
-- **FR-002**: System MUST enforce the **Zero Unverified Data Policy**: any financial figure or historical series that cannot be 100% verified against primary sources (Euronext Paris, Airbus Investor Relations, BME, or official audit filings) MUST be completely removed from the platform.
-- **FR-003**: System MUST standardize the canonical equity metrics for Airbus SE:
-  - Ticker: `AIR.PA` (Euronext Paris) / `AIR.MC` (Bolsas y Mercados Españoles)
-  - ISIN: `NL0000235190`
-  - Nominal Capital & Outstanding Shares: Verified against Airbus SE Annual Report & Financial Statements ($792.3\text{M}$ to $793.0\text{M}$ ordinary shares).
-- **FR-004**: System MUST verify and document the exact primary source URL for every displayed stock metric, linking directly to Euronext Paris Live Market Data (`https://live.euronext.com/en/product/equities/NL0000235190-XPAR`).
-- **FR-005**: The interactive Stock Market chart in `dashboard/app.js` and `dashboard/index.html` MUST render ONLY verified, authenticated market price milestones, with clear visual tooltips identifying the primary source and event for each data point.
-- **FR-006**: The financial asymmetry calculation (comparing market cap variations against the annual cost of the union platform) MUST be explicitly defined, algebraically exact ($\Delta \text{MarketCap} = \Delta P \times S_{\text{total}}$), and fully transparent in its methodology.
-- **FR-007**: System MUST extend `src/validate_invariants.py` with explicit invariant rules validating market data integrity (e.g. verifying $P > 0$, $S_{\text{total}} \in [790\text{M}, 795\text{M}]$, $\text{MarketCap} = P \times S$, and non-null verified primary source link).
-- **FR-008**: System MUST update the PDF guide and Markdown dossier (`docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md`) to ensure 100% textual and numerical parity with the audited market dataset.
+- **FR-001**: System MUST conduct a complete, exhaustive audit across all repository files (`data/`, `src/`, `dashboard/`, `docs/`) to identify and catalog every number, metric, date, name, and table.
+- **FR-002**: System MUST strictly enforce the **Zero Unverified Data Policy**: any metric, chart point, table row, or text statement that cannot be substantiated with an official primary source citation MUST be purged immediately from the codebase and UI.
+- **FR-003**: System MUST audit and verify all stock and market data (Ticker `AIR.PA` / Euronext Paris, ISIN `NL0000235190`, total shares outstanding ~792.3M, closing prices, and market cap math $\Delta \text{MarketCap} = \Delta P \times S_{\text{total}}$).
+- **FR-004**: System MUST audit and verify all plant census and electoral data (total 15,562 workers across 7 sites; 198 delegates across CCOO, UGT, SIPA, ATP, CGT; 2D site-by-union matrix conservation).
+- **FR-005**: System MUST audit and verify all referendum results (24-J Referendum: 12,674 total census, 10,317 ballots cast, 81.44% turnout; NO: 6,229 [49.15%], YES: 5,860 [46.24%], Blank: 585 [4.62%]).
+- **FR-006**: System MUST audit and verify all corporate financial figures (Airbus SE 2025: Revenue 73.4B€, EBIT Adjusted 7.1B€, Net Profit 4.96B€, Dividend 3.20€/sh [2,535.3 M€ total], Gross Wage Mass 778.1 M€).
+- **FR-007**: System MUST audit and verify all wage loss tables and inflation metrics (2020–2025 INE IPC real cumulative 18.25% vs 12.0% convenios; net loss table balances per worker tier).
+- **FR-008**: System MUST audit and verify Beluga logistics and JIT disruption parameters (FAL buffer 48–72h, Getafe 100% HTP monopoly, fleet tracking grounded in ADS-B/flight log evidence).
+- **FR-009**: System MUST audit all timeline entries and assembly minutes against authenticated files in `data/telegram_archive/`.
+- **FR-010**: System MUST verify that all 12 Chart.js canvases in `dashboard/app.js` render only verified historical data points, removing all simulated or unverified daily curves.
+- **FR-011**: System MUST ensure 100% textual, numerical, and citation parity between `data/conflict_metrics.json`, `dashboard/data.js`, `dashboard/index.html`, and `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md`.
+- **FR-012**: System MUST expand `src/validate_invariants.py` and `src/validate_sources.py` to continuously enforce whole-platform data verification and block deployment on any ungrounded metric.
 
 ---
 
 ### Key Entities
 
-- **AirbusStockMarketSnapshot**: Canonical market state container containing verified closing price, pre-conflict baseline price, 52-week high/low, total shares outstanding, calculated market capitalization, and primary source URL.
-- **VerifiedMarketMilestone**: Discrete historical market data point consisting of verified date, official closing price (€), trading volume (if authenticated), verified event description, and primary source citation.
-- **FinancialAsymmetryMetric**: Mathematical model quantifying the ratio between corporate market capitalization impact and the annual investment required to fulfill union collective bargaining demands.
+- **PlatformAuditRecord**: Record tracking every data field, its primary source URI, verification status (VERIFIED / PURGED), date of verification, and mathematical invariant constraint.
+- **CanonicalMetricsRegistry**: The authoritative, 100% verified dataset container residing in `data/conflict_metrics.json`.
+- **PrimarySourceCitation**: Cryptographically hashed or URL-referenced link to official publications (BOE, SIMA, Euronext, Airbus IR, INE, EASA, authenticated assembly acta).
 
 ---
 
@@ -93,16 +101,15 @@ As a maintainer of the analysis pipeline, I need automated validation rules that
 
 ### Measurable Outcomes
 
-- **SC-001**: **0 unverified data points**: 100% of stock prices, market capitalizations, and equity figures across the entire repository are verified against official primary sources.
-- **SC-002**: **100% Citation Grounding**: Every stock metric displayed on the web dashboard or mentioned in documentation contains an actionable primary source link to Euronext Paris or Airbus SE Investor Relations.
-- **SC-003**: **100% Invariant Compliance**: Invariant validator `src/validate_invariants.py` confirms exact mathematical consistency across all stock KPIs and ratios without exception.
-- **SC-004**: **Complete Presentation Parity**: `data/conflict_metrics.json`, `dashboard/data.js`, `dashboard/index.html`, and `docs/` display identical, audited stock values with zero discrepancies.
-- **SC-005**: **Zero Fallacy / Zero Speculation Guarantee**: In the absence of an official record for a specific date, no speculative interpolation is shown; the system renders only verified milestone quotes.
+- **SC-001**: **0 unverified data points repository-wide**: 100% of displayed metrics, tables, and chart points are substantiated by official primary sources.
+- **SC-002**: **100% Primary Source Link Coverage**: Every KPI card, chart, and table in the dashboard and report includes a functional, verified citation link.
+- **SC-003**: **100% Mathematical Invariant Validation**: `src/validate_invariants.py` confirms that 100% of algebraic, census, financial, electoral, and market rules hold with 0 discrepancies.
+- **SC-004**: **Dual-Surface Zero Drift**: Canonical JSON datasets, JavaScript frontend models, HTML UI components, and PDF/Markdown dossiers reflect identical numbers with 0 semantic or numerical drift.
+- **SC-005**: **Zero Speculation Guarantee**: In the absence of an official record, the platform renders only verified facts and strictly suppresses ungrounded approximations.
 
 ---
 
 ## Assumptions
 
-- **Market Source Authority**: Euronext Paris (`ISIN: NL0000235190`, Symbol: `AIR.PA`) is the primary listing market and authoritative reference for Airbus SE equity prices.
-- **Corporate Financial Authority**: Airbus SE Full-Year 2024 and 2025 Consolidated Financial Statements and AGM notices provide authoritative baseline figures for share capital and financial results.
-- **Editorial Sensitivity**: The website is an econometric analysis tool for a live labor negotiation; factual accuracy and source transparency are non-negotiable prerequisites for public credibility.
+- **Primary Source Hierarchy**: Official gazettes (BOE), mediation records (SIMA), stock exchange filings (Euronext Paris), corporate audited financials (Airbus SE IR), and national statistics (INE) constitute absolute source authority.
+- **Institutional Sensitivity**: The platform is an analytical instrument for labor dispute assessment; total veracity is the single most critical quality attribute.
