@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BelugaDynamicLogisticsContract",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "fleet_count",
+    "active_in_flight",
+    "dynamic_movement_history",
+    "accumulated_htp_retained_total",
+    "current_fal_buffer_hours",
+    "european_routes_matrix"
+  ],
+  "properties": {
+    "timestamp": { "type": "string" },
+    "fleet_count": { "type": "integer", "minimum": 1 },
+    "active_in_flight": { "type": "integer", "minimum": 0 },
+    "accumulated_htp_retained_total": { "type": "integer", "minimum": 0 },
+    "current_fal_buffer_hours": { "type": "number", "minimum": 0.0, "maximum": 60.0 },
+    "dynamic_movement_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "baseline_flights",
+          "actual_flights",
+          "accumulated_htp_retained",
+          "fal_stock_buffer_pct"
+        ],
+        "properties": {
+          "label": { "type": "string" },
+          "baseline_flights": { "type": "integer" },
+          "actual_flights": { "type": "integer" },
+          "accumulated_htp_retained": { "type": "integer" },
+          "fal_stock_buffer_pct": { "type": "number" },
+          "fal_stock_buffer_hours": { "type": "number" }
+        }
+      }
+    },
+    "european_routes_matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["route_id", "origin", "destination", "status", "color_code"],
+        "properties": {
+          "route_id": { "type": "string" },
+          "origin": { "type": "string" },
+          "destination": { "type": "string" },
+          "weekly_frequency": { "type": "integer" },
+          "status": { "type": "string" },
+          "color_code": { "type": "string" }
+        }
+      }
+    }
+  }
+}

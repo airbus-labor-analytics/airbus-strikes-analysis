@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PortalNavigationContract",
+  "type": "object",
+  "required": ["default_tab", "tabs", "aliases"],
+  "properties": {
+    "default_tab": { "type": "string", "enum": ["tab-portal"] },
+    "tabs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "hash", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "hash": { "type": "string" },
+          "title": { "type": "string" }
+        }
+      }
+    },
+    "aliases": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}
