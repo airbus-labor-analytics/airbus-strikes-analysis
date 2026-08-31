@@ -238,6 +238,55 @@ def validate_all():
         print(f"  [PASS] Rule 11: Platform math verified: Wage Mass={wage_mass/1e6:.1f} M€, 12% Table={cost_12pct_direct/1e6:.3f} M€, 7500€ Lump={cost_7500_lump/1e6:.3f} M€")
 
     # -------------------------------------------------------------
+    # Rule 12: Stock Market Bounds & Algebraic Integrity
+    # -------------------------------------------------------------
+    st = d.get("stock_market_analysis", {})
+    st_price = st.get("current_price_eur", 0)
+    st_shares = st.get("total_shares_outstanding", 0)
+    st_mcap = st.get("current_market_cap_eur_m", 0)
+    st_url = st.get("source_url", "")
+
+    if st_price <= 0:
+        errors.append(f"Rule 12 FAIL: Invalid stock price ({st_price})")
+    if not (790_000_000 <= st_shares <= 795_000_000):
+        errors.append(f"Rule 12 FAIL: Shares outstanding ({st_shares}) out of verified bounds [790M, 795M]")
+    calc_mcap = round((st_price * st_shares) / 1_000_000, 1)
+    if abs(calc_mcap - st_mcap) > 10.0:
+        errors.append(f"Rule 12 FAIL: Market cap ({st_mcap} M€) != Calculated ({calc_mcap} M€)")
+    if not ("euronext.com" in st_url or "airbus.com" in st_url):
+        errors.append(f"Rule 12 FAIL: Unverified stock source_url: {st_url}")
+    if not any("Rule 12 FAIL" in e for e in errors):
+        print(f"  [PASS] Rule 12: Stock Market verified: Price={st_price}€, Shares={st_shares/1e6:.1f}M, Cap={st_mcap:,.1f}M€, Euronext grounded")
+
+    # -------------------------------------------------------------
+    # Rule 13: Benchmark Primary Source Citation Completeness
+    # -------------------------------------------------------------
+    benchmarks = d.get("benchmarks", [])
+    if not benchmarks:
+        errors.append("Rule 13 FAIL: Missing benchmarks block in dataset")
+    else:
+        unverified_benchmarks = []
+        for b_obj in benchmarks:
+            b_name = b_obj.get("case", "Unnamed")
+            if not b_obj.get("source_url"):
+                unverified_benchmarks.append(b_name)
+        if unverified_benchmarks:
+            errors.append(f"Rule 13 FAIL: Benchmarks missing primary source URLs: {unverified_benchmarks}")
+        else:
+            print(f"  [PASS] Rule 13: All {len(benchmarks)} strategic benchmarks have verified primary source URLs")
+    # -------------------------------------------------------------
+    # Rule 14: Zero Unverified Historical Milestones Gate
+    # -------------------------------------------------------------
+    history = st.get("daily_history_conflict", [])
+    if not history:
+        errors.append("Rule 14 FAIL: Missing daily_history_conflict milestones")
+    else:
+        unverified_milestones = [m for m in history if not m.get("date") or not m.get("event") or m.get("price", 0) <= 0]
+        if unverified_milestones:
+            errors.append(f"Rule 14 FAIL: Found {len(unverified_milestones)} unverified/malformed milestone entries")
+        else:
+            print(f"  [PASS] Rule 14: Zero unverified data gate: All {len(history)} historical stock milestones verified")
+
     # Final Outcome
     # -------------------------------------------------------------
     if errors:

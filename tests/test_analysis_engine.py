@@ -169,10 +169,30 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         self.assertIn("company_saving_collective", wages_offer["math_calculation"])
         self.assertIn("net_loss_gap_annual", wages_offer["math_calculation"])
 
+    def test_stock_market_analysis_veracity(self):
+        """Validates stock market analysis bounds, Euronext URL, and market cap formula."""
+        data = self.engine.export_full_dataset()
+        stock = data.get("stock_market_analysis", {})
+        self.assertTrue(stock.get("current_price_eur", 0) > 0)
+        self.assertTrue("euronext.com" in stock.get("source_url", "") or "airbus.com" in stock.get("source_url", ""))
+        shares = stock.get("total_shares_outstanding", 0)
+        self.assertTrue(790_000_000 <= shares <= 795_000_000)
+        calc_mcap = round((stock["current_price_eur"] * shares) / 1_000_000, 1)
+        self.assertAlmostEqual(stock["current_market_cap_eur_m"], calc_mcap, delta=10.0)
+
+    def test_audit_data_veracity_runner(self):
+        """Runs full audit_data_veracity audit check."""
+        from src.audit_data_veracity import audit_conflict_metrics, audit_dashboard_parity
+        conflict_path = PROJECT_ROOT / "data" / "conflict_metrics.json"
+        data_js_path = PROJECT_ROOT / "dashboard" / "data.js"
+        m_ok, m_issues = audit_conflict_metrics(conflict_path)
+        self.assertTrue(m_ok, f"Metrics issues: {m_issues}")
+        p_ok, p_issues = audit_dashboard_parity(data_js_path, conflict_path)
+        self.assertTrue(p_ok, f"Parity issues: {p_issues}")
+
     def test_comprehensive_invariants_runner(self):
         """Runs full validate_all() from validate_invariants module."""
         from src.validate_invariants import validate_all
         self.assertTrue(validate_all())
-
 if __name__ == "__main__":
     unittest.main()

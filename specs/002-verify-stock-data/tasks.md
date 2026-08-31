@@ -19,8 +19,8 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 **Purpose**: Set up data audit harness and verify contract schemas.
 
-- [ ] T001 [P] Validate data integrity schema in `specs/002-verify-stock-data/contracts/data-integrity-contract.json` against canonical datasets
-- [ ] T002 [P] Create repository-wide audit script `src/audit_data_veracity.py` to scan all metrics across `data/` and `dashboard/` for unverified figures
+- [X] T001 [P] Validate data integrity schema in `specs/002-verify-stock-data/contracts/data-integrity-contract.json` against canonical datasets
+- [X] T002 [P] Create repository-wide audit script `src/audit_data_veracity.py` to scan all metrics across `data/` and `dashboard/` for unverified figures
 
 ---
 
@@ -30,9 +30,9 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T003 [P] Audit and purge all ungrounded historical stock curves and synthetic numbers in `data/conflict_metrics.json`, retaining only verified Euronext Paris milestones
-- [ ] T004 [P] Audit and verify plant censuses (15,562), delegate matrix (198), and 24-J Referendum counts in `data/conflict_metrics.json` against official certificates
-- [ ] T005 [P] Audit and verify corporate financials (Airbus FY2024/FY2025 results) and wage loss tables in `data/conflict_metrics.json` against Airbus IR and BOE convenios
+- [X] T003 [P] Audit and purge all ungrounded historical stock curves and synthetic numbers in `data/conflict_metrics.json`, retaining only verified Euronext Paris milestones
+- [X] T004 [P] Audit and verify plant censuses (15,562), delegate matrix (198), and 24-J Referendum counts in `data/conflict_metrics.json` against official certificates
+- [X] T005 [P] Audit and verify corporate financials (Airbus FY2024/FY2025 results) and wage loss tables in `data/conflict_metrics.json` against Airbus IR and BOE convenios
 
 **Checkpoint**: Canonical backend dataset is 100% verified and purged of ungrounded figures.
 
@@ -46,10 +46,10 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Cleanse `dashboard/data.js` to eliminate all unverified synthetic daily stock series, matching canonical audited dataset
-- [ ] T007 [P] [US1] Audit and update `initAirbusStockChart()` and all 12 Chart.js canvases in `dashboard/app.js` to render exclusively verified milestone quotes with source citations
-- [ ] T008 [P] [US1] Audit all KPI cards, metrics, and text summaries in `dashboard/index.html` (Stock Tab, Overview, Solvency, Wage Simulator) to purge ungrounded estimates
-- [ ] T009 [US1] Re-generate consolidated datasets with `src/analysis_engine.py` and verify zero data drift between backend and dashboard
+- [X] T006 [P] [US1] Cleanse `dashboard/data.js` to eliminate all unverified synthetic daily stock series, matching canonical audited dataset
+- [X] T007 [P] [US1] Audit and update `initAirbusStockChart()` and all 12 Chart.js canvases in `dashboard/app.js` to render exclusively verified milestone quotes with source citations
+- [X] T008 [P] [US1] Audit all KPI cards, metrics, and text summaries in `dashboard/index.html` (Stock Tab, Overview, Solvency, Wage Simulator) to purge ungrounded estimates
+- [X] T009 [US1] Re-generate consolidated datasets with `src/analysis_engine.py` and verify zero data drift between backend and dashboard
 
 **Checkpoint**: User Story 1 (MVP) complete — all unverified stock and platform data purged, web dashboard rendering only verified facts.
 
@@ -63,10 +63,10 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 ### Implementation for User Story 2
 
-- [ ] T010 [P] [US2] Update and verify primary source URLs (`Euronext Paris AIR.PA`, `Airbus IR`, `BOE`, `SIMA`, `INE`) across all benchmarks in `data/conflict_metrics.json`
-- [ ] T011 [P] [US2] Verify and update all source citation badges and hyperlinks in `dashboard/index.html` across all 15 navigation tabs
-- [ ] T012 [P] [US2] Audit and update the executive Markdown dossier in `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md` for 100% numerical and citation parity
-- [ ] T013 [US2] Re-generate the official executive PDF using `python3 src/generate_pdf.py` and verify complete visual and textual parity
+- [X] T010 [P] [US2] Update and verify primary source URLs (`Euronext Paris AIR.PA`, `Airbus IR`, `BOE`, `SIMA`, `INE`) across all benchmarks in `data/conflict_metrics.json`
+- [X] T011 [P] [US2] Verify and update all source citation badges and hyperlinks in `dashboard/index.html` across all 15 navigation tabs
+- [X] T012 [P] [US2] Audit and update the executive Markdown dossier in `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md` for 100% numerical and citation parity
+- [X] T013 [US2] Re-generate the official executive PDF using `python3 src/generate_pdf.py` and verify complete visual and textual parity
 
 **Checkpoint**: User Stories 1 AND 2 complete — 100% primary source citation coverage across web and print publications.
 
@@ -80,9 +80,9 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 ### Implementation for User Story 3
 
-- [ ] T014 [P] [US3] Expand `src/validate_invariants.py` with Rules 12, 13, and 14 for stock bounds, primary source completeness, and zero unverified data
-- [ ] T015 [P] [US3] Expand `src/validate_sources.py` to enforce 100% primary source citation coverage across all JSON schemas and Markdown dossiers
-- [ ] T016 [P] [US3] Add automated unit tests in `tests/test_analysis_engine.py` asserting zero unverified stock data and mathematical consistency
+- [X] T014 [P] [US3] Expand `src/validate_invariants.py` with Rules 12, 13, and 14 for stock bounds, primary source completeness, and zero unverified data
+- [X] T015 [P] [US3] Expand `src/validate_sources.py` to enforce 100% primary source citation coverage across all JSON schemas and Markdown dossiers
+- [X] T016 [P] [US3] Add automated unit tests in `tests/test_analysis_engine.py` asserting zero unverified stock data and mathematical consistency
 
 **Checkpoint**: All 3 user stories complete with continuous automated regression gating.
 
@@ -92,8 +92,8 @@ description: "Task list for Full Platform-Wide Data Audit, Verification & Zero-U
 
 **Purpose**: End-to-end quickstart validation and full test suite execution.
 
-- [ ] T017 Execute complete quickstart validation suite per `specs/002-verify-stock-data/quickstart.md`
-- [ ] T018 Run complete regression test suite `python3 -m unittest discover tests` and invariant validator `python3 src/validate_invariants.py`
+- [X] T017 Execute complete quickstart validation suite per `specs/002-verify-stock-data/quickstart.md`
+- [X] T018 Run complete regression test suite `python3 -m unittest discover tests` and invariant validator `python3 src/validate_invariants.py`
 
 ---
 
