@@ -199,20 +199,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-wages, #tab-stock)
+  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-industrial:sec-industrial-fleet)
   function handleHashNavigation() {
     const rawHash = window.location.hash.replace('#', '').trim();
-    if (rawHash) {
-      switchTab(rawHash);
-    } else {
+    if (!rawHash) {
       switchTab('tab-portal');
+      return;
+    }
+    let targetTab = rawHash;
+    let targetSection = null;
+    if (rawHash.includes(':') || rawHash.includes('/') || rawHash.includes('__')) {
+      const parts = rawHash.split(/[:\/__]+/);
+      targetTab = parts[0];
+      targetSection = parts[1];
+    }
+    switchTab(targetTab);
+    if (targetSection) {
+      setTimeout(() => {
+        scrollToSection(targetSection);
+      }, 150);
     }
   }
   handleHashNavigation();
+
   // 8. Initialize ScrollSpy for Right-Hand Floating Section Navigator
   initSectionNavScrollSpy();
 
-  // 9. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
+  // 9. Initialize Global Keyboard Shortcuts & Toast System
+  initKeyboardShortcuts();
+
+  // 10. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (belugaPollingInterval) {
@@ -641,6 +657,11 @@ function scrollToSection(sectionId) {
     top: Math.max(0, offsetPosition),
     behavior: 'smooth'
   });
+
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  if (currentTab && history.replaceState) {
+    history.replaceState(null, null, `#${currentTab.id}:${sectionId}`);
+  }
 }
 
 function initSectionNavScrollSpy() {
@@ -685,6 +706,118 @@ function handleScrollSpy() {
   if (activeBtn) {
     activeBtn.classList.remove('text-slate-500', 'border-transparent');
     activeBtn.classList.add('text-sky-400', 'font-semibold', 'scale-105', 'origin-left', 'border-sky-400');
+  }
+}
+
+// ==================== TOAST NOTIFICATION SYSTEM ====================
+function showToast(message, iconName = 'info', durationMs = 2800) {
+  let toastContainer = document.getElementById('toast-container');
+  if (!toastContainer) {
+    toastContainer = document.createElement('div');
+    toastContainer.id = 'toast-container';
+    toastContainer.className = 'fixed bottom-20 right-6 z-50 flex flex-col space-y-2 pointer-events-none';
+    document.body.appendChild(toastContainer);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'pointer-events-auto transform transition-all duration-300 translate-y-2 opacity-0 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white text-xs font-medium shadow-2xl shadow-black/80';
+  toast.innerHTML = `
+    <i data-lucide="${iconName}" class="w-4 h-4 text-sky-400 shrink-0"></i>
+    <span>${message}</span>
+  `;
+
+  toastContainer.appendChild(toast);
+  if (window.lucide) lucide.createIcons();
+
+  requestAnimationFrame(() => {
+    toast.classList.remove('translate-y-2', 'opacity-0');
+  });
+
+  setTimeout(() => {
+    toast.classList.add('translate-y-2', 'opacity-0');
+    setTimeout(() => toast.remove(), 350);
+  }, durationMs);
+}
+
+// ==================== KEYBOARD SHORTCUTS CONTROLLER ====================
+function initKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable) {
+      if (e.key === 'Escape') {
+        e.target.blur();
+      }
+      return;
+    }
+
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    if (e.key === '0' || e.key === 'p' || e.key === 'P') {
+      switchTab('tab-portal');
+      showToast('Navegación: Portal Hub', 'compass');
+    } else if (e.key === '1' || e.key === 'f' || e.key === 'F') {
+      switchTab('tab-overview');
+      showToast('Navegación: Finanzas & Asimetría', 'trending-up');
+    } else if (e.key === '2' || e.key === 'b' || e.key === 'B') {
+      switchTab('tab-industrial');
+      showToast('Navegación: Beluga & Logística', 'boxes');
+    } else if (e.key === '3' || e.key === 's' || e.key === 'S') {
+      switchTab('tab-purchasing-power');
+      showToast('Navegación: Salarios & Convenio', 'calculator');
+    } else if (e.key === '4' || e.key === 'u' || e.key === 'U') {
+      switchTab('tab-union-force');
+      showToast('Navegación: Fuerza Sindical', 'users');
+    } else if (e.key === '5' || e.key === 'e' || e.key === 'E') {
+      switchTab('tab-evidence');
+      showToast('Navegación: Evidencias & Archivo', 'book-open');
+    } else if (e.key === '/') {
+      e.preventDefault();
+      const currentTab = document.querySelector('.tab-content:not(.hidden)');
+      if (currentTab && currentTab.id === 'tab-evidence') {
+        const input = document.getElementById('source-search');
+        if (input) input.focus();
+      } else {
+        switchTab('tab-evidence');
+        setTimeout(() => {
+          const input = document.getElementById('source-search');
+          if (input) input.focus();
+        }, 100);
+      }
+    } else if (e.key === 't' || e.key === 'T') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (e.key === '?') {
+      toggleShortcutsModal();
+    } else if (e.key === 'Escape') {
+      closeShortcutsModal();
+    }
+  });
+}
+
+function toggleShortcutsModal() {
+  const modal = document.getElementById('shortcuts-modal');
+  if (!modal) return;
+  modal.classList.toggle('hidden');
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeShortcutsModal() {
+  const modal = document.getElementById('shortcuts-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function copySectionLink(sectionId) {
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  const tabId = currentTab ? currentTab.id : 'tab-portal';
+  const url = `${window.location.origin}${window.location.pathname}#${tabId}:${sectionId}`;
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('Enlace directo copiado al portapapeles', 'link-2');
+    }).catch(() => {
+      showToast('Enlace: ' + url, 'link-2');
+    });
+  } else {
+    showToast('Enlace: ' + url, 'link-2');
   }
 }
 function setAsymmetryDays(days) {
