@@ -71,12 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Render all modules immediately (zero blank screen, 100% offline & local file:// support)
   initAllModules();
 
-  // 3. Background asynchronous sync for updated datasets when served via HTTP
-  syncDataInBackground();
-
-  // 4. Start Beluga Live polling (every 60s)
-  startBelugaLivePolling();
-
+  // 3. Start Live Auto-Sync Engine (queries GitHub raw and relative datasets every 120s)
+  startAutoSyncEngine();
   // 5. Setup modal keyboard listener (Escape key to close)
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -139,27 +135,134 @@ function initAllModules() {
   if (window.lucide) lucide.createIcons();
 }
 
-async function syncDataInBackground() {
-  if (window.location.protocol === 'file:') return;
+let lastSyncTimestamp = null;
+let autoSyncInterval = null;
+
+async function fetchJsonWithFallbacks(paths) {
+  for (const path of paths) {
+    try {
+      // Add cache buster to prevent stale browser caching
+      const url = path.includes('?') ? `${path}&_t=${Date.now()}` : `${path}?_t=${Date.now()}`;
+      const res = await fetch(url, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        if (data) return data;
+      }
+    } catch (e) {
+      // Try next candidate fallback URL
+    }
+  }
+  return null;
+}
+
+async function syncDataInBackground(manual = false) {
+  if (window.location.protocol === 'file:' && !manual) return;
+
+  const syncBtn = document.getElementById('btn-live-sync');
+  const syncIcon = document.getElementById('live-sync-icon');
+  const syncText = document.getElementById('live-sync-text');
+  const syncDot = document.getElementById('live-sync-indicator');
+
+  if (syncIcon) syncIcon.classList.add('animate-spin');
+  if (syncText && manual) syncText.textContent = 'Sincronizando...';
 
   try {
-    const res = await fetch('data/conflict_metrics.json', { cache: 'no-store' });
-    if (res.ok) {
-      const liveJson = await res.json();
-      if (liveJson && liveJson.parameters) {
-        conflictData = liveJson;
-        initHistoricalLosses();
-        initNegotiationEvolution();
-        initTimeline();
-        initWorkflows();
-        initTelegramArchive();
-        initThermometerAndBeluga();
-        updateAsymmetrySimulation();
+    // 1. Fetch Conflict Metrics & Full Dataset
+    const metricsData = await fetchJsonWithFallbacks([
+      'data/conflict_metrics.json',
+      './data/conflict_metrics.json',
+      '../data/conflict_metrics.json',
+      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/conflict_metrics.json'
+    ]);
+
+    if (metricsData && metricsData.parameters) {
+      conflictData = metricsData;
+      if (metricsData.sources_catalog && metricsData.sources_catalog.length > 0) {
+        sourcesCatalogData = metricsData.sources_catalog;
       }
     }
-  } catch (e) {
-    // Offline or network error - baseline remains active
+
+    // 2. Fetch Telegram Archive Catalog
+    const tgData = await fetchJsonWithFallbacks([
+      'data/telegram_archive/telegram_index.json',
+      './data/telegram_archive/telegram_index.json',
+      '../data/telegram_archive/telegram_index.json',
+      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/telegram_archive/telegram_index.json'
+    ]);
+
+    if (tgData && tgData.documents) {
+      if (conflictData) conflictData.telegram_archive = tgData;
+      telegramDocsData = tgData.documents;
+    }
+
+    // 3. Fetch Sentiment Thermometer Live Feed
+    const thermoData = await fetchJsonWithFallbacks([
+      'data/thermometer_data.json',
+      './data/thermometer_data.json',
+      '../data/thermometer_data.json',
+      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/thermometer_data.json'
+    ]);
+
+    if (thermoData && thermoData.temperature_celsius) {
+      if (conflictData) conflictData.sentiment_thermometer = thermoData;
+    }
+
+    // 4. Fetch Beluga Flight Tracking Status
+    const belugaData = await fetchJsonWithFallbacks([
+      'data/beluga_status.json',
+      './data/beluga_status.json',
+      '../data/beluga_status.json',
+      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/beluga_status.json'
+    ]);
+
+    if (belugaData && belugaData.fleet_count) {
+      if (conflictData) conflictData.beluga_logistics = belugaData;
+    }
+
+    // Refresh active views with updated dataset
+    initHistoricalLosses();
+    initNegotiationEvolution();
+    initTimeline();
+    initWorkflows();
+    initTelegramArchive();
+    initThermometerAndBeluga();
+    initSources();
+    updateAsymmetrySimulation();
+    updateWageSimulation();
+
+    lastSyncTimestamp = new Date();
+    const timeStr = lastSyncTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+    if (syncText) syncText.textContent = `En Vivo (${timeStr})`;
+    if (syncDot) {
+      syncDot.className = 'w-2 h-2 rounded-full bg-emerald-400 mr-2';
+    }
+  } catch (err) {
+    console.warn('Auto-sync notice: using retained baseline data.', err);
+    if (syncText && manual) syncText.textContent = 'En Vivo';
+  } finally {
+    setTimeout(() => {
+      if (syncIcon) syncIcon.classList.remove('animate-spin');
+      if (window.lucide) lucide.createIcons();
+    }, 500);
   }
+}
+
+function triggerManualSync() {
+  syncDataInBackground(true);
+}
+
+function startAutoSyncEngine() {
+  // Run initial background sync
+  syncDataInBackground(false);
+
+  // Re-sync every 2 minutes (120,000 ms) automatically without page reload
+  if (autoSyncInterval) clearInterval(autoSyncInterval);
+  autoSyncInterval = setInterval(() => {
+    if (!document.hidden) {
+      syncDataInBackground(false);
+    }
+  }, 120000);
 }
 
 // Mobile Sidebar Toggle & Backdrop

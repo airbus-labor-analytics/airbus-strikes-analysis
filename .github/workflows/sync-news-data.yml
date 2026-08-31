@@ -1,0 +1,56 @@
+name: Scheduled News & Data Auto-Sync
+
+on:
+  schedule:
+    # Runs every 6 hours automatically (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-and-update-data:
+    name: Auto-Sync Telegram, News & Live Tracking Data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 1. Sync Telegram Channel Archives
+        run: |
+          python3 src/telegram_channel_sync.py || true
+
+      - name: 2. Sync Beluga Logistics Live Fleet
+        run: |
+          python3 src/beluga_tracker.py || true
+
+      - name: 3. Sync Sentiment & Press Thermometer
+        run: |
+          python3 src/sentiment_thermometer.py || true
+
+      - name: 4. Re-generate Consolidated Datasets
+        run: |
+          python3 src/analysis_engine.py
+
+      - name: 5. Validate Integrity & Invariants
+        run: |
+          python3 src/validate_invariants.py
+          python3 src/validate_sources.py
+
+      - name: 6. Commit & Push Updated Data to Main
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/ dashboard/data.js
+          if git diff --staged --quiet; then
+            echo "No data changes detected. Everything up to date."
+          else
+            git commit -m "chore(auto-sync): update live datasets, news feeds and telegram archive [skip ci]"
+            git push origin main
+          fi

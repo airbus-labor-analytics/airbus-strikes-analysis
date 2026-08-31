@@ -95,7 +95,14 @@
         </button>
       </div>
 
-      <div class="hidden md:flex items-center px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+      <!-- Live Data Auto-Sync Status & Button -->
+      <button id="btn-live-sync" onclick="triggerManualSync()" title="Sincronizar datos, noticias y archivo en vivo desde el repositorio" class="flex items-center px-2.5 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-emerald-500/30 hover:border-emerald-500/60 text-xs text-slate-300 transition shadow-sm cursor-pointer group">
+        <span id="live-sync-indicator" class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse"></span>
+        <span id="live-sync-text" class="text-[11px] font-semibold text-emerald-300">En Vivo</span>
+        <i data-lucide="refresh-cw" id="live-sync-icon" class="w-3 h-3 ml-1.5 text-emerald-400/80 group-hover:text-emerald-300 transition"></i>
+      </button>
+
+      <div class="hidden xl:flex items-center px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
         <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-ping"></span>
         <span>Asimetría: <strong>185x</strong></span>
       </div>
