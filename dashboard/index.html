@@ -1182,9 +1182,19 @@
               </h2>
               <p class="text-xs text-slate-400 mt-0.5">Calcula el impacto en tu nómina, plan de pensiones, pluses, teletrabajo, cobro de atrasos y rentabilidad del paro. <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Fuente: Plataforma SIMA 27/08]</a></p>
             </div>
-            <span class="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg w-fit">
-              VII Convenio Colectivo
-            </span>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-1 text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg w-fit">
+                VII Convenio Colectivo
+              </span>
+              <button onclick="shareSimulatorURL()" class="px-2.5 py-1 text-xs font-bold bg-sky-600/20 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/40 rounded-lg transition flex items-center gap-1.5">
+                <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                Compartir Vínculo
+              </button>
+              <button onclick="copySimulatorResult()" class="px-2.5 py-1 text-xs font-bold bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 rounded-lg transition flex items-center gap-1.5">
+                <i data-lucide="clipboard-copy" class="w-3.5 h-3.5"></i>
+                Copiar Resultado
+              </button>
+            </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 bg-slate-950/60 p-4 rounded-xl border border-slate-800">

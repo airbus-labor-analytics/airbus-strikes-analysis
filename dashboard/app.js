@@ -221,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   handleHashNavigation();
+  restoreSimulatorFromURL();
 
   // 8. Initialize ScrollSpy for Right-Hand Floating Section Navigator
   initSectionNavScrollSpy();
@@ -1007,6 +1008,8 @@ function calculateSalaryProposals(baseSalary, ipcRate) {
     strike_committee: { yearly_nom: com_nom, yearly_real: com_real, cum_nom: com_cum_nom, cum_real: com_cum_real, total_5yr_nom: com_total_nom, total_5yr_real: com_total_real, arrears: 7500, delta_vs_co_nom: com_total_nom - co_total_nom, delta_vs_co_real: com_total_real - co_total_real }
   };
 }
+// Shared helper: set textContent by id (safe no-op if element missing)
+const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
 
 function updateWageSimulation() {
   const salaryInput = document.getElementById('sim-salary');
@@ -1016,6 +1019,7 @@ function updateWageSimulation() {
   const badgeEl = document.getElementById('sim-salary-badge');
   if (badgeEl) badgeEl.textContent = `${curSalary.toLocaleString()} €`;
 
+  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
   const quinquenios = parseInt(document.getElementById('sim-quinquenios')?.value || document.getElementById('sim-trienios')?.value || '1', 10);
   const teleworkDays = parseInt(document.getElementById('sim-telework')?.value || '2', 10);
   const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
@@ -1282,9 +1286,116 @@ function updateWageSimulation() {
   setText('roi-monthly-gain', `+${Math.round(netMonthlyGainInPocket).toLocaleString()} € netos/mes`);
   setText('roi-amortization-time', strikeDays === 0 ? '0 días' : `${amortizationMonths.toFixed(1)} meses (${Math.round(amortizationMonths * 4.3)} semanas)`);
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
+  // Sync URL so the current simulation is shareable
+  syncSimulatorURL(curSalary, document.getElementById('sim-shift')?.value || 'ordinaria',
+    strikeDays, quinquenios, pensionRate * 100, ipcRate * 100);
 
   // Update 5-Year Cumulative Projection Chart
   updateWagesChart(curSalary, ipcRate);
+}
+
+// ==================== SIMULATOR SHARE & EXPORT ====================
+function syncSimulatorURL(salary, shift, days, quinquenios, pension, ipc) {
+  const params = new URLSearchParams(window.location.search);
+  params.set('salary', salary);
+  params.set('shift', shift);
+  params.set('days', days);
+  params.set('q', quinquenios);
+  params.set('pension', pension);
+  params.set('ipc', ipc);
+  const newUrl = `${location.pathname}#tab-purchasing-power?${params.toString()}`;
+  history.replaceState(null, '', newUrl);
+}
+
+function shareSimulatorURL() {
+  const url = location.href;
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('🔗 Vínculo del simulador copiado al portapapeles. ¡Compártelo en Telegram!', 'sky');
+    });
+  } else {
+    // fallback for non-secure contexts
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('🔗 Vínculo copiado al portapapeles.', 'sky');
+  }
+}
+
+function copySimulatorResult() {
+  const salary = parseFloat(document.getElementById('sim-salary')?.value || 50000).toLocaleString();
+  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
+  const days = document.getElementById('sim-strike-days')?.value || '5';
+  const q = document.getElementById('sim-quinquenios')?.value || '1';
+
+  const getText = id => document.getElementById(id)?.textContent?.trim() || '-';
+  const lines = [
+    `📊 *SIMULADOR SALARIAL — AIRBUS SPAIN 2026*`,
+    `Salario bruto: ${salary} € | Turno: ${shift} | Huelga: ${days} días | Quinquenios: ${q}`,
+    ``,
+    `📌 Oferta Empresa (+5%):`,
+    `  • Ganancia neta: ${getText('result-co-gain')}`,
+    `  • Mensual en nómina: ${getText('result-co-monthly')}`,
+    ``,
+    `📌 Preacuerdo SIMA (+9,5%):`,
+    `  • Ganancia neta: ${getText('result-med-gain')}`,
+    `  • Mensual en nómina: ${getText('result-med-monthly')}`,
+    ``,
+    `📌 Plataforma Comité (+12%):`,
+    `  • Ganancia neta: ${getText('result-union-gain')}`,
+    `  • Mensual en nómina: ${getText('result-union-monthly')}`,
+    ``,
+    `⏱ ROI Huelga: ${getText('roi-amortization-time')} para amortizar ${days} días de paro`,
+    `💶 Ganancia neta 5 años: ${getText('roi-5yr-gain')}`,
+    ``,
+    `🔗 Simulación completa: ${location.href}`
+  ].join('\n');
+
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(lines).then(() => {
+      showToast('📋 Resultado copiado al portapapeles en formato Telegram.', 'emerald');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = lines;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('📋 Resultado copiado.', 'emerald');
+  }
+}
+
+function restoreSimulatorFromURL() {
+  // Params may be after a hash: parse manually
+  const raw = location.href;
+  const qi = raw.indexOf('?');
+  if (qi === -1) return;
+  const params = new URLSearchParams(raw.slice(qi + 1));
+
+  const salary = params.get('salary');
+  const shift  = params.get('shift');
+  const days   = params.get('days');
+  const q      = params.get('q');
+  const pension= params.get('pension');
+  const ipc    = params.get('ipc');
+
+  if (!salary) return; // nothing to restore
+
+  if (salary) { const el = document.getElementById('sim-salary'); if (el) el.value = salary; }
+  if (shift)  { const el = document.getElementById('sim-shift');  if (el) el.value = shift; }
+  if (days)   { const el = document.getElementById('sim-strike-days'); if (el) el.value = days; }
+  if (q)      { const el = document.getElementById('sim-quinquenios'); if (el) el.value = q; }
+  if (pension){ const el = document.getElementById('sim-pension-rate'); if (el) el.value = pension; }
+  if (ipc)    { const el = document.getElementById('sim-ipc-rate'); if (el) el.value = ipc; }
+
+  // Navigate to the simulator tab
+  switchTab('tab-purchasing-power');
+  updateWageSimulation();
+  showToast('🔄 Simulación restaurada desde el vínculo compartido.', 'sky');
 }
 function initWagesChart() {
   wagesChart = renderResilientChart('wagesChart', () => ({
