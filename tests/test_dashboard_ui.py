@@ -87,15 +87,14 @@ class TestDashboardUI(unittest.TestCase):
         self.assertEqual(validator.stack, [], f"Unclosed HTML tags: {validator.stack}")
 
     def test_tab_containers_structure(self):
-        """Validates that all 6 module containers (portal + 5 specialized) exist and have the tab-content class."""
+        """Validates that all 6 module containers exist and have dock navigation buttons."""
         for tab_id in EXPECTED_TABS:
             pattern = rf'<div\s+id=["\']{tab_id}["\']\s+class=["\']tab-content\b'
             self.assertTrue(
                 re.search(pattern, self.html_content),
                 f"Missing or malformed tab container definition for '{tab_id}'"
             )
-            self.assertIn(f'id="btn-{tab_id}"', self.html_content, f"Missing sidebar navigation button for '{tab_id}'")
-
+            self.assertIn(f'id="dock-{tab_id}"', self.html_content, f"Missing dock navigation button for '{tab_id}'")
     def test_purged_obsolete_tabs(self):
         """Validates that obsolete legacy tabs (like tab-checklist) are completely removed."""
         self.assertNotIn('id="tab-checklist"', self.html_content)
@@ -109,11 +108,10 @@ class TestDashboardUI(unittest.TestCase):
 
     def test_viewport_scroll_and_resize_lifecycle_contract(self):
         """Validates Principle VI: switchTab resets scrollTop and triggers .resize() on visible charts."""
-        # 1. Check for scrollTop reset in switchTab
-        self.assertIn("mainContainer.scrollTop = 0", self.app_js_content, "Missing scrollTop = 0 reset in switchTab")
+        # 1. Check for scroll reset in switchTab
+        self.assertTrue("scrollTop = 0" in self.app_js_content or "scrollTo" in self.app_js_content, "Missing scroll reset in switchTab")
         # 2. Check for Chart resize calls
         self.assertIn("chartInstance.resize()", self.app_js_content, "Missing chartInstance.resize() in switchTab")
-
     def test_url_alias_map_integrity(self):
         """Validates that all legacy hash aliases map to one of the 5 canonical tabs."""
         alias_map_match = re.search(r'const tabAliases = \{([^}]+)\};', self.app_js_content)

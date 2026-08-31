@@ -481,23 +481,25 @@ function switchTab(tabId) {
     normalizedTabId = tabAliases[normalizedTabId];
   }
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
+  
+  // Update dock buttons
+  document.querySelectorAll('.dock-btn').forEach(btn => {
+    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-lg', 'shadow-blue-600/30');
     btn.classList.add('text-slate-400');
   });
+  const activeDockBtn = document.getElementById(`dock-${normalizedTabId}`);
+  if (activeDockBtn) {
+    activeDockBtn.classList.remove('text-slate-400');
+    activeDockBtn.classList.add('bg-blue-600', 'text-white', 'font-bold', 'shadow-lg', 'shadow-blue-600/30');
+  }
 
-  // Always reset scroll position of the main view to the top on tab change
-  const mainContainer = document.querySelector('main');
-  if (mainContainer) {
-    mainContainer.scrollTop = 0;
-  }
+  // Reset window scroll position to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
   const activeTab = document.getElementById(normalizedTabId);
-  const activeBtn = document.getElementById(`btn-${normalizedTabId}`);
   if (activeTab) activeTab.classList.remove('hidden');
-  if (activeBtn) {
-    activeBtn.classList.remove('text-slate-400');
-    activeBtn.classList.add('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
-  }
 
   // Update URL hash smoothly
   try {
@@ -505,17 +507,6 @@ function switchTab(tabId) {
       history.replaceState(null, null, `#${normalizedTabId}`);
     }
   } catch (e) {}
-
-  // Close mobile drawer on item click
-  const sidebar = document.getElementById('sidebar-menu');
-  const backdrop = document.getElementById('sidebar-backdrop');
-  if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
-    sidebar.classList.add('-translate-x-full');
-    if (backdrop) {
-      backdrop.classList.remove('opacity-100');
-      backdrop.classList.add('opacity-0', 'pointer-events-none');
-    }
-  }
 
   // Render active module charts immediately on next frame without artificial timeout
   requestAnimationFrame(() => {
@@ -3043,74 +3034,136 @@ function renderTelegramDocs(docs) {
 
 // ==================== DYNAMIC ISLAND & FLOATING HUD ====================
 function initFloatingHUD() {
-  const mainContainer = document.querySelector('main');
   const hud = document.getElementById('floating-hud');
-  const backToTop = document.getElementById('back-to-top');
-  if (!mainContainer) return;
+  const scrollPercentageEl = document.getElementById('scroll-percentage');
 
-  mainContainer.addEventListener('scroll', () => {
-    const st = mainContainer.scrollTop;
-    if (st > 120) {
-      if (hud) {
-        hud.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
-        hud.classList.add('opacity-100', 'translate-y-0');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    // Dynamic Island contraction / expansion
+    if (hud) {
+      if (scrollTop > 120) {
+        hud.classList.add('scale-95', 'opacity-95');
+      } else {
+        hud.classList.remove('scale-95', 'opacity-95');
       }
-      if (backToTop) {
-        backToTop.classList.remove('opacity-0', 'pointer-events-none');
-        backToTop.classList.add('opacity-100');
-      }
-    } else {
-      if (hud) {
-        hud.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
-        hud.classList.remove('opacity-100', 'translate-y-0');
-      }
-      if (backToTop) {
-        backToTop.classList.add('opacity-0', 'pointer-events-none');
-        backToTop.classList.remove('opacity-100');
-      }
+    }
+
+    // Calculate scroll percentage for dock
+    if (scrollPercentageEl && scrollHeight > 0) {
+      const pct = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
+      scrollPercentageEl.textContent = `${pct}%`;
     }
   }, { passive: true });
 }
 
 function scrollToTop() {
-  const mainContainer = document.querySelector('main');
-  if (mainContainer) {
-    mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleQuickCalculatorDrawer() {
-  const drawer = document.getElementById('quick-calc-drawer');
-  if (!drawer) return;
-  const isClosed = drawer.classList.contains('translate-x-full');
-  if (isClosed) {
-    drawer.classList.remove('translate-x-full');
-    syncDrawerCalculator();
-  } else {
-    drawer.classList.add('translate-x-full');
-  }
+function openGlassModal(title, contentHtml) {
+  const modal = document.getElementById('glass-detail-modal');
+  const titleEl = document.getElementById('modal-title');
+  const bodyEl = document.getElementById('modal-body');
+  if (!modal || !titleEl || !bodyEl) return;
+  
+  titleEl.innerHTML = title;
+  bodyEl.innerHTML = contentHtml;
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  if (window.lucide) lucide.createIcons();
 }
 
-function syncDrawerCalculator() {
-  const salaryInput = document.getElementById('drawer-input-salary');
-  const daysSlider = document.getElementById('drawer-slider-strike-days');
-  const daysVal = document.getElementById('drawer-strike-days-val');
-  const netStrikeCost = document.getElementById('drawer-net-strike-cost');
-  const recoveryVal = document.getElementById('drawer-recovery-val');
+function closeGlassModal() {
+  const modal = document.getElementById('glass-detail-modal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+function openQuickCalcModal() {
+  const html = `
+    <div class="space-y-4">
+      <p class="text-xs text-slate-400">Simula tu descuento salarial neto por días de paro frente a la recuperación garantizada del VII Convenio (7.500 € + 12% en tablas).</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <label class="block text-xs font-semibold text-slate-300">Salario Bruto Anual (€):</label>
+          <input type="number" id="modal-input-salary" value="45000" step="1000" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-white font-mono text-sm focus:border-sky-400 focus:outline-none" oninput="syncModalCalculator()">
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-slate-300">Días de Huelga:</span>
+            <span id="modal-strike-days-val" class="font-mono font-bold text-sky-400">5 días</span>
+          </div>
+          <input type="range" id="modal-slider-strike-days" min="1" max="30" value="5" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-sky-400 mt-2" oninput="syncModalCalculator()">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono">
+        <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-center">
+          <span class="text-[10px] text-rose-300/80 block uppercase tracking-wider">Descuento Neto</span>
+          <span id="modal-net-strike-cost" class="text-base font-bold text-rose-400">-443 €</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
+          <span class="text-[10px] text-amber-300/80 block uppercase tracking-wider">Pérdida IPC (20-25)</span>
+          <span class="text-base font-bold text-amber-400">-26.027 €</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
+          <span class="text-[10px] text-emerald-300/80 block uppercase tracking-wider">Recuperación Plataforma</span>
+          <span id="modal-recovery-val" class="text-base font-bold text-emerald-400">+12.900 €</span>
+        </div>
+      </div>
+      <div class="flex justify-end pt-2">
+        <button onclick="switchTab('tab-purchasing-power'); closeGlassModal();" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-blue-600/30">
+          <span>Ir al Simulador Salarial Completo</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  `;
+  openGlassModal('<i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i> Calculadora Salarial Rápida & ROI', html);
+  syncModalCalculator();
+}
+
+function syncModalCalculator() {
+  const salaryInput = document.getElementById('modal-input-salary');
+  const daysSlider = document.getElementById('modal-slider-strike-days');
+  const daysVal = document.getElementById('modal-strike-days-val');
+  const netStrikeCost = document.getElementById('modal-net-strike-cost');
+  const recoveryVal = document.getElementById('modal-recovery-val');
 
   if (!salaryInput || !daysSlider) return;
   const salary = parseFloat(salaryInput.value) || 45000;
   const days = parseInt(daysSlider.value, 10) || 5;
 
   if (daysVal) daysVal.textContent = `${days} día${days > 1 ? 's' : ''}`;
-
   const dailyGross = salary / 365.0;
   const dailyNet = dailyGross * 0.72;
   const totalNetLoss = dailyNet * days;
-
   if (netStrikeCost) netStrikeCost.textContent = `-${Math.round(totalNetLoss).toLocaleString()} €`;
-
-  // Recovery: 7,500€ + 12% on salary
   const recoveryEstimate = 7500 + (salary * 0.12);
   if (recoveryVal) recoveryVal.textContent = `+${Math.round(recoveryEstimate).toLocaleString()} €`;
 }
+
+function toggleQuickCalculatorDrawer() {
+  openQuickCalcModal();
+}
+
+function syncDrawerCalculator() {
+  syncModalCalculator();
+}
+
+// Global key listeners for modal closing
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeGlassModal();
+    closeSourceModal();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const glassModal = document.getElementById('glass-detail-modal');
+  if (glassModal && !glassModal.classList.contains('hidden') && e.target === glassModal) {
+    closeGlassModal();
+  }
+});
