@@ -156,3 +156,47 @@ Este incremento ejecuta la transformación radical y definitiva de la experienci
 - **SC-003**: Los 12 gráficos analíticos Chart.js se visualizan y redimensionan limpiamente sin solapamiento en resoluciones desde 360px hasta 4K.
 - **SC-004**: El Glass Modal de detalle se abre y cierra fluidamente manteniendo intacto el estado de la página de fondo.
 - **SC-005**: La suite de verificación de invariantes (`python3 src/validate_invariants.py`) y estructura de fuentes (`python3 src/validate_sources.py`) pasa al 100% con cero errores y etiquetas HTML perfectamente balanceadas.
+
+---
+
+## 6. Protocolo de Ejecución Iterativa con Capturas y Feedback Módulo a Módulo
+
+Conforme a las directrices de ejecución del usuario, la implementación se estructura en **6 fases secuenciales e independientes**. En cada fase se aplicarán los cambios, se tomará una captura visual con el navegador headless, se mostrará al usuario junto con una reflexión de mejoras técnicas y estéticas, y se solicitará feedback explícito antes de proceder a la siguiente fase:
+
+### Fase 1: Arquitectura Global y Sistema de Navegación Flotante
+- Supresión integral de la barra lateral izquierda `<aside>`.
+- Despliegue del contenedor panorámico `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8` sobre fondo negro puro AMOLED (`#000000`).
+- Implementación del **Global Floating Dock** inferior (`#global-floating-dock`) con selector de los 6 módulos y micro-glows.
+- Implementación de la **Dynamic Island Superior** (`#floating-hud`) con auto-contracción al scroll (>120px).
+- Implementación del contenedor base de **Glass Modal Centrado** (`#glass-detail-modal`).
+- *Entregable*: Captura visual de la cabecera, contenedor y dock flotante + Reflexión + Petición de feedback.
+
+### Fase 2: Reestructuración Integral de Módulo 0 (Portal Hub & Centro de Mando)
+- Hero rediseñado con micro-glow y pulso del conflicto activo.
+- Cuadrícula de 4 Flash KPIs atómicos desacoplados (Censo 15.562, Pérdida Bolsa -14.459 M€, Buffer FALs 60h, Pérdida Media -26.027 €).
+- 5 tarjetas de acceso directo a módulos analíticos en cristal líquido de alta densidad.
+- *Entregable*: Captura visual del Módulo 0 completo + Reflexión + Petición de feedback.
+
+### Fase 3: Reestructuración de Módulo 1 (Centro Financiero, Asimetría 185x & Bolsa)
+- Bloque comparativo visual de alto impacto: "Airbus SE (4.960 M€ Beneficio) vs Plantilla España (118 M€ Coste Plataforma)".
+- Simulador interactivo de asimetría financiera (185x) desacoplado de los gráficos.
+- Monitor bursátil Euronext AIR.PA con gráficos limpios y cronología de hitos en tarjetas atómicas.
+- *Entregable*: Captura visual del Módulo 1 + Reflexión + Petición de feedback.
+
+### Fase 4: Reestructuración de Módulo 2 (Impacto Industrial, Beluga ADS-B & Termómetro)
+- Tarjeta de alerta crítica: Monopolio HTP en Getafe y Límite de Buffers JIT en FALs europeas (60h).
+- Radar ADS-B de flota BelugaXL y matriz de riesgo operativo por planta.
+- Feed de noticias en tiempo real y Termómetro de Presión ($18.0^\circ\text{C} \le T \le 96.5^\circ\text{C}$) con chips de impacto.
+- *Entregable*: Captura visual del Módulo 2 + Reflexión + Petición de feedback.
+
+### Fase 5: Reestructuración de Módulo 3 (Poder Adquisitivo, Simulador Salarial & Matriz 10D)
+- Simulador salarial reactivo individualizado con sliders de salario e IPC en tarjetas de cristal líquido.
+- Matriz comparativa de negociación en 10 dimensiones con filtros rápidos y badges de estado.
+- Gráfico de evolución salarial a 5 años (4 series con tooltips glassmórficos tabulares).
+- *Entregable*: Captura visual del Módulo 3 + Reflexión + Petición de feedback.
+
+### Fase 6: Reestructuración de Módulos 4 y 5 (Fuerza Sindical, Soberanía Asamblearia & Evidencias)
+- Mapa electoral de 198 delegados y 7 factorías en tarjetas atómicas con barras de distribución.
+- Escrutinio interactivo del Referéndum del 24-J (5.860 Sí vs 6.229 No) con porcentajes tabulares.
+- Buscador de 269 fuentes primarias oficiales y catálogo de actas Telegram con apertura en Glass Modal.
+- *Entregable*: Captura visual de Módulos 4 y 5 + Verificación de invariantes + Reflexión final.
