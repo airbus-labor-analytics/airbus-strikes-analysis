@@ -146,8 +146,14 @@
       <div class="flex-1 overflow-y-auto custom-scrollbar p-3.5 space-y-5">
         <!-- Unified 5 Thematic Modules Navigation -->
         <div class="space-y-1.5">
-          <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="tab-btn w-full px-3.5 py-2.5 rounded-xl text-xs font-bold text-white bg-blue-600 flex items-center text-left transition shadow-md shadow-blue-600/30">
-            <i data-lucide="layout-dashboard" class="w-4 h-4 mr-2.5 flex-shrink-0 text-white"></i>
+          <button onclick="switchTab('tab-portal')" id="btn-tab-portal" class="tab-btn w-full px-3.5 py-2.5 rounded-xl text-xs font-bold text-white bg-blue-600 flex items-center text-left transition shadow-md shadow-blue-600/30">
+            <i data-lucide="compass" class="w-4 h-4 mr-2.5 flex-shrink-0 text-white"></i>
+            <span class="flex-1 text-left truncate">0. Portal & Mapa Web</span>
+            <span class="ml-2 flex-shrink-0 px-1.5 py-0.5 text-[9px] font-extrabold bg-blue-500/30 text-blue-200 border border-blue-400/40 rounded">Inicio</span>
+          </button>
+
+          <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="tab-btn w-full px-3.5 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800/80 flex items-center text-left transition">
+            <i data-lucide="layout-dashboard" class="w-4 h-4 mr-2.5 flex-shrink-0 text-indigo-400"></i>
             <span class="flex-1 text-left truncate">1. Centro de Mando & Asimetría</span>
           </button>
 
@@ -186,6 +192,190 @@
     <!-- CONTENT AREA -->
     <main class="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-6 lg:p-8 space-y-6">
 
+
+      <!-- ==================== TAB 0: PORTAL HUB & MAPA WEB ==================== -->
+      <div id="tab-portal" class="tab-content space-y-6">
+        <!-- Mission & Founding Principles Banner -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl border-blue-500/30 bg-gradient-to-br from-slate-900 via-slate-900/90 to-blue-950/40 relative overflow-hidden">
+          <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="max-w-4xl relative z-10 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 text-xs font-bold">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i> Plataforma de Inteligencia y Análisis Laboral
+            </div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
+              Portal de Inteligencia Estratégica: Conflicto Laboral Airbus España 2026
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Esta plataforma fue creada para proporcionar <strong>transparencia matemática absoluta, rigor econométrico y respaldo documental primario</strong> en la negociación del VII Convenio Colectivo Interempresas. Diseñada para trabajadores, delegados sindicales, asambleas y analistas, centraliza el impacto industrial del paro, la erosión salarial acumulada y la asimetría financiera de Airbus SE.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 text-[11px] text-slate-400">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> 100% Fuentes Oficiales</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Paridad Dual de Datos</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Soberanía Asamblearia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Flash KPIs Summary -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="glass-card p-4 rounded-xl border-slate-800 hover:border-slate-700 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400">Censo Total en Conflicto</span>
+              <i data-lucide="users" class="w-4 h-4 text-sky-400"></i>
+            </div>
+            <p class="text-2xl font-black text-white mt-1">15.562 trab.</p>
+            <p class="text-[11px] text-sky-300/90 font-medium mt-0.5">7 factorías y 198 delegados electos <a href="https://industria.ccoo.es/Aeroespacial" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Actas SIMA]</a></p>
+          </div>
+
+          <div class="glass-card p-4 rounded-xl border-rose-500/30 hover:border-rose-500/50 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400">Impacto Bursátil Airbus SE</span>
+              <i data-lucide="trending-down" class="w-4 h-4 text-rose-400"></i>
+            </div>
+            <p class="text-2xl font-black text-rose-400 mt-1">-14.459,5 M€</p>
+            <p class="text-[11px] text-rose-300/90 font-medium mt-0.5">Ratio 122.5x vs. coste de plataforma <a href="https://www.euronext.com/en/products/equities/NL0000235190-XPAR" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Euronext AIR.PA]</a></p>
+          </div>
+
+          <div class="glass-card p-4 rounded-xl border-amber-500/30 hover:border-amber-500/50 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400">Límite Buffers JIT FALs</span>
+              <i data-lucide="clock" class="w-4 h-4 text-amber-400"></i>
+            </div>
+            <p class="text-2xl font-black text-amber-400 mt-1">60 horas</p>
+            <p class="text-[11px] text-amber-300/90 font-medium mt-0.5">Parada inminente FALs Toulouse/Hamburgo <a href="https://beluga.simcoe.co.uk/" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[BelugaWatch]</a></p>
+          </div>
+
+          <div class="glass-card p-4 rounded-xl border-emerald-500/30 hover:border-emerald-500/50 transition">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-medium text-slate-400">Pérdida Media 2020-2025</span>
+              <i data-lucide="wallet" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+            <p class="text-2xl font-black text-emerald-400 mt-1">-26.027 €</p>
+            <p class="text-[11px] text-emerald-300/90 font-medium mt-0.5">Reclamación de 7.500 € + 12% en tablas <a href="https://www.ine.es/" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[INE / SIMA]</a></p>
+          </div>
+        </div>
+
+        <!-- Interactive Visual Site Map -->
+        <div class="space-y-4 pt-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-sm sm:text-base font-bold text-white flex items-center">
+                <i data-lucide="map" class="w-4 h-4 mr-2 text-sky-400"></i>
+                Mapa de Navegación del Portal: Módulos Analíticos
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Selecciona cualquiera de las 5 herramientas especializadas para acceder directamente a sus datos e interactividad.</p>
+            </div>
+            <span class="text-[11px] font-bold px-2 py-0.5 bg-slate-800 text-slate-300 rounded border border-slate-700">5 Módulos</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Card 1: Centro de Mando -->
+            <div onclick="switchTab('tab-overview')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-indigo-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded">Módulo 1</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-indigo-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-indigo-300 transition flex items-center">
+                  <i data-lucide="layout-dashboard" class="w-4 h-4 mr-1.5 text-indigo-400"></i>
+                  Centro de Mando & Asimetría
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Simulador interactivo del coste del paro diario para Airbus SE vs. la plantilla, resultados financieros 2025 y cotización bursátil en Euronext.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>Cotización AIR.PA & Beneficios</span>
+                <span class="text-indigo-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Impacto Industrial & Beluga -->
+            <div onclick="switchTab('tab-industrial')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-rose-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">Módulo 2</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-rose-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-rose-300 transition flex items-center">
+                  <i data-lucide="boxes" class="w-4 h-4 mr-1.5 text-rose-400"></i>
+                  Impacto Industrial & Logística Beluga
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Radar en vivo de la flota BelugaXL, termómetro de presión asamblearia, monopolio de estabilizadores HTP en Getafe y estrangulamiento de FALs.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>Radar ADS-B & Termómetro</span>
+                <span class="text-rose-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Poder Adquisitivo & Salarios -->
+            <div onclick="switchTab('tab-purchasing-power')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-emerald-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded">Módulo 3</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-emerald-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-emerald-300 transition flex items-center">
+                  <i data-lucide="calculator" class="w-4 h-4 mr-1.5 text-emerald-400"></i>
+                  Poder Adquisitivo & Negociación
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Calculadora salarial individualizada, balance de pérdidas históricas 2020-2025, plataforma de 11 puntos del Comité de Huelga y comparativa de ofertas.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>Simulador Nómina & 11 Puntos</span>
+                <span class="text-emerald-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Fuerza Sindical & Asamblea -->
+            <div onclick="switchTab('tab-union-force')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-amber-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded">Módulo 4</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-amber-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-amber-300 transition flex items-center">
+                  <i data-lucide="users" class="w-4 h-4 mr-1.5 text-amber-400"></i>
+                  Fuerza Sindical & Asamblea
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Mapa de 198 delegados electos en las 7 factorías, resultados del referéndum del 24-J, cronología exhaustiva de asambleas y protocolos de huelga.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>Mapa de Centros & Referéndum</span>
+                <span class="text-amber-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+
+            <!-- Card 5: Documentación & Evidencias -->
+            <div onclick="switchTab('tab-evidence')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-sky-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">Módulo 5</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-sky-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-sky-300 transition flex items-center">
+                  <i data-lucide="book-open" class="w-4 h-4 mr-1.5 text-sky-400"></i>
+                  Documentación & Evidencias
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Buscador de 269 fuentes primarias oficiales, archivo indexado de asambleas Telegram y benchmarks estratégicos de huelgas del sector aeroespacial.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>269 Fuentes & Archivo Telegram</span>
+                <span class="text-sky-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- ==================== TAB 1: CENTRO DE MANDO & ASIMETRÍA ==================== -->
       <div id="tab-overview" class="tab-content space-y-6">
