@@ -136,6 +136,12 @@ class TestDashboardUI(unittest.TestCase):
         profit = self.metrics_data.get("industrial_parameters", {}).get("airbus_se_net_profit_2025", 4960000000.0)
         self.assertIn(str(int(profit)), data_js_content)
 
+    def test_sensitive_info_badges_and_platform_grid(self):
+        """Validates that .badge-sensitive and committee-11points-grid exist in HTML and app.js."""
+        self.assertIn(".badge-sensitive", self.html_content, "Missing .badge-sensitive CSS rule in index.html")
+        self.assertIn("committee-11points-grid", self.html_content, "Missing committee-11points-grid container in index.html")
+        self.assertIn("renderSensitiveBadge", self.app_js_content, "Missing renderSensitiveBadge helper in app.js")
+
 
 if __name__ == "__main__":
     unittest.main()

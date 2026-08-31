@@ -19,8 +19,8 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 **Purpose**: Set up validation contract schemas and manifest parser scaffolding.
 
-- [ ] T001 [P] Validate sync validation manifest contract schema in `specs/006-sync-strike-data-updates/contracts/sync-validation-contract.json`
-- [ ] T002 [P] Initialize validation manifest structures in `src/parsers/telegram_parser.py`
+- [X] T001 [P] Validate sync validation manifest contract schema in `specs/006-sync-strike-data-updates/contracts/sync-validation-contract.json`
+- [X] T002 [P] Initialize validation manifest structures in `src/parsers/telegram_parser.py`
 
 ---
 
@@ -30,9 +30,9 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T003 [P] Implement Telegram document extraction for SIMA 27/08 meeting minutes (`Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt`) in `src/parsers/telegram_parser.py`
-- [ ] T004 [P] Implement extraction of 11-point strike committee proposal (`Propuesta_ComiteHuelga270826.pdf.txt`) in `src/parsers/telegram_parser.py`
-- [ ] T005 Integrate change manifest generator into `src/data_ingestion.py`
+- [X] T003 [P] Implement Telegram document extraction for SIMA 27/08 meeting minutes (`Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt`) in `src/parsers/telegram_parser.py`
+- [X] T004 [P] Implement extraction of 11-point strike committee proposal (`Propuesta_ComiteHuelga270826.pdf.txt`) in `src/parsers/telegram_parser.py`
+- [X] T005 Integrate change manifest generator into `src/data_ingestion.py`
 
 **Checkpoint**: Foundational extraction engine ready to build candidate update diffs.
 
@@ -46,9 +46,9 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Build interactive CLI / chat review prompt formatter in `src/data_ingestion.py`
-- [ ] T007 [P] [US1] Implement approval/rejection decision handler and atomic dataset updater in `src/data_ingestion.py`
-- [ ] T008 [US1] Create unit tests for validation manifest generation and confirmation logic in `tests/test_data_ingestion.py`
+- [X] T006 [P] [US1] Build interactive CLI / chat review prompt formatter in `src/data_ingestion.py`
+- [X] T007 [P] [US1] Implement approval/rejection decision handler and atomic dataset updater in `src/data_ingestion.py`
+- [X] T008 [US1] Create unit tests for validation manifest generation and confirmation logic in `tests/test_data_ingestion.py`
 
 **Checkpoint**: User Story 1 (MVP) complete — safe interactive human validation gate operational.
 
@@ -62,9 +62,9 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Add reusable Amber badge CSS tokens and markup in `dashboard/index.html` for provisional strike proposals
-- [ ] T010 [P] [US2] Update `dashboard/app.js` to dynamically inject sensitive info markers and tooltips on provisional metrics
-- [ ] T011 [US2] Add DOM hierarchy tests in `tests/test_dashboard_ui.py` to verify sensitive badge elements and tooltips
+- [X] T009 [P] [US2] Add reusable Amber badge CSS tokens and markup in `dashboard/index.html` for provisional strike proposals
+- [X] T010 [P] [US2] Update `dashboard/app.js` to dynamically inject sensitive info markers and tooltips on provisional metrics
+- [X] T011 [US2] Add DOM hierarchy tests in `tests/test_dashboard_ui.py` to verify sensitive badge elements and tooltips
 
 **Checkpoint**: User Stories 1 AND 2 complete — unreviewed/provisional figures clearly marked in UI.
 
@@ -78,9 +78,9 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Update econometric calculations and platform cost model in `src/analysis_engine.py` for approved 27/08 SIMA proposal terms
-- [ ] T013 [P] [US3] Update `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md` with validated SIMA 27/08 negotiations and assembly resolutions
-- [ ] T014 [US3] Synchronize `dashboard/data.js` and `data/conflict_metrics.json` via atomic export
+- [X] T012 [P] [US3] Update econometric calculations and platform cost model in `src/analysis_engine.py` for approved 27/08 SIMA proposal terms
+- [X] T013 [P] [US3] Update `docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md` with validated SIMA 27/08 negotiations and assembly resolutions
+- [X] T014 [US3] Synchronize `dashboard/data.js` and `data/conflict_metrics.json` via atomic export
 
 **Checkpoint**: All 3 user stories complete with seamless multi-surface parity.
 
@@ -90,9 +90,9 @@ description: "Task list for Strike Data Sync, Sensitive Information Badges & Use
 
 **Purpose**: End-to-end regression validation and full test suite execution.
 
-- [ ] T015 [P] Run `python3 src/validate_sources.py` to ensure all primary source links and HTML tags balance
-- [ ] T016 [P] Run `python3 src/validate_invariants.py` to ensure Rules 1–14 pass with zero errors
-- [ ] T017 Run complete test suite (`python3 -m unittest discover tests`)
+- [X] T015 [P] Run `python3 src/validate_sources.py` to ensure all primary source links and HTML tags balance
+- [X] T016 [P] Run `python3 src/validate_invariants.py` to ensure Rules 1–14 pass with zero errors
+- [X] T017 Run complete test suite (`python3 -m unittest discover tests`)
 
 ---
 

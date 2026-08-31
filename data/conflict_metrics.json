@@ -22560,5 +22560,89 @@
         "last_modified": "2026-08-29T18:17:55.762054+00:00"
       }
     ]
+  },
+  "negotiation": {
+    "sima_proposals": {
+      "2026-08-27": {
+        "date": "2026-08-27",
+        "title": "Propuesta Comité de Huelga en el SIMA",
+        "one_time_payment_eur": 7500.0,
+        "is_consolidable": false,
+        "retroactive_increase_pct": 12.0,
+        "retroactive_effective_date": "2026-01-01",
+        "annual_review_2026": "IPC + 1.5%",
+        "annual_review_2027": "IPC + 1.5%",
+        "status": "Presentada en mediación SIMA; pendiente de ratificación en asamblea"
+      }
+    },
+    "committee_11_points_summary": {
+      "date": "2026-08-27",
+      "points": [
+        {
+          "num": 1,
+          "title": "Desistimiento Recurso TS sobre IT",
+          "description": "Compromiso de no retirada del complemento IT y devolución de cantidades descontadas en octubre 2026."
+        },
+        {
+          "num": 2,
+          "title": "Recuperación Poder Adquisitivo",
+          "description": "Paga 7500€ no consolidable, subida del 12% a tablas desde 1-ene-2026 e IPC+1.5% anual en 2026/2027."
+        },
+        {
+          "num": 3,
+          "title": "Teletrabajo Universal",
+          "description": "Mínimo 40% de jornada trimestral vinculante con reversibilidad exclusiva por el trabajador."
+        },
+        {
+          "num": 4,
+          "title": "Vacaciones Flexibles",
+          "description": "Mantenimiento de 2 semanas de cierre completo y 2 semanas en días sueltos flexibles."
+        },
+        {
+          "num": 5,
+          "title": "Comedor Universal Gratuito",
+          "description": "Acceso gratuito sin copagos para todos los turnos y centros de Airbus España."
+        },
+        {
+          "num": 6,
+          "title": "Transporte Colectivo",
+          "description": "Mantenimiento íntegro de rutas, frecuencias y presupuesto adicional para nuevas paradas."
+        },
+        {
+          "num": 7,
+          "title": "Flexibilidad Horaria Taller",
+          "description": "Extensión de 1 hora de flexibilidad de entrada y salida a personal de taller."
+        },
+        {
+          "num": 8,
+          "title": "Garantías Proyecto Bromo",
+          "description": "Subrogación bajo art. 44.1 ET, movilidad prioritaria en Airbus y renuncia a despidos."
+        },
+        {
+          "num": 9,
+          "title": "Carga de Trabajo Airbus Cádiz",
+          "description": "Plan 2026 vinculante de dotación de carga de trabajo y garantía de plantilla mínima."
+        },
+        {
+          "num": 10,
+          "title": "Catálogo de Puestos (LMA, 5R)",
+          "description": "Inclusión formal en catálogo tipo de LMA, rodadores y puestos GP3-5R con complementos."
+        },
+        {
+          "num": 11,
+          "title": "Compensación Huelga",
+          "description": "Compensación económica extraordinaria del 100% de los días de huelga de 2026."
+        }
+      ]
+    }
+  },
+  "assembly_resolutions": {
+    "2026-08-27_getafe": {
+      "date": "2026-08-27",
+      "site": "Getafe",
+      "attendance": "Piquetes y asamblea mantenidos en Puerta Sur",
+      "resolution": "Aprobado por mayoría enviar carta formal al Gobierno exponiendo las amenazas recibidas en el SIMA.",
+      "status": "Ratificado en asamblea soberana"
+    }
   }
 }
