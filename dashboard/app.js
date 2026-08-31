@@ -209,9 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   handleHashNavigation();
-  window.addEventListener('hashchange', handleHashNavigation);
+  // 8. Initialize ScrollSpy for Right-Hand Floating Section Navigator
+  initSectionNavScrollSpy();
 
-  // 8. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
+  // 9. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (belugaPollingInterval) {
@@ -503,6 +504,8 @@ function switchTab(tabId) {
   const activeTab = document.getElementById(normalizedTabId);
   if (activeTab) activeTab.classList.remove('hidden');
 
+  // Update Right-Hand Floating Section Map
+  updateSectionNav(normalizedTabId);
   // Update URL hash smoothly
   try {
     if (history.replaceState) {
@@ -547,7 +550,143 @@ function switchTab(tabId) {
     if (window.lucide) lucide.createIcons();
   });
 }
-// ==================== ASYMMETRY SIMULATOR ====================
+
+// ==================== RIGHT-HAND FLOATING SECTION MAP ====================
+const TAB_SECTION_MAP = {
+  'tab-portal': {
+    title: 'Portal Hub',
+    sections: [
+      { id: 'sec-portal-mission', label: 'Misión & Principios', icon: 'shield-check' },
+      { id: 'sec-portal-kpis', label: 'KPIs Ejecutivos Flash', icon: 'trending-up' },
+      { id: 'sec-portal-sitemap', label: 'Mapa del Portal', icon: 'compass' }
+    ]
+  },
+  'tab-overview': {
+    title: 'Finanzas',
+    sections: [
+      { id: 'sec-overview-kpis', label: 'KPIs Principales', icon: 'trending-up' },
+      { id: 'sec-overview-asymmetry', label: 'Simulador Asimetría', icon: 'scale' },
+      { id: 'sec-overview-chart', label: 'Proyección Huelga', icon: 'bar-chart-2' },
+      { id: 'sec-overview-stock', label: 'Cotización AIR.PA', icon: 'trending-down' },
+      { id: 'sec-overview-solvency', label: 'Solvencia & Dividendos', icon: 'shield-check' }
+    ]
+  },
+  'tab-industrial': {
+    title: 'Beluga / Logística',
+    sections: [
+      { id: 'sec-industrial-thermo', label: 'Termómetro de Presión', icon: 'flame' },
+      { id: 'sec-industrial-fleet', label: 'Flota Beluga en Tierra', icon: 'compass' },
+      { id: 'sec-industrial-history', label: 'Vuelos & Retención HTP', icon: 'history' },
+      { id: 'sec-industrial-feed', label: 'Monitor de Envíos JIT', icon: 'activity' },
+      { id: 'sec-industrial-fals', label: 'Cuello de Botella FALs', icon: 'boxes' }
+    ]
+  },
+  'tab-purchasing-power': {
+    title: 'Salarios & ROI',
+    sections: [
+      { id: 'sec-wages-simulator', label: 'Simulador Multivariante', icon: 'calculator' },
+      { id: 'sec-wages-audit', label: 'Efecto Abril & IPC', icon: 'scissors' },
+      { id: 'sec-wages-scenarios', label: 'Comparativa Escenarios', icon: 'layers' },
+      { id: 'sec-wages-roi', label: 'Desglose Beneficios & ROI', icon: 'table' },
+      { id: 'sec-wages-losses', label: 'Pérdidas 2020-2025 (BOE)', icon: 'file-text' },
+      { id: 'sec-wages-negotiation', label: 'Mesa de Negociación', icon: 'scale' }
+    ]
+  },
+  'tab-union-force': {
+    title: 'Fuerza Sindical',
+    sections: [
+      { id: 'sec-unions-delegates', label: 'Representación Sindical', icon: 'users' },
+      { id: 'sec-unions-referendum', label: 'Referéndum 24-Julio', icon: 'vote' },
+      { id: 'sec-unions-sections', label: 'Secciones Sindicales', icon: 'pie-chart' },
+      { id: 'sec-unions-sociology', label: 'Claves Sociológicas', icon: 'shield-alert' },
+      { id: 'sec-unions-timeline', label: 'Línea Temporal & Minutas', icon: 'history' },
+      { id: 'sec-unions-workflows', label: 'Árboles de Decisión', icon: 'git-merge' }
+    ]
+  },
+  'tab-evidence': {
+    title: 'Evidencias',
+    sections: [
+      { id: 'sec-evidence-sources', label: 'Fuentes Primarias (269+)', icon: 'book-open' },
+      { id: 'sec-evidence-telegram', label: 'Canal Telegram & Docs', icon: 'send' },
+      { id: 'sec-evidence-benchmarks', label: 'Benchmark Conflictos', icon: 'award' }
+    ]
+  }
+};
+
+function updateSectionNav(tabId) {
+  const container = document.getElementById('section-nav-links');
+  if (!container) return;
+
+  const tabConfig = TAB_SECTION_MAP[tabId];
+  if (!tabConfig || !tabConfig.sections || tabConfig.sections.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = tabConfig.sections.map((sec, idx) => `
+    <button type="button" onclick="scrollToSection('${sec.id}')" id="nav-btn-${sec.id}" class="section-nav-item text-left transition-all duration-200 text-[10.5px] py-0.5 -ml-[13px] pl-3 border-l block truncate max-w-[170px] ${idx === 0 ? 'text-sky-400 font-semibold scale-105 origin-left border-sky-400' : 'text-slate-500 hover:text-slate-300 border-transparent hover:border-slate-500'}">
+      ${sec.label}
+    </button>
+  `).join('');
+}
+
+function scrollToSection(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const headerOffset = 90;
+  const elementPosition = el.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: Math.max(0, offsetPosition),
+    behavior: 'smooth'
+  });
+}
+
+function initSectionNavScrollSpy() {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollSpy();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+function handleScrollSpy() {
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  if (!currentTab) return;
+
+  const tabConfig = TAB_SECTION_MAP[currentTab.id];
+  if (!tabConfig || !tabConfig.sections || tabConfig.sections.length === 0) return;
+
+  const scrollY = window.pageYOffset + 130;
+  let activeSectionId = tabConfig.sections[0].id;
+
+  for (const sec of tabConfig.sections) {
+    const el = document.getElementById(sec.id);
+    if (el) {
+      const top = el.offsetTop;
+      if (scrollY >= top) {
+        activeSectionId = sec.id;
+      }
+    }
+  }
+
+  document.querySelectorAll('.section-nav-item').forEach(btn => {
+    btn.classList.remove('text-sky-400', 'font-semibold', 'scale-105', 'origin-left', 'border-sky-400');
+    btn.classList.add('text-slate-500', 'border-transparent');
+  });
+
+  const activeBtn = document.getElementById(`nav-btn-${activeSectionId}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('text-slate-500', 'border-transparent');
+    activeBtn.classList.add('text-sky-400', 'font-semibold', 'scale-105', 'origin-left', 'border-sky-400');
+  }
+}
 function setAsymmetryDays(days) {
   const slider = document.getElementById('slider-days');
   if (slider) {
