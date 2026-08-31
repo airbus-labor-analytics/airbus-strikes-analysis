@@ -18,8 +18,8 @@
 
 **Purpose**: Establish target directory structure, `.gitkeep` anchors, and initial state schemas.
 
-- [ ] T001 Ensure `data/telegram_archive/` subdirectories (`assembly_minutes/`, `legal_filings/`, `dossiers/`, `documents/`) exist with appropriate `.gitkeep` files
-- [ ] T002 [P] Initialize and verify baseline structure of `data/sync_status.json` adhering to `specs/010-sync-telegram-news-notebooklm/contracts/sync_pipeline_schema.json`
+- [x] T001 Ensure `data/telegram_archive/` subdirectories (`assembly_minutes/`, `legal_filings/`, `dossiers/`, `documents/`) exist with appropriate `.gitkeep` files
+- [x] T002 [P] Initialize and verify baseline structure of `data/sync_status.json` adhering to `specs/010-sync-telegram-news-notebooklm/contracts/sync_pipeline_schema.json`
 
 ---
 
@@ -27,8 +27,8 @@
 
 **Purpose**: Establish shared synchronization utilities, test fixtures, and error propagation.
 
-- [ ] T003 Enhance `src/data_ingestion.py` to coordinate autonomous multi-stage sync execution with clean exit code propagation
-- [ ] T004 [P] Create initial test suite in `tests/test_sync_pipeline.py` with mock HTTP fixtures and schema validation assertions
+- [x] T003 Enhance `src/data_ingestion.py` to coordinate autonomous multi-stage sync execution with clean exit code propagation
+- [x] T004 [P] Create initial test suite in `tests/test_sync_pipeline.py` with mock HTTP fixtures and schema validation assertions
 
 **Checkpoint**: Foundation ready - Target directories, schemas, and test fixtures established.
 
@@ -42,9 +42,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Implement dual text/binary extraction, file normalization, and automatic 4-category classification in `src/telegram_channel_sync.py`
-- [ ] T006 [US1] Implement idempotent indexing engine generating `data/telegram_archive/telegram_index.json` with metadata and summaries in `src/telegram_channel_sync.py`
-- [ ] T007 [US1] Add unit test assertions for Telegram document categorization, character counts, and index validity in `tests/test_sync_pipeline.py`
+- [x] T005 [P] [US1] Implement dual text/binary extraction, file normalization, and automatic 4-category classification in `src/telegram_channel_sync.py`
+- [x] T006 [US1] Implement idempotent indexing engine generating `data/telegram_archive/telegram_index.json` with metadata and summaries in `src/telegram_channel_sync.py`
+- [x] T007 [US1] Add unit test assertions for Telegram document categorization, character counts, and index validity in `tests/test_sync_pipeline.py`
 
 **Checkpoint**: User Story 1 (MVP) complete - Telegram channel documents downloaded, classified, and indexed in repository.
 
@@ -58,9 +58,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T008 [P] [US2] Enhance `src/sentiment_thermometer.py` with multi-source RSS syndication, community feeds, and resilient offline fallback handling
-- [ ] T009 [US2] Implement dynamic conflict temperature calculation and atomic persistence to `data/thermometer_data.json` in `src/sentiment_thermometer.py`
-- [ ] T010 [US2] Add unit test assertions for news sentiment scoring, RSS parsing, and temperature bounds in `tests/test_sync_pipeline.py`
+- [x] T008 [P] [US2] Enhance `src/sentiment_thermometer.py` with multi-source RSS syndication, community feeds, and resilient offline fallback handling
+- [x] T009 [US2] Implement dynamic conflict temperature calculation and atomic persistence to `data/thermometer_data.json` in `src/sentiment_thermometer.py`
+- [x] T010 [US2] Add unit test assertions for news sentiment scoring, RSS parsing, and temperature bounds in `tests/test_sync_pipeline.py`
 
 **Checkpoint**: User Stories 1 AND 2 complete - News feeds and sentiment thermometer updating dynamically.
 
@@ -74,9 +74,9 @@
 
 ### Implementation for User Story 3
 
-- [ ] T011 [P] [US3] Implement soft fallback authentication and document preparation/upload pipeline in `src/upload_to_notebooklm.py`
-- [ ] T012 [US3] Configure automated dynamic cron scheduling (2h active / 6h night / workflow_dispatch), invariant validation gates, and auto-commit in `.github/workflows/sync-news-data.yml`
-- [ ] T013 [US3] Add unit test assertions for NotebookLM graceful degradation and GitHub Actions workflow integrity in `tests/test_sync_pipeline.py`
+- [x] T011 [P] [US3] Implement soft fallback authentication and document preparation/upload pipeline in `src/upload_to_notebooklm.py`
+- [x] T012 [US3] Configure automated dynamic cron scheduling (2h active / 6h night / workflow_dispatch), invariant validation gates, and auto-commit in `.github/workflows/sync-news-data.yml`
+- [x] T013 [US3] Add unit test assertions for NotebookLM graceful degradation and GitHub Actions workflow integrity in `tests/test_sync_pipeline.py`
 
 **Checkpoint**: All user stories functional with full automated CI/CD orchestration.
 
@@ -86,8 +86,8 @@
 
 **Purpose**: Execute full verification suite, test coverage, and documentation update.
 
-- [ ] T014 [P] Run full validation suite (`python3 src/validate_invariants.py`, `python3 src/validate_sources.py`, and `python3 -m unittest discover tests`)
-- [ ] T015 Execute end-to-end sync verification scenarios and update `CHANGELOG.md`
+- [x] T014 [P] Run full validation suite (`python3 src/validate_invariants.py`, `python3 src/validate_sources.py`, and `python3 -m unittest discover tests`)
+- [x] T015 Execute end-to-end sync verification scenarios and update `CHANGELOG.md`
 
 ---
 

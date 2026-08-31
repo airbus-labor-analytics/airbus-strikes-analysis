@@ -2,8 +2,9 @@ name: Scheduled News & Data Auto-Sync
 
 on:
   schedule:
-    # Runs every 6 hours automatically (00:00, 06:00, 12:00, 18:00 UTC)
-    - cron: '0 */6 * * *'
+    # Runs every 2 hours during active market/assembly hours (06:00 to 20:00 UTC) and midnight UTC
+    - cron: '0 6-20/2 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -11,7 +12,7 @@ permissions:
 
 jobs:
   sync-and-update-data:
-    name: Auto-Sync Telegram, News & Live Tracking Data
+    name: Auto-Sync Telegram, News & NotebookLM Pipeline
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,24 +23,38 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 1. Autonomous Data Ingestion & Sync
+      - name: 1. Telegram Channel Document Extraction & Indexing
+        run: |
+          python3 src/telegram_channel_sync.py
+
+      - name: 2. Sindicación de Noticias & Termómetro de Sentimiento
+        run: |
+          python3 src/sentiment_thermometer.py || true
+
+      - name: 3. NotebookLM Document Preparation & Ingestion
+        env:
+          NOTEBOOKLM_TOKEN: ${{ secrets.NOTEBOOKLM_TOKEN }}
+        run: |
+          python3 src/upload_to_notebooklm.py || true
+
+      - name: 4. Autonomous Data Ingestion & Manifest Check
         run: |
           python3 src/data_ingestion.py --run-once
 
-      - name: 2. Re-generate Consolidated Datasets & Metrics
+      - name: 5. Re-generate Consolidated Datasets & Metrics
         run: |
           python3 src/analysis_engine.py
-          python3 src/sentiment_thermometer.py || true
-      - name: 5. Validate Integrity & Invariants
+
+      - name: 6. Validate Mathematical Invariants & Sources
         run: |
           python3 src/validate_invariants.py
           python3 src/validate_sources.py
 
-      - name: 6. Commit & Push Updated Data to Main
+      - name: 7. Commit & Push Updated Data to Main
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/ dashboard/data.js
+          git add data/ dashboard/data.js docs/
           if git diff --staged --quiet; then
             echo "No data changes detected. Everything up to date."
           else

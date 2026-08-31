@@ -288,13 +288,24 @@ def main():
     with open(args.export_json, "w", encoding="utf-8") as f:
         json.dump(metrics, f, indent=2, ensure_ascii=False)
 
-    print(f"✓ Dynamic Strike Pressure Thermometer generated ({metrics['total_items_monitored']} items collected)")
+    # Update sync_status.json with latest news count and timestamp
+    sync_file = DATA_DIR / "sync_status.json"
+    if sync_file.exists():
+        try:
+            with open(sync_file, "r", encoding="utf-8") as sf:
+                sync_data = json.load(sf)
+            sync_data["news_count"] = metrics.get("total_items_monitored", 0)
+            sync_data["last_sync"] = metrics.get("timestamp")
+            with open(sync_file, "w", encoding="utf-8") as sf:
+                json.dump(sync_data, sf, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"Notice updating sync_status: {e}", file=sys.stderr)
 
+    print(f"✓ Dynamic Strike Pressure Thermometer generated ({metrics['total_items_monitored']} items collected)")
     print(f"  • Temperature: {metrics['temperature_celsius']}°C")
     print(f"  • Status: {metrics['status_label']}")
     print(f"  • Strike Leverage (Bad for Airbus PR): {metrics['bad_for_airbus_count']} items ({metrics['bad_for_airbus_percentage']}%)")
     print(f"  • Corporate Spin (Good for Airbus): {metrics['good_for_airbus_count']} items ({metrics['good_for_airbus_percentage']}%)")
-
 
 if __name__ == "__main__":
 

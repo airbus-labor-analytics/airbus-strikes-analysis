@@ -2,6 +2,24 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [010-sync-telegram-news-notebooklm] - 2026-08-31
+
+### Added
+- **Autonomous Telegram Document Extraction & Dual Cataloging (User Story 1 - MVP)**:
+  - Implemented `src/telegram_channel_sync.py` to scan `data/telegram_archive/` subdirectories (`assembly_minutes`, `legal_filings`, `dossiers`, `documents`) and catalog all files.
+  - Automated categorization across 5 critical legal and labor domains: *Actas de Asamblea*, *Jurídico & Sentencias*, *Dossiers & Tablas*, *Planes de Mantenimiento*, and *Comunicados & Huelga*.
+  - Generated verified chronological catalog at `data/telegram_archive/telegram_index.json`.
+- **Dynamic Multi-Source RSS & Sentiment Pressure Thermometer (User Story 2)**:
+  - Enhanced `src/sentiment_thermometer.py` with multi-source Google News RSS ingestion across aerospace and labor queries with resilient local fallbacks.
+  - Calculated real-time conflict temperature ($18.0^\circ\text{C} \le T \le 96.5^\circ\text{C}$) based on strike leverage and corporate spin ratios.
+  - Maintained live telemetry synchronization with `data/thermometer_data.json` and `data/sync_status.json`.
+- **NotebookLM Ingestion Engine & Soft Fallback (User Story 3)**:
+  - Enhanced `src/upload_to_notebooklm.py` with graceful fallback when API credentials are unconfigured, ensuring automated CI runs succeed without failing deployment.
+  - Automated generation and validation of BOE agreements (V & VI Convenios Colectivos) and econometric loss dossiers for NotebookLM upload.
+  - Configured high-frequency cron scheduling (`0 6-20/2 * * *` and `0 0 * * *`) and workflow dispatch in `.github/workflows/sync-news-data.yml`.
+- **Comprehensive Test Suite & Pipeline Verification**:
+  - Added `tests/test_sync_pipeline.py` covering directory structures, JSON schemas, temperature bounds, and workflow configuration.
+
 ## [009-liquid-glass-ui-redesign] - 2026-08-31
 
 ### Added
