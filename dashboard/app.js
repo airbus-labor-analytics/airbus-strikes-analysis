@@ -1070,9 +1070,71 @@ function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500,
 }
 
 // ==================== STOCK MARKET & SHARE PRICE CHART ====================
+function renderStockMilestones(stockData) {
+  const container = document.getElementById('stock-milestones-container');
+  if (!container || !stockData || stockData.length === 0) return;
+
+  const peakPrice = stockData[0]?.price || 221.30;
+  
+  // Highlight key events (referendum, strike days, mass assembly, pre-agreement)
+  const highlightedDates = ['2026-07-16', '2026-07-24', '2026-08-24', '2026-08-28'];
+  
+  let milestones = stockData.filter((d, i) => d.is_milestone || highlightedDates.includes(d.date) || i === stockData.length - 1);
+  if (milestones.length === 0) milestones = stockData.slice(-5);
+
+  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+  container.innerHTML = milestones.map((m) => {
+    const fullIdx = stockData.findIndex(s => s.date === m.date);
+    const prevPrice = fullIdx > 0 ? stockData[fullIdx - 1].price : m.price;
+    const dodChange = typeof m.dod_change_pct === 'number' ? m.dod_change_pct : (prevPrice > 0 ? ((m.price - prevPrice) / prevPrice) * 100 : 0);
+    const peakChange = typeof m.peak_change_pct === 'number' ? m.peak_change_pct : (peakPrice > 0 ? ((m.price - peakPrice) / peakPrice) * 100 : 0);
+    
+    const dodFormatted = (dodChange > 0 ? '+' : '') + dodChange.toFixed(2).replace('.', ',') + '%';
+    const peakFormatted = (peakChange > 0 ? '+' : '') + peakChange.toFixed(2).replace('.', ',') + '%';
+    
+    const parts = m.date.split('-');
+    const dayNum = parseInt(parts[2], 10);
+    const monthNum = parseInt(parts[1], 10);
+    const formattedDate = `${dayNum} de ${months[monthNum - 1] || 'Agosto'}`;
+
+    let colorClass = 'text-sky-400';
+    if (m.date >= '2026-08-25') colorClass = 'text-rose-400';
+    else if (m.date >= '2026-08-24') colorClass = 'text-purple-400';
+    else if (m.date >= '2026-07-24') colorClass = 'text-amber-400';
+
+    return `
+      <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center hover:border-slate-700 transition">
+        <div class="pr-2">
+          <span class="${colorClass} font-bold">${formattedDate} (${m.price.toFixed(2).replace('.', ',')} €):</span>
+          <p class="text-slate-300 text-[11px] mt-0.5 leading-snug">${m.event}</p>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="${dodChange <= 0 ? 'text-rose-400' : 'text-emerald-400'} font-mono font-bold block text-xs">${dodFormatted}</span>
+          <span class="text-slate-500 font-mono text-[9.5px] block">pico: ${peakFormatted}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 function initAirbusStockChart() {
   const stockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
   if (stockData.length === 0) return;
+
+  // Render dynamic milestone cards
+  renderStockMilestones(stockData);
+
+  const latestEntry = stockData[stockData.length - 1];
+  if (latestEntry) {
+    const priceEl = document.getElementById('stock-kpi-price');
+    if (priceEl) priceEl.textContent = `${latestEntry.price.toFixed(2).replace('.', ',')} €`;
+    const mcapEl = document.getElementById('stock-kpi-mcap');
+    if (mcapEl) {
+      const mcap = (latestEntry.price * 792.3).toFixed(1);
+      mcapEl.textContent = `${parseFloat(mcap).toLocaleString()} M€`;
+    }
+  }
 
   const labels = stockData.map(d => {
     const parts = d.date.split('-');
@@ -1094,8 +1156,8 @@ function initAirbusStockChart() {
           fill: true,
           borderWidth: 3,
           tension: 0.25,
-          pointRadius: stockData.map((d, i) => (i === 6 || i === 8 || i === 13 || i === 16 || i === stockData.length - 1) ? 6 : 3),
-          pointBackgroundColor: stockData.map((d, i) => (i === 6 || i === 8 || i === 13 || i === 16 || i === stockData.length - 1) ? '#fb7185' : '#f43f5e'),
+          pointRadius: stockData.map((d, i) => (d.is_milestone || i === 0 || i === stockData.length - 1) ? 6 : 3),
+          pointBackgroundColor: stockData.map((d, i) => (d.is_milestone || i === 0 || i === stockData.length - 1) ? '#fb7185' : '#f43f5e'),
           pointBorderColor: '#ffffff',
           pointBorderWidth: 1.5,
           pointHoverRadius: 8

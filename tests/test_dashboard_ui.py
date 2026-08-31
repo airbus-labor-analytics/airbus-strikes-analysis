@@ -155,5 +155,10 @@ class TestDashboardUI(unittest.TestCase):
         for target_tab in ["tab-overview", "tab-industrial", "tab-purchasing-power", "tab-union-force", "tab-evidence"]:
             self.assertIn(f"switchTab('{target_tab}')", self.html_content)
 
+    def test_dynamic_stock_milestones_container(self):
+        """Validates that stock milestones container is dynamic and renderStockMilestones is defined."""
+        self.assertIn('id="stock-milestones-container"', self.html_content, "Missing #stock-milestones-container in index.html")
+        self.assertIn("function renderStockMilestones(", self.app_js_content, "Missing renderStockMilestones() in app.js")
+
 if __name__ == "__main__":
     unittest.main()

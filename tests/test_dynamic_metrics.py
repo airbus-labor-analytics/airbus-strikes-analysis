@@ -63,6 +63,23 @@ class TestDynamicMetricDerivation(unittest.TestCase):
             cumulative_payroll = entry["cumulative_payroll_saved_airbus_eur"]
             computed_ratio = round(cumulative_airbus / cumulative_payroll, 1)
             self.assertAlmostEqual(entry["asymmetry_ratio"], computed_ratio, places=1)
+    def test_stock_milestone_metrics_and_deltas(self):
+        """Validates that daily stock price deltas and peak variations are mathematically accurate."""
+        stock_analysis = self.engine.get_stock_market_analysis()
+        history = stock_analysis.get("daily_history_conflict", [])
+        self.assertGreater(len(history), 0)
+
+        peak_price = history[0]["price"]
+        self.assertEqual(peak_price, 221.30)
+
+        for idx, entry in enumerate(history):
+            price = entry["price"]
+            prev_price = history[idx - 1]["price"] if idx > 0 else price
+            expected_dod = round(((price - prev_price) / prev_price) * 100, 2)
+            expected_peak = round(((price - peak_price) / peak_price) * 100, 2)
+
+            self.assertAlmostEqual(entry.get("dod_change_pct", expected_dod), expected_dod, places=2)
+            self.assertAlmostEqual(entry.get("peak_change_pct", expected_peak), expected_peak, places=2)
 
 
 if __name__ == "__main__":

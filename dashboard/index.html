@@ -563,35 +563,8 @@
                 <i data-lucide="milestone" class="w-4 h-4 mr-2 text-sky-400"></i>
                 Cronología Bursátil: Hitos del Conflicto & Reacción de Inversores
               </h3>
-              <div class="space-y-2 text-xs">
-                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
-                  <div>
-                    <span class="text-sky-400 font-bold">16 de Julio (213,80 €):</span>
-                    <p class="text-slate-300 text-[11px]">Rechazo unánime (~95% NO) de la oferta patronal del 5%. Primeras caídas de volumen.</p>
-                  </div>
-                  <span class="text-slate-400 font-mono font-bold">-0,8%</span>
-                </div>
-                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
-                  <div>
-                    <span class="text-amber-400 font-bold">24 de Julio (208,90 €):</span>
-                    <p class="text-slate-300 text-[11px]">Referéndum en urna física: Las bases tumban el preacuerdo (49,15% NO vs 45,95% SÍ). Dimisión de SIPA.</p>
-                  </div>
-                  <span class="text-rose-400 font-mono font-bold">-2,9%</span>
-                </div>
-                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
-                  <div>
-                    <span class="text-purple-400 font-bold">24 de Agosto (204,20 €):</span>
-                    <p class="text-slate-300 text-[11px]">Asamblea masiva en Getafe vota Huelga Indefinida. Rotura del soporte de 205 €.</p>
-                  </div>
-                  <span class="text-rose-400 font-mono font-bold">-2,1%</span>
-                </div>
-                <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between items-center">
-                  <div>
-                    <span class="text-rose-400 font-bold">28 de Agosto (203,05 €):</span>
-                    <p class="text-slate-300 text-[11px]">Día 4 Huelga: Cierre semanal Euronext Paris a 203,05 €. 0 vuelos BelugaXL operados en Getafe.</p>
-                  </div>
-                  <span class="text-rose-400 font-mono font-bold">-0,6%</span>
-                </div>
+              <div id="stock-milestones-container" class="space-y-2 text-xs">
+                <!-- Populated dynamically by renderStockMilestones() -->
               </div>
             </div>
             <!-- Right Panel: Investor Thesis & Management Vulnerability -->
