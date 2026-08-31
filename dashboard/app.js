@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initAllModules() {
-  initChecklist();
   initBenchmarks();
   initSources();
   initWorkflows();
@@ -131,7 +130,8 @@ function initAllModules() {
   updateWageSimulation();
   // Tab overview is default visible tab
   initAsymmetryChart();
-  updateAsymmetrySimulation();
+  initAirbusStockChart();
+  initCompanyHealthCharts();
   if (window.lucide) lucide.createIcons();
 }
 
@@ -333,9 +333,35 @@ async function refreshBelugaLive(manual = true) {
   }
 }
 
-// Tab Switcher
+// Tab Switcher for 5 Unified Modules
 function switchTab(tabId) {
-  const normalizedTabId = tabId.startsWith('tab-') ? tabId : `tab-${tabId}`;
+  let normalizedTabId = tabId.startsWith('tab-') ? tabId : `tab-${tabId}`;
+
+  // Backward compatibility alias map
+  const tabAliases = {
+    'tab-kpis': 'tab-overview',
+    'tab-stock': 'tab-overview',
+    'tab-company-health': 'tab-overview',
+    'tab-jit': 'tab-industrial',
+    'tab-thermometer': 'tab-industrial',
+    'tab-beluga': 'tab-industrial',
+    'tab-wages': 'tab-purchasing-power',
+    'tab-historical-losses': 'tab-purchasing-power',
+    'tab-negotiation': 'tab-purchasing-power',
+    'tab-unions': 'tab-union-force',
+    'tab-referendum': 'tab-union-force',
+    'tab-timeline': 'tab-union-force',
+    'tab-workflows': 'tab-union-force',
+    'tab-sources': 'tab-evidence',
+    'tab-telegram-archive': 'tab-evidence',
+    'tab-benchmarks': 'tab-evidence',
+    'tab-checklist': 'tab-purchasing-power'
+  };
+
+  if (tabAliases[normalizedTabId]) {
+    normalizedTabId = tabAliases[normalizedTabId];
+  }
+
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
@@ -371,37 +397,27 @@ function switchTab(tabId) {
   // Schedule chart initializations after DOM unhides
   requestAnimationFrame(() => {
     setTimeout(() => {
-      if (normalizedTabId === 'tab-overview' || normalizedTabId === 'tab-kpis') {
+      if (normalizedTabId === 'tab-overview') {
         initAsymmetryChart();
         updateAsymmetrySimulation();
-      } else if (normalizedTabId === 'tab-wages') {
-        initWagesChart();
-        updateWageSimulation();
-      } else if (normalizedTabId === 'tab-thermometer') {
+        initAirbusStockChart();
+        initCompanyHealthCharts();
+      } else if (normalizedTabId === 'tab-industrial') {
         initBelugaHistoryChart();
         initThermometerAndBeluga();
-      } else if (normalizedTabId === 'tab-stock') {
-        initAirbusStockChart();
-      } else if (normalizedTabId === 'tab-company-health') {
-        initCompanyHealthCharts();
-      } else if (normalizedTabId === 'tab-unions') {
-        initUnionCharts();
-      } else if (normalizedTabId === 'tab-historical-losses') {
+      } else if (normalizedTabId === 'tab-purchasing-power') {
+        initWagesChart();
+        updateWageSimulation();
         initHistoricalLosses();
-      } else if (normalizedTabId === 'tab-negotiation') {
         initNegotiationEvolution();
-      } else if (normalizedTabId === 'tab-workflows') {
-        initWorkflows();
-      } else if (normalizedTabId === 'tab-timeline') {
+      } else if (normalizedTabId === 'tab-union-force') {
+        initUnionCharts();
         initTimeline();
-      } else if (normalizedTabId === 'tab-checklist') {
-        initChecklist();
-      } else if (normalizedTabId === 'tab-benchmarks') {
-        initBenchmarks();
-      } else if (normalizedTabId === 'tab-sources') {
+        initWorkflows();
+      } else if (normalizedTabId === 'tab-evidence') {
         initSources();
-      } else if (normalizedTabId === 'tab-telegram-archive') {
         initTelegramArchive();
+        initBenchmarks();
       }
       if (window.lucide) lucide.createIcons();
     }, 60);
@@ -1714,49 +1730,6 @@ function renderUnionSiteCards(sites) {
 }
 
 
-const checklistItems = [
-  { id: "chk_1", title: "1. Consolidación del 12% íntegro en Tablas", desc: "¿El 12% se incorpora al salario base consolidable a 1 de enero de 2026 sin fragmentar en pagas no consolidables?" },
-  { id: "chk_2", title: "2. Cláusula de Garantía Salarial Real (RSG)", desc: "¿Se garantiza anualmente RSG = IPC + 1,5% con suelo del 0% y sin topes máximos (cap) ni cláusulas de absorción?" },
-  { id: "chk_3", title: "3. Pago Único de Atrasos (Mínimo 7.500 €)", desc: "¿Se abona una paga única no consolidable de al menos 7.500 € netos/brutos en concepto de compensación retroactiva?" },
-  { id: "chk_4", title: "4. Desistimiento Judicial en IT (Bradford) y Bromo", desc: "¿Airbus retira el recurso de casación ante el Tribunal Supremo y restituye el régimen de IT sin penalizaciones?" },
-  { id: "chk_5", title: "5. Blindaje del Contrato de Relevo", desc: "¿Se garantiza la firma obligatoria de prejubilaciones con contratación indefinida al 100% de la jornada?" },
-  { id: "chk_6", title: "6. Garantía de Indemnidad y Paz Social Condicionada", desc: "¿La desconvocatoria queda supeditada a la publicación en REGCON/BOE sin represalias por los paros?" }
-];
-
-function initChecklist() {
-  const container = document.getElementById('checklist-container');
-  if (!container) return;
-
-  container.innerHTML = checklistItems.map(item => `
-    <label class="flex items-start space-x-3 p-3.5 bg-slate-900/60 hover:bg-slate-900 border border-slate-800 rounded-xl cursor-pointer transition">
-      <input type="checkbox" id="${item.id}" class="mt-1 w-4 h-4 rounded text-blue-600 bg-slate-800 border-slate-700 focus:ring-blue-500" onchange="updateChecklistScore()">
-      <div class="flex-1">
-        <span class="text-xs font-bold text-white">${item.title}</span>
-        <p class="text-xs text-slate-400 mt-0.5">${item.desc}</p>
-      </div>
-    </label>
-  `).join('');
-}
-
-function updateChecklistScore() {
-  const count = checklistItems.filter(item => document.getElementById(item.id)?.checked).length;
-  const scoreEl = document.getElementById('checklist-score');
-  const verdictEl = document.getElementById('checklist-verdict');
-
-  if (scoreEl) scoreEl.textContent = `${count} / ${checklistItems.length}`;
-  if (verdictEl) {
-    if (count === 6) {
-      verdictEl.textContent = "Oferta Aceptable para Ratificación (Voto SÍ)";
-      verdictEl.className = "text-xs font-bold text-emerald-400";
-    } else if (count >= 4) {
-      verdictEl.textContent = "Oferta con Brechas Críticas (Exigir Mejoras en SIMA)";
-      verdictEl.className = "text-xs font-bold text-amber-400";
-    } else {
-      verdictEl.textContent = "Oferta Insuficiente (Votar NO en Urna)";
-      verdictEl.className = "text-xs font-bold text-rose-400";
-    }
-  }
-}
 
 // ==================== BENCHMARKS ====================
 function initBenchmarks() {

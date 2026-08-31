@@ -19,7 +19,7 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 **Purpose**: Set up validation criteria and contract schemas.
 
-- [ ] T001 [P] Validate UI navigation schema in `specs/003-simplify-dashboard/contracts/ui-contract.json` against current dashboard structure
+- [X] T001 [P] Validate UI navigation schema in `specs/003-simplify-dashboard/contracts/ui-contract.json` against current dashboard structure
 
 ---
 
@@ -29,8 +29,8 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T002 [P] Purge legacy `tab-checklist` ("Auditor 6 Filtros Urna") markup and navigation references in `dashboard/index.html`
-- [ ] T003 [P] Refactor navigation state management and `switchTab()` function in `dashboard/app.js` for 5 top-level views
+- [X] T002 [P] Purge legacy `tab-checklist` ("Auditor 6 Filtros Urna") markup and navigation references in `dashboard/index.html`
+- [X] T003 [P] Refactor navigation state management and `switchTab()` function in `dashboard/app.js` for 5 top-level views
 
 **Checkpoint**: Obsolete checklist removed and 5-tab navigation state initialized.
 
@@ -44,11 +44,11 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 ### Implementation for User Story 1
 
-- [ ] T004 [P] [US1] Restructure `tab-overview` (Module 1: Centro de Mando & Asimetría) to integrate stock market metrics and corporate financials in `dashboard/index.html`
-- [ ] T005 [P] [US1] Restructure `tab-industrial` (Module 2: Impacto Industrial & Logística) to integrate JIT buffers, FALs impact, Beluga flight log, and Thermometer in `dashboard/index.html`
-- [ ] T006 [P] [US1] Restructure `tab-purchasing-power` (Module 3: Poder Adquisitivo & Negociación) to integrate wage loss simulator, BOE loss tables, offer gaps, and 11-point platform in `dashboard/index.html`
-- [ ] T007 [P] [US1] Restructure `tab-union-force` (Module 4: Fuerza Sindical & Asamblea) to integrate plant/union delegate map, 24-J referendum voting, assembly chronology, and scenario trees in `dashboard/index.html`
-- [ ] T008 [P] [US1] Restructure `tab-evidence` (Module 5: Documentación & Evidencias) to integrate 269-source documentary annex, Telegram archive, and aerospace strike benchmarks in `dashboard/index.html`
+- [X] T004 [P] [US1] Restructure `tab-overview` (Module 1: Centro de Mando & Asimetría) to integrate stock market metrics and corporate financials in `dashboard/index.html`
+- [X] T005 [P] [US1] Restructure `tab-industrial` (Module 2: Impacto Industrial & Logística) to integrate JIT buffers, FALs impact, Beluga flight log, and Thermometer in `dashboard/index.html`
+- [X] T006 [P] [US1] Restructure `tab-purchasing-power` (Module 3: Poder Adquisitivo & Negociación) to integrate wage loss simulator, BOE loss tables, offer gaps, and 11-point platform in `dashboard/index.html`
+- [X] T007 [P] [US1] Restructure `tab-union-force` (Module 4: Fuerza Sindical & Asamblea) to integrate plant/union delegate map, 24-J referendum voting, assembly chronology, and scenario trees in `dashboard/index.html`
+- [X] T008 [P] [US1] Restructure `tab-evidence` (Module 5: Documentación & Evidencias) to integrate 269-source documentary annex, Telegram archive, and aerospace strike benchmarks in `dashboard/index.html`
 
 **Checkpoint**: User Story 1 (MVP) complete — 5 unified modules fully populated with zero data loss.
 
@@ -62,9 +62,9 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Streamline sidebar navigation header, badge styles, and mobile responsive drawer in `dashboard/index.html`
-- [ ] T010 [P] [US2] Optimize Chart.js rendering and lazy canvas resize handlers for all 12 charts in `dashboard/app.js`
-- [ ] T011 [P] [US2] Standardize typography hierarchy, high-contrast color tokens, and spacing across all metric cards in `dashboard/index.html`
+- [X] T009 [P] [US2] Streamline sidebar navigation header, badge styles, and mobile responsive drawer in `dashboard/index.html`
+- [X] T010 [P] [US2] Optimize Chart.js rendering and lazy canvas resize handlers for all 12 charts in `dashboard/app.js`
+- [X] T011 [P] [US2] Standardize typography hierarchy, high-contrast color tokens, and spacing across all metric cards in `dashboard/index.html`
 
 **Checkpoint**: User Stories 1 AND 2 complete — clear visual design and responsive charts.
 
@@ -78,8 +78,8 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Verify real-time Wage Simulator slider controls and event listeners in `dashboard/app.js`
-- [ ] T013 [P] [US3] Verify real-time documentary annex search filtering and link resolution in `dashboard/app.js`
+- [X] T012 [P] [US3] Verify real-time Wage Simulator slider controls and event listeners in `dashboard/app.js`
+- [X] T013 [P] [US3] Verify real-time documentary annex search filtering and link resolution in `dashboard/app.js`
 
 **Checkpoint**: All 3 user stories complete with seamless interactivity.
 
@@ -89,9 +89,9 @@ description: "Task list for Dashboard UI/UX Simplification & Thematic Reorganiza
 
 **Purpose**: End-to-end regression validation and full test suite execution.
 
-- [ ] T014 [P] Update source scanner in `src/validate_sources.py` to validate the 5-tab structure and all 12 Chart.js canvases
-- [ ] T015 [P] Run data synchronization with `src/analysis_engine.py` and verify zero data drift
-- [ ] T016 Run complete verification suite (`python3 src/validate_sources.py`, `python3 src/audit_data_veracity.py`, `python3 src/validate_invariants.py`, `python3 -m unittest discover tests`)
+- [X] T014 [P] Update source scanner in `src/validate_sources.py` to validate the 5-tab structure and all 12 Chart.js canvases
+- [X] T015 [P] Run data synchronization with `src/analysis_engine.py` and verify zero data drift
+- [X] T016 Run complete verification suite (`python3 src/validate_sources.py`, `python3 src/audit_data_veracity.py`, `python3 src/validate_invariants.py`, `python3 -m unittest discover tests`)
 
 ---
 
