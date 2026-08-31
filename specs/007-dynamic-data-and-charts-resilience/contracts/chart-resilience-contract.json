@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChartResilienceContract",
+  "description": "Validation schema for Chart.js resilient lifecycle configuration and canvas registration",
+  "type": "object",
+  "required": ["registry_size", "active_charts", "error_count"],
+  "properties": {
+    "registry_size": { "type": "integer", "minimum": 0, "maximum": 12 },
+    "active_charts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "error_count": { "type": "integer", "const": 0 }
+  }
+}
