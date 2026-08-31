@@ -5,6 +5,15 @@
 **Status**: Draft (In Clarification & Iteration)  
 **Input**: "la web necesita un gran lavado de cara. mejoras en el ui ux, estilo basado en liquid cristal, fondo amoled black, letras y tipografia aesthetics, mejorar usabilidad con elementos flotantes que aparecen y desaparecen para usabilidad e interactuabilidad con la web, hazme propuestas de como ha de ser, como se deben estructurar los paneles, disgregrando aun mas la información, marcando bien los espaciados y como son cada uno de los elementos del front para una mejora total de la interfaz, toma ejemplos de internet de dashboards de referencia estetica avalados por su profesionalidad, haz que no se vea una interfaz generica, iteremos tantas veces como sea necesario y clarifica cada uno de los puntos, para que quede una interfaz y una web estructurada y visualmente como la quiero"
 
+
+## Clarifications
+
+### Session 2026-08-31
+- Q: ¿Cómo debe comportarse la cabecera principal y el menú de navegación entre pestañas durante el desplazamiento (scroll) por la web? → A: Option A (Dynamic Island Flotante Superior: cabecera fija de cristal en reposo que se contrae en una píldora compacta flotante al hacer scroll con KPIs en vivo y selector rápido de módulos).
+- Q: ¿Qué nivel de intensidad visual y translucidez debe tener el efecto Liquid Crystal sobre el fondo negro AMOLED? → A: Híbrido Option A + Option C (Cristal Líquido de Alta Fidelidad con `blur(24px) saturate(180%)` y reflejos especulares superiores, fusionado con acentos Aero-Industriales en cian eléctrico y verde esmeralda con micro-glows de alto contraste inspirados en telemetría aeroespacial).
+- Q: ¿Cómo debe desplegarse e interactuar la Calculadora Salarial Rápida cuando se activa desde un elemento flotante en cualquier sección? → A: Option A (Drawer Deslizable Lateral de Cristal Líquido: panel lateral off-canvas translúcido que emerge desde la derecha con sliders reactivos y métricas en tiempo real sin tapar completamente el contenido de fondo).
+- Q: ¿Cómo deben comportarse los gráficos interactivos (Chart.js) y las tablas de datos al pasar el cursor (hover) y conmutar series? → A: Option A (Tooltips Glassmórficos con Micro-Glow: tooltips de cristal líquido con borde iluminado y tipografía tabular monoespaciada, resaltado suave al pasar el cursor y conmutación instantánea de series sin recargas pesadas).
+- Q: ¿Cómo deben cargarse e integrarse las familias tipográficas modernas (Geist Sans, Inter Display, JetBrains Mono) en el dashboard? → A: Option A (Carga Híbrida Inteligente: enlace a fuentes web modernas Geist, Inter, JetBrains Mono con fallback local robusto en fuentes de sistema premium SF Pro, Segoe UI, monospace para compatibilidad offline total).
 ---
 
 ## 1. Visión y Referencias Estéticas de Vanguardia
@@ -154,6 +163,11 @@ Para maximizar la usabilidad sin sobrecargar el espacio visual:
 
 ---
 
-## 7. Clarificaciones y Puntos de Iteración para el Usuario
+## 7. Resumen de Decisiones de Clarificación
 
-Para garantizar que el diseño final responda con precisión exacta a tus expectativas antes de pasar a la fase de planificación técnica, por favor indica tus preferencias en las siguientes decisiones clave:
+Todas las decisiones de diseño e interactividad han sido clarificadas y ratificadas:
+1. **Cabecera Flotante**: Dynamic Island superior compacta que emerge suavemente en scroll con KPIs y selector rápido.
+2. **Estilo Visual**: Cristal Líquido de Alta Fidelidad (`blur(24px) saturate(180%)`) fusionado con acentos Aero-Industriales en cian y esmeralda.
+3. **Calculadora Salarial**: Drawer lateral deslizable (*off-canvas*) translúcido con sliders reactivos.
+4. **Gráficos & Tablas**: Tooltips glassmórficos con micro-glow y resaltado de fila activa sin animaciones bloqueantes.
+5. **Tipografía**: Pila híbrida con *Geist Sans* / *Inter* / *JetBrains Mono* y fallback en fuentes nativas del sistema.
