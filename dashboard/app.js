@@ -32,10 +32,10 @@ function debounce(func, wait = 150) {
     timeout = setTimeout(later, wait);
   };
 }
-
 let conflictData = window.CONFLICT_DATA || null;
 let sourcesCatalogData = window.SOURCES_DATA || [];
 let telegramDocsData = [];
+const chartRegistry = {};
 let asymmetryChart = null;
 let wagesChart = null;
 let belugaHistoryChart = null;
@@ -54,6 +54,86 @@ let selectedSourceCategory = 'ALL';
 let selectedTgCategory = 'ALL';
 let currentModalSource = null;
 
+// ==================== DYNAMIC CHRONOLOGY & METRIC DERIVATION ====================
+function getConflictChronology(referenceDate = new Date()) {
+  const startDate = new Date('2026-07-20T06:00:00Z');
+  const now = referenceDate instanceof Date ? referenceDate : new Date(referenceDate);
+  const diffMs = Math.max(0, now.getTime() - startDate.getTime());
+  const elapsedDays = Math.max(1, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
+  const elapsedHours = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60)));
+  const dailyBurnRate = 22.7; // M€/day
+  const cumulativeCost = parseFloat((elapsedDays * dailyBurnRate).toFixed(1));
+  return {
+    startDate: startDate.toISOString(),
+    currentDate: now.toISOString(),
+    elapsedDays,
+    elapsedHours,
+    dailyBurnRate,
+    cumulativeCost
+  };
+}
+
+function updateDynamicChronologyDOM() {
+  const chrono = getConflictChronology();
+  document.querySelectorAll('.dynamic-conflict-days').forEach(el => {
+    el.textContent = `${chrono.elapsedDays} días`;
+  });
+  document.querySelectorAll('.dynamic-cumulative-cost').forEach(el => {
+    el.textContent = `${chrono.cumulativeCost.toLocaleString()} M€`;
+  });
+  document.querySelectorAll('.dynamic-daily-cost').forEach(el => {
+    el.textContent = `${chrono.dailyBurnRate.toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} M€/día`;
+  });
+  document.querySelectorAll('.dynamic-total-docs').forEach(el => {
+    el.textContent = `${sourcesCatalogData.length} doc.`;
+  });
+  document.querySelectorAll('.dynamic-total-sources-count').forEach(el => {
+    el.textContent = `${sourcesCatalogData.length}`;
+  });
+}
+
+// ==================== RESILIENT CHART LIFECYCLE ENGINE ====================
+function renderResilientChart(canvasId, configBuilder) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return null;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
+
+  // 1. Teardown existing instance via registry or Chart.js internal cache
+  if (chartRegistry[canvasId]) {
+    try {
+      chartRegistry[canvasId].destroy();
+    } catch (e) {
+      console.warn(`Error destroying chart ${canvasId}:`, e);
+    }
+    delete chartRegistry[canvasId];
+  }
+  const existingChart = typeof Chart !== 'undefined' && Chart.getChart ? Chart.getChart(canvas) : null;
+  if (existingChart) {
+    try {
+      existingChart.destroy();
+    } catch (e) {
+      console.warn(`Error destroying internal chart for ${canvasId}:`, e);
+    }
+  }
+
+  // 2. Build configuration with error boundary
+  try {
+    if (typeof Chart === 'undefined') {
+      console.warn('Chart.js library not loaded yet.');
+      return null;
+    }
+    const config = typeof configBuilder === 'function' ? configBuilder(ctx) : configBuilder;
+    if (config) {
+      const newChart = new Chart(ctx, config);
+      chartRegistry[canvasId] = newChart;
+      return newChart;
+    }
+  } catch (err) {
+    console.error(`Error rendering chart ${canvasId}:`, err);
+  }
+  return null;
+}
 const debouncedFilterSources = debounce(() => filterSources(), 150);
 const debouncedFilterTelegramDocs = debounce(() => filterTelegramDocs(), 150);
 // ==================== INITIALIZATION ====================
@@ -118,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initAllModules() {
+  updateDynamicChronologyDOM();
   initBenchmarks();
   initSources();
   initWorkflows();
@@ -231,6 +312,7 @@ async function syncDataInBackground(manual = false) {
     }
 
     // Refresh active views with updated dataset
+    updateDynamicChronologyDOM();
     initHistoricalLosses();
     initNegotiationEvolution();
     initTimeline();
@@ -240,7 +322,6 @@ async function syncDataInBackground(manual = false) {
     initSources();
     updateAsymmetrySimulation();
     updateWageSimulation();
-
     lastSyncTimestamp = new Date();
     const timeStr = lastSyncTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     
@@ -494,17 +575,12 @@ function updateAsymmetrySimulation() {
 }
 
 function initAsymmetryChart() {
-  const ctx = document.getElementById('asymmetryChart')?.getContext('2d');
-  if (!ctx) return;
-
   const days = [1, 3, 5, 7, 10, 15, 20, 30];
   const airbusLoss = [6.5, 19.5, 52.5, 97.9, 166.0, 279.5, 393.0, 620.0];
   const platformCost = [239, 239, 239, 239, 239, 239, 239, 239];
   const payrollSaved = [2.1, 6.4, 10.7, 14.9, 21.3, 32.0, 42.6, 63.9];
 
-  if (asymmetryChart) asymmetryChart.destroy();
-
-  asymmetryChart = new Chart(ctx, {
+  asymmetryChart = renderResilientChart('asymmetryChart', () => ({
     type: 'line',
     data: {
       labels: days.map(d => `${d}d`),
@@ -552,7 +628,7 @@ function initAsymmetryChart() {
         legend: { labels: { color: '#e2e8f0', font: { size: 11, weight: 'bold' } } }
       }
     }
-  });
+  }));
 }
 
 // ==================== WAGE & TOTAL BENEFITS SIMULATOR ====================
@@ -830,12 +906,7 @@ function setText(id, text) {
 }
 
 function initWagesChart() {
-  const ctx = document.getElementById('wagesChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (wagesChart) wagesChart.destroy();
-
-  wagesChart = new Chart(ctx, {
+  wagesChart = renderResilientChart('wagesChart', () => ({
     type: 'line',
     data: {
       labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
@@ -932,8 +1003,9 @@ function initWagesChart() {
         }
       }
     }
-  });
+  }));
 }
+
 
 function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500, unionEaDeduction = 0, ipcRate = 0.025, coEaLossQ1 = 625) {
   if (!wagesChart) return;
@@ -999,11 +1071,6 @@ function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500,
 
 // ==================== STOCK MARKET & SHARE PRICE CHART ====================
 function initAirbusStockChart() {
-  const ctx = document.getElementById('airbusStockChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (airbusStockChart) airbusStockChart.destroy();
-
   const stockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
   if (stockData.length === 0) return;
 
@@ -1014,7 +1081,7 @@ function initAirbusStockChart() {
   const prices = stockData.map(d => d.price);
   const events = stockData.map(d => d.event);
 
-  airbusStockChart = new Chart(ctx, {
+  airbusStockChart = renderResilientChart('airbusStockChart', () => ({
     type: 'line',
     data: {
       labels: labels,
@@ -1087,8 +1154,9 @@ function initAirbusStockChart() {
         }
       }
     }
-  });
+  }));
 }
+
 
 // ==================== COMPANY FINANCIAL HEALTH CHARTS ====================
 function initCompanyHealthCharts() {
@@ -1098,11 +1166,6 @@ function initCompanyHealthCharts() {
 }
 
 function initCompanyRevenueChart() {
-  const ctx = document.getElementById('companyRevenueChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (companyRevenueChart) companyRevenueChart.destroy();
-
   const history = conflictData?.company_financial_health?.financial_history_2020_2026 || [];
   if (history.length === 0) return;
 
@@ -1110,7 +1173,7 @@ function initCompanyRevenueChart() {
   const revenues = history.map(h => h.revenue_eur_m);
   const netIncomes = history.map(h => h.net_income_eur_m);
 
-  companyRevenueChart = new Chart(ctx, {
+  companyRevenueChart = renderResilientChart('companyRevenueChart', () => ({
     type: 'bar',
     data: {
       labels: labels,
@@ -1169,22 +1232,17 @@ function initCompanyRevenueChart() {
         legend: { labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } } }
       }
     }
-  });
+  }));
 }
 
 function initCompanyDeliveriesChart() {
-  const ctx = document.getElementById('companyDeliveriesChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (companyDeliveriesChart) companyDeliveriesChart.destroy();
-
   const history = conflictData?.company_financial_health?.financial_history_2020_2026 || [];
   if (history.length === 0) return;
 
   const labels = history.map(h => h.year);
   const deliveries = history.map(h => h.deliveries);
 
-  companyDeliveriesChart = new Chart(ctx, {
+  companyDeliveriesChart = renderResilientChart('companyDeliveriesChart', () => ({
     type: 'line',
     data: {
       labels: labels,
@@ -1225,15 +1283,10 @@ function initCompanyDeliveriesChart() {
         legend: { labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } } }
       }
     }
-  });
+  }));
 }
 
 function initShareholderPieChart() {
-  const ctx = document.getElementById('shareholderPieChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (shareholderPieChart) shareholderPieChart.destroy();
-
   const shareholders = conflictData?.company_financial_health?.shareholder_structure || [];
   if (shareholders.length === 0) return;
 
@@ -1241,7 +1294,7 @@ function initShareholderPieChart() {
   const pcts = shareholders.map(s => s.pct);
   const colors = shareholders.map(s => s.color || '#38bdf8');
 
-  shareholderPieChart = new Chart(ctx, {
+  shareholderPieChart = renderResilientChart('shareholderPieChart', () => ({
     type: 'doughnut',
     data: {
       labels: labels,
@@ -1272,9 +1325,9 @@ function initShareholderPieChart() {
       },
       cutout: '65%'
     }
-  });
+  }));
 }
-// ==================== TRADE UNION & SOCIAL LANDSCAPE CHARTS ====================
+
 function initUnionCharts() {
   initUnionShareChart();
   initUnionEvolutionChart();
@@ -1285,11 +1338,6 @@ function initUnionCharts() {
 }
 
 function initUnionShareChart() {
-  const ctx = document.getElementById('unionShareChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (unionShareChart) unionShareChart.destroy();
-
   const unionData = conflictData?.trade_union_representation?.current_shares || [
     { union_code: "CCOO", name: "CCOO", pct: 38.38, delegates: 76, color: "#dc2626" },
     { union_code: "UGT", name: "UGT", pct: 18.18, delegates: 36, color: "#ea580c" },
@@ -1302,7 +1350,7 @@ function initUnionShareChart() {
   const pcts = unionData.map(u => u.pct);
   const colors = unionData.map(u => u.color || '#38bdf8');
 
-  unionShareChart = new Chart(ctx, {
+  unionShareChart = renderResilientChart('unionShareChart', () => ({
     type: 'doughnut',
     data: {
       labels: labels,
@@ -1338,15 +1386,10 @@ function initUnionShareChart() {
       },
       cutout: '60%'
     }
-  });
+  }));
 }
 
 function initUnionEvolutionChart() {
-  const ctx = document.getElementById('unionEvolutionChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (unionEvolutionChart) unionEvolutionChart.destroy();
-
   const history = conflictData?.trade_union_representation?.historical_evolution || [
     { period: "2010 - 2015", ccoo_pct: 46.5, ugt_pct: 34.0, sipa_pct: 0.0, cgt_pct: 11.5, atp_pct: 5.0, util_pct: 3.0 },
     { period: "2015 - 2019", ccoo_pct: 42.0, ugt_pct: 30.5, sipa_pct: 9.5, cgt_pct: 9.0, atp_pct: 6.0, util_pct: 3.0 },
@@ -1356,7 +1399,7 @@ function initUnionEvolutionChart() {
 
   const periods = history.map(h => h.period);
 
-  unionEvolutionChart = new Chart(ctx, {
+  unionEvolutionChart = renderResilientChart('unionEvolutionChart', () => ({
     type: 'bar',
     data: {
       labels: periods,
@@ -1386,15 +1429,10 @@ function initUnionEvolutionChart() {
         legend: { labels: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } } }
       }
     }
-  });
+  }));
 }
 
 function initSiteDelegatesChart() {
-  const ctx = document.getElementById('siteDelegatesChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (siteDelegatesChart) siteDelegatesChart.destroy();
-
   const sites = conflictData?.trade_union_representation?.site_breakdown || [
     { site_id: "getafe", name: "Getafe", delegates_by_union: { "SIPA": 15, "CCOO": 13, "ATP": 9, "CGT": 5, "UGT": 3 } },
     { site_id: "san_pablo", name: "San Pablo", delegates_by_union: { "UGT": 10, "CCOO": 9, "SIPA": 6, "ATP": 3, "CGT": 3 } },
@@ -1417,7 +1455,7 @@ function initSiteDelegatesChart() {
 
   const labels = sites.map(s => siteShortNames[s.site_id] || s.name.split(' ')[0]);
 
-  siteDelegatesChart = new Chart(ctx, {
+  siteDelegatesChart = renderResilientChart('siteDelegatesChart', () => ({
     type: 'bar',
     data: {
       labels: labels,
@@ -1453,22 +1491,17 @@ function initSiteDelegatesChart() {
         }
       }
     }
-  });
+  }));
 }
 
 function initReferendumPieChart() {
-  const ctx = document.getElementById('referendumPieChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (referendumPieChart) referendumPieChart.destroy();
-
-  referendumPieChart = new Chart(ctx, {
+  referendumPieChart = renderResilientChart('referendumPieChart', () => ({
     type: 'doughnut',
     data: {
       labels: ['Voto NO (Rechazo)', 'Voto SÍ (Aprobación)', 'Votos Blanco / Nulos'],
       datasets: [
         {
-          data: [49.15, 45.95, 4.62],
+          data: [49.15, 46.24, 4.62],
           backgroundColor: ['#f43f5e', '#10b981', '#64748b'],
           borderColor: '#0f172a',
           borderWidth: 3
@@ -1491,7 +1524,7 @@ function initReferendumPieChart() {
             label: function(context) {
               const label = context.label || '';
               const val = context.raw || 0;
-              const votes = context.dataIndex === 0 ? '6.229 votos' : (context.dataIndex === 1 ? '5.823 votos' : '585 votos');
+              const votes = context.dataIndex === 0 ? '6.229 votos' : (context.dataIndex === 1 ? '5.860 votos' : '585 votos');
               return ` ${label}: ${val}% (${votes})`;
             }
           }
@@ -1499,17 +1532,11 @@ function initReferendumPieChart() {
       },
       cutout: '55%'
     }
-  });
+  }));
 }
 
 function initReferendumSitesChart() {
-  const ctx = document.getElementById('referendumSitesChart')?.getContext('2d');
-  if (!ctx) return;
-
-  if (referendumSitesChart) referendumSitesChart.destroy();
-
   const sites = conflictData?.trade_union_representation?.site_breakdown || [];
-  // Sort by highest NO percentage to highlight the strongholds of rejection
   const sortedSites = [...sites].sort((a, b) => (b.referendum_24j?.no_pct || 0) - (a.referendum_24j?.no_pct || 0));
 
   const siteShortNames = {
@@ -1527,7 +1554,7 @@ function initReferendumSitesChart() {
   const yesData = sortedSites.map(s => s.referendum_24j?.yes_pct || 0);
   const turnoutData = sortedSites.map(s => s.referendum_24j?.turnout_pct || 0);
 
-  referendumSitesChart = new Chart(ctx, {
+  referendumSitesChart = renderResilientChart('referendumSitesChart', () => ({
     type: 'bar',
     data: {
       labels: labels,
@@ -1558,36 +1585,28 @@ function initReferendumSitesChart() {
       scales: {
         x: {
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
-          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 10 } }
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 9.5 } }
         },
         y: {
           max: 100,
           grid: { color: 'rgba(51, 65, 85, 0.4)' },
           ticks: { color: '#94a3b8', callback: v => `${v}%` },
-          title: { display: true, text: '% sobre Censo / Votantes', color: '#94a3b8', font: { size: 10, weight: 'bold' } }
+          title: { display: true, text: '% Resultados por Factoría', color: '#94a3b8', font: { size: 9.5, weight: 'bold' } }
         }
       },
       plugins: {
-        legend: {
-          position: 'top',
-          labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' }, padding: 12 }
-        },
+        legend: { labels: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } } },
         tooltip: {
           backgroundColor: 'rgba(15, 23, 42, 0.95)',
           titleColor: '#f8fafc',
           bodyColor: '#cbd5e1',
           borderColor: '#334155',
           borderWidth: 1,
-          padding: 10,
-          callbacks: {
-            label: function(context) {
-              return ` ${context.dataset.label}: ${context.raw}%`;
-            }
-          }
+          padding: 8
         }
       }
     }
-  });
+  }));
 }
 
 let currentSelectedSite = 'all';
@@ -2367,9 +2386,6 @@ function filterThermoFeed(category) {
 }
 
 function initBelugaHistoryChart() {
-  const ctx = document.getElementById('belugaHistoryChart')?.getContext('2d');
-  if (!ctx) return;
-
   const history = conflictData?.beluga_logistics?.historical_movements;
   if (!history) return;
 
@@ -2398,9 +2414,7 @@ function initBelugaHistoryChart() {
 
   if (labels.length === 0) return;
 
-  if (belugaHistoryChart) belugaHistoryChart.destroy();
-
-  belugaHistoryChart = new Chart(ctx, {
+  belugaHistoryChart = renderResilientChart('belugaHistoryChart', () => ({
     type: 'bar',
     data: {
       labels: labels,
@@ -2499,7 +2513,7 @@ function initBelugaHistoryChart() {
         }
       }
     }
-  });
+  }));
 }
 
 function startBelugaLivePolling() {

@@ -19,8 +19,8 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 **Purpose**: Set up contract validation and initial state definitions.
 
-- [ ] T001 [P] Validate JSON schema contracts in `specs/007-dynamic-data-and-charts-resilience/contracts/`
-- [ ] T002 [P] Initialize chart registry and dynamic chronology scaffolding in `dashboard/app.js`
+- [X] T001 [P] Validate JSON schema contracts in `specs/007-dynamic-data-and-charts-resilience/contracts/`
+- [X] T002 [P] Initialize chart registry and dynamic chronology scaffolding in `dashboard/app.js`
 
 ---
 
@@ -30,8 +30,8 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T003 Implement `getConflictChronology()` time engine and cost calculator in `dashboard/app.js`
-- [ ] T004 Implement centralized `renderResilientChart(canvasId, configBuilder)` lifecycle helper in `dashboard/app.js`
+- [X] T003 Implement `getConflictChronology()` time engine and cost calculator in `dashboard/app.js`
+- [X] T004 Implement centralized `renderResilientChart(canvasId, configBuilder)` lifecycle helper in `dashboard/app.js`
 
 **Checkpoint**: Core calculation engine and chart lifecycle manager operational.
 
@@ -45,10 +45,10 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Replace static conflict days and cumulative strike cost text in `dashboard/index.html` with dynamic DOM binders
-- [ ] T006 [P] [US1] Update `src/analysis_engine.py` and `dashboard/app.js` to derive dynamic economic aggregations
-- [ ] T007 [P] [US1] Implement dynamic Telegram archive and document index counter aggregation in `dashboard/app.js`
-- [ ] T008 [US1] Create unit tests in `tests/test_dynamic_metrics.py` for chronology, day counting, and cost calculations
+- [X] T005 [P] [US1] Replace static conflict days and cumulative strike cost text in `dashboard/index.html` with dynamic DOM binders
+- [X] T006 [P] [US1] Update `src/analysis_engine.py` and `dashboard/app.js` to derive dynamic economic aggregations
+- [X] T007 [P] [US1] Implement dynamic Telegram archive and document index counter aggregation in `dashboard/app.js`
+- [X] T008 [US1] Create unit tests in `tests/test_dynamic_metrics.py` for chronology, day counting, and cost calculations
 
 **Checkpoint**: User Story 1 (MVP) complete — all metric counters dynamically computed.
 
@@ -62,10 +62,10 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Refactor Asymmetry, Stock, and Company Health charts (`asymmetryChart`, `airbusStockChart`, `companyRevenueChart`, `companyDeliveriesChart`, `shareholderPieChart`) in `dashboard/app.js` with `renderResilientChart`
-- [ ] T010 [P] [US2] Refactor Beluga Logistics and Wage Simulator charts (`belugaHistoryChart`, `wagesChart`) in `dashboard/app.js` with `renderResilientChart`
-- [ ] T011 [P] [US2] Refactor Union Force, Electoral Evolution, and Referendum charts (`unionShareChart`, `unionEvolutionChart`, `siteDelegatesChart`, `referendumPieChart`, `referendumSitesChart`) in `dashboard/app.js` with `renderResilientChart`
-- [ ] T012 [US2] Add comprehensive chart instantiation and lifecycle integration tests in `tests/test_dashboard_ui.py`
+- [X] T009 [P] [US2] Refactor Asymmetry, Stock, and Company Health charts (`asymmetryChart`, `airbusStockChart`, `companyRevenueChart`, `companyDeliveriesChart`, `shareholderPieChart`) in `dashboard/app.js` with `renderResilientChart`
+- [X] T010 [P] [US2] Refactor Beluga Logistics and Wage Simulator charts (`belugaHistoryChart`, `wagesChart`) in `dashboard/app.js` with `renderResilientChart`
+- [X] T011 [P] [US2] Refactor Union Force, Electoral Evolution, and Referendum charts (`unionShareChart`, `unionEvolutionChart`, `siteDelegatesChart`, `referendumPieChart`, `referendumSitesChart`) in `dashboard/app.js` with `renderResilientChart`
+- [X] T012 [US2] Add comprehensive chart instantiation and lifecycle integration tests in `tests/test_dashboard_ui.py`
 
 **Checkpoint**: User Stories 1 AND 2 complete — 100% chart availability and zero-failure rendering.
 
@@ -79,8 +79,8 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 ### Implementation for User Story 3
 
-- [ ] T013 [P] [US3] Refactor `startAutoSyncEngine()` in `dashboard/app.js` to preserve user form inputs during live data re-sync
-- [ ] T014 [US3] Add fallback state handlers and zero-blank-screen offline resilience in `dashboard/app.js`
+- [X] T013 [P] [US3] Refactor `startAutoSyncEngine()` in `dashboard/app.js` to preserve user form inputs during live data re-sync
+- [X] T014 [US3] Add fallback state handlers and zero-blank-screen offline resilience in `dashboard/app.js`
 
 **Checkpoint**: All 3 user stories complete with seamless background synchronization.
 
@@ -90,9 +90,9 @@ description: "Task list for Universal Dynamic Data Synchronization & Chart Resil
 
 **Purpose**: End-to-end regression validation and full test suite execution.
 
-- [ ] T015 [P] Run `python3 src/validate_sources.py`
-- [ ] T016 [P] Run `python3 src/validate_invariants.py`
-- [ ] T017 Run complete test suite (`python3 -m unittest discover tests`)
+- [X] T015 [P] Run `python3 src/validate_sources.py`
+- [X] T016 [P] Run `python3 src/validate_invariants.py`
+- [X] T017 Run complete test suite (`python3 -m unittest discover tests`)
 
 ---
 
