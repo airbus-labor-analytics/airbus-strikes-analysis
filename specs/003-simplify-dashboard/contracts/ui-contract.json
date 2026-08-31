@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DashboardNavigationUIContract",
+  "type": "object",
+  "required": ["total_views", "views", "removed_components", "chart_canvases"],
+  "properties": {
+    "total_views": {
+      "type": "integer",
+      "enum": [5]
+    },
+    "views": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "icon"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "tab-overview",
+              "tab-industrial",
+              "tab-purchasing-power",
+              "tab-union-force",
+              "tab-evidence"
+            ]
+          },
+          "title": { "type": "string" },
+          "icon": { "type": "string" }
+        }
+      }
+    },
+    "removed_components": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "const": "tab-checklist" }
+    },
+    "chart_canvases": {
+      "type": "array",
+      "minItems": 12,
+      "items": { "type": "string" }
+    }
+  }
+}
