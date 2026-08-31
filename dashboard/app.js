@@ -103,16 +103,18 @@ if (typeof Chart !== 'undefined') {
   Chart.defaults.color = '#94a3b8';
   Chart.defaults.font.family = "'Geist Mono', 'JetBrains Mono', 'SF Mono', Consolas, monospace";
   if (Chart.defaults.plugins && Chart.defaults.plugins.tooltip) {
-    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(5, 7, 10, 0.94)';
-    Chart.defaults.plugins.tooltip.borderColor = 'rgba(255, 255, 255, 0.12)';
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(8, 12, 20, 0.94)';
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(56, 189, 248, 0.35)';
     Chart.defaults.plugins.tooltip.borderWidth = 1;
-    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.tooltip.padding = 12;
     Chart.defaults.plugins.tooltip.titleColor = '#38bdf8';
+    Chart.defaults.plugins.tooltip.titleFont = { size: 12, weight: 'bold', family: "'Geist', sans-serif" };
     Chart.defaults.plugins.tooltip.bodyColor = '#f8fafc';
-    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+    Chart.defaults.plugins.tooltip.bodyFont = { size: 11, family: "'Geist Mono', monospace" };
+    Chart.defaults.plugins.tooltip.cornerRadius = 10;
+    Chart.defaults.plugins.tooltip.boxPadding = 4;
   }
 }
-
 function renderResilientChart(canvasId, configBuilder) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return null;
