@@ -100,6 +100,17 @@ if (typeof Chart !== 'undefined') {
   if (Chart.defaults.transitions && Chart.defaults.transitions.active) {
     Chart.defaults.transitions.active.animation = { duration: 0 };
   }
+  Chart.defaults.color = '#94a3b8';
+  Chart.defaults.font.family = "'Geist Mono', 'JetBrains Mono', 'SF Mono', Consolas, monospace";
+  if (Chart.defaults.plugins && Chart.defaults.plugins.tooltip) {
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(5, 7, 10, 0.94)';
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(255, 255, 255, 0.12)';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.tooltip.titleColor = '#38bdf8';
+    Chart.defaults.plugins.tooltip.bodyColor = '#f8fafc';
+    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+  }
 }
 
 function renderResilientChart(canvasId, configBuilder) {
@@ -211,6 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // 9. Floating Dynamic Island HUD & Quick Drawer
+  initFloatingHUD();
 });
 
 function initAllModules() {
@@ -3025,4 +3039,78 @@ function renderTelegramDocs(docs) {
   }).join('');
 
   if (window.lucide) lucide.createIcons();
+}
+
+// ==================== DYNAMIC ISLAND & FLOATING HUD ====================
+function initFloatingHUD() {
+  const mainContainer = document.querySelector('main');
+  const hud = document.getElementById('floating-hud');
+  const backToTop = document.getElementById('back-to-top');
+  if (!mainContainer) return;
+
+  mainContainer.addEventListener('scroll', () => {
+    const st = mainContainer.scrollTop;
+    if (st > 120) {
+      if (hud) {
+        hud.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+        hud.classList.add('opacity-100', 'translate-y-0');
+      }
+      if (backToTop) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        backToTop.classList.add('opacity-100');
+      }
+    } else {
+      if (hud) {
+        hud.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+        hud.classList.remove('opacity-100', 'translate-y-0');
+      }
+      if (backToTop) {
+        backToTop.classList.add('opacity-0', 'pointer-events-none');
+        backToTop.classList.remove('opacity-100');
+      }
+    }
+  }, { passive: true });
+}
+
+function scrollToTop() {
+  const mainContainer = document.querySelector('main');
+  if (mainContainer) {
+    mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function toggleQuickCalculatorDrawer() {
+  const drawer = document.getElementById('quick-calc-drawer');
+  if (!drawer) return;
+  const isClosed = drawer.classList.contains('translate-x-full');
+  if (isClosed) {
+    drawer.classList.remove('translate-x-full');
+    syncDrawerCalculator();
+  } else {
+    drawer.classList.add('translate-x-full');
+  }
+}
+
+function syncDrawerCalculator() {
+  const salaryInput = document.getElementById('drawer-input-salary');
+  const daysSlider = document.getElementById('drawer-slider-strike-days');
+  const daysVal = document.getElementById('drawer-strike-days-val');
+  const netStrikeCost = document.getElementById('drawer-net-strike-cost');
+  const recoveryVal = document.getElementById('drawer-recovery-val');
+
+  if (!salaryInput || !daysSlider) return;
+  const salary = parseFloat(salaryInput.value) || 45000;
+  const days = parseInt(daysSlider.value, 10) || 5;
+
+  if (daysVal) daysVal.textContent = `${days} día${days > 1 ? 's' : ''}`;
+
+  const dailyGross = salary / 365.0;
+  const dailyNet = dailyGross * 0.72;
+  const totalNetLoss = dailyNet * days;
+
+  if (netStrikeCost) netStrikeCost.textContent = `-${Math.round(totalNetLoss).toLocaleString()} €`;
+
+  // Recovery: 7,500€ + 12% on salary
+  const recoveryEstimate = 7500 + (salary * 0.12);
+  if (recoveryVal) recoveryVal.textContent = `+${Math.round(recoveryEstimate).toLocaleString()} €`;
 }

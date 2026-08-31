@@ -18,8 +18,8 @@
 
 **Purpose**: Establish AMOLED Black base tokens, Liquid Crystal CSS variables, and modern aesthetic typography stack.
 
-- [ ] T001 Configure AMOLED black theme variables, custom typography fonts (Geist Sans, Inter Display, JetBrains Mono) CDN links, and local fallbacks in `dashboard/index.html`
-- [ ] T002 [P] Define Liquid Crystal Glassmorphism 2.0 CSS utility classes, specular reflection borders, and micro-glow tokens in `dashboard/index.html`
+- [X] T001 Configure AMOLED black theme variables, custom typography fonts (Geist Sans, Inter Display, JetBrains Mono) CDN links, and local fallbacks in `dashboard/index.html`
+- [X] T002 [P] Define Liquid Crystal Glassmorphism 2.0 CSS utility classes, specular reflection borders, and micro-glow tokens in `dashboard/index.html`
 
 ---
 
@@ -27,8 +27,8 @@
 
 **Purpose**: Re-align Chart.js styling with AMOLED liquid dark palette and verify base viewport lifecycle contracts.
 
-- [ ] T003 Update Chart.js dark-theme defaults (grid lines, ticks, glassmorphic tooltips) and preserve instant zero-delay rendering in `dashboard/app.js`
-- [ ] T004 [P] Add base UI layout and typography regression test assertions in `tests/test_dashboard_ui.py`
+- [X] T003 Update Chart.js dark-theme defaults (grid lines, ticks, glassmorphic tooltips) and preserve instant zero-delay rendering in `dashboard/app.js`
+- [X] T004 [P] Add base UI layout and typography regression test assertions in `tests/test_dashboard_ui.py`
 
 **Checkpoint**: Foundation ready - Theme variables, CSS utilities, and dark chart configurations verified.
 
@@ -42,10 +42,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Transform base background and header card styling to pure AMOLED black `#000000` with specular glass reflection in `dashboard/index.html`
-- [ ] T006 [US1] Apply Liquid Crystal styling (`backdrop-filter: blur(24px)`) and tabular font alignment to all primary cards across Tab 0 and Tab 1 in `dashboard/index.html`
-- [ ] T007 [US1] Apply Liquid Crystal styling and high-contrast telemetry glow badges across Tab 2 and Tab 4 in `dashboard/index.html`
-- [ ] T008 [US1] Apply Liquid Crystal styling and tabular figures to Tab 3 (Purchasing Power & SIMA) and Tab 5 (Document Archive) in `dashboard/index.html`
+- [X] T005 [P] [US1] Transform base background and header card styling to pure AMOLED black `#000000` with specular glass reflection in `dashboard/index.html`
+- [X] T006 [US1] Apply Liquid Crystal styling (`backdrop-filter: blur(24px)`) and tabular font alignment to all primary cards across Tab 0 and Tab 1 in `dashboard/index.html`
+- [X] T007 [US1] Apply Liquid Crystal styling and high-contrast telemetry glow badges across Tab 2 and Tab 4 in `dashboard/index.html`
+- [X] T008 [US1] Apply Liquid Crystal styling and tabular figures to Tab 3 (Purchasing Power & SIMA) and Tab 5 (Document Archive) in `dashboard/index.html`
 
 **Checkpoint**: User Story 1 (MVP) is complete and delivers the full AMOLED Liquid Crystal aesthetic transformation.
 
@@ -59,9 +59,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Re-structure Tab 0 (Portal Hub) with decoupled atomic glass cards, generous 8pt grid padding, and glowing visual access portals in `dashboard/index.html`
-- [ ] T010 [US2] Re-structure Tab 1 (Financial Center) into 3 distinct visual zones (Corporate profit, stock crater, platform cost) with breathing room in `dashboard/index.html`
-- [ ] T011 [US2] Re-structure Tab 3 (Purchasing Power) with side-by-side decoupled simulator controls and floating KPI summary cards in `dashboard/index.html`
+- [X] T009 [P] [US2] Re-structure Tab 0 (Portal Hub) with decoupled atomic glass cards, generous 8pt grid padding, and glowing visual access portals in `dashboard/index.html`
+- [X] T010 [US2] Re-structure Tab 1 (Financial Center) into 3 distinct visual zones (Corporate profit, stock crater, platform cost) with breathing room in `dashboard/index.html`
+- [X] T011 [US2] Re-structure Tab 3 (Purchasing Power) with side-by-side decoupled simulator controls and floating KPI summary cards in `dashboard/index.html`
 
 **Checkpoint**: User Stories 1 AND 2 are complete, providing both high-end aesthetics and clean spatial architecture.
 
@@ -75,10 +75,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Add HTML markup for Dynamic Island (`#floating-hud`), Quick Calculator Drawer (`#quick-calc-drawer`), and Back-to-Top button in `dashboard/index.html`
-- [ ] T013 [US3] Implement `initFloatingHUD()` with scroll listener, module shortcuts, and dynamic metric counters in `dashboard/app.js`
-- [ ] T014 [US3] Implement `toggleQuickCalculatorDrawer()` and `syncDrawerWithMainSimulator()` with two-way slider reactivity in `dashboard/app.js`
-- [ ] T015 [US3] Ensure Principle VI compliance (`scrollTop = 0` and `.resize()` triggers) across all floating navigation elements in `dashboard/app.js`
+- [X] T012 [P] [US3] Add HTML markup for Dynamic Island (`#floating-hud`), Quick Calculator Drawer (`#quick-calc-drawer`), and Back-to-Top button in `dashboard/index.html`
+- [X] T013 [US3] Implement `initFloatingHUD()` with scroll listener, module shortcuts, and dynamic metric counters in `dashboard/app.js`
+- [X] T014 [US3] Implement `toggleQuickCalculatorDrawer()` and `syncDrawerWithMainSimulator()` with two-way slider reactivity in `dashboard/app.js`
+- [X] T015 [US3] Ensure Principle VI compliance (`scrollTop = 0` and `.resize()` triggers) across all floating navigation elements in `dashboard/app.js`
 
 **Checkpoint**: All user stories functional with full aesthetic, structural, and interactive capabilities.
 
@@ -88,9 +88,9 @@
 
 **Purpose**: DOM validation, automated invariant checks, and changelog documentation.
 
-- [ ] T016 [P] Add DOM and interaction assertion tests for `#floating-hud` and `#quick-calc-drawer` in `tests/test_dashboard_ui.py`
-- [ ] T017 Run `python3 src/validate_sources.py` and `python3 src/validate_invariants.py` ensuring 100% tag balance and invariant compliance
-- [ ] T018 Execute browser quickstart validation scenarios and document changes in `CHANGELOG.md`
+- [X] T016 [P] Add DOM and interaction assertion tests for `#floating-hud` and `#quick-calc-drawer` in `tests/test_dashboard_ui.py`
+- [X] T017 Run `python3 src/validate_sources.py` and `python3 src/validate_invariants.py` ensuring 100% tag balance and invariant compliance
+- [X] T018 Execute browser quickstart validation scenarios and document changes in `CHANGELOG.md`
 
 ---
 

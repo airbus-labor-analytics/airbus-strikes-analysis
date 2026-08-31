@@ -2,6 +2,21 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [009-liquid-glass-ui-redesign] - 2026-08-31
+
+### Added
+- **AMOLED Black (#000000) & Liquid Crystal 2.0 Glassmorphism Design System (User Story 1 - MVP)**:
+  - Transformed entire dashboard viewport and cards to pure AMOLED Black (`#000000`) with high-fidelity glassmorphism (`backdrop-filter: blur(24px) saturate(180%)`), specular highlight borders (`rgba(255, 255, 255, 0.12)`), and aerodynamic micro-glows (`glow-cyan`, `glow-emerald`, `glow-rose`).
+  - Implemented modern international typography hierarchy featuring Geist Sans / Inter Display and Geist Mono / JetBrains Mono with tabular font alignment (`tabular-nums`) for jitter-free data readouts.
+- **Spatial Disaggregation & 8pt Grid Hierarchy (User Story 2)**:
+  - Re-structured Tab 0 (Portal Hub), Tab 1 (Financial Center), and Tab 3 (Purchasing Power) with decoupled atomic cards, generous spatial padding (`gap-6` to `gap-8`), and distinct contextual zones eliminating visual cognitive fatigue.
+- **Dynamic Island HUD & Quick Salary Calculator Drawer (User Story 3)**:
+  - Added `#floating-hud` top Dynamic Island pill with live conflict status, loss counter, quick action triggers, and scroll-to-top automation.
+  - Added `#quick-calc-drawer` slide-over drawer providing instant salary deduction and platform recovery calculations with synchronized two-way reactive controls.
+- **Dark Theme Chart.js Aesthetic Alignments & DOM Regressions**:
+  - Configured global Chart.js dark-theme typography, subtle gridlines (`rgba(255, 255, 255, 0.05)`), and glassmorphic tooltips across all 12 analytical charts.
+  - Added comprehensive automated regression assertions in `tests/test_dashboard_ui.py` covering all design tokens, fonts, HUD components, and drawer controllers.
+
 ## [008-compare-salary-proposals] - 2026-08-31
 
 ### Added

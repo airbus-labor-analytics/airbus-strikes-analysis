@@ -179,5 +179,35 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function calculateSalaryProposals(", self.app_js_content, "Missing calculateSalaryProposals() in app.js")
         self.assertIn("function renderSalaryProposalsMatrix(", self.app_js_content, "Missing renderSalaryProposalsMatrix() in app.js")
         self.assertIn("renderSalaryProposalsMatrix();", self.app_js_content, "renderSalaryProposalsMatrix() not invoked in app.js")
+
+    def test_amoled_liquid_crystal_design_tokens(self):
+        """Validates Feature 009: AMOLED Black background, Liquid Crystal glassmorphism, and Geist/Inter fonts."""
+        # HTML font and theme tokens
+        self.assertIn("Geist", self.html_content, "Geist font family missing in index.html")
+        self.assertIn("JetBrains+Mono", self.html_content, "JetBrains Mono font family missing in index.html")
+        self.assertIn("bg-black", self.html_content, "bg-black AMOLED class missing in index.html")
+        self.assertIn(".glass-card-crystal", self.html_content, "glass-card-crystal CSS class missing in index.html")
+        self.assertIn(".glow-cyan", self.html_content, "glow-cyan CSS class missing in index.html")
+        self.assertIn(".glow-emerald", self.html_content, "glow-emerald CSS class missing in index.html")
+
+        # App.js dark theme chart defaults
+        self.assertIn("Chart.defaults.color = '#94a3b8'", self.app_js_content, "Dark theme Chart.defaults.color missing in app.js")
+        self.assertIn("Geist Mono", self.app_js_content, "Geist Mono font family missing in Chart.defaults in app.js")
+
+    def test_floating_hud_and_quick_drawer(self):
+        """Validates Feature 009 User Story 3: Dynamic Island HUD, Slide-over Drawer, and Back-to-Top."""
+        # HTML DOM Elements
+        self.assertIn('id="floating-hud"', self.html_content, "Missing #floating-hud in index.html")
+        self.assertIn('id="quick-calc-drawer"', self.html_content, "Missing #quick-calc-drawer in index.html")
+        self.assertIn('id="back-to-top"', self.html_content, "Missing #back-to-top in index.html")
+        self.assertIn('id="drawer-input-salary"', self.html_content, "Missing #drawer-input-salary in index.html")
+        self.assertIn('id="drawer-slider-strike-days"', self.html_content, "Missing #drawer-slider-strike-days in index.html")
+
+        # App.js Logic
+        self.assertIn("function initFloatingHUD(", self.app_js_content, "Missing initFloatingHUD() in app.js")
+        self.assertIn("function toggleQuickCalculatorDrawer(", self.app_js_content, "Missing toggleQuickCalculatorDrawer() in app.js")
+        self.assertIn("function syncDrawerCalculator(", self.app_js_content, "Missing syncDrawerCalculator() in app.js")
+        self.assertIn("function scrollToTop(", self.app_js_content, "Missing scrollToTop() in app.js")
+
 if __name__ == "__main__":
     unittest.main()
