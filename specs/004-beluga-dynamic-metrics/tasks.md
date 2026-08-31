@@ -19,8 +19,8 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 **Purpose**: Set up contract validation and data model scaffolding.
 
-- [ ] T001 [P] Validate beluga logistics JSON schema contract in `specs/004-beluga-dynamic-metrics/contracts/beluga-logistics-contract.json`
-- [ ] T002 [P] Initialize dynamic movement structures in `src/parsers/metric_parser.py`
+- [X] T001 [P] Validate beluga logistics JSON schema contract in `specs/004-beluga-dynamic-metrics/contracts/beluga-logistics-contract.json`
+- [X] T002 [P] Initialize dynamic movement structures in `src/parsers/metric_parser.py`
 
 ---
 
@@ -30,8 +30,8 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T003 [P] Implement raw flight history parsing and origin/destination filtering in `src/parsers/metric_parser.py`
-- [ ] T004 Build ISO weekly chronological window bucketer in `src/beluga_tracker.py`
+- [X] T003 [P] Implement raw flight history parsing and origin/destination filtering in `src/parsers/metric_parser.py`
+- [X] T004 Build ISO weekly chronological window bucketer in `src/beluga_tracker.py`
 
 **Checkpoint**: Foundational flight log processing operational.
 
@@ -45,10 +45,10 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Implement dynamic Getafe flight frequency and cancellation derivation in `src/beluga_tracker.py`
-- [ ] T006 [P] [US1] Implement accumulated HTP component retention formula in `src/beluga_tracker.py`
-- [ ] T007 [US1] Implement FAL stock buffer depletion calculation (60h baseline minus elapsed hours) in `src/beluga_tracker.py`
-- [ ] T008 [US1] Create unit tests for dynamic movement and retention formulas in `tests/test_beluga_tracker.py`
+- [X] T005 [P] [US1] Implement dynamic Getafe flight frequency and cancellation derivation in `src/beluga_tracker.py`
+- [X] T006 [P] [US1] Implement accumulated HTP component retention formula in `src/beluga_tracker.py`
+- [X] T007 [US1] Implement FAL stock buffer depletion calculation (60h baseline minus elapsed hours) in `src/beluga_tracker.py`
+- [X] T008 [US1] Create unit tests for dynamic movement and retention formulas in `tests/test_beluga_tracker.py`
 
 **Checkpoint**: User Story 1 (MVP) complete — dynamic logistics calculations verified.
 
@@ -62,9 +62,9 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Update `dashboard/app.js` `initThermometerAndBeluga()` to consume dynamic movement series
-- [ ] T010 [P] [US2] Update European routes matrix card generation in `dashboard/app.js` from dynamic aggregated routes
-- [ ] T011 [US2] Add DOM & Chart.js rendering tests for Beluga logistics in `tests/test_dashboard_ui.py`
+- [X] T009 [P] [US2] Update `dashboard/app.js` `initThermometerAndBeluga()` to consume dynamic movement series
+- [X] T010 [P] [US2] Update European routes matrix card generation in `dashboard/app.js` from dynamic aggregated routes
+- [X] T011 [US2] Add DOM & Chart.js rendering tests for Beluga logistics in `tests/test_dashboard_ui.py`
 
 **Checkpoint**: User Stories 1 AND 2 complete — UI visualizes real-time dynamic logistics data.
 
@@ -78,9 +78,9 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Update `src/analysis_engine.py` to synchronize dynamic Beluga logistics metrics
-- [ ] T013 [US3] Synchronize `data/beluga_status.json`, `data/conflict_metrics.json`, and `dashboard/data.js` via atomic write
-- [ ] T014 [US3] Add automated invariant checks for Beluga throughput bounds in `src/validate_invariants.py`
+- [X] T012 [P] [US3] Update `src/analysis_engine.py` to synchronize dynamic Beluga logistics metrics
+- [X] T013 [US3] Synchronize `data/beluga_status.json`, `data/conflict_metrics.json`, and `dashboard/data.js` via atomic write
+- [X] T014 [US3] Add automated invariant checks for Beluga throughput bounds in `src/validate_invariants.py`
 
 **Checkpoint**: All 3 user stories complete with verified multi-surface parity.
 
@@ -90,9 +90,9 @@ description: "Task list for Dynamic BelugaXL Movement & Component Retention Anal
 
 **Purpose**: End-to-end regression validation and full test suite execution.
 
-- [ ] T015 [P] Run `python3 src/validate_sources.py`
-- [ ] T016 [P] Run `python3 src/validate_invariants.py`
-- [ ] T017 Run complete test suite (`python3 -m unittest discover tests`)
+- [X] T015 [P] Run `python3 src/validate_sources.py`
+- [X] T016 [P] Run `python3 src/validate_invariants.py`
+- [X] T017 Run complete test suite (`python3 -m unittest discover tests`)
 
 ---
 

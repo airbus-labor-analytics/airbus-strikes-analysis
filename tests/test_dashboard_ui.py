@@ -19,6 +19,7 @@ DATA_JS_PATH = PROJECT_ROOT / "dashboard" / "data.js"
 METRICS_JSON_PATH = PROJECT_ROOT / "data" / "conflict_metrics.json"
 
 EXPECTED_TABS = [
+    "tab-portal",
     "tab-overview",
     "tab-industrial",
     "tab-purchasing-power",
@@ -86,13 +87,14 @@ class TestDashboardUI(unittest.TestCase):
         self.assertEqual(validator.stack, [], f"Unclosed HTML tags: {validator.stack}")
 
     def test_tab_containers_structure(self):
-        """Validates that all 5 unified module containers exist and have the tab-content class."""
+        """Validates that all 6 module containers (portal + 5 specialized) exist and have the tab-content class."""
         for tab_id in EXPECTED_TABS:
             pattern = rf'<div\s+id=["\']{tab_id}["\']\s+class=["\']tab-content\b'
             self.assertTrue(
                 re.search(pattern, self.html_content),
                 f"Missing or malformed tab container definition for '{tab_id}'"
             )
+            self.assertIn(f'id="btn-{tab_id}"', self.html_content, f"Missing sidebar navigation button for '{tab_id}'")
 
     def test_purged_obsolete_tabs(self):
         """Validates that obsolete legacy tabs (like tab-checklist) are completely removed."""
@@ -142,6 +144,16 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("committee-11points-grid", self.html_content, "Missing committee-11points-grid container in index.html")
         self.assertIn("renderSensitiveBadge", self.app_js_content, "Missing renderSensitiveBadge helper in app.js")
 
+    def test_portal_hub_components(self):
+        """Validates Feature 005 components: mission statement, 4 flash KPIs, and 5-card Site Map."""
+        self.assertIn("Portal de Inteligencia Estratégica", self.html_content)
+        self.assertIn("15.562 trab.", self.html_content)
+        self.assertIn("-14.459,5 M€", self.html_content)
+        self.assertIn("60 horas", self.html_content)
+        self.assertIn("-26.027 €", self.html_content)
+        self.assertIn("Mapa de Navegación del Portal", self.html_content)
+        for target_tab in ["tab-overview", "tab-industrial", "tab-purchasing-power", "tab-union-force", "tab-evidence"]:
+            self.assertIn(f"switchTab('{target_tab}')", self.html_content)
 
 if __name__ == "__main__":
     unittest.main()

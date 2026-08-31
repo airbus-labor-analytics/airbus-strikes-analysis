@@ -95,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rawHash = window.location.hash.replace('#', '').trim();
     if (rawHash) {
       switchTab(rawHash);
+    } else {
+      switchTab('tab-portal');
     }
   }
   handleHashNavigation();
@@ -337,6 +339,14 @@ function switchTab(tabId) {
 
   // Backward compatibility alias map
   const tabAliases = {
+    'tab-portal': 'tab-portal',
+    'tab-inicio': 'tab-portal',
+    'tab-mapa': 'tab-portal',
+    'tab-financiero': 'tab-overview',
+    'tab-logistica': 'tab-industrial',
+    'tab-salarios': 'tab-purchasing-power',
+    'tab-sindical': 'tab-union-force',
+    'tab-evidencias': 'tab-evidence',
     'tab-kpis': 'tab-overview',
     'tab-stock': 'tab-overview',
     'tab-company-health': 'tab-overview',

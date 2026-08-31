@@ -19,8 +19,8 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 **Purpose**: Validate navigation contracts and setup portal DOM container.
 
-- [ ] T001 [P] Validate portal navigation contract schema in `specs/005-modular-dashboards-portal/contracts/portal-navigation-contract.json`
-- [ ] T002 [P] Create initial `tab-portal` container scaffolding and navigation tokens in `dashboard/index.html`
+- [X] T001 [P] Validate portal navigation contract schema in `specs/005-modular-dashboards-portal/contracts/portal-navigation-contract.json`
+- [X] T002 [P] Create initial `tab-portal` container scaffolding and navigation tokens in `dashboard/index.html`
 
 ---
 
@@ -30,8 +30,8 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 **⚠️ CRITICAL**: Must complete before user story implementation begins.
 
-- [ ] T003 Update `switchTab()` router in `dashboard/app.js` to support `#portal` default route and 5 decoupled dashboard aliases
-- [ ] T004 Implement breadcrumb and back-to-portal navigation helpers in `dashboard/app.js`
+- [X] T003 Update `switchTab()` router in `dashboard/app.js` to support `#portal` default route and 5 decoupled dashboard aliases
+- [X] T004 Implement breadcrumb and back-to-portal navigation helpers in `dashboard/app.js`
 
 **Checkpoint**: Core router handles `#portal` and decoupled dashboard hash transitions smoothly.
 
@@ -45,9 +45,9 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Build Welcome Portal mission statement banner and founding principles card in `dashboard/index.html`
-- [ ] T006 [P] [US1] Build 4 executive flash KPI summary cards in `dashboard/index.html`
-- [ ] T007 [US1] Build interactive 5-dashboard visual Site Map grid in `dashboard/index.html` with click-to-switch handlers
+- [X] T005 [P] [US1] Build Welcome Portal mission statement banner and founding principles card in `dashboard/index.html`
+- [X] T006 [P] [US1] Build 4 executive flash KPI summary cards in `dashboard/index.html`
+- [X] T007 [US1] Build interactive 5-dashboard visual Site Map grid in `dashboard/index.html` with click-to-switch handlers
 
 **Checkpoint**: User Story 1 (MVP) complete — first-time visitors receive clear mission context and 1-click navigation.
 
@@ -61,11 +61,11 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 ### Implementation for User Story 2
 
-- [ ] T008 [P] [US2] Decouple `tab-overview` into dedicated Financial & Corporate Asymmetry view in `dashboard/index.html`
-- [ ] T009 [P] [US2] Decouple `tab-industrial` into dedicated Logistics & Beluga Radar view in `dashboard/index.html`
-- [ ] T010 [P] [US2] Decouple `tab-purchasing-power` into dedicated Wage & Pension Simulator view in `dashboard/index.html`
-- [ ] T011 [P] [US2] Decouple `tab-union-force` into dedicated Union Representation & Assembly Chronology view in `dashboard/index.html`
-- [ ] T012 [P] [US2] Decouple `tab-evidence` into dedicated Documentary Search & Primary Sources Archive in `dashboard/index.html`
+- [X] T008 [P] [US2] Decouple `tab-overview` into dedicated Financial & Corporate Asymmetry view in `dashboard/index.html`
+- [X] T009 [P] [US2] Decouple `tab-industrial` into dedicated Logistics & Beluga Radar view in `dashboard/index.html`
+- [X] T010 [P] [US2] Decouple `tab-purchasing-power` into dedicated Wage & Pension Simulator view in `dashboard/index.html`
+- [X] T011 [P] [US2] Decouple `tab-union-force` into dedicated Union Representation & Assembly Chronology view in `dashboard/index.html`
+- [X] T012 [P] [US2] Decouple `tab-evidence` into dedicated Documentary Search & Primary Sources Archive in `dashboard/index.html`
 
 **Checkpoint**: User Stories 1 AND 2 complete — all 5 dashboards isolated without visual clutter.
 
@@ -79,9 +79,9 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 ### Implementation for User Story 3
 
-- [ ] T013 [P] [US3] Add persistent top breadcrumb bar with active section indicator and portal back-link in `dashboard/index.html`
-- [ ] T014 [US3] Enforce Principle VI lifecycle (scrollTop = 0, chart .resize()) in `dashboard/app.js` during portal transitions
-- [ ] T015 [US3] Add automated UI & DOM hierarchy tests in `tests/test_dashboard_ui.py` validating 6-tab routing matrix
+- [X] T013 [P] [US3] Add persistent top breadcrumb bar with active section indicator and portal back-link in `dashboard/index.html`
+- [X] T014 [US3] Enforce Principle VI lifecycle (scrollTop = 0, chart .resize()) in `dashboard/app.js` during portal transitions
+- [X] T015 [US3] Add automated UI & DOM hierarchy tests in `tests/test_dashboard_ui.py` validating 6-tab routing matrix
 
 ---
 
@@ -89,9 +89,9 @@ description: "Task list for Modular Dashboards & Welcome Portal Hub"
 
 **Purpose**: Full regression testing and source invariant validation.
 
-- [ ] T016 [P] Run `python3 src/validate_sources.py` to verify tag balancing and DOM structure across all 6 tabs
-- [ ] T017 [P] Run `python3 src/validate_invariants.py` to ensure Rules 1–14 pass with zero errors
-- [ ] T018 Run complete test suite (`python3 -m unittest discover tests`)
+- [X] T016 [P] Run `python3 src/validate_sources.py` to verify tag balancing and DOM structure across all 6 tabs
+- [X] T017 [P] Run `python3 src/validate_invariants.py` to ensure Rules 1–14 pass with zero errors
+- [X] T018 Run complete test suite (`python3 -m unittest discover tests`)
 
 ---
 
