@@ -5,6 +5,13 @@
 **Status**: Draft  
 **Input**: "acciona la descarga de documentos del telegram para incluirlos en github y subida a notebooklm, al igual que la actualización de noticias, tweets, etc."
 
+## Clarifications
+
+### Session 2026-08-31
+- Q: ¿Con qué frecuencia y qué disparadores (triggers) debe ejecutarse el flujo automático en GitHub Actions? → A: Option A (Frecuencia Dinámica: ejecución programada cada 2 horas durante horas activas de asamblea/mercado [06:00-20:00 UTC], cada 6 horas en horario nocturno, y disparo manual inmediato mediante `workflow_dispatch`).
+- Q: ¿Cómo debe gestionarse la autenticación y la subida de documentos a Google NotebookLM dentro de GitHub Actions y en local? → A: Option A (Sincronización Automatizada con Fallback Suave: intento de subida con secretos configurados `NOTEBOOKLM_TOKEN`; si fallan o no están presentes, completa la sincronización de Telegram y noticias registrando advertencia sin romper el job de CI).
+- Q: ¿Cómo deben extraerse y almacenarse los documentos de Telegram en el repositorio GitHub? → A: Option A (Extracción Dual: generación de texto plano estructurado `.txt`/`.md` para búsqueda instantánea en el dashboard y subida ligera a NotebookLM, junto con los archivos originales normalizados catalogados bajo `data/telegram_archive/`).
+
 ---
 
 ## 1. Visión y Objetivos
@@ -76,8 +83,9 @@ Como investigador o redactor estratégico, deseo que las minutas de asamblea, ac
 - **FR-003**: El sistema DEBE generar y mantener actualizado `data/telegram_archive/telegram_index.json` con el listado completo de documentos, incluyendo título, fecha, categoría, resumen, tamaño en caracteres y ruta relativa.
 - **FR-004**: El motor de noticias DEBE sindicar titulares desde las fuentes configuradas (Google News RSS, comunidad, prensa especializada), calcular la temperatura de presión del conflicto (°C) y persistir el resultado en `data/thermometer_data.json`.
 - **FR-005**: El sistema DEBE actualizar el registro de sincronización en `data/sync_status.json` registrando la marca temporal ISO 8601, recuento de fuentes procesadas y estado del pipeline.
-- **FR-006**: El módulo de NotebookLM DEBE validar la disponibilidad de los documentos fuente y sincronizarlos con el cuaderno ID `602774aa-f859-4d52-a3e4-87afb7761d15`.
-- **FR-007**: Todos los ficheros generados DEBEN ser versionables en git e integrarse limpiamente con los flujos de CI/CD (`.github/workflows/sync-news-data.yml`).
+- **FR-006**: El módulo de NotebookLM DEBE validar la disponibilidad de los documentos fuente y sincronizarlos con el cuaderno ID `602774aa-f859-4d52-a3e4-87afb7761d15` utilizando el secreto `NOTEBOOKLM_TOKEN` con fallback suave ante expiración/ausencia sin interrumpir el pipeline.
+- **FR-007**: El flujo de automatización en GitHub Actions (`.github/workflows/sync-news-data.yml`) DEBE ejecutarse con frecuencia dinámica (cada 2 horas entre 06:00 y 20:00 UTC, cada 6 horas por la noche, y bajo demanda con `workflow_dispatch`), auto-commiteando los cambios en `data/` y `dashboard/data.js`.
+- **FR-008**: El extractor de Telegram DEBE realizar extracción dual, generando tanto el texto estructurado (`.txt`/`.md`) para búsqueda instantánea en el dashboard y carga a NotebookLM, como el archivo fuente descargado bajo `data/telegram_archive/`.
 
 ---
 
