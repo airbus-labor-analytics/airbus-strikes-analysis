@@ -2,6 +2,35 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [003-simplify-dashboard] - 2026-08-31
+
+### Added
+- 5 unified thematic modules consolidating 15 disparate tabs:
+  1. `Centro de Mando & Asimetría` (Overview, Stock AIR.PA, Airbus Financials).
+  2. `Impacto Industrial & Logística` (JIT Buffers, Beluga Flight Monitor, Thermometer).
+  3. `Poder Adquisitivo & Negociación` (Wage Simulator, BOE Losses, Offer Gaps, 11 Points).
+  4. `Fuerza Sindical & Asamblea` (198 Delegates Map, 24-J Referendum, Chronology, Workflows).
+  5. `Documentación & Evidencias` (269 Sources Annex, Telegram Archive, Benchmarks).
+- High-contrast responsive typography, mobile navigation drawer, and Chart.js canvas resize lifecycle.
+
+### Changed
+- Refactored `dashboard/app.js` `switchTab()` controller with backward-compatible aliases.
+- Updated `src/validate_sources.py` scanner to enforce 5-tab structure and 12 canvas elements.
+
+### Removed
+- Legacy "Auditor 6 Filtros Urna" (`tab-checklist`) component and redundant micro-filters.
+
+## [002-verify-stock-data] - 2026-08-31
+
+### Added
+- Repository-wide data veracity audit script (`src/audit_data_veracity.py`).
+- Rules 12, 13, and 14 in `src/validate_invariants.py` for stock bounds, primary source completeness, and zero unverified data gates.
+- Strict data integrity contract (`specs/002-verify-stock-data/contracts/data-integrity-contract.json`).
+
+### Changed
+- Grounded all stock market metrics to Euronext Paris (AIR.PA / ISIN NL0000235190) and Airbus Investor Relations.
+- Synchronized `dashboard/data.js` and `data/conflict_metrics.json` with zero numerical drift.
+
 ## [001-autonomous-data-updates] - 2026-08-31
 
 ### Added
