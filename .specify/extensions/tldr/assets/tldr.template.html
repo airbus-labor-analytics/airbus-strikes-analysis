@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spec Kit TLDR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea; --paper-2:#ece7db; --ink:#1d1b16; --ink-soft:#544f45;
+    --rule:#cfc8b8; --blueprint:#1f4e79; --blueprint-soft:#e4ecf3;
+    --amber:#9a6b00; --amber-bg:#f6eccf; --red:#9a2b2b; --red-bg:#f4dcd6;
+    --green:#3d6b2e; --green-bg:#e1ecd8; --change:#1f4e79; --change-bg:#dde8f2;
+    --mono:'IBM Plex Mono',ui-monospace,monospace; --serif:'Newsreader',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+    font-size:17px; line-height:1.5;
+    background-image:radial-gradient(var(--rule) 0.6px,transparent 0.6px);
+    background-size:22px 22px;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:40px 28px 96px}
+  .label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  header.doc{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
+  header.doc h1{font-family:var(--serif);font-weight:600;font-size:34px;line-height:1.1;margin:6px 0 10px}
+  header.doc .meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 18px}
+  header.doc .meta b{color:var(--ink);font-weight:600}
+  .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 6px}
+  .toggle{font-family:var(--mono);font-size:12px;display:inline-flex;gap:7px;align-items:center;
+    background:var(--paper-2);border:1px solid var(--rule);border-radius:2px;padding:6px 10px;cursor:pointer;user-select:none}
+  .toggle input{accent-color:var(--blueprint)}
+  .summary{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 30px}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;border:1px solid var(--rule);
+    border-radius:2px;padding:4px 9px;display:inline-flex;gap:7px;align-items:center;background:var(--paper-2);cursor:pointer}
+  .chip .n{font-weight:600}
+  .chip[data-on="false"]{opacity:.45}
+  .chip.f-ambiguous,.chip.f-untestable,.chip.f-missing-criteria{background:var(--amber-bg);border-color:#e0cf9a;color:var(--amber)}
+  .chip.f-unanswered,.chip.f-mismatch,.chip.f-constitution{background:var(--red-bg);border-color:#e2b3a9;color:var(--red)}
+  .chip.f-uncovered,.chip.f-dependency-gap{background:var(--red-bg);border-color:#e2b3a9;color:var(--red)}
+  .chip.f-changed-in-pr{background:var(--change-bg);border-color:#aac4dc;color:var(--change)}
+  h2.sec{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--blueprint);
+    border-bottom:1px solid var(--rule);padding-bottom:7px;margin:42px 0 18px;display:flex;justify-content:space-between;align-items:baseline}
+  .tldr{font-size:20px;line-height:1.45;border-left:3px solid var(--blueprint);padding:2px 0 2px 16px;margin:0 0 22px;color:var(--ink)}
+  .priority{background:var(--red-bg);border:1px solid #e2b3a9;border-radius:3px;padding:16px 18px;margin:6px 0 8px}
+  .priority h3{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 10px}
+  .priority ul{margin:0;padding-left:18px}
+  .priority li{margin:5px 0;color:#5c2622}
+  .priority li .src{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-left:6px}
+  .item{border-bottom:1px solid var(--rule);padding:14px 0;display:flex;gap:14px}
+  .item .id{font-family:var(--mono);font-size:12px;color:var(--ink-soft);min-width:58px;padding-top:2px}
+  .item .body{flex:1;min-width:0}
+  .item .txt{margin:0}
+  .item .acc{font-size:14.5px;color:var(--ink-soft);margin:5px 0 0}
+  .item .acc.none{color:var(--red)}
+  .item .src{font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:6px}
+  .item .src a{color:var(--blueprint);text-decoration:none;border-bottom:1px dotted var(--blueprint)}
+  .flags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;border-radius:2px;padding:2px 6px;border:1px solid}
+  .tag.f-ambiguous,.tag.f-untestable,.tag.f-missing-criteria{background:var(--amber-bg);border-color:#e0cf9a;color:var(--amber)}
+  .tag.f-unanswered,.tag.f-mismatch,.tag.f-constitution,.tag.f-uncovered,.tag.f-dependency-gap{background:var(--red-bg);border-color:#e2b3a9;color:var(--red)}
+  .tag.f-changed-in-pr{background:var(--change-bg);border-color:#aac4dc;color:var(--change)}
+  .pill{font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;background:var(--change-bg);
+    color:var(--change);border:1px solid #aac4dc;border-radius:2px;padding:1px 5px;vertical-align:middle;margin-left:7px}
+  .pair{border-bottom:1px solid var(--rule);padding:14px 0}
+  .pair .d{margin:0;font-weight:500}
+  .pair .r{font-size:15px;color:var(--ink-soft);margin:5px 0 0}
+  .pair .r.none{color:var(--red);font-style:italic}
+  .grid{display:flex;flex-wrap:wrap;gap:8px}
+  .stack{font-family:var(--mono);font-size:12.5px;background:var(--blueprint-soft);border:1px solid #cdddec;
+    border-radius:2px;padding:6px 10px}
+  .stack .role{color:var(--ink-soft)}
+  .cc{display:flex;gap:10px;align-items:baseline;border-bottom:1px solid var(--rule);padding:9px 0;font-size:15px}
+  .cc .st{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;min-width:64px}
+  .cc .st.pass{color:var(--green)} .cc .st.fail{color:var(--red)} .cc .st.unknown{color:var(--amber)}
+  .empty{color:var(--ink-soft);font-style:italic;font-size:15px;padding:8px 0}
+  .hidden{display:none !important}
+  footer{margin-top:54px;border-top:1px solid var(--rule);padding-top:14px;font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  @media(max-width:560px){.wrap{padding:24px 16px 80px}.item{flex-direction:column;gap:4px}.item .id{padding-top:0}}
+</style>
+</head>
+<body>
+<div class="wrap" id="root"></div>
+
+<script>
+const DATA =
+/* === DATA PLACEHOLDER START === */
+{
+  "feature": "042 — Example feature (sample data: replace this whole DATA block)",
+  "scope": "both",
+  "generatedAt": "2026-05-28",
+  "sourceFiles": ["specs/042-example/spec.md", "specs/042-example/plan.md"],
+  "spec": {
+    "tldr": "Lets signed-in users export their activity history as a downloadable file, on demand, without involving support.",
+    "openQuestions": [
+      {"text": "Which export formats must be supported? Spec says 'common formats' without listing them.", "severity": "high", "source": {"file": "spec.md", "heading": "Requirements", "lines": "40-41"}, "changedInPR": true},
+      {"text": "[NEEDS CLARIFICATION] retention period for generated export files.", "severity": "med", "source": {"file": "spec.md", "heading": "Open Questions", "lines": "88"}, "changedInPR": false}
+    ],
+    "requirements": [
+      {"id": "FR-001", "text": "A signed-in user can request an export of their own activity history.", "acceptance": "Given a signed-in user, when they request an export, a file is produced containing only their records.", "flags": ["changed-in-pr"], "changedInPR": true, "source": {"file": "spec.md", "heading": "Functional Requirements", "lines": "22-25"}},
+      {"id": "FR-002", "text": "The export completes quickly for typical accounts.", "acceptance": null, "flags": ["ambiguous","untestable","missing-criteria"], "changedInPR": false, "source": {"file": "spec.md", "heading": "Functional Requirements", "lines": "27-28"}}
+    ],
+    "decisions": [
+      {"text": "Out of scope: exporting other users' data or admin bulk export.", "changedInPR": false, "source": {"file": "spec.md", "heading": "Scope", "lines": "12-13"}}
+    ],
+    "actors": ["Signed-in user"]
+  },
+  "plan": {
+    "tldr": "Background job generates the file and stores it in object storage; the user is notified with a time-limited download link.",
+    "stack": [
+      {"name": "PostgreSQL", "role": "source of activity records", "changedInPR": false},
+      {"name": "Object storage (S3-compatible)", "role": "holds generated files", "changedInPR": true}
+    ],
+    "decisions": [
+      {"decision": "Generate exports asynchronously via a queue worker rather than inline in the request.", "rationale": "Large histories would exceed the request timeout.", "flags": ["changed-in-pr"], "changedInPR": true, "source": {"file": "plan.md", "heading": "Architecture", "lines": "30-36"}},
+      {"decision": "Store files unencrypted at rest for now.", "rationale": null, "flags": ["ambiguous","constitution"], "changedInPR": true, "source": {"file": "plan.md", "heading": "Storage", "lines": "44-45"}}
+    ],
+    "constitutionCheck": [
+      {"rule": "All user inputs validated", "status": "pass", "note": "", "source": {"file": "plan.md", "lines": "60"}},
+      {"rule": "Data at rest encrypted", "status": "fail", "note": "Plan stores export files unencrypted.", "source": {"file": "plan.md", "lines": "44-45"}}
+    ],
+    "structure": ["worker/export_job", "api/export_controller", "storage/export_store"],
+    "risks": [
+      {"text": "Download links could leak if not expired; expiry policy not yet specified.", "changedInPR": true, "source": {"file": "plan.md", "heading": "Risks", "lines": "70-72"}}
+    ]
+  }
+}
+/* === DATA PLACEHOLDER END === */
+;
+
+(function(){
+  const FLAG_ORDER = ["unanswered","mismatch","constitution","missing-criteria","untestable","ambiguous","uncovered","dependency-gap","changed-in-pr"];
+  const HIGH = new Set(["unanswered","mismatch","constitution","missing-criteria"]);
+  const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const srcStr = s => s ? `${esc(s.file)}${s.heading?" › "+esc(s.heading):""}${s.lines?":"+esc(s.lines):""}` : "";
+  const tag = f => `<span class="tag f-${f}">${f}</span>`;
+  const state = {onlyChanged:false, flagFilter:null};
+
+  function collectFlags(){
+    const counts={};
+    const visit = arr => (arr||[]).forEach(i=>(i.flags||[]).forEach(f=>counts[f]=(counts[f]||0)+1));
+    if(DATA.spec){visit(DATA.spec.requirements);visit(DATA.spec.decisions);}
+    if(DATA.plan){visit(DATA.plan.decisions);}
+    (DATA.spec&&DATA.spec.openQuestions||[]).forEach(()=>counts["unanswered"]=(counts["unanswered"]||0)+1);
+    (DATA.plan&&DATA.plan.constitutionCheck||[]).forEach(c=>{if(c.status==="fail"||c.status==="unknown")counts["constitution"]=(counts["constitution"]||0)+1;});
+    return counts;
+  }
+
+  function show(item){
+    if(state.onlyChanged && !item.changedInPR) return false;
+    if(state.flagFilter && !((item.flags||[]).includes(state.flagFilter))) return false;
+    return true;
+  }
+
+  function reqRow(r){
+    const pill = r.changedInPR?`<span class="pill">changed</span>`:"";
+    const acc = r.acceptance!=null
+      ? `<p class="acc">✓ ${esc(r.acceptance)}</p>`
+      : `<p class="acc none">no acceptance criteria stated</p>`;
+    const flags = (r.flags||[]).length?`<div class="flags">${r.flags.map(tag).join("")}</div>`:"";
+    return `<div class="item">
+      <div class="id">${esc(r.id||"")}</div>
+      <div class="body"><p class="txt">${esc(r.text)}${pill}</p>${acc}${flags}
+      ${r.source?`<div class="src">${srcStr(r.source)}</div>`:""}</div></div>`;
+  }
+  function pairRow(d){
+    const pill = d.changedInPR?`<span class="pill">changed</span>`:"";
+    const flags = (d.flags||[]).length?`<div class="flags">${d.flags.map(tag).join("")}</div>`:"";
+    const r = d.rationale!=null?`<p class="r">↳ ${esc(d.rationale)}</p>`:`<p class="r none">↳ no rationale stated</p>`;
+    return `<div class="pair"><p class="d">${esc(d.decision||d.text)}${pill}</p>${r}${flags}
+      ${d.source?`<div class="src">${srcStr(d.source)}</div>`:""}</div>`;
+  }
+
+  function priorityBlock(){
+    const items=[];
+    (DATA.spec&&DATA.spec.openQuestions||[]).forEach(q=>items.push({t:q.text,s:q.source}));
+    const scan = arr => (arr||[]).forEach(i=>{ if((i.flags||[]).some(f=>HIGH.has(f))) items.push({t:(i.text||i.decision),s:i.source}); });
+    if(DATA.spec){scan(DATA.spec.requirements);}
+    if(DATA.plan){scan(DATA.plan.decisions); (DATA.plan.constitutionCheck||[]).forEach(c=>{if(c.status==="fail")items.push({t:"Constitution: "+c.rule+(c.note?" — "+c.note:""),s:c.source});});}
+    if(!items.length) return "";
+    return `<div class="priority"><h3>Read these first · ${items.length}</h3><ul>${
+      items.map(i=>`<li>${esc(i.t)}${i.s?`<span class="src">${srcStr(i.s)}</span>`:""}</li>`).join("")}</ul></div>`;
+  }
+
+  function specSection(){
+    const s=DATA.spec; if(!s) return "";
+    const reqs=(s.requirements||[]).filter(show);
+    const decs=(s.decisions||[]).filter(show);
+    return `<h2 class="sec">spec.md · what / why <span class="label">${(s.requirements||[]).length} req</span></h2>
+      ${s.tldr?`<p class="tldr">${esc(s.tldr)}</p>`:""}
+      <h2 class="sec">Requirements</h2>
+      ${reqs.length?reqs.map(reqRow).join(""):'<p class="empty">none match the current filter</p>'}
+      ${decs.length?`<h2 class="sec">Decisions &amp; scope</h2>${decs.map(pairRow).join("")}`:""}`;
+  }
+  function planSection(){
+    const p=DATA.plan; if(!p) return "";
+    const decs=(p.decisions||[]).filter(show);
+    const stack=(p.stack||[]).filter(x=>!state.onlyChanged||x.changedInPR);
+    const cc=p.constitutionCheck||[];
+    return `<h2 class="sec">plan.md · how <span class="label">${(p.decisions||[]).length} decisions</span></h2>
+      ${p.tldr?`<p class="tldr">${esc(p.tldr)}</p>`:""}
+      ${stack.length?`<h2 class="sec">Stack</h2><div class="grid">${stack.map(x=>`<span class="stack">${esc(x.name)}${x.role?` <span class="role">· ${esc(x.role)}</span>`:""}${x.changedInPR?'<span class="pill">changed</span>':""}</span>`).join("")}</div>`:""}
+      ${decs.length?`<h2 class="sec">Decisions &amp; rationale</h2>${decs.map(pairRow).join("")}`:""}
+      ${cc.length?`<h2 class="sec">Constitution check</h2>${cc.map(c=>`<div class="cc"><span class="st ${esc(c.status)}">${esc(c.status)}</span><span>${esc(c.rule)}${c.note?` — <span style="color:var(--ink-soft)">${esc(c.note)}</span>`:""}</span></div>`).join("")}`:""}
+      ${(p.structure||[]).length?`<h2 class="sec">Structure</h2><div class="grid">${p.structure.map(x=>`<span class="stack">${esc(x)}</span>`).join("")}</div>`:""}
+      ${(p.risks||[]).filter(show).length?`<h2 class="sec">Risks &amp; trade-offs</h2>${p.risks.filter(show).map(pairRow).join("")}`:""}`;
+  }
+
+  function summaryBar(){
+    const counts=collectFlags();
+    const chips=FLAG_ORDER.filter(f=>counts[f]).map(f=>{
+      const on = !state.flagFilter || state.flagFilter===f;
+      return `<span class="chip f-${f}" data-flag="${f}" data-on="${on}">${f}<span class="n">${counts[f]}</span></span>`;
+    }).join("");
+    return chips?`<div class="summary" id="summary">${chips}</div>`:"";
+  }
+
+  function render(){
+    const d=DATA;
+    document.getElementById("root").innerHTML = `
+      <header class="doc">
+        <div class="label">Spec Kit TLDR · review aid</div>
+        <h1>${esc(d.feature||"Untitled feature")}</h1>
+        <div class="meta">
+          <span>scope <b>${esc(d.scope||"both")}</b></span>
+          <span>generated <b>${esc(d.generatedAt||"")}</b></span>
+          <span>${(d.sourceFiles||[]).map(esc).join(" · ")}</span>
+        </div>
+      </header>
+      <div class="controls">
+        <label class="toggle"><input type="checkbox" id="t-changed"> show only changed in this PR</label>
+        <span class="label" id="filtnote"></span>
+      </div>
+      ${summaryBar()}
+      ${priorityBlock()}
+      ${specSection()}
+      ${planSection()}
+      <footer>This TLDR is an entry point, not a substitute for reading the source. Items link back to their location in spec.md / plan.md. Regenerate from the PR's canonical files; do not review the summary alone.</footer>`;
+    document.getElementById("t-changed").checked = state.onlyChanged;
+    document.getElementById("t-changed").onchange = e=>{state.onlyChanged=e.target.checked;render();};
+    document.querySelectorAll(".chip[data-flag]").forEach(c=>c.onclick=()=>{
+      const f=c.getAttribute("data-flag");
+      state.flagFilter = state.flagFilter===f?null:f; render();
+    });
+    const note=document.getElementById("filtnote");
+    if(note) note.textContent = state.flagFilter?("filtering: "+state.flagFilter+" (click chip to clear)"):"";
+  }
+  render();
+})();
+</script>
+</body>
+</html>

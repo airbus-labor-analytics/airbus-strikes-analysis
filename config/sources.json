@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "default_polling_interval_minutes": 15,
+  "sources": [
+    {
+      "id": "telegram_archive",
+      "name": "Local Telegram Assembly & Document Archive",
+      "type": "telegram_archive",
+      "endpoint": "data/telegram_archive",
+      "polling_interval_minutes": 5,
+      "enabled": true
+    },
+    {
+      "id": "telegram_live_channel",
+      "name": "Airbus Spain Assembly Telegram Channel",
+      "type": "telegram_api",
+      "endpoint": "@asamblea_airbus_getafe",
+      "polling_interval_minutes": 15,
+      "enabled": false,
+      "auth_env_var": "TELEGRAM_BOT_TOKEN"
+    },
+    {
+      "id": "sima_news_feed",
+      "name": "SIMA Mediation & Labor News Feed",
+      "type": "rss_feed",
+      "endpoint": "https://www.sima-fsp.net/feed/noticias",
+      "polling_interval_minutes": 30,
+      "enabled": true
+    },
+    {
+      "id": "airbus_press_releases",
+      "name": "Airbus Group News & Press Releases",
+      "type": "rss_feed",
+      "endpoint": "https://www.airbus.com/en/newsroom/press-releases/rss.xml",
+      "polling_interval_minutes": 60,
+      "enabled": true
+    },
+    {
+      "id": "beluga_transport_status",
+      "name": "Beluga Flight & Logistics Disruption Tracker",
+      "type": "file_watcher",
+      "endpoint": "data/beluga_status.json",
+      "polling_interval_minutes": 10,
+      "enabled": true
+    },
+    {
+      "id": "ine_inflation_index",
+      "name": "INE Spanish CPI & Inflation Dataset",
+      "type": "economic_api",
+      "endpoint": "https://servicios.ine.es/wstempus/js/ES/DATOS_TABLA/50913",
+      "polling_interval_minutes": 1440,
+      "enabled": true
+    }
+  ]
+}

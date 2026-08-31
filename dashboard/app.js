@@ -167,6 +167,18 @@ async function syncDataInBackground(manual = false) {
   if (syncText && manual) syncText.textContent = 'Sincronizando...';
 
   try {
+    // 0. Fetch Sync Status Metadata
+    const syncStatusData = await fetchJsonWithFallbacks([
+      'data/sync_status.json',
+      './data/sync_status.json',
+      '../data/sync_status.json'
+    ]);
+
+    let isDegraded = false;
+    if (syncStatusData && syncStatusData.system_status) {
+      isDegraded = (syncStatusData.system_status === 'degraded');
+    }
+
     // 1. Fetch Conflict Metrics & Full Dataset
     const metricsData = await fetchJsonWithFallbacks([
       'data/conflict_metrics.json',
@@ -174,7 +186,6 @@ async function syncDataInBackground(manual = false) {
       '../data/conflict_metrics.json',
       'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/conflict_metrics.json'
     ]);
-
     if (metricsData && metricsData.parameters) {
       conflictData = metricsData;
       if (metricsData.sources_catalog && metricsData.sources_catalog.length > 0) {
@@ -231,11 +242,15 @@ async function syncDataInBackground(manual = false) {
     updateWageSimulation();
 
     lastSyncTimestamp = new Date();
-    const timeStr = lastSyncTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const timeStr = lastSyncTimestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     
-    if (syncText) syncText.textContent = `En Vivo (${timeStr})`;
+    if (syncText) {
+      syncText.textContent = isDegraded ? `En Vivo (Aviso - ${timeStr})` : `En Vivo (${timeStr})`;
+    }
     if (syncDot) {
-      syncDot.className = 'w-2 h-2 rounded-full bg-emerald-400 mr-2';
+      syncDot.className = isDegraded 
+        ? 'w-2 h-2 rounded-full bg-amber-400 mr-2 animate-pulse' 
+        : 'w-2 h-2 rounded-full bg-emerald-400 mr-2';
     }
   } catch (err) {
     console.warn('Auto-sync notice: using retained baseline data.', err);
@@ -256,13 +271,13 @@ function startAutoSyncEngine() {
   // Run initial background sync
   syncDataInBackground(false);
 
-  // Re-sync every 2 minutes (120,000 ms) automatically without page reload
-  if (autoSyncInterval) clearInterval(autoSyncInterval);
+  // Re-sync every 30 seconds (30,000 ms) automatically without page reload
+  clearInterval(autoSyncInterval);
   autoSyncInterval = setInterval(() => {
     if (!document.hidden) {
       syncDataInBackground(false);
     }
-  }, 120000);
+  }, 30000);
 }
 
 // Mobile Sidebar Toggle & Backdrop

@@ -22,22 +22,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 1. Sync Telegram Channel Archives
+      - name: 1. Autonomous Data Ingestion & Sync
         run: |
-          python3 src/telegram_channel_sync.py || true
+          python3 src/data_ingestion.py --run-once
 
-      - name: 2. Sync Beluga Logistics Live Fleet
-        run: |
-          python3 src/beluga_tracker.py || true
-
-      - name: 3. Sync Sentiment & Press Thermometer
-        run: |
-          python3 src/sentiment_thermometer.py || true
-
-      - name: 4. Re-generate Consolidated Datasets
+      - name: 2. Re-generate Consolidated Datasets & Metrics
         run: |
           python3 src/analysis_engine.py
-
+          python3 src/sentiment_thermometer.py || true
       - name: 5. Validate Integrity & Invariants
         run: |
           python3 src/validate_invariants.py

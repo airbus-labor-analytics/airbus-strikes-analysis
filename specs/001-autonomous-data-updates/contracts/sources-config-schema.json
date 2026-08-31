@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SourcesConfigurationSchema",
+  "type": "object",
+  "required": ["version", "default_polling_interval_minutes", "sources"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "default_polling_interval_minutes": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 15
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "endpoint", "enabled"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_-]+$" },
+          "name": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": [
+              "telegram_archive",
+              "telegram_api",
+              "rss_feed",
+              "web_scraper",
+              "file_watcher",
+              "economic_api"
+            ]
+          },
+          "endpoint": { "type": "string" },
+          "polling_interval_minutes": { "type": "integer", "minimum": 1 },
+          "enabled": { "type": "boolean" },
+          "auth_env_var": { "type": "string" }
+        }
+      }
+    }
+  }
+}

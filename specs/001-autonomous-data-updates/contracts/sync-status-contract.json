@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SyncStatusContract",
+  "type": "object",
+  "required": [
+    "version",
+    "last_successful_sync",
+    "system_status",
+    "polling_interval_seconds",
+    "sources",
+    "latest_event"
+  ],
+  "properties": {
+    "version": { "type": "string" },
+    "last_successful_sync": { "type": "string", "format": "date-time" },
+    "system_status": {
+      "type": "string",
+      "enum": ["healthy", "degraded", "failed"]
+    },
+    "polling_interval_seconds": { "type": "integer", "minimum": 5 },
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["status"],
+        "properties": {
+          "status": { "type": "string", "enum": ["active", "idle", "degraded", "error"] },
+          "last_message_ts": { "type": "string" },
+          "total_docs": { "type": "integer" },
+          "last_article_ts": { "type": "string" },
+          "total_articles": { "type": "integer" },
+          "invariants_pass": { "type": "boolean" },
+          "error_message": { "type": "string" }
+        }
+      }
+    },
+    "latest_event": {
+      "type": "object",
+      "required": ["event_id", "duration_ms", "status"],
+      "properties": {
+        "event_id": { "type": "string" },
+        "duration_ms": { "type": "integer" },
+        "status": { "type": "string", "enum": ["healthy", "degraded", "failed"] },
+        "error_message": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

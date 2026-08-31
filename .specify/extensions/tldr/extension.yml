@@ -1,0 +1,32 @@
+schema_version: "1.0"
+
+extension:
+  id: tldr
+  name: "Spec Kit TLDR"
+  version: "0.3.0"
+  description: "Render a feature's spec.md / plan.md into a review-oriented TLDR — a self-contained HTML dashboard plus PR-native Markdown — that surfaces risks for faster review."
+  author: "Qurore"
+  repository: "https://github.com/qurore/speckit-tldr"
+  homepage: "https://github.com/qurore/speckit-tldr"
+  license: "MIT"
+  category: "visibility"
+  effect: "read-write"
+
+requires:
+  speckit_version: ">=0.9.0"
+
+provides:
+  commands:
+    - name: speckit.tldr.generate
+      file: commands/speckit.tldr.generate.md
+      description: "Generate the review-oriented TLDR (HTML dashboard + Markdown) for the target feature's spec.md / plan.md."
+    - name: speckit.tldr.clean
+      file: commands/speckit.tldr.clean.md
+      description: "Remove generated *.tldr.html / *.tldr.md review artifacts so they are not committed into a PR."
+
+tags:
+  - "review"
+  - "pr-review"
+  - "sdd"
+  - "spec"
+  - "visibility"

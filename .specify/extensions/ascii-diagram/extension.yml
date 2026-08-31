@@ -1,0 +1,54 @@
+schema_version: "1.0"
+
+extension:
+  id: ascii-diagram
+  name: "ASCII Diagram Renderer"
+  version: "1.1.0"
+  description: "Renders a hand-drawn, Unicode box-drawing diagram (state machine, architecture, flow, or dependency graph) of what the current feature's spec/plan/tasks *already says*, and appends it to the relevant document. Plain text, not Mermaid — no external renderer needed."
+  author: MRZHUH
+  repository: https://github.com/MRZHUH/spec-kit-ascii-diagram
+  homepage: https://github.com/MRZHUH/spec-kit-ascii-diagram
+  license: MIT
+
+requires:
+  speckit_version: ">=0.2.0"
+
+provides:
+  commands:
+    - name: speckit.ascii-diagram.render
+      file: commands/speckit.ascii-diagram.render.md
+      description: "Render a text-based diagram for the current feature's spec/plan/tasks and append it to the document"
+
+hooks:
+  after_specify:
+    command: speckit.ascii-diagram.render
+    optional: true
+    prompt: "Render a text diagram (state machine / flow) for this spec?"
+    description: "Sketch a state/flow diagram right after specification"
+  after_plan:
+    command: speckit.ascii-diagram.render
+    optional: true
+    prompt: "Render a text diagram (architecture) for this plan?"
+    description: "Sketch an architecture/component diagram right after planning"
+  after_tasks:
+    command: speckit.ascii-diagram.render
+    optional: true
+    prompt: "Render a task dependency diagram for this task list?"
+    description: "Sketch a dependency graph right after task breakdown"
+  after_analyze:
+    command: speckit.ascii-diagram.render
+    optional: true
+    prompt: "Render a requirement/task coverage diagram for this analysis?"
+    description: "Sketch a coverage/traceability diagram, printed inline (analyze is read-only — no file is written)"
+
+category: docs
+effect: read-write
+
+tags:
+  - "diagram"
+  - "visualization"
+  - "ascii"
+  - "docs"
+  - "architecture"
+  - "coverage"
+  - "traceability"

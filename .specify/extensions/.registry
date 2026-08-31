@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.0",
+  "extensions": {
+    "git": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:89711dec9716473fba4afc54f7224bcb28ebd3c55fb5aaa30df854ab02b07a75",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.git.feature",
+          "speckit.git.validate",
+          "speckit.git.remote",
+          "speckit.git.initialize",
+          "speckit.git.commit"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:32:21.748032+00:00"
+    },
+    "agent-context": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:9a1dc02d2d0139bb03860392ecacef79183be2c442feda2f9ccaa4e5907b1e47",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.agent-context.update"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:09.304134+00:00"
+    },
+    "bug": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:1d0da5458f3c18ff08cf1602d88cecc33fad07068208951fb7128090cfa90c90",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.bug.assess",
+          "speckit.bug.fix",
+          "speckit.bug.test"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:09.730444+00:00"
+    },
+    "assess": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:6eba1ffbc264c7aa43e31b34303a8312ddad5b979772d2785c808179b402d9f2",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.assess.intake",
+          "speckit.assess.research",
+          "speckit.assess.define",
+          "speckit.assess.shape",
+          "speckit.assess.decide"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:14.484677+00:00"
+    },
+    "status": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:25d080d9f1a0ea2fc62de2464479143c7c008b9131d32755f351413605d7946f",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.status.show",
+          "speckit.status"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:21.075321+00:00"
+    },
+    "tinyspec": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:a78c4ede6a5e07f1430e187be0269b910dcef3e75f4e0609588e58fbce48b742",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.tinyspec.tinyspec",
+          "speckit.tinyspec.implement",
+          "speckit.tinyspec.classify"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:23.392890+00:00"
+    },
+    "staff-review": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:320fa967c40ae943e37ceb0a1fb0f8dda42eb22b07be8428674ce72532e28e1e",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.staff-review.run"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:26.015159+00:00"
+    },
+    "tldr": {
+      "version": "0.3.0",
+      "source": "local",
+      "manifest_hash": "sha256:b8dc35dc2c02b92bd2d2467c14464c4eacc1128074ae0f639ef5916890a4df26",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.tldr.generate",
+          "speckit.tldr.clean"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:31.072884+00:00"
+    },
+    "refine": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:f81d942a057a69e00d223e0c2154de0e1040b33f80f9acfc1a15a6e3762ae22b",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.refine.update",
+          "speckit.refine.propagate",
+          "speckit.refine.diff",
+          "speckit.refine.status"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:32.276029+00:00"
+    },
+    "retro": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:f27959726b2bb9b5257b8a164f0096e94c03c443b2e99ccde14af220f9781457",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.retro.run"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:33.405137+00:00"
+    },
+    "ship": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:7aeaac4af9046a3ac9773fa2ef6c8938beef9cc02d7b8f841e72f388ecbdae69",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.ship.run"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:33:34.627830+00:00"
+    },
+    "ascii-diagram": {
+      "version": "1.1.0",
+      "source": "local",
+      "manifest_hash": "sha256:7e4ef8f524247c07ae99e1480fe96d60a0ad2a3f02fdb1d00ba40b06f225bf16",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.ascii-diagram.render"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:35:36.289131+00:00"
+    },
+    "speckit-utils": {
+      "version": "1.0.0",
+      "source": "local",
+      "manifest_hash": "sha256:e4970a3d868ad26c27c2b7b57cec58a017b0f6d31e1186dd64ca30c8e8da7721",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.speckit-utils.resume",
+          "speckit.resume",
+          "speckit.speckit-utils.doctor",
+          "speckit.doctor",
+          "speckit.speckit-utils.validate",
+          "speckit.validate"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:35:37.446234+00:00"
+    },
+    "token-budget": {
+      "version": "1.0.1",
+      "source": "local",
+      "manifest_hash": "sha256:2ea8616666abe014ac37b299cbdeea97b9153856eecc0730faabc8c42a1f7111",
+      "enabled": true,
+      "priority": 10,
+      "registered_commands": {
+        "omp": [
+          "speckit.token-budget.compact",
+          "speckit.token-budget.scope",
+          "speckit.token-budget.concise",
+          "speckit.token-budget.usage"
+        ]
+      },
+      "registered_skills": [],
+      "installed_at": "2026-08-31T17:35:38.793125+00:00"
+    }
+  }
+}
