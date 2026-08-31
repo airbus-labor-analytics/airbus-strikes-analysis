@@ -1592,6 +1592,298 @@ class StrikeAnalysisEngine:
                 }
             ]
         }
+    def get_salary_proposals_comparison(self, base_salary: float = 50000.0, cpi_rate: float = 0.025) -> Dict[str, Any]:
+        """Generates detailed 5-year gross salary projections and point-by-point comparative matrix across all 3 proposals."""
+        d = [pow(1 + cpi_rate, y) for y in range(6)]
+        w0 = float(base_salary)
+        
+        # 1. Company Offer
+        co_w0 = w0
+        co_ea_loss = w0 * 0.05 * 0.25
+        co_w1 = (w0 * 1.05 - co_ea_loss)
+        co_w1_base = w0 * 1.05
+        co_rate = min(cpi_rate * 0.25, 0.01)
+        co_w2_base = co_w1_base * (1 + co_rate)
+        co_w2 = co_w2_base + 2000.0
+        co_w3 = co_w2_base * (1 + co_rate)
+        co_w4 = co_w3 * (1 + co_rate)
+        co_w5 = co_w4 * (1 + co_rate)
+        co_nom = [round(x, 2) for x in [co_w0, co_w1, co_w2, co_w3, co_w4, co_w5]]
+        co_real = [round(co_nom[y] / d[y], 2) for y in range(6)]
+        co_cum_nom = [co_nom[0]]
+        for y in range(1, 6):
+            co_cum_nom.append(round(co_cum_nom[-1] + co_nom[y], 2))
+        co_cum_real = [co_real[0]]
+        for y in range(1, 6):
+            co_cum_real.append(round(co_cum_real[-1] + co_real[y], 2))
+        co_total_nom = round(sum(co_nom[1:]), 2)
+        co_total_real = round(sum(co_real[1:]), 2)
+
+        # 2. CGT Platform
+        cgt_w0 = w0
+        cgt_w1_base = w0 * 1.14
+        cgt_w1 = cgt_w1_base + 8500.0
+        cgt_rate = cpi_rate + 0.02
+        cgt_w2 = cgt_w1_base * (1 + cgt_rate)
+        cgt_w3 = cgt_w2 * (1 + cgt_rate)
+        cgt_w4 = cgt_w3 * (1 + cgt_rate)
+        cgt_w5 = cgt_w4 * (1 + cgt_rate)
+        cgt_nom = [round(x, 2) for x in [cgt_w0, cgt_w1, cgt_w2, cgt_w3, cgt_w4, cgt_w5]]
+        cgt_real = [round(cgt_nom[y] / d[y], 2) for y in range(6)]
+        cgt_cum_nom = [cgt_nom[0]]
+        for y in range(1, 6):
+            cgt_cum_nom.append(round(cgt_cum_nom[-1] + cgt_nom[y], 2))
+        cgt_cum_real = [cgt_real[0]]
+        for y in range(1, 6):
+            cgt_cum_real.append(round(cgt_cum_real[-1] + cgt_real[y], 2))
+        cgt_total_nom = round(sum(cgt_nom[1:]), 2)
+        cgt_total_real = round(sum(cgt_real[1:]), 2)
+
+        # 3. Strike Committee (11 Points)
+        com_w0 = w0
+        com_w1_base = w0 * 1.12
+        com_w1 = com_w1_base + 7500.0
+        com_rate = cpi_rate + 0.015
+        com_w2 = com_w1_base * (1 + com_rate)
+        com_w3 = com_w2 * (1 + com_rate)
+        com_w4 = com_w3 * (1 + com_rate)
+        com_w5 = com_w4 * (1 + com_rate)
+        com_nom = [round(x, 2) for x in [com_w0, com_w1, com_w2, com_w3, com_w4, com_w5]]
+        com_real = [round(com_nom[y] / d[y], 2) for y in range(6)]
+        com_cum_nom = [com_nom[0]]
+        for y in range(1, 6):
+            com_cum_nom.append(round(com_cum_nom[-1] + com_nom[y], 2))
+        com_cum_real = [com_real[0]]
+        for y in range(1, 6):
+            com_cum_real.append(round(com_cum_real[-1] + com_real[y], 2))
+        com_total_nom = round(sum(com_nom[1:]), 2)
+        com_total_real = round(sum(com_real[1:]), 2)
+
+        return {
+            "title": "Comparativa de Propuestas Salariales y Evolución Retributiva (2025 - 2030)",
+            "description": "Análisis comparativo riguroso entre la última oferta patronal de Airbus SE, la plataforma asamblearia de CGT y la propuesta unánime de 11 puntos del Comité de Huelga en el SIMA.",
+            "inflation_baseline_cpi_pct": round(cpi_rate * 100, 2),
+            "proposals": [
+                {
+                    "id": "proposal-company",
+                    "name": "Última Oferta Empresa (Airbus SE / RRHH)",
+                    "short_name": "Empresa (Airbus SE)",
+                    "proposer": "Dirección de Recursos Humanos de Airbus SE (Carmen-Maja Rex / CNC)",
+                    "date_presented": "27 de agosto de 2026 (y revisiones 16/07, 23/07 SIMA)",
+                    "status": "Rechazada en Asambleas (~95% NO) y Referéndum 24J (51,13% NO)",
+                    "color": "#f43f5e",
+                    "initial_increase_pct": 5.0,
+                    "consolidation_date": "Fraccionado desde abril de 2026 (Efecto Abril: no retroactivo a 01/01)",
+                    "arrears_lump_sum_eur": 2000.0,
+                    "arrears_payment_date": "Abril de 2027 (Aplazado)",
+                    "rsg_formula": "Tope máximo del 1% anual o 7,6% a 5 años (sujeto a EBIT y techos de inflación)",
+                    "rsg_cap_pct": 1.0,
+                    "duration_years": 2,
+                    "workweek_hours": 37.5,
+                    "source_name": "Actas SIMA 27/08 y Borrador CNC",
+                    "source_url": "https://www.sima-fasp.net/"
+                },
+                {
+                    "id": "proposal-cgt",
+                    "name": "Última Propuesta CGT (Plataforma Asamblearia)",
+                    "short_name": "CGT (Asambleas)",
+                    "proposer": "Sección Sindical Estatal CGT Airbus España / Asambleas de Base",
+                    "date_presented": "Agosto 2026 (Convocatoria y Plataforma Asamblearia)",
+                    "status": "Vigente y Co-convocante de la Huelga Indefinida",
+                    "color": "#10b981",
+                    "initial_increase_pct": 14.0,
+                    "consolidation_date": "01/01/2026 (100% Consolidado en Tablas Salariales)",
+                    "arrears_lump_sum_eur": 8500.0,
+                    "arrears_payment_date": "Inmediato a la firma del convenio",
+                    "rsg_formula": "IPC Real de cada ejercicio + 2,0% anual garantizado sin topes ni absorción",
+                    "rsg_cap_pct": None,
+                    "duration_years": 2,
+                    "workweek_hours": 32.0,
+                    "source_name": "Plataforma de Huelga CGT Metal",
+                    "source_url": "https://cgt.es/"
+                },
+                {
+                    "id": "proposal-strike-committee",
+                    "name": "Última Oferta Comisión Negociadora / Comité de Huelga (11 Puntos)",
+                    "short_name": "Comité de Huelga (11 Puntos)",
+                    "proposer": "Comité de Huelga Soberano (UGT, CGT, ÚTIL y representación de asambleas)",
+                    "date_presented": "27 de agosto de 2026 (Entrega formal y unánime en el SIMA)",
+                    "status": "Propuesta Formal Vigente en Mediación SIMA",
+                    "color": "#f59e0b",
+                    "initial_increase_pct": 12.0,
+                    "consolidation_date": "01/01/2026 (100% Consolidado en Tablas Salariales con retroactividad plena)",
+                    "arrears_lump_sum_eur": 7500.0,
+                    "arrears_payment_date": "Inmediato a la firma del convenio",
+                    "rsg_formula": "IPC Real de cada ejercicio + 1,5% anual consolidable sin topes",
+                    "rsg_cap_pct": None,
+                    "duration_years": 2,
+                    "workweek_hours": 35.0,
+                    "source_name": "Documento 11 Puntos Innegociables SIMA",
+                    "source_url": "https://www.sima-fasp.net/"
+                }
+            ],
+            "comparison_matrix": [
+                {
+                    "dimension_id": "dim-initial-wage",
+                    "point_num": 1,
+                    "topic": "1. Incremento Salarial Inicial en Tablas",
+                    "category": "Salarial",
+                    "company_offer": "5,0% en 2026 (aplicado desde abril con 'Efecto Abril', perdiendo el 25% del año) o 7,6% distribuido a 5 años (~1,52% anual).",
+                    "cgt_offer": "14,0% lineal consolidado en tablas a 1 de enero de 2026 para recuperar la totalidad de las pérdidas 2020-2025.",
+                    "strike_committee_offer": "12,0% consolidado en tablas salariales con efectos retroactivos plenos desde el 1 de enero de 2026.",
+                    "key_difference": "Brecha de 7,0 a 9,0 puntos porcentuales directos en masa consolidada a 01/01/2026.",
+                    "badge_type": "Brecha Salarial Crítica",
+                    "source_citation": "Actas SIMA 27/08 & Telegram Asambleas"
+                },
+                {
+                    "dimension_id": "dim-arrears-lump-sum",
+                    "point_num": 2,
+                    "topic": "2. Compensación por Atrasos (Pago Único)",
+                    "category": "Salarial",
+                    "company_offer": "Paga única no consolidable de 2.000 € brutos aplazada a abril de 2027.",
+                    "cgt_offer": "Pago único indemnizatorio de 8.500 € brutos inmediatos por la deuda salarial acumulada 2020-2025.",
+                    "strike_committee_offer": "Pago único no consolidable de 7.500 € brutos inmediatos para compensar la pérdida de poder adquisitivo previa.",
+                    "key_difference": "Diferencia de 5.500 € a 6.500 € netos directos por trabajador en bolsillo.",
+                    "badge_type": "Línea Roja Financiera",
+                    "source_citation": "Plataforma 11 Puntos SIMA"
+                },
+                {
+                    "dimension_id": "dim-rsg-cpi",
+                    "point_num": 3,
+                    "topic": "3. Cláusula de Revisión Salarial (RSG / IPC)",
+                    "category": "Salarial",
+                    "company_offer": "Topes estrictos de revisión (suelo IPC > 3,5%, tope del 1% o 4% acumulado) condicionado a objetivos EBIT de Airbus SE.",
+                    "cgt_offer": "Garantía automática de IPC Real + 2,0% en cada ejercicio anual, sin techos, sin absorción ni compensación.",
+                    "strike_committee_offer": "Cláusula de Revisión Salarial Garantizada (RSG) anual de IPC Real + 1,5% consolidable en tablas sin topes.",
+                    "key_difference": "La empresa busca topar la inflación futura; los sindicatos exigen IPC real + diferencial garantizado.",
+                    "badge_type": "Garantía de Futuro",
+                    "source_citation": "Borrador VII Convenio SIMA"
+                },
+                {
+                    "dimension_id": "dim-duration-validity",
+                    "point_num": 4,
+                    "topic": "4. Vigencia y Ultraactividad",
+                    "category": "Organización",
+                    "company_offer": "Convenio a 2 años (2026-2027) con esquema plurianual rígido que pretende fijar directrices hasta 2030-2031.",
+                    "cgt_offer": "Convenio a 2 años con ultraactividad indefinida blindada por ley hasta nuevo acuerdo.",
+                    "strike_committee_offer": "Convenio a 2 años (2026-2027) con ultraactividad expresa y revisión formal al vencimiento.",
+                    "key_difference": "La CNC no está legitimada para comprometer tablas más allá de 2027 sin nuevo mandato asambleario.",
+                    "badge_type": "Legitimidad Asamblearia",
+                    "source_citation": "Minutas Asamblea Getafe 23/07"
+                },
+                {
+                    "dimension_id": "dim-workweek",
+                    "point_num": 5,
+                    "topic": "5. Jornada Anual y Flexibilidad",
+                    "category": "Organización",
+                    "company_offer": "Mantenimiento de la jornada de 37,5 horas semanales con aumento de flexibilidad horaria a discreción de la dirección.",
+                    "cgt_offer": "Reducción de jornada laboral a 32 horas semanales (4 días) o 35 horas sin reducción de salario.",
+                    "strike_committee_offer": "35 horas semanales, 2 semanas de vacaciones de libre elección y compensación por turnicidad y disponibilidad.",
+                    "key_difference": "CGT y Comité demandan reducción efectiva de jornada frente al aumento de flexibilidad patronal.",
+                    "badge_type": "Tiempo de Vida",
+                    "source_citation": "Plataforma Reivindicativa 01/07"
+                },
+                {
+                    "dimension_id": "dim-bradford-it",
+                    "point_num": 6,
+                    "topic": "6. Absentismo e Incapacidad Temporal (Método Bradford)",
+                    "category": "Legal & Salud",
+                    "company_offer": "Mantenimiento del recurso de casación ante el Tribunal Supremo, ofreciendo desistir solo como moneda de cambio final.",
+                    "cgt_offer": "Abolición inmediata y nulidad radical del método Bradford, archivo de expedientes y devolución de complementos con intereses.",
+                    "strike_committee_offer": "Desistimiento formal e irrevocable del recurso de casación ante el Tribunal Supremo y reintegro inmediato de complementos descontados.",
+                    "key_difference": "Compromiso de desistimiento obtenido el 21/08 en SIMA pero pendiente de ejecución material en nómina.",
+                    "badge_type": "Derecho a la Salud",
+                    "source_citation": "Actas SIMA 21/08 & BOE"
+                },
+                {
+                    "dimension_id": "dim-telework",
+                    "point_num": 7,
+                    "topic": "7. Teletrabajo y Compensación de Gastos",
+                    "category": "Organización",
+                    "company_offer": "Regulado por política interna unilateral de RRHH (modificable en cualquier momento sin acuerdo colectivo).",
+                    "cgt_offer": "Mínimo 3 días/semana (60% jornada) blindado en convenio con compensación íntegra de suministros y equipos (100 €/mes).",
+                    "strike_committee_offer": "Mínimo 2 días/semana (40% jornada) blindado en texto de convenio colectivo con compensación de 65 €/mes por suministros.",
+                    "key_difference": "Blindaje en convenio estatutario con compensación económica vs potestad discrecional de la empresa.",
+                    "badge_type": "Blindaje Convencional",
+                    "source_citation": "Plataforma 11 Puntos SIMA"
+                },
+                {
+                    "dimension_id": "dim-bromo-industry",
+                    "point_num": 8,
+                    "topic": "8. Carga Industrial y Empleo (Proyecto Bromo)",
+                    "category": "Empleo",
+                    "company_offer": "Segregación de actividades espaciales sin garantía de subrogación estatutaria ni mantenimiento del convenio matriz.",
+                    "cgt_offer": "Reincorporación de Bromo al convenio matriz y pase automático a plantilla fija de todo el personal subcontratado.",
+                    "strike_committee_offer": "Garantías legales vinculantes de permanencia del 100% del personal en el convenio matriz de Airbus España sin recortes.",
+                    "key_difference": "Garantía estatutaria contra la fragmentación societaria y la externalización encubierta.",
+                    "badge_type": "Soberanía Industrial",
+                    "source_citation": "Dossier Proyecto Bromo"
+                },
+                {
+                    "dimension_id": "dim-retirement-relief",
+                    "point_num": 9,
+                    "topic": "9. Prejubilaciones y Contrato de Relevo (100%)",
+                    "category": "Empleo",
+                    "company_offer": "Amenaza de paralización y bloqueo de los planes de prejubilación con contrato de relevo si no se acepta su propuesta.",
+                    "cgt_offer": "Acceso universal al contrato de relevo al 100% a los 60 años con contratación fija indefinida para la persona relevista.",
+                    "strike_committee_offer": "Mantenimiento ininterrumpido del plan de prejubilaciones con contrato de relevo al 100% de la jornada laboral.",
+                    "key_difference": "Defensa de la renovación generacional de plantilla frente al chantaje de bloqueo patronal.",
+                    "badge_type": "Relevo Generacional",
+                    "source_citation": "Declaraciones Carmen-Maja Rex 25/08"
+                },
+                {
+                    "dimension_id": "dim-strike-pay-immunity",
+                    "point_num": 10,
+                    "topic": "10. Salarios de Huelga, Indemnidad y Cláusula de Cierre",
+                    "category": "Legal & Salud",
+                    "company_offer": "Descuento íntegro de todos los días de huelga, mantenimiento de denuncias y sin cláusula de indemnidad.",
+                    "cgt_offer": "Abono del 100% de los salarios de huelga por vulneración empresarial de derechos e indemnidad absoluta para asambleas.",
+                    "strike_committee_offer": "Garantía formal de indemnidad laboral, mediación para recuperación o compensación de días de paro y ratificación en asamblea.",
+                    "key_difference": "Garantía de ausencia de represalias y ratificación asamblearia obligatoria antes de desconvocar la huelga.",
+                    "badge_type": "Garantía Asamblearia",
+                    "source_citation": "Mandato Asamblea General"
+                }
+            ],
+            "projections": {
+                "base_salary": w0,
+                "cpi_rate": cpi_rate,
+                "years": ["2025 (Base)", "2026 (Año 1)", "2027 (Año 2)", "2028 (Año 3)", "2029 (Año 4)", "2030 (Año 5)"],
+                "company": {
+                    "yearly_nominal_wages": co_nom,
+                    "yearly_real_wages": co_real,
+                    "cumulative_nominal": co_cum_nom,
+                    "cumulative_real": co_cum_real,
+                    "total_5yr_nominal": co_total_nom,
+                    "total_5yr_real": co_total_real,
+                    "arrears": 2000.0,
+                    "delta_vs_company_nominal": 0.0,
+                    "delta_vs_company_real": 0.0
+                },
+                "cgt": {
+                    "yearly_nominal_wages": cgt_nom,
+                    "yearly_real_wages": cgt_real,
+                    "cumulative_nominal": cgt_cum_nom,
+                    "cumulative_real": cgt_cum_real,
+                    "total_5yr_nominal": cgt_total_nom,
+                    "total_5yr_real": cgt_total_real,
+                    "arrears": 8500.0,
+                    "delta_vs_company_nominal": round(cgt_total_nom - co_total_nom, 2),
+                    "delta_vs_company_real": round(cgt_total_real - co_total_real, 2)
+                },
+                "strike_committee": {
+                    "yearly_nominal_wages": com_nom,
+                    "yearly_real_wages": com_real,
+                    "cumulative_nominal": com_cum_nom,
+                    "cumulative_real": com_cum_real,
+                    "total_5yr_nominal": com_total_nom,
+                    "total_5yr_real": com_total_real,
+                    "arrears": 7500.0,
+                    "delta_vs_company_nominal": round(com_total_nom - co_total_nom, 2),
+                    "delta_vs_company_real": round(com_total_real - co_total_real, 2)
+                }
+            }
+        }
+
     def export_full_dataset(self) -> Dict[str, Any]:
         """Compiles all metrics into a consolidated analytical JSON dictionary."""
         return {
@@ -1615,6 +1907,7 @@ class StrikeAnalysisEngine:
             "historical_agreements_and_losses": self.get_historical_agreements_and_losses(),
             "workflows": self.get_negotiation_workflows(),
             "beluga_logistics": BelugaTracker().fetch_live_data(),
+            "salary_proposals_comparison": self.get_salary_proposals_comparison(),
             "sentiment_thermometer": SentimentThermometerEngine().evaluate_pressure_metrics(),
             "telegram_archive": self._load_telegram_archive(),
         }

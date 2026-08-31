@@ -165,6 +165,19 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("Chart.defaults.animation = false", self.app_js_content, "Missing Chart.defaults.animation = false in app.js")
         self.assertIn("Chart.defaults.responsiveAnimationDuration = 0", self.app_js_content, "Missing Chart.defaults.responsiveAnimationDuration = 0 in app.js")
         self.assertNotIn("setTimeout(() => {", self.app_js_content[self.app_js_content.find("function switchTab"):self.app_js_content.find("function switchTab") + 1500], "switchTab should not have artificial setTimeout delay")
+    def test_salary_proposals_comparison_dom_and_logic(self):
+        """Validates Feature 008 components: 10-dimension matrix, 3-proposal comparison, differential KPIs, and calculation engine."""
+        # HTML DOM containers and IDs
+        self.assertIn('id="salary-proposals-matrix-body"', self.html_content, "Missing #salary-proposals-matrix-body in index.html")
+        self.assertIn('id="tb-prop-co-y1-nom"', self.html_content, "Missing #tb-prop-co-y1-nom in index.html")
+        self.assertIn('id="tb-prop-cgt-y1-nom"', self.html_content, "Missing #tb-prop-cgt-y1-nom in index.html")
+        self.assertIn('id="tb-prop-comite-y1-nom"', self.html_content, "Missing #tb-prop-comite-y1-nom in index.html")
+        self.assertIn('id="kpi-diff-cgt-5yr"', self.html_content, "Missing #kpi-diff-cgt-5yr in index.html")
+        self.assertIn('id="kpi-diff-comite-5yr"', self.html_content, "Missing #kpi-diff-comite-5yr in index.html")
 
+        # App.js calculation & rendering functions
+        self.assertIn("function calculateSalaryProposals(", self.app_js_content, "Missing calculateSalaryProposals() in app.js")
+        self.assertIn("function renderSalaryProposalsMatrix(", self.app_js_content, "Missing renderSalaryProposalsMatrix() in app.js")
+        self.assertIn("renderSalaryProposalsMatrix();", self.app_js_content, "renderSalaryProposalsMatrix() not invoked in app.js")
 if __name__ == "__main__":
     unittest.main()

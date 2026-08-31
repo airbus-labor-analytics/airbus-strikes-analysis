@@ -18,8 +18,8 @@
 
 **Purpose**: Update canonical datasets and fallback fixtures with the 3 bargaining proposals and 10-dimension comparison matrix.
 
-- [ ] T001 Define and populate canonical proposal structures and 10-dimension comparison matrix in `data/conflict_metrics.json`
-- [ ] T002 [P] Synchronize fallback proposal fixtures and schema definitions in `dashboard/data.js`
+- [x] T001 Define and populate canonical proposal structures and 10-dimension comparison matrix in `data/conflict_metrics.json`
+- [x] T002 [P] Synchronize fallback proposal fixtures and schema definitions in `dashboard/data.js`
 
 ---
 
@@ -27,8 +27,8 @@
 
 **Purpose**: Core calculation engine in Python that MUST be complete before UI reactivity and verification can proceed.
 
-- [ ] T003 Implement `get_salary_proposals_comparison(base_salary, cpi_rate)` in `src/analysis_engine.py`
-- [ ] T004 [P] Add unit tests for 3-way proposal calculations, year-by-year projections, and invariants in `tests/test_analysis_engine.py`
+- [x] T003 Implement `get_salary_proposals_comparison(base_salary, cpi_rate)` in `src/analysis_engine.py`
+- [x] T004 [P] Add unit tests for 3-way proposal calculations, year-by-year projections, and invariants in `tests/test_analysis_engine.py`
 
 **Checkpoint**: Foundation ready - Python calculations verified against mathematical formulas in `research.md`.
 
@@ -42,9 +42,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T005 [P] [US1] Implement client-side `calculateSalaryProposals(baseSalary, ipcRate)` in `dashboard/app.js`
-- [ ] T006 [US1] Update Module 3 (`#tab-purchasing-power`) HTML in `dashboard/index.html` with 3-proposal comparison table rows
-- [ ] T007 [US1] Bind salary and inflation slider events to update 3-way projection values in `dashboard/app.js` (`updateWageSimulation`)
+- [x] T005 [P] [US1] Implement client-side `calculateSalaryProposals(baseSalary, ipcRate)` in `dashboard/app.js`
+- [x] T006 [US1] Update Module 3 (`#tab-purchasing-power`) HTML in `dashboard/index.html` with 3-proposal comparison table rows
+- [x] T007 [US1] Bind salary and inflation slider events to update 3-way projection values in `dashboard/app.js` (`updateWageSimulation`)
 
 **Checkpoint**: At this point, User Story 1 (MVP) is fully functional and delivers the core interactive salary comparison.
 
@@ -58,8 +58,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T008 [P] [US2] Add the HTML container structure for the 10-dimension point-by-point matrix in `dashboard/index.html`
-- [ ] T009 [US2] Implement `renderSalaryProposalsMatrix()` in `dashboard/app.js` to dynamically inject the comparison matrix table
+- [x] T008 [P] [US2] Add the HTML container structure for the 10-dimension point-by-point matrix in `dashboard/index.html`
+- [x] T009 [US2] Implement `renderSalaryProposalsMatrix()` in `dashboard/app.js` to dynamically inject the comparison matrix table
 
 **Checkpoint**: User Stories 1 AND 2 are functional, providing both quantitative numbers and qualitative clause analysis.
 
@@ -73,8 +73,8 @@
 
 ### Implementation for User Story 3
 
-- [ ] T010 [P] [US3] Update `initWagesChart()` and `updateWagesChart()` in `dashboard/app.js` to render all 4 datasets with distinct styles
-- [ ] T011 [US3] Add 5-year cumulative differential KPI summary cards in `dashboard/index.html` comparing net gains vs. Airbus SE offer
+- [x] T010 [P] [US3] Update `initWagesChart()` and `updateWagesChart()` in `dashboard/app.js` to render all 4 datasets with distinct styles
+- [x] T011 [US3] Add 5-year cumulative differential KPI summary cards in `dashboard/index.html` comparing net gains vs. Airbus SE offer
 
 **Checkpoint**: All user stories functional with full numerical, tabular, and graphical parity.
 
@@ -84,9 +84,9 @@
 
 **Purpose**: Invariant testing, DOM validation, and documentation.
 
-- [ ] T012 [P] Add DOM structure and UI assertion tests for proposal elements in `tests/test_dashboard_ui.py`
-- [ ] T013 Run `python3 src/validate_invariants.py` and `python3 src/validate_sources.py` to ensure 100% invariant and DOM compliance
-- [ ] T014 Execute quickstart validation scenarios and document changes in `CHANGELOG.md`
+- [x] T012 [P] Add DOM structure and UI assertion tests for proposal elements in `tests/test_dashboard_ui.py`
+- [x] T013 Run `python3 src/validate_invariants.py` and `python3 src/validate_sources.py` to ensure 100% invariant and DOM compliance
+- [x] T014 Execute quickstart validation scenarios and document changes in `CHANGELOG.md`
 
 ---
 

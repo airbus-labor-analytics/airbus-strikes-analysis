@@ -2,6 +2,28 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [008-compare-salary-proposals] - 2026-08-31
+
+### Added
+- **Multi-Proposal Gross Annual Wage Evolution Simulator (User Story 1 - MVP)**:
+  - Analytical engine function `get_salary_proposals_comparison(base_salary, cpi_rate)` in `src/analysis_engine.py` projecting 5-year gross nominal and real (CPI-deflated) salary trajectories across Airbus SE offer, CGT platform, and Strike Committee 11-point platform.
+  - Client-side reactive simulator `calculateSalaryProposals(baseSalary, ipcRate)` in `dashboard/app.js` with dynamic two-way data binding to salary and IPC sliders.
+  - 3-proposal comparison table and metrics in Module 3 (`#tab-purchasing-power`) of `dashboard/index.html`.
+- **Comprehensive 10-Dimension Comparative Bargaining Matrix (User Story 2)**:
+  - Standardized 10-dimension comparison matrix (`salary_proposals_comparison.comparison_matrix`) in `data/conflict_metrics.json` and `dashboard/data.js` covering base salary, arrears, revision clause, telework, working hours, employment guarantees, seniority, healthcare, strike sanctions, and union oversight.
+  - Dynamic renderer `renderSalaryProposalsMatrix()` in `dashboard/app.js` injecting interactive table rows with status badges and primary source citations.
+  - Sub-Section 5 in `dashboard/index.html` presenting the full 10-dimension bargaining contrast.
+- **Interactive 4-Series Salary Visualization & Differential KPI Cards (User Story 3)**:
+  - Multi-line Chart.js visualization in `wagesChart` with 4 distinct series: Plataforma CGT (+14%), Comité de Huelga (+12%), Oferta Empresa (+5%), and Real CPI Inflation Baseline.
+  - 5-year cumulative differential KPI summary cards highlighting net gains vs. Airbus SE offer (+46.2k€ for CGT, +43.6k€ for Strike Committee).
+- **Comprehensive Test Suite & Invariant Validation**:
+  - Unit tests in `tests/test_analysis_engine.py` verifying year-by-year nominal/real compounding and delta inequalities ($C_{\text{CGT}} > C_{\text{Comité}} > C_{\text{Empresa}}$).
+  - DOM assertion tests in `tests/test_dashboard_ui.py` confirming HTML elements, containers, and JS function lifecycle bindings.
+
+### Changed
+- Re-aligned `dashboard/app.js` chart lifecycle to synchronously update 4 wage datasets upon slider movements without lag or canvas collisions.
+- Synchronized fallback fixtures and canonical JSON exports across `data/conflict_metrics.json` and `dashboard/data.js`.
+
 ## [007-dynamic-data-and-charts-resilience] - 2026-08-31
 
 ### Added
