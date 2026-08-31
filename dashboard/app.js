@@ -90,17 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-timeline)
-  const initialHash = window.location.hash.replace('#', '');
-  if (initialHash && document.getElementById(initialHash)) {
-    switchTab(initialHash);
-  }
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && document.getElementById(hash)) {
-      switchTab(hash);
+  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-wages, #tab-stock)
+  function handleHashNavigation() {
+    const rawHash = window.location.hash.replace('#', '').trim();
+    if (rawHash) {
+      switchTab(rawHash);
     }
-  });
+  }
+  handleHashNavigation();
+  window.addEventListener('hashchange', handleHashNavigation);
 
   // 8. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
   document.addEventListener('visibilitychange', () => {
@@ -361,13 +359,17 @@ function switchTab(tabId) {
   if (tabAliases[normalizedTabId]) {
     normalizedTabId = tabAliases[normalizedTabId];
   }
-
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
     btn.classList.add('text-slate-400');
   });
 
+  // Always reset scroll position of the main view to the top on tab change
+  const mainContainer = document.querySelector('main');
+  if (mainContainer) {
+    mainContainer.scrollTop = 0;
+  }
   const activeTab = document.getElementById(normalizedTabId);
   const activeBtn = document.getElementById(`btn-${normalizedTabId}`);
   if (activeTab) activeTab.classList.remove('hidden');
@@ -419,6 +421,16 @@ function switchTab(tabId) {
         initTelegramArchive();
         initBenchmarks();
       }
+
+      // Ensure all active Chart.js instances perform a clean resize
+      const activeCanvases = activeTab ? activeTab.querySelectorAll('canvas') : [];
+      activeCanvases.forEach(canvas => {
+        const chartInstance = Chart.getChart(canvas);
+        if (chartInstance && typeof chartInstance.resize === 'function') {
+          chartInstance.resize();
+        }
+      });
+
       if (window.lucide) lucide.createIcons();
     }, 60);
   });
