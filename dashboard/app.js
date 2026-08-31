@@ -1463,14 +1463,40 @@ function renderStockMilestones(stockData) {
   }).join('');
 }
 
+let currentStockRange = 'ALL';
+
+function setStockTimeRange(range) {
+  currentStockRange = range;
+  document.querySelectorAll('.stock-range-btn').forEach(btn => {
+    btn.classList.remove('bg-rose-600', 'text-white', 'border-rose-500');
+    btn.classList.add('bg-slate-900', 'text-slate-300', 'border-slate-700');
+  });
+
+  const activeBtn = document.getElementById(`btn-stock-${range.toLowerCase()}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-700');
+    activeBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-500');
+  }
+
+  initAirbusStockChart();
+}
+
 function initAirbusStockChart() {
-  const stockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
-  if (stockData.length === 0) return;
+  const rawStockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
+  if (rawStockData.length === 0) return;
 
   // Render dynamic milestone cards
-  renderStockMilestones(stockData);
+  renderStockMilestones(rawStockData);
 
-  const latestEntry = stockData[stockData.length - 1];
+  // Apply time-range slice
+  let stockData = rawStockData;
+  if (currentStockRange === '1M') {
+    stockData = rawStockData.slice(-14);
+  } else if (currentStockRange === '3M') {
+    stockData = rawStockData.slice(-30);
+  }
+
+  const latestEntry = rawStockData[rawStockData.length - 1];
   if (latestEntry) {
     const priceEl = document.getElementById('stock-kpi-price');
     if (priceEl) priceEl.textContent = `${latestEntry.price.toFixed(2).replace('.', ',')} €`;
@@ -1480,7 +1506,6 @@ function initAirbusStockChart() {
       mcapEl.textContent = `${parseFloat(mcap).toLocaleString()} M€`;
     }
   }
-
   const labels = stockData.map(d => {
     const parts = d.date.split('-');
     return `${parts[2]}/${parts[1]}`;
@@ -2724,6 +2749,58 @@ function initTimeline() {
 }
 
 // ==================== THERMOMETER & BELUGA ====================
+let selectedBelugaTail = 'ALL';
+
+function setBelugaTailFilter(tail) {
+  selectedBelugaTail = tail;
+  document.querySelectorAll('.beluga-tail-btn').forEach(btn => {
+    const btnTail = btn.getAttribute('data-tail');
+    if (btnTail === tail) {
+      btn.className = "beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white transition";
+    } else {
+      btn.className = "beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition";
+    }
+  });
+
+  initThermometerAndBeluga();
+}
+
+function renderBelugaFleet(beluga) {
+  const fleetGrid = document.getElementById('beluga-fleet-grid');
+  if (!fleetGrid || !beluga.all_aircraft) return;
+
+  const filteredAircraft = beluga.all_aircraft.filter(ac => {
+    if (selectedBelugaTail === 'ALL') return true;
+    return (ac.registration === selectedBelugaTail) || (ac.name && ac.name.includes(selectedBelugaTail)) || (ac.id === selectedBelugaTail);
+  });
+
+  fleetGrid.innerHTML = filteredAircraft.map(ac => {
+    const isAirborne = !!ac.airborne;
+    const statusText = ac.statusLabel || (isAirborne ? 'En Vuelo' : 'En Tierra');
+    const routeText = ac.routeLabel || ac.locationLabel || ac.currentSite || 'Base Toulouse';
+    const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
+
+    return `
+      <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-white font-mono flex items-center gap-1.5">
+            <i data-lucide="plane" class="w-3.5 h-3.5 ${isAirborne ? 'text-amber-400' : 'text-slate-400'}"></i>
+            <span>${ac.name || ac.id}</span>
+          </span>
+          <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
+        </div>
+        <p class="text-xs text-slate-300 font-medium">${routeText}</p>
+        <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
+          <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
+          <span>${altText}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
 function initThermometerAndBeluga() {
   const thermo = conflictData?.sentiment_thermometer;
   const beluga = conflictData?.beluga_logistics;
@@ -2748,32 +2825,7 @@ function initThermometerAndBeluga() {
   }
 
   if (beluga) {
-    const fleetGrid = document.getElementById('beluga-fleet-grid');
-    if (fleetGrid && beluga.all_aircraft) {
-      fleetGrid.innerHTML = beluga.all_aircraft.map(ac => {
-        const isAirborne = !!ac.airborne;
-        const statusText = ac.statusLabel || (isAirborne ? 'En Vuelo' : 'En Tierra');
-        const routeText = ac.routeLabel || ac.locationLabel || ac.currentSite || 'Base Toulouse';
-        const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
-
-        return `
-          <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
-            <div class="flex justify-between items-center">
-              <span class="text-xs font-bold text-white font-mono flex items-center gap-1.5">
-                <i data-lucide="plane" class="w-3.5 h-3.5 ${isAirborne ? 'text-amber-400' : 'text-slate-400'}"></i>
-                <span>${ac.name || ac.id}</span>
-              </span>
-              <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
-            </div>
-            <p class="text-xs text-slate-300 font-medium">${routeText}</p>
-            <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
-              <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
-              <span>${altText}</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
+    renderBelugaFleet(beluga);
 
     // European Routes Status Grid
     const routesGrid = document.getElementById('beluga-routes-grid');
@@ -3020,14 +3072,43 @@ function filterSources() {
   renderSourcesList(getFilteredSources());
 }
 
+let currentSourceSort = 'relevance';
+let onlyFeaturedSources = false;
+
+function setSourceSort(sortVal) {
+  currentSourceSort = sortVal;
+  renderSourcesList(getFilteredSources());
+}
+
+function toggleFeaturedSourcesOnly() {
+  onlyFeaturedSources = !onlyFeaturedSources;
+  const btn = document.getElementById('btn-filter-featured');
+  if (btn) {
+    if (onlyFeaturedSources) {
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 transition flex items-center gap-1";
+    } else {
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition flex items-center gap-1";
+    }
+  }
+  renderSourcesList(getFilteredSources());
+}
+
 function getFilteredSources() {
   const query = document.getElementById('source-search')?.value.toLowerCase().trim() || '';
   
-  return sourcesCatalogData.filter(s => {
+  let result = sourcesCatalogData.filter(s => {
     const normCat = normalizeCategory(s.category);
     const matchesCat = (selectedSourceCategory === 'ALL') || (normCat === selectedSourceCategory) || (s.category === selectedSourceCategory);
     
     if (!matchesCat) return false;
+
+    if (onlyFeaturedSources) {
+      const isKeyCategory = (normCat === 'Actas SIMA & Legal' || normCat === 'Convenios & BOE' || normCat === 'Informes Airbus SE');
+      const isLongDoc = (s.char_count && s.char_count > 4000);
+      const isKeyId = (s.id && (s.id.includes('sima') || s.id.includes('convenio') || s.id.includes('airbus_2025')));
+      if (!isKeyCategory && !isLongDoc && !isKeyId) return false;
+    }
+
     if (!query) return true;
 
     const title = (s.title || '').toLowerCase();
@@ -3038,6 +3119,19 @@ function getFilteredSources() {
 
     return title.includes(query) || id.includes(query) || summary.includes(query) || type.includes(query) || url.includes(query);
   });
+
+  // Apply Sorting
+  if (currentSourceSort === 'title_asc') {
+    result.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+  } else if (currentSourceSort === 'title_desc') {
+    result.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+  } else if (currentSourceSort === 'chars_desc') {
+    result.sort((a, b) => (b.char_count || 0) - (a.char_count || 0));
+  } else if (currentSourceSort === 'category') {
+    result.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+  }
+
+  return result;
 }
 
 function renderSourcesList(sources) {

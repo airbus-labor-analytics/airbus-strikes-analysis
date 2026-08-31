@@ -584,10 +584,13 @@
                 </h3>
                 <p class="text-[11px] text-slate-400">Impacto en tiempo real de los rechazos asamblearios, la huelga indefinida y la parada de las FALs en el precio de la acción.</p>
               </div>
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] text-slate-400 font-bold">Rango:</span>
-                <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-800 text-white rounded border border-slate-700">Conflicto 2026 (Diario)</span>
+              <div class="flex items-center space-x-1.5" id="stock-range-buttons">
+                <span class="text-[10px] text-slate-400 font-bold mr-1">Rango:</span>
+                <button onclick="setStockTimeRange('1M')" id="btn-stock-1m" class="stock-range-btn px-2 py-0.5 text-[10px] font-bold bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 transition">1 Mes</button>
+                <button onclick="setStockTimeRange('3M')" id="btn-stock-3m" class="stock-range-btn px-2 py-0.5 text-[10px] font-bold bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 transition">3 Meses</button>
+                <button onclick="setStockTimeRange('ALL')" id="btn-stock-all" class="stock-range-btn px-2 py-0.5 text-[10px] font-bold bg-rose-600 text-white rounded border border-rose-500 transition">Conflicto 2026</button>
               </div>
+            </div>
             <div class="h-72 w-full">
               <canvas id="airbusStockChart"></canvas>
             </div>
@@ -633,7 +636,6 @@
             </div>
           </div>
         </div>
-      </div>
 
         <!-- Company Health Header Card -->
         <div id="sec-overview-solvency" class="glass-card p-5 sm:p-6 rounded-2xl border-emerald-500/30 space-y-5">
@@ -934,11 +936,22 @@
         </div>
 
         <!-- Beluga Fleet Cards Grid -->
-        <div id="sec-industrial-fleet" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
-          <h3 class="text-sm font-bold text-white flex items-center mb-3">
-            <i data-lucide="compass" class="w-4 h-4 mr-2 text-blue-400"></i>
-            Estado Individual de la Flota BelugaXL (Airbus Transport International)
-          </h3>
+        <div id="sec-industrial-fleet" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-3">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800 pb-2.5">
+            <h3 class="text-sm font-bold text-white flex items-center">
+              <i data-lucide="compass" class="w-4 h-4 mr-2 text-blue-400"></i>
+              Estado Individual de la Flota BelugaXL (Airbus Transport International)
+            </h3>
+            <div class="flex flex-wrap items-center gap-1 text-xs" id="beluga-tail-filters">
+              <button onclick="setBelugaTailFilter('ALL')" data-tail="ALL" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white transition">Todas (6)</button>
+              <button onclick="setBelugaTailFilter('F-GXLG')" data-tail="F-GXLG" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL1 (F-GXLG)</button>
+              <button onclick="setBelugaTailFilter('F-GXLH')" data-tail="F-GXLH" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL2 (F-GXLH)</button>
+              <button onclick="setBelugaTailFilter('F-GXLI')" data-tail="F-GXLI" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL3 (F-GXLI)</button>
+              <button onclick="setBelugaTailFilter('F-GXLJ')" data-tail="F-GXLJ" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL4 (F-GXLJ)</button>
+              <button onclick="setBelugaTailFilter('F-GXLN')" data-tail="F-GXLN" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL5 (F-GXLN)</button>
+              <button onclick="setBelugaTailFilter('F-GXLO')" data-tail="F-GXLO" class="beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">XL6 (F-GXLO)</button>
+            </div>
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="beluga-fleet-grid">
             <!-- Dynamically populated -->
           </div>
@@ -2508,6 +2521,24 @@
             <button onclick="setSourceCategory('Prensa & Medios')" data-cat="Prensa & Medios" class="source-cat-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 whitespace-nowrap border border-slate-800 transition">Prensa & Medios</button>
           </div>
 
+          <!-- Quick Sort & Featured Filter Bar -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-800/80">
+            <div class="flex items-center space-x-1.5 text-xs text-slate-400">
+              <i data-lucide="arrow-down-up" class="w-3.5 h-3.5 text-slate-400"></i>
+              <span class="text-[11px] font-semibold text-slate-400">Ordenar por:</span>
+              <select id="source-sort-select" onchange="setSourceSort(this.value)" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-lg px-2 py-1 focus:border-blue-500 focus:outline-none">
+                <option value="relevance">Relevancia / Destacados</option>
+                <option value="title_asc">Título (A-Z)</option>
+                <option value="title_desc">Título (Z-A)</option>
+                <option value="chars_desc">Extensión (Mayor a menor)</option>
+                <option value="category">Por Categoría</option>
+              </select>
+            </div>
+            <button onclick="toggleFeaturedSourcesOnly()" id="btn-filter-featured" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition flex items-center gap-1">
+              <i data-lucide="star" class="w-3 h-3 text-amber-400"></i>
+              <span class="text-[11px]">Solo Destacados</span>
+            </button>
+          </div>
           <!-- Sources List Container -->
           <div class="space-y-3 max-h-[600px] overflow-y-auto custom-scrollbar pr-2" id="sources-list">
             <!-- Dynamically populated -->
