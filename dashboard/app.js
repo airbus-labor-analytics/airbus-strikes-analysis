@@ -100,6 +100,17 @@ if (typeof Chart !== 'undefined') {
   if (Chart.defaults.transitions && Chart.defaults.transitions.active) {
     Chart.defaults.transitions.active.animation = { duration: 0 };
   }
+  Chart.defaults.color = '#94a3b8';
+  Chart.defaults.font.family = "'Geist Mono', 'JetBrains Mono', 'SF Mono', Consolas, monospace";
+  if (Chart.defaults.plugins && Chart.defaults.plugins.tooltip) {
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(5, 7, 10, 0.94)';
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(255, 255, 255, 0.12)';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.tooltip.titleColor = '#38bdf8';
+    Chart.defaults.plugins.tooltip.bodyColor = '#f8fafc';
+    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+  }
 }
 
 function renderResilientChart(canvasId, configBuilder) {
@@ -211,6 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // 9. Floating Dynamic Island HUD & Quick Drawer
+  initFloatingHUD();
 });
 
 function initAllModules() {
@@ -664,6 +678,71 @@ function setIpcPreset(val) {
   }
 }
 
+function calculateSalaryProposals(baseSalary, ipcRate) {
+  const w0 = Number(baseSalary) || 50000;
+  const i = Number(ipcRate) || 0.025;
+  const d = [1, 1 + i, Math.pow(1 + i, 2), Math.pow(1 + i, 3), Math.pow(1 + i, 4), Math.pow(1 + i, 5)];
+
+  // 1. Company
+  const co_ea_loss = w0 * 0.05 * 0.25;
+  const co_w1 = (w0 * 1.05 - co_ea_loss);
+  const co_w1_base = w0 * 1.05;
+  const co_rate = Math.min(i * 0.25, 0.01);
+  const co_w2_base = co_w1_base * (1 + co_rate);
+  const co_w2 = co_w2_base + 2000;
+  const co_w3 = co_w2_base * (1 + co_rate);
+  const co_w4 = co_w3 * (1 + co_rate);
+  const co_w5 = co_w4 * (1 + co_rate);
+  const co_nom = [w0, co_w1, co_w2, co_w3, co_w4, co_w5];
+  const co_real = co_nom.map((v, idx) => v / d[idx]);
+  const co_cum_nom = [w0];
+  for (let y = 1; y <= 5; y++) co_cum_nom.push(co_cum_nom[y - 1] + co_nom[y]);
+  const co_cum_real = [w0];
+  for (let y = 1; y <= 5; y++) co_cum_real.push(co_cum_real[y - 1] + co_real[y]);
+  const co_total_nom = co_nom.slice(1).reduce((a, b) => a + b, 0);
+  const co_total_real = co_real.slice(1).reduce((a, b) => a + b, 0);
+
+  // 2. CGT
+  const cgt_w1_base = w0 * 1.14;
+  const cgt_w1 = cgt_w1_base + 8500;
+  const cgt_rate = i + 0.02;
+  const cgt_w2 = cgt_w1_base * (1 + cgt_rate);
+  const cgt_w3 = cgt_w2 * (1 + cgt_rate);
+  const cgt_w4 = cgt_w3 * (1 + cgt_rate);
+  const cgt_w5 = cgt_w4 * (1 + cgt_rate);
+  const cgt_nom = [w0, cgt_w1, cgt_w2, cgt_w3, cgt_w4, cgt_w5];
+  const cgt_real = cgt_nom.map((v, idx) => v / d[idx]);
+  const cgt_cum_nom = [w0];
+  for (let y = 1; y <= 5; y++) cgt_cum_nom.push(cgt_cum_nom[y - 1] + cgt_nom[y]);
+  const cgt_cum_real = [w0];
+  for (let y = 1; y <= 5; y++) cgt_cum_real.push(cgt_cum_real[y - 1] + cgt_real[y]);
+  const cgt_total_nom = cgt_nom.slice(1).reduce((a, b) => a + b, 0);
+  const cgt_total_real = cgt_real.slice(1).reduce((a, b) => a + b, 0);
+
+  // 3. Strike Committee (11 Points)
+  const com_w1_base = w0 * 1.12;
+  const com_w1 = com_w1_base + 7500;
+  const com_rate = i + 0.015;
+  const com_w2 = com_w1_base * (1 + com_rate);
+  const com_w3 = com_w2 * (1 + com_rate);
+  const com_w4 = com_w3 * (1 + com_rate);
+  const com_w5 = com_w4 * (1 + com_rate);
+  const com_nom = [w0, com_w1, com_w2, com_w3, com_w4, com_w5];
+  const com_real = com_nom.map((v, idx) => v / d[idx]);
+  const com_cum_nom = [w0];
+  for (let y = 1; y <= 5; y++) com_cum_nom.push(com_cum_nom[y - 1] + com_nom[y]);
+  const com_cum_real = [w0];
+  for (let y = 1; y <= 5; y++) com_cum_real.push(com_cum_real[y - 1] + com_real[y]);
+  const com_total_nom = com_nom.slice(1).reduce((a, b) => a + b, 0);
+  const com_total_real = com_real.slice(1).reduce((a, b) => a + b, 0);
+
+  return {
+    company: { yearly_nom: co_nom, yearly_real: co_real, cum_nom: co_cum_nom, cum_real: co_cum_real, total_5yr_nom: co_total_nom, total_5yr_real: co_total_real, arrears: 2000 },
+    cgt: { yearly_nom: cgt_nom, yearly_real: cgt_real, cum_nom: cgt_cum_nom, cum_real: cgt_cum_real, total_5yr_nom: cgt_total_nom, total_5yr_real: cgt_total_real, arrears: 8500, delta_vs_co_nom: cgt_total_nom - co_total_nom, delta_vs_co_real: cgt_total_real - co_total_real },
+    strike_committee: { yearly_nom: com_nom, yearly_real: com_real, cum_nom: com_cum_nom, cum_real: com_cum_real, total_5yr_nom: com_total_nom, total_5yr_real: com_total_real, arrears: 7500, delta_vs_co_nom: com_total_nom - co_total_nom, delta_vs_co_real: com_total_real - co_total_real }
+  };
+}
+
 function updateWageSimulation() {
   const salaryInput = document.getElementById('sim-salary');
   if (!salaryInput) return;
@@ -903,6 +982,35 @@ function updateWageSimulation() {
   setText('tb-5yr-union-real', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('tb-5yr-diff-real', `+${Math.round(unionRealYear5 - coRealYear5).toLocaleString()} € real`);
 
+  // Multi-Proposal 5-Year Simulation Metrics (Company vs CGT vs Strike Committee)
+  const props = calculateSalaryProposals(curSalary, ipcRate);
+
+  // 1. Empresa
+  setText('tb-prop-co-y1-nom', `${Math.round(props.company.yearly_nom[1]).toLocaleString()} €`);
+  setText('tb-prop-co-y5-nom', `${Math.round(props.company.yearly_nom[5]).toLocaleString()} €`);
+  setText('tb-prop-co-y5-real', `${Math.round(props.company.yearly_real[5]).toLocaleString()} €`);
+  setText('tb-prop-co-5yr-tot', `${Math.round(props.company.total_5yr_nom).toLocaleString()} €`);
+
+  // 2. CGT (Plataforma Asamblearia)
+  setText('tb-prop-cgt-y1-nom', `${Math.round(props.cgt.yearly_nom[1]).toLocaleString()} €`);
+  setText('tb-prop-cgt-y5-nom', `${Math.round(props.cgt.yearly_nom[5]).toLocaleString()} €`);
+  setText('tb-prop-cgt-y5-real', `${Math.round(props.cgt.yearly_real[5]).toLocaleString()} €`);
+  setText('tb-prop-cgt-5yr-tot', `${Math.round(props.cgt.total_5yr_nom).toLocaleString()} €`);
+  setText('tb-prop-cgt-diff', `+${Math.round(props.cgt.delta_vs_co_nom).toLocaleString()} €`);
+
+  // 3. Comité de Huelga (11 Puntos SIMA)
+  setText('tb-prop-comite-y1-nom', `${Math.round(props.strike_committee.yearly_nom[1]).toLocaleString()} €`);
+  setText('tb-prop-comite-y5-nom', `${Math.round(props.strike_committee.yearly_nom[5]).toLocaleString()} €`);
+  setText('tb-prop-comite-y5-real', `${Math.round(props.strike_committee.yearly_real[5]).toLocaleString()} €`);
+  setText('tb-prop-comite-5yr-tot', `${Math.round(props.strike_committee.total_5yr_nom).toLocaleString()} €`);
+  setText('tb-prop-comite-diff', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
+
+  // Differential KPI Cards
+  setText('kpi-diff-cgt-5yr', `+${Math.round(props.cgt.delta_vs_co_nom).toLocaleString()} €`);
+  setText('kpi-diff-cgt-5yr-real', `+${Math.round(props.cgt.delta_vs_co_real).toLocaleString()} € reales`);
+  setText('kpi-diff-comite-5yr', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
+  setText('kpi-diff-comite-5yr-real', `+${Math.round(props.strike_committee.delta_vs_co_real).toLocaleString()} € reales`);
+
   // Update Strike ROI
   setText('roi-strike-days-label', `${strikeDays} días`);
   setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
@@ -911,14 +1019,8 @@ function updateWageSimulation() {
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
 
   // Update 5-Year Cumulative Projection Chart
-  updateWagesChart(curSalary, coBaseSalary, unionBaseSalary, coArrears, unionArrears, activeUnionEaDeductionGross, ipcRate, coEaLossQ1);
+  updateWagesChart(curSalary, ipcRate);
 }
-
-function setText(id, text) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = text;
-}
-
 function initWagesChart() {
   wagesChart = renderResilientChart('wagesChart', () => ({
     type: 'line',
@@ -926,8 +1028,8 @@ function initWagesChart() {
       labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
       datasets: [
         {
-          label: 'Plataforma Comité (Nominal con IPC + 1,5% RSG + Atrasos)',
-          data: [50000, 113500, 171420, 231450, 293670, 358150],
+          label: 'Plataforma CGT (+14% + 8.5k€ Atrasos + IPC+2% RSG)',
+          data: [50000, 115500, 175065, 237310, 302357, 370330],
           borderColor: '#10b981',
           backgroundColor: 'rgba(16, 185, 129, 0.08)',
           fill: true,
@@ -938,8 +1040,20 @@ function initWagesChart() {
           pointBackgroundColor: '#10b981'
         },
         {
-          label: 'Oferta Empresa (Nominal Fraccionada + Paga Única 2k€)',
-          data: [50000, 104500, 157090, 210730, 265440, 321250],
+          label: 'Comité de Huelga 11 Puntos (+12% + 7.5k€ Atrasos + IPC+1.5% RSG)',
+          data: [50000, 113500, 171740, 232310, 295302, 360814],
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245, 158, 11, 0.05)',
+          fill: false,
+          borderWidth: 3,
+          tension: 0.2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#f59e0b'
+        },
+        {
+          label: 'Oferta Empresa (+5% Fraccionado + Paga Única 2k€ + Techo 1%)',
+          data: [50000, 101875, 156703, 209861, 263352, 317177],
           borderColor: '#f43f5e',
           borderDash: [5, 4],
           borderWidth: 2.5,
@@ -949,18 +1063,7 @@ function initWagesChart() {
           fill: false
         },
         {
-          label: 'Oferta Empresa (Poder Adquisitivo Real Deflactado por IPC)',
-          data: [50000, 102000, 151500, 201200, 250500, 298000],
-          borderColor: '#f59e0b',
-          borderDash: [3, 3],
-          borderWidth: 2,
-          tension: 0.2,
-          pointRadius: 3,
-          pointBackgroundColor: '#f59e0b',
-          fill: false
-        },
-        {
-          label: 'Sin Huelga / Congelación (Poder Real Deflactado)',
+          label: 'Sin Huelga / Congelación (Poder Real Deflactado por IPC)',
           data: [50000, 97500, 142800, 187000, 230100, 272000],
           borderColor: '#64748b',
           borderDash: [2, 2],
@@ -1020,47 +1123,29 @@ function initWagesChart() {
   }));
 }
 
-
-function updateWagesChart(cur, co, union, coArrears = 2000, unionArrears = 7500, unionEaDeduction = 0, ipcRate = 0.025, coEaLossQ1 = 625) {
+function updateWagesChart(curSalary, ipcRate = 0.025) {
   if (!wagesChart) return;
-
-  const y0 = cur;
+  const props = calculateSalaryProposals(curSalary, ipcRate);
+  
+  // Real deflated baseline without agreement
+  const y0 = curSalary;
   const cumDeflator1 = 1 + ipcRate;
   const cumDeflator2 = Math.pow(1 + ipcRate, 2);
   const cumDeflator3 = Math.pow(1 + ipcRate, 3);
   const cumDeflator4 = Math.pow(1 + ipcRate, 4);
   const cumDeflator5 = Math.pow(1 + ipcRate, 5);
 
-  // Baseline (without agreement, real deflated earnings)
-  const base_nom_y1 = cur;
-  const base_nom_y2 = cur;
-  const base_nom_y3 = cur;
-  const base_nom_y4 = cur;
-  const base_nom_y5 = cur;
+  const base_cum_real_y1 = y0 + (curSalary / cumDeflator1);
+  const base_cum_real_y2 = base_cum_real_y1 + (curSalary / cumDeflator2);
+  const base_cum_real_y3 = base_cum_real_y2 + (curSalary / cumDeflator3);
+  const base_cum_real_y4 = base_cum_real_y3 + (curSalary / cumDeflator4);
+  const base_cum_real_y5 = base_cum_real_y4 + (curSalary / cumDeflator5);
+  const base_cum_real = [y0, base_cum_real_y1, base_cum_real_y2, base_cum_real_y3, base_cum_real_y4, base_cum_real_y5];
 
-  const base_cum_real_y1 = y0 + (base_nom_y1 / cumDeflator1);
-  const base_cum_real_y2 = base_cum_real_y1 + (base_nom_y2 / cumDeflator2);
-  const base_cum_real_y3 = base_cum_real_y2 + (base_nom_y3 / cumDeflator3);
-  const base_cum_real_y4 = base_cum_real_y3 + (base_nom_y4 / cumDeflator4);
-  const base_cum_real_y5 = base_cum_real_y4 + (base_nom_y5 / cumDeflator5);
-
-  // Company Offer (Nominal & Real Deflated)
-  const co_nom_y1 = (co - coEaLossQ1) + coArrears;
-  const co_nom_y2 = (co) * (1 + Math.min(ipcRate * 0.25, 0.01));
-  const co_nom_y3 = co_nom_y2 * (1 + Math.min(ipcRate * 0.25, 0.01));
-  const co_nom_y4 = co_nom_y3 * (1 + Math.min(ipcRate * 0.25, 0.01));
-  const co_nom_y5 = co_nom_y4 * (1 + Math.min(ipcRate * 0.25, 0.01));
-
-  const co_cum_nom_y1 = y0 + co_nom_y1;
-  const co_cum_nom_y2 = co_cum_nom_y1 + co_nom_y2;
-  const co_cum_nom_y3 = co_cum_nom_y2 + co_nom_y3;
-  const co_cum_nom_y4 = co_cum_nom_y3 + co_nom_y4;
-  const co_cum_nom_y5 = co_cum_nom_y4 + co_nom_y5;
-
-  wagesChart.data.datasets[0].data = [y0, Math.round(un_cum_nom_y1), Math.round(un_cum_nom_y2), Math.round(un_cum_nom_y3), Math.round(un_cum_nom_y4), Math.round(un_cum_nom_y5)];
-  wagesChart.data.datasets[1].data = [y0, Math.round(co_cum_nom_y1), Math.round(co_cum_nom_y2), Math.round(co_cum_nom_y3), Math.round(co_cum_nom_y4), Math.round(co_cum_nom_y5)];
-  wagesChart.data.datasets[2].data = [y0, Math.round(co_cum_real_y1), Math.round(co_cum_real_y2), Math.round(co_cum_real_y3), Math.round(co_cum_real_y4), Math.round(co_cum_real_y5)];
-  wagesChart.data.datasets[3].data = [y0, Math.round(base_cum_real_y1), Math.round(base_cum_real_y2), Math.round(base_cum_real_y3), Math.round(base_cum_real_y4), Math.round(base_cum_real_y5)];
+  wagesChart.data.datasets[0].data = props.cgt.cum_nom.map(Math.round);
+  wagesChart.data.datasets[1].data = props.strike_committee.cum_nom.map(Math.round);
+  wagesChart.data.datasets[2].data = props.company.cum_nom.map(Math.round);
+  wagesChart.data.datasets[3].data = base_cum_real.map(Math.round);
   wagesChart.update('none');
 }
 
@@ -2026,6 +2111,47 @@ function renderSensitiveBadge(tooltip = "Información provisional en revisión /
   return `<span class="badge-sensitive" title="${escapeHTML(tooltip)}"><i data-lucide="alert-triangle" class="w-3 h-3 text-amber-400"></i> [WARN] Información Sensible en Revisión</span>`;
 }
 
+function renderSalaryProposalsMatrix() {
+  const matrixData = conflictData?.salary_proposals_comparison?.comparison_matrix;
+  const container = document.getElementById('salary-proposals-matrix-body');
+  if (!container || !matrixData) return;
+
+  container.innerHTML = matrixData.map(item => {
+    let badgeClass = "bg-rose-500/20 text-rose-300 border-rose-500/30";
+    if (item.badge_type && (item.badge_type.includes("Garantía") || item.badge_type.includes("Blindaje"))) {
+      badgeClass = "bg-emerald-500/20 text-emerald-300 border-emerald-500/30";
+    } else if (item.badge_type && (item.badge_type.includes("Línea Roja") || item.badge_type.includes("Salarial"))) {
+      badgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/30";
+    } else if (item.badge_type && (item.badge_type.includes("Soberanía") || item.badge_type.includes("Vida"))) {
+      badgeClass = "bg-sky-500/20 text-sky-300 border-sky-500/30";
+    }
+
+    return `
+      <tr class="hover:bg-slate-900/60 transition border-b border-slate-800/60 text-xs">
+        <td class="p-3.5 font-bold text-white align-top">
+          <div class="flex flex-col gap-1">
+            <span class="text-slate-100 font-semibold">${item.topic}</span>
+            <span class="w-fit text-[9px] px-1.5 py-0.5 rounded font-black border ${badgeClass}">${item.badge_type || item.category}</span>
+          </div>
+        </td>
+        <td class="p-3.5 text-rose-300/90 align-top bg-rose-950/10 font-normal leading-relaxed">
+          ${item.company_offer}
+        </td>
+        <td class="p-3.5 text-emerald-300 align-top bg-emerald-950/10 font-medium leading-relaxed">
+          ${item.cgt_offer}
+        </td>
+        <td class="p-3.5 text-amber-300 align-top bg-amber-950/10 font-medium leading-relaxed">
+          ${item.strike_committee_offer}
+        </td>
+        <td class="p-3.5 text-sky-300 text-[11px] align-top bg-slate-950/40">
+          <p class="font-medium">${item.key_difference}</p>
+          <span class="block mt-1 text-[9.5px] text-slate-500 font-mono">[${item.source_citation}]</span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
 function initNegotiationEvolution() {
   const evo = conflictData?.negotiation_evolution;
   if (!evo) return;
@@ -2134,6 +2260,9 @@ function initNegotiationEvolution() {
   }
   // 4. Render Point-by-Point Offer Breakdown with Expandable Explanations
   initDetailedOffers();
+
+  // 5. Render 10-Dimension Comparative Matrix
+  renderSalaryProposalsMatrix();
 }
 
 function initDetailedOffers() {
@@ -2910,4 +3039,78 @@ function renderTelegramDocs(docs) {
   }).join('');
 
   if (window.lucide) lucide.createIcons();
+}
+
+// ==================== DYNAMIC ISLAND & FLOATING HUD ====================
+function initFloatingHUD() {
+  const mainContainer = document.querySelector('main');
+  const hud = document.getElementById('floating-hud');
+  const backToTop = document.getElementById('back-to-top');
+  if (!mainContainer) return;
+
+  mainContainer.addEventListener('scroll', () => {
+    const st = mainContainer.scrollTop;
+    if (st > 120) {
+      if (hud) {
+        hud.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+        hud.classList.add('opacity-100', 'translate-y-0');
+      }
+      if (backToTop) {
+        backToTop.classList.remove('opacity-0', 'pointer-events-none');
+        backToTop.classList.add('opacity-100');
+      }
+    } else {
+      if (hud) {
+        hud.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+        hud.classList.remove('opacity-100', 'translate-y-0');
+      }
+      if (backToTop) {
+        backToTop.classList.add('opacity-0', 'pointer-events-none');
+        backToTop.classList.remove('opacity-100');
+      }
+    }
+  }, { passive: true });
+}
+
+function scrollToTop() {
+  const mainContainer = document.querySelector('main');
+  if (mainContainer) {
+    mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function toggleQuickCalculatorDrawer() {
+  const drawer = document.getElementById('quick-calc-drawer');
+  if (!drawer) return;
+  const isClosed = drawer.classList.contains('translate-x-full');
+  if (isClosed) {
+    drawer.classList.remove('translate-x-full');
+    syncDrawerCalculator();
+  } else {
+    drawer.classList.add('translate-x-full');
+  }
+}
+
+function syncDrawerCalculator() {
+  const salaryInput = document.getElementById('drawer-input-salary');
+  const daysSlider = document.getElementById('drawer-slider-strike-days');
+  const daysVal = document.getElementById('drawer-strike-days-val');
+  const netStrikeCost = document.getElementById('drawer-net-strike-cost');
+  const recoveryVal = document.getElementById('drawer-recovery-val');
+
+  if (!salaryInput || !daysSlider) return;
+  const salary = parseFloat(salaryInput.value) || 45000;
+  const days = parseInt(daysSlider.value, 10) || 5;
+
+  if (daysVal) daysVal.textContent = `${days} día${days > 1 ? 's' : ''}`;
+
+  const dailyGross = salary / 365.0;
+  const dailyNet = dailyGross * 0.72;
+  const totalNetLoss = dailyNet * days;
+
+  if (netStrikeCost) netStrikeCost.textContent = `-${Math.round(totalNetLoss).toLocaleString()} €`;
+
+  // Recovery: 7,500€ + 12% on salary
+  const recoveryEstimate = 7500 + (salary * 0.12);
+  if (recoveryVal) recoveryVal.textContent = `+${Math.round(recoveryEstimate).toLocaleString()} €`;
 }

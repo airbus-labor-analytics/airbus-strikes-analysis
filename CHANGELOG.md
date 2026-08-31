@@ -2,6 +2,43 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [009-liquid-glass-ui-redesign] - 2026-08-31
+
+### Added
+- **AMOLED Black (#000000) & Liquid Crystal 2.0 Glassmorphism Design System (User Story 1 - MVP)**:
+  - Transformed entire dashboard viewport and cards to pure AMOLED Black (`#000000`) with high-fidelity glassmorphism (`backdrop-filter: blur(24px) saturate(180%)`), specular highlight borders (`rgba(255, 255, 255, 0.12)`), and aerodynamic micro-glows (`glow-cyan`, `glow-emerald`, `glow-rose`).
+  - Implemented modern international typography hierarchy featuring Geist Sans / Inter Display and Geist Mono / JetBrains Mono with tabular font alignment (`tabular-nums`) for jitter-free data readouts.
+- **Spatial Disaggregation & 8pt Grid Hierarchy (User Story 2)**:
+  - Re-structured Tab 0 (Portal Hub), Tab 1 (Financial Center), and Tab 3 (Purchasing Power) with decoupled atomic cards, generous spatial padding (`gap-6` to `gap-8`), and distinct contextual zones eliminating visual cognitive fatigue.
+- **Dynamic Island HUD & Quick Salary Calculator Drawer (User Story 3)**:
+  - Added `#floating-hud` top Dynamic Island pill with live conflict status, loss counter, quick action triggers, and scroll-to-top automation.
+  - Added `#quick-calc-drawer` slide-over drawer providing instant salary deduction and platform recovery calculations with synchronized two-way reactive controls.
+- **Dark Theme Chart.js Aesthetic Alignments & DOM Regressions**:
+  - Configured global Chart.js dark-theme typography, subtle gridlines (`rgba(255, 255, 255, 0.05)`), and glassmorphic tooltips across all 12 analytical charts.
+  - Added comprehensive automated regression assertions in `tests/test_dashboard_ui.py` covering all design tokens, fonts, HUD components, and drawer controllers.
+
+## [008-compare-salary-proposals] - 2026-08-31
+
+### Added
+- **Multi-Proposal Gross Annual Wage Evolution Simulator (User Story 1 - MVP)**:
+  - Analytical engine function `get_salary_proposals_comparison(base_salary, cpi_rate)` in `src/analysis_engine.py` projecting 5-year gross nominal and real (CPI-deflated) salary trajectories across Airbus SE offer, CGT platform, and Strike Committee 11-point platform.
+  - Client-side reactive simulator `calculateSalaryProposals(baseSalary, ipcRate)` in `dashboard/app.js` with dynamic two-way data binding to salary and IPC sliders.
+  - 3-proposal comparison table and metrics in Module 3 (`#tab-purchasing-power`) of `dashboard/index.html`.
+- **Comprehensive 10-Dimension Comparative Bargaining Matrix (User Story 2)**:
+  - Standardized 10-dimension comparison matrix (`salary_proposals_comparison.comparison_matrix`) in `data/conflict_metrics.json` and `dashboard/data.js` covering base salary, arrears, revision clause, telework, working hours, employment guarantees, seniority, healthcare, strike sanctions, and union oversight.
+  - Dynamic renderer `renderSalaryProposalsMatrix()` in `dashboard/app.js` injecting interactive table rows with status badges and primary source citations.
+  - Sub-Section 5 in `dashboard/index.html` presenting the full 10-dimension bargaining contrast.
+- **Interactive 4-Series Salary Visualization & Differential KPI Cards (User Story 3)**:
+  - Multi-line Chart.js visualization in `wagesChart` with 4 distinct series: Plataforma CGT (+14%), Comité de Huelga (+12%), Oferta Empresa (+5%), and Real CPI Inflation Baseline.
+  - 5-year cumulative differential KPI summary cards highlighting net gains vs. Airbus SE offer (+46.2k€ for CGT, +43.6k€ for Strike Committee).
+- **Comprehensive Test Suite & Invariant Validation**:
+  - Unit tests in `tests/test_analysis_engine.py` verifying year-by-year nominal/real compounding and delta inequalities ($C_{\text{CGT}} > C_{\text{Comité}} > C_{\text{Empresa}}$).
+  - DOM assertion tests in `tests/test_dashboard_ui.py` confirming HTML elements, containers, and JS function lifecycle bindings.
+
+### Changed
+- Re-aligned `dashboard/app.js` chart lifecycle to synchronously update 4 wage datasets upon slider movements without lag or canvas collisions.
+- Synchronized fallback fixtures and canonical JSON exports across `data/conflict_metrics.json` and `dashboard/data.js`.
+
 ## [007-dynamic-data-and-charts-resilience] - 2026-08-31
 
 ### Added
