@@ -34,6 +34,7 @@ EXPECTED_CANVASES = [
     "companyDeliveriesChart",
     "shareholderPieChart",
     "belugaHistoryChart",
+    "salaryEvolutionChart",
     "wagesChart",
     "unionShareChart",
     "unionEvolutionChart",
@@ -87,15 +88,14 @@ class TestDashboardUI(unittest.TestCase):
         self.assertEqual(validator.stack, [], f"Unclosed HTML tags: {validator.stack}")
 
     def test_tab_containers_structure(self):
-        """Validates that all 6 module containers (portal + 5 specialized) exist and have the tab-content class."""
+        """Validates that all 6 module containers exist and have dock navigation buttons."""
         for tab_id in EXPECTED_TABS:
             pattern = rf'<div\s+id=["\']{tab_id}["\']\s+class=["\']tab-content\b'
             self.assertTrue(
                 re.search(pattern, self.html_content),
                 f"Missing or malformed tab container definition for '{tab_id}'"
             )
-            self.assertIn(f'id="btn-{tab_id}"', self.html_content, f"Missing sidebar navigation button for '{tab_id}'")
-
+            self.assertIn(f'id="dock-{tab_id}"', self.html_content, f"Missing dock navigation button for '{tab_id}'")
     def test_purged_obsolete_tabs(self):
         """Validates that obsolete legacy tabs (like tab-checklist) are completely removed."""
         self.assertNotIn('id="tab-checklist"', self.html_content)
@@ -109,11 +109,10 @@ class TestDashboardUI(unittest.TestCase):
 
     def test_viewport_scroll_and_resize_lifecycle_contract(self):
         """Validates Principle VI: switchTab resets scrollTop and triggers .resize() on visible charts."""
-        # 1. Check for scrollTop reset in switchTab
-        self.assertIn("mainContainer.scrollTop = 0", self.app_js_content, "Missing scrollTop = 0 reset in switchTab")
+        # 1. Check for scroll reset in switchTab
+        self.assertTrue("scrollTop = 0" in self.app_js_content or "scrollTo" in self.app_js_content, "Missing scroll reset in switchTab")
         # 2. Check for Chart resize calls
         self.assertIn("chartInstance.resize()", self.app_js_content, "Missing chartInstance.resize() in switchTab")
-
     def test_url_alias_map_integrity(self):
         """Validates that all legacy hash aliases map to one of the 5 canonical tabs."""
         alias_map_match = re.search(r'const tabAliases = \{([^}]+)\};', self.app_js_content)
@@ -169,14 +168,17 @@ class TestDashboardUI(unittest.TestCase):
         """Validates Feature 008 components: 10-dimension matrix, 3-proposal comparison, differential KPIs, and calculation engine."""
         # HTML DOM containers and IDs
         self.assertIn('id="salary-proposals-matrix-body"', self.html_content, "Missing #salary-proposals-matrix-body in index.html")
-        self.assertIn('id="tb-prop-co-y1-nom"', self.html_content, "Missing #tb-prop-co-y1-nom in index.html")
-        self.assertIn('id="tb-prop-cgt-y1-nom"', self.html_content, "Missing #tb-prop-cgt-y1-nom in index.html")
-        self.assertIn('id="tb-prop-comite-y1-nom"', self.html_content, "Missing #tb-prop-comite-y1-nom in index.html")
-        self.assertIn('id="kpi-diff-cgt-5yr"', self.html_content, "Missing #kpi-diff-cgt-5yr in index.html")
+        self.assertIn('id="sc1-salary-y1"', self.html_content, "Missing #sc1-salary-y1 in index.html")
+        self.assertIn('id="sc2-salary-y1"', self.html_content, "Missing #sc2-salary-y1 in index.html")
+        self.assertIn('id="sc3-salary-y1"', self.html_content, "Missing #sc3-salary-y1 in index.html")
+        self.assertIn('id="kpi-diff-sima-5yr"', self.html_content, "Missing #kpi-diff-sima-5yr in index.html")
         self.assertIn('id="kpi-diff-comite-5yr"', self.html_content, "Missing #kpi-diff-comite-5yr in index.html")
+        self.assertIn('id="roi-strike-cost"', self.html_content, "Missing #roi-strike-cost in index.html")
+        self.assertIn('id="salaryEvolutionChart"', self.html_content, "Missing #salaryEvolutionChart in index.html")
 
         # App.js calculation & rendering functions
         self.assertIn("function calculateSalaryProposals(", self.app_js_content, "Missing calculateSalaryProposals() in app.js")
+        self.assertIn("function updateSalaryEvolutionChart(", self.app_js_content, "Missing updateSalaryEvolutionChart() in app.js")
         self.assertIn("function renderSalaryProposalsMatrix(", self.app_js_content, "Missing renderSalaryProposalsMatrix() in app.js")
         self.assertIn("renderSalaryProposalsMatrix();", self.app_js_content, "renderSalaryProposalsMatrix() not invoked in app.js")
 

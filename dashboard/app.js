@@ -38,6 +38,7 @@ let telegramDocsData = [];
 const chartRegistry = {};
 let asymmetryChart = null;
 let wagesChart = null;
+let salaryEvolutionChart = null;
 let belugaHistoryChart = null;
 let airbusStockChart = null;
 let companyRevenueChart = null;
@@ -103,16 +104,18 @@ if (typeof Chart !== 'undefined') {
   Chart.defaults.color = '#94a3b8';
   Chart.defaults.font.family = "'Geist Mono', 'JetBrains Mono', 'SF Mono', Consolas, monospace";
   if (Chart.defaults.plugins && Chart.defaults.plugins.tooltip) {
-    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(5, 7, 10, 0.94)';
-    Chart.defaults.plugins.tooltip.borderColor = 'rgba(255, 255, 255, 0.12)';
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(8, 12, 20, 0.94)';
+    Chart.defaults.plugins.tooltip.borderColor = 'rgba(56, 189, 248, 0.35)';
     Chart.defaults.plugins.tooltip.borderWidth = 1;
-    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.tooltip.padding = 12;
     Chart.defaults.plugins.tooltip.titleColor = '#38bdf8';
+    Chart.defaults.plugins.tooltip.titleFont = { size: 12, weight: 'bold', family: "'Geist', sans-serif" };
     Chart.defaults.plugins.tooltip.bodyColor = '#f8fafc';
-    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+    Chart.defaults.plugins.tooltip.bodyFont = { size: 11, family: "'Geist Mono', monospace" };
+    Chart.defaults.plugins.tooltip.cornerRadius = 10;
+    Chart.defaults.plugins.tooltip.boxPadding = 4;
   }
 }
-
 function renderResilientChart(canvasId, configBuilder) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return null;
@@ -197,19 +200,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-wages, #tab-stock)
+  // 7. Support direct deep-linking via URL hash (e.g. #tab-sources, #tab-industrial:sec-industrial-fleet)
   function handleHashNavigation() {
     const rawHash = window.location.hash.replace('#', '').trim();
-    if (rawHash) {
-      switchTab(rawHash);
-    } else {
+    if (!rawHash) {
       switchTab('tab-portal');
+      return;
+    }
+    let targetTab = rawHash;
+    let targetSection = null;
+    if (rawHash.includes(':') || rawHash.includes('/') || rawHash.includes('__')) {
+      const parts = rawHash.split(/[:\/__]+/);
+      targetTab = parts[0];
+      targetSection = parts[1];
+    }
+    switchTab(targetTab);
+    if (targetSection) {
+      setTimeout(() => {
+        scrollToSection(targetSection);
+      }, 150);
     }
   }
   handleHashNavigation();
-  window.addEventListener('hashchange', handleHashNavigation);
+  restoreSimulatorFromURL();
 
-  // 8. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
+  // 8. Initialize ScrollSpy for Right-Hand Floating Section Navigator
+  initSectionNavScrollSpy();
+
+  // 9. Initialize Global Keyboard Shortcuts & Toast System
+  initKeyboardShortcuts();
+
+  // 10. Lifecycle Management: Pause polling on tab hidden to preserve battery and network
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       if (belugaPollingInterval) {
@@ -481,41 +502,34 @@ function switchTab(tabId) {
     normalizedTabId = tabAliases[normalizedTabId];
   }
   document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
+  
+  // Update dock buttons
+  document.querySelectorAll('.dock-btn').forEach(btn => {
+    btn.classList.remove('bg-blue-600', 'text-white', 'font-bold', 'shadow-lg', 'shadow-blue-600/30');
     btn.classList.add('text-slate-400');
   });
-
-  // Always reset scroll position of the main view to the top on tab change
-  const mainContainer = document.querySelector('main');
-  if (mainContainer) {
-    mainContainer.scrollTop = 0;
+  const activeDockBtn = document.getElementById(`dock-${normalizedTabId}`);
+  if (activeDockBtn) {
+    activeDockBtn.classList.remove('text-slate-400');
+    activeDockBtn.classList.add('bg-blue-600', 'text-white', 'font-bold', 'shadow-lg', 'shadow-blue-600/30');
   }
+
+  // Reset window scroll position to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
   const activeTab = document.getElementById(normalizedTabId);
-  const activeBtn = document.getElementById(`btn-${normalizedTabId}`);
   if (activeTab) activeTab.classList.remove('hidden');
-  if (activeBtn) {
-    activeBtn.classList.remove('text-slate-400');
-    activeBtn.classList.add('bg-blue-600', 'text-white', 'font-bold', 'shadow-md', 'shadow-blue-600/30');
-  }
 
+  // Update Right-Hand Floating Section Map
+  updateSectionNav(normalizedTabId);
   // Update URL hash smoothly
   try {
     if (history.replaceState) {
       history.replaceState(null, null, `#${normalizedTabId}`);
     }
   } catch (e) {}
-
-  // Close mobile drawer on item click
-  const sidebar = document.getElementById('sidebar-menu');
-  const backdrop = document.getElementById('sidebar-backdrop');
-  if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
-    sidebar.classList.add('-translate-x-full');
-    if (backdrop) {
-      backdrop.classList.remove('opacity-100');
-      backdrop.classList.add('opacity-0', 'pointer-events-none');
-    }
-  }
 
   // Render active module charts immediately on next frame without artificial timeout
   requestAnimationFrame(() => {
@@ -528,6 +542,7 @@ function switchTab(tabId) {
       initBelugaHistoryChart();
       initThermometerAndBeluga();
     } else if (normalizedTabId === 'tab-purchasing-power') {
+      initSalaryEvolutionChart();
       initWagesChart();
       updateWageSimulation();
       initHistoricalLosses();
@@ -554,7 +569,260 @@ function switchTab(tabId) {
     if (window.lucide) lucide.createIcons();
   });
 }
-// ==================== ASYMMETRY SIMULATOR ====================
+
+// ==================== RIGHT-HAND FLOATING SECTION MAP ====================
+const TAB_SECTION_MAP = {
+  'tab-portal': {
+    title: 'Portal Hub',
+    sections: [
+      { id: 'sec-portal-mission', label: 'Misión & Principios', icon: 'shield-check' },
+      { id: 'sec-portal-kpis', label: 'KPIs Ejecutivos Flash', icon: 'trending-up' },
+      { id: 'sec-portal-sitemap', label: 'Mapa del Portal', icon: 'compass' }
+    ]
+  },
+  'tab-overview': {
+    title: 'Finanzas',
+    sections: [
+      { id: 'sec-overview-kpis', label: 'KPIs Principales', icon: 'trending-up' },
+      { id: 'sec-overview-asymmetry', label: 'Simulador Asimetría', icon: 'scale' },
+      { id: 'sec-overview-chart', label: 'Proyección Huelga', icon: 'bar-chart-2' },
+      { id: 'sec-overview-stock', label: 'Cotización AIR.PA', icon: 'trending-down' },
+      { id: 'sec-overview-solvency', label: 'Solvencia & Dividendos', icon: 'shield-check' }
+    ]
+  },
+  'tab-industrial': {
+    title: 'Beluga / Logística',
+    sections: [
+      { id: 'sec-industrial-thermo', label: 'Termómetro de Presión', icon: 'flame' },
+      { id: 'sec-industrial-fleet', label: 'Flota Beluga en Tierra', icon: 'compass' },
+      { id: 'sec-industrial-history', label: 'Vuelos & Retención HTP', icon: 'history' },
+      { id: 'sec-industrial-feed', label: 'Monitor de Envíos JIT', icon: 'activity' },
+      { id: 'sec-industrial-fals', label: 'Cuello de Botella FALs', icon: 'boxes' }
+    ]
+  },
+  'tab-purchasing-power': {
+    title: 'Salarios & ROI',
+    sections: [
+      { id: 'sec-wages-simulator', label: 'Simulador Multivariante', icon: 'calculator' },
+      { id: 'sec-wages-audit', label: 'Efecto Abril & IPC', icon: 'scissors' },
+      { id: 'sec-wages-scenarios', label: 'Comparativa Escenarios', icon: 'layers' },
+      { id: 'sec-wages-roi', label: 'Desglose Beneficios & ROI', icon: 'table' },
+      { id: 'sec-wages-losses', label: 'Pérdidas 2020-2025 (BOE)', icon: 'file-text' },
+      { id: 'sec-wages-negotiation', label: 'Mesa de Negociación', icon: 'scale' }
+    ]
+  },
+  'tab-union-force': {
+    title: 'Fuerza Sindical',
+    sections: [
+      { id: 'sec-unions-delegates', label: 'Representación Sindical', icon: 'users' },
+      { id: 'sec-unions-referendum', label: 'Referéndum 24-Julio', icon: 'vote' },
+      { id: 'sec-unions-sections', label: 'Secciones Sindicales', icon: 'pie-chart' },
+      { id: 'sec-unions-sociology', label: 'Claves Sociológicas', icon: 'shield-alert' },
+      { id: 'sec-unions-timeline', label: 'Línea Temporal & Minutas', icon: 'history' },
+      { id: 'sec-unions-workflows', label: 'Árboles de Decisión', icon: 'git-merge' }
+    ]
+  },
+  'tab-evidence': {
+    title: 'Evidencias',
+    sections: [
+      { id: 'sec-evidence-sources', label: 'Fuentes Primarias (269+)', icon: 'book-open' },
+      { id: 'sec-evidence-telegram', label: 'Canal Telegram & Docs', icon: 'send' },
+      { id: 'sec-evidence-benchmarks', label: 'Benchmark Conflictos', icon: 'award' }
+    ]
+  }
+};
+
+function updateSectionNav(tabId) {
+  const container = document.getElementById('section-nav-links');
+  if (!container) return;
+
+  const tabConfig = TAB_SECTION_MAP[tabId];
+  if (!tabConfig || !tabConfig.sections || tabConfig.sections.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = tabConfig.sections.map((sec, idx) => `
+    <button type="button" onclick="scrollToSection('${sec.id}')" id="nav-btn-${sec.id}" class="section-nav-item text-left transition-all duration-200 text-[10.5px] py-0.5 -ml-[13px] pl-3 border-l block truncate max-w-[170px] ${idx === 0 ? 'text-sky-400 font-semibold scale-105 origin-left border-sky-400' : 'text-slate-500 hover:text-slate-300 border-transparent hover:border-slate-500'}">
+      ${sec.label}
+    </button>
+  `).join('');
+}
+
+function scrollToSection(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const headerOffset = 90;
+  const elementPosition = el.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: Math.max(0, offsetPosition),
+    behavior: 'smooth'
+  });
+
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  if (currentTab && history.replaceState) {
+    history.replaceState(null, null, `#${currentTab.id}:${sectionId}`);
+  }
+}
+
+function initSectionNavScrollSpy() {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollSpy();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+function handleScrollSpy() {
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  if (!currentTab) return;
+
+  const tabConfig = TAB_SECTION_MAP[currentTab.id];
+  if (!tabConfig || !tabConfig.sections || tabConfig.sections.length === 0) return;
+
+  const scrollY = window.pageYOffset + 130;
+  let activeSectionId = tabConfig.sections[0].id;
+
+  for (const sec of tabConfig.sections) {
+    const el = document.getElementById(sec.id);
+    if (el) {
+      const top = el.offsetTop;
+      if (scrollY >= top) {
+        activeSectionId = sec.id;
+      }
+    }
+  }
+
+  document.querySelectorAll('.section-nav-item').forEach(btn => {
+    btn.classList.remove('text-sky-400', 'font-semibold', 'scale-105', 'origin-left', 'border-sky-400');
+    btn.classList.add('text-slate-500', 'border-transparent');
+  });
+
+  const activeBtn = document.getElementById(`nav-btn-${activeSectionId}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('text-slate-500', 'border-transparent');
+    activeBtn.classList.add('text-sky-400', 'font-semibold', 'scale-105', 'origin-left', 'border-sky-400');
+  }
+}
+
+// ==================== TOAST NOTIFICATION SYSTEM ====================
+function showToast(message, iconName = 'info', durationMs = 2800) {
+  let toastContainer = document.getElementById('toast-container');
+  if (!toastContainer) {
+    toastContainer = document.createElement('div');
+    toastContainer.id = 'toast-container';
+    toastContainer.className = 'fixed bottom-20 right-6 z-50 flex flex-col space-y-2 pointer-events-none';
+    document.body.appendChild(toastContainer);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = 'pointer-events-auto transform transition-all duration-300 translate-y-2 opacity-0 flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/90 backdrop-blur-xl border border-white/15 text-white text-xs font-medium shadow-2xl shadow-black/80';
+  toast.innerHTML = `
+    <i data-lucide="${iconName}" class="w-4 h-4 text-sky-400 shrink-0"></i>
+    <span>${message}</span>
+  `;
+
+  toastContainer.appendChild(toast);
+  if (window.lucide) lucide.createIcons();
+
+  requestAnimationFrame(() => {
+    toast.classList.remove('translate-y-2', 'opacity-0');
+  });
+
+  setTimeout(() => {
+    toast.classList.add('translate-y-2', 'opacity-0');
+    setTimeout(() => toast.remove(), 350);
+  }, durationMs);
+}
+
+// ==================== KEYBOARD SHORTCUTS CONTROLLER ====================
+function initKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable) {
+      if (e.key === 'Escape') {
+        e.target.blur();
+      }
+      return;
+    }
+
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    if (e.key === '0' || e.key === 'p' || e.key === 'P') {
+      switchTab('tab-portal');
+      showToast('Navegación: Portal Hub', 'compass');
+    } else if (e.key === '1' || e.key === 'f' || e.key === 'F') {
+      switchTab('tab-overview');
+      showToast('Navegación: Finanzas & Asimetría', 'trending-up');
+    } else if (e.key === '2' || e.key === 'b' || e.key === 'B') {
+      switchTab('tab-industrial');
+      showToast('Navegación: Beluga & Logística', 'boxes');
+    } else if (e.key === '3' || e.key === 's' || e.key === 'S') {
+      switchTab('tab-purchasing-power');
+      showToast('Navegación: Salarios & Convenio', 'calculator');
+    } else if (e.key === '4' || e.key === 'u' || e.key === 'U') {
+      switchTab('tab-union-force');
+      showToast('Navegación: Fuerza Sindical', 'users');
+    } else if (e.key === '5' || e.key === 'e' || e.key === 'E') {
+      switchTab('tab-evidence');
+      showToast('Navegación: Evidencias & Archivo', 'book-open');
+    } else if (e.key === '/') {
+      e.preventDefault();
+      const currentTab = document.querySelector('.tab-content:not(.hidden)');
+      if (currentTab && currentTab.id === 'tab-evidence') {
+        const input = document.getElementById('source-search');
+        if (input) input.focus();
+      } else {
+        switchTab('tab-evidence');
+        setTimeout(() => {
+          const input = document.getElementById('source-search');
+          if (input) input.focus();
+        }, 100);
+      }
+    } else if (e.key === 't' || e.key === 'T') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (e.key === '?') {
+      toggleShortcutsModal();
+    } else if (e.key === 'Escape') {
+      closeShortcutsModal();
+    }
+  });
+}
+
+function toggleShortcutsModal() {
+  const modal = document.getElementById('shortcuts-modal');
+  if (!modal) return;
+  modal.classList.toggle('hidden');
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeShortcutsModal() {
+  const modal = document.getElementById('shortcuts-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function copySectionLink(sectionId) {
+  const currentTab = document.querySelector('.tab-content:not(.hidden)');
+  const tabId = currentTab ? currentTab.id : 'tab-portal';
+  const url = `${window.location.origin}${window.location.pathname}#${tabId}:${sectionId}`;
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('Enlace directo copiado al portapapeles', 'link-2');
+    }).catch(() => {
+      showToast('Enlace: ' + url, 'link-2');
+    });
+  } else {
+    showToast('Enlace: ' + url, 'link-2');
+  }
+}
 function setAsymmetryDays(days) {
   const slider = document.getElementById('slider-days');
   if (slider) {
@@ -742,6 +1010,8 @@ function calculateSalaryProposals(baseSalary, ipcRate) {
     strike_committee: { yearly_nom: com_nom, yearly_real: com_real, cum_nom: com_cum_nom, cum_real: com_cum_real, total_5yr_nom: com_total_nom, total_5yr_real: com_total_real, arrears: 7500, delta_vs_co_nom: com_total_nom - co_total_nom, delta_vs_co_real: com_total_real - co_total_real }
   };
 }
+// Shared helper: set textContent by id (safe no-op if element missing)
+const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
 
 function updateWageSimulation() {
   const salaryInput = document.getElementById('sim-salary');
@@ -751,6 +1021,7 @@ function updateWageSimulation() {
   const badgeEl = document.getElementById('sim-salary-badge');
   if (badgeEl) badgeEl.textContent = `${curSalary.toLocaleString()} €`;
 
+  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
   const quinquenios = parseInt(document.getElementById('sim-quinquenios')?.value || document.getElementById('sim-trienios')?.value || '1', 10);
   const teleworkDays = parseInt(document.getElementById('sim-telework')?.value || '2', 10);
   const strikeDays = parseInt(document.getElementById('sim-strike-days')?.value || '5', 10);
@@ -889,8 +1160,27 @@ function updateWageSimulation() {
   const coNetMonthlyIncrease = coMonthlyIncrease * (1 - taxRate);
   const medNetMonthlyIncrease = medMonthlyIncrease * (1 - taxRate);
   const unionNetMonthlyIncrease = unionMonthlyIncrease * (1 - taxRate);
+  // --- SCENARIO 1 (Empresa) UI ---
+  setText('sc1-salary-y1', `${Math.round(coBaseSalary).toLocaleString()} €`);
+  setText('sc1-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc1-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc1-loss-badge', `${coRealLossPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc1-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
 
-  // Update Scenario 1 UI
+  // --- SCENARIO 2 (SIMA) UI ---
+  setText('sc2-salary-y1', `${Math.round(medBaseSalary).toLocaleString()} €`);
+  setText('sc2-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc2-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (100% IPC)`);
+  setText('sc2-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
+
+  // --- SCENARIO 3 (Comité) UI ---
+  setText('sc3-salary-y1', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('sc3-monthly', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc3-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc3-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc3-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
+
+  // Legacy fallbacks for compatibility
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
   setText('scen-co-salary-5yr', `${Math.round(coNomYear5).toLocaleString()} €`);
   setText('scen-co-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
@@ -898,16 +1188,12 @@ function updateWageSimulation() {
   setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
-
-  // Update Scenario 2 UI
   setText('scen-med-salary', `${Math.round(medBaseSalary).toLocaleString()} €`);
   setText('scen-med-salary-5yr', `${Math.round(medNomYear5).toLocaleString()} €`);
   setText('scen-med-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (+${medRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
-
-  // Update Scenario 3 UI
   setText('scen-union-salary', `${Math.round(unionBaseSalary).toLocaleString()} €`);
   setText('scen-union-salary-5yr', `${Math.round(unionNomYear5).toLocaleString()} €`);
   setText('scen-union-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
@@ -1006,21 +1292,279 @@ function updateWageSimulation() {
   setText('tb-prop-comite-diff', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
 
   // Differential KPI Cards
+  const simaNom5yrTot = medNomYear1 + (medBaseSalary * Math.pow(1 + ipcRate, 1)) + (medBaseSalary * Math.pow(1 + ipcRate, 2)) + (medBaseSalary * Math.pow(1 + ipcRate, 3)) + (medBaseSalary * Math.pow(1 + ipcRate, 4)) + 5000;
+  const simaDeltaCoNom = simaNom5yrTot - props.company.total_5yr_nom;
+  const simaDeltaCoReal = (simaNom5yrTot / cumDeflator4yr) - (props.company.total_5yr_nom / cumDeflator4yr);
+
   setText('kpi-diff-cgt-5yr', `+${Math.round(props.cgt.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-cgt-5yr-real', `+${Math.round(props.cgt.delta_vs_co_real).toLocaleString()} € reales`);
   setText('kpi-diff-comite-5yr', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-comite-5yr-real', `+${Math.round(props.strike_committee.delta_vs_co_real).toLocaleString()} € reales`);
+  setText('kpi-diff-sima-5yr', `+${Math.round(simaDeltaCoNom).toLocaleString()} €`);
+  setText('kpi-diff-sima-5yr-real', `+${Math.round(simaDeltaCoReal).toLocaleString()} € reales`);
 
   // Update Strike ROI
   setText('roi-strike-days-label', `${strikeDays} días`);
   setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
-  setText('roi-monthly-gain', `+${Math.round(netMonthlyGainInPocket).toLocaleString()} € netos/mes`);
+  setText('roi-monthly-gain', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} € netos/mes`);
   setText('roi-amortization-time', strikeDays === 0 ? '0 días' : `${amortizationMonths.toFixed(1)} meses (${Math.round(amortizationMonths * 4.3)} semanas)`);
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
+  // Sync URL so the current simulation is shareable
+  syncSimulatorURL(curSalary, document.getElementById('sim-shift')?.value || 'ordinaria',
+    strikeDays, quinquenios, pensionRate * 100, ipcRate * 100);
 
-  // Update 5-Year Cumulative Projection Chart
+  // Update Charts
+  updateSalaryEvolutionChart(curSalary, ipcRate);
   updateWagesChart(curSalary, ipcRate);
 }
+
+// ==================== SIMULATOR SHARE & EXPORT ====================
+function syncSimulatorURL(salary, shift, days, quinquenios, pension, ipc) {
+  const params = new URLSearchParams(window.location.search);
+  params.set('salary', salary);
+  params.set('shift', shift);
+  params.set('days', days);
+  params.set('q', quinquenios);
+  params.set('pension', pension);
+  params.set('ipc', ipc);
+  const newUrl = `${location.pathname}#tab-purchasing-power?${params.toString()}`;
+  history.replaceState(null, '', newUrl);
+}
+
+function shareSimulatorURL() {
+  const url = location.href;
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showToast('🔗 Vínculo del simulador copiado al portapapeles. ¡Compártelo en Telegram!', 'sky');
+    });
+  } else {
+    // fallback for non-secure contexts
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('🔗 Vínculo copiado al portapapeles.', 'sky');
+  }
+}
+
+function copySimulatorResult() {
+  const salary = parseFloat(document.getElementById('sim-salary')?.value || 50000).toLocaleString();
+  const shift = document.getElementById('sim-shift')?.value || 'ordinaria';
+  const days = document.getElementById('sim-strike-days')?.value || '5';
+  const q = document.getElementById('sim-quinquenios')?.value || '1';
+
+  const getText = id => document.getElementById(id)?.textContent?.trim() || '-';
+  const lines = [
+    `📊 *SIMULADOR SALARIAL — AIRBUS SPAIN 2026*`,
+    `Salario bruto: ${salary} € | Turno: ${shift} | Huelga: ${days} días | Quinquenios: ${q}`,
+    ``,
+    `📌 Oferta Empresa (+5%):`,
+    `  • Ganancia neta: ${getText('result-co-gain')}`,
+    `  • Mensual en nómina: ${getText('result-co-monthly')}`,
+    ``,
+    `📌 Preacuerdo SIMA (+9,5%):`,
+    `  • Ganancia neta: ${getText('result-med-gain')}`,
+    `  • Mensual en nómina: ${getText('result-med-monthly')}`,
+    ``,
+    `📌 Plataforma Comité (+12%):`,
+    `  • Ganancia neta: ${getText('result-union-gain')}`,
+    `  • Mensual en nómina: ${getText('result-union-monthly')}`,
+    ``,
+    `⏱ ROI Huelga: ${getText('roi-amortization-time')} para amortizar ${days} días de paro`,
+    `💶 Ganancia neta 5 años: ${getText('roi-5yr-gain')}`,
+    ``,
+    `🔗 Simulación completa: ${location.href}`
+  ].join('\n');
+
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(lines).then(() => {
+      showToast('📋 Resultado copiado al portapapeles en formato Telegram.', 'emerald');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = lines;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('📋 Resultado copiado.', 'emerald');
+  }
+}
+
+function restoreSimulatorFromURL() {
+  // Params may be after a hash: parse manually
+  const raw = location.href;
+  const qi = raw.indexOf('?');
+  if (qi === -1) return;
+  const params = new URLSearchParams(raw.slice(qi + 1));
+
+  const salary = params.get('salary');
+  const shift  = params.get('shift');
+  const days   = params.get('days');
+  const q      = params.get('q');
+  const pension= params.get('pension');
+  const ipc    = params.get('ipc');
+
+  if (!salary) return; // nothing to restore
+
+  if (salary) { const el = document.getElementById('sim-salary'); if (el) el.value = salary; }
+  if (shift)  { const el = document.getElementById('sim-shift');  if (el) el.value = shift; }
+  if (days)   { const el = document.getElementById('sim-strike-days'); if (el) el.value = days; }
+  if (q)      { const el = document.getElementById('sim-quinquenios'); if (el) el.value = q; }
+  if (pension){ const el = document.getElementById('sim-pension-rate'); if (el) el.value = pension; }
+  if (ipc)    { const el = document.getElementById('sim-ipc-rate'); if (el) el.value = ipc; }
+
+  // Navigate to the simulator tab
+  switchTab('tab-purchasing-power');
+  updateWageSimulation();
+  showToast('🔄 Simulación restaurada desde el vínculo compartido.', 'sky');
+}
+function initSalaryEvolutionChart() {
+  salaryEvolutionChart = renderResilientChart('salaryEvolutionChart', () => ({
+    type: 'line',
+    data: {
+      labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
+      datasets: [
+        {
+          label: 'Plataforma Comité (+12% + RSG IPC+1,5%)',
+          data: [50000, 56000, 58240, 60570, 62992, 65512],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          fill: false,
+          borderWidth: 3,
+          tension: 0.2,
+          pointRadius: 4,
+          pointBackgroundColor: '#10b981'
+        },
+        {
+          label: 'Preacuerdo SIMA (+9,5% + RSG 100% IPC)',
+          data: [50000, 54750, 56119, 57522, 58960, 60434],
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.08)',
+          fill: false,
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 4,
+          pointBackgroundColor: '#38bdf8'
+        },
+        {
+          label: 'Oferta Empresa (+5% Fraccionado, Techo 1%)',
+          data: [50000, 52500, 53025, 53555, 54091, 54632],
+          borderColor: '#f43f5e',
+          borderDash: [5, 4],
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 3,
+          pointBackgroundColor: '#f43f5e',
+          fill: false
+        },
+        {
+          label: 'Poder de Compra Real (Sin Blindaje IPC)',
+          data: [50000, 51220, 49970, 48751, 47562, 46402],
+          borderColor: '#64748b',
+          backgroundColor: 'rgba(100, 116, 139, 0.12)',
+          borderDash: [2, 2],
+          borderWidth: 1.5,
+          tension: 0.1,
+          pointRadius: 2,
+          pointBackgroundColor: '#64748b',
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        y: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: {
+            color: '#94a3b8',
+            callback: v => `${(v/1000).toFixed(0)}k €`
+          },
+          title: {
+            display: true,
+            text: 'Salario Bruto Anual (€/año)',
+            color: '#94a3b8',
+            font: { size: 10, weight: 'bold' }
+          }
+        },
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 11 } }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#38bdf8',
+          bodyColor: '#f8fafc',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              return ` ${context.dataset.label}: ${Math.round(context.raw).toLocaleString()} €/año`;
+            }
+          }
+        }
+      }
+    }
+  }));
+}
+
+function updateSalaryEvolutionChart(curSalary, ipcRate = 0.025) {
+  if (!salaryEvolutionChart) return;
+  const y0 = curSalary;
+  // Scenario 3: Union (+12%, then IPC + 1.5% annually)
+  const u1 = curSalary * 1.12;
+  const u2 = u1 * (1 + ipcRate + 0.015);
+  const u3 = u2 * (1 + ipcRate + 0.015);
+  const u4 = u3 * (1 + ipcRate + 0.015);
+  const u5 = u4 * (1 + ipcRate + 0.015);
+  const unionData = [y0, u1, u2, u3, u4, u5];
+
+  // Scenario 2: SIMA (+9.5%, then 100% IPC annually)
+  const s1 = curSalary * 1.095;
+  const s2 = s1 * (1 + ipcRate);
+  const s3 = s2 * (1 + ipcRate);
+  const s4 = s3 * (1 + ipcRate);
+  const s5 = s4 * (1 + ipcRate);
+  const simaData = [y0, s1, s2, s3, s4, s5];
+
+  // Scenario 1: Company (+5%, then min(ipc*0.25, 0.01))
+  const c1 = curSalary * 1.05;
+  const cRate = Math.min(ipcRate * 0.25, 0.01);
+  const c2 = c1 * (1 + cRate);
+  const c3 = c2 * (1 + cRate);
+  const c4 = c3 * (1 + cRate);
+  const c5 = c4 * (1 + cRate);
+  const companyData = [y0, c1, c2, c3, c4, c5];
+
+  // Real Deflated Value of Company Offer without RSG
+  const r1 = c1 / (1 + ipcRate);
+  const r2 = c2 / Math.pow(1 + ipcRate, 2);
+  const r3 = c3 / Math.pow(1 + ipcRate, 3);
+  const r4 = c4 / Math.pow(1 + ipcRate, 4);
+  const r5 = c5 / Math.pow(1 + ipcRate, 5);
+  const realData = [y0, r1, r2, r3, r4, r5];
+
+  salaryEvolutionChart.data.datasets[0].data = unionData.map(Math.round);
+  salaryEvolutionChart.data.datasets[1].data = simaData.map(Math.round);
+  salaryEvolutionChart.data.datasets[2].data = companyData.map(Math.round);
+  salaryEvolutionChart.data.datasets[3].data = realData.map(Math.round);
+  salaryEvolutionChart.update('none');
+}
+
 function initWagesChart() {
   wagesChart = renderResilientChart('wagesChart', () => ({
     type: 'line',
@@ -1198,14 +1742,40 @@ function renderStockMilestones(stockData) {
   }).join('');
 }
 
+let currentStockRange = 'ALL';
+
+function setStockTimeRange(range) {
+  currentStockRange = range;
+  document.querySelectorAll('.stock-range-btn').forEach(btn => {
+    btn.classList.remove('bg-rose-600', 'text-white', 'border-rose-500');
+    btn.classList.add('bg-slate-900', 'text-slate-300', 'border-slate-700');
+  });
+
+  const activeBtn = document.getElementById(`btn-stock-${range.toLowerCase()}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('bg-slate-900', 'text-slate-300', 'border-slate-700');
+    activeBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-500');
+  }
+
+  initAirbusStockChart();
+}
+
 function initAirbusStockChart() {
-  const stockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
-  if (stockData.length === 0) return;
+  const rawStockData = conflictData?.stock_market_analysis?.daily_history_conflict || [];
+  if (rawStockData.length === 0) return;
 
   // Render dynamic milestone cards
-  renderStockMilestones(stockData);
+  renderStockMilestones(rawStockData);
 
-  const latestEntry = stockData[stockData.length - 1];
+  // Apply time-range slice
+  let stockData = rawStockData;
+  if (currentStockRange === '1M') {
+    stockData = rawStockData.slice(-14);
+  } else if (currentStockRange === '3M') {
+    stockData = rawStockData.slice(-30);
+  }
+
+  const latestEntry = rawStockData[rawStockData.length - 1];
   if (latestEntry) {
     const priceEl = document.getElementById('stock-kpi-price');
     if (priceEl) priceEl.textContent = `${latestEntry.price.toFixed(2).replace('.', ',')} €`;
@@ -1215,7 +1785,6 @@ function initAirbusStockChart() {
       mcapEl.textContent = `${parseFloat(mcap).toLocaleString()} M€`;
     }
   }
-
   const labels = stockData.map(d => {
     const parts = d.date.split('-');
     return `${parts[2]}/${parts[1]}`;
@@ -2459,6 +3028,58 @@ function initTimeline() {
 }
 
 // ==================== THERMOMETER & BELUGA ====================
+let selectedBelugaTail = 'ALL';
+
+function setBelugaTailFilter(tail) {
+  selectedBelugaTail = tail;
+  document.querySelectorAll('.beluga-tail-btn').forEach(btn => {
+    const btnTail = btn.getAttribute('data-tail');
+    if (btnTail === tail) {
+      btn.className = "beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600 text-white transition";
+    } else {
+      btn.className = "beluga-tail-btn px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition";
+    }
+  });
+
+  initThermometerAndBeluga();
+}
+
+function renderBelugaFleet(beluga) {
+  const fleetGrid = document.getElementById('beluga-fleet-grid');
+  if (!fleetGrid || !beluga.all_aircraft) return;
+
+  const filteredAircraft = beluga.all_aircraft.filter(ac => {
+    if (selectedBelugaTail === 'ALL') return true;
+    return (ac.registration === selectedBelugaTail) || (ac.name && ac.name.includes(selectedBelugaTail)) || (ac.id === selectedBelugaTail);
+  });
+
+  fleetGrid.innerHTML = filteredAircraft.map(ac => {
+    const isAirborne = !!ac.airborne;
+    const statusText = ac.statusLabel || (isAirborne ? 'En Vuelo' : 'En Tierra');
+    const routeText = ac.routeLabel || ac.locationLabel || ac.currentSite || 'Base Toulouse';
+    const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
+
+    return `
+      <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-white font-mono flex items-center gap-1.5">
+            <i data-lucide="plane" class="w-3.5 h-3.5 ${isAirborne ? 'text-amber-400' : 'text-slate-400'}"></i>
+            <span>${ac.name || ac.id}</span>
+          </span>
+          <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
+        </div>
+        <p class="text-xs text-slate-300 font-medium">${routeText}</p>
+        <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
+          <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
+          <span>${altText}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
 function initThermometerAndBeluga() {
   const thermo = conflictData?.sentiment_thermometer;
   const beluga = conflictData?.beluga_logistics;
@@ -2483,32 +3104,7 @@ function initThermometerAndBeluga() {
   }
 
   if (beluga) {
-    const fleetGrid = document.getElementById('beluga-fleet-grid');
-    if (fleetGrid && beluga.all_aircraft) {
-      fleetGrid.innerHTML = beluga.all_aircraft.map(ac => {
-        const isAirborne = !!ac.airborne;
-        const statusText = ac.statusLabel || (isAirborne ? 'En Vuelo' : 'En Tierra');
-        const routeText = ac.routeLabel || ac.locationLabel || ac.currentSite || 'Base Toulouse';
-        const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
-
-        return `
-          <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
-            <div class="flex justify-between items-center">
-              <span class="text-xs font-bold text-white font-mono flex items-center gap-1.5">
-                <i data-lucide="plane" class="w-3.5 h-3.5 ${isAirborne ? 'text-amber-400' : 'text-slate-400'}"></i>
-                <span>${ac.name || ac.id}</span>
-              </span>
-              <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
-            </div>
-            <p class="text-xs text-slate-300 font-medium">${routeText}</p>
-            <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
-              <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
-              <span>${altText}</span>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
+    renderBelugaFleet(beluga);
 
     // European Routes Status Grid
     const routesGrid = document.getElementById('beluga-routes-grid');
@@ -2755,14 +3351,43 @@ function filterSources() {
   renderSourcesList(getFilteredSources());
 }
 
+let currentSourceSort = 'relevance';
+let onlyFeaturedSources = false;
+
+function setSourceSort(sortVal) {
+  currentSourceSort = sortVal;
+  renderSourcesList(getFilteredSources());
+}
+
+function toggleFeaturedSourcesOnly() {
+  onlyFeaturedSources = !onlyFeaturedSources;
+  const btn = document.getElementById('btn-filter-featured');
+  if (btn) {
+    if (onlyFeaturedSources) {
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 transition flex items-center gap-1";
+    } else {
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition flex items-center gap-1";
+    }
+  }
+  renderSourcesList(getFilteredSources());
+}
+
 function getFilteredSources() {
   const query = document.getElementById('source-search')?.value.toLowerCase().trim() || '';
   
-  return sourcesCatalogData.filter(s => {
+  let result = sourcesCatalogData.filter(s => {
     const normCat = normalizeCategory(s.category);
     const matchesCat = (selectedSourceCategory === 'ALL') || (normCat === selectedSourceCategory) || (s.category === selectedSourceCategory);
     
     if (!matchesCat) return false;
+
+    if (onlyFeaturedSources) {
+      const isKeyCategory = (normCat === 'Actas SIMA & Legal' || normCat === 'Convenios & BOE' || normCat === 'Informes Airbus SE');
+      const isLongDoc = (s.char_count && s.char_count > 4000);
+      const isKeyId = (s.id && (s.id.includes('sima') || s.id.includes('convenio') || s.id.includes('airbus_2025')));
+      if (!isKeyCategory && !isLongDoc && !isKeyId) return false;
+    }
+
     if (!query) return true;
 
     const title = (s.title || '').toLowerCase();
@@ -2773,6 +3398,19 @@ function getFilteredSources() {
 
     return title.includes(query) || id.includes(query) || summary.includes(query) || type.includes(query) || url.includes(query);
   });
+
+  // Apply Sorting
+  if (currentSourceSort === 'title_asc') {
+    result.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+  } else if (currentSourceSort === 'title_desc') {
+    result.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+  } else if (currentSourceSort === 'chars_desc') {
+    result.sort((a, b) => (b.char_count || 0) - (a.char_count || 0));
+  } else if (currentSourceSort === 'category') {
+    result.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+  }
+
+  return result;
 }
 
 function renderSourcesList(sources) {
@@ -3043,74 +3681,136 @@ function renderTelegramDocs(docs) {
 
 // ==================== DYNAMIC ISLAND & FLOATING HUD ====================
 function initFloatingHUD() {
-  const mainContainer = document.querySelector('main');
   const hud = document.getElementById('floating-hud');
-  const backToTop = document.getElementById('back-to-top');
-  if (!mainContainer) return;
+  const scrollPercentageEl = document.getElementById('scroll-percentage');
 
-  mainContainer.addEventListener('scroll', () => {
-    const st = mainContainer.scrollTop;
-    if (st > 120) {
-      if (hud) {
-        hud.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
-        hud.classList.add('opacity-100', 'translate-y-0');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    // Dynamic Island contraction / expansion
+    if (hud) {
+      if (scrollTop > 120) {
+        hud.classList.add('scale-95', 'opacity-95');
+      } else {
+        hud.classList.remove('scale-95', 'opacity-95');
       }
-      if (backToTop) {
-        backToTop.classList.remove('opacity-0', 'pointer-events-none');
-        backToTop.classList.add('opacity-100');
-      }
-    } else {
-      if (hud) {
-        hud.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
-        hud.classList.remove('opacity-100', 'translate-y-0');
-      }
-      if (backToTop) {
-        backToTop.classList.add('opacity-0', 'pointer-events-none');
-        backToTop.classList.remove('opacity-100');
-      }
+    }
+
+    // Calculate scroll percentage for dock
+    if (scrollPercentageEl && scrollHeight > 0) {
+      const pct = Math.min(100, Math.max(0, Math.round((scrollTop / scrollHeight) * 100)));
+      scrollPercentageEl.textContent = `${pct}%`;
     }
   }, { passive: true });
 }
 
 function scrollToTop() {
-  const mainContainer = document.querySelector('main');
-  if (mainContainer) {
-    mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleQuickCalculatorDrawer() {
-  const drawer = document.getElementById('quick-calc-drawer');
-  if (!drawer) return;
-  const isClosed = drawer.classList.contains('translate-x-full');
-  if (isClosed) {
-    drawer.classList.remove('translate-x-full');
-    syncDrawerCalculator();
-  } else {
-    drawer.classList.add('translate-x-full');
-  }
+function openGlassModal(title, contentHtml) {
+  const modal = document.getElementById('glass-detail-modal');
+  const titleEl = document.getElementById('modal-title');
+  const bodyEl = document.getElementById('modal-body');
+  if (!modal || !titleEl || !bodyEl) return;
+  
+  titleEl.innerHTML = title;
+  bodyEl.innerHTML = contentHtml;
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  if (window.lucide) lucide.createIcons();
 }
 
-function syncDrawerCalculator() {
-  const salaryInput = document.getElementById('drawer-input-salary');
-  const daysSlider = document.getElementById('drawer-slider-strike-days');
-  const daysVal = document.getElementById('drawer-strike-days-val');
-  const netStrikeCost = document.getElementById('drawer-net-strike-cost');
-  const recoveryVal = document.getElementById('drawer-recovery-val');
+function closeGlassModal() {
+  const modal = document.getElementById('glass-detail-modal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
+function openQuickCalcModal() {
+  const html = `
+    <div class="space-y-4">
+      <p class="text-xs text-slate-400">Simula tu descuento salarial neto por días de paro frente a la recuperación garantizada del VII Convenio (7.500 € + 12% en tablas).</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <label class="block text-xs font-semibold text-slate-300">Salario Bruto Anual (€):</label>
+          <input type="number" id="modal-input-salary" value="45000" step="1000" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-white font-mono text-sm focus:border-sky-400 focus:outline-none" oninput="syncModalCalculator()">
+        </div>
+        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-semibold text-slate-300">Días de Huelga:</span>
+            <span id="modal-strike-days-val" class="font-mono font-bold text-sky-400">5 días</span>
+          </div>
+          <input type="range" id="modal-slider-strike-days" min="1" max="30" value="5" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-sky-400 mt-2" oninput="syncModalCalculator()">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono">
+        <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-center">
+          <span class="text-[10px] text-rose-300/80 block uppercase tracking-wider">Descuento Neto</span>
+          <span id="modal-net-strike-cost" class="text-base font-bold text-rose-400">-443 €</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-center">
+          <span class="text-[10px] text-amber-300/80 block uppercase tracking-wider">Pérdida IPC (20-25)</span>
+          <span class="text-base font-bold text-amber-400">-26.027 €</span>
+        </div>
+        <div class="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
+          <span class="text-[10px] text-emerald-300/80 block uppercase tracking-wider">Recuperación Plataforma</span>
+          <span id="modal-recovery-val" class="text-base font-bold text-emerald-400">+12.900 €</span>
+        </div>
+      </div>
+      <div class="flex justify-end pt-2">
+        <button onclick="switchTab('tab-purchasing-power'); closeGlassModal();" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-blue-600/30">
+          <span>Ir al Simulador Salarial Completo</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  `;
+  openGlassModal('<i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i> Calculadora Salarial Rápida & ROI', html);
+  syncModalCalculator();
+}
+
+function syncModalCalculator() {
+  const salaryInput = document.getElementById('modal-input-salary');
+  const daysSlider = document.getElementById('modal-slider-strike-days');
+  const daysVal = document.getElementById('modal-strike-days-val');
+  const netStrikeCost = document.getElementById('modal-net-strike-cost');
+  const recoveryVal = document.getElementById('modal-recovery-val');
 
   if (!salaryInput || !daysSlider) return;
   const salary = parseFloat(salaryInput.value) || 45000;
   const days = parseInt(daysSlider.value, 10) || 5;
 
   if (daysVal) daysVal.textContent = `${days} día${days > 1 ? 's' : ''}`;
-
   const dailyGross = salary / 365.0;
   const dailyNet = dailyGross * 0.72;
   const totalNetLoss = dailyNet * days;
-
   if (netStrikeCost) netStrikeCost.textContent = `-${Math.round(totalNetLoss).toLocaleString()} €`;
-
-  // Recovery: 7,500€ + 12% on salary
   const recoveryEstimate = 7500 + (salary * 0.12);
   if (recoveryVal) recoveryVal.textContent = `+${Math.round(recoveryEstimate).toLocaleString()} €`;
 }
+
+function toggleQuickCalculatorDrawer() {
+  openQuickCalcModal();
+}
+
+function syncDrawerCalculator() {
+  syncModalCalculator();
+}
+
+// Global key listeners for modal closing
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeGlassModal();
+    closeSourceModal();
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const glassModal = document.getElementById('glass-detail-modal');
+  if (glassModal && !glassModal.classList.contains('hidden') && e.target === glassModal) {
+    closeGlassModal();
+  }
+});

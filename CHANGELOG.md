@@ -2,6 +2,26 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [012-salary-simulator-redesign] - 2026-09-01
+
+### Added
+- **3-Proposal Scenario Cards with Pure CSS Math Tooltips (User Story 1 - MVP)**:
+  - Replaced crowded text breakdown with 3 responsive scenario cards: *Oferta Patronal Airbus (+5% Fraccionado)*, *Preacuerdo SIMA (+9,5% Consolidado)*, and *Plataforma del Comité (+12,0% en Tablas)*.
+  - Added pure CSS monospace formula tooltips (`.math-tip`) displaying algebraic calculations for Year 1 Salary ($S_1 = S_0 \times (1 + r)$), monthly net raises, 5-year deflated real purchasing power, arrears, RSG revision clauses, and total net benefit.
+- **Interactive Year-by-Year Wage Evolution Chart (User Story 2)**:
+  - Added `#salaryEvolutionChart` (Chart.js) rendering 6-year trajectory lines (2025–2030) comparing the 3 proposals against inflation decay, including shaded area for unhedged real wage erosion.
+  - Integrated chart lifecycle with `renderResilientChart()` and reactive updates on salary, shift, seniority, and CPI adjustments.
+- **Compact Strike ROI Calculator & Differential 5-Year KPIs (User Story 3)**:
+  - Added streamlined strike sacrifice calculator vs. permanent table gain (amortization in ~1.6–1.9 months).
+  - Integrated differential KPI summary cards highlighting 5-year cumulative gains (*Comité vs. Empresa* and *SIMA vs. Empresa* in nominal and real terms).
+
+### Changed
+- Streamlined `#tab-purchasing-power` layout by removing redundant 14-row breakdown tables and disconnected audit blocks.
+
+### Technical Notes
+- Zero external tooltip dependencies: pure CSS hover/focus popup with touch support for mobile viewports.
+- Maintained 100% mathematical and constitutional invariant integrity across all 14 validation rules.
+
 ## [010-sync-telegram-news-notebooklm] - 2026-08-31
 
 ### Added
