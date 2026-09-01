@@ -595,7 +595,7 @@ const TAB_SECTION_MAP = {
   'tab-industrial': {
     title: 'Beluga / Logística',
     sections: [
-      { id: 'sec-industrial-thermo', label: 'Termómetro de Presión', icon: 'flame' },
+      { id: 'sec-industrial-hero', label: 'Monitor Estrangulamiento JIT', icon: 'shield-alert' },
       { id: 'sec-industrial-beluga', label: 'Flota BelugaXL Live', icon: 'compass' },
       { id: 'sec-industrial-routes', label: 'Rutas & Conexiones FALs', icon: 'navigation' },
       { id: 'sec-industrial-movements', label: 'Registro de Movimientos', icon: 'history' },
@@ -627,7 +627,7 @@ const TAB_SECTION_MAP = {
   'tab-evidence': {
     title: 'Evidencias',
     sections: [
-      { id: 'sec-evidence-media-feed', label: 'Feed Redes & Prensa en Vivo', icon: 'newspaper' },
+      { id: 'sec-evidence-media-feed', label: 'Termómetro & Feed Redes', icon: 'flame' },
       { id: 'sec-evidence-sources', label: 'Fuentes Primarias (269+)', icon: 'book-open' },
       { id: 'sec-evidence-telegram', label: 'Canal Telegram & Docs', icon: 'send' },
       { id: 'sec-evidence-benchmarks', label: 'Benchmark Conflictos', icon: 'award' }
