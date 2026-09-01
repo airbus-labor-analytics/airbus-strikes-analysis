@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TimelineFreshnessReport",
+  "description": "Validation output from timeline freshness checker",
+  "type": "object",
+  "required": [
+    "reference_date",
+    "latest_milestone_date",
+    "days_delta",
+    "status_code",
+    "badge_color",
+    "headline",
+    "action_required"
+  ],
+  "properties": {
+    "reference_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "latest_milestone_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "days_delta": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status_code": {
+      "type": "string",
+      "enum": ["UP_TO_DATE", "PENDING_TODAY", "STALE_ALERT", "WEEKEND_PAUSE"]
+    },
+    "badge_color": {
+      "type": "string",
+      "enum": ["emerald", "amber", "rose", "sky"]
+    },
+    "headline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "action_required": {
+      "type": "boolean"
+    },
+    "total_milestones": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}
