@@ -6,16 +6,20 @@ All notable changes to the Airbus Spain 2026 Strike Analytics project will be do
 
 ### Added
 - **Dynamic Custom Salary Proposal Builder & Simulator (User Story 2)**:
-  - Added in-card interactive controls inside Card 3 (`#sc3-custom`): Initial wage increase slider (`0%` to `25%` in 0.5% steps), retroactive arrears dropdown (`0 €` to `15.000 €`), RSG inflation protection modes (`100% IPC`, `IPC + Margin`, `Fixed / No IPC`), and inflation caps (`3%`, `4%`, `5%`, or `Sin tope`).
+  - Added in-card interactive controls inside Card 3 (`#sc3-custom`): Dual keyboard-writable numeric inputs paired with range sliders for initial wage increase ($S_1\%$) and retroactive arrears (€), quick chips (`0€`, `2k€`, `4k€`, `7.5k€`, `10k€`), RSG inflation protection modes (`100% IPC`, `IPC + Margen`, `Tasa fija`), IPC linkage toggle, custom margin input ($\pm\Delta\%$), and configurable hyperinflation cap input.
   - Added 3 instant one-click presets: *Pérdida Cero* ($r_0 = \text{IPC}$, 0 € arrears), *Recuperación 2030* (solved $r^*$ horizon rate + 5.000 € arrears + IPC + 1%), and *Equilibrio* (8,0% initial + 4.000 € arrears + 3% cap).
   - Implemented client-side compounding engine `evaluateAnnualRaise()` and recovery horizon solver `solveRecoveryInitialRaise()` executing in $<20\text{ ms}$.
 - **Canonical Offers & Fictional SIMA Offer Elimination (User Story 1 - MVP)**:
   - Eliminated hardcoded references to unverified 9.5% SIMA wage figures across codebase and dashboard.
   - Standardized canonical benchmark scenario cards: *Oferta Patronal (+5% Fraccionado)* and *Plataforma del Comité (+12% Íntegro en Tablas)*.
-  - Linked Card 3 reactively to the custom proposal simulator with pure CSS formula tooltips.
+  - Added explicit algebraic formula tooltips (`.math-tip`) across all 3 comparison cards detailing April Effect deductions, inflation decay, compounding factors $(1+r)^t$, deflators $(1+i)^t$, and net tax adjustments.
 - **Differential KPIs & Multi-Series Chart Reactivity (User Story 3)**:
   - Replaced SIMA differential KPI card with *Tu Propuesta Personalizada vs. Oferta Patronal (+5%)* calculating 5-year nominal and real purchasing power differentials.
   - Updated `#salaryEvolutionChart` and `#wagesChart` datasets with dynamic live-updated series for custom proposals (Cyan `#38bdf8`).
+
+### Fixed
+- Replaced rigid dropdowns with bidirectional keyboard-writable numeric inputs in the custom proposal builder and locked chart reactivity.
+- Added comprehensive mathematical transparency tooltips across all proposal scenario cards.
 
 ### Technical Notes
 - Preserved 100% mathematical invariant integrity across all 14 validation rules.
