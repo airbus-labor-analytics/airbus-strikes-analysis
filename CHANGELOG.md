@@ -2,6 +2,23 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [015-beluga-last-movements] - 2026-09-01
+
+### Added
+- **Recent Beluga Flight Movements Feed (User Story 1 - MVP)**:
+  - Implemented `#sec-industrial-movements` container and `#beluga-movements-container` in Module 2 (`#tab-industrial`).
+  - Added `renderBelugaMovements()` in `dashboard/app.js` displaying verified flight legs sorted newest first with route corridors, flight status badges, timestamps, component payloads, and Getafe embargo indicators.
+  - Created `BelugaMovement` schema and integrated `get_recent_movements()` in `src/beluga_tracker.py` combining live airborne flights and calibrated European legs.
+- **Interactive Airframe & Corridor Filtering (User Story 2)**:
+  - Linked `setBelugaTailFilter()` in `dashboard/app.js` to synchronously re-filter both `#beluga-fleet-grid` and `#beluga-movements-container` across `ALL` and individual BelugaXL airframes (`XL1`..`XL6`).
+  - Added dynamic empty-state feedback with active filter indicators.
+- **Resilient Background Polling & Calibrated Fallback (User Story 3)**:
+  - Integrated seamless movement updates into 30s background live polling (`startBelugaLivePolling()`) with zero DOM flicker.
+  - Provided deterministic calibrated fallback data for offline and demo environments.
+
+### Technical Notes
+- All 14 mathematical invariants and 61 unit/integration tests verified passing with zero regressions.
+
 ## [014-isolate-and-validate-beluga-engine] - 2026-09-01
 
 ### Added
