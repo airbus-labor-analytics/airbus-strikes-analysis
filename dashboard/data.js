@@ -2243,1236 +2243,128 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-09-01T13:42:51+00:00",
+    "timestamp": "2026-09-01T16:15:48+00:00",
     "fleet_count": 6,
-    "airborne_count": 5,
+    "airborne_count": 4,
     "tracked_count": 5,
     "getafe_connected_aircraft": [
       {
-        "id": "BXL-06",
-        "name": "BelugaXL 6",
-        "registration": "F-GXLO",
-        "callsign": "BGA146R",
+        "id": "BXL-03",
+        "name": "BelugaXL 3",
+        "registration": "F-GXLI",
+        "callsign": "BGA221Y",
         "status": "En Vuelo",
-        "current_site": "Getafe",
-        "location_label": "Near Getafe",
-        "route_from": "",
-        "route_to": "",
-        "lat": 40.2706,
-        "lon": -3.9093,
-        "altitude_ft": 5925,
-        "speed_kt": 254,
+        "current_site": "St Nazaire",
+        "location_label": "Near St Nazaire",
+        "route_from": "Broughton",
+        "route_to": "Getafe",
+        "lat": 47.2746,
+        "lon": -2.2565,
+        "altitude_ft": 3800,
+        "speed_kt": 176,
         "is_spain_connection": true,
         "strike_relevance": "Bloqueo HTP Getafe (Veto Salida)"
       }
     ],
     "other_airborne_aircraft": [
       {
-        "id": "BXL-01",
-        "name": "BelugaXL 1",
-        "registration": "F-GXLG",
-        "callsign": "BGA141G",
-        "status": "En Vuelo",
-        "current_site": "Broughton",
-        "location_label": "Near Broughton",
-        "route_from": "",
-        "route_to": "",
-        "lat": 53.1243,
-        "lon": -3.0656,
-        "altitude_ft": 3675,
-        "speed_kt": 180,
-        "is_spain_connection": false,
-        "strike_relevance": "Circulación Europea"
-      },
-      {
-        "id": "BXL-03",
-        "name": "BelugaXL 3",
-        "registration": "F-GXLI",
-        "callsign": "BGA132Y",
-        "status": "En Vuelo",
-        "current_site": "Bremen",
-        "location_label": "Near Bremen",
-        "route_from": "Hamburg",
-        "route_to": "St Nazaire",
-        "lat": 52.5289,
-        "lon": 6.3385,
-        "altitude_ft": 32775,
-        "speed_kt": 371,
-        "is_spain_connection": false,
-        "strike_relevance": "Circulación Europea"
-      },
-      {
-        "id": "BXL-04",
-        "name": "BelugaXL 4",
-        "registration": "F-GXLJ",
-        "callsign": "BGA314J",
-        "status": "En Vuelo",
-        "current_site": "Toulouse",
-        "location_label": "Near Toulouse",
-        "route_from": "Toulouse",
-        "route_to": "St Nazaire",
-        "lat": 44.3439,
-        "lon": 0.7789,
-        "altitude_ft": 22725,
-        "speed_kt": 370,
-        "is_spain_connection": false,
-        "strike_relevance": "Circulación Europea"
-      },
-      {
         "id": "BXL-05",
         "name": "BelugaXL 5",
         "registration": "F-GXLN",
-        "callsign": "BGA214N",
+        "callsign": "BGA145N",
         "status": "En Vuelo",
-        "current_site": "Broughton",
-        "location_label": "Near Broughton",
-        "route_from": "St Nazaire",
-        "route_to": "Broughton",
-        "lat": 53.0299,
-        "lon": -3.1974,
-        "altitude_ft": 10275,
-        "speed_kt": 248,
+        "current_site": "Bremen",
+        "location_label": "Near Bremen",
+        "route_from": "Broughton",
+        "route_to": "Bremen",
+        "lat": 52.8956,
+        "lon": 5.3437,
+        "altitude_ft": 33775,
+        "speed_kt": 421,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
+      {
+        "id": "BXL-06",
+        "name": "BelugaXL 6",
+        "registration": "F-GXLO",
+        "callsign": "BGA261R",
+        "status": "En Vuelo",
+        "current_site": "Toulouse",
+        "location_label": "Near Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.3956,
+        "lon": 1.4556,
+        "altitude_ft": 3500,
+        "speed_kt": 226,
         "is_spain_connection": false,
         "strike_relevance": "Circulación Europea"
       }
     ],
-    "grounded_aircraft": [],
-    "all_aircraft": [
+    "grounded_aircraft": [
+      {
+        "id": "BXL-04",
+        "name": "BelugaXL 4",
+        "registration": "F-GXLJ",
+        "callsign": "BGA143J",
+        "status": "En Tierra",
+        "current_site": "Broughton",
+        "location_label": "At Broughton",
+        "route_from": "",
+        "route_to": "",
+        "lat": 53.177,
+        "lon": -2.9723,
+        "altitude_ft": null,
+        "speed_kt": 10,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
       {
         "id": "BXL-01",
         "name": "BelugaXL 1",
         "registration": "F-GXLG",
-        "icao24": "395d66",
         "callsign": "BGA141G",
-        "generation": "BelugaXL",
-        "currentSite": "Broughton",
-        "locationLabel": "Near Broughton",
-        "routeLabel": "Near Broughton",
-        "routeFrom": null,
-        "routeTo": null,
-        "airborne": true,
-        "onGround": false,
-        "lat": 53.1243,
-        "lon": -3.0656,
-        "trueTrack": 224.33,
-        "speedKt": 180,
-        "altitudeFt": 3675,
-        "statusLabel": "Airborne 3675 ft / 180 kt",
-        "mission": "Callsign BGA141G. Groundspeed 180 kt. Climbing 512 fpm.",
-        "note": "Nearest Airbus site Broughton (8 km).",
-        "positionMode": "live",
-        "timingMode": "none",
-        "nextEta": null,
-        "updatedAt": "2026-09-01T13:42:33+00:00",
-        "trackPoints": [
-          {
-            "lat": 53.5355,
-            "lon": 9.8281,
-            "updatedAt": "2026-09-01T10:21:34+00:00",
-            "airborne": false,
-            "currentSite": "Hamburg",
-            "locationLabel": "At Hamburg",
-            "statusLabel": "On ground at Hamburg",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.4643,
-            "lon": 9.5911,
-            "updatedAt": "2026-09-01T10:31:35+00:00",
-            "airborne": true,
-            "currentSite": "Hamburg",
-            "locationLabel": "Near Hamburg",
-            "statusLabel": "Airborne 6950 ft / 252 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Bremen",
-            "eta": null
-          },
-          {
-            "lat": 53.4565,
-            "lon": 9.5475,
-            "updatedAt": "2026-09-01T10:31:58+00:00",
-            "airborne": true,
-            "currentSite": "Hamburg",
-            "locationLabel": "Near Hamburg",
-            "statusLabel": "Airborne 8025 ft / 256 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Bremen",
-            "eta": null
-          },
-          {
-            "lat": 53.4512,
-            "lon": 9.5173,
-            "updatedAt": "2026-09-01T10:32:14+00:00",
-            "airborne": true,
-            "currentSite": "Hamburg",
-            "locationLabel": "Near Hamburg",
-            "statusLabel": "Airborne 8925 ft / 256 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Bremen",
-            "eta": null
-          },
-          {
-            "lat": 53.4276,
-            "lon": 9.3811,
-            "updatedAt": "2026-09-01T10:33:21+00:00",
-            "airborne": true,
-            "currentSite": "Hamburg",
-            "locationLabel": "Near Hamburg",
-            "statusLabel": "Airborne 11200 ft / 300 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Bremen",
-            "eta": null
-          },
-          {
-            "lat": 53.4091,
-            "lon": 9.275,
-            "updatedAt": "2026-09-01T10:34:09+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 13225 ft / 309 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3782,
-            "lon": 9.0993,
-            "updatedAt": "2026-09-01T10:35:24+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 16225 ft / 319 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3541,
-            "lon": 8.9628,
-            "updatedAt": "2026-09-01T10:36:20+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 17950 ft / 337 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3249,
-            "lon": 8.7998,
-            "updatedAt": "2026-09-01T10:37:25+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 20075 ft / 348 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3152,
-            "lon": 8.7459,
-            "updatedAt": "2026-09-01T10:37:46+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 20800 ft / 347 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3065,
-            "lon": 8.6971,
-            "updatedAt": "2026-09-01T10:38:05+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 21475 ft / 347 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.2965,
-            "lon": 8.6441,
-            "updatedAt": "2026-09-01T10:38:26+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 22025 ft / 351 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "St Nazaire",
-            "eta": null
-          },
-          {
-            "lat": 53.2829,
-            "lon": 8.5825,
-            "updatedAt": "2026-09-01T10:38:50+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 22625 ft / 356 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "St Nazaire",
-            "eta": null
-          },
-          {
-            "lat": 53.2719,
-            "lon": 8.5331,
-            "updatedAt": "2026-09-01T10:39:09+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 23125 ft / 359 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "St Nazaire",
-            "eta": null
-          },
-          {
-            "lat": 53.2679,
-            "lon": 8.5146,
-            "updatedAt": "2026-09-01T10:39:16+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 23300 ft / 360 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "St Nazaire",
-            "eta": null
-          },
-          {
-            "lat": 53.2479,
-            "lon": 8.4172,
-            "updatedAt": "2026-09-01T10:39:53+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 24250 ft / 364 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.2378,
-            "lon": 8.3606,
-            "updatedAt": "2026-09-01T10:40:14+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 24725 ft / 366 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.2092,
-            "lon": 8.2058,
-            "updatedAt": "2026-09-01T10:41:11+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 25950 ft / 374 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.1752,
-            "lon": 8.0277,
-            "updatedAt": "2026-09-01T10:42:16+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 27400 ft / 375 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.1436,
-            "lon": 7.86,
-            "updatedAt": "2026-09-01T10:43:17+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 28850 ft / 371 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.1148,
-            "lon": 7.7093,
-            "updatedAt": "2026-09-01T10:44:13+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 30500 ft / 356 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.0844,
-            "lon": 7.5518,
-            "updatedAt": "2026-09-01T10:45:15+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 31825 ft / 352 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.0543,
-            "lon": 7.3972,
-            "updatedAt": "2026-09-01T10:46:16+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 33400 ft / 340 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.0234,
-            "lon": 7.2398,
-            "updatedAt": "2026-09-01T10:47:21+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34675 ft / 330 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 52.9942,
-            "lon": 7.0944,
-            "updatedAt": "2026-09-01T10:48:22+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34700 ft / 330 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 52.9197,
-            "lon": 6.3598,
-            "updatedAt": "2026-09-01T10:53:22+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34725 ft / 331 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 52.9505,
-            "lon": 5.6083,
-            "updatedAt": "2026-09-01T10:58:19+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34725 ft / 336 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.014,
-            "lon": 4.8255,
-            "updatedAt": "2026-09-01T11:03:21+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34700 ft / 343 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.1253,
-            "lon": 3.2579,
-            "updatedAt": "2026-09-01T11:13:16+00:00",
-            "airborne": true,
-            "currentSite": "Bremen",
-            "locationLabel": "Near Bremen",
-            "statusLabel": "Airborne 34700 ft / 345 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.2466,
-            "lon": 1.5056,
-            "updatedAt": "2026-09-01T11:24:20+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 33700 ft / 349 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.345,
-            "lon": 0.6387,
-            "updatedAt": "2026-09-01T11:29:48+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 33700 ft / 346 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3675,
-            "lon": 0.3805,
-            "updatedAt": "2026-09-01T11:31:25+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 33700 ft / 353 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.392,
-            "lon": 0.0501,
-            "updatedAt": "2026-09-01T11:33:26+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 33700 ft / 356 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.3985,
-            "lon": -0.0378,
-            "updatedAt": "2026-09-01T11:33:58+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 33350 ft / 354 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.4099,
-            "lon": -0.192,
-            "updatedAt": "2026-09-01T11:34:55+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 31150 ft / 361 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.4213,
-            "lon": -0.3306,
-            "updatedAt": "2026-09-01T11:35:44+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 28925 ft / 369 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.4814,
-            "lon": -0.9323,
-            "updatedAt": "2026-09-01T11:39:27+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 20325 ft / 332 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.4974,
-            "lon": -1.0793,
-            "updatedAt": "2026-09-01T11:40:26+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 18000 ft / 325 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5138,
-            "lon": -1.2301,
-            "updatedAt": "2026-09-01T11:41:27+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 15625 ft / 321 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.524,
-            "lon": -1.3354,
-            "updatedAt": "2026-09-01T11:42:11+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 14250 ft / 309 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5286,
-            "lon": -1.386,
-            "updatedAt": "2026-09-01T11:42:33+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 13525 ft / 305 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5369,
-            "lon": -1.4693,
-            "updatedAt": "2026-09-01T11:43:09+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12550 ft / 298 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5426,
-            "lon": -1.5245,
-            "updatedAt": "2026-09-01T11:43:33+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 300 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5487,
-            "lon": -1.5822,
-            "updatedAt": "2026-09-01T11:43:58+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 300 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5525,
-            "lon": -1.6183,
-            "updatedAt": "2026-09-01T11:44:14+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 302 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5584,
-            "lon": -1.6764,
-            "updatedAt": "2026-09-01T11:44:39+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 298 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5631,
-            "lon": -1.7244,
-            "updatedAt": "2026-09-01T11:45:00+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12475 ft / 298 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5714,
-            "lon": -1.8042,
-            "updatedAt": "2026-09-01T11:45:35+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 299 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.578,
-            "lon": -1.8725,
-            "updatedAt": "2026-09-01T11:46:05+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 306 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.58,
-            "lon": -1.8949,
-            "updatedAt": "2026-09-01T11:46:14+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 307 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5876,
-            "lon": -2.0136,
-            "updatedAt": "2026-09-01T11:47:04+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 310 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5865,
-            "lon": -2.0665,
-            "updatedAt": "2026-09-01T11:47:26+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 308 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.586,
-            "lon": -2.0881,
-            "updatedAt": "2026-09-01T11:47:35+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 307 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5844,
-            "lon": -2.1704,
-            "updatedAt": "2026-09-01T11:48:10+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 302 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5837,
-            "lon": -2.2095,
-            "updatedAt": "2026-09-01T11:48:27+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 300 kt",
-            "routeFrom": "Bremen",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5825,
-            "lon": -2.2727,
-            "updatedAt": "2026-09-01T11:48:54+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 300 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5811,
-            "lon": -2.336,
-            "updatedAt": "2026-09-01T11:49:21+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 299 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5798,
-            "lon": -2.3885,
-            "updatedAt": "2026-09-01T11:49:44+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 299 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5786,
-            "lon": -2.4373,
-            "updatedAt": "2026-09-01T11:50:05+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 300 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5774,
-            "lon": -2.4963,
-            "updatedAt": "2026-09-01T11:50:30+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12450 ft / 301 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.5745,
-            "lon": -2.5498,
-            "updatedAt": "2026-09-01T11:50:53+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 12125 ft / 298 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.562,
-            "lon": -2.5929,
-            "updatedAt": "2026-09-01T11:51:14+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 11525 ft / 298 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5399,
-            "lon": -2.6637,
-            "updatedAt": "2026-09-01T11:51:49+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 10625 ft / 285 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.5245,
-            "lon": -2.7133,
-            "updatedAt": "2026-09-01T11:52:15+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 10225 ft / 271 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Broughton",
-            "eta": null
-          },
-          {
-            "lat": 53.4989,
-            "lon": -2.7952,
-            "updatedAt": "2026-09-01T11:52:59+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 8900 ft / 271 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.4761,
-            "lon": -2.8682,
-            "updatedAt": "2026-09-01T11:53:39+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 7900 ft / 263 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.4645,
-            "lon": -2.9046,
-            "updatedAt": "2026-09-01T11:53:59+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 7475 ft / 263 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.45,
-            "lon": -2.9506,
-            "updatedAt": "2026-09-01T11:54:25+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 7400 ft / 258 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.4014,
-            "lon": -3.1043,
-            "updatedAt": "2026-09-01T11:55:53+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 7400 ft / 244 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1238,
-            "lon": -3.1376,
-            "updatedAt": "2026-09-01T11:59:58+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 5225 ft / 262 kt",
-            "routeFrom": "Broughton",
-            "routeTo": "Toulouse",
-            "eta": null
-          },
-          {
-            "lat": 53.1082,
-            "lon": -3.0445,
-            "updatedAt": "2026-09-01T12:00:48+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 4225 ft / 275 kt",
-            "routeFrom": "Broughton",
-            "routeTo": "Hamburg",
-            "eta": null
-          },
-          {
-            "lat": 53.1129,
-            "lon": -3.0044,
-            "updatedAt": "2026-09-01T12:01:08+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 3850 ft / 272 kt",
-            "routeFrom": "Broughton",
-            "routeTo": "Hamburg",
-            "eta": null
-          },
-          {
-            "lat": 53.1174,
-            "lon": -2.9669,
-            "updatedAt": "2026-09-01T12:01:26+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 3550 ft / 267 kt",
-            "routeFrom": "Broughton",
-            "routeTo": "Hamburg",
-            "eta": null
-          },
-          {
-            "lat": 53.2551,
-            "lon": -2.7804,
-            "updatedAt": "2026-09-01T12:04:58+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 2225 ft / 175 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.2654,
-            "lon": -2.8432,
-            "updatedAt": "2026-09-01T12:05:58+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 2250 ft / 139 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1895,
-            "lon": -2.9611,
-            "updatedAt": "2026-09-01T12:09:04+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 425 ft / 119 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Getafe",
-            "eta": null
-          },
-          {
-            "lat": 53.1878,
-            "lon": -2.9636,
-            "updatedAt": "2026-09-01T12:09:09+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 375 ft / 117 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Getafe",
-            "eta": null
-          },
-          {
-            "lat": 53.1765,
-            "lon": -2.98,
-            "updatedAt": "2026-09-01T12:09:43+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1721,
-            "lon": -2.9866,
-            "updatedAt": "2026-09-01T12:10:58+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1748,
-            "lon": -2.9825,
-            "updatedAt": "2026-09-01T12:12:52+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1772,
-            "lon": -2.9727,
-            "updatedAt": "2026-09-01T12:15:44+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1785,
-            "lon": -2.9749,
-            "updatedAt": "2026-09-01T13:24:58+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1851,
-            "lon": -2.9676,
-            "updatedAt": "2026-09-01T13:29:53+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1851,
-            "lon": -2.9676,
-            "updatedAt": "2026-09-01T13:31:53+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1851,
-            "lon": -2.9676,
-            "updatedAt": "2026-09-01T13:35:43+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1851,
-            "lon": -2.9676,
-            "updatedAt": "2026-09-01T13:38:43+00:00",
-            "airborne": false,
-            "currentSite": "Broughton",
-            "locationLabel": "At Broughton",
-            "statusLabel": "On ground at Broughton",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1806,
-            "lon": -2.974,
-            "updatedAt": "2026-09-01T13:40:33+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne -75 ft / 98 kt",
-            "routeFrom": "Hamburg",
-            "routeTo": "Getafe",
-            "eta": null
-          },
-          {
-            "lat": 53.1587,
-            "lon": -3.0069,
-            "updatedAt": "2026-09-01T13:41:19+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 2075 ft / 137 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1287,
-            "lon": -3.0584,
-            "updatedAt": "2026-09-01T13:42:25+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 3625 ft / 169 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          },
-          {
-            "lat": 53.1243,
-            "lon": -3.0656,
-            "updatedAt": "2026-09-01T13:42:33+00:00",
-            "airborne": true,
-            "currentSite": "Broughton",
-            "locationLabel": "Near Broughton",
-            "statusLabel": "Airborne 3675 ft / 180 kt",
-            "routeFrom": null,
-            "routeTo": null,
-            "eta": null
-          }
-        ]
-      },
+        "status": "En Tierra",
+        "current_site": "Toulouse",
+        "location_label": "At Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.626,
+        "lon": 1.3588,
+        "altitude_ft": null,
+        "speed_kt": 0,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      }
+    ],
+    "all_aircraft": [
       {
         "id": "BXL-03",
         "name": "BelugaXL 3",
         "registration": "F-GXLI",
         "icao24": "395d68",
-        "callsign": "BGA132Y",
+        "callsign": "BGA221Y",
         "generation": "BelugaXL",
-        "currentSite": "Bremen",
-        "locationLabel": "Near Bremen",
-        "routeLabel": "Hamburg to St Nazaire",
-        "routeFrom": "Hamburg",
-        "routeTo": "St Nazaire",
+        "currentSite": "St Nazaire",
+        "locationLabel": "Near St Nazaire",
+        "routeLabel": "Broughton to Getafe",
+        "routeFrom": "Broughton",
+        "routeTo": "Getafe",
         "airborne": true,
         "onGround": false,
-        "lat": 52.5289,
-        "lon": 6.3385,
-        "trueTrack": 226.85,
-        "speedKt": 371,
-        "altitudeFt": 32775,
-        "statusLabel": "Airborne 32775 ft / 371 kt",
-        "mission": "Callsign BGA132Y. Groundspeed 371 kt.",
-        "note": "Estimated from live heading 227 degrees and groundspeed. Nearest Airbus site Bremen (176.5 km).",
+        "lat": 47.2746,
+        "lon": -2.2565,
+        "trueTrack": 181.3,
+        "speedKt": 176,
+        "altitudeFt": 3800,
+        "statusLabel": "Airborne 3800 ft / 176 kt",
+        "mission": "Callsign BGA221Y. Groundspeed 176 kt. Climbing 705 fpm.",
+        "note": "Estimated from live heading 181 degrees and groundspeed. Nearest Airbus site St Nazaire (3.3 km).",
         "positionMode": "live",
         "timingMode": "projected",
-        "nextEta": "2026-09-01T14:56:36+00:00",
-        "updatedAt": "2026-09-01T13:42:33+00:00",
+        "nextEta": "2026-09-01T18:40:00+00:00",
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.6219,
@@ -5693,6 +4585,1002 @@ window.CONFLICT_DATA = {
             "routeFrom": "Hamburg",
             "routeTo": "St Nazaire",
             "eta": null
+          },
+          {
+            "lat": 52.4855,
+            "lon": 6.2662,
+            "updatedAt": "2026-09-01T13:43:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.4363,
+            "lon": 6.1862,
+            "updatedAt": "2026-09-01T13:43:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.3972,
+            "lon": 6.1223,
+            "updatedAt": "2026-09-01T13:44:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.3703,
+            "lon": 6.0783,
+            "updatedAt": "2026-09-01T13:44:43+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.3449,
+            "lon": 6.0367,
+            "updatedAt": "2026-09-01T13:45:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.3193,
+            "lon": 5.9949,
+            "updatedAt": "2026-09-01T13:45:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.3085,
+            "lon": 5.9774,
+            "updatedAt": "2026-09-01T13:45:34+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32800 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.2719,
+            "lon": 5.9179,
+            "updatedAt": "2026-09-01T13:46:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.2388,
+            "lon": 5.8642,
+            "updatedAt": "2026-09-01T13:46:31+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.1925,
+            "lon": 5.7892,
+            "updatedAt": "2026-09-01T13:47:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.1732,
+            "lon": 5.7581,
+            "updatedAt": "2026-09-01T13:47:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.1639,
+            "lon": 5.7429,
+            "updatedAt": "2026-09-01T13:47:34+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.1135,
+            "lon": 5.6619,
+            "updatedAt": "2026-09-01T13:48:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.0719,
+            "lon": 5.595,
+            "updatedAt": "2026-09-01T13:48:48+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32825 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 52.048,
+            "lon": 5.5568,
+            "updatedAt": "2026-09-01T13:49:08+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32850 ft / 373 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.9978,
+            "lon": 5.4767,
+            "updatedAt": "2026-09-01T13:49:48+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32850 ft / 372 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7848,
+            "lon": 5.1392,
+            "updatedAt": "2026-09-01T13:52:43+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32875 ft / 372 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7572,
+            "lon": 5.096,
+            "updatedAt": "2026-09-01T13:53:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32875 ft / 372 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7301,
+            "lon": 5.0535,
+            "updatedAt": "2026-09-01T13:53:27+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32875 ft / 372 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.7048,
+            "lon": 5.0138,
+            "updatedAt": "2026-09-01T13:53:48+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32875 ft / 373 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.6791,
+            "lon": 4.9737,
+            "updatedAt": "2026-09-01T13:54:08+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32875 ft / 373 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.6552,
+            "lon": 4.9364,
+            "updatedAt": "2026-09-01T13:54:27+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33050 ft / 373 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.629,
+            "lon": 4.8956,
+            "updatedAt": "2026-09-01T13:54:48+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33225 ft / 373 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.5823,
+            "lon": 4.8229,
+            "updatedAt": "2026-09-01T13:55:27+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33550 ft / 371 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.5493,
+            "lon": 4.7719,
+            "updatedAt": "2026-09-01T13:55:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 371 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.5232,
+            "lon": 4.7315,
+            "updatedAt": "2026-09-01T13:56:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33875 ft / 370 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.4975,
+            "lon": 4.6917,
+            "updatedAt": "2026-09-01T13:56:36+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 369 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.4542,
+            "lon": 4.6251,
+            "updatedAt": "2026-09-01T13:57:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 368 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.435,
+            "lon": 4.5954,
+            "updatedAt": "2026-09-01T13:57:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 367 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.4019,
+            "lon": 4.5445,
+            "updatedAt": "2026-09-01T13:57:54+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 366 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.3764,
+            "lon": 4.5055,
+            "updatedAt": "2026-09-01T13:58:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 366 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.3473,
+            "lon": 4.4609,
+            "updatedAt": "2026-09-01T13:58:38+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 366 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 51.3212,
+            "lon": 4.421,
+            "updatedAt": "2026-09-01T13:59:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33900 ft / 367 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 50.8538,
+            "lon": 4.0638,
+            "updatedAt": "2026-09-01T14:03:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33950 ft / 383 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.3321,
+            "lon": 3.549,
+            "updatedAt": "2026-09-01T14:09:58+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34000 ft / 367 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 50.244,
+            "lon": 3.4378,
+            "updatedAt": "2026-09-01T14:11:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34000 ft / 363 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 50.0238,
+            "lon": 3.162,
+            "updatedAt": "2026-09-01T14:13:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34025 ft / 359 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.9406,
+            "lon": 3.0586,
+            "updatedAt": "2026-09-01T14:14:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34050 ft / 359 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.7848,
+            "lon": 2.8664,
+            "updatedAt": "2026-09-01T14:16:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34050 ft / 362 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.5494,
+            "lon": 2.579,
+            "updatedAt": "2026-09-01T14:20:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34075 ft / 358 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.4572,
+            "lon": 2.4673,
+            "updatedAt": "2026-09-01T14:21:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34075 ft / 357 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.3717,
+            "lon": 2.3645,
+            "updatedAt": "2026-09-01T14:22:17+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34075 ft / 357 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 49.1591,
+            "lon": 2.1105,
+            "updatedAt": "2026-09-01T14:25:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34125 ft / 358 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 48.9001,
+            "lon": 1.4816,
+            "updatedAt": "2026-09-01T14:30:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34125 ft / 348 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 48.6681,
+            "lon": 0.8412,
+            "updatedAt": "2026-09-01T14:35:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 34150 ft / 357 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 48.4135,
+            "lon": 0.1556,
+            "updatedAt": "2026-09-01T14:40:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 33250 ft / 358 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 48.0981,
+            "lon": -0.4979,
+            "updatedAt": "2026-09-01T14:45:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26475 ft / 382 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.7864,
+            "lon": -1.087,
+            "updatedAt": "2026-09-01T14:50:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15450 ft / 335 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.5529,
+            "lon": -1.5041,
+            "updatedAt": "2026-09-01T14:54:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7800 ft / 268 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.4491,
+            "lon": -1.6875,
+            "updatedAt": "2026-09-01T14:57:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3975 ft / 266 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.4024,
+            "lon": -1.7695,
+            "updatedAt": "2026-09-01T14:58:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 261 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3613,
+            "lon": -1.9046,
+            "updatedAt": "2026-09-01T14:59:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3300 ft / 178 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3539,
+            "lon": -1.9413,
+            "updatedAt": "2026-09-01T15:00:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2925 ft / 180 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3527,
+            "lon": -1.9473,
+            "updatedAt": "2026-09-01T15:00:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2875 ft / 179 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3429,
+            "lon": -1.9964,
+            "updatedAt": "2026-09-01T15:01:09+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2150 ft / 160 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3384,
+            "lon": -2.0191,
+            "updatedAt": "2026-09-01T15:01:34+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1850 ft / 149 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 47.3342,
+            "lon": -2.0396,
+            "updatedAt": "2026-09-01T15:01:53+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1550 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3301,
+            "lon": -2.0608,
+            "updatedAt": "2026-09-01T15:02:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1250 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3256,
+            "lon": -2.0825,
+            "updatedAt": "2026-09-01T15:02:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 950 ft / 143 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3217,
+            "lon": -2.1026,
+            "updatedAt": "2026-09-01T15:03:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 700 ft / 141 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3187,
+            "lon": -2.1171,
+            "updatedAt": "2026-09-01T15:03:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 500 ft / 140 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3139,
+            "lon": -2.1407,
+            "updatedAt": "2026-09-01T15:03:42+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 225 ft / 141 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3111,
+            "lon": -2.1545,
+            "updatedAt": "2026-09-01T15:04:04+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.314,
+            "lon": -2.1608,
+            "updatedAt": "2026-09-01T15:09:02+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.314,
+            "lon": -2.1608,
+            "updatedAt": "2026-09-01T15:10:02+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1609,
+            "updatedAt": "2026-09-01T15:11:05+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.161,
+            "updatedAt": "2026-09-01T15:13:15+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.314,
+            "lon": -2.1609,
+            "updatedAt": "2026-09-01T15:14:56+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.1609,
+            "updatedAt": "2026-09-01T15:17:54+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3141,
+            "lon": -2.1611,
+            "updatedAt": "2026-09-01T15:41:34+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.1609,
+            "updatedAt": "2026-09-01T15:46:59+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.161,
+            "updatedAt": "2026-09-01T15:52:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-09-01T16:02:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.1599,
+            "updatedAt": "2026-09-01T16:07:07+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3122,
+            "lon": -2.1574,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3122,
+            "lon": -2.1494,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1366,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1363,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3124,
+            "lon": -2.1482,
+            "updatedAt": "2026-09-01T16:13:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 200 ft / 131 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3078,
+            "lon": -2.1711,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1150 ft / 139 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.301,
+            "lon": -2.2056,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2450 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2955,
+            "lon": -2.2321,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3075 ft / 159 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2746,
+            "lon": -2.2565,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3800 ft / 176 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
           }
         ]
       },
@@ -5701,27 +5589,27 @@ window.CONFLICT_DATA = {
         "name": "BelugaXL 4",
         "registration": "F-GXLJ",
         "icao24": "395d69",
-        "callsign": "BGA314J",
+        "callsign": "BGA143J",
         "generation": "BelugaXL",
-        "currentSite": "Toulouse",
-        "locationLabel": "Near Toulouse",
-        "routeLabel": "Toulouse to St Nazaire",
-        "routeFrom": "Toulouse",
-        "routeTo": "St Nazaire",
-        "airborne": true,
-        "onGround": false,
-        "lat": 44.3439,
-        "lon": 0.7789,
-        "trueTrack": 327.47,
-        "speedKt": 370,
-        "altitudeFt": 22725,
-        "statusLabel": "Airborne 22725 ft / 370 kt",
-        "mission": "Callsign BGA314J. Groundspeed 370 kt. Climbing 1600 fpm.",
-        "note": "Estimated from live heading 327 degrees and groundspeed. Nearest Airbus site Toulouse (98 km).",
+        "currentSite": "Broughton",
+        "locationLabel": "At Broughton",
+        "routeLabel": "At Broughton",
+        "routeFrom": null,
+        "routeTo": null,
+        "airborne": false,
+        "onGround": true,
+        "lat": 53.177,
+        "lon": -2.9723,
+        "trueTrack": 132.19,
+        "speedKt": 10,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Broughton",
+        "mission": "Callsign BGA143J.",
+        "note": "Nearest Airbus site Broughton (0.6 km).",
         "positionMode": "live",
-        "timingMode": "projected",
-        "nextEta": "2026-09-01T14:17:51+00:00",
-        "updatedAt": "2026-09-01T13:42:33+00:00",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-09-01T16:15:42+00:00",
         "trackPoints": [
           {
             "lat": 43.6249,
@@ -7018,6 +6906,1422 @@ window.CONFLICT_DATA = {
             "routeFrom": "Toulouse",
             "routeTo": "St Nazaire",
             "eta": null
+          },
+          {
+            "lat": 44.3974,
+            "lon": 0.7314,
+            "updatedAt": "2026-09-01T13:43:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 23600 ft / 377 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.4564,
+            "lon": 0.6792,
+            "updatedAt": "2026-09-01T13:43:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 24625 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.5047,
+            "lon": 0.6361,
+            "updatedAt": "2026-09-01T13:44:22+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25350 ft / 388 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.5379,
+            "lon": 0.6066,
+            "updatedAt": "2026-09-01T13:44:44+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 25850 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.5703,
+            "lon": 0.5777,
+            "updatedAt": "2026-09-01T13:45:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 26400 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.6021,
+            "lon": 0.5492,
+            "updatedAt": "2026-09-01T13:45:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 26875 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.6157,
+            "lon": 0.5371,
+            "updatedAt": "2026-09-01T13:45:35+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27075 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.6617,
+            "lon": 0.496,
+            "updatedAt": "2026-09-01T13:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 27525 ft / 400 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.7048,
+            "lon": 0.4572,
+            "updatedAt": "2026-09-01T13:46:32+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 28000 ft / 403 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.7644,
+            "lon": 0.4037,
+            "updatedAt": "2026-09-01T13:47:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 28975 ft / 400 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.7887,
+            "lon": 0.3819,
+            "updatedAt": "2026-09-01T13:47:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 29450 ft / 396 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.7998,
+            "lon": 0.3718,
+            "updatedAt": "2026-09-01T13:47:33+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 29675 ft / 394 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.8635,
+            "lon": 0.3144,
+            "updatedAt": "2026-09-01T13:48:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 30550 ft / 393 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.9154,
+            "lon": 0.2674,
+            "updatedAt": "2026-09-01T13:48:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31300 ft / 391 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 44.9451,
+            "lon": 0.2406,
+            "updatedAt": "2026-09-01T13:49:08+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31725 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.0066,
+            "lon": 0.1846,
+            "updatedAt": "2026-09-01T13:49:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32500 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.266,
+            "lon": -0.0524,
+            "updatedAt": "2026-09-01T13:52:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35525 ft / 377 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.2984,
+            "lon": -0.0822,
+            "updatedAt": "2026-09-01T13:53:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35525 ft / 376 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.3316,
+            "lon": -0.1099,
+            "updatedAt": "2026-09-01T13:53:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35525 ft / 381 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.366,
+            "lon": -0.1311,
+            "updatedAt": "2026-09-01T13:53:48+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35500 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.3985,
+            "lon": -0.1512,
+            "updatedAt": "2026-09-01T13:54:08+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35500 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4307,
+            "lon": -0.1717,
+            "updatedAt": "2026-09-01T13:54:28+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35500 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.4639,
+            "lon": -0.1928,
+            "updatedAt": "2026-09-01T13:54:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35500 ft / 382 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5258,
+            "lon": -0.2323,
+            "updatedAt": "2026-09-01T13:55:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35500 ft / 382 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.5694,
+            "lon": -0.26,
+            "updatedAt": "2026-09-01T13:55:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 383 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6016,
+            "lon": -0.2804,
+            "updatedAt": "2026-09-01T13:56:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 384 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6371,
+            "lon": -0.3029,
+            "updatedAt": "2026-09-01T13:56:36+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 385 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.6922,
+            "lon": -0.3382,
+            "updatedAt": "2026-09-01T13:57:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 386 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7199,
+            "lon": -0.356,
+            "updatedAt": "2026-09-01T13:57:27+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 386 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7641,
+            "lon": -0.3842,
+            "updatedAt": "2026-09-01T13:57:54+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 387 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.7982,
+            "lon": -0.4062,
+            "updatedAt": "2026-09-01T13:58:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35475 ft / 388 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.837,
+            "lon": -0.4311,
+            "updatedAt": "2026-09-01T13:58:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35450 ft / 389 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 45.8716,
+            "lon": -0.4534,
+            "updatedAt": "2026-09-01T13:59:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35450 ft / 390 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.3618,
+            "lon": -0.7723,
+            "updatedAt": "2026-09-01T14:03:58+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35400 ft / 386 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 46.946,
+            "lon": -1.1609,
+            "updatedAt": "2026-09-01T14:09:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35325 ft / 379 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.0511,
+            "lon": -1.2316,
+            "updatedAt": "2026-09-01T14:11:05+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35325 ft / 378 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.3171,
+            "lon": -1.4124,
+            "updatedAt": "2026-09-01T14:13:55+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35300 ft / 371 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.4158,
+            "lon": -1.48,
+            "updatedAt": "2026-09-01T14:14:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35300 ft / 367 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.5966,
+            "lon": -1.6046,
+            "updatedAt": "2026-09-01T14:16:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 353 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.863,
+            "lon": -1.7898,
+            "updatedAt": "2026-09-01T14:20:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 349 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 47.9657,
+            "lon": -1.8619,
+            "updatedAt": "2026-09-01T14:21:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 347 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 48.0624,
+            "lon": -1.9299,
+            "updatedAt": "2026-09-01T14:22:17+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35275 ft / 350 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 48.2998,
+            "lon": -2.0982,
+            "updatedAt": "2026-09-01T14:25:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 351 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 48.7216,
+            "lon": -2.484,
+            "updatedAt": "2026-09-01T14:30:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35250 ft / 355 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 49.193,
+            "lon": -2.6957,
+            "updatedAt": "2026-09-01T14:35:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35200 ft / 365 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 49.7101,
+            "lon": -2.8968,
+            "updatedAt": "2026-09-01T14:40:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 35150 ft / 366 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 50.2226,
+            "lon": -3.1009,
+            "updatedAt": "2026-09-01T14:45:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35100 ft / 370 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 50.7295,
+            "lon": -3.3073,
+            "updatedAt": "2026-09-01T14:50:35+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35075 ft / 368 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.1647,
+            "lon": -3.4879,
+            "updatedAt": "2026-09-01T14:54:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35025 ft / 366 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.3909,
+            "lon": -3.4895,
+            "updatedAt": "2026-09-01T14:57:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33075 ft / 388 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.4971,
+            "lon": -3.4686,
+            "updatedAt": "2026-09-01T14:58:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 32100 ft / 389 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.6771,
+            "lon": -3.4328,
+            "updatedAt": "2026-09-01T14:59:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31975 ft / 392 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.7342,
+            "lon": -3.4213,
+            "updatedAt": "2026-09-01T15:00:21+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31950 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.7435,
+            "lon": -3.4195,
+            "updatedAt": "2026-09-01T15:00:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31950 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.8202,
+            "lon": -3.4041,
+            "updatedAt": "2026-09-01T15:01:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31950 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.8619,
+            "lon": -3.3957,
+            "updatedAt": "2026-09-01T15:01:34+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31925 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.899,
+            "lon": -3.3883,
+            "updatedAt": "2026-09-01T15:01:53+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31600 ft / 386 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.9381,
+            "lon": -3.3814,
+            "updatedAt": "2026-09-01T15:02:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31225 ft / 383 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 51.9785,
+            "lon": -3.3784,
+            "updatedAt": "2026-09-01T15:02:38+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30850 ft / 378 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.0165,
+            "lon": -3.3759,
+            "updatedAt": "2026-09-01T15:03:00+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30450 ft / 378 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.0445,
+            "lon": -3.3738,
+            "updatedAt": "2026-09-01T15:03:16+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30200 ft / 376 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.0898,
+            "lon": -3.3706,
+            "updatedAt": "2026-09-01T15:03:42+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 29775 ft / 378 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.128,
+            "lon": -3.3678,
+            "updatedAt": "2026-09-01T15:04:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 29350 ft / 380 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.6458,
+            "lon": -3.2948,
+            "updatedAt": "2026-09-01T15:09:03+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 18275 ft / 362 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.7447,
+            "lon": -3.2688,
+            "updatedAt": "2026-09-01T15:10:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 16300 ft / 348 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.8376,
+            "lon": -3.2444,
+            "updatedAt": "2026-09-01T15:11:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 14425 ft / 336 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9328,
+            "lon": -3.2192,
+            "updatedAt": "2026-09-01T15:12:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13100 ft / 305 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9577,
+            "lon": -3.2127,
+            "updatedAt": "2026-09-01T15:12:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12675 ft / 302 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9878,
+            "lon": -3.2047,
+            "updatedAt": "2026-09-01T15:12:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11925 ft / 303 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0187,
+            "lon": -3.1966,
+            "updatedAt": "2026-09-01T15:13:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11275 ft / 302 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0394,
+            "lon": -3.1911,
+            "updatedAt": "2026-09-01T15:13:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10800 ft / 302 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0743,
+            "lon": -3.1817,
+            "updatedAt": "2026-09-01T15:13:52+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10275 ft / 291 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1039,
+            "lon": -3.1738,
+            "updatedAt": "2026-09-01T15:14:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10000 ft / 276 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1178,
+            "lon": -3.17,
+            "updatedAt": "2026-09-01T15:14:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 9650 ft / 278 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.154,
+            "lon": -3.1598,
+            "updatedAt": "2026-09-01T15:14:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8550 ft / 289 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1884,
+            "lon": -3.149,
+            "updatedAt": "2026-09-01T15:15:20+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7800 ft / 287 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.21,
+            "lon": -3.1419,
+            "updatedAt": "2026-09-01T15:15:37+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7575 ft / 278 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2583,
+            "lon": -3.1258,
+            "updatedAt": "2026-09-01T15:16:18+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7400 ft / 240 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2848,
+            "lon": -3.1169,
+            "updatedAt": "2026-09-01T15:16:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7400 ft / 237 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3088,
+            "lon": -3.1184,
+            "updatedAt": "2026-09-01T15:17:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7400 ft / 235 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3314,
+            "lon": -3.1233,
+            "updatedAt": "2026-09-01T15:17:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7100 ft / 233 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3833,
+            "lon": -3.1337,
+            "updatedAt": "2026-09-01T15:18:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6125 ft / 229 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4125,
+            "lon": -3.1389,
+            "updatedAt": "2026-09-01T15:18:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5650 ft / 225 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4429,
+            "lon": -3.1546,
+            "updatedAt": "2026-09-01T15:19:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5250 ft / 216 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4469,
+            "lon": -3.1984,
+            "updatedAt": "2026-09-01T15:19:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5250 ft / 207 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.3611,
+            "lon": -3.2049,
+            "updatedAt": "2026-09-01T15:21:14+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5275 ft / 228 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.2086,
+            "lon": -3.0194,
+            "updatedAt": "2026-09-01T15:24:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3575 ft / 233 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1897,
+            "lon": -2.9715,
+            "updatedAt": "2026-09-01T15:24:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3325 ft / 233 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.166,
+            "lon": -2.9129,
+            "updatedAt": "2026-09-01T15:25:38+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3200 ft / 232 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1621,
+            "lon": -2.8661,
+            "updatedAt": "2026-09-01T15:26:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2800 ft / 235 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1745,
+            "lon": -2.8147,
+            "updatedAt": "2026-09-01T15:26:37+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2625 ft / 218 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2674,
+            "lon": -2.8021,
+            "updatedAt": "2026-09-01T15:28:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2250 ft / 153 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.268,
+            "lon": -2.8257,
+            "updatedAt": "2026-09-01T15:29:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2225 ft / 141 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2573,
+            "lon": -2.8615,
+            "updatedAt": "2026-09-01T15:29:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2200 ft / 129 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2394,
+            "lon": -2.8881,
+            "updatedAt": "2026-09-01T15:30:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1725 ft / 115 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2368,
+            "lon": -2.8921,
+            "updatedAt": "2026-09-01T15:30:34+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1675 ft / 115 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2222,
+            "lon": -2.9134,
+            "updatedAt": "2026-09-01T15:31:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1300 ft / 113 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2114,
+            "lon": -2.9294,
+            "updatedAt": "2026-09-01T15:31:38+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1000 ft / 113 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2027,
+            "lon": -2.9419,
+            "updatedAt": "2026-09-01T15:32:00+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 775 ft / 115 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1924,
+            "lon": -2.957,
+            "updatedAt": "2026-09-01T15:32:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 500 ft / 112 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.182,
+            "lon": -2.972,
+            "updatedAt": "2026-09-01T15:32:53+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 300 ft / 113 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1781,
+            "lon": -2.9776,
+            "updatedAt": "2026-09-01T15:33:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1754,
+            "lon": -2.9816,
+            "updatedAt": "2026-09-01T15:34:09+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1734,
+            "lon": -2.9845,
+            "updatedAt": "2026-09-01T15:34:56+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1717,
+            "lon": -2.9876,
+            "updatedAt": "2026-09-01T15:35:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1731,
+            "lon": -2.9849,
+            "updatedAt": "2026-09-01T15:37:02+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1764,
+            "lon": -2.9801,
+            "updatedAt": "2026-09-01T15:38:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1774,
+            "lon": -2.9729,
+            "updatedAt": "2026-09-01T15:39:57+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9727,
+            "updatedAt": "2026-09-01T15:41:02+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9727,
+            "updatedAt": "2026-09-01T15:42:02+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T15:47:04+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T15:52:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9728,
+            "updatedAt": "2026-09-01T16:02:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9755,
+            "updatedAt": "2026-09-01T16:07:08+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9719,
+            "updatedAt": "2026-09-01T16:08:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9719,
+            "updatedAt": "2026-09-01T16:09:54+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9731,
+            "updatedAt": "2026-09-01T16:11:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T16:15:42+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
           }
         ]
       },
@@ -7026,27 +8330,27 @@ window.CONFLICT_DATA = {
         "name": "BelugaXL 5",
         "registration": "F-GXLN",
         "icao24": "395d6d",
-        "callsign": "BGA214N",
+        "callsign": "BGA145N",
         "generation": "BelugaXL",
-        "currentSite": "Broughton",
-        "locationLabel": "Near Broughton",
-        "routeLabel": "St Nazaire to Broughton",
-        "routeFrom": "St Nazaire",
-        "routeTo": "Broughton",
+        "currentSite": "Bremen",
+        "locationLabel": "Near Bremen",
+        "routeLabel": "Broughton to Bremen",
+        "routeFrom": "Broughton",
+        "routeTo": "Bremen",
         "airborne": true,
         "onGround": false,
-        "lat": 53.0299,
-        "lon": -3.1974,
-        "trueTrack": 10.45,
-        "speedKt": 248,
-        "altitudeFt": 10275,
-        "statusLabel": "Airborne 10275 ft / 248 kt",
-        "mission": "Callsign BGA214N. Groundspeed 248 kt. Descending 1472 fpm.",
-        "note": "Estimated from live heading 10 degrees and groundspeed. Nearest Airbus site Broughton (21.7 km).",
+        "lat": 52.8956,
+        "lon": 5.3437,
+        "trueTrack": 86.59,
+        "speedKt": 421,
+        "altitudeFt": 33775,
+        "statusLabel": "Airborne 33775 ft / 421 kt",
+        "mission": "Callsign BGA145N. Groundspeed 421 kt.",
+        "note": "Estimated from live heading 87 degrees and groundspeed. Nearest Airbus site Bremen (232.3 km).",
         "positionMode": "live",
         "timingMode": "projected",
-        "nextEta": "2026-09-01T13:45:41+00:00",
-        "updatedAt": "2026-09-01T13:42:35+00:00",
+        "nextEta": "2026-09-01T16:33:41+00:00",
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.626,
@@ -8307,6 +9611,1098 @@ window.CONFLICT_DATA = {
             "routeFrom": "St Nazaire",
             "routeTo": "Broughton",
             "eta": null
+          },
+          {
+            "lat": 53.0717,
+            "lon": -3.1846,
+            "updatedAt": "2026-09-01T13:43:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 9500 ft / 250 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.1166,
+            "lon": -3.1704,
+            "updatedAt": "2026-09-01T13:43:50+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8825 ft / 243 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1516,
+            "lon": -3.1592,
+            "updatedAt": "2026-09-01T13:44:22+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8425 ft / 240 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1756,
+            "lon": -3.1519,
+            "updatedAt": "2026-09-01T13:44:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8425 ft / 242 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1986,
+            "lon": -3.1448,
+            "updatedAt": "2026-09-01T13:45:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8425 ft / 244 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2213,
+            "lon": -3.1402,
+            "updatedAt": "2026-09-01T13:45:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8375 ft / 237 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2311,
+            "lon": -3.1448,
+            "updatedAt": "2026-09-01T13:45:34+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8200 ft / 232 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2462,
+            "lon": -3.1866,
+            "updatedAt": "2026-09-01T13:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7575 ft / 219 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.231,
+            "lon": -3.2217,
+            "updatedAt": "2026-09-01T13:46:32+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7300 ft / 219 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.1908,
+            "lon": -3.2208,
+            "updatedAt": "2026-09-01T13:47:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6425 ft / 234 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.1739,
+            "lon": -3.2175,
+            "updatedAt": "2026-09-01T13:47:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6275 ft / 228 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.1648,
+            "lon": -3.2156,
+            "updatedAt": "2026-09-01T13:47:35+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6125 ft / 226 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.1302,
+            "lon": -3.1767,
+            "updatedAt": "2026-09-01T13:48:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5350 ft / 244 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1171,
+            "lon": -3.1164,
+            "updatedAt": "2026-09-01T13:48:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 4650 ft / 248 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1112,
+            "lon": -3.081,
+            "updatedAt": "2026-09-01T13:49:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 4325 ft / 244 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.099,
+            "lon": -3.0088,
+            "updatedAt": "2026-09-01T13:49:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3600 ft / 240 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.1748,
+            "lon": -2.7451,
+            "updatedAt": "2026-09-01T13:52:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2925 ft / 234 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.198,
+            "lon": -2.7386,
+            "updatedAt": "2026-09-01T13:53:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2800 ft / 227 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2205,
+            "lon": -2.7369,
+            "updatedAt": "2026-09-01T13:53:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2750 ft / 216 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2387,
+            "lon": -2.7483,
+            "updatedAt": "2026-09-01T13:53:48+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2750 ft / 195 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2511,
+            "lon": -2.7689,
+            "updatedAt": "2026-09-01T13:54:08+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2575 ft / 187 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2627,
+            "lon": -2.789,
+            "updatedAt": "2026-09-01T13:54:28+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2450 ft / 171 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2699,
+            "lon": -2.8109,
+            "updatedAt": "2026-09-01T13:54:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2250 ft / 147 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2634,
+            "lon": -2.8502,
+            "updatedAt": "2026-09-01T13:55:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2250 ft / 140 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2516,
+            "lon": -2.8699,
+            "updatedAt": "2026-09-01T13:55:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2025 ft / 123 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.243,
+            "lon": -2.8826,
+            "updatedAt": "2026-09-01T13:56:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1825 ft / 116 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2343,
+            "lon": -2.8957,
+            "updatedAt": "2026-09-01T13:56:36+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1600 ft / 118 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.22,
+            "lon": -2.9167,
+            "updatedAt": "2026-09-01T13:57:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1225 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2135,
+            "lon": -2.9263,
+            "updatedAt": "2026-09-01T13:57:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 1075 ft / 117 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.2027,
+            "lon": -2.942,
+            "updatedAt": "2026-09-01T13:57:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 750 ft / 115 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1943,
+            "lon": -2.954,
+            "updatedAt": "2026-09-01T13:58:14+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 550 ft / 118 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1844,
+            "lon": -2.9685,
+            "updatedAt": "2026-09-01T13:58:39+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 325 ft / 116 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1781,
+            "lon": -2.9777,
+            "updatedAt": "2026-09-01T13:58:57+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9728,
+            "updatedAt": "2026-09-01T14:03:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:09:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9729,
+            "updatedAt": "2026-09-01T14:11:01+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:13:55+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9722,
+            "updatedAt": "2026-09-01T14:14:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9726,
+            "updatedAt": "2026-09-01T14:16:59+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T14:19:54+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:21:11+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:22:16+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:24:59+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:30:03+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:35:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9727,
+            "updatedAt": "2026-09-01T14:40:15+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T14:45:26+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:50:35+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9728,
+            "updatedAt": "2026-09-01T14:54:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T14:57:08+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1774,
+            "lon": -2.9727,
+            "updatedAt": "2026-09-01T14:58:09+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9743,
+            "updatedAt": "2026-09-01T15:03:50+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1783,
+            "lon": -2.9746,
+            "updatedAt": "2026-09-01T15:17:15+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1783,
+            "lon": -2.9746,
+            "updatedAt": "2026-09-01T15:19:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1783,
+            "lon": -2.9746,
+            "updatedAt": "2026-09-01T15:21:14+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1852,
+            "lon": -2.9676,
+            "updatedAt": "2026-09-01T15:24:51+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1841,
+            "lon": -2.969,
+            "updatedAt": "2026-09-01T15:26:37+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1714,
+            "lon": -3.0882,
+            "updatedAt": "2026-09-01T15:28:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3650 ft / 174 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1754,
+            "lon": -3.1183,
+            "updatedAt": "2026-09-01T15:29:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3850 ft / 203 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2007,
+            "lon": -3.1711,
+            "updatedAt": "2026-09-01T15:29:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 4700 ft / 265 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2505,
+            "lon": -3.1403,
+            "updatedAt": "2026-09-01T15:30:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6550 ft / 285 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2575,
+            "lon": -3.1302,
+            "updatedAt": "2026-09-01T15:30:34+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6700 ft / 287 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2942,
+            "lon": -3.077,
+            "updatedAt": "2026-09-01T15:31:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8075 ft / 294 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3105,
+            "lon": -3.0187,
+            "updatedAt": "2026-09-01T15:31:39+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 9175 ft / 303 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3167,
+            "lon": -2.9694,
+            "updatedAt": "2026-09-01T15:32:00+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10175 ft / 304 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3243,
+            "lon": -2.9078,
+            "updatedAt": "2026-09-01T15:32:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10850 ft / 322 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3331,
+            "lon": -2.8385,
+            "updatedAt": "2026-09-01T15:32:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11225 ft / 348 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3382,
+            "lon": -2.7978,
+            "updatedAt": "2026-09-01T15:33:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11825 ft / 348 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3461,
+            "lon": -2.7249,
+            "updatedAt": "2026-09-01T15:33:36+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12600 ft / 358 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3493,
+            "lon": -2.6636,
+            "updatedAt": "2026-09-01T15:33:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13325 ft / 362 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.3509,
+            "lon": -2.6328,
+            "updatedAt": "2026-09-01T15:34:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13650 ft / 365 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.3584,
+            "lon": -2.4939,
+            "updatedAt": "2026-09-01T15:34:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 15375 ft / 369 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3677,
+            "lon": -2.321,
+            "updatedAt": "2026-09-01T15:35:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 17050 ft / 385 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3778,
+            "lon": -2.1273,
+            "updatedAt": "2026-09-01T15:37:03+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 18725 ft / 398 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3869,
+            "lon": -1.9466,
+            "updatedAt": "2026-09-01T15:38:01+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 20100 ft / 411 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4049,
+            "lon": -1.571,
+            "updatedAt": "2026-09-01T15:39:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 22775 ft / 425 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.4148,
+            "lon": -1.3532,
+            "updatedAt": "2026-09-01T15:41:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 23925 ft / 436 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.3941,
+            "lon": -1.1491,
+            "updatedAt": "2026-09-01T15:42:06+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 25125 ft / 436 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.2108,
+            "lon": -0.1708,
+            "updatedAt": "2026-09-01T15:47:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30275 ft / 441 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.0198,
+            "lon": 0.7971,
+            "updatedAt": "2026-09-01T15:52:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33825 ft / 427 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.7998,
+            "lon": 2.7202,
+            "updatedAt": "2026-09-01T16:02:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33825 ft / 428 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8299,
+            "lon": 3.6926,
+            "updatedAt": "2026-09-01T16:07:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 426 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.835,
+            "lon": 3.8898,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 425 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8499,
+            "lon": 4.2274,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8612,
+            "lon": 4.4807,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8774,
+            "lon": 4.868,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8802,
+            "lon": 4.9366,
+            "updatedAt": "2026-09-01T16:13:38+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.883,
+            "lon": 5.009,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8877,
+            "lon": 5.1286,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8909,
+            "lon": 5.2151,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8956,
+            "lon": 5.3437,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
           }
         ]
       },
@@ -8315,27 +10711,27 @@ window.CONFLICT_DATA = {
         "name": "BelugaXL 6",
         "registration": "F-GXLO",
         "icao24": "395d6e",
-        "callsign": "BGA146R",
+        "callsign": "BGA261R",
         "generation": "BelugaXL",
-        "currentSite": "Getafe",
-        "locationLabel": "Near Getafe",
-        "routeLabel": "Near Getafe",
+        "currentSite": "Toulouse",
+        "locationLabel": "Near Toulouse",
+        "routeLabel": "Near Toulouse",
         "routeFrom": null,
         "routeTo": null,
         "airborne": true,
         "onGround": false,
-        "lat": 40.2706,
-        "lon": -3.9093,
-        "trueTrack": 143.81,
-        "speedKt": 254,
-        "altitudeFt": 5925,
-        "statusLabel": "Airborne 5925 ft / 254 kt",
-        "mission": "Callsign BGA146R. Groundspeed 254 kt. Descending 577 fpm.",
-        "note": "Nearest Airbus site Getafe (15.6 km).",
+        "lat": 43.3956,
+        "lon": 1.4556,
+        "trueTrack": 87.72,
+        "speedKt": 226,
+        "altitudeFt": 3500,
+        "statusLabel": "Airborne 3500 ft / 226 kt",
+        "mission": "Callsign BGA261R. Groundspeed 226 kt. Descending 577 fpm.",
+        "note": "Nearest Airbus site Toulouse (23.2 km).",
         "positionMode": "live",
         "timingMode": "none",
         "nextEta": null,
-        "updatedAt": "2026-09-01T13:42:33+00:00",
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.6252,
@@ -10988,6 +13384,2927 @@ window.CONFLICT_DATA = {
             "routeFrom": null,
             "routeTo": null,
             "eta": null
+          },
+          {
+            "lat": 40.2365,
+            "lon": -3.8775,
+            "updatedAt": "2026-09-01T13:43:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 5350 ft / 243 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2203,
+            "lon": -3.8315,
+            "updatedAt": "2026-09-01T13:43:49+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 4975 ft / 218 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.2388,
+            "lon": -3.7971,
+            "updatedAt": "2026-09-01T13:44:22+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 4050 ft / 214 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.2533,
+            "lon": -3.7767,
+            "updatedAt": "2026-09-01T13:44:44+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3500 ft / 202 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.2619,
+            "lon": -3.7563,
+            "updatedAt": "2026-09-01T13:45:05+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3400 ft / 173 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.2626,
+            "lon": -3.7355,
+            "updatedAt": "2026-09-01T13:45:26+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3425 ft / 159 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2627,
+            "lon": -3.7268,
+            "updatedAt": "2026-09-01T13:45:35+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3350 ft / 154 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2668,
+            "lon": -3.6998,
+            "updatedAt": "2026-09-01T13:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3350 ft / 160 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.2814,
+            "lon": -3.6811,
+            "updatedAt": "2026-09-01T13:46:32+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3375 ft / 161 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.3038,
+            "lon": -3.6639,
+            "updatedAt": "2026-09-01T13:47:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3250 ft / 150 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.3135,
+            "lon": -3.6707,
+            "updatedAt": "2026-09-01T13:47:26+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3150 ft / 141 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.3166,
+            "lon": -3.6758,
+            "updatedAt": "2026-09-01T13:47:35+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3150 ft / 136 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.3095,
+            "lon": -3.7035,
+            "updatedAt": "2026-09-01T13:48:15+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 2550 ft / 129 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2999,
+            "lon": -3.7161,
+            "updatedAt": "2026-09-01T13:48:38+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 2275 ft / 132 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2917,
+            "lon": -3.7269,
+            "updatedAt": "2026-09-01T13:49:07+00:00",
+            "airborne": false,
+            "currentSite": "Getafe",
+            "locationLabel": "At Getafe",
+            "statusLabel": "On ground at Getafe",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2943,
+            "lon": -3.7269,
+            "updatedAt": "2026-09-01T13:52:10+00:00",
+            "airborne": false,
+            "currentSite": "Getafe",
+            "locationLabel": "At Getafe",
+            "statusLabel": "On ground at Getafe",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2921,
+            "lon": -3.7262,
+            "updatedAt": "2026-09-01T15:26:06+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 2275 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2767,
+            "lon": -3.7463,
+            "updatedAt": "2026-09-01T15:26:38+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 3850 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 40.2827,
+            "lon": -3.8268,
+            "updatedAt": "2026-09-01T15:28:44+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 6625 ft / 251 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.3087,
+            "lon": -3.8262,
+            "updatedAt": "2026-09-01T15:29:05+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 7025 ft / 283 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.3616,
+            "lon": -3.8256,
+            "updatedAt": "2026-09-01T15:29:44+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 8625 ft / 295 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.4226,
+            "lon": -3.8227,
+            "updatedAt": "2026-09-01T15:30:28+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 10600 ft / 306 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.4324,
+            "lon": -3.8217,
+            "updatedAt": "2026-09-01T15:30:35+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 10950 ft / 309 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 40.4762,
+            "lon": -3.7829,
+            "updatedAt": "2026-09-01T15:31:11+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 11725 ft / 353 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.4987,
+            "lon": -3.7297,
+            "updatedAt": "2026-09-01T15:31:39+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 12875 ft / 358 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.5166,
+            "lon": -3.687,
+            "updatedAt": "2026-09-01T15:32:01+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 13775 ft / 362 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.5379,
+            "lon": -3.6369,
+            "updatedAt": "2026-09-01T15:32:27+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 14800 ft / 369 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.5607,
+            "lon": -3.5839,
+            "updatedAt": "2026-09-01T15:32:54+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 15875 ft / 373 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.5741,
+            "lon": -3.5529,
+            "updatedAt": "2026-09-01T15:33:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 16500 ft / 377 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.5981,
+            "lon": -3.4975,
+            "updatedAt": "2026-09-01T15:33:37+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 17450 ft / 384 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.6174,
+            "lon": -3.4528,
+            "updatedAt": "2026-09-01T15:33:59+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 18300 ft / 386 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.6266,
+            "lon": -3.4299,
+            "updatedAt": "2026-09-01T15:34:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 18750 ft / 388 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.6653,
+            "lon": -3.3262,
+            "updatedAt": "2026-09-01T15:34:59+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 20250 ft / 403 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.7169,
+            "lon": -3.1901,
+            "updatedAt": "2026-09-01T15:36:00+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 22425 ft / 408 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.7708,
+            "lon": -3.0487,
+            "updatedAt": "2026-09-01T15:37:03+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 24300 ft / 417 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.8214,
+            "lon": -2.915,
+            "updatedAt": "2026-09-01T15:38:01+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 25700 ft / 428 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.9271,
+            "lon": -2.6336,
+            "updatedAt": "2026-09-01T15:39:58+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 28150 ft / 448 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 40.9877,
+            "lon": -2.475,
+            "updatedAt": "2026-09-01T15:41:03+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 29600 ft / 451 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 41.0675,
+            "lon": -2.3368,
+            "updatedAt": "2026-09-01T15:42:06+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 31050 ft / 450 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 41.5333,
+            "lon": -1.8305,
+            "updatedAt": "2026-09-01T15:47:05+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 31725 ft / 431 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 42.013,
+            "lon": -1.3072,
+            "updatedAt": "2026-09-01T15:52:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 31700 ft / 435 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 42.843,
+            "lon": -0.1101,
+            "updatedAt": "2026-09-01T16:02:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 28025 ft / 449 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.1929,
+            "lon": 0.53,
+            "updatedAt": "2026-09-01T16:07:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 19850 ft / 401 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.2691,
+            "lon": 0.6403,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 17575 ft / 386 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.3972,
+            "lon": 0.8162,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 13550 ft / 363 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.4044,
+            "lon": 0.9851,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 12025 ft / 311 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.4004,
+            "lon": 1.2137,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7150 ft / 272 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3996,
+            "lon": 1.2488,
+            "updatedAt": "2026-09-01T16:13:38+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6275 ft / 260 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3988,
+            "lon": 1.287,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5300 ft / 268 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3976,
+            "lon": 1.3501,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4250 ft / 267 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3967,
+            "lon": 1.395,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3875 ft / 253 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3956,
+            "lon": 1.4556,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3500 ft / 226 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          }
+        ]
+      },
+      {
+        "id": "BXL-01",
+        "name": "BelugaXL 1",
+        "registration": "F-GXLG",
+        "icao24": "395d66",
+        "callsign": "BGA141G",
+        "generation": "BelugaXL",
+        "currentSite": "Toulouse",
+        "locationLabel": "At Toulouse",
+        "routeLabel": "At Toulouse",
+        "routeFrom": null,
+        "routeTo": null,
+        "airborne": false,
+        "onGround": true,
+        "lat": 43.626,
+        "lon": 1.3588,
+        "trueTrack": 323.44,
+        "speedKt": 0,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Toulouse",
+        "mission": "Callsign BGA141G.",
+        "note": "Nearest Airbus site Toulouse (7.3 km). No current OpenSky state vector for this aircraft; showing the last known OpenSky position from 38 minutes ago.",
+        "positionMode": "live-cached",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-09-01T15:37:39+00:00",
+        "trackPoints": [
+          {
+            "lat": 53.5355,
+            "lon": 9.8281,
+            "updatedAt": "2026-09-01T10:21:34+00:00",
+            "airborne": false,
+            "currentSite": "Hamburg",
+            "locationLabel": "At Hamburg",
+            "statusLabel": "On ground at Hamburg",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4643,
+            "lon": 9.5911,
+            "updatedAt": "2026-09-01T10:31:35+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 6950 ft / 252 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4565,
+            "lon": 9.5475,
+            "updatedAt": "2026-09-01T10:31:58+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8025 ft / 256 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4512,
+            "lon": 9.5173,
+            "updatedAt": "2026-09-01T10:32:14+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 8925 ft / 256 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4276,
+            "lon": 9.3811,
+            "updatedAt": "2026-09-01T10:33:21+00:00",
+            "airborne": true,
+            "currentSite": "Hamburg",
+            "locationLabel": "Near Hamburg",
+            "statusLabel": "Airborne 11200 ft / 300 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.4091,
+            "lon": 9.275,
+            "updatedAt": "2026-09-01T10:34:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 13225 ft / 309 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3782,
+            "lon": 9.0993,
+            "updatedAt": "2026-09-01T10:35:24+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 16225 ft / 319 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3541,
+            "lon": 8.9628,
+            "updatedAt": "2026-09-01T10:36:20+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 17950 ft / 337 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3249,
+            "lon": 8.7998,
+            "updatedAt": "2026-09-01T10:37:25+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20075 ft / 348 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3152,
+            "lon": 8.7459,
+            "updatedAt": "2026-09-01T10:37:46+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 20800 ft / 347 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3065,
+            "lon": 8.6971,
+            "updatedAt": "2026-09-01T10:38:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 21475 ft / 347 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.2965,
+            "lon": 8.6441,
+            "updatedAt": "2026-09-01T10:38:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 22025 ft / 351 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.2829,
+            "lon": 8.5825,
+            "updatedAt": "2026-09-01T10:38:50+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 22625 ft / 356 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.2719,
+            "lon": 8.5331,
+            "updatedAt": "2026-09-01T10:39:09+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 23125 ft / 359 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.2679,
+            "lon": 8.5146,
+            "updatedAt": "2026-09-01T10:39:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 23300 ft / 360 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.2479,
+            "lon": 8.4172,
+            "updatedAt": "2026-09-01T10:39:53+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24250 ft / 364 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.2378,
+            "lon": 8.3606,
+            "updatedAt": "2026-09-01T10:40:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 24725 ft / 366 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.2092,
+            "lon": 8.2058,
+            "updatedAt": "2026-09-01T10:41:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25950 ft / 374 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.1752,
+            "lon": 8.0277,
+            "updatedAt": "2026-09-01T10:42:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 27400 ft / 375 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.1436,
+            "lon": 7.86,
+            "updatedAt": "2026-09-01T10:43:17+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 28850 ft / 371 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.1148,
+            "lon": 7.7093,
+            "updatedAt": "2026-09-01T10:44:13+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 30500 ft / 356 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0844,
+            "lon": 7.5518,
+            "updatedAt": "2026-09-01T10:45:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31825 ft / 352 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0543,
+            "lon": 7.3972,
+            "updatedAt": "2026-09-01T10:46:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33400 ft / 340 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.0234,
+            "lon": 7.2398,
+            "updatedAt": "2026-09-01T10:47:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34675 ft / 330 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9942,
+            "lon": 7.0944,
+            "updatedAt": "2026-09-01T10:48:22+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34700 ft / 330 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9197,
+            "lon": 6.3598,
+            "updatedAt": "2026-09-01T10:53:22+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34725 ft / 331 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 52.9505,
+            "lon": 5.6083,
+            "updatedAt": "2026-09-01T10:58:19+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34725 ft / 336 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.014,
+            "lon": 4.8255,
+            "updatedAt": "2026-09-01T11:03:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34700 ft / 343 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.1253,
+            "lon": 3.2579,
+            "updatedAt": "2026-09-01T11:13:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 34700 ft / 345 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.2466,
+            "lon": 1.5056,
+            "updatedAt": "2026-09-01T11:24:20+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33700 ft / 349 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.345,
+            "lon": 0.6387,
+            "updatedAt": "2026-09-01T11:29:48+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33700 ft / 346 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3675,
+            "lon": 0.3805,
+            "updatedAt": "2026-09-01T11:31:25+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33700 ft / 353 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.392,
+            "lon": 0.0501,
+            "updatedAt": "2026-09-01T11:33:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33700 ft / 356 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.3985,
+            "lon": -0.0378,
+            "updatedAt": "2026-09-01T11:33:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33350 ft / 354 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.4099,
+            "lon": -0.192,
+            "updatedAt": "2026-09-01T11:34:55+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31150 ft / 361 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.4213,
+            "lon": -0.3306,
+            "updatedAt": "2026-09-01T11:35:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 28925 ft / 369 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.4814,
+            "lon": -0.9323,
+            "updatedAt": "2026-09-01T11:39:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 20325 ft / 332 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.4974,
+            "lon": -1.0793,
+            "updatedAt": "2026-09-01T11:40:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 18000 ft / 325 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5138,
+            "lon": -1.2301,
+            "updatedAt": "2026-09-01T11:41:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 15625 ft / 321 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.524,
+            "lon": -1.3354,
+            "updatedAt": "2026-09-01T11:42:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 14250 ft / 309 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5286,
+            "lon": -1.386,
+            "updatedAt": "2026-09-01T11:42:33+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13525 ft / 305 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5369,
+            "lon": -1.4693,
+            "updatedAt": "2026-09-01T11:43:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12550 ft / 298 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5426,
+            "lon": -1.5245,
+            "updatedAt": "2026-09-01T11:43:33+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 300 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5487,
+            "lon": -1.5822,
+            "updatedAt": "2026-09-01T11:43:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 300 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5525,
+            "lon": -1.6183,
+            "updatedAt": "2026-09-01T11:44:14+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 302 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5584,
+            "lon": -1.6764,
+            "updatedAt": "2026-09-01T11:44:39+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 298 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5631,
+            "lon": -1.7244,
+            "updatedAt": "2026-09-01T11:45:00+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12475 ft / 298 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5714,
+            "lon": -1.8042,
+            "updatedAt": "2026-09-01T11:45:35+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 299 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.578,
+            "lon": -1.8725,
+            "updatedAt": "2026-09-01T11:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 306 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.58,
+            "lon": -1.8949,
+            "updatedAt": "2026-09-01T11:46:14+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 307 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5876,
+            "lon": -2.0136,
+            "updatedAt": "2026-09-01T11:47:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 310 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5865,
+            "lon": -2.0665,
+            "updatedAt": "2026-09-01T11:47:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 308 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.586,
+            "lon": -2.0881,
+            "updatedAt": "2026-09-01T11:47:35+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 307 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5844,
+            "lon": -2.1704,
+            "updatedAt": "2026-09-01T11:48:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 302 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5837,
+            "lon": -2.2095,
+            "updatedAt": "2026-09-01T11:48:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 300 kt",
+            "routeFrom": "Bremen",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5825,
+            "lon": -2.2727,
+            "updatedAt": "2026-09-01T11:48:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 300 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5811,
+            "lon": -2.336,
+            "updatedAt": "2026-09-01T11:49:21+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 299 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5798,
+            "lon": -2.3885,
+            "updatedAt": "2026-09-01T11:49:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 299 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5786,
+            "lon": -2.4373,
+            "updatedAt": "2026-09-01T11:50:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 300 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5774,
+            "lon": -2.4963,
+            "updatedAt": "2026-09-01T11:50:30+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12450 ft / 301 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.5745,
+            "lon": -2.5498,
+            "updatedAt": "2026-09-01T11:50:53+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12125 ft / 298 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.562,
+            "lon": -2.5929,
+            "updatedAt": "2026-09-01T11:51:14+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11525 ft / 298 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5399,
+            "lon": -2.6637,
+            "updatedAt": "2026-09-01T11:51:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10625 ft / 285 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.5245,
+            "lon": -2.7133,
+            "updatedAt": "2026-09-01T11:52:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10225 ft / 271 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Broughton",
+            "eta": null
+          },
+          {
+            "lat": 53.4989,
+            "lon": -2.7952,
+            "updatedAt": "2026-09-01T11:52:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8900 ft / 271 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4761,
+            "lon": -2.8682,
+            "updatedAt": "2026-09-01T11:53:39+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7900 ft / 263 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4645,
+            "lon": -2.9046,
+            "updatedAt": "2026-09-01T11:53:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7475 ft / 263 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.45,
+            "lon": -2.9506,
+            "updatedAt": "2026-09-01T11:54:25+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7400 ft / 258 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.4014,
+            "lon": -3.1043,
+            "updatedAt": "2026-09-01T11:55:53+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7400 ft / 244 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1238,
+            "lon": -3.1376,
+            "updatedAt": "2026-09-01T11:59:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5225 ft / 262 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 53.1082,
+            "lon": -3.0445,
+            "updatedAt": "2026-09-01T12:00:48+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 4225 ft / 275 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1129,
+            "lon": -3.0044,
+            "updatedAt": "2026-09-01T12:01:08+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3850 ft / 272 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.1174,
+            "lon": -2.9669,
+            "updatedAt": "2026-09-01T12:01:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3550 ft / 267 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.2551,
+            "lon": -2.7804,
+            "updatedAt": "2026-09-01T12:04:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2225 ft / 175 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.2654,
+            "lon": -2.8432,
+            "updatedAt": "2026-09-01T12:05:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2250 ft / 139 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1895,
+            "lon": -2.9611,
+            "updatedAt": "2026-09-01T12:09:04+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 425 ft / 119 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1878,
+            "lon": -2.9636,
+            "updatedAt": "2026-09-01T12:09:09+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 375 ft / 117 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1765,
+            "lon": -2.98,
+            "updatedAt": "2026-09-01T12:09:43+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1721,
+            "lon": -2.9866,
+            "updatedAt": "2026-09-01T12:10:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1748,
+            "lon": -2.9825,
+            "updatedAt": "2026-09-01T12:12:52+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9727,
+            "updatedAt": "2026-09-01T12:15:44+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1785,
+            "lon": -2.9749,
+            "updatedAt": "2026-09-01T13:24:58+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1851,
+            "lon": -2.9676,
+            "updatedAt": "2026-09-01T13:29:53+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1851,
+            "lon": -2.9676,
+            "updatedAt": "2026-09-01T13:31:53+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1851,
+            "lon": -2.9676,
+            "updatedAt": "2026-09-01T13:35:43+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1851,
+            "lon": -2.9676,
+            "updatedAt": "2026-09-01T13:38:43+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1806,
+            "lon": -2.974,
+            "updatedAt": "2026-09-01T13:40:33+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne -75 ft / 98 kt",
+            "routeFrom": "Hamburg",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 53.1587,
+            "lon": -3.0069,
+            "updatedAt": "2026-09-01T13:41:19+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 2075 ft / 137 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1287,
+            "lon": -3.0584,
+            "updatedAt": "2026-09-01T13:42:25+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3625 ft / 169 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1243,
+            "lon": -3.0656,
+            "updatedAt": "2026-09-01T13:42:33+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 3675 ft / 180 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.0991,
+            "lon": -3.1076,
+            "updatedAt": "2026-09-01T13:43:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 4075 ft / 240 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.0601,
+            "lon": -3.1422,
+            "updatedAt": "2026-09-01T13:43:50+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 5300 ft / 266 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 53.0272,
+            "lon": -3.1046,
+            "updatedAt": "2026-09-01T13:44:21+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 6625 ft / 290 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.0198,
+            "lon": -3.0564,
+            "updatedAt": "2026-09-01T13:44:44+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 7600 ft / 292 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.0169,
+            "lon": -3.0095,
+            "updatedAt": "2026-09-01T13:45:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 8500 ft / 296 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.024,
+            "lon": -2.9641,
+            "updatedAt": "2026-09-01T13:45:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 9100 ft / 293 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0282,
+            "lon": -2.9453,
+            "updatedAt": "2026-09-01T13:45:34+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 9300 ft / 297 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.043,
+            "lon": -2.8806,
+            "updatedAt": "2026-09-01T13:46:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 10450 ft / 307 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0569,
+            "lon": -2.819,
+            "updatedAt": "2026-09-01T13:46:31+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 11075 ft / 328 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 53.0604,
+            "lon": -2.7267,
+            "updatedAt": "2026-09-01T13:47:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 12525 ft / 329 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 53.0457,
+            "lon": -2.6938,
+            "updatedAt": "2026-09-01T13:47:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13125 ft / 325 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 53.0359,
+            "lon": -2.6811,
+            "updatedAt": "2026-09-01T13:47:35+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 13350 ft / 329 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9827,
+            "lon": -2.6205,
+            "updatedAt": "2026-09-01T13:48:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 14200 ft / 352 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9366,
+            "lon": -2.5692,
+            "updatedAt": "2026-09-01T13:48:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 15550 ft / 353 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.9108,
+            "lon": -2.5403,
+            "updatedAt": "2026-09-01T13:49:08+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 16150 ft / 358 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.8539,
+            "lon": -2.4789,
+            "updatedAt": "2026-09-01T13:49:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 17450 ft / 361 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.5813,
+            "lon": -2.2629,
+            "updatedAt": "2026-09-01T13:52:43+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 23000 ft / 396 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.5457,
+            "lon": -2.2291,
+            "updatedAt": "2026-09-01T13:53:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 23675 ft / 401 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.5106,
+            "lon": -2.1965,
+            "updatedAt": "2026-09-01T13:53:26+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 24325 ft / 404 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.4759,
+            "lon": -2.1648,
+            "updatedAt": "2026-09-01T13:53:48+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 25025 ft / 406 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.4424,
+            "lon": -2.1345,
+            "updatedAt": "2026-09-01T13:54:08+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 25450 ft / 412 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.4094,
+            "lon": -2.1047,
+            "updatedAt": "2026-09-01T13:54:28+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 25875 ft / 419 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.3737,
+            "lon": -2.0725,
+            "updatedAt": "2026-09-01T13:54:49+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 26375 ft / 424 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.3081,
+            "lon": -2.0136,
+            "updatedAt": "2026-09-01T13:55:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 27550 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.2628,
+            "lon": -1.9728,
+            "updatedAt": "2026-09-01T13:55:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 28450 ft / 418 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.2274,
+            "lon": -1.9412,
+            "updatedAt": "2026-09-01T13:56:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 29050 ft / 416 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1913,
+            "lon": -1.909,
+            "updatedAt": "2026-09-01T13:56:36+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 29475 ft / 418 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1317,
+            "lon": -1.856,
+            "updatedAt": "2026-09-01T13:57:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30350 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.1049,
+            "lon": -1.8322,
+            "updatedAt": "2026-09-01T13:57:27+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 30775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.0596,
+            "lon": -1.7919,
+            "updatedAt": "2026-09-01T13:57:54+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 31575 ft / 416 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 52.0238,
+            "lon": -1.7603,
+            "updatedAt": "2026-09-01T13:58:15+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 32125 ft / 415 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.9835,
+            "lon": -1.7246,
+            "updatedAt": "2026-09-01T13:58:39+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 32525 ft / 417 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.948,
+            "lon": -1.6934,
+            "updatedAt": "2026-09-01T13:59:00+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 32850 ft / 420 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 51.4382,
+            "lon": -1.2556,
+            "updatedAt": "2026-09-01T14:03:58+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35950 ft / 418 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.8116,
+            "lon": -0.7352,
+            "updatedAt": "2026-09-01T14:09:59+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35975 ft / 428 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.6954,
+            "lon": -0.6404,
+            "updatedAt": "2026-09-01T14:11:05+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 35975 ft / 429 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.3886,
+            "lon": -0.4375,
+            "updatedAt": "2026-09-01T14:13:55+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 36000 ft / 420 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.2721,
+            "lon": -0.3748,
+            "updatedAt": "2026-09-01T14:14:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36000 ft / 418 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 50.0508,
+            "lon": -0.2841,
+            "updatedAt": "2026-09-01T14:16:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36025 ft / 411 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 49.7189,
+            "lon": -0.1535,
+            "updatedAt": "2026-09-01T14:20:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36050 ft / 411 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 49.588,
+            "lon": -0.1026,
+            "updatedAt": "2026-09-01T14:21:11+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36050 ft / 413 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 49.4672,
+            "lon": -0.0558,
+            "updatedAt": "2026-09-01T14:22:17+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36075 ft / 406 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 49.1732,
+            "lon": 0.0567,
+            "updatedAt": "2026-09-01T14:25:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36100 ft / 399 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 48.6361,
+            "lon": 0.2593,
+            "updatedAt": "2026-09-01T14:30:03+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36150 ft / 394 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 48.111,
+            "lon": 0.453,
+            "updatedAt": "2026-09-01T14:35:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36200 ft / 398 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.5605,
+            "lon": 0.6518,
+            "updatedAt": "2026-09-01T14:40:15+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36250 ft / 382 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.0297,
+            "lon": 0.8393,
+            "updatedAt": "2026-09-01T14:45:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36325 ft / 380 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.5035,
+            "lon": 1.0216,
+            "updatedAt": "2026-09-01T14:50:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 36400 ft / 379 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.0525,
+            "lon": 1.1749,
+            "updatedAt": "2026-09-01T14:54:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 36450 ft / 386 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.8239,
+            "lon": 1.2516,
+            "updatedAt": "2026-09-01T14:57:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 35550 ft / 389 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.7189,
+            "lon": 1.2866,
+            "updatedAt": "2026-09-01T14:58:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 34550 ft / 390 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.5413,
+            "lon": 1.3452,
+            "updatedAt": "2026-09-01T14:59:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32875 ft / 393 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.4853,
+            "lon": 1.363,
+            "updatedAt": "2026-09-01T15:00:21+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32350 ft / 390 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.4782,
+            "lon": 1.3652,
+            "updatedAt": "2026-09-01T15:00:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 32325 ft / 390 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.4006,
+            "lon": 1.3891,
+            "updatedAt": "2026-09-01T15:01:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31950 ft / 394 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.3607,
+            "lon": 1.4011,
+            "updatedAt": "2026-09-01T15:01:34+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31650 ft / 396 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.3209,
+            "lon": 1.4128,
+            "updatedAt": "2026-09-01T15:01:53+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 31275 ft / 396 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.2821,
+            "lon": 1.4239,
+            "updatedAt": "2026-09-01T15:02:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 30900 ft / 396 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.2402,
+            "lon": 1.4355,
+            "updatedAt": "2026-09-01T15:02:38+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 30525 ft / 398 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.2007,
+            "lon": 1.4462,
+            "updatedAt": "2026-09-01T15:03:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 30175 ft / 398 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.172,
+            "lon": 1.4541,
+            "updatedAt": "2026-09-01T15:03:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 29900 ft / 399 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.1242,
+            "lon": 1.4673,
+            "updatedAt": "2026-09-01T15:03:42+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 29450 ft / 403 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 45.0842,
+            "lon": 1.4784,
+            "updatedAt": "2026-09-01T15:04:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 29100 ft / 406 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.5574,
+            "lon": 1.6654,
+            "updatedAt": "2026-09-01T15:09:03+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 24050 ft / 382 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.4515,
+            "lon": 1.6678,
+            "updatedAt": "2026-09-01T15:10:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 21425 ft / 371 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.3471,
+            "lon": 1.6637,
+            "updatedAt": "2026-09-01T15:11:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 18950 ft / 362 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.2422,
+            "lon": 1.6588,
+            "updatedAt": "2026-09-01T15:12:09+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 16600 ft / 348 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.2128,
+            "lon": 1.6568,
+            "updatedAt": "2026-09-01T15:12:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 15900 ft / 346 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.178,
+            "lon": 1.6545,
+            "updatedAt": "2026-09-01T15:12:49+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 15150 ft / 342 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.143,
+            "lon": 1.6523,
+            "updatedAt": "2026-09-01T15:13:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 14325 ft / 338 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.1195,
+            "lon": 1.6508,
+            "updatedAt": "2026-09-01T15:13:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 13850 ft / 333 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.0808,
+            "lon": 1.6487,
+            "updatedAt": "2026-09-01T15:13:52+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 13100 ft / 324 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.0493,
+            "lon": 1.6467,
+            "updatedAt": "2026-09-01T15:14:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 12300 ft / 323 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 44.0296,
+            "lon": 1.6455,
+            "updatedAt": "2026-09-01T15:14:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 11825 ft / 322 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9894,
+            "lon": 1.6431,
+            "updatedAt": "2026-09-01T15:14:54+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 11300 ft / 305 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9538,
+            "lon": 1.6411,
+            "updatedAt": "2026-09-01T15:15:20+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 11025 ft / 284 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.9318,
+            "lon": 1.6398,
+            "updatedAt": "2026-09-01T15:15:37+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 10850 ft / 274 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.8803,
+            "lon": 1.6365,
+            "updatedAt": "2026-09-01T15:16:18+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 10175 ft / 274 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.8485,
+            "lon": 1.6345,
+            "updatedAt": "2026-09-01T15:16:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 9650 ft / 268 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.8219,
+            "lon": 1.6331,
+            "updatedAt": "2026-09-01T15:17:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 9450 ft / 255 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.798,
+            "lon": 1.6317,
+            "updatedAt": "2026-09-01T15:17:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 9275 ft / 243 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.7456,
+            "lon": 1.6285,
+            "updatedAt": "2026-09-01T15:18:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 8700 ft / 223 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.7168,
+            "lon": 1.6267,
+            "updatedAt": "2026-09-01T15:18:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7875 ft / 227 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6837,
+            "lon": 1.6247,
+            "updatedAt": "2026-09-01T15:19:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7375 ft / 221 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6534,
+            "lon": 1.623,
+            "updatedAt": "2026-09-01T15:19:44+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6775 ft / 225 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.5716,
+            "lon": 1.6223,
+            "updatedAt": "2026-09-01T15:21:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5575 ft / 197 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4619,
+            "lon": 1.558,
+            "updatedAt": "2026-09-01T15:24:26+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4175 ft / 192 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.4732,
+            "lon": 1.5235,
+            "updatedAt": "2026-09-01T15:24:58+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3875 ft / 189 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5006,
+            "lon": 1.4949,
+            "updatedAt": "2026-09-01T15:25:38+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3525 ft / 181 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5181,
+            "lon": 1.4768,
+            "updatedAt": "2026-09-01T15:26:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3200 ft / 168 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5379,
+            "lon": 1.4563,
+            "updatedAt": "2026-09-01T15:26:37+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2725 ft / 166 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6064,
+            "lon": 1.3852,
+            "updatedAt": "2026-09-01T15:28:43+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1025 ft / 137 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6168,
+            "lon": 1.3743,
+            "updatedAt": "2026-09-01T15:29:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 825 ft / 136 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6306,
+            "lon": 1.36,
+            "updatedAt": "2026-09-01T15:29:43+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6289,
+            "lon": 1.3587,
+            "updatedAt": "2026-09-01T15:31:09+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-09-01T15:34:04+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-09-01T15:34:54+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-09-01T15:36:14+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.626,
+            "lon": 1.3588,
+            "updatedAt": "2026-09-01T15:37:39+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
           }
         ]
       }
@@ -11167,7 +16484,7 @@ window.CONFLICT_DATA = {
       ],
       "accumulated_htp_retained_total": 113,
       "current_fal_buffer_hours": 4.8,
-      "calculated_at": "2026-09-01T13:42:51.791882+00:00"
+      "calculated_at": "2026-09-01T16:16:00.106529+00:00"
     },
     "dynamic_movement_history": [
       {
@@ -11620,16 +16937,16 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-09-01T13:42:53.785645+00:00",
-    "temperature_celsius": 82.7,
+    "timestamp": "2026-09-01T16:16:01.927093+00:00",
+    "temperature_celsius": 83.3,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
     "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.",
-    "bad_for_airbus_count": 72,
+    "bad_for_airbus_count": 73,
     "good_for_airbus_count": 3,
-    "neutral_count": 16,
+    "neutral_count": 15,
     "total_items_monitored": 91,
-    "bad_for_airbus_percentage": 79.1,
+    "bad_for_airbus_percentage": 80.2,
     "good_for_airbus_percentage": 3.3,
     "channels_distribution": {
       "Reddit": 1,
@@ -11637,8 +16954,8 @@ window.CONFLICT_DATA = {
       "Prensa Económica": 1,
       "Telegram": 1,
       "Corporate PR": 1,
-      "Prensa Nacional & Economía": 56,
-      "Aviation & Industry Press": 9,
+      "Prensa Nacional & Economía": 57,
+      "Aviation & Industry Press": 8,
       "Labor & Negociación": 16,
       "Logística & Cadena JIT": 5
     },
@@ -11705,15 +17022,15 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-01",
-        "source": "fly-news.es",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "UGT plantea parar la huelga en Airbus varios días mientras continuen las negociaciones - fly-news.es",
+        "title": "UGT plantea parar la huelga en Airbus varios días mientras continuen las negociaciones",
         "date": "Tue, 01 Sep 2026",
         "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZ0UzNHNDWjBtUXRPWjBnSDZkeG1kczkzMVc5d0hGcHQ0UlpyMlVOQTRuQnVOX2I3VWxWTGotMjY4OUJHQmx5bzhxUlFMTnRFNDhEbzVkU1J5eDNLS1NEeEprRERzdW0tSXdJMXhvYVhBMEJ0MXZIS0xHN0FhWEZWb1VfNW5waTZaWnN2STg3NmFTUHhiR1g2XzkyaE9US211Y0FONXRxQmZJQ0tyMkU4ekp4MWVBNHJB?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-02",
@@ -11765,18 +17082,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-06",
-        "source": "aviaciondigital.com",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
-        "date": "Wed, 26 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en aviaciondigital.com. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-07",
         "source": "Expansión",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
@@ -11786,6 +17091,18 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-07",
+        "source": "Aviación Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
+        "date": "Wed, 26 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-08",
@@ -11801,19 +17118,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-09",
-        "source": "Andalucía Información",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Illescas y Albacete pausarán la huelga en Airbus mientras otros centros votan",
-        "date": "Mon, 31 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNVnFYSkV1WXhqRWR3ZWxwMmlHbUNiWElvUnRDX1RtcU9JNmZrR3VacU1wRWg3eG52R3lXMkhVTEVKem1pdTJuanRYT3JsbU5jemhUZTZweWNHSnFVazZGVTJKUmM4VEEwc1dBeE1oanppZjJXY2pMQ3hIR1JWcW5SVHZWSUVoZkJ2MDlfNzI4RWQwcldLTTQxWG0xV0R0RXhjR0t3Sk10U2pZd0F1bGt4UnJkbldCT1hfMUN6RVcxX1FST2x3SVRsOWFUclNBMm8zSW1qTDBlcjd5RzNxbGpCamc3MXJGYmI0REpfVFNtOG5TUdIB9wFBVV95cUxOd2lFMXNQWU02c0xpS2pzWmh5VFkxVkFMLU5DczZLbUs4MWp4Y3N0dXNmRHRjM1ltZjZ1aGRjcWVuM21zVDdCMFBXY0cwR1gzN0RjNEJNdDVnTEowQVZFZFVaZjMzcjU2bDZnZVU4VkRScnNBbkp0UVNxRDRhSHdlQXlMSGlxaUo1aEpfZy00cVR2bzI0aU9Mc0VnTU16RmQxUjRXaWtVUHdwZGNSWU1keGZraDJZd05tSzcwbXdCOGJ3c1J0TTFIWnlvYlh1VF9ZSFNqbTVZb1V1R0M1ZFpwNnczdkZ2UTlNRFJZaDRva1ZmaEhNM2VZ?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Andalucía Información. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-10",
-        "source": "Cadena SER",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en la fábrica de Airbus en Getafe se recrudece tras una semana de protestas",
         "date": "Wed, 08 Jul 2026",
@@ -11821,10 +17126,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-11",
+        "id": "rss-10",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus España se plantean una huelga indefinida a partir del 24 de agosto",
@@ -11836,8 +17141,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-12",
-        "source": "Infodefensa",
+        "id": "rss-11",
+        "source": "infodefensa.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Huelga indefinida en Airbus España: UGT, CGT y ÚTIL convocan paros totales a partir del 24 de agosto",
         "date": "Fri, 31 Jul 2026",
@@ -11845,10 +17150,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+27°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en infodefensa.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-13",
+        "id": "rss-12",
         "source": "Industry Talks",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus: la plantilla dice no al preacuerdo en el referéndum y el sindicato convocante de la huelga la retira",
@@ -11860,19 +17165,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-14",
-        "source": "elDiario.es",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
-        "date": "Thu, 20 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-15",
+        "id": "rss-13",
         "source": "Euronews.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive su mayor huelga en España con todas las plantas afectadas",
@@ -11884,7 +17177,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-16",
+        "id": "rss-14",
         "source": "El Mundo",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
@@ -11896,7 +17189,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-17",
+        "id": "rss-15",
         "source": "Diario Público",
         "channel": "Prensa Nacional & Economía",
         "title": "Cerca de 5.000 trabajadores de Airbus España se manifiestan en Getafe tras 16 días en huelga",
@@ -11908,8 +17201,20 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-18",
-        "source": "Cadena SER",
+        "id": "rss-16",
+        "source": "elDiario.es",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-17",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
         "date": "Mon, 27 Jul 2026",
@@ -11917,23 +17222,23 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-19",
-        "source": "fly-news.es",
+        "id": "rss-18",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "Airbus: Sigue la huelga en España - fly-news.es",
+        "title": "Airbus: Sigue la huelga en España",
         "date": "Tue, 14 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-20",
-        "source": "Cadena SER",
+        "id": "rss-19",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
         "date": "Tue, 21 Jul 2026",
@@ -11941,23 +17246,23 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-21",
-        "source": "fly-news.es",
+        "id": "rss-20",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga - fly-news.es",
+        "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga",
         "date": "Sat, 18 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVk9RWV9jYV9ub25faGwxZGtYQ3lOQkd1TVlwS09HMXotMzhUR1MzVlJEUTRqR09LaDhOMHFqdVNlWHU1YzZqa0R6UEtzank3ZEZwMDdJZGxGbXh1dWQ0LU1vcjhkWl8wblBGYUpqSXV0YjNDeWRJZGVrX09zeEljUlFqOHF2VGdKb2J4cWZyNVdlbmFIUnNzWFFvbFZ1aG0wU0ZaV3g1bw?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-22",
-        "source": "Cadena SER",
+        "id": "rss-21",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "La mayoría sindical en Airbus firma un nuevo preacuerdo que someterá a referéndum este viernes",
         "date": "Thu, 23 Jul 2026",
@@ -11965,11 +17270,11 @@ window.CONFLICT_DATA = {
         "category": "GOOD_FOR_AIRBUS",
         "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-13°C",
-        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cadena SER."
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en cadenaser.com."
       },
       {
-        "id": "rss-23",
-        "source": "Economía Digital",
+        "id": "rss-22",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus España: reunión sindical clave para marcar el futuro de las movilizaciones tras una semana de huelga",
         "date": "Wed, 08 Jul 2026",
@@ -11977,7 +17282,19 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-23",
+        "source": "soydemadrid.com",
+        "channel": "Prensa Nacional & Economía",
+        "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en soydemadrid.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-24",
@@ -11993,43 +17310,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-25",
-        "source": "Soy de Madrid",
-        "channel": "Prensa Nacional & Economía",
-        "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
-        "date": "Wed, 01 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNdVMwcjdaRU1rTXZoVjQtTDRJTVRqUWZqVThueUMzWFZfbVpvYWt4SVBaVHhjMVFpd1pnRUtvNWN2Q3ZRazNDQ3hlbzdyQk5jTzF3bC1pZHg2c2dabjFoN2hkdUR4RUhWX0RuWlVYOFZiS1ZXaVdvZjExY0JaWTRLMXFSckR2c1hJWDB5bVpTaG1vdkNOaXVYcS1kaVc2Sjl0aHctY0lRMUZuaXN0eVJYSkV5aHJ3WDlsUXRPczZfMEZoY1Ra?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Soy de Madrid. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-26",
-        "source": "El Español",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
-        "date": "Mon, 27 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-27",
-        "source": "Economía Digital",
-        "channel": "Prensa Nacional & Economía",
-        "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
-        "date": "Tue, 14 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-28",
-        "source": "Economía Digital",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
         "date": "Thu, 02 Jul 2026",
@@ -12037,10 +17318,22 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-29",
+        "id": "rss-26",
+        "source": "economiadigital.es",
+        "channel": "Prensa Nacional & Economía",
+        "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-27",
         "source": "elDiario.es",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus va a la huelga por los salarios y la reducción del teletrabajo en un momento de beneficios récords",
@@ -12052,20 +17345,20 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-30",
-        "source": "El Conciso",
+        "id": "rss-28",
+        "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
-        "date": "Thu, 23 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
-        "category": "GOOD_FOR_AIRBUS",
-        "impact": "GOOD_FOR_AIRBUS",
-        "pressure_impact": "-13°C",
-        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
+        "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
+        "date": "Mon, 27 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-31",
-        "source": "Economía Digital",
+        "id": "rss-29",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos aprietan a Airbus y dan cinco días para negociar y evitar una escalada del conflicto",
         "date": "Fri, 03 Jul 2026",
@@ -12073,10 +17366,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-32",
+        "id": "rss-30",
         "source": "El Independiente",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus lleva a la compañía a delegar trabajos de ingeniería a otras filiales en pleno rearme",
@@ -12088,7 +17381,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-33",
+        "id": "rss-31",
+        "source": "El Conciso",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
+        "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
+        "pressure_impact": "-13°C",
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
+      },
+      {
+        "id": "rss-32",
         "source": "The Objective",
         "channel": "Prensa Nacional & Economía",
         "title": "Los empleados de Airbus inician una huelga en España en un momento de beneficios récord",
@@ -12100,7 +17405,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Objective. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-34",
+        "id": "rss-33",
         "source": "Hosteltur",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive una de sus mayores huelgas en España con paros en todos los centros",
@@ -12112,7 +17417,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hosteltur. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-35",
+        "id": "rss-34",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en Airbus España se extiende por todos los centros con la rebaja del teletrabajo como detonante",
@@ -12122,6 +17427,18 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-35",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Arrecia la huelga en Airbus por una subida salarial por debajo del IPC y el recorte del teletrabajo",
+        "date": "Thu, 09 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOY21jZnJrY1ZGY19LX21kRmlra3p0cHNLNmF1djJUUDNNZk9VSW02aDZiN2Jfd2Nya1lxMGRDaXJKQjJxUFl5UEdvRkVNRFN1NTlZd0FqaUpROC1GQ3A2dnMxcGhUdkYwYmwwbV9CbUNHM1BRSi13RUYyN1JhTlBreXVxSFQ4U2VFYTRPNlpwMGdvNVYwODZKT1N1YTZsRm5ZMUNDWEpRS1FsRC1yQjJnTXhEQ2NfZ1AyN0hvSnhVMkJnNHMxWF9wOExQUElXZ9IB0wFBVV95cUxPS25jNEVzb2l0VmxiZDNXa1hhWlA3NjYzZHF6MHdfTm0tS3NuRHBfTjE0UUNGclAtaGsyYWFVUUx3eDFYS25RMWNTZzlvSkxvQTB3UjZmOHV3cXBHZ0RNQVY2bUdmRFF4dlZjNmNjczE5WXYxbHBaRjFrLVRVMm5Nc1ZQTGNCd3BkUWIyZ0pnZURINVRDallmdnd3NUVNQjQ1aG9VMWk0WFBZN1Y0RnJ1R0JSVy1MOFRKc2ZQQTlIdmx1TFdYa1N4a0I4WXpyV1plS0tN?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-36",
@@ -12139,18 +17456,6 @@ window.CONFLICT_DATA = {
         "id": "rss-37",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "Arrecia la huelga en Airbus por una subida salarial por debajo del IPC y el recorte del teletrabajo",
-        "date": "Thu, 09 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOY21jZnJrY1ZGY19LX21kRmlra3p0cHNLNmF1djJUUDNNZk9VSW02aDZiN2Jfd2Nya1lxMGRDaXJKQjJxUFl5UEdvRkVNRFN1NTlZd0FqaUpROC1GQ3A2dnMxcGhUdkYwYmwwbV9CbUNHM1BRSi13RUYyN1JhTlBreXVxSFQ4U2VFYTRPNlpwMGdvNVYwODZKT1N1YTZsRm5ZMUNDWEpRS1FsRC1yQjJnTXhEQ2NfZ1AyN0hvSnhVMkJnNHMxWF9wOExQUElXZ9IB0wFBVV95cUxPS25jNEVzb2l0VmxiZDNXa1hhWlA3NjYzZHF6MHdfTm0tS3NuRHBfTjE0UUNGclAtaGsyYWFVUUx3eDFYS25RMWNTZzlvSkxvQTB3UjZmOHV3cXBHZ0RNQVY2bUdmRFF4dlZjNmNjczE5WXYxbHBaRjFrLVRVMm5Nc1ZQTGNCd3BkUWIyZ0pnZURINVRDallmdnd3NUVNQjQ1aG9VMWk0WFBZN1Y0RnJ1R0JSVy1MOFRKc2ZQQTlIdmx1TFdYa1N4a0I4WXpyV1plS0tN?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-38",
-        "source": "El Español",
-        "channel": "Prensa Nacional & Economía",
         "title": "Airbus quiere \"reconstruir la confianza\" de sus 14.000 empleados en España y evitar que la huelga prenda en Francia",
         "date": "Sun, 19 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOblZZaUJleUR6Ym1jcE1uSUtUeURiaERkNEtnVC1wNmItajJrdzRDcGhNM1RxengzNHhZSlI3dlZMTVVPYWNfM09kSW5hY1h5T1NhWk1TbGpNNFNYNFZjY3A0TE02RWJ2aHZoQ3Z6My1TbV9Uai1CN1hfX1F3Z3JMVHFFWFVZRDgwR2REV3dyQmpMMDVKbGlERVpPR203R3pHM2pLN2I2cFpYbDNWak5qTXNVUFdXOXl4OEhWV0RsdV9hNHpBbVgtNXd0RjQ3R3VKaU1fWkU3Z3NGeExIV0JR0gHkAUFVX3lxTE5oTWgyUUFJak5McHVtUVh6UHNmd3lxVWgzY01YVzY5aFA3YkhVNk1IUW9BX281UWpwb196RGJUWUV4OXFCdDNfNlhLMjlEcnJwa0NrSmlUYkxyNGFmRjhKTGotcHV0SEs0Z3Vka0RHRnB4UkpRem1kV1FKRjlUQUc3Q1M0UmxnRWVqMFJyemRQTV9iREtXVVVrQXZETVRDU2k2ekhoWnpGUEY0OUNzWlI2NEYtbS1zc0VLZ3lwZ2xJdjA1dUFnYjVaWGdXVjF2ZFQ1Z084OEVrSWRoUWxjZXdqZVlxNw?oc=5",
@@ -12158,6 +17463,18 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-38",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga de trabajadores de Airbus comienza con el bloqueo de la entrada a su planta de Getafe",
+        "date": "Wed, 01 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbjdMblo4cXYzMl9FOE1YRUtENnhGQ0pjTWJGZU5yRVV2emYxVzEwaE5peHVibGdLUk1vTVhneTRKWU1ubXpWbzV6dTdaYzZ1Tm5MN3hENzl4a0I3TFRNcl9sODVIcXI2d1FqNFRVaXhVOXZ5TDdtNGI2MlZpM19mTDh6ZEdDa3F4dU1qWGwyUEVNSGx3TkRjcXNXdy1zYktZZHhlMWJuUUVoSWJLNXfSAbMBQVVfeXFMTXh0RzVuZkloVmZweFZQR2N0bmtTdWxISWo2T3hsQnpRSFpMZ0lWb1E5bFltM2dzYTk0NGlmVmd5TzdJSkNRS19IWWhGelVnNVJyUmxTMWNxbkVqemJyLWZYZWJtZjVhc3RfRmN4eHdTZWtDcGcyT0RrcDdESmtjTG1nTjRVUmNxQ2Q2bDVGRjE4Z0swZXN5V0VERzNmX2lBcjY0Z2cwT3BhMTRrNFlWSTF0T28?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-39",
@@ -12173,18 +17490,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-40",
-        "source": "ABC",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La huelga de trabajadores de Airbus comienza con el bloqueo de la entrada a su planta de Getafe",
-        "date": "Wed, 01 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbjdMblo4cXYzMl9FOE1YRUtENnhGQ0pjTWJGZU5yRVV2emYxVzEwaE5peHVibGdLUk1vTVhneTRKWU1ubXpWbzV6dTdaYzZ1Tm5MN3hENzl4a0I3TFRNcl9sODVIcXI2d1FqNFRVaXhVOXZ5TDdtNGI2MlZpM19mTDh6ZEdDa3F4dU1qWGwyUEVNSGx3TkRjcXNXdy1zYktZZHhlMWJuUUVoSWJLNXfSAbMBQVVfeXFMTXh0RzVuZkloVmZweFZQR2N0bmtTdWxISWo2T3hsQnpRSFpMZ0lWb1E5bFltM2dzYTk0NGlmVmd5TzdJSkNRS19IWWhGelVnNVJyUmxTMWNxbkVqemJyLWZYZWJtZjVhc3RfRmN4eHdTZWtDcGcyT0RrcDdESmtjTG1nTjRVUmNxQ2Q2bDVGRjE4Z0swZXN5V0VERzNmX2lBcjY0Z2cwT3BhMTRrNFlWSTF0T28?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-41",
         "source": "MARCA",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España pone en marcha una huelga que afecta a sus factorías en pleno incremento de la producción",
@@ -12196,7 +17501,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-42",
+        "id": "rss-41",
         "source": "Aviacionline",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus plants in Spain resume operations as unions debate next steps in wage dispute",
@@ -12208,8 +17513,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviacionline."
       },
       {
-        "id": "rss-43",
-        "source": "InfoBaires24",
+        "id": "rss-42",
+        "source": "infobaires24.com.ar",
         "channel": "Prensa Nacional & Economía",
         "title": "España: Continúa la huelga histórica en Airbus",
         "date": "Thu, 23 Jul 2026",
@@ -12217,10 +17522,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en InfoBaires24. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en infobaires24.com.ar. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-44",
+        "id": "rss-43",
         "source": "Finanzas.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus debe acelerar un 51% sus entregas con una huelga en España que afecta al 88% de su producción",
@@ -12232,7 +17537,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-45",
+        "id": "rss-44",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos rechazan la propuesta de Airbus para terminar con la huelga",
@@ -12244,19 +17549,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-46",
-        "source": "fly-news.es",
+        "id": "rss-45",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "Reunión clave para desconvocar la huelga en Airbus - fly-news.es",
+        "title": "Reunión clave para desconvocar la huelga en Airbus",
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd0JRMXVvajRXazNGVGdfdHF2YndXdVlUS1hvYl8wdmItOXp3alhYSVdTS1hqTjdyc0NXV3ZCU0Zka0dYV3ZyMlVOZ3k5LTYtdFZ0MUZvVUtDaE42dl9jbkVVSHdoWDFMTWFWanoyd2wxcUNka3VnNHBVRFJYQVpxSjNDVHJZRm45?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-47",
+        "id": "rss-46",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "La votación para acabar con la huelga en Airbus separa a la plantilla de los sindicatos",
@@ -12268,7 +17573,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-48",
+        "id": "rss-47",
         "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus votan en contra del acuerdo con la empresa de revisión salarial y teletrabajo",
@@ -12280,7 +17585,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
       },
       {
-        "id": "rss-49",
+        "id": "rss-48",
         "source": "LaSexta",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus, en huelga tras meses sin acuerdo en el convenio mientras la empresa logra beneficios récord",
@@ -12290,6 +17595,18 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-49",
+        "source": "Hispanidad",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Huelga en Airbus. La dirección amenaza con cancelar contratos... pero el Gobierno reacciona y le obliga a negociar con los sindicatos",
+        "date": "Mon, 31 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNTndaXzRvNlNYU05EcUU3RURwU0NBdjdGdnA3d3Fvc2JUd01iSFVRa1BYTzczNFNSYW9xbkxqSGR6R3JLWkZqbE1pb0pybk11ZjAzTjYtVE40a0l4TWpfYUdxSzd5M0U3WGdMTml2YzVWMUxhY2NCVmU3Mm1QWTlnZ2ZHV2ZjN0VWZEhDNHh2U2FzQzZXV3VCenJTSnRsWmdsR3FkRVhoNUVQc1Zjc0JibExnM044VWdmbmliRkkwRVV1X0h4YTd6YmsxcTRwdVdENEwybElFeEI3T29pUU1penNueHlOaGZtRjJwdXBGOTBkcnVxZy1vdlNB0gH-AUFVX3lxTFByQ0gyOTZQSEM5NFp4N0hpZno3TjY3M3pJWU5tY2lqVW5IUUtrTEoxS2hMVnNBR0p2ejBNclY2X3duMTRpV2V6bXVwOTdQZDZ0amR5NTR5RE1Pc3FOYjhGZ21IZ0V3NWIwSkdNR0g0T2hCSHlDRkpTdUtGc05FM2NpenVBcldhTjh0UGpFMDBVYWYzdzBBTk45eDBUc2dMU3lISjQ4Wmx5VktTMDJPYjU0SmVQSmFlQWkyOGFkLW5NWHZsQ0pOYTZMNzRFcnpKNTktSS1EazhXdnBidlhqOW9FZXJFT0NmLVo0dXdxX2dObnU2aXhtRGhNTVFXN2ZR?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hispanidad. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-50",
@@ -12329,6 +17646,18 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-53",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "El Gobierno mediará si se mantiene la huelga en Airbus: \"No podemos jugar con el pan de los próximos 30 años\"",
+        "date": "Tue, 01 Sep 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWkxrSUVSOGRSWEhqMXFlOEoxcllmeEhHZkRJdVp3MGVxTTFFbURNSWhhVkNCVU1tU0JlYXhvU0xSNGJXWTZCMDBib3Q1VGl2S0YyVi05SzJuVkdTOThVZ1B5enJqZFpSMGVuekw2WVM2N3VISzBBNzBQMXJNNHF5RFZzeWFhLXRHVWx2X1Iyb1Z1bUJlOFpLbDF4NFNmTUV5VUFiSEduTXFVaUx1bjE4eUhhbWtmQlhIc21tM0FZdlJVQlRQZnBGLThtV0VCTTIyeTM0YXZn0gHbAUFVX3lxTE1NTWRTYXIwR2JmSnd4a19TZEw5RWtFTDA5QThGRUIxSzNHM0lkY0J6bWJlS01GSk5lQTBzaE9GZjFUY3VVNGhfNkg2cGF0bHloYVJlQVl2UEZYb1NSQmlQcEJQNUFMcTQ2c1VDX0RXcWFHbTh5WmQ2OGdGcW5yRTZNTjd1NkN0MVAtRWp5akJ4WmNSM3dFYlV4YWk0aVROUENKZWoxUTNnaDdhdmVUN0dNZ012MVl4T3VTSEVmY0xpeGRJN3VEUVlvRlBpcWhhYW9kZXIzWVphcmlSbw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-54",
         "source": "Demócrata",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de SIPA en Airbus España rebasa la semana y se extiende con UGT y CGT mientras CCOO sigue fuera",
@@ -12340,7 +17669,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-54",
+        "id": "rss-55",
         "source": "Diario Red",
         "channel": "Prensa Nacional & Economía",
         "title": "Tras más de 5000 millones de euros de beneficio récord, Airbus se niega a mejorar las condiciones de la plantilla y los trabajadores inician una huelga",
@@ -12352,8 +17681,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-55",
-        "source": "Cadena SER",
+        "id": "rss-56",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos hablan de seguimiento masivo de la huelga en Airbus Getafe",
         "date": "Wed, 02 Nov 2022",
@@ -12361,10 +17690,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-56",
+        "id": "rss-57",
         "source": "OkDiario",
         "channel": "Prensa Nacional & Economía",
         "title": "Las atroces condiciones de los subcontratados de Airbus España se agravan: casetas con goteras y ordenadore...",
@@ -12376,32 +17705,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en OkDiario."
       },
       {
-        "id": "rss-57",
-        "source": "Air Data News",
-        "channel": "Aviation & Industry Press",
-        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
-        "date": "Sat, 04 Apr 2026",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
-        "category": "NEUTRAL",
-        "impact": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
-      },
-      {
         "id": "rss-58",
-        "source": "Crikey",
-        "channel": "Aviation & Industry Press",
-        "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
-        "date": "Tue, 23 Jun 2026",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
-        "category": "NEUTRAL",
-        "impact": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
-      },
-      {
-        "id": "rss-59",
-        "source": "simpleflying.com",
+        "source": "Simple Flying",
         "channel": "Aviation & Industry Press",
         "title": "Lufthansa Group Is Losing $540 Million A Year To Aircraft Delivery Delays",
         "date": "Tue, 09 Jul 2024",
@@ -12409,10 +17714,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en simpleflying.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-60",
+        "id": "rss-59",
         "source": "Forecast International",
         "channel": "Aviation & Industry Press",
         "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
@@ -12424,7 +17729,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
-        "id": "rss-61",
+        "id": "rss-60",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Airbus warns customers of aircraft delivery delays: report",
@@ -12436,19 +17741,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-62",
-        "source": "simpleflying.com",
+        "id": "rss-61",
+        "source": "airdatanews.com",
         "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
+        "date": "Sat, 04 Apr 2026",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en simpleflying.com."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en airdatanews.com."
       },
       {
-        "id": "rss-63",
+        "id": "rss-62",
         "source": "Key Aero",
         "channel": "Aviation & Industry Press",
         "title": "THAI A350 DELIVERY",
@@ -12460,7 +17765,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
       },
       {
-        "id": "rss-64",
+        "id": "rss-63",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Behind the scenes at ATR’s turboprop factory",
@@ -12472,8 +17777,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
       },
       {
-        "id": "rss-65",
-        "source": "simpleflying.com",
+        "id": "rss-64",
+        "source": "Simple Flying",
         "channel": "Aviation & Industry Press",
         "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
         "date": "Fri, 08 Nov 2024",
@@ -12481,7 +17786,19 @@ window.CONFLICT_DATA = {
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en simpleflying.com."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-65",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "impact": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
         "id": "rss-66",
@@ -12545,7 +17862,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-71",
-        "source": "europapress.es",
+        "source": "Europa Press",
         "channel": "Labor & Negociación",
         "title": "Airbus pide una mediación del SIMA para acercar posturas tras el rechazo de los trabajadores al acuerdo",
         "date": "Thu, 30 Jul 2026",
@@ -12553,7 +17870,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en europapress.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-72",
@@ -12581,7 +17898,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-74",
-        "source": "Economía Digital",
+        "source": "economiadigital.es",
         "channel": "Labor & Negociación",
         "title": "Airbus mueve ficha para frenar la huelga: subirá los sueldos un 7,6% y los ligará al IPC",
         "date": "Sat, 29 Aug 2026",
@@ -12589,7 +17906,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-75",
@@ -12629,7 +17946,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-78",
-        "source": "Albaceteabierto",
+        "source": "albaceteabierto.es",
         "channel": "Labor & Negociación",
         "title": "Airbus propone aumentar sueldos al IPC real y 7,6%",
         "date": "Fri, 28 Aug 2026",
@@ -12637,10 +17954,22 @@ window.CONFLICT_DATA = {
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Albaceteabierto."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en albaceteabierto.es."
       },
       {
         "id": "rss-79",
+        "source": "madridactual.es",
+        "channel": "Labor & Negociación",
+        "title": "Airbus liga los sueldos al IPC y exige el fin de la huelga",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOUGRVOExSdUQ3ckZyQTI3a1FxQmVvS1J6R0dTMDFhamFJUjN2dmV3RUhFd0tZR2NzZXl2RERPaE0xd3FENk5FQlYzblRxLWU2OG9oWkVhLWJsNS12Yk9ZWmFQVWNaSVZ2SERfckRLYWNvaE1XYmItNkxXRFEwcHMyVDR5cDN0M091UF9Jc1FMTmZJRzVBZGk3RnNYRDRtNWVldkVkb2g0RjhtWWkyZUpjak5CTzdaWVg2YlZwdWFhOGFFYzFTOEVaeE5ZSmhXUGdSMXZzSGNXXzFrdEZJLW5jUVV6NUdaQQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en madridactual.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-80",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "La plantilla de Airbus rechaza suspender la huelga con un 81 %",
@@ -12652,7 +17981,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-80",
+        "id": "rss-81",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "Airbus liga salarios al IPC y ofrece recuperar un 7,6% hasta 2030",
@@ -12662,18 +17991,6 @@ window.CONFLICT_DATA = {
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
-      },
-      {
-        "id": "rss-81",
-        "source": "CLM24",
-        "channel": "Labor & Negociación",
-        "title": "La plantilla de Airbus vota seguir en huelga en Illescas y Albacete",
-        "date": "Mon, 24 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSUFHUy1wYVVRNmtBZTVwSWEyeWdhMzRtdW1jZ2xTZk5VZlg3eVB4aTBMWGpwVktBQ2xoNnF2Y25rd2RBc2NEVUZLVlYtb1RNV1pMenRfb0JZUnI1bFNKZkJkcEZPcTd6dWxFc280M2pGbUdheWRUNDB6am1DM29ZNWNFUUhFUGp2TDJoeHhpX0NOcmVvQ29RM0RLTnNxVldKaVRjRDFoYnItZnlYejNmcUVOZlNUbU5RZHhlNTdn0gHDAUFVX3lxTE5aclkwY19nVnNwUFYtV2l3aVZTeEdiZ1ZlTWVPaUw1UGg1SkJUV3duZWdjejB0TUU5V1FJbmt2U2RsTTBXaFc3LWpNUWhOOGhsckxWZUhMY1VzQUlVanZ4aGtjdjVlX25pbV94QnlFUWU1SmoxNFMtTU90aTFSUkJtakx6N0FnbFc1cEZqMXhvV2RSQW9aV21Ia0pUa0RrLWhwVE8tcnZJTk04U0FYZTRLVFAxN216ZE9RQm90WVdIbGtuNA?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-82",
@@ -12745,7 +18062,7 @@ window.CONFLICT_DATA = {
       "type": "Canal Oficial Asambleas Huelga Airbus España",
       "total_members": 5794,
       "status": "Activo / En seguimiento continuo",
-      "last_sync": "2026-09-01T13:40:43.712263+00:00"
+      "last_sync": "2026-09-01T13:56:51.617883+00:00"
     },
     "stats": {
       "total_documents": 275,
@@ -12756,7 +18073,7 @@ window.CONFLICT_DATA = {
         "assembly_minutes": 17
       }
     },
-    "last_sync": "2026-09-01T13:40:43.712277+00:00",
+    "last_sync": "2026-09-01T13:56:51.617896+00:00",
     "total_documents": 275,
     "categories_breakdown": {
       "documents": 189,
@@ -12766,7 +18083,7 @@ window.CONFLICT_DATA = {
     },
     "documents": [
       {
-        "id": "tg_7313096",
+        "id": "tg_6241821",
         "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
         "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
         "category": "legal_filings",
@@ -12778,7 +18095,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
       },
       {
-        "id": "tg_1762328",
+        "id": "tg_5623637",
         "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
         "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
         "category": "legal_filings",
@@ -12790,7 +18107,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
       },
       {
-        "id": "tg_2575561",
+        "id": "tg_9702502",
         "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
         "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
         "category": "legal_filings",
@@ -12804,7 +18121,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
       },
       {
-        "id": "tg_5470375",
+        "id": "tg_6385333",
         "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
         "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
         "category": "legal_filings",
@@ -12816,7 +18133,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
       },
       {
-        "id": "tg_4521432",
+        "id": "tg_2126412",
         "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
         "title": "Supply chain disruptions and resilience  a major review and future research agen",
         "category": "legal_filings",
@@ -12828,7 +18145,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
       },
       {
-        "id": "tg_1030879",
+        "id": "tg_9968229",
         "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
         "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
         "category": "legal_filings",
@@ -12840,7 +18157,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
       },
       {
-        "id": "tg_3966174",
+        "id": "tg_5223983",
         "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
         "title": "Salary comparison between Bangalore and Bristol - Reddit",
         "category": "legal_filings",
@@ -12852,16 +18169,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
       },
       {
-        "id": "tg_6301601",
+        "id": "tg_4300660",
         "filename": "SIPA.txt",
         "title": "SIPA",
         "category": "legal_filings",
         "date": "2026-08-31",
         "unions": [
-          "ATP",
-          "UGT",
           "CCOO",
+          "UGT",
           "SIPA",
+          "ATP",
           "CGT"
         ],
         "site": "Getafe",
@@ -12870,7 +18187,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/SIPA.txt"
       },
       {
-        "id": "tg_2961855",
+        "id": "tg_5021843",
         "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
         "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
         "category": "legal_filings",
@@ -12882,7 +18199,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
       },
       {
-        "id": "tg_2026859",
+        "id": "tg_2952743",
         "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
         "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
         "category": "legal_filings",
@@ -12894,7 +18211,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
       },
       {
-        "id": "tg_4177182",
+        "id": "tg_4228680",
         "filename": "Proposal_-_IAM_District_751.txt",
         "title": "Proposal - IAM District 751",
         "category": "legal_filings",
@@ -12906,7 +18223,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Proposal_-_IAM_District_751.txt"
       },
       {
-        "id": "tg_0985063",
+        "id": "tg_6383614",
         "filename": "Project_Bromo_-_Wikipedia.txt",
         "title": "Project Bromo - Wikipedia",
         "category": "legal_filings",
@@ -12918,7 +18235,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Project_Bromo_-_Wikipedia.txt"
       },
       {
-        "id": "tg_0256717",
+        "id": "tg_9645244",
         "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
         "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
         "category": "legal_filings",
@@ -12930,7 +18247,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
       },
       {
-        "id": "tg_2487470",
+        "id": "tg_3542856",
         "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
         "title": "Minima M tallurgie   La CGT ATOS-BULL",
         "category": "dossiers",
@@ -12944,7 +18261,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
       },
       {
-        "id": "tg_7645141",
+        "id": "tg_8671779",
         "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
         "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
         "category": "legal_filings",
@@ -12956,7 +18273,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
       },
       {
-        "id": "tg_9756902",
+        "id": "tg_4131783",
         "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
         "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
         "category": "legal_filings",
@@ -12968,7 +18285,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
       },
       {
-        "id": "tg_6876399",
+        "id": "tg_1989398",
         "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
         "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
         "category": "legal_filings",
@@ -12982,7 +18299,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
       },
       {
-        "id": "tg_1186183",
+        "id": "tg_3302611",
         "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
         "title": "Boeing complaint background   National Labor Relations Board",
         "category": "legal_filings",
@@ -12994,7 +18311,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_complaint_background___National_Labor_Relations_Board.txt"
       },
       {
-        "id": "tg_5562440",
+        "id": "tg_3013951",
         "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
         "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
         "category": "legal_filings",
@@ -13006,7 +18323,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
       },
       {
-        "id": "tg_8088926",
+        "id": "tg_5255219",
         "filename": "Boeing___SPEEA.txt",
         "title": "Boeing   SPEEA",
         "category": "legal_filings",
@@ -13018,7 +18335,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing___SPEEA.txt"
       },
       {
-        "id": "tg_9423776",
+        "id": "tg_2485531",
         "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
         "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
         "category": "legal_filings",
@@ -13030,7 +18347,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
       },
       {
-        "id": "tg_2870520",
+        "id": "tg_5579980",
         "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
         "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
         "category": "legal_filings",
@@ -13042,7 +18359,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
       },
       {
-        "id": "tg_8824961",
+        "id": "tg_3181468",
         "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
         "title": "Airbus - CSRD Report Reviews - BWD Strategic",
         "category": "legal_filings",
@@ -13054,7 +18371,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
       },
       {
-        "id": "tg_4403298",
+        "id": "tg_4526463",
         "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
         "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
         "category": "legal_filings",
@@ -13066,7 +18383,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
       },
       {
-        "id": "tg_7250507",
+        "id": "tg_9030728",
         "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
         "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
         "category": "legal_filings",
@@ -13078,7 +18395,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
       },
       {
-        "id": "tg_9321104",
+        "id": "tg_1099910",
         "filename": "4_5969781284744994502.pdf.txt",
         "title": "4 5969781284744994502",
         "category": "assembly_minutes",
@@ -13092,7 +18409,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt"
       },
       {
-        "id": "tg_4910575",
+        "id": "tg_3417924",
         "filename": "4_5796203638925829350.pdf.txt",
         "title": "4 5796203638925829350",
         "category": "legal_filings",
@@ -13104,7 +18421,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/4_5796203638925829350.pdf.txt"
       },
       {
-        "id": "tg_7923773",
+        "id": "tg_6229089",
         "filename": "www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt",
         "title": "www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensaci n de gastos.",
         "category": "documents",
@@ -13116,7 +18433,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt"
       },
       {
-        "id": "tg_9290134",
+        "id": "tg_4470132",
         "filename": "trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt",
         "title": "trabajar desde cualquier lugar  incluso tu coche   la nueva frontera del trabajo",
         "category": "documents",
@@ -13128,7 +18445,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt"
       },
       {
-        "id": "tg_4419318",
+        "id": "tg_7036463",
         "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
         "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
         "category": "documents",
@@ -13140,7 +18457,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
       },
       {
-        "id": "tg_3718428",
+        "id": "tg_6749891",
         "filename": "dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt",
         "title": "dossier recuperacion salarial airbus E1 v8",
         "category": "dossiers",
@@ -13152,7 +18469,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt"
       },
       {
-        "id": "tg_7098984",
+        "id": "tg_1947364",
         "filename": "censo_presentacion.pdf.txt",
         "title": "censo presentacion",
         "category": "documents",
@@ -13164,7 +18481,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/censo_presentacion.pdf.txt"
       },
       {
-        "id": "tg_3682204",
+        "id": "tg_6329298",
         "filename": "Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt",
         "title": "Workers Struggles  Europe  Middle East   Africa - World Socialist Web Site",
         "category": "documents",
@@ -13176,7 +18493,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt"
       },
       {
-        "id": "tg_9543906",
+        "id": "tg_4768036",
         "filename": "Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt",
         "title": "Wie viel verdient man bei Airbus  Dein Gehaltseinblick - kununu News",
         "category": "legal_filings",
@@ -13188,7 +18505,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt"
       },
       {
-        "id": "tg_2702680",
+        "id": "tg_2039574",
         "filename": "Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt",
         "title": "Wie viel kann ich f r einen ersten Job als Ingenieur bei Airbus in Deutschland v",
         "category": "legal_filings",
@@ -13200,7 +18517,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt"
       },
       {
-        "id": "tg_4632317",
+        "id": "tg_9110306",
         "filename": "Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt",
         "title": "Viewpoint  PATCO s Lessons for this Crisis - Labor Notes  ",
         "category": "documents",
@@ -13212,7 +18529,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt"
       },
       {
-        "id": "tg_1826907",
+        "id": "tg_3326407",
         "filename": "Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt",
         "title": "Verificador de derechos en teletrabajo - Alc ntara Moreno Abogados",
         "category": "documents",
@@ -13224,7 +18541,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt"
       },
       {
-        "id": "tg_2255356",
+        "id": "tg_4046114",
         "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
         "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
         "category": "documents",
@@ -13236,7 +18553,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
       },
       {
-        "id": "tg_5739598",
+        "id": "tg_4568582",
         "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
         "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
         "category": "documents",
@@ -13250,7 +18567,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
       },
       {
-        "id": "tg_8034742",
+        "id": "tg_1540692",
         "filename": "Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt",
         "title": "Ultim tum de Airbus a los sindicatos  No seguir  negociando si contin a la huelg",
         "category": "documents",
@@ -13262,7 +18579,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt"
       },
       {
-        "id": "tg_6701675",
+        "id": "tg_9843201",
         "filename": "UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt",
         "title": "UGT exige responsabilidad y negociaci n de buena fe a Airbus para avanzar en la ",
         "category": "documents",
@@ -13276,7 +18593,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt"
       },
       {
-        "id": "tg_8531978",
+        "id": "tg_2619732",
         "filename": "Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt",
         "title": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos model",
         "category": "assembly_minutes",
@@ -13288,7 +18605,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt"
       },
       {
-        "id": "tg_5356127",
+        "id": "tg_6152843",
         "filename": "Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt",
         "title": "Top Aerospace Supply Chain Challenges and How to Overcome Them - NTS Unitek",
         "category": "legal_filings",
@@ -13300,7 +18617,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt"
       },
       {
-        "id": "tg_1675805",
+        "id": "tg_9067584",
         "filename": "The_biggest_supply_chain_risks_across_industries_-_Marsh.txt",
         "title": "The biggest supply chain risks across industries - Marsh",
         "category": "documents",
@@ -13312,7 +18629,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_biggest_supply_chain_risks_across_industries_-_Marsh.txt"
       },
       {
-        "id": "tg_5675860",
+        "id": "tg_8034790",
         "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
         "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
         "category": "documents",
@@ -13324,7 +18641,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
       },
       {
-        "id": "tg_6613942",
+        "id": "tg_3176514",
         "filename": "The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt",
         "title": "The Economic Impact of Strikes  An Historical Boeing Case Study - AAF",
         "category": "documents",
@@ -13336,7 +18653,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt"
       },
       {
-        "id": "tg_8226608",
+        "id": "tg_6055131",
         "filename": "The_1981_PATCO_Strike_-_UTA_Libraries.txt",
         "title": "The 1981 PATCO Strike - UTA Libraries",
         "category": "documents",
@@ -13348,7 +18665,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_1981_PATCO_Strike_-_UTA_Libraries.txt"
       },
       {
-        "id": "tg_1471542",
+        "id": "tg_9604890",
         "filename": "Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt",
         "title": "Tarifrunde Metall und Elektro 2024 Verhandlungsergebnis  Mehr Geld  140 Euro meh",
         "category": "documents",
@@ -13360,7 +18677,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt"
       },
       {
-        "id": "tg_7381726",
+        "id": "tg_5370924",
         "filename": "Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt",
         "title": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall",
         "category": "documents",
@@ -13372,7 +18689,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt"
       },
       {
-        "id": "tg_8426515",
+        "id": "tg_3032143",
         "filename": "TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt",
         "title": "TS. Acuerdo de teletrabajo. Es v lida la cl usula que obliga al empleado a facil",
         "category": "legal_filings",
@@ -13384,7 +18701,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt"
       },
       {
-        "id": "tg_5209526",
+        "id": "tg_5097383",
         "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
         "title": "Supply chain disruptions and resilience  a major review and future research agen",
         "category": "documents",
@@ -13396,7 +18713,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
       },
       {
-        "id": "tg_7784213",
+        "id": "tg_5392936",
         "filename": "Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt",
         "title": "Supply Chain and Quality Manager - Myworkdayjobs.com",
         "category": "documents",
@@ -13408,7 +18725,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt"
       },
       {
-        "id": "tg_6826095",
+        "id": "tg_7203382",
         "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
         "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
         "category": "documents",
@@ -13420,7 +18737,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
       },
       {
-        "id": "tg_2606573",
+        "id": "tg_9166075",
         "filename": "Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt",
         "title": "Supply Chain Disruptions  Causes  Costs   Solutions - GoBolt",
         "category": "legal_filings",
@@ -13432,7 +18749,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt"
       },
       {
-        "id": "tg_6400186",
+        "id": "tg_8887985",
         "filename": "Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt",
         "title": "Supply Chain Disruptions  An Expert Guide - NetSuite",
         "category": "legal_filings",
@@ -13444,7 +18761,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt"
       },
       {
-        "id": "tg_1017593",
+        "id": "tg_0219427",
         "filename": "Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt",
         "title": "Sistema HJ - Resoluci n  SENTENCIA 11 1981",
         "category": "legal_filings",
@@ -13456,7 +18773,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt"
       },
       {
-        "id": "tg_1529607",
+        "id": "tg_8211978",
         "filename": "Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt",
         "title": "Sin acuerdo en la  ltima reuni n  la huelga sigue en Airbus  la empresa rechaza ",
         "category": "dossiers",
@@ -13468,7 +18785,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt"
       },
       {
-        "id": "tg_8992419",
+        "id": "tg_3452089",
         "filename": "Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt",
         "title": "Sin acuerdo en el SIMA  se mantiene la huelga en Groundforce - Sindicato USO Ser",
         "category": "legal_filings",
@@ -13482,7 +18799,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt"
       },
       {
-        "id": "tg_8008940",
+        "id": "tg_3142661",
         "filename": "Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt",
         "title": "Semi-Skilled Aircraft Fitter Jobs - Careers at Airbus UK - Guidant Global",
         "category": "documents",
@@ -13494,7 +18811,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt"
       },
       {
-        "id": "tg_3522934",
+        "id": "tg_5779056",
         "filename": "Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt",
         "title": "Se publica en el BOE el Convenio de Industrias C rnicas  que esquiv  el conflict",
         "category": "dossiers",
@@ -13508,7 +18825,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt"
       },
       {
-        "id": "tg_5567797",
+        "id": "tg_2616229",
         "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
         "title": "Salary comparison between Bangalore and Bristol - Reddit",
         "category": "documents",
@@ -13520,7 +18837,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
       },
       {
-        "id": "tg_2970791",
+        "id": "tg_5459565",
         "filename": "Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt",
         "title": "Salaire minimum  SMIC  2026   montant net et brut - Transport a rien   personnel",
         "category": "documents",
@@ -13532,7 +18849,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt"
       },
       {
-        "id": "tg_8019111",
+        "id": "tg_3164761",
         "filename": "Safari.pdf.txt",
         "title": "Safari",
         "category": "documents",
@@ -13544,16 +18861,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Safari.pdf.txt"
       },
       {
-        "id": "tg_8980447",
+        "id": "tg_5828819",
         "filename": "SIPA.txt",
         "title": "SIPA",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
-          "ATP",
-          "UGT",
           "CCOO",
+          "UGT",
           "SIPA",
+          "ATP",
           "CGT"
         ],
         "site": "Getafe",
@@ -13562,7 +18879,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/SIPA.txt"
       },
       {
-        "id": "tg_0737519",
+        "id": "tg_8234090",
         "filename": "Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt",
         "title": "Reviving the Strike in the Shadow of PATCO - Monthly Review",
         "category": "documents",
@@ -13574,7 +18891,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt"
       },
       {
-        "id": "tg_1355498",
+        "id": "tg_1095089",
         "filename": "Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt",
         "title": "Resumen Ejecutivo recuperacion de poder adquisitivo en Airbus Espana",
         "category": "dossiers",
@@ -13586,7 +18903,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt"
       },
       {
-        "id": "tg_5452572",
+        "id": "tg_2034066",
         "filename": "Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt",
         "title": "Resoluci n de 12 de junio de 2023  de la Conseller a de Promoci n del Empleo e I",
         "category": "documents",
@@ -13598,7 +18915,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt"
       },
       {
-        "id": "tg_9161121",
+        "id": "tg_3512470",
         "filename": "Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt",
         "title": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco",
         "category": "assembly_minutes",
@@ -13610,7 +18927,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt"
       },
       {
-        "id": "tg_5408734",
+        "id": "tg_5168997",
         "filename": "Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt",
         "title": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Noticias",
         "category": "documents",
@@ -13625,7 +18942,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt"
       },
       {
-        "id": "tg_2499127",
+        "id": "tg_0818407",
         "filename": "Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt",
         "title": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos",
         "category": "documents",
@@ -13637,7 +18954,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt"
       },
       {
-        "id": "tg_7177668",
+        "id": "tg_9315662",
         "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
         "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
         "category": "documents",
@@ -13649,7 +18966,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
       },
       {
-        "id": "tg_6366796",
+        "id": "tg_6665506",
         "filename": "Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt",
         "title": "Renault Group signs-off on a three-year trade union agreement that places France",
         "category": "legal_filings",
@@ -13661,7 +18978,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt"
       },
       {
-        "id": "tg_9362469",
+        "id": "tg_2481958",
         "filename": "Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt",
         "title": "Renault Espa a suspende la adjudicaci n de veh culos ante la falta de acuerdo en",
         "category": "documents",
@@ -13673,7 +18990,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt"
       },
       {
-        "id": "tg_2781490",
+        "id": "tg_3537692",
         "filename": "Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt",
         "title": "Renault Espa a acepta incrementar los salarios en base al IPC 1  en 2026 y ofrec",
         "category": "documents",
@@ -13685,7 +19002,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt"
       },
       {
-        "id": "tg_9598642",
+        "id": "tg_1087555",
         "filename": "REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt",
         "title": "REUNIO N COMITE  DE HUELGA EN EL SIMA",
         "category": "legal_filings",
@@ -13697,7 +19014,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt"
       },
       {
-        "id": "tg_4219448",
+        "id": "tg_0493723",
         "filename": "REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt",
         "title": "REPRESI N Y RESISTENCIA EN C DIZ  24 ENCAUSADOS POR LA HUELGA DEL METAL - Canari",
         "category": "documents",
@@ -13709,7 +19026,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt"
       },
       {
-        "id": "tg_6712916",
+        "id": "tg_0406118",
         "filename": "RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt",
         "title": "RELOAD  two years of damage and growing dissatisfaction ",
         "category": "documents",
@@ -13723,7 +19040,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt"
       },
       {
-        "id": "tg_9911958",
+        "id": "tg_8691979",
         "filename": "RELOAD___Classification_-_My_CFE-CGC_Airbus.txt",
         "title": "RELOAD   Classification - My CFE-CGC Airbus",
         "category": "documents",
@@ -13735,7 +19052,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD___Classification_-_My_CFE-CGC_Airbus.txt"
       },
       {
-        "id": "tg_7085745",
+        "id": "tg_6171090",
         "filename": "Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt",
         "title": "Publicado en el Bolet n Oficial del Estado el VII Convenio del Sector de la Cons",
         "category": "documents",
@@ -13747,7 +19064,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt"
       },
       {
-        "id": "tg_1663373",
+        "id": "tg_3018013",
         "filename": "Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt",
         "title": "Protestas contra el cierre de Airbus Puerto Real",
         "category": "documents",
@@ -13759,7 +19076,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt"
       },
       {
-        "id": "tg_5321198",
+        "id": "tg_4043164",
         "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
         "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
         "category": "documents",
@@ -13771,7 +19088,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
       },
       {
-        "id": "tg_7112850",
+        "id": "tg_0677073",
         "filename": "Propuesta_ComiteHuelga270826.pdf.txt",
         "title": "Propuesta ComiteHuelga270826",
         "category": "documents",
@@ -13783,7 +19100,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Propuesta_ComiteHuelga270826.pdf.txt"
       },
       {
-        "id": "tg_1120487",
+        "id": "tg_3885685",
         "filename": "Proposal_-_IAM_District_751.txt",
         "title": "Proposal - IAM District 751",
         "category": "documents",
@@ -13795,7 +19112,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Proposal_-_IAM_District_751.txt"
       },
       {
-        "id": "tg_7019552",
+        "id": "tg_8864127",
         "filename": "Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt",
         "title": "Project Bromo Space Economy  Shaping Europe s New Aerospace Ecosystem - Kineton",
         "category": "documents",
@@ -13807,7 +19124,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt"
       },
       {
-        "id": "tg_7051203",
+        "id": "tg_1179115",
         "filename": "Project_Bromo_-_Wikipedia.txt",
         "title": "Project Bromo - Wikipedia",
         "category": "documents",
@@ -13819,7 +19136,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_-_Wikipedia.txt"
       },
       {
-        "id": "tg_3649266",
+        "id": "tg_7618583",
         "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
         "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
         "category": "documents",
@@ -13831,7 +19148,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
       },
       {
-        "id": "tg_6710454",
+        "id": "tg_3486214",
         "filename": "Plataforma_reivindicativa_de_los_trabajadores.pdf.txt",
         "title": "Plataforma reivindicativa de los trabajadores",
         "category": "documents",
@@ -13843,7 +19160,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Plataforma_reivindicativa_de_los_trabajadores.pdf.txt"
       },
       {
-        "id": "tg_2727019",
+        "id": "tg_0313429",
         "filename": "Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt",
         "title": "Passion for progress - Radar du devoir de vigilance",
         "category": "documents",
@@ -13855,7 +19172,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt"
       },
       {
-        "id": "tg_2869538",
+        "id": "tg_0165295",
         "filename": "PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt",
         "title": "PLIEGO DE GARANTIAS DEFINITIVO TRABAJADORES DE ESPACIO 2 pdf",
         "category": "documents",
@@ -13867,7 +19184,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt"
       },
       {
-        "id": "tg_8328455",
+        "id": "tg_8184363",
         "filename": "Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt",
         "title": "Oficinas y Seguros - FeSMC UGT-CV",
         "category": "documents",
@@ -13881,7 +19198,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt"
       },
       {
-        "id": "tg_7675254",
+        "id": "tg_6048032",
         "filename": "Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt",
         "title": "Nuevo Convenio Estatal de Industrias C rnicas para 2024-2025 - LSB-USO",
         "category": "documents",
@@ -13895,7 +19212,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt"
       },
       {
-        "id": "tg_2828888",
+        "id": "tg_7658871",
         "filename": "Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt",
         "title": "Nouvelle grille de salaires de la Convention M tallurgie 2026 - Juritravail",
         "category": "documents",
@@ -13907,7 +19224,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt"
       },
       {
-        "id": "tg_4935772",
+        "id": "tg_4692683",
         "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
         "title": "Minima M tallurgie   La CGT ATOS-BULL",
         "category": "documents",
@@ -13921,7 +19238,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
       },
       {
-        "id": "tg_2410998",
+        "id": "tg_7361734",
         "filename": "M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt",
         "title": "M s de 25.000 trabajadores se unen a la huelga del metal de C diz en su primera ",
         "category": "documents",
@@ -13933,7 +19250,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt"
       },
       {
-        "id": "tg_3334444",
+        "id": "tg_5352873",
         "filename": "MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt",
         "title": "MORE THAN A LABOR DISPUTE  THE PATCO STRIKE OF 1981 - The Economic and Business ",
         "category": "documents",
@@ -13945,7 +19262,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt"
       },
       {
-        "id": "tg_0852111",
+        "id": "tg_0044604",
         "filename": "Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt",
         "title": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus pla",
         "category": "documents",
@@ -13957,7 +19274,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt"
       },
       {
-        "id": "tg_6596186",
+        "id": "tg_1440245",
         "filename": "Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt",
         "title": "Los trabajadores del metal en C diz rechazan la traici n de los sindicatos en el",
         "category": "documents",
@@ -13969,7 +19286,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt"
       },
       {
-        "id": "tg_3641317",
+        "id": "tg_4086573",
         "filename": "Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt",
         "title": "Los trabajadores de atenci n telef nica de H M convocan una huelga para denuncia",
         "category": "documents",
@@ -13981,7 +19298,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt"
       },
       {
-        "id": "tg_2543569",
+        "id": "tg_3389140",
         "filename": "Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt",
         "title": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amen",
         "category": "documents",
@@ -13993,7 +19310,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt"
       },
       {
-        "id": "tg_8539544",
+        "id": "tg_0309409",
         "filename": "Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt",
         "title": "Los trabajadores de Concentrix  que prestan la atenci n telef nica de H M  convo",
         "category": "documents",
@@ -14005,7 +19322,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt"
       },
       {
-        "id": "tg_7406977",
+        "id": "tg_4204978",
         "filename": "Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt",
         "title": "Los trabajadores de Airbus votan ir a la huelga indefinida desde este martes - R",
         "category": "documents",
@@ -14017,7 +19334,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt"
       },
       {
-        "id": "tg_2846987",
+        "id": "tg_3394629",
         "filename": "Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt",
         "title": "Los trabajadores de Airbus inician una huelga indefinida con la negociaci n a n ",
         "category": "legal_filings",
@@ -14029,7 +19346,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt"
       },
       {
-        "id": "tg_1536045",
+        "id": "tg_5228597",
         "filename": "Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt",
         "title": "Los trabajadores de Airbus  un ejemplo de lucha contra la tiran a de la multinac",
         "category": "assembly_minutes",
@@ -14041,7 +19358,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt"
       },
       {
-        "id": "tg_1783214",
+        "id": "tg_5914924",
         "filename": "Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt",
         "title": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida ",
         "category": "legal_filings",
@@ -14053,7 +19370,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt"
       },
       {
-        "id": "tg_3156827",
+        "id": "tg_1400931",
         "filename": "Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt",
         "title": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si l",
         "category": "documents",
@@ -14065,7 +19382,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt"
       },
       {
-        "id": "tg_2870925",
+        "id": "tg_2911694",
         "filename": "Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt",
         "title": "Los sindicatos convocan paros en Renault Espa a para retomar la negociaci n del ",
         "category": "documents",
@@ -14077,7 +19394,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt"
       },
       {
-        "id": "tg_5696740",
+        "id": "tg_7338192",
         "filename": "Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt",
         "title": "Los ingenieros de Boeing rechazan el convenio y autorizan una huelga desde octub",
         "category": "legal_filings",
@@ -14089,7 +19406,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt"
       },
       {
-        "id": "tg_8182461",
+        "id": "tg_6915329",
         "filename": "Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt",
         "title": "Los empleados de Airbus Espa a rechazan y se convoca huelga indefinida",
         "category": "documents",
@@ -14101,7 +19418,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt"
       },
       {
-        "id": "tg_4364780",
+        "id": "tg_7312187",
         "filename": "Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt",
         "title": "Los altercados en la huelga del metal en Ourense se juzgar n en marzo de 2027",
         "category": "documents",
@@ -14113,7 +19430,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt"
       },
       {
-        "id": "tg_1488314",
+        "id": "tg_8558518",
         "filename": "Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt",
         "title": "Ley 10 2021  de 9 de julio  de trabajo a distancia - Noticias Jur dicas",
         "category": "documents",
@@ -14125,7 +19442,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt"
       },
       {
-        "id": "tg_1057778",
+        "id": "tg_0670701",
         "filename": "Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt",
         "title": "Las calles de C diz arden con la huelga del metal  piden que se equipare la subi",
         "category": "documents",
@@ -14137,7 +19454,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt"
       },
       {
-        "id": "tg_3749934",
+        "id": "tg_9081131",
         "filename": "Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt",
         "title": "Las 11 claves del nuevo conflicto del metal en C diz  el regreso de las barricad",
         "category": "documents",
@@ -14149,7 +19466,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt"
       },
       {
-        "id": "tg_5982407",
+        "id": "tg_5298592",
         "filename": "La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt",
         "title": "La situaci n de los trabajadores del Metal en C diz tras la huelga de 2021. Pers",
         "category": "documents",
@@ -14161,7 +19478,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt"
       },
       {
-        "id": "tg_0282141",
+        "id": "tg_6592970",
         "filename": "La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt",
         "title": "La plantilla de Airbus votar  el lunes si suspende la huelga y negocia la nueva ",
         "category": "documents",
@@ -14173,7 +19490,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt"
       },
       {
-        "id": "tg_4489294",
+        "id": "tg_0557584",
         "filename": "La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt",
         "title": "La plantilla de Airbus seguir  en huelga tras una nueva reuni n negociadora sin ",
         "category": "documents",
@@ -14185,7 +19502,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt"
       },
       {
-        "id": "tg_5947438",
+        "id": "tg_0977831",
         "filename": "La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt",
         "title": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes - H",
         "category": "documents",
@@ -14197,7 +19514,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt"
       },
       {
-        "id": "tg_0701095",
+        "id": "tg_6296036",
         "filename": "La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt",
         "title": "La plantilla de Airbus Espa a decide ir a la huelga indefinida hasta que la empr",
         "category": "documents",
@@ -14209,7 +19526,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt"
       },
       {
-        "id": "tg_9545336",
+        "id": "tg_5358954",
         "filename": "La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt",
         "title": "La plantilla de Airbus Espa a comienza una huelga indefinida desde este martes",
         "category": "documents",
@@ -14221,7 +19538,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt"
       },
       {
-        "id": "tg_4192658",
+        "id": "tg_6741024",
         "filename": "La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt",
         "title": "La plantilla de Acerinox  120 d as de huelga en nombre de la conciliaci n - Diar",
         "category": "documents",
@@ -14233,7 +19550,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt"
       },
       {
-        "id": "tg_9494959",
+        "id": "tg_4349747",
         "filename": "La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt",
         "title": "La mitad de la plantilla de Intrum en Valladolid  en huelga por la eliminaci n d",
         "category": "documents",
@@ -14245,7 +19562,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt"
       },
       {
-        "id": "tg_6014737",
+        "id": "tg_9951354",
         "filename": "La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt",
         "title": "La huelga que cambi  Estados Unidos - Cenital",
         "category": "documents",
@@ -14257,7 +19574,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt"
       },
       {
-        "id": "tg_2205463",
+        "id": "tg_8994472",
         "filename": "La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt",
         "title": "La huelga indefinida de Airbus Espa a sigue sin acuerdo tras el SIMA - Aviaci n ",
         "category": "legal_filings",
@@ -14269,7 +19586,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt"
       },
       {
-        "id": "tg_5298689",
+        "id": "tg_4864114",
         "filename": "La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt",
         "title": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un  ",
         "category": "documents",
@@ -14281,7 +19598,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt"
       },
       {
-        "id": "tg_5789335",
+        "id": "tg_0619420",
         "filename": "La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt",
         "title": "La huelga del metal inquieta a la provincia de C diz ante el  fantasma  de las p",
         "category": "documents",
@@ -14293,7 +19610,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt"
       },
       {
-        "id": "tg_2156035",
+        "id": "tg_3683826",
         "filename": "La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt",
         "title": "La direcci n de Airbus condiciona la negociaci n a que se suspenda temporalmente",
         "category": "documents",
@@ -14305,7 +19622,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_9596077",
+        "id": "tg_1124033",
         "filename": "La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt",
         "title": "La caja de resistencia para huelgas  Una herramienta m s en el conflicto trabajo",
         "category": "documents",
@@ -14317,7 +19634,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt"
       },
       {
-        "id": "tg_4555878",
+        "id": "tg_8035968",
         "filename": "La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt",
         "title": "La Moncloa. El Gobierno impulsa en Valladolid una inversi n estrat gica de casi ",
         "category": "documents",
@@ -14329,7 +19646,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt"
       },
       {
-        "id": "tg_4360143",
+        "id": "tg_1302118",
         "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
         "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
         "category": "documents",
@@ -14341,7 +19658,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
       },
       {
-        "id": "tg_2294452",
+        "id": "tg_6356713",
         "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
         "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
         "category": "documents",
@@ -14353,7 +19670,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
       },
       {
-        "id": "tg_3748156",
+        "id": "tg_2284896",
         "filename": "LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt",
         "title": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS C RNICAS SE INCREMENTAR N E",
         "category": "dossiers",
@@ -14367,7 +19684,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt"
       },
       {
-        "id": "tg_4594912",
+        "id": "tg_1410302",
         "filename": "Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt",
         "title": "Imposibilidad de ejecuci n de sentencia  sustituci n por indemnizaci n  e imputa",
         "category": "legal_filings",
@@ -14379,7 +19696,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt"
       },
       {
-        "id": "tg_5860476",
+        "id": "tg_7224681",
         "filename": "Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt",
         "title": "Ignacio Messina   Las cajas de resistencia  en apoyo a las huelgas  van a ser pr",
         "category": "documents",
@@ -14391,7 +19708,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt"
       },
       {
-        "id": "tg_9465587",
+        "id": "tg_4466840",
         "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
         "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
         "category": "documents",
@@ -14405,7 +19722,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
       },
       {
-        "id": "tg_5555993",
+        "id": "tg_0722712",
         "filename": "IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt",
         "title": "IG Metall Tariftabelle 2026 Hamburg Unterweser   ERA Entgelttabelle",
         "category": "documents",
@@ -14417,7 +19734,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt"
       },
       {
-        "id": "tg_0007219",
+        "id": "tg_8984575",
         "filename": "IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt",
         "title": "IG Metall Gehaltsrechner  ERA Entgeltrechner 2026",
         "category": "legal_filings",
@@ -14429,7 +19746,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt"
       },
       {
-        "id": "tg_0044817",
+        "id": "tg_5597859",
         "filename": "Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt",
         "title": "Huelga metal C diz y Cartagena  qu  piden los trabajadores - RTVE.es",
         "category": "documents",
@@ -14441,7 +19758,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt"
       },
       {
-        "id": "tg_9848806",
+        "id": "tg_5860244",
         "filename": "Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt",
         "title": "Huelga en Intrum Valladolid  UGT exige  soluciones  t cnicas y mantener el telet",
         "category": "documents",
@@ -14455,7 +19772,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt"
       },
       {
-        "id": "tg_2623184",
+        "id": "tg_4760243",
         "filename": "Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt",
         "title": "Huelga en Airbus  qu  reclaman los trabajadores y c mo puede afectar a la produc",
         "category": "documents",
@@ -14467,7 +19784,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt"
       },
       {
-        "id": "tg_6194830",
+        "id": "tg_3027148",
         "filename": "Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt",
         "title": "Huelga en Airbus  las propuestas de la empresa cierran varios frentes pero no el",
         "category": "dossiers",
@@ -14479,7 +19796,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt"
       },
       {
-        "id": "tg_6644261",
+        "id": "tg_4741602",
         "filename": "Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt",
         "title": "Huelga de 24 horas en Intrum Valladolid ante la eliminaci n del teletrabajo",
         "category": "documents",
@@ -14491,7 +19808,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt"
       },
       {
-        "id": "tg_2578236",
+        "id": "tg_8910345",
         "filename": "Huelga_Airbus.txt",
         "title": "Huelga Airbus",
         "category": "documents",
@@ -14503,7 +19820,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_Airbus.txt"
       },
       {
-        "id": "tg_3178494",
+        "id": "tg_7223687",
         "filename": "Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt",
         "title": "Hay preacuerdo en el convenio de Renault tras la reuni n con el ministro de Indu",
         "category": "documents",
@@ -14515,7 +19832,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt"
       },
       {
-        "id": "tg_9461229",
+        "id": "tg_0712577",
         "filename": "Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt",
         "title": "Gu a huelga indefinida desde 24 agosto 2026 en Airbus",
         "category": "documents",
@@ -14530,7 +19847,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_1982152",
+        "id": "tg_4089772",
         "filename": "Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt",
         "title": "Gu a de derechos y obligaciones con la nueva Ley de teletrabajo - Terranea Segur",
         "category": "documents",
@@ -14542,7 +19859,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt"
       },
       {
-        "id": "tg_5442166",
+        "id": "tg_5021723",
         "filename": "Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt",
         "title": "Group Grading Expert  f h    Airbus   Imagine Job Board",
         "category": "documents",
@@ -14554,7 +19871,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt"
       },
       {
-        "id": "tg_0086362",
+        "id": "tg_3669899",
         "filename": "Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt",
         "title": "Grille des minima - CGT Airbus Defence   Space Toulouse",
         "category": "documents",
@@ -14568,7 +19885,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt"
       },
       {
-        "id": "tg_3983913",
+        "id": "tg_6495857",
         "filename": "Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt",
         "title": "Gehaltsstufen IG Metall   Airbus DS   r arbeitsleben - Reddit",
         "category": "legal_filings",
@@ -14580,7 +19897,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt"
       },
       {
-        "id": "tg_9815175",
+        "id": "tg_0038305",
         "filename": "FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt",
         "title": "FO signe la Politique salariale 2023   objectifs atteints  ",
         "category": "legal_filings",
@@ -14592,7 +19909,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt"
       },
       {
-        "id": "tg_1846757",
+        "id": "tg_4898612",
         "filename": "FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt",
         "title": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACI N COLECTIVA  AENC  2023-2025",
         "category": "documents",
@@ -14606,7 +19923,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt"
       },
       {
-        "id": "tg_5253476",
+        "id": "tg_8397715",
         "filename": "Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt",
         "title": "Estructura Organizativa  Modelos de Clasificaci n de Puestos y Sistemas de Compe",
         "category": "documents",
@@ -14618,7 +19935,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt"
       },
       {
-        "id": "tg_2686209",
+        "id": "tg_0048563",
         "filename": "Entgelttabelle_Metall___Elektro_in_Bayern.txt",
         "title": "Entgelttabelle Metall   Elektro in Bayern",
         "category": "documents",
@@ -14630,7 +19947,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Entgelttabelle_Metall___Elektro_in_Bayern.txt"
       },
       {
-        "id": "tg_8515395",
+        "id": "tg_5599804",
         "filename": "El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt",
         "title": "El teletrabajo ya es una realidad para la plantilla del Grupo Campofr o - Confed",
         "category": "documents",
@@ -14644,7 +19961,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt"
       },
       {
-        "id": "tg_0640984",
+        "id": "tg_3847178",
         "filename": "El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt",
         "title": "El ministro de Industria intervendr  en el conflicto de Airbus si no hay acuerdo",
         "category": "documents",
@@ -14656,7 +19973,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt"
       },
       {
-        "id": "tg_8066829",
+        "id": "tg_4132996",
         "filename": "El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt",
         "title": "El ministro de Industria convoca a la direcci n y sindicatos de Renault ante la ",
         "category": "documents",
@@ -14668,7 +19985,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt"
       },
       {
-        "id": "tg_1651008",
+        "id": "tg_7887623",
         "filename": "El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt",
         "title": "El impacto de las tensiones macroecon micas y tecnol gicas en el di logo social ",
         "category": "dossiers",
@@ -14682,7 +19999,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt"
       },
       {
-        "id": "tg_7394174",
+        "id": "tg_5622461",
         "filename": "El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt",
         "title": "El gobierno amenaza a los trabajadores en huelga de Airbus   espero no tener que",
         "category": "documents",
@@ -14694,7 +20011,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt"
       },
       {
-        "id": "tg_7725115",
+        "id": "tg_7894127",
         "filename": "El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt",
         "title": "El convenio de grandes almacenes ya es oficial tras su publicaci n en el BOE - F",
         "category": "documents",
@@ -14706,7 +20023,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt"
       },
       {
-        "id": "tg_9498523",
+        "id": "tg_6671279",
         "filename": "El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt",
         "title": "El conflicto laboral de la aeron utica Airbus Espa a contin a con una huelga ind",
         "category": "documents",
@@ -14718,7 +20035,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt"
       },
       {
-        "id": "tg_0455945",
+        "id": "tg_1314760",
         "filename": "El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt",
         "title": "El conflicto laboral de Airbus Espa a en 2026  An lisis corporativo  impacto ind",
         "category": "documents",
@@ -14730,7 +20047,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt"
       },
       {
-        "id": "tg_8832547",
+        "id": "tg_9558994",
         "filename": "El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt",
         "title": "El comit  de Alestis convoca cuatro d as de huelga ante el bloqueo del convenio",
         "category": "documents",
@@ -14742,7 +20059,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt"
       },
       {
-        "id": "tg_0232911",
+        "id": "tg_5163499",
         "filename": "El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt",
         "title": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los ",
         "category": "legal_filings",
@@ -14754,7 +20071,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt"
       },
       {
-        "id": "tg_9358099",
+        "id": "tg_2339971",
         "filename": "El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt",
         "title": "El BOE recoge los cambios del convenio de Carrefour  m s salario y menos jornada",
         "category": "documents",
@@ -14766,7 +20083,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt"
       },
       {
-        "id": "tg_5898856",
+        "id": "tg_3243646",
         "filename": "EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt",
         "title": "EL ARBITRAJE  OBLIGATORIO  QUE PONE FIN A LA HUELGA - Dialnet",
         "category": "documents",
@@ -14778,7 +20095,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt"
       },
       {
-        "id": "tg_4757683",
+        "id": "tg_1050888",
         "filename": "Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt",
         "title": "Dos meses sin avances  El paro de Acerinox llega al Parlamento donde la oposici ",
         "category": "documents",
@@ -14790,7 +20107,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt"
       },
       {
-        "id": "tg_4652353",
+        "id": "tg_1212209",
         "filename": "Documentation_for_the_Annual_General_Meeting_-_Airbus.txt",
         "title": "Documentation for the Annual General Meeting - Airbus",
         "category": "documents",
@@ -14802,7 +20119,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Documentation_for_the_Annual_General_Meeting_-_Airbus.txt"
       },
       {
-        "id": "tg_5575999",
+        "id": "tg_2290129",
         "filename": "Disposici_n_9799_del_BOE_n_m._119_de_2025.txt",
         "title": "Disposici n 9799 del BOE n m. 119 de 2025",
         "category": "documents",
@@ -14814,7 +20131,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Disposici_n_9799_del_BOE_n_m._119_de_2025.txt"
       },
       {
-        "id": "tg_6597126",
+        "id": "tg_3310287",
         "filename": "Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt",
         "title": "Direcci n Airbus condiciona continuar negociando a que se suspenda temporalmente",
         "category": "documents",
@@ -14826,7 +20143,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_2138379",
+        "id": "tg_7008595",
         "filename": "Digital_and_IT_Careers_-_Airbus.txt",
         "title": "Digital and IT Careers - Airbus",
         "category": "documents",
@@ -14838,7 +20155,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Digital_and_IT_Careers_-_Airbus.txt"
       },
       {
-        "id": "tg_2555251",
+        "id": "tg_1162120",
         "filename": "Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt",
         "title": "Convenios Renault - CCOO Renault Espa a - Confederaci n Sindical de Comisiones O",
         "category": "documents",
@@ -14852,7 +20169,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt"
       },
       {
-        "id": "tg_0384442",
+        "id": "tg_1077050",
         "filename": "Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt",
         "title": "Convenio colectivo de la empresa Renault Espa a incluyendo FASA Renault 2021-202",
         "category": "documents",
@@ -14864,7 +20181,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt"
       },
       {
-        "id": "tg_1615327",
+        "id": "tg_7408229",
         "filename": "Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias Siderometal rgicas - CCOO App",
         "category": "documents",
@@ -14878,7 +20195,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_7701025",
+        "id": "tg_0374871",
         "filename": "Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias C rnicas - CCOO App",
         "category": "documents",
@@ -14892,7 +20209,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_3326848",
+        "id": "tg_9423897",
         "filename": "Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industria del Metal de C diz - CCOO App",
         "category": "documents",
@@ -14906,7 +20223,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt"
       },
       {
-        "id": "tg_6148749",
+        "id": "tg_4919590",
         "filename": "Convenio_Colectivo_Construcci_n_-_CCOO_App.txt",
         "title": "Convenio Colectivo Construcci n - CCOO App",
         "category": "documents",
@@ -14921,7 +20238,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Construcci_n_-_CCOO_App.txt"
       },
       {
-        "id": "tg_6098412",
+        "id": "tg_4316051",
         "filename": "Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt",
         "title": "Contin a la huelga en las plantas de Airbus  empresa y sindicatos seguir n negoc",
         "category": "documents",
@@ -14933,7 +20250,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt"
       },
       {
-        "id": "tg_0124008",
+        "id": "tg_2504610",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL   propuesta empresa",
         "category": "documents",
@@ -14945,7 +20262,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt"
       },
       {
-        "id": "tg_7938969",
+        "id": "tg_4504330",
         "filename": "Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt",
         "title": "Comunicado conjunto CGT  UGT y UTIL Huelga indefinida en Airbus",
         "category": "documents",
@@ -14960,7 +20277,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_9535301",
+        "id": "tg_5294916",
         "filename": "Comunicado_Huelga_070726-2.pdf.txt",
         "title": "Comunicado Huelga 070726-2",
         "category": "documents",
@@ -14974,7 +20291,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_Huelga_070726-2.pdf.txt"
       },
       {
-        "id": "tg_0026641",
+        "id": "tg_4602226",
         "filename": "Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt",
         "title": "Compensaci n de los gastos derivados del desarrollo del trabajo a distancia  A f",
         "category": "documents",
@@ -14986,7 +20303,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt"
       },
       {
-        "id": "tg_0418699",
+        "id": "tg_9840248",
         "filename": "Classification__current_status_for_Airbus_Commercial.txt",
         "title": "Classification  current status for Airbus Commercial",
         "category": "documents",
@@ -14998,7 +20315,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Classification__current_status_for_Airbus_Commercial.txt"
       },
       {
-        "id": "tg_8702363",
+        "id": "tg_8436636",
         "filename": "Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt",
         "title": "Classification Survey  The Results - CGT Airbus Commercial Aircraft",
         "category": "legal_filings",
@@ -15012,7 +20329,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt"
       },
       {
-        "id": "tg_5081215",
+        "id": "tg_1685257",
         "filename": "Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt",
         "title": "Categor a  0 - Comun a todos - Renault - CCOO App",
         "category": "documents",
@@ -15026,7 +20343,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt"
       },
       {
-        "id": "tg_0164046",
+        "id": "tg_1054829",
         "filename": "Carmen-Maja_Rex___Airbus.txt",
         "title": "Carmen-Maja Rex   Airbus",
         "category": "documents",
@@ -15038,7 +20355,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Carmen-Maja_Rex___Airbus.txt"
       },
       {
-        "id": "tg_8911011",
+        "id": "tg_2486962",
         "filename": "Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt",
         "title": "Cajas de resistencia  una herramienta m s para afrontar conflictos  o al menos i",
         "category": "documents",
@@ -15050,7 +20367,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt"
       },
       {
-        "id": "tg_4876941",
+        "id": "tg_7410742",
         "filename": "CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt",
         "title": "CONSULTA A LA PLANTILLA.docx  1   2 ",
         "category": "documents",
@@ -15064,7 +20381,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt"
       },
       {
-        "id": "tg_2427419",
+        "id": "tg_5545406",
         "filename": "CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt",
         "title": "CGT desconvoca la huelga en la Bah a de C diz por decisi n de las asambleas de t",
         "category": "assembly_minutes",
@@ -15078,7 +20395,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt"
       },
       {
-        "id": "tg_9747451",
+        "id": "tg_4151862",
         "filename": "CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt",
         "title": "CCOO logra un preacuerdo con importantes avances en salarios y derechos",
         "category": "documents",
@@ -15092,7 +20409,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt"
       },
       {
-        "id": "tg_9506596",
+        "id": "tg_2451120",
         "filename": "CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt",
         "title": "CCOO e Industria de Turbopropulsores  ITP  alcanzan un acuerdo para tres a os",
         "category": "documents",
@@ -15106,7 +20423,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt"
       },
       {
-        "id": "tg_0285051",
+        "id": "tg_8439019",
         "filename": "CCOO_de_Industria_de_Madrid.txt",
         "title": "CCOO de Industria de Madrid",
         "category": "documents",
@@ -15120,7 +20437,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_de_Industria_de_Madrid.txt"
       },
       {
-        "id": "tg_9708418",
+        "id": "tg_2096273",
         "filename": "Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt",
         "title": "Boeing union ready to strike after rejecting contract offer   KIRO 7 News Seattl",
         "category": "documents",
@@ -15132,7 +20449,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt"
       },
       {
-        "id": "tg_9154239",
+        "id": "tg_9729763",
         "filename": "Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt",
         "title": "Boeing strikes peace deal with 27000 machinists - The Guardian",
         "category": "legal_filings",
@@ -15144,7 +20461,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt"
       },
       {
-        "id": "tg_7815176",
+        "id": "tg_4717551",
         "filename": "Boeing_strike__shades_of_1995_-_HeraldNet.com.txt",
         "title": "Boeing strike  shades of 1995 - HeraldNet.com",
         "category": "documents",
@@ -15156,7 +20473,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_strike__shades_of_1995_-_HeraldNet.com.txt"
       },
       {
-        "id": "tg_6394117",
+        "id": "tg_7209145",
         "filename": "Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt",
         "title": "Boeing factory strike ends as union workers vote to accept contract   PBS News",
         "category": "documents",
@@ -15168,7 +20485,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt"
       },
       {
-        "id": "tg_5658625",
+        "id": "tg_4496864",
         "filename": "Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt",
         "title": "Boeing engineers and technical workers reject contract  vote to authorize strike",
         "category": "documents",
@@ -15180,7 +20497,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt"
       },
       {
-        "id": "tg_2313973",
+        "id": "tg_5064523",
         "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
         "title": "Boeing complaint background   National Labor Relations Board",
         "category": "documents",
@@ -15192,7 +20509,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_complaint_background___National_Labor_Relations_Board.txt"
       },
       {
-        "id": "tg_9522075",
+        "id": "tg_3523840",
         "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
         "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
         "category": "documents",
@@ -15204,7 +20521,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
       },
       {
-        "id": "tg_8563549",
+        "id": "tg_9550954",
         "filename": "Boeing___SPEEA.txt",
         "title": "Boeing   SPEEA",
         "category": "documents",
@@ -15216,7 +20533,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing___SPEEA.txt"
       },
       {
-        "id": "tg_2303443",
+        "id": "tg_2912822",
         "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
         "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
         "category": "documents",
@@ -15228,7 +20545,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
       },
       {
-        "id": "tg_2187190",
+        "id": "tg_1825062",
         "filename": "BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt",
         "title": "BOE-A-2023-8181 Resoluci n de 21 de marzo de 2023  de la Direcci n General de Tr",
         "category": "documents",
@@ -15240,7 +20557,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt"
       },
       {
-        "id": "tg_2824095",
+        "id": "tg_3195091",
         "filename": "Ausbildung_in_Deutschland_-_Airbus.txt",
         "title": "Ausbildung in Deutschland - Airbus",
         "category": "legal_filings",
@@ -15252,7 +20569,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Ausbildung_in_Deutschland_-_Airbus.txt"
       },
       {
-        "id": "tg_8743427",
+        "id": "tg_2290884",
         "filename": "Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt",
         "title": "Anatom a del Conflicto Laboral en el Sector Aeroespacial y de Automoci n  An lis",
         "category": "legal_filings",
@@ -15264,7 +20581,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt"
       },
       {
-        "id": "tg_6205703",
+        "id": "tg_6796912",
         "filename": "An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt",
         "title": "An lisis de la Situaci n del Convenio del Metal en C diz. - USO Industria",
         "category": "documents",
@@ -15278,15 +20595,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt"
       },
       {
-        "id": "tg_1982132",
+        "id": "tg_4789622",
         "filename": "An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt",
         "title": "An lisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnol",
         "category": "legal_filings",
         "date": "2026-08-29",
         "unions": [
-          "ATP",
           "CCOO",
-          "SIPA"
+          "SIPA",
+          "ATP"
         ],
         "site": "Getafe",
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Prece",
@@ -15294,7 +20611,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt"
       },
       {
-        "id": "tg_3168087",
+        "id": "tg_1139615",
         "filename": "American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt",
         "title": "American air-traffic controllers strike for benefits and pay  1981",
         "category": "legal_filings",
@@ -15306,7 +20623,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt"
       },
       {
-        "id": "tg_5989298",
+        "id": "tg_9628196",
         "filename": "Aircraft_Fitter_at_Airbus___Flexa_Careers.txt",
         "title": "Aircraft Fitter at Airbus   Flexa Careers",
         "category": "documents",
@@ -15318,7 +20635,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aircraft_Fitter_at_Airbus___Flexa_Careers.txt"
       },
       {
-        "id": "tg_5184979",
+        "id": "tg_4847806",
         "filename": "Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt",
         "title": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producci n y b",
         "category": "documents",
@@ -15330,7 +20647,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt"
       },
       {
-        "id": "tg_3585247",
+        "id": "tg_8883212",
         "filename": "Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt",
         "title": "Airbus y los sindicatos mantienen posiciones distantes tras la reuni n en el SIM",
         "category": "legal_filings",
@@ -15342,7 +20659,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt"
       },
       {
-        "id": "tg_5054528",
+        "id": "tg_1168858",
         "filename": "Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt",
         "title": "Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupa",
         "category": "documents",
@@ -15354,7 +20671,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt"
       },
       {
-        "id": "tg_2226312",
+        "id": "tg_3439639",
         "filename": "Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt",
         "title": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial a n sin acuerdo",
         "category": "legal_filings",
@@ -15366,7 +20683,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt"
       },
       {
-        "id": "tg_0891764",
+        "id": "tg_3642542",
         "filename": "Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt",
         "title": "Airbus va verser une prime de 1 500     ses salari s - GIFAS",
         "category": "documents",
@@ -15378,7 +20695,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt"
       },
       {
-        "id": "tg_1704309",
+        "id": "tg_4097755",
         "filename": "Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt",
         "title": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo - Dem crata",
         "category": "documents",
@@ -15390,7 +20707,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt"
       },
       {
-        "id": "tg_5110715",
+        "id": "tg_5505565",
         "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
         "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
         "category": "documents",
@@ -15402,7 +20719,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
       },
       {
-        "id": "tg_1224371",
+        "id": "tg_9935717",
         "filename": "Airbus_reports_Half-Year__H1__2022_results.txt",
         "title": "Airbus reports Half-Year  H1  2022 results",
         "category": "legal_filings",
@@ -15414,7 +20731,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Half-Year__H1__2022_results.txt"
       },
       {
-        "id": "tg_4333993",
+        "id": "tg_8863452",
         "filename": "Airbus_reports_Full-Year__FY__2023_results.txt",
         "title": "Airbus reports Full-Year  FY  2023 results",
         "category": "legal_filings",
@@ -15426,7 +20743,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Full-Year__FY__2023_results.txt"
       },
       {
-        "id": "tg_6621148",
+        "id": "tg_1536339",
         "filename": "Airbus_reports_First_Quarter__Q1__2023_results.txt",
         "title": "Airbus reports First Quarter  Q1  2023 results",
         "category": "legal_filings",
@@ -15438,7 +20755,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_First_Quarter__Q1__2023_results.txt"
       },
       {
-        "id": "tg_9633916",
+        "id": "tg_2446924",
         "filename": "Airbus_in_France.txt",
         "title": "Airbus in France",
         "category": "documents",
@@ -15450,7 +20767,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_in_France.txt"
       },
       {
-        "id": "tg_8326590",
+        "id": "tg_8090472",
         "filename": "Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt",
         "title": "Airbus employees in Spain resume strike after rejecting offer   live - Euronext ",
         "category": "legal_filings",
@@ -15462,7 +20779,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt"
       },
       {
-        "id": "tg_0921695",
+        "id": "tg_7458129",
         "filename": "Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt",
         "title": "Airbus bows to remote working demands after series of strikes - The Guardian",
         "category": "documents",
@@ -15474,7 +20791,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt"
       },
       {
-        "id": "tg_0621384",
+        "id": "tg_2460323",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - CP24",
         "category": "legal_filings",
@@ -15486,7 +20803,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt"
       },
       {
-        "id": "tg_4334100",
+        "id": "tg_6096627",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - BNN Bloomber",
         "category": "legal_filings",
@@ -15498,7 +20815,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt"
       },
       {
-        "id": "tg_7087571",
+        "id": "tg_8196210",
         "filename": "Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt",
         "title": "Airbus backs down on four-day office plan after employee protests - Air Data New",
         "category": "legal_filings",
@@ -15510,7 +20827,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt"
       },
       {
-        "id": "tg_5123746",
+        "id": "tg_8410926",
         "filename": "Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt",
         "title": "Airbus augmente les salaires de 5 5  en France  face   l inflation - GIFAS",
         "category": "documents",
@@ -15522,7 +20839,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt"
       },
       {
-        "id": "tg_0348942",
+        "id": "tg_0947018",
         "filename": "Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt",
         "title": "Airbus amenaza con suspender las contrataciones previstas en Espa a si contin a ",
         "category": "documents",
@@ -15534,7 +20851,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt"
       },
       {
-        "id": "tg_5550505",
+        "id": "tg_4667756",
         "filename": "Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt",
         "title": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los ",
         "category": "documents",
@@ -15546,7 +20863,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt"
       },
       {
-        "id": "tg_4932070",
+        "id": "tg_1433085",
         "filename": "Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt",
         "title": "Airbus  dispuesta a llevarse carga de trabajo de sus plantas espa olas a otros p",
         "category": "documents",
@@ -15558,7 +20875,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt"
       },
       {
-        "id": "tg_1819028",
+        "id": "tg_2185333",
         "filename": "Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt",
         "title": "Airbus  Leonardo and Thales Press Brussels to Clear Project Bromo - Gro wald",
         "category": "documents",
@@ -15570,7 +20887,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt"
       },
       {
-        "id": "tg_5924810",
+        "id": "tg_1710815",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_3.txt",
         "title": "Airbus UK Pension Scheme   Schedule 3",
         "category": "documents",
@@ -15582,7 +20899,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_3.txt"
       },
       {
-        "id": "tg_4443664",
+        "id": "tg_7079437",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_2.txt",
         "title": "Airbus UK Pension Scheme   Schedule 2",
         "category": "documents",
@@ -15594,7 +20911,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_2.txt"
       },
       {
-        "id": "tg_4671329",
+        "id": "tg_0020794",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_1.txt",
         "title": "Airbus UK Pension Scheme   Schedule 1",
         "category": "documents",
@@ -15606,7 +20923,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_1.txt"
       },
       {
-        "id": "tg_2970823",
+        "id": "tg_2607753",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 5",
         "category": "documents",
@@ -15618,7 +20935,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt"
       },
       {
-        "id": "tg_9878191",
+        "id": "tg_7003729",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 4",
         "category": "documents",
@@ -15630,7 +20947,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt"
       },
       {
-        "id": "tg_2380535",
+        "id": "tg_5614250",
         "filename": "Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt",
         "title": "Airbus Spain strike resumes as dispute threatens key military aircraft programs",
         "category": "documents",
@@ -15642,7 +20959,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt"
       },
       {
-        "id": "tg_6723179",
+        "id": "tg_0037895",
         "filename": "Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt",
         "title": "Airbus Spain Workers Resume Strike After Rejected Pay Offer - Global Banking   F",
         "category": "documents",
@@ -15654,7 +20971,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt"
       },
       {
-        "id": "tg_3689344",
+        "id": "tg_2012723",
         "filename": "Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt",
         "title": "Airbus Spain Strike  Aerospace Supply Chain Faces Labor Disruptions - Doing Busi",
         "category": "documents",
@@ -15666,7 +20983,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt"
       },
       {
-        "id": "tg_1137848",
+        "id": "tg_8104573",
         "filename": "Airbus_SMH_grids.txt",
         "title": "Airbus SMH grids",
         "category": "documents",
@@ -15680,7 +20997,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_SMH_grids.txt"
       },
       {
-        "id": "tg_3534351",
+        "id": "tg_9422856",
         "filename": "Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt",
         "title": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spa",
         "category": "documents",
@@ -15692,7 +21009,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt"
       },
       {
-        "id": "tg_3765437",
+        "id": "tg_7752810",
         "filename": "Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt",
         "title": "Airbus Espa a reacciona a la huelga indefinida con la congelaci n inmediata de l",
         "category": "documents",
@@ -15704,7 +21021,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt"
       },
       {
-        "id": "tg_2336923",
+        "id": "tg_1042439",
         "filename": "Airbus_Annual_Report_2024_-_Bnains.org.txt",
         "title": "Airbus Annual Report 2024 - Bnains.org",
         "category": "documents",
@@ -15716,7 +21033,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Annual_Report_2024_-_Bnains.org.txt"
       },
       {
-        "id": "tg_6379381",
+        "id": "tg_3624412",
         "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
         "title": "Airbus - CSRD Report Reviews - BWD Strategic",
         "category": "documents",
@@ -15728,7 +21045,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
       },
       {
-        "id": "tg_4763345",
+        "id": "tg_4918948",
         "filename": "Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt",
         "title": "Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines - IATA",
         "category": "documents",
@@ -15740,7 +21057,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt"
       },
       {
-        "id": "tg_6566658",
+        "id": "tg_4958806",
         "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
         "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
         "category": "documents",
@@ -15752,7 +21069,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
       },
       {
-        "id": "tg_4394059",
+        "id": "tg_4008772",
         "filename": "Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt",
         "title": "Acuerdo para el desbloqueo del convenio colectivo del metal en C diz. - USO Indu",
         "category": "documents",
@@ -15766,7 +21083,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt"
       },
       {
-        "id": "tg_2244975",
+        "id": "tg_5988925",
         "filename": "Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt",
         "title": "Acuerdo en mediaci n para desconvocar la huelga de Acerinox tras mejorarse las c",
         "category": "documents",
@@ -15780,7 +21097,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt"
       },
       {
-        "id": "tg_4664282",
+        "id": "tg_2722572",
         "filename": "Acta_Asamblea_en_huelga_1407.pdf.txt",
         "title": "Acta Asamblea en huelga 1407",
         "category": "assembly_minutes",
@@ -15792,7 +21109,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt"
       },
       {
-        "id": "tg_4891086",
+        "id": "tg_8023769",
         "filename": "Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt",
         "title": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la pla",
         "category": "documents",
@@ -15804,7 +21121,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt"
       },
       {
-        "id": "tg_6307596",
+        "id": "tg_8865879",
         "filename": "Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt",
         "title": "Ab April 3 1   mehr Geld   und starke Sonderzahlungen im Jahr 2026 - IG Metall F",
         "category": "documents",
@@ -15816,7 +21133,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt"
       },
       {
-        "id": "tg_0190737",
+        "id": "tg_3236974",
         "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
         "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
         "category": "documents",
@@ -15828,7 +21145,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
       },
       {
-        "id": "tg_6911033",
+        "id": "tg_7791234",
         "filename": "8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt",
         "title": "8 julio  CGT convoca huelga y concentraci n ante H M-CONCENTRIX  servicio de ate",
         "category": "documents",
@@ -15842,7 +21159,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt"
       },
       {
-        "id": "tg_5171154",
+        "id": "tg_6578227",
         "filename": "5803119881057145292.pdf.txt",
         "title": "5803119881057145292",
         "category": "documents",
@@ -15854,7 +21171,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/5803119881057145292.pdf.txt"
       },
       {
-        "id": "tg_1096373",
+        "id": "tg_4867713",
         "filename": "4_5969781284744994502.pdf.txt",
         "title": "4 5969781284744994502",
         "category": "documents",
@@ -15868,7 +21185,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5969781284744994502.pdf.txt"
       },
       {
-        "id": "tg_6504560",
+        "id": "tg_8409643",
         "filename": "4_5796203638925829350.pdf.txt",
         "title": "4 5796203638925829350",
         "category": "documents",
@@ -15880,16 +21197,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5796203638925829350.pdf.txt"
       },
       {
-        "id": "tg_4624638",
+        "id": "tg_0211210",
         "filename": "396_AIRBUS_APLAZ.pdf.txt",
         "title": "396 AIRBUS APLAZ",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
-          "ATP",
-          "UGT",
           "CCOO",
+          "UGT",
           "SIPA",
+          "ATP",
           "CGT"
         ],
         "site": null,
@@ -15898,7 +21215,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/396_AIRBUS_APLAZ.pdf.txt"
       },
       {
-        "id": "tg_5695921",
+        "id": "tg_5251421",
         "filename": "2008_Boeing_machinists__strike_-_Wikipedia.txt",
         "title": "2008 Boeing machinists  strike - Wikipedia",
         "category": "legal_filings",
@@ -15910,7 +21227,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/2008_Boeing_machinists__strike_-_Wikipedia.txt"
       },
       {
-        "id": "tg_8863742",
+        "id": "tg_5610315",
         "filename": "Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt",
         "title": "Reuni n Comit  de Huelga en el SIMA el 27-08-2026  1 ",
         "category": "legal_filings",
@@ -15922,7 +21239,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt"
       },
       {
-        "id": "tg_1385320",
+        "id": "tg_3217740",
         "filename": "Minutas_Asamblea_Getafe_20260827.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260827",
         "category": "assembly_minutes",
@@ -15934,7 +21251,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260827.pdf.txt"
       },
       {
-        "id": "tg_7784362",
+        "id": "tg_7126080",
         "filename": "Minutas_Asamblea_Getafe_20260826-1.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260826-1.PDF",
         "category": "assembly_minutes",
@@ -15948,7 +21265,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260826-1.PDF.txt"
       },
       {
-        "id": "tg_3970191",
+        "id": "tg_7567377",
         "filename": "Minutas_Asamblea_Getafe_20260825.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825",
         "category": "assembly_minutes",
@@ -15960,7 +21277,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825.pdf.txt"
       },
       {
-        "id": "tg_4030651",
+        "id": "tg_4777789",
         "filename": "Minutas_Asamblea_Getafe_20260825-1.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825-1",
         "category": "assembly_minutes",
@@ -15972,7 +21289,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825-1.pdf.txt"
       },
       {
-        "id": "tg_5272081",
+        "id": "tg_4661893",
         "filename": "Minutas_Asamblea_Getafe_20260824__1_.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260824  1 .PDF",
         "category": "assembly_minutes",
@@ -15984,7 +21301,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260824__1_.PDF.txt"
       },
       {
-        "id": "tg_3399799",
+        "id": "tg_4539000",
         "filename": "2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt",
         "title": "2026 08 11 Plan de Acci n Medidas de Aplicacion en Mantenimiento",
         "category": "documents",
@@ -15999,7 +21316,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt"
       },
       {
-        "id": "tg_1778706",
+        "id": "tg_5349278",
         "filename": "Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt",
         "title": "Convocatoria huelga en Airbus comunicacion a Airbus 20260731 anonimizada",
         "category": "documents",
@@ -16011,7 +21328,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt"
       },
       {
-        "id": "tg_3734193",
+        "id": "tg_6354881",
         "filename": "Minutas_Asamblea_Getafe_20260729.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260729",
         "category": "assembly_minutes",
@@ -16025,16 +21342,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260729.pdf.txt"
       },
       {
-        "id": "tg_7407638",
+        "id": "tg_0498675",
         "filename": "DOC-20260725-WA0055..pdf.txt",
         "title": "DOC-20260725-WA0055.",
         "category": "documents",
         "date": "2026-07-25",
         "unions": [
-          "ATP",
-          "UGT",
           "CCOO",
+          "UGT",
           "SIPA",
+          "ATP",
           "CGT"
         ],
         "site": null,
@@ -16043,7 +21360,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/DOC-20260725-WA0055..pdf.txt"
       },
       {
-        "id": "tg_1207915",
+        "id": "tg_6063671",
         "filename": "Minutas_Asamblea_Getafe_20260723.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260723",
         "category": "assembly_minutes",
@@ -16059,15 +21376,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260723.pdf.txt"
       },
       {
-        "id": "tg_1663075",
+        "id": "tg_3739863",
         "filename": "Comunicado_CGT_estatal_-_20260723.pdf.txt",
         "title": "Comunicado CGT estatal - 20260723",
         "category": "documents",
         "date": "2026-07-23",
         "unions": [
-          "ATP",
           "CCOO",
           "SIPA",
+          "ATP",
           "CGT"
         ],
         "site": null,
@@ -16076,7 +21393,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_CGT_estatal_-_20260723.pdf.txt"
       },
       {
-        "id": "tg_5927083",
+        "id": "tg_1053094",
         "filename": "Minutas_Asamblea_Getafe_20260722.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260722",
         "category": "assembly_minutes",
@@ -16090,7 +21407,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260722.pdf.txt"
       },
       {
-        "id": "tg_7016279",
+        "id": "tg_6102611",
         "filename": "Minutas_Asamblea_Getafe_20260721.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260721",
         "category": "assembly_minutes",
@@ -16104,7 +21421,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260721.pdf.txt"
       },
       {
-        "id": "tg_0155321",
+        "id": "tg_0183175",
         "filename": "Minutas_Asamblea_Getafe_20260720.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260720",
         "category": "assembly_minutes",
@@ -16116,15 +21433,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260720.pdf.txt"
       },
       {
-        "id": "tg_8106763",
+        "id": "tg_4112244",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260720",
         "category": "documents",
         "date": "2026-07-20",
         "unions": [
+          "UGT",
           "SIPA",
           "ATP",
-          "UGT",
           "CGT"
         ],
         "site": null,
@@ -16133,7 +21450,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt"
       },
       {
-        "id": "tg_5621159",
+        "id": "tg_3959421",
         "filename": "20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt",
         "title": "20260717 Comunicado Mayoria Sindical Airbus.docx",
         "category": "documents",
@@ -16145,7 +21462,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt"
       },
       {
-        "id": "tg_2378413",
+        "id": "tg_3291631",
         "filename": "Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt",
         "title": "Minutas Asamblea en Huelga GETAFE - 16 07 2026",
         "category": "assembly_minutes",
@@ -16157,15 +21474,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt"
       },
       {
-        "id": "tg_2669985",
+        "id": "tg_6012007",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
+          "UGT",
           "SIPA",
           "ATP",
-          "UGT",
           "CGT"
         ],
         "site": null,
@@ -16174,15 +21491,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt"
       },
       {
-        "id": "tg_1287249",
+        "id": "tg_0841907",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715-1",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
+          "UGT",
           "SIPA",
           "ATP",
-          "UGT",
           "CGT"
         ],
         "site": null,
@@ -16191,7 +21508,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt"
       },
       {
-        "id": "tg_7488216",
+        "id": "tg_4709578",
         "filename": "20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt",
         "title": "20260630 - Nota de prensa - Huelga en Airbus 260710 201620",
         "category": "documents",
@@ -16205,7 +21522,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt"
       },
       {
-        "id": "tg_2755641",
+        "id": "tg_5764547",
         "filename": "BOCM-20240725-1_-_C__Otras_Disposiciones.txt",
         "title": "BOCM-20240725-1 - C  Otras Disposiciones",
         "category": "documents",
