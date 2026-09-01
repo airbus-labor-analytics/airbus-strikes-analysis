@@ -2,6 +2,32 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [016-repo-wide-hardening-and-security] - 2026-09-01
+
+### Added
+- **Resilient Network Utilities (`src/network_utils.py`)**:
+  - Implemented `fetch_with_retry()` with exponential backoff, jitter, timeout handling, and client-error avoidance (404/401) using Python standard library.
+- **Frontend Architecture & ES6 Modularization (`dashboard/js/`)**:
+  - Modularized dashboard architecture into `core.js`, `main.js`, and specialized submodules (`overview.js`, `industrial.js`, `purchasing_power.js`, `union_force.js`, `evidence.js`).
+- **Automated Test Suites (`tests/`)**:
+  - Created `tests/test_backend_resilience.py` validating network retries, atomic file writes, transactions, and fallback handling.
+  - Created `tests/test_security_sanitization.py` enforcing XSS prevention and safe external link attributes.
+
+### Changed
+- **Frontend Security Hardening (`dashboard/app.js`, `dashboard/index.html`)**:
+  - Systematically sanitized all dynamic DOM renderers using `escapeHTML()` and `sanitizeURL()`.
+  - Added `rel="noopener noreferrer"` across all external links with `target="_blank"`.
+  - Replaced blocking `alert()` dialogs with non-blocking toast notifications.
+- **CI/CD Pipeline Optimization (`.github/workflows/`)**:
+  - Added npm and pip caching to `test.yml`, `deploy.yml`, and `sync-news-data.yml`.
+  - Added comprehensive syntax and compilation checks (`python3 -m py_compile`, `node -c`) for Python and JavaScript bundles.
+- **Backend Atomic Writes**:
+  - Migrated `src/beluga_tracker.py`, `src/sentiment_thermometer.py`, `src/telegram_channel_sync.py`, and `src/notebooklm_sync.py` to use atomic JSON persistence (`atomic_write_json`).
+
+### Technical Notes
+- Full test suite passed: 77/77 tests passing.
+- Invariants & Sources: 14/14 rules verified with 100% mathematical consistency.
+
 ## [015-beluga-last-movements] - 2026-09-01
 
 ### Added
