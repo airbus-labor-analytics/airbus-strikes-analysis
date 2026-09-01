@@ -19,13 +19,18 @@ import argparse
 import html
 import json
 import re
-import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+try:
+    from src.network_utils import fetch_with_retry
+    from src.atomic_writer import atomic_write_json
+except ImportError:
+    from network_utils import fetch_with_retry
+    from atomic_writer import atomic_write_json
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 TELEGRAM_INDEX_FILE = DATA_DIR / "telegram_archive" / "telegram_index.json"
@@ -228,15 +233,19 @@ class DynamicSentimentThermometer:
             platform = feed.get("platform", "PRENSA")
 
             url = f"https://news.google.com/rss/search?q={query}&hl={hl}&gl={gl}&ceid={gl}:{hl}"
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"})
-
             try:
-                with urllib.request.urlopen(req, timeout=6) as resp:
-                    xml_content = resp.read()
-                    root = ET.fromstring(xml_content)
-                    channel_items = root.findall(".//item")
+                xml_content = fetch_with_retry(
+                    url,
+                    headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64)"},
+                    timeout=6.0,
+                    max_retries=2
+                )
+                if not xml_content:
+                    continue
+                root = ET.fromstring(xml_content)
+                channel_items = root.findall(".//item")
 
-                    for item in channel_items:
+                for item in channel_items:
                         title_el = item.find("title")
                         link_el = item.find("link")
                         pub_date_el = item.find("pubDate")
@@ -430,11 +439,8 @@ def main():
     metrics = engine.evaluate_pressure_metrics()
 
     if args.export_json:
-        args.export_json.parent.mkdir(parents=True, exist_ok=True)
-        with open(args.export_json, "w", encoding="utf-8") as f:
-            json.dump(metrics, f, indent=2, ensure_ascii=False)
+        atomic_write_json(args.export_json, metrics, indent=2)
         print(f"✓ Dynamic Multi-Platform Thermometer exported to {args.export_json}")
-
     print(f"Airbus Strike Pressure Thermometer Status:")
     print(f"  • Temperature: {metrics['temperature_celsius']}°C [{metrics['status_label']}]")
     print(f"  • Monitored Items: {metrics['total_items_monitored']}")

@@ -6,11 +6,14 @@ Parses RSS/Atom feeds and news announcements from SIMA, labor press, and industr
 """
 
 import re
-import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
+try:
+    from src.network_utils import fetch_with_retry
+except ImportError:
+    from network_utils import fetch_with_retry
 
 def parse_rss_feed(feed_url: str, timeout: int = 5, max_items: int = 20) -> List[Dict[str, Any]]:
     """
@@ -19,13 +22,11 @@ def parse_rss_feed(feed_url: str, timeout: int = 5, max_items: int = 20) -> List
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AirbusStrikesAnalysis/1.0"
     }
-
-    req = urllib.request.Request(feed_url, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as response:
-            xml_data = response.read()
+        xml_data = fetch_with_retry(feed_url, headers=headers, timeout=timeout, max_retries=2)
+        if not xml_data:
+            return []
     except Exception:
-        # Graceful degradation on unreachable feed
         return []
 
     articles: List[Dict[str, Any]] = []

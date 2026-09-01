@@ -9,11 +9,17 @@ Grounded exclusively in live ADS-B telemetry and verified factory documentation.
 
 import argparse
 import json
-import urllib.request
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
+
+try:
+    from src.network_utils import fetch_with_retry
+    from src.atomic_writer import atomic_write_json
+except ImportError:
+    from network_utils import fetch_with_retry
+    from atomic_writer import atomic_write_json
 
 API_URL = "https://beluga.simcoe.co.uk/api/belugas.php"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -206,15 +212,18 @@ class BelugaTracker:
         self.api_url = api_url
 
     def fetch_live_data(self) -> Dict[str, Any]:
-        """Fetches live JSON data from BelugaWatch API."""
+        """Fetches live JSON data from BelugaWatch API with resilient retry."""
         try:
-            req = urllib.request.Request(
+            raw_data = fetch_with_retry(
                 self.api_url,
-                headers={"User-Agent": "AirbusStrikeAnalytics/2.0 (Beluga Logistics Tracker)"}
+                headers={"User-Agent": "AirbusStrikeAnalytics/2.0 (Beluga Logistics Tracker)"},
+                timeout=5.0,
+                max_retries=2,
+                decode_json=True
             )
-            with urllib.request.urlopen(req, timeout=5) as resp:
-                raw_data = json.loads(resp.read().decode("utf-8"))
+            if raw_data and isinstance(raw_data, (dict, list)):
                 return self.analyze_fleet_status(raw_data)
+            return self.get_calibrated_fallback_status()
         except Exception:
             return self.get_calibrated_fallback_status()
 
@@ -366,11 +375,8 @@ def main():
 
     if args.update:
         out_path = DATA_DIR / "beluga_status.json"
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(status, f, indent=2, ensure_ascii=False)
+        atomic_write_json(out_path, status, indent=2)
         print(f"Updated Beluga status data saved to {out_path}")
-
     if args.json or not args.update:
         print(json.dumps(status, indent=2, ensure_ascii=False))
 

@@ -6,11 +6,14 @@ Parses external economic indicators and Beluga logistics disruption data.
 """
 
 import json
-import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+try:
+    from src.network_utils import fetch_with_retry
+except ImportError:
+    from network_utils import fetch_with_retry
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
@@ -46,11 +49,15 @@ def parse_economic_metrics(endpoint: str, timeout: int = 5) -> Dict[str, Any]:
     Query economic statistics (e.g. INE CPI API) with fallback to local baseline.
     """
     if endpoint.startswith("http://") or endpoint.startswith("https://"):
-        headers = {"User-Agent": "AirbusStrikesAnalysis/1.0"}
-        req = urllib.request.Request(endpoint, headers=headers)
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
+            data = fetch_with_retry(
+                endpoint,
+                headers={"User-Agent": "AirbusStrikesAnalysis/1.0"},
+                timeout=timeout,
+                max_retries=2,
+                decode_json=True
+            )
+            if data:
                 return {
                     "source": "ine_live_api",
                     "status": "active",
@@ -58,7 +65,6 @@ def parse_economic_metrics(endpoint: str, timeout: int = 5) -> Dict[str, Any]:
                     "timestamp": datetime.now(timezone.utc).isoformat()
                 }
         except Exception:
-            # Fallback on network failure
             pass
 
     return {

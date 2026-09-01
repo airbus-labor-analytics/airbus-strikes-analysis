@@ -24,12 +24,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+          cache: 'pip'
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
+          cache: 'npm'
       - name: Install dependencies
         run: |
           npm install --no-audit || true
@@ -51,14 +52,17 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p "test_*.py"
 
-      - name: 5. Verify Static Assets & Dashboard Bundle
+      - name: 5. Verify Python and JavaScript Syntax Integrity
         run: |
+          python3 -m py_compile src/*.py tests/*.py
           node -c dashboard/app.js
           node -c dashboard/data.js
+          node -c dashboard/js/core.js
+          node -c dashboard/js/main.js
+          node -c dashboard/js/modules/*.js
           test -f dashboard/index.html
           test -f data/conflict_metrics.json
           test -f docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md
-
   pdf-build-check:
     name: PDF Compilation Smoke Test
     runs-on: ubuntu-latest
