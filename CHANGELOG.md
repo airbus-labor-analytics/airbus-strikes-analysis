@@ -15,9 +15,13 @@ All notable changes to the Airbus Spain 2026 Strike Analytics project will be do
 - **Resilient Background Polling & Calibrated Fallback (User Story 3)**:
   - Integrated seamless movement updates into 30s background live polling (`startBelugaLivePolling()`) with zero DOM flicker.
   - Provided deterministic calibrated fallback data for offline and demo environments.
+- **Dynamic Multi-Platform Social & Media Feed (Relocated to Evidencias)**:
+  - Relocated `#sec-evidence-media-feed` to Module 5 (`#tab-evidence`), keeping Module 2 100% focused on industrial Beluga logistics.
+  - Enhanced `src/sentiment_thermometer.py` with multi-platform real-time syndication across Twitter/X, Reddit, Threads, Telegram, and press.
+  - Added platform pills (`Todas las Redes`, `Twitter / X`, `Reddit`, `Threads`, `Telegram`, `Prensa`) and impact filters (`🔴 Palanca Huelga`, `🟢 Spin Empresa`).
 
 ### Technical Notes
-- All 14 mathematical invariants and 61 unit/integration tests verified passing with zero regressions.
+- All 14 mathematical invariants and 62 unit/integration tests verified passing with zero regressions.
 
 ## [014-isolate-and-validate-beluga-engine] - 2026-09-01
 
