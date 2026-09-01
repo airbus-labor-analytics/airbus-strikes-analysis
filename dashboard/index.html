@@ -203,6 +203,10 @@
         <div class="px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-amber-300 font-semibold">
           15.562 trab.
         </div>
+        <a href="#sec-unions-timeline" id="hud-timeline-freshness" class="px-2.5 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold flex items-center hover:bg-emerald-500/20 transition cursor-pointer" title="Estado de actualización de la cronología">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
+          <span>Cronología: <strong class="text-white">Al Día</strong></span>
+        </a>
       </div>
 
       <!-- Right Actions -->
@@ -2326,12 +2330,45 @@ y se acumula en pensión y pagas extra.</span>
                 <i data-lucide="history" class="w-5 h-5 mr-2 text-amber-400"></i>
                 Línea Temporal & Minutas Detalladas de Asambleas de Fábrica
               </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Orden cronológico inverso: Desde el presente (HOY 29 de Agosto) hasta el origen del conflicto (2021-2025). Desglose por factorías, censos y votaciones.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Orden cronológico inverso: Desde el presente (1 de Septiembre) hasta el origen del conflicto (2021-2025). Desglose por factorías, minutas y acuerdos.</p>
             </div>
             <div class="flex items-center space-x-2">
               <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg">
                 PRESENTE (HOY) ↓ PASADO
               </span>
+            </div>
+          </div>
+
+          <!-- Dynamic Daily Freshness Banner -->
+          <div id="timeline-freshness-banner" class="mt-4">
+            <!-- Injected dynamically via evaluateTimelineFreshness() -->
+          </div>
+
+          <!-- Timeline Filter Controls -->
+          <div class="mt-5 p-3.5 bg-slate-950/70 border border-slate-800 rounded-xl space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center space-x-2">
+                <i data-lucide="filter" class="w-4 h-4 text-amber-400"></i>
+                <span class="text-xs font-bold text-slate-200">Filtros de Cronología:</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-1 text-[11px]" id="timeline-plant-filters">
+                <span class="text-slate-400 mr-1">Factoría:</span>
+                <button onclick="setTimelineFilter('plant', 'ALL')" class="tl-filter-plant active px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold transition">Todas</button>
+                <button onclick="setTimelineFilter('plant', 'Getafe')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Getafe</button>
+                <button onclick="setTimelineFilter('plant', 'Illescas')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Illescas</button>
+                <button onclick="setTimelineFilter('plant', 'San Pablo')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">San Pablo</button>
+                <button onclick="setTimelineFilter('plant', 'Tablada')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Tablada</button>
+                <button onclick="setTimelineFilter('plant', 'CBC El Puerto')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">CBC</button>
+                <button onclick="setTimelineFilter('plant', 'Albacete')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Albacete</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 text-[11px] pt-1 border-t border-slate-850" id="timeline-actor-filters">
+              <span class="text-slate-400 mr-1">Ámbito / Actor:</span>
+              <button onclick="setTimelineFilter('actor', 'ALL')" class="tl-filter-actor active px-2 py-0.5 rounded bg-blue-600 text-white font-bold transition">Todos</button>
+              <button onclick="setTimelineFilter('actor', 'assembly')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">🏛️ Asambleas</button>
+              <button onclick="setTimelineFilter('actor', 'sima')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">⚖️ SIMA / Mediación</button>
+              <button onclick="setTimelineFilter('actor', 'union')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">✊ Sindicatos</button>
+              <button onclick="setTimelineFilter('actor', 'company')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">🏢 Empresa</button>
             </div>
           </div>
 

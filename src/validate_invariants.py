@@ -27,6 +27,9 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 METRICS_PATH = PROJECT_ROOT / "data" / "conflict_metrics.json"
 
 class ValidationError(Exception):
@@ -287,7 +290,24 @@ def validate_all():
         else:
             print(f"  [PASS] Rule 14: Zero unverified data gate: All {len(history)} historical stock milestones verified")
 
-    # Final Outcome
+    # -------------------------------------------------------------
+    # Rule 15: Timeline Freshness, Monotonicity & Assembly Minutes Linkages
+    # -------------------------------------------------------------
+    try:
+        from src.validate_timeline_freshness import validate_timeline_integrity, evaluate_timeline_freshness
+        timeline = d.get("timeline", [])
+        if not timeline:
+            errors.append("Rule 15 FAIL: Missing timeline list in conflict metrics")
+        else:
+            is_valid, t_errors = validate_timeline_integrity(timeline)
+            if not is_valid:
+                for te in t_errors:
+                    errors.append(f"Rule 15 FAIL: {te}")
+            else:
+                report = evaluate_timeline_freshness(timeline)
+                print(f"  [PASS] Rule 15: Timeline integrity & freshness verified: {len(timeline)} milestones, latest={report['latest_milestone_date']}, status={report['status_code']}")
+    except Exception as ex:
+        errors.append(f"Rule 15 FAIL: Exception running timeline freshness validator: {ex}")
     # -------------------------------------------------------------
     if errors:
         print("\n[VALIDATION FAILED] The following discrepancies were found:")

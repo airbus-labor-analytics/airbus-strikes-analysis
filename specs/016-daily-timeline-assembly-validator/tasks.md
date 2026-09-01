@@ -7,14 +7,14 @@
 
 ## Phase 1: Setup
 
-- [ ] T001 Initialize test fixtures and schema contract loaders in `tests/test_timeline_freshness.py`
+- [X] T001 Initialize test fixtures and schema contract loaders in `tests/test_timeline_freshness.py`
 
 ---
 
 ## Phase 2: Foundational
 
-- [ ] T002 [P] Implement core timezone and date arithmetic helper in `src/validate_timeline_freshness.py`
-- [ ] T003 [P] Implement schema validator loader for `specs/016-daily-timeline-assembly-validator/contracts/timeline_freshness_contract.json` in `src/validate_timeline_freshness.py`
+- [X] T002 [P] Implement core timezone and date arithmetic helper in `src/validate_timeline_freshness.py`
+- [X] T003 [P] Implement schema validator loader for `specs/016-daily-timeline-assembly-validator/contracts/timeline_freshness_contract.json` in `src/validate_timeline_freshness.py`
 
 ---
 
@@ -24,10 +24,10 @@
 
 **Independent Test**: Run `python3 src/validate_timeline_freshness.py` and inspect browser UI at `#sec-unions-timeline` to confirm the dynamic status banner renders with correct badge and quick links.
 
-- [ ] T004 [P] [US1] Implement CLI freshness evaluator and status code logic (`UP_TO_DATE`, `PENDING_TODAY`, `STALE_ALERT`, `WEEKEND_PAUSE`) in `src/validate_timeline_freshness.py`
-- [ ] T005 [P] [US1] Create dynamic freshness banner container and styling in `dashboard/index.html`
-- [ ] T006 [US1] Implement `evaluateTimelineFreshness()` client-side engine and banner renderer in `dashboard/app.js`
-- [ ] T007 [US1] Wire floating Dynamic Island HUD status indicator for daily timeline freshness in `dashboard/app.js`
+- [X] T004 [P] [US1] Implement CLI freshness evaluator and status code logic (`UP_TO_DATE`, `PENDING_TODAY`, `STALE_ALERT`, `WEEKEND_PAUSE`) in `src/validate_timeline_freshness.py`
+- [X] T005 [P] [US1] Create dynamic freshness banner container and styling in `dashboard/index.html`
+- [X] T006 [US1] Implement `evaluateTimelineFreshness()` client-side engine and banner renderer in `dashboard/app.js`
+- [X] T007 [US1] Wire floating Dynamic Island HUD status indicator for daily timeline freshness in `dashboard/app.js`
 
 ---
 
@@ -37,10 +37,10 @@
 
 **Independent Test**: Open `#sec-unions-timeline` in the dashboard, filter by plant (`Getafe`, `Illescas`, `San Pablo`, etc.) or actor (`Asamblea`, `SIMA`, etc.), and click an assembly minute entry to open the source document modal.
 
-- [ ] T008 [P] [US2] Update `data/conflict_metrics.json` with continuous daily milestones and assembly minutes up to 2026-09-01
-- [ ] T009 [P] [US2] Link Telegram archive assembly documents (`data/telegram_archive/assembly_minutes/`) to milestone entities in `data/conflict_metrics.json`
-- [ ] T010 [US2] Implement timeline filtering by plant, actor category, and document type in `dashboard/js/modules/union_force.js`
-- [ ] T011 [US2] Implement document modal reader trigger for timeline assembly minutes in `dashboard/js/modules/union_force.js`
+- [X] T008 [P] [US2] Update `data/conflict_metrics.json` with continuous daily milestones and assembly minutes up to 2026-09-01
+- [X] T009 [P] [US2] Link Telegram archive assembly documents (`data/telegram_archive/assembly_minutes/`) to milestone entities in `data/conflict_metrics.json`
+- [X] T010 [US2] Implement timeline filtering by plant, actor category, and document type in `dashboard/js/modules/union_force.js`
+- [X] T011 [US2] Implement document modal reader trigger for timeline assembly minutes in `dashboard/js/modules/union_force.js`
 
 ---
 
@@ -50,13 +50,13 @@
 
 **Independent Test**: Run `python3 src/validate_invariants.py` and `python3 -m unittest tests/test_timeline_freshness.py` to confirm all assertions pass cleanly.
 
-- [ ] T012 [P] [US3] Register Rule 15 (Timeline Freshness & Chronological Monotonicity) in `src/validate_invariants.py`
-- [ ] T013 [P] [US3] Add timeline freshness validation step to `.github/workflows/sync-news-data.yml`
-- [ ] T014 [US3] Author comprehensive unit tests for freshness rules, timezone edge cases, and schema validation in `tests/test_timeline_freshness.py`
+- [X] T012 [P] [US3] Register Rule 15 (Timeline Freshness & Chronological Monotonicity) in `src/validate_invariants.py`
+- [X] T013 [P] [US3] Add timeline freshness validation step to `.github/workflows/sync-news-data.yml`
+- [X] T014 [US3] Author comprehensive unit tests for freshness rules, timezone edge cases, and schema validation in `tests/test_timeline_freshness.py`
 
 ---
 
 ## Phase 6: Polish & Cross-Cutting Concerns
 
-- [ ] T015 Run full validation test suite (`python3 src/validate_invariants.py`, `python3 src/validate_sources.py`, `python3 -m unittest discover tests/`)
-- [ ] T016 Verify static DOM structure and syntax consistency across `dashboard/app.js` and `dashboard/index.html`
+- [X] T015 Run full validation test suite (`python3 src/validate_invariants.py`, `python3 src/validate_sources.py`, `python3 -m unittest discover tests/`)
+- [X] T016 Verify static DOM structure and syntax consistency across `dashboard/app.js` and `dashboard/index.html`
