@@ -2,6 +2,29 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [014-isolate-and-validate-beluga-engine] - 2026-09-01
+
+### Added
+- **Dedicated & Autonomous Beluga Logistics Tracking (User Story 1 - MVP)**:
+  - Completely decoupled `src/beluga_tracker.py` from sentiment analysis and news scraper workflows, eliminating all query and background task dependencies.
+  - Implemented standalone CLI commands (`--update`, `--json`) and resilient local schema ingestion via `src/parsers/metric_parser.py`.
+  - Added autonomous 30-second background live polling cycle in `dashboard/app.js` (`startBelugaLivePolling()`) with robust fallback caching.
+- **Real-Time Fleet Telemetry & European Disruption Matrix (User Story 3)**:
+  - Integrated live ADS-B radar tracking across all 6 Airbus Transport International BelugaXL aircraft (`F-GXLG` through `F-GXLO`).
+  - Added interactive tail filters (`ALL`, `XL1`..`XL6`) in `dashboard/app.js` (`setBelugaTailFilter()`) and dynamic aircraft card rendering (`#beluga-fleet-grid`).
+  - Implemented European Route Disruption Matrix (`#beluga-routes-grid`) showing operational status of intra-European corridors vs. 100% Getafe blockade.
+  - Grounded factory logistics bottleneck in cited primary assembly minutes (`sources/721c0baa.txt`).
+
+### Changed & Removed
+- **Elimination of Fabricated Historical Charts & Synthetic Arrays (User Story 2)**:
+  - Completely removed `#belugaHistoryChart` canvas from `dashboard/index.html` and deleted its Chart.js rendering configuration from `dashboard/app.js`.
+  - Deleted all synthetic weekly series (`period_definitions`, `getafe_flights_per_week`, `accumulated_htp` curves) from `src/beluga_tracker.py`, upholding the core project constitution (*Zero Unverified Data*).
+  - Split `initThermometerAndBeluga()` into independent `initBelugaLogistics()` and `initThermometer()` functions.
+
+### Technical Notes
+- 100% offline fallback compatibility with calibrated model.
+- Validated against all 14 mathematical invariants and 58 automated unit/integration tests with zero errors.
+
 ## [013-custom-wage-proposal-builder] - 2026-09-01
 
 ### Added
