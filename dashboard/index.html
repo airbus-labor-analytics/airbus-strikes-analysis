@@ -957,53 +957,59 @@
           </div>
         </div>
 
-        <!-- Historical Beluga Flight Movements & Component Retention Chart -->
-        <div id="sec-industrial-history" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+        <!-- European Beluga Corridors & Disruption Matrix -->
+        <div id="sec-industrial-routes" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
           <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-slate-800 pb-3 gap-2">
             <div>
               <h3 class="text-sm font-bold text-white flex items-center justify-between">
-                <span class="flex items-center"><i data-lucide="activity" class="w-4 h-4 mr-2 text-sky-400"></i> Registro de Movimientos BelugaXL & Retención de Componentes</span>
-                <a href="https://www.flightradar24.com/" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Fuente: Flightradar24 / OpenSky]</a>
+                <span class="flex items-center"><i data-lucide="git-commit" class="w-4 h-4 mr-2 text-sky-400"></i> Matriz de Corredores Logísticos BelugaXL & Cuello de Botella JIT</span>
               </h3>
-              <p class="text-xs text-slate-400 mt-0.5">Correlación entre el cese de vuelos Getafe ➔ Toulouse/Hamburgo y la acumulación de piezas retenidas en planta.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Estado operativo de los ejes de transporte de grandes componentes aeronáuticos entre factorías europeas.</p>
             </div>
             <button onclick="refreshBelugaLive(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white flex items-center shadow-lg shadow-sky-600/30 transition">
               <i data-lucide="refresh-cw" class="w-3.5 h-3.5 mr-1.5"></i> Actualizar en Vivo (BelugaWatch)
             </button>
           </div>
 
-          <div class="h-64 sm:h-72 w-full">
-            <canvas id="belugaHistoryChart"></canvas>
+          <!-- European Routes Status Matrix -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="beluga-routes-grid">
+            <!-- Dynamically populated -->
           </div>
 
-          <!-- European Routes Status Matrix -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-4 pt-4 border-t border-slate-800" id="beluga-routes-grid">
-            <!-- Dynamically populated -->
+          <!-- Primary Source Grounding for Logistics -->
+          <div class="mt-4 pt-3 border-t border-slate-800 space-y-2">
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-blue-400"></i> Evidencias Documentales & Respaldo Primario
+            </h4>
+            <div id="beluga-citations-container" class="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <!-- Dynamically populated from primary_source_citations -->
+            </div>
           </div>
         </div>
 
-        <!-- Filtered Feed -->
-        <div id="sec-industrial-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+        <!-- Recent Beluga Movements Log -->
+        <div id="sec-industrial-movements" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
           <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-slate-800 pb-3 gap-2">
             <div>
               <h3 class="text-sm font-bold text-white flex items-center">
-                <i data-lucide="newspaper" class="w-4 h-4 mr-2 text-emerald-400"></i>
-                Feed de Presión Mediática, Redes Sociales y Opinión Pública
+                <i data-lucide="history" class="w-4 h-4 mr-2 text-sky-400"></i>
+                Registro de Últimos Movimientos & Vuelos BelugaXL
               </h3>
-              <p class="text-xs text-slate-400 mt-0.5">Clasificación de impacto: Noticias y debates en Reuters, El País, Reddit, Twitter/X y Threads.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Trazabilidad de trayectos inter-factorías y verificación de cese de operaciones en Getafe.</p>
             </div>
-
-            <div class="flex items-center space-x-1.5">
-              <button onclick="filterThermoFeed('ALL')" id="btn-feed-all" class="px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white">Todos</button>
-              <button onclick="filterThermoFeed('BAD_FOR_AIRBUS')" id="btn-feed-bad" class="px-2.5 py-1 rounded text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700">🔴 Palanca Huelga</button>
-              <button onclick="filterThermoFeed('GOOD_FOR_AIRBUS')" id="btn-feed-good" class="px-2.5 py-1 rounded text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700">🟢 Spin Empresa</button>
+            <div class="flex items-center gap-2">
+              <span id="movements-count-badge" class="px-2.5 py-0.5 text-[10px] font-mono font-bold bg-slate-900 text-sky-300 border border-slate-800 rounded-lg">
+                0 registros
+              </span>
             </div>
           </div>
 
-          <div class="space-y-3 mt-4" id="thermo-feed-container">
-            <!-- Dynamically populated -->
+          <!-- Movements List Container -->
+          <div id="beluga-movements-container" class="space-y-2">
+            <!-- Dynamically populated by renderBelugaMovements() -->
           </div>
         </div>
+
 
         <!-- Section 3: Inmunidad y Vulnerabilidad Logística del Monopolio HTP -->
         <div id="sec-industrial-fals" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-6">
@@ -2383,6 +2389,46 @@ y se acumula en pensión y pagas extra.</span>
 
       <!-- ==================== TAB 5: DOCUMENTACIÓN & EVIDENCIAS ==================== -->
       <div id="tab-evidence" class="tab-content hidden space-y-6">
+        <!-- Feed de Presión Mediática, Redes Sociales y Opinión Pública -->
+        <div id="sec-evidence-media-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-3 gap-3">
+            <div>
+              <div class="flex items-center space-x-2.5">
+                <h3 class="text-base font-bold text-white flex items-center">
+                  <i data-lucide="newspaper" class="w-5 h-5 mr-2 text-emerald-400"></i>
+                  Feed de Presión Mediática, Redes Sociales y Opinión Pública
+                </h3>
+                <span id="thermo-feed-count-badge" class="px-2 py-0.5 text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg">
+                  En Vivo
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Monitorización dinámica en tiempo real: Twitter/X, Reddit, Threads, Telegram Oficial, Reuters, El País y medios aeronáuticos.</p>
+            </div>
+
+            <!-- Impact Filters -->
+            <div class="flex items-center space-x-1.5 shrink-0">
+              <button onclick="filterThermoFeed('ALL')" id="btn-feed-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition">Todos</button>
+              <button onclick="filterThermoFeed('BAD_FOR_AIRBUS')" id="btn-feed-bad" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">🔴 Palanca Huelga</button>
+              <button onclick="filterThermoFeed('GOOD_FOR_AIRBUS')" id="btn-feed-good" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">🟢 Spin Empresa</button>
+            </div>
+          </div>
+
+          <!-- Platform Filter Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-xs" id="feed-platform-pills">
+            <button onclick="filterThermoPlatform('ALL')" data-platform="ALL" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition whitespace-nowrap">Todas las Redes</button>
+            <button onclick="filterThermoPlatform('TWITTER')" data-platform="TWITTER" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="twitter" class="w-3 h-3 text-sky-400"></i> Twitter / X</button>
+            <button onclick="filterThermoPlatform('REDDIT')" data-platform="REDDIT" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="message-square" class="w-3 h-3 text-orange-400"></i> Reddit</button>
+            <button onclick="filterThermoPlatform('THREADS')" data-platform="THREADS" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="at-sign" class="w-3 h-3 text-purple-400"></i> Threads</button>
+            <button onclick="filterThermoPlatform('TELEGRAM')" data-platform="TELEGRAM" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="send" class="w-3 h-3 text-sky-400"></i> Telegram</button>
+            <button onclick="filterThermoPlatform('PRENSA')" data-platform="PRENSA" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="newspaper" class="w-3 h-3 text-emerald-400"></i> Prensa</button>
+          </div>
+
+          <!-- Dynamic Feed Items Container -->
+          <div class="space-y-3 max-h-[620px] overflow-y-auto custom-scrollbar pr-1" id="thermo-feed-container">
+            <!-- Dynamically populated by renderThermoFeed() -->
+          </div>
+        </div>
+
         <div id="sec-evidence-sources" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
           <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-4 gap-3">
             <div>

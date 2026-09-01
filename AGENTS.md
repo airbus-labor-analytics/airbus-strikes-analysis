@@ -1,5 +1,5 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan
-at specs/007-dynamic-data-and-charts-resilience/plan.md
+at specs/015-beluga-last-movements/plan.md
 <!-- SPECKIT END -->

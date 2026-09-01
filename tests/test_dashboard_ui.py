@@ -33,7 +33,6 @@ EXPECTED_CANVASES = [
     "companyRevenueChart",
     "companyDeliveriesChart",
     "shareholderPieChart",
-    "belugaHistoryChart",
     "salaryEvolutionChart",
     "wagesChart",
     "unionShareChart",
@@ -232,5 +231,40 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function setCustomProposalPreset(", self.app_js_content, "Missing setCustomProposalPreset() in app.js")
         self.assertIn("function setCustomArrearsQuick(", self.app_js_content, "Missing setCustomArrearsQuick() in app.js")
         self.assertIn("function onRsgModeSelectChange(", self.app_js_content, "Missing onRsgModeSelectChange() in app.js")
+
+    def test_beluga_logistics_decoupling_and_chart_removal(self):
+        """Validates Feature 014: complete removal of #belugaHistoryChart and presence of decoupled Beluga logistics UI."""
+        # Verify #belugaHistoryChart is removed
+        self.assertNotIn('id="belugaHistoryChart"', self.html_content, "#belugaHistoryChart canvas should be removed")
+        self.assertNotIn('initBelugaHistoryChart', self.app_js_content, "initBelugaHistoryChart function should be removed")
+        
+        # Verify decoupled Beluga logistics DOM elements
+        self.assertIn('id="beluga-fleet-grid"', self.html_content, "Missing #beluga-fleet-grid in index.html")
+        self.assertIn('id="beluga-routes-grid"', self.html_content, "Missing #beluga-routes-grid in index.html")
+        self.assertIn('id="beluga-tail-filters"', self.html_content, "Missing #beluga-tail-filters in index.html")
+        self.assertIn('id="beluga-citations-container"', self.html_content, "Missing #beluga-citations-container in index.html")
+        
+        # Verify app.js standalone functions
+        self.assertIn("function initBelugaLogistics(", self.app_js_content, "Missing initBelugaLogistics() in app.js")
+        self.assertIn("function initThermometer(", self.app_js_content, "Missing initThermometer() in app.js")
+        self.assertIn("function renderBelugaFleet(", self.app_js_content, "Missing renderBelugaFleet() in app.js")
+        self.assertIn("function renderBelugaRoutes(", self.app_js_content, "Missing renderBelugaRoutes() in app.js")
+        self.assertIn("function startBelugaLivePolling(", self.app_js_content, "Missing startBelugaLivePolling() in app.js")
+
+    def test_beluga_recent_movements_log_ui(self):
+        """Validates Feature 015: Beluga recent flight movements log DOM and controller functions."""
+        self.assertIn('id="sec-industrial-movements"', self.html_content, "Missing #sec-industrial-movements in index.html")
+        self.assertIn('id="beluga-movements-container"', self.html_content, "Missing #beluga-movements-container in index.html")
+        self.assertIn('id="movements-count-badge"', self.html_content, "Missing #movements-count-badge in index.html")
+        self.assertIn("function renderBelugaMovements(", self.app_js_content, "Missing renderBelugaMovements() in app.js")
+
+    def test_evidence_media_feed_ui(self):
+        """Validates dynamic multi-platform media and social feed located in Tab 5 (Evidencias)."""
+        self.assertIn('id="sec-evidence-media-feed"', self.html_content, "Missing #sec-evidence-media-feed in index.html")
+        self.assertIn('id="thermo-feed-container"', self.html_content, "Missing #thermo-feed-container in index.html")
+        self.assertIn('id="feed-platform-pills"', self.html_content, "Missing #feed-platform-pills in index.html")
+        self.assertIn("function filterThermoPlatform(", self.app_js_content, "Missing filterThermoPlatform() in app.js")
+        self.assertIn("function filterThermoFeed(", self.app_js_content, "Missing filterThermoFeed() in app.js")
+        self.assertIn("function renderThermoFeed(", self.app_js_content, "Missing renderThermoFeed() in app.js")
 if __name__ == "__main__":
     unittest.main()

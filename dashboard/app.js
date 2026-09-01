@@ -39,7 +39,6 @@ const chartRegistry = {};
 let asymmetryChart = null;
 let wagesChart = null;
 let salaryEvolutionChart = null;
-let belugaHistoryChart = null;
 let airbusStockChart = null;
 let companyRevenueChart = null;
 let companyDeliveriesChart = null;
@@ -257,7 +256,8 @@ function initAllModules() {
   initNegotiationEvolution();
   initTimeline();
   initTelegramArchive();
-  initThermometerAndBeluga();
+  initThermometer();
+  initBelugaLogistics();
   updateAsymmetrySimulation();
   updateWageSimulation();
   // Tab overview is default visible tab
@@ -369,7 +369,8 @@ async function syncDataInBackground(manual = false) {
     initTimeline();
     initWorkflows();
     initTelegramArchive();
-    initThermometerAndBeluga();
+    initThermometer();
+    initBelugaLogistics();
     initSources();
     updateAsymmetrySimulation();
     updateWageSimulation();
@@ -451,12 +452,12 @@ async function refreshBelugaLive(manual = true) {
       const data = await res.json();
       if (conflictData) {
         conflictData.beluga_logistics = data;
-        initThermometerAndBeluga();
+        initBelugaLogistics();
       }
     }
   } catch (e) {
     console.warn('Beluga fetch offline, re-rendering cache:', e);
-    initThermometerAndBeluga();
+    initBelugaLogistics();
   } finally {
     setTimeout(() => {
       if (icon) icon.classList.remove('animate-spin');
@@ -539,8 +540,8 @@ function switchTab(tabId) {
       initAirbusStockChart();
       initCompanyHealthCharts();
     } else if (normalizedTabId === 'tab-industrial') {
-      initBelugaHistoryChart();
-      initThermometerAndBeluga();
+      initThermometer();
+      initBelugaLogistics();
     } else if (normalizedTabId === 'tab-purchasing-power') {
       initSalaryEvolutionChart();
       initWagesChart();
@@ -552,6 +553,7 @@ function switchTab(tabId) {
       initTimeline();
       initWorkflows();
     } else if (normalizedTabId === 'tab-evidence') {
+      initThermometer();
       initSources();
       initTelegramArchive();
       initBenchmarks();
@@ -594,9 +596,9 @@ const TAB_SECTION_MAP = {
     title: 'Beluga / Logística',
     sections: [
       { id: 'sec-industrial-thermo', label: 'Termómetro de Presión', icon: 'flame' },
-      { id: 'sec-industrial-fleet', label: 'Flota Beluga en Tierra', icon: 'compass' },
-      { id: 'sec-industrial-history', label: 'Vuelos & Retención HTP', icon: 'history' },
-      { id: 'sec-industrial-feed', label: 'Monitor de Envíos JIT', icon: 'activity' },
+      { id: 'sec-industrial-beluga', label: 'Flota BelugaXL Live', icon: 'compass' },
+      { id: 'sec-industrial-routes', label: 'Rutas & Conexiones FALs', icon: 'navigation' },
+      { id: 'sec-industrial-movements', label: 'Registro de Movimientos', icon: 'history' },
       { id: 'sec-industrial-fals', label: 'Cuello de Botella FALs', icon: 'boxes' }
     ]
   },
@@ -625,6 +627,7 @@ const TAB_SECTION_MAP = {
   'tab-evidence': {
     title: 'Evidencias',
     sections: [
+      { id: 'sec-evidence-media-feed', label: 'Feed Redes & Prensa en Vivo', icon: 'newspaper' },
       { id: 'sec-evidence-sources', label: 'Fuentes Primarias (269+)', icon: 'book-open' },
       { id: 'sec-evidence-telegram', label: 'Canal Telegram & Docs', icon: 'send' },
       { id: 'sec-evidence-benchmarks', label: 'Benchmark Conflictos', icon: 'award' }
@@ -3225,7 +3228,7 @@ function initTimeline() {
   `).join('');
 }
 
-// ==================== THERMOMETER & BELUGA ====================
+// ==================== THERMOMETER & BELUGA LOGISTICS ====================
 let selectedBelugaTail = 'ALL';
 
 function setBelugaTailFilter(tail) {
@@ -3239,7 +3242,7 @@ function setBelugaTailFilter(tail) {
     }
   });
 
-  initThermometerAndBeluga();
+  initBelugaLogistics();
 }
 
 function renderBelugaFleet(beluga) {
@@ -3252,10 +3255,13 @@ function renderBelugaFleet(beluga) {
   });
 
   fleetGrid.innerHTML = filteredAircraft.map(ac => {
-    const isAirborne = !!ac.airborne;
-    const statusText = ac.statusLabel || (isAirborne ? 'En Vuelo' : 'En Tierra');
-    const routeText = ac.routeLabel || ac.locationLabel || ac.currentSite || 'Base Toulouse';
-    const altText = ac.altitudeFt ? `${ac.altitudeFt.toLocaleString()} ft` : 'En superficie';
+    const isAirborne = ac.status === 'En Vuelo' || !!ac.airborne;
+    const statusText = ac.status || (isAirborne ? 'En Vuelo' : 'En Tierra');
+    const routeText = ac.current_site ? `Ubicación: ${ac.current_site}` : (ac.location_label || ac.locationLabel || 'Base Operativa');
+    const altText = ac.altitude_ft ? `${Number(ac.altitude_ft).toLocaleString()} ft` : (ac.altitudeFt ? `${Number(ac.altitudeFt).toLocaleString()} ft` : 'En superficie');
+    const speedText = ac.speed_kt ? `${ac.speed_kt} kt` : (ac.speedKt ? `${ac.speedKt} kt` : '0 kt');
+    const relevance = ac.strike_relevance || (ac.is_spain_connection ? 'Bloqueo HTP Getafe' : 'Circulación Europea');
+    const isBlocked = ac.is_spain_connection || (relevance && relevance.includes('Bloqueo'));
 
     return `
       <div class="p-3.5 bg-slate-900/80 border border-slate-800 rounded-xl space-y-2 hover:border-slate-700 transition shadow-md">
@@ -3267,9 +3273,13 @@ function renderBelugaFleet(beluga) {
           <span class="px-2 py-0.5 text-[9px] font-extrabold rounded ${isAirborne ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-slate-800 text-slate-400 border border-slate-700'}">${statusText}</span>
         </div>
         <p class="text-xs text-slate-300 font-medium">${routeText}</p>
-        <div class="text-[10px] font-mono text-slate-500 flex justify-between border-t border-slate-800/80 pt-1.5">
-          <span>Matrícula: <strong class="text-slate-400">${ac.registration || 'N/A'}</strong></span>
-          <span>${altText}</span>
+        <div class="text-[10px] font-mono text-slate-400 flex items-center justify-between">
+          <span>Vel: <strong>${speedText}</strong></span>
+          <span>Alt: <strong>${altText}</strong></span>
+        </div>
+        <div class="text-[10px] font-mono flex justify-between items-center border-t border-slate-800/80 pt-1.5">
+          <span class="text-slate-500">Matrícula: <strong class="text-slate-300">${ac.registration || 'N/A'}</strong></span>
+          <span class="px-1.5 py-0.5 text-[8.5px] font-bold rounded ${isBlocked ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-sky-500/20 text-sky-300 border border-sky-500/30'}">${relevance}</span>
         </div>
       </div>
     `;
@@ -3278,224 +3288,324 @@ function renderBelugaFleet(beluga) {
   if (window.lucide) lucide.createIcons();
 }
 
-function initThermometerAndBeluga() {
-  const thermo = conflictData?.sentiment_thermometer;
-  const beluga = conflictData?.beluga_logistics;
-
-  if (thermo) {
-    const tempEl = document.getElementById('thermo-temp');
-    const badgeEl = document.getElementById('thermo-badge');
-    const descEl = document.getElementById('thermo-desc');
-    const barEl = document.getElementById('thermo-bar');
-    const badEl = document.getElementById('thermo-bad-ratio');
-    const goodEl = document.getElementById('thermo-good-ratio');
-
-    if (tempEl) tempEl.textContent = `${thermo.temperature_celsius}°C`;
-    if (badgeEl) badgeEl.textContent = thermo.status_label;
-    if (descEl) descEl.textContent = thermo.status_description;
-    if (barEl) barEl.style.width = `${thermo.temperature_celsius}%`;
-    if (badEl) badEl.textContent = `${thermo.bad_for_airbus_percentage.toFixed(1)}%`;
-    if (goodEl) goodEl.textContent = `${thermo.good_for_airbus_percentage.toFixed(1)}%`;
-
-    thermoFeedData = thermo.feed || [];
-    renderThermoFeed(thermoFeedData);
+function renderBelugaRoutes(beluga) {
+  const routesGrid = document.getElementById('beluga-routes-grid');
+  const routes = beluga.european_routes || beluga.historical_movements?.european_routes_distribution || [];
+  if (routesGrid && routes.length > 0) {
+    routesGrid.innerHTML = routes.map(r => {
+      const routeName = r.route || `${r.origin} ➔ ${r.destination}`;
+      const isBlocked = (r.status && r.status.includes('Bloqueado')) || r.color === 'rose';
+      return `
+        <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1.5 hover:border-slate-700 transition">
+          <div class="flex justify-between items-center">
+            <span class="text-[11px] font-bold text-white font-mono">${routeName}</span>
+            <span class="px-1.5 py-0.5 text-[9px] font-extrabold rounded ${isBlocked ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-sky-500/20 text-sky-300 border border-sky-500/30'}">${r.status || 'Operativo'}</span>
+          </div>
+          <div class="text-[10px] text-slate-400 font-medium">
+            <span>Componente: <strong class="text-slate-200">${r.component}</strong></span>
+          </div>
+          ${r.disruption_impact ? `<p class="text-[9.5px] text-amber-400/90 font-mono">${r.disruption_impact}</p>` : ''}
+        </div>
+      `;
+    }).join('');
   }
 
-  if (beluga) {
-    renderBelugaFleet(beluga);
-
-    // European Routes Status Grid
-    const routesGrid = document.getElementById('beluga-routes-grid');
-    const routes = beluga.historical_movements?.european_routes_distribution || [];
-    if (routesGrid && routes.length > 0) {
-      routesGrid.innerHTML = routes.map(r => `
-        <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-xl space-y-1 hover:border-slate-700 transition">
-          <div class="flex justify-between items-center">
-            <span class="text-[11px] font-bold text-white font-mono">${r.route}</span>
-            <span class="px-1.5 py-0.5 text-[9px] font-extrabold rounded bg-${r.color || 'blue'}-500/20 text-${r.color || 'blue'}-300 border border-${r.color || 'blue'}-500/30">${r.flights} vuelos</span>
-          </div>
-          <span class="text-[10px] text-${r.color || 'slate'}-400 font-semibold block">${r.status}</span>
+  const citationsContainer = document.getElementById('beluga-citations-container');
+  const citations = beluga.primary_source_citations || [];
+  if (citationsContainer && citations.length > 0) {
+    citationsContainer.innerHTML = citations.map(c => `
+      <div class="p-2.5 bg-slate-900/60 border border-slate-800/80 rounded-xl space-y-1">
+        <div class="flex justify-between items-center">
+          <span class="text-[10px] font-bold text-sky-300 font-mono">${c.title}</span>
+          <span class="text-[9px] text-slate-500">${c.date}</span>
         </div>
-      `).join('');
-    }
+        <blockquote class="text-[10.5px] text-slate-300 italic pl-2 border-l-2 border-amber-500/60 leading-tight">
+          "${c.verbatim_excerpt}"
+        </blockquote>
+        <p class="text-[9.5px] text-slate-400">${c.relevance}</p>
+      </div>
+    `).join('');
   }
 }
 
-function renderThermoFeed(items) {
-  const container = document.getElementById('thermo-feed-container');
+function renderBelugaMovements(beluga) {
+  const container = document.getElementById('beluga-movements-container');
+  const countBadge = document.getElementById('movements-count-badge');
   if (!container) return;
 
-  container.innerHTML = items.map(item => `
-    <div class="p-3.5 bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 rounded-xl transition space-y-1.5">
-      <div class="flex justify-between items-center">
-        <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded ${item.impact === 'BAD_FOR_AIRBUS' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">${item.source} • ${item.date}</span>
-        <span class="text-[10px] text-slate-400 font-medium">${item.category}</span>
+  const movements = beluga.recent_movements || [];
+  const filtered = movements.filter(m => {
+    if (selectedBelugaTail === 'ALL') return true;
+    return (m.registration === selectedBelugaTail) ||
+           (m.name && m.name.includes(selectedBelugaTail)) ||
+           (m.aircraft_id === selectedBelugaTail);
+  });
+
+  if (countBadge) {
+    countBadge.textContent = `${filtered.length} registro${filtered.length === 1 ? '' : 's'}`;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-6 text-center bg-slate-900/40 border border-dashed border-slate-800 rounded-xl space-y-1.5">
+        <p class="text-xs font-semibold text-slate-400">Sin movimientos recientes registrados para este criterio.</p>
+        <p class="text-[11px] text-slate-500 font-mono">Filtro activo: ${selectedBelugaTail} | Todos los vuelos en tierra o bajo seguimiento.</p>
       </div>
-      <a href="${item.url}" target="_blank" class="text-xs font-bold text-white hover:text-sky-400 transition block">
-        ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500"></i>
-      </a>
-      <p class="text-xs text-slate-300 mt-1 leading-relaxed">${item.summary}</p>
-    </div>
-  `).join('');
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(m => {
+    const isEnVuelo = m.flight_status === 'En Vuelo';
+    const isCanceled = m.flight_status && m.flight_status.includes('Cancelado');
+    const isGetafe = m.is_spain_connection || m.origin_code === 'LEGT' || m.destination_code === 'LEGT';
+    
+    let statusBadgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+    if (isEnVuelo) {
+      statusBadgeClass = 'bg-amber-500/20 text-amber-300 border-amber-500/30 animate-pulse';
+    } else if (isCanceled) {
+      statusBadgeClass = 'bg-rose-500/20 text-rose-300 border-rose-500/30 font-extrabold';
+    } else if (m.flight_status === 'Completado') {
+      statusBadgeClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+    }
+
+    const corridor = `${m.origin_name} (${m.origin_code}) ➔ ${m.destination_name} (${m.destination_code})`;
+    const depTimeFormatted = m.departure_time ? m.departure_time.replace('T', ' ').replace('Z', ' UTC') : 'N/A';
+
+    return `
+      <div class="p-3 bg-slate-900/80 border ${isGetafe ? 'border-rose-900/40 bg-rose-950/10' : 'border-slate-800'} rounded-xl space-y-2 hover:border-slate-700 transition shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-800 text-sky-400 rounded border border-slate-700">
+              ${m.registration || m.name}
+            </span>
+            <span class="text-xs font-bold text-white font-mono">${m.callsign || 'N/A'}</span>
+            <span class="text-[11px] text-slate-400 font-medium">(${m.name || 'BelugaXL'})</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 text-[9px] font-bold rounded border ${statusBadgeClass}">
+              ${m.flight_status || 'Programado'}
+            </span>
+            ${isGetafe ? `
+              <span class="px-2 py-0.5 text-[9px] font-extrabold bg-rose-600/30 text-rose-300 border border-rose-500/40 rounded flex items-center gap-1">
+                <i data-lucide="shield-alert" class="w-3 h-3 text-rose-400"></i> Veto Getafe
+              </span>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-800/80">
+          <div>
+            <div class="text-[10.5px] text-slate-400 flex items-center gap-1">
+              <i data-lucide="navigation" class="w-3 h-3 text-sky-400"></i>
+              <span class="font-semibold text-slate-300">Ruta:</span>
+              <span class="font-mono text-white">${corridor}</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3 text-slate-500"></i>
+              <span>Salida: ${depTimeFormatted}</span>
+              ${m.duration_formatted ? `<span class="text-slate-400">(${m.duration_formatted})</span>` : ''}
+            </div>
+          </div>
+
+          <div class="text-right md:text-right text-[10.5px]">
+            <div class="text-slate-400">
+              <span class="font-semibold text-slate-300">Carga / Componente:</span>
+              <span class="text-amber-300 font-medium">${m.component_payload || 'Componentes Aeronáuticos'}</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-0.5">
+              <span>Impacto: <strong class="${isGetafe ? 'text-rose-400' : 'text-sky-400'}">${m.strike_relevance || 'Circulación Europea'}</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function initBelugaLogistics() {
+  const beluga = conflictData?.beluga_logistics;
+  if (!beluga) return;
+  renderBelugaFleet(beluga);
+  renderBelugaRoutes(beluga);
+  renderBelugaMovements(beluga);
+}
+
+function initThermometer() {
+  const thermo = conflictData?.sentiment_thermometer;
+  if (!thermo) return;
+
+  const tempEl = document.getElementById('thermo-temp');
+  const badgeEl = document.getElementById('thermo-badge');
+  const descEl = document.getElementById('thermo-desc');
+  const barEl = document.getElementById('thermo-bar');
+  const badEl = document.getElementById('thermo-bad-ratio');
+  const goodEl = document.getElementById('thermo-good-ratio');
+
+  if (tempEl) tempEl.textContent = `${thermo.temperature_celsius}°C`;
+  if (badgeEl) badgeEl.textContent = thermo.status_label;
+  if (descEl) descEl.textContent = thermo.status_description;
+  if (barEl) barEl.style.width = `${thermo.temperature_celsius}%`;
+  if (badEl) badEl.textContent = `${thermo.bad_for_airbus_percentage.toFixed(1)}%`;
+  if (goodEl) goodEl.textContent = `${thermo.good_for_airbus_percentage.toFixed(1)}%`;
+
+  thermoFeedData = thermo.feed || [];
+  renderThermoFeed(thermoFeedData);
+}
+
+let selectedThermoCategory = 'ALL';
+let selectedThermoPlatform = 'ALL';
+
+function renderThermoFeed(items) {
+  const container = document.getElementById('thermo-feed-container');
+  const countBadge = document.getElementById('thermo-feed-count-badge');
+  if (!container) return;
+
+  const filtered = items.filter(item => {
+    // 1. Filter by category
+    if (selectedThermoCategory === 'BAD_FOR_AIRBUS') {
+      const isBad = item.category === 'BAD_FOR_AIRBUS' || item.impact === 'BAD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('+'));
+      if (!isBad) return false;
+    } else if (selectedThermoCategory === 'GOOD_FOR_AIRBUS') {
+      const isGood = item.category === 'GOOD_FOR_AIRBUS' || item.impact === 'GOOD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('-'));
+      if (!isGood) return false;
+    }
+
+    // 2. Filter by platform
+    if (selectedThermoPlatform !== 'ALL') {
+      const p = (item.platform || 'PRENSA').toUpperCase();
+      if (p !== selectedThermoPlatform) return false;
+    }
+
+    return true;
+  });
+
+  if (countBadge) {
+    countBadge.textContent = `${filtered.length} publicaciones`;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-8 text-center bg-slate-900/40 border border-dashed border-slate-800 rounded-xl space-y-1.5">
+        <p class="text-xs font-semibold text-slate-400">No se encontraron publicaciones con los filtros seleccionados.</p>
+        <p class="text-[11px] text-slate-500 font-mono">Filtros: ${selectedThermoCategory} | Plataforma: ${selectedThermoPlatform}</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => {
+    const isBad = item.category === 'BAD_FOR_AIRBUS' || item.impact === 'BAD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('+'));
+    const isGood = item.category === 'GOOD_FOR_AIRBUS' || item.impact === 'GOOD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('-'));
+    
+    let badgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+    let impactText = item.pressure_impact || '0°C';
+    let impactBadgeClass = 'bg-slate-800 text-slate-400 border-slate-700';
+    
+    if (isBad) {
+      badgeClass = 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+      impactBadgeClass = 'bg-rose-500/20 text-rose-300 border border-rose-500/30 font-extrabold';
+    } else if (isGood) {
+      badgeClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+      impactBadgeClass = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-extrabold';
+    }
+
+    // Platform icons and colors
+    const plat = (item.platform || 'PRENSA').toUpperCase();
+    let platIcon = 'newspaper';
+    let platColor = 'text-emerald-400';
+    let platLabel = item.channel || item.source || 'Prensa';
+
+    if (plat === 'TWITTER' || (item.source && item.source.includes('Twitter'))) {
+      platIcon = 'twitter';
+      platColor = 'text-sky-400';
+      platLabel = 'Twitter / X';
+    } else if (plat === 'REDDIT' || (item.source && item.source.includes('Reddit'))) {
+      platIcon = 'message-square';
+      platColor = 'text-orange-400';
+      platLabel = 'Reddit';
+    } else if (plat === 'THREADS' || (item.source && item.source.includes('Threads'))) {
+      platIcon = 'at-sign';
+      platColor = 'text-purple-400';
+      platLabel = 'Threads';
+    } else if (plat === 'TELEGRAM' || (item.source && item.source.includes('Telegram'))) {
+      platIcon = 'send';
+      platColor = 'text-sky-400';
+      platLabel = 'Telegram';
+    }
+
+    return `
+      <div class="p-4 bg-slate-900/80 hover:bg-slate-900 border border-slate-800/90 hover:border-slate-700 rounded-xl transition space-y-2 shadow-sm group">
+        <div class="flex flex-wrap justify-between items-center gap-1.5">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+              <i data-lucide="${platIcon}" class="w-3 h-3 ${platColor}"></i>
+              <span>${item.source || platLabel}</span>
+            </span>
+            <span class="text-[10px] text-slate-500 font-mono">${item.date || 'Reciente'}</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 text-[9.5px] font-mono rounded ${impactBadgeClass}">
+              ${impactText}
+            </span>
+            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${badgeClass}">
+              ${isBad ? 'Palanca Huelga' : (isGood ? 'Spin Empresa' : 'Seguimiento')}
+            </span>
+          </div>
+        </div>
+
+        <a href="${item.url}" target="_blank" class="text-xs sm:text-sm font-bold text-white group-hover:text-sky-400 transition block leading-snug">
+          ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500 group-hover:text-sky-400"></i>
+        </a>
+
+        <p class="text-xs text-slate-300 leading-relaxed">${item.summary || ''}</p>
+      </div>
+    `;
+  }).join('');
 
   if (window.lucide) lucide.createIcons();
 }
 
 function filterThermoFeed(category) {
+  selectedThermoCategory = category;
+
   document.getElementById('btn-feed-all')?.classList.remove('bg-blue-600', 'text-white');
   document.getElementById('btn-feed-bad')?.classList.remove('bg-rose-600', 'text-white');
   document.getElementById('btn-feed-good')?.classList.remove('bg-emerald-600', 'text-white');
 
-  document.getElementById('btn-feed-all')?.classList.add('bg-slate-800', 'text-slate-300');
-  document.getElementById('btn-feed-bad')?.classList.add('bg-slate-800', 'text-slate-300');
-  document.getElementById('btn-feed-good')?.classList.add('bg-slate-800', 'text-slate-300');
+  document.getElementById('btn-feed-all')?.classList.add('bg-slate-900', 'text-slate-300');
+  document.getElementById('btn-feed-bad')?.classList.add('bg-slate-900', 'text-slate-300');
+  document.getElementById('btn-feed-good')?.classList.add('bg-slate-900', 'text-slate-300');
 
   if (category === 'ALL') {
     document.getElementById('btn-feed-all')?.classList.add('bg-blue-600', 'text-white');
-    document.getElementById('btn-feed-all')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData);
+    document.getElementById('btn-feed-all')?.classList.remove('bg-slate-900', 'text-slate-300');
   } else if (category === 'BAD_FOR_AIRBUS') {
     document.getElementById('btn-feed-bad')?.classList.add('bg-rose-600', 'text-white');
-    document.getElementById('btn-feed-bad')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'BAD_FOR_AIRBUS' || i.impact === 'BAD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('+')))));
+    document.getElementById('btn-feed-bad')?.classList.remove('bg-slate-900', 'text-slate-300');
   } else if (category === 'GOOD_FOR_AIRBUS') {
     document.getElementById('btn-feed-good')?.classList.add('bg-emerald-600', 'text-white');
-    document.getElementById('btn-feed-good')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'GOOD_FOR_AIRBUS' || i.impact === 'GOOD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('-')))));
+    document.getElementById('btn-feed-good')?.classList.remove('bg-slate-900', 'text-slate-300');
   }
+
+  renderThermoFeed(thermoFeedData);
 }
 
-function initBelugaHistoryChart() {
-  const history = conflictData?.beluga_logistics?.historical_movements;
-  if (!history) return;
-
-  let labels = [];
-  let flightsGetafe = [];
-  let baselineFlights = [];
-  let htpRetained = [];
-  let bufferToulouse = [];
-  let bufferHamburg = [];
-
-  if (history.weeks && Array.isArray(history.weeks)) {
-    labels = history.weeks;
-    flightsGetafe = history.getafe_flights_per_week || [];
-    baselineFlights = history.normal_baseline_flights || Array(labels.length).fill(14);
-    htpRetained = history.accumulated_htp_retained || [];
-    bufferToulouse = history.toulouse_fal_stock_buffer_pct || [];
-    bufferHamburg = history.hamburg_fal_stock_buffer_pct || [];
-  } else if (Array.isArray(history)) {
-    labels = history.map(h => h.week || h.name);
-    flightsGetafe = history.map(h => h.flights_to_getafe || 0);
-    baselineFlights = history.map(h => h.baseline_flights || 14);
-    htpRetained = history.map(h => h.htp_units_stockpiled || h.htp_retained || 0);
-    bufferToulouse = history.map(h => h.buffer_toulouse || 0);
-    bufferHamburg = history.map(h => h.buffer_hamburg || 0);
-  }
-
-  if (labels.length === 0) return;
-
-  belugaHistoryChart = renderResilientChart('belugaHistoryChart', () => ({
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          type: 'bar',
-          label: 'Vuelos Beluga Getafe (Real)',
-          data: flightsGetafe,
-          backgroundColor: flightsGetafe.map(f => f === 0 ? '#ef4444' : '#3b82f6'),
-          borderRadius: 6,
-          order: 3,
-          yAxisID: 'y'
-        },
-        {
-          type: 'line',
-          label: 'Normal Baseline (14 vuelos/sem)',
-          data: baselineFlights,
-          borderColor: '#64748b',
-          borderDash: [5, 5],
-          borderWidth: 1.5,
-          pointRadius: 0,
-          order: 4,
-          yAxisID: 'y'
-        },
-        {
-          type: 'line',
-          label: 'Estabilizadores HTP Retenidos en Getafe (Unidades)',
-          data: htpRetained,
-          borderColor: '#f59e0b',
-          backgroundColor: 'rgba(245, 158, 11, 0.15)',
-          fill: true,
-          yAxisID: 'y1',
-          tension: 0.3,
-          borderWidth: 2.5,
-          order: 1
-        },
-        {
-          type: 'line',
-          label: 'Buffer Stock FAL Toulouse (%)',
-          data: bufferToulouse,
-          borderColor: '#10b981',
-          borderWidth: 2,
-          borderDash: [3, 3],
-          pointRadius: 3,
-          yAxisID: 'y2',
-          tension: 0.2,
-          order: 2
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        mode: 'index',
-        intersect: false
-      },
-      scales: {
-        y: {
-          type: 'linear',
-          position: 'left',
-          grid: { color: 'rgba(51, 65, 85, 0.4)' },
-          ticks: { color: '#94a3b8' },
-          title: { display: true, text: 'Vuelos / semana', color: '#94a3b8', font: { size: 10, weight: 'bold' } }
-        },
-        y1: {
-          type: 'linear',
-          position: 'right',
-          grid: { drawOnChartArea: false },
-          ticks: { color: '#f59e0b' },
-          title: { display: true, text: 'HTP Retenidos (Uds)', color: '#f59e0b', font: { size: 10, weight: 'bold' } }
-        },
-        y2: {
-          type: 'linear',
-          position: 'right',
-          display: false,
-          min: 0,
-          max: 100
-        },
-        x: {
-          grid: { color: 'rgba(51, 65, 85, 0.4)' },
-          ticks: { color: '#cbd5e1', font: { size: 10, weight: 'bold' } }
-        }
-      },
-      plugins: {
-        legend: {
-          labels: { color: '#e2e8f0', font: { size: 11, weight: 'bold' } }
-        },
-        tooltip: {
-          backgroundColor: 'rgba(15, 23, 42, 0.95)',
-          titleColor: '#38bdf8',
-          bodyColor: '#f8fafc',
-          borderColor: '#334155',
-          borderWidth: 1,
-          padding: 10
-        }
-      }
+function filterThermoPlatform(platform) {
+  selectedThermoPlatform = platform;
+  document.querySelectorAll('.feed-plat-pill').forEach(pill => {
+    const p = pill.getAttribute('data-platform');
+    if (p === platform) {
+      pill.className = "feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition whitespace-nowrap flex items-center gap-1";
+    } else {
+      pill.className = "feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1";
     }
-  }));
-}
+  });
 
+  renderThermoFeed(thermoFeedData);
+}
 function startBelugaLivePolling() {
   if (belugaPollingInterval) clearInterval(belugaPollingInterval);
   belugaPollingInterval = setInterval(async () => {
@@ -3505,11 +3615,11 @@ function startBelugaLivePolling() {
         const data = await res.json();
         if (conflictData) {
           conflictData.beluga_logistics = data;
-          initThermometerAndBeluga();
+          initBelugaLogistics();
         }
       }
     } catch (e) {}
-  }, 60000);
+  }, 30000);
 }
 
 // ==================== SOURCES (ALL 269 SOURCES + MODAL VIEWER) ====================
