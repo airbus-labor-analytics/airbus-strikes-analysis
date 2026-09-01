@@ -1,6 +1,6 @@
 {
   "source": "Airbus Strike Dynamic Multi-Platform Sentiment Engine (Google News RSS + Twitter/X + Reddit + Threads + Telegram)",
-  "timestamp": "2026-09-01T17:28:38.560772+00:00",
+  "timestamp": "2026-09-01T19:01:21.627718+00:00",
   "temperature_celsius": 85.8,
   "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
   "status_color": "red",
@@ -19,9 +19,9 @@
     "Prensa Internacional": 1,
     "Corporate PR": 1,
     "Prensa Económica": 1,
-    "Prensa Nacional & Economía": 56,
+    "Prensa Nacional & Economía": 54,
     "Aviation & Industry Press": 2,
-    "Labor & Negociación": 15
+    "Labor & Negociación": 17
   },
   "platforms_distribution": {
     "TWITTER": 2,
@@ -162,12 +162,12 @@
       "summary": "El coste financiero de la huelga duplica en pocos días el coste anual íntegro de la plataforma salarial demandada por los trabajadores."
     },
     {
-      "id": "tg-tg_5657935",
+      "id": "tg-tg-doc-001",
       "source": "Telegram (EnfadadosconAirbus)",
       "platform": "TELEGRAM",
       "channel": "Telegram Oficial",
-      "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
-      "date": "2026-08-31",
+      "title": "4 5969781284744994502.pdf",
+      "date": "17/07/2026",
       "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
@@ -175,43 +175,43 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Telegram (EnfadadosconAirbus)."
     },
     {
-      "id": "tg-tg_0449163",
+      "id": "tg-tg-doc-002",
       "source": "Telegram (EnfadadosconAirbus)",
       "platform": "TELEGRAM",
       "channel": "Telegram Oficial",
-      "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
-      "date": "2026-08-31",
+      "title": "Acta Asamblea en huelga 1407.pdf",
+      "date": "Julio - Agosto 2026",
+      "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Telegram (EnfadadosconAirbus). Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "tg-tg-doc-003",
+      "source": "Telegram (EnfadadosconAirbus)",
+      "platform": "TELEGRAM",
+      "channel": "Telegram Oficial",
+      "title": "CGT desconvoca la huelga en la Bah a de C diz por decisi n de las asambleas de t",
+      "date": "Julio - Agosto 2026",
+      "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Telegram (EnfadadosconAirbus). Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "tg-tg-doc-004",
+      "source": "Telegram (EnfadadosconAirbus)",
+      "platform": "TELEGRAM",
+      "channel": "Telegram Oficial",
+      "title": "Los trabajadores de Airbus  un ejemplo de lucha contra la tiran a de la multinac",
+      "date": "Julio - Agosto 2026",
       "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Telegram (EnfadadosconAirbus)."
-    },
-    {
-      "id": "tg-tg_1099080",
-      "source": "Telegram (EnfadadosconAirbus)",
-      "platform": "TELEGRAM",
-      "channel": "Telegram Oficial",
-      "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
-      "date": "2026-08-31",
-      "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Telegram (EnfadadosconAirbus). Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "tg-tg_1163696",
-      "source": "Telegram (EnfadadosconAirbus)",
-      "platform": "TELEGRAM",
-      "channel": "Telegram Oficial",
-      "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
-      "date": "2026-08-31",
-      "url": "https://t.me/+MnuqJDCAAgYyMGQ0",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Telegram (EnfadadosconAirbus). Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-01",
@@ -241,7 +241,7 @@
     },
     {
       "id": "rss-03",
-      "source": "Onda Cero",
+      "source": "ondacero.es",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "La plantilla de Airbus mantiene la huelga indefinida y seguirá reclamando mejoras salariales y laborales",
@@ -250,7 +250,7 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Onda Cero. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ondacero.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-04",
@@ -267,19 +267,6 @@
     },
     {
       "id": "rss-05",
-      "source": "elDiario.es",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Airbus ofrece subidas salariales y mantener el teletrabajo y los trabajadores votarán el lunes si suspenden la huelga",
-      "date": "2026-08-28",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS3BacEp1Y2RsMnk3a0JGMWpRM01OUmhvalFSay1NLTY0NlJXX0lwSnktVm9QMTZNRWk0SUpYSUJEM3ZyNURRZU9mTW9JVXpuY0twZTZWc2dnR3RZNmNJWWgxakpsUEVSMnFhSDVncW5PQW1JT1JyY2hVYlhyMkNwbVdvQWY1cnAyS3I4NHpySFRGeUwycXlSQ0l0d053T3VWSk1PT0ktT25FVmJNaHpyb2dqc3p6Q0hTR2ZZ0gHAAUFVX3lxTE1DcVJSYVBvdko0TnlwMHVWa0pBcVYwcHB5RDMyRFRmdVBrNll1OVVyaDN4azJ6UHFLM2Z4S1dmRE04Vmcxd0ZxUDlxbk9ob0xkellKUFRkQnJ1NnRkY1kzMHdETThDbVZia3dabm5xTWhHd2dId0ROckdTeXBZb0FZLUxWcmEtSHNzWUZ3bUg0TjdXWHRpVlB2NzZaRy1XUW9zX3c5d3N6SVR0eEhHY19uVTRmOHFzak5LNU9OYVJPSg?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-06",
       "source": "Aviación Digital",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -292,7 +279,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-07",
+      "id": "rss-06",
       "source": "Diario en Positivo",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -305,7 +292,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-08",
+      "id": "rss-07",
       "source": "Expansión",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -318,20 +305,20 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-09",
-      "source": "elmundo.es",
+      "id": "rss-08",
+      "source": "elDiario.es",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
-      "title": "Llega el 'día d' para Airbus: empresa y plantilla acercan posturas para evitar una huelga que estalló por el teletrabajo",
-      "date": "2026-08-24",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNanphWGFnelBvOE9uOUk3cUxwY0NlLVlLZ29RWnNpRHctWlp6SFNWS1lHLXlnZnJlWkdZclFVb29ONlBDUlZTa1ZGSFpCRmJVeXMyVFpLRXJBLUt5RTFKUXVCaThucXhIbjZFT3RBQmVqT1UyTjZWaF82T1JLbzlHQ2xjZURFS3RI0gGIAUFVX3lxTE9kck9rV2J1TWdDcU9EdVN0ZTV4NVREeVJkanFuQzVLekowXzlPakUwNXFNcEs2LUhzZ3VKMl9STFBwazVsRm1HVS1BR2JFdHJlVUMySG84Z21yTDlzNnVlNmRrVjREdnJNMjFva0VMYnR1bFRoWkIyNnFCUjUwRjFSNVA0V1lkM1U?oc=5",
+      "title": "Airbus ofrece subidas salariales y mantener el teletrabajo y los trabajadores votarán el lunes si suspenden la huelga",
+      "date": "2026-08-28",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS3BacEp1Y2RsMnk3a0JGMWpRM01OUmhvalFSay1NLTY0NlJXX0lwSnktVm9QMTZNRWk0SUpYSUJEM3ZyNURRZU9mTW9JVXpuY0twZTZWc2dnR3RZNmNJWWgxakpsUEVSMnFhSDVncW5PQW1JT1JyY2hVYlhyMkNwbVdvQWY1cnAyS3I4NHpySFRGeUwycXlSQ0l0d053T3VWSk1PT0ktT25FVmJNaHpyb2dqc3p6Q0hTR2ZZ0gHAAUFVX3lxTE1DcVJSYVBvdko0TnlwMHVWa0pBcVYwcHB5RDMyRFRmdVBrNll1OVVyaDN4azJ6UHFLM2Z4S1dmRE04Vmcxd0ZxUDlxbk9ob0xkellKUFRkQnJ1NnRkY1kzMHdETThDbVZia3dabm5xTWhHd2dId0ROckdTeXBZb0FZLUxWcmEtSHNzWUZ3bUg0TjdXWHRpVlB2NzZaRy1XUW9zX3c5d3N6SVR0eEhHY19uVTRmOHFzak5LNU9OYVJPSg?oc=5",
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elmundo.es. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-10",
+      "id": "rss-09",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -344,7 +331,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-11",
+      "id": "rss-10",
       "source": "Cinco Días",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -357,7 +344,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-12",
+      "id": "rss-11",
       "source": "Infodefensa",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -370,7 +357,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-13",
+      "id": "rss-12",
       "source": "Industry Talks",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -383,7 +370,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-14",
+      "id": "rss-13",
       "source": "Euronews.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -396,8 +383,21 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
     },
     {
+      "id": "rss-14",
+      "source": "elmundo.es",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
+      "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
+      "date": "2026-07-23",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNd1A2LTIwb1BkNklYbGJNQTZ2N1NxOXR6RHh3XzJFLVdCSjdIbFdPZ2JWVWhJbk02MDRiaFZtQl9VS2pxNk4zMWQ4U2xYT1V3dURFQl83a2o3eER5cHFrWTJ6S2x0MTlzRFYyWTF1Y2VfR3pPd01Ha3FHUmRpZTlCdTdPdUNwd3Jv0gGIAUFVX3lxTE9QMXpUQncwOUdORjkyVU5oNExVVEk5akNJQ3hvdnhPcjFqUG1HS0loNlZRX3haRk1Gb0JtcVJHbE1FVXJCTzJoNG1pQ2ZPaGVFY2V0TW04R0hDTEc5R1I4djJsWWdMalREMFB6NWk2VEg4QmZDM2xuWGRwcE9EU2NDc3MxT3JoYmE?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elmundo.es. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
       "id": "rss-15",
-      "source": "Diario Público",
+      "source": "publico.es",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "Cerca de 5.000 trabajadores de Airbus España se manifiestan en Getafe tras 16 días en huelga",
@@ -406,7 +406,7 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en publico.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-16",
@@ -423,6 +423,19 @@
     },
     {
       "id": "rss-17",
+      "source": "Cadena SER",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
+      "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
+      "date": "2026-07-27",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORm9mOVoydGdqel9TQ1BwX3NvSjkySjFFS0M1ZTg3YTNPUlYyWldWNHdvZVR4bFMwc3J2ek5aNVZpUFpJX19BLUsySDdxTmRQVDhwVGFNRHZMYmpqR1U0T3U1NkJNZDZCbFR4TFA3Z3ZmVTQtWXZvY0R1MkxRTmpnQVNYaUcyOUV3QlZ3Ylc1X1J2bHhmOFNUbS1PaUVpM1RYWlZNWDV1cG5ib2NpeDZ0UXFDbmhFa055VEYxYTBVRnF5bHNFcGJpZkY3Q0o5THhPLUFxSEliVnhfa3RNejN2Y1Q0V0pEQk85a1hLRFNTbmvSAYQCQVVfeXFMTVpxV0RoYUc2NFRLYWpyRzVKVGlVVmtYWGJaVTk2b01lbXdnWUNuYlFTT0k2MG9kNlNGS2dlYWpFRFRYTDhZRjRScmZsbGFITzFPQ1IwY2FmNzZKMHlCNHNLRmxRWEZTTTdwdDlDNXdYTHRhR2tJNzNJUUljUzlRMTRxcUY5d0lqRzdMWmdFQVZZY09qWURfTXBwMGEzZWR4aFFHb2VndkdQaTJOaVE2cFliOGJ3elV4MXoxRXZ1ZHFqRHZMbno0UW05dEdwT09VRzZDWkpaS19ib0RaVy1Fc2h3SndrTFd3dE1IeTV3elpmQU1WNHlVOFdwVy1ONWZZN2ozaEI?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-18",
       "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -435,7 +448,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-18",
+      "id": "rss-19",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -446,19 +459,6 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+21°C",
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-19",
-      "source": "elmundo.es",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
-      "date": "2026-07-23",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNd1A2LTIwb1BkNklYbGJNQTZ2N1NxOXR6RHh3XzJFLVdCSjdIbFdPZ2JWVWhJbk02MDRiaFZtQl9VS2pxNk4zMWQ4U2xYT1V3dURFQl83a2o3eER5cHFrWTJ6S2x0MTlzRFYyWTF1Y2VfR3pPd01Ha3FHUmRpZTlCdTdPdUNwd3Jv0gGIAUFVX3lxTE9QMXpUQncwOUdORjkyVU5oNExVVEk5akNJQ3hvdnhPcjFqUG1HS0loNlZRX3haRk1Gb0JtcVJHbE1FVXJCTzJoNG1pQ2ZPaGVFY2V0TW04R0hDTEc5R1I4djJsWWdMalREMFB6NWk2VEg4QmZDM2xuWGRwcE9EU2NDc3MxT3JoYmE?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elmundo.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-20",
@@ -530,6 +530,19 @@
       "source": "Economía Digital",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
+      "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
+      "date": "2026-07-02",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYm11VW1kaTF1V3dFR3RtdHVzcEJFSGpLMDRyUF9SZ2xIZDBJS3ljazdBNnZkcTFnVkFhNVcxc3lkZUNrTWozYnl3ZERNbXR5MjQ3UDMtTDF2Q1lobWNFQmJ1QUh5RnBaZDRta0JhY3NPVThTeXhiVWU2NlRwSmN6Wk9HVkZaamVNZ0c3UGxGR25femtF0gGaAUFVX3lxTFBnZ2tvRW5DLVdoVGZGQ3JQaXAxTzVFNThhZFRxZ2NVYWJfREpsUkYySjdMb0Y1UGg4SHhaLWZyNmtUWTloV1JvYm5fR0c0THg1b2lidU80M29IdmtXd255cXdpY3djU1l3RzBpZDRpSEg5cEkzV0lmZkFCQUNQbkczRzF5UFJ6aTlNaWZ2eGhrUEFlaHpCQUg3Wmc?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-26",
+      "source": "Economía Digital",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
       "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
       "date": "2026-07-14",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
@@ -539,7 +552,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-26",
+      "id": "rss-27",
       "source": "elDiario.es",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -550,19 +563,6 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-27",
-      "source": "Economía Digital",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
-      "date": "2026-07-02",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYm11VW1kaTF1V3dFR3RtdHVzcEJFSGpLMDRyUF9SZ2xIZDBJS3ljazdBNnZkcTFnVkFhNVcxc3lkZUNrTWozYnl3ZERNbXR5MjQ3UDMtTDF2Q1lobWNFQmJ1QUh5RnBaZDRta0JhY3NPVThTeXhiVWU2NlRwSmN6Wk9HVkZaamVNZ0c3UGxGR25femtF0gGaAUFVX3lxTFBnZ2tvRW5DLVdoVGZGQ3JQaXAxTzVFNThhZFRxZ2NVYWJfREpsUkYySjdMb0Y1UGg4SHhaLWZyNmtUWTloV1JvYm5fR0c0THg1b2lidU80M29IdmtXd255cXdpY3djU1l3RzBpZDRpSEg5cEkzV0lmZkFCQUNQbkczRzF5UFJ6aTlNaWZ2eGhrUEFlaHpCQUg3Wmc?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+21°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-28",
@@ -592,7 +592,7 @@
     },
     {
       "id": "rss-30",
-      "source": "El Independiente",
+      "source": "elindependiente.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "La huelga de Airbus lleva a la compañía a delegar trabajos de ingeniería a otras filiales en pleno rearme",
@@ -601,7 +601,7 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elindependiente.com. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-31",
@@ -748,7 +748,7 @@
     },
     {
       "id": "rss-42",
-      "source": "Aviacionline",
+      "source": "aviacionline.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "Airbus plants in Spain resume operations as unions debate next steps in wage dispute",
@@ -757,23 +757,10 @@
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviacionline."
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en aviacionline.com."
     },
     {
       "id": "rss-43",
-      "source": "Aviacionline",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Plantas de Airbus en España vuelven a operar mientras sindicatos debaten nuevas huelgas",
-      "date": "2026-07-28",
-      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPMXFMTi1TXzVETWNYYXhMeVk1bVRONF9YTDRwSi1PWWc1eERWMHUxWjhvX2xjYXNSWWxxRUZqTUxHU3p0RkY3amJMUy1ra3l0MndlV2tpdHRRcGpKLU54UU16QVoxQTd5dW94YnpnY0ZTRXhUdXNIeElETnRGaTdtM051UmJheFZKd09qN0xNamVxbkxqZGFpeHNNSkFkRGpBTUpmWjdteklBVlFfVnVhTTNuWkFsNnVQd3ZLTUF0NGVRaXIxeFNfVWhlempmaHppTm41ZS15R1hjcGxNdDhaUVA5TGg4RktodnIzcjgyeW0tdmozdHBrU1ZR?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviacionline. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-44",
       "source": "InfoBaires24",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -786,7 +773,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en InfoBaires24. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-45",
+      "id": "rss-44",
       "source": "Finanzas.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -799,7 +786,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-46",
+      "id": "rss-45",
       "source": "ABC",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -812,7 +799,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-47",
+      "id": "rss-46",
       "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -825,21 +812,8 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-48",
-      "source": "Cinco Días",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Los trabajadores de Airbus votan en contra del acuerdo con la empresa de revisión salarial y teletrabajo",
-      "date": "2026-07-25",
-      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOTDg3SmlJYWpuQUJjaVdjMDlpblpTa09jT0JDSzE0LTJxTU5wODA1SEN6UWQ2WWl3b1Z0b3JCVS1jUnVzZkFnV0JpdGtacHFaQ2RsN1NDa19xUUNHNzZZd0NFalhJeWZOeEtNbVpvWW9TVTdDM3FwR252SUpjNDJuTmE2SGFRZEFwQ1lwbnZMbjJaeHhEVDQ2V0tLZkRyUnZrOWZuZUVzWmJrbVBxbHRKM3ZWVnlrLVdyclNqQklNaGxVanJqdlE0Sm9WSzVJTHFDaUJiYVFiMjBYVnVKTGlNeE5Iczc2d3ZRNG45cTBFQW_SAYQCQVVfeXFMTXRWVGFTT3k3NXV6UUNaTE9kMmFvb0NfYlBIM2w1RU1ldXJlYXZmNHlFWVl4RXRuQkFQa0h2UnRwWHVVdmV2RVdGV09fV1lfZ2RUYkRjclJmV2hLMW01dmhXNE5NUk16UWJVUG1nc3dla2cxaUFMVjlrVHlGWDdKRU54ZXdOUExVZ2VSQVJWQmZGSGQ4bXVfX0hQbmFhYmVCdGJBYllueHF6eVdNUTBZX3JGakZRX210elpSaGluSDhIVUNwTXQzbDVkakFWOGpvS0stQXV1NGJsR3F2Q05rdWVvRUZwa3dXQ1lKVE9PZ05HUjJQUW5KV0dtbUFRV2ZQZlRkWG4?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
-    },
-    {
-      "id": "rss-49",
-      "source": "LaSexta",
+      "id": "rss-47",
+      "source": "lasexta.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "Los trabajadores de Airbus, en huelga tras meses sin acuerdo en el convenio mientras la empresa logra beneficios récord",
@@ -848,11 +822,11 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en lasexta.com. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-50",
-      "source": "El Confidencial",
+      "id": "rss-48",
+      "source": "elconfidencial.com",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
       "title": "Rebelión en Airbus: la plantilla se harta por el bloqueo salarial, el tijeretazo social y el fin del teletrabajo",
@@ -861,10 +835,10 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elconfidencial.com. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-51",
+      "id": "rss-49",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -877,7 +851,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-52",
+      "id": "rss-50",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -890,7 +864,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-53",
+      "id": "rss-51",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -903,7 +877,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-54",
+      "id": "rss-52",
       "source": "Diario Red",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -916,7 +890,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-55",
+      "id": "rss-53",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -929,7 +903,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-56",
+      "id": "rss-54",
       "source": "OkDiario",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -942,7 +916,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en OkDiario."
     },
     {
-      "id": "rss-57",
+      "id": "rss-55",
       "source": "Forecast International",
       "platform": "PRENSA",
       "channel": "Aviation & Industry Press",
@@ -955,7 +929,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
     },
     {
-      "id": "rss-58",
+      "id": "rss-56",
       "source": "Key Aero",
       "platform": "PRENSA",
       "channel": "Aviation & Industry Press",
@@ -968,7 +942,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
     },
     {
-      "id": "rss-59",
+      "id": "rss-57",
       "source": "UGT",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -981,20 +955,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en UGT. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-60",
-      "source": "Industry Talks",
-      "platform": "PRENSA",
-      "channel": "Labor & Negociación",
-      "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
-      "date": "2026-08-27",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxORlJnZUNkVm5SWDJPQ0dDQ0pXbmJJNWdWMWZNRGM3dUc3eWpkS0NfQ3NqeFNHTnliNVhDOEVNZEg0V09EdGNhNEkyMnlaVXM5NDNkSTNaM2YteTRydUkwbFctRElMTU9xR09YZHZ1RWZmZ090cDZ1TlZTLTVDTy11NzdUbTVSVjNULXp2Ukg0Q2N1R0dVb1czR2Rra290aW41Sk1GY0MtdXA3RkRYSDlIVm9yd3ZvQk5TMlVWblBQcG5rN2pjdXNwMzE5T3hPMmZpMWNHTkF3?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+21°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-61",
+      "id": "rss-58",
       "source": "Diario en Positivo",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -1007,7 +968,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
     },
     {
-      "id": "rss-62",
+      "id": "rss-59",
       "source": "Córdoba Buenas Noticias",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -1020,8 +981,21 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-63",
-      "source": "eleconomista.es",
+      "id": "rss-60",
+      "source": "Demócrata",
+      "platform": "PRENSA",
+      "channel": "Labor & Negociación",
+      "title": "Las claves de la huelga de Airbus: por qué la plantilla mantiene los paros indefinidos",
+      "date": "2026-08-24",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQbXFtT3h6S0Y5bW4waHg1SnBQam55dUJsbTYwVkNtdV83akp1c1k2S3pfQ3A5NUNBb213RG91bG1lM0xnc21Da0d0cG5UNVZWd1JKR0pwSFcxUVJkVTAtWEc5ZjJmbGl0bVJ5TFFHeVlDRHZpaWhabHgzeTM1RW8ySFRTR2JzemdaNFlTdjkwbkhDdEZ6cE9CUUxZT1lyUWduZnpJ0gGoAUFVX3lxTE5CYlF5LW5qeU52cUNMYXpSUzczaVloT2JjUk5ob0JjeG94V0dhS3BqWDQ5NHJ2NVFUNWl1MjVWS2lGSkY0WGhrRmgzakJ2TkZNNnpGNmxSamVhZFlEWHZOXzlIOWEtVDE3cDE1dnV6M3g3dEhDbGZ4TFczdDdDdVF3RkNYMjAySFR4UlhIVmdBeWFpcjhUSzUwWGFfemN1Q2c2UVJXS1F0SQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+24°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-61",
+      "source": "El Economista",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
       "title": "Airbus pide mediación al SIMA para reconducir la negociación con su plantilla y alejar la amenaza de huelga",
@@ -1030,10 +1004,10 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en eleconomista.es. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-64",
+      "id": "rss-62",
       "source": "Europa Press",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -1046,7 +1020,7 @@
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-65",
+      "id": "rss-63",
       "source": "ABC",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -1057,6 +1031,32 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-64",
+      "source": "Demócrata",
+      "platform": "PRENSA",
+      "channel": "Labor & Negociación",
+      "title": "Airbus recurre a la mediación del SIMA tras el rechazo ajustado al preacuerdo laboral",
+      "date": "2026-07-30",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdFltVG1wUy1VWDZCNnRHTGN3NW9rckNLNEE5MVMwRFk0dWFkU3AxOC1uMzVaVno3dENkX1RTWXo3WTJiVS1zSUVwWHhuZTZQRkhCYjhjblRFZHlLMkIyS1RRbTJ6ekdjcEhyWVlYcnl2VGUtdjdEYTd6QnVabmdoN1h0dkRtZ1ZQUklab08xY0s0dkJYNHhmY0pveEtyR1BTTTc4STg4TWF2LWt2SmVuV2daMFMwRW1tczYwUNIBwgFBVV95cUxQRHhCTGU2cUZ0UENVNUdUcEYxdXJvX1NWaFE4cVA1MzJkMnB2bEktZ3R4ZTZCS2ZlMnZ0QTkwOVZ0Mm1ldHQtZEJFTVVpdHV1RFF6c3dPcVdxTzgwQUVnX0Z0VmcwZ0FyQVRVNmFMT2c1TFl2dzJJVTBTdVphUEhxbXk1aWVHSWtGUFJoV0NWN3E4SF9TWUVoeXBJX3laMThKTjE5RnZaVVdOX1h1RHp3dnVuVEVjOEVXOWhIUUYxNVlzUQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Demócrata."
+    },
+    {
+      "id": "rss-65",
+      "source": "Industry Talks",
+      "platform": "PRENSA",
+      "channel": "Labor & Negociación",
+      "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
+      "date": "2026-08-27",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxORlJnZUNkVm5SWDJPQ0dDQ0pXbmJJNWdWMWZNRGM3dUc3eWpkS0NfQ3NqeFNHTnliNVhDOEVNZEg0V09EdGNhNEkyMnlaVXM5NDNkSTNaM2YteTRydUkwbFctRElMTU9xR09YZHZ1RWZmZ090cDZ1TlZTLTVDTy11NzdUbTVSVjNULXp2Ukg0Q2N1R0dVb1czR2Rra290aW41Sk1GY0MtdXA3RkRYSDlIVm9yd3ZvQk5TMlVWblBQcG5rN2pjdXNwMzE5T3hPMmZpMWNHTkF3?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-66",
@@ -1099,7 +1099,7 @@
     },
     {
       "id": "rss-69",
-      "source": "Madridiario",
+      "source": "madridiario.es",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
       "title": "Airbus plantea un 7,6% de recuperación salarial y mantener el teletrabajo para acabar con la huelga",
@@ -1108,7 +1108,7 @@
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Madridiario. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en madridiario.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-70",
