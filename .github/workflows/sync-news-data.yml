@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
+          cache: 'pip'
       - name: 1. Telegram Channel Document Extraction & Indexing
         run: |
           python3 src/telegram_channel_sync.py

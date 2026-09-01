@@ -13,6 +13,10 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Any
 
+try:
+    from src.atomic_writer import atomic_write_json
+except ImportError:
+    from atomic_writer import atomic_write_json
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SOURCES_DIR = PROJECT_ROOT / "sources"
 ARTIFACTS_DIR = SOURCES_DIR / "artifacts"
@@ -124,8 +128,7 @@ class NotebookLMSync:
             cmd = ["notebooklm", "source", "fulltext", src_id, "-n", self.notebook_id, "--json"]
             text_data = run_cli_json(cmd)
             if text_data and "content" in text_data:
-                with open(out_file, "w", encoding="utf-8") as f:
-                    json.dump(text_data, f, indent=2, ensure_ascii=False)
+                atomic_write_json(out_file, text_data, indent=2)
                 count += 1
 
         print(f"✓ Saved {count} fulltext files to {FULLTEXT_DIR}")

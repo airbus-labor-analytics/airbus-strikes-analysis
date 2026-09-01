@@ -16,6 +16,12 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, List, Any
 
+try:
+    from src.atomic_writer import atomic_write_json
+    from src.network_utils import fetch_with_retry
+except ImportError:
+    from atomic_writer import atomic_write_json
+    from network_utils import fetch_with_retry
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 TELEGRAM_DIR = DATA_DIR / "telegram_archive"
@@ -176,9 +182,7 @@ class TelegramChannelSync:
         }
 
         output_file = DATA_DIR / "telegram_archive" / "telegram_index.json"
-        with open(output_file, "w", encoding="utf-8") as f:
-            json.dump(index_data, f, indent=2, ensure_ascii=False)
-
+        atomic_write_json(output_file, index_data, indent=2)
         print(f"✓ Telegram Archive indexed: {len(docs)} documents cataloged in {output_file}")
         return index_data
 

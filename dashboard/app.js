@@ -2733,7 +2733,7 @@ function initBenchmarks() {
           <strong class="text-amber-400 font-bold">Lección para Airbus:</strong> ${b.lesson || b.key_lesson || ''}
         </div>
         <div class="text-right pt-1">
-          <a href="${b.source_url || 'https://www.iam751.org/'}" target="_blank" class="text-sky-400 underline font-mono text-[9.5px]">[Fuente: ${b.source_name || 'Registro Sindical / Prensa Sectorial'}]</a>
+          <a href="${b.source_url || 'https://www.iam751.org/'}" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline font-mono text-[9.5px]">[Fuente: ${b.source_name || 'Registro Sindical / Prensa Sectorial'}]</a>
         </div>
       </div>
     </div>
@@ -2836,7 +2836,7 @@ function initHistoricalLosses() {
           <span class="text-xs font-black text-white">${c.name}</span>
           <span class="px-2 py-0.5 text-[9px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded">Oficial BOE</span>
         </div>
-        <a href="${c.url || 'https://www.boe.es/diario_boe/txt.php?id=' + (c.boe_id || 'BOE-A-2021-19616')}" target="_blank" class="text-[11px] text-sky-400 underline font-mono block">${c.boe_reference} [Ver en BOE]</a>
+        <a href="${c.url || 'https://www.boe.es/diario_boe/txt.php?id=' + (c.boe_id || 'BOE-A-2021-19616')}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-400 underline font-mono block">${c.boe_reference} [Ver en BOE]</a>
         <p class="text-xs text-slate-300 leading-relaxed mt-2"><strong class="text-slate-200">Firmantes:</strong> ${c.parties_signatory}</p>
         <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-300">Cláusulas Clave:</strong> ${c.key_clauses}</p>
         <div class="p-2 bg-rose-950/30 border border-rose-500/20 rounded-lg text-[11px] text-rose-300 mt-2">
@@ -2856,7 +2856,7 @@ function initHistoricalLosses() {
             <i data-lucide="alert-triangle" class="w-4 h-4 mr-1.5 text-amber-400"></i>
             ${p.event}
           </h4>
-          <span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-2 py-0.5 rounded">${p.actors} <a href="https://t.me/+MnuqJDCAAgYyMGQ0" target="_blank" class="text-sky-400 underline ml-1">[Acta / Asambleas]</a></span>
+          <span class="text-[10px] text-slate-400 font-mono bg-slate-800 px-2 py-0.5 rounded">${p.actors} <a href="https://t.me/+MnuqJDCAAgYyMGQ0" target="_blank" rel="noopener noreferrer" class="text-sky-400 underline ml-1">[Acta / Asambleas]</a></span>
         <p class="text-xs text-slate-300 leading-relaxed">${p.description}</p>
         ${p.content_signed ? `<div class="text-xs text-slate-400"><strong class="text-slate-300">Contenido del Preacuerdo:</strong> ${p.content_signed}</div>` : ''}
         ${p.assembly_reaction ? `<div class="text-xs text-rose-400"><strong class="text-rose-300">Respuesta de las Asambleas:</strong> ${p.assembly_reaction}</div>` : ''}
@@ -3556,7 +3556,7 @@ function renderThermoFeed(items) {
           </div>
         </div>
 
-        <a href="${item.url}" target="_blank" class="text-xs sm:text-sm font-bold text-white group-hover:text-sky-400 transition block leading-snug">
+        <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-white group-hover:text-sky-400 transition block leading-snug">
           ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500 group-hover:text-sky-400"></i>
         </a>
 
