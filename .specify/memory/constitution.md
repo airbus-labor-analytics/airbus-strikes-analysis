@@ -1,11 +1,12 @@
 <!--
 Sync Impact Report
 ==================
-- Version change: 1.0.0 → 1.1.0
+- Version change: 1.1.0 → 1.2.0
 - Modified principles:
-  - Added VI. Viewport & Canvas Lifecycle Management
+  - Added VII. Timezone Awareness & Temporal Monotonicity (Europe/Madrid)
+  - Added VIII. Defense-in-Depth, Security Sanitization & Resilient I/O
 - Added sections:
-  - Quality Gates updated with static HTML tag validation and UI lifecycle verification
+  - Quality Gates updated with Rule 15 (Timeline Integrity, Freshness & Monotonicity) and Network Resilience Verification
 - Removed sections:
   - None
 - Deferred items / TODOs:
@@ -21,14 +22,15 @@ All strike analytics, econometrics, census numbers, delegate distributions, and 
 metrics MUST be mathematically rigorous, mutually balanced, and free of hallucinations.
 Every calculation—including purchasing power loss tables, strike fund ("caja de resistencia")
 burn rates, stock capital loss ratios, and the 2D site-by-union delegate matrix—MUST satisfy
-exact algebraic and conservation invariants without discrepancy.
+exact algebraic and conservation invariants without discrepancy across all 15 automated rules.
 
 ### II. Primary Source Grounding & Traceability
 Every metric, historical milestone, legal clause, and assembly sentiment score MUST trace
 directly to verifiable primary source documents. Valid sources include official BOE
 collective agreements (Convenio Colectivo), SIMA mediation minutes, Airbus SE Investor
-Relations financial reports, National Statistics Institute (INE) inflation data, and
-authenticated assembly minutes. Unverified secondary claims MUST NEVER enter canonical datasets.
+Relations financial reports, National Statistics Institute (INE) inflation data, authenticated
+assembly minutes, and official telegram channel communications. Unverified secondary claims
+MUST NEVER enter canonical datasets.
 
 ### III. Single Source of Truth & Dual-Surface Parity
 Canonical data resides exclusively in structured datasets under `data/` (e.g.,
@@ -39,7 +41,7 @@ be reflected across all consuming interfaces simultaneously.
 
 ### IV. Automated Invariant & Schema Testing
 Changes to analysis models, source fixtures, or data schemas MUST be guarded by automated
-invariants tests (`src/validate_invariants.py`, `src/validate_sources.py`, and `tests/`).
+invariants tests (`src/validate_invariants.py`, `src/validate_sources.py`, `src/validate_timeline_freshness.py`, and `tests/`).
 No PR or feature branch may merge with failing invariant or source validation checks.
 New metrics or models MUST define corresponding programmatic validation rules prior to adoption.
 
@@ -55,6 +57,18 @@ offsets (`scrollTop = 0`) and trigger responsive `.resize()` handlers on all unh
 canvases to guarantee zero visual distortion, layout clipping, or label overlap across viewports.
 *(Learned from: 003-simplify-dashboard retro)*
 
+### VII. Timezone Awareness & Temporal Monotonicity
+All event timelines, freshness assessments, daily metrics, and assembly minutes MUST be evaluated
+against the official reference timezone `Europe/Madrid` (CET/CEST). Chronological datasets MUST
+maintain strict monotonic ordering (either consistently descending for historical feeds or ascending
+for timeline projections) and validate against the active calendar date.
+
+### VIII. Defense-in-Depth, Security Sanitization & Resilient I/O
+All dynamic data rendered into the DOM MUST be sanitized via strict escaping (`escapeHTML()`, `sanitizeURL()`)
+to prevent cross-site scripting (XSS). All external links MUST enforce `rel="noopener noreferrer"`.
+Backend data ingestion and network utilities MUST use bounded retries with exponential backoff and jitter,
+client-error avoidance (404/401), and atomic file persistence (`atomic_write_json`) to prevent data corruption.
+
 ## Data Architecture & Domain Constraints
 
 - **Data Immutability & Auditability**: Raw archives under `data/telegram_archive/` and historical legal filings MUST be preserved verbatim. Derived analytical summaries MUST be reproducible from raw fixtures via deterministic scripts.
@@ -63,7 +77,7 @@ canvases to guarantee zero visual distortion, layout clipping, or label overlap 
 
 ## Quality Gates & Verification Workflow
 
-- **Pre-Commit Invariant Gate**: All updates to `data/` or `src/` MUST pass `python3 src/validate_invariants.py` and `python3 -m unittest discover tests`.
+- **Pre-Commit Invariant Gate**: All updates to `data/` or `src/` MUST pass `python3 src/validate_invariants.py`, `python3 src/validate_timeline_freshness.py`, and `python3 -m unittest discover tests/`.
 - **Source & DOM Verification Gate**: Markdown dossiers, HTML tag hierarchies, and dashboard citations MUST satisfy `python3 src/validate_sources.py` ensuring all reference domains resolve and zero unclosed HTML tags exist.
 - **Visual & Functional Parity**: Dashboard UI modifications MUST be verified to ensure responsive layout, scroll reset on tab change, legible data cards, and error-free console logs.
 
@@ -77,4 +91,4 @@ Sync Impact Report.
 - **Compliance Enforcement**: Every pull request, spec, and plan MUST verify adherence to the core principles before approval.
 - **Reference**: Use `.specify/memory/constitution.md` as the authoritative guideline for all Spec Kit workflows (`/speckit.specify`, `/speckit.plan`, `/speckit.tasks`, `/speckit.implement`).
 
-**Version**: 1.1.0 | **Ratified**: 2026-08-31 | **Last Amended**: 2026-08-31
+**Version**: 1.2.0 | **Ratified**: 2026-08-31 | **Last Amended**: 2026-09-01
