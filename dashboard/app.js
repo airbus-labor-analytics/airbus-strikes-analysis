@@ -1373,12 +1373,6 @@ function updateWageSimulation() {
   setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
-  setText('scen-med-salary', `${Math.round(medBaseSalary).toLocaleString()} €`);
-  setText('scen-med-salary-5yr', `${Math.round(medNomYear5).toLocaleString()} €`);
-  setText('scen-med-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (+${medRealGainPct.toFixed(1).replace('.', ',')}%)`);
-  setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
-  setText('scen-med-net-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
-  setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
   setText('scen-union-salary', `${Math.round(unionBaseSalary).toLocaleString()} €`);
   setText('scen-union-salary-5yr', `${Math.round(unionNomYear5).toLocaleString()} €`);
   setText('scen-union-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
