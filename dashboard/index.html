@@ -800,100 +800,68 @@
 
       <!-- ==================== TAB 2: IMPACTO INDUSTRIAL & LOGÍSTICA ==================== -->
       <div id="tab-industrial" class="tab-content hidden space-y-6">
-        <!-- Pressure Thermometer Header & Gauge -->
-        <div id="sec-industrial-thermo" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="glass-card p-5 sm:p-6 rounded-2xl border-rose-500/30 lg:col-span-2 flex flex-col justify-between">
+        <!-- JIT Logistics Hero & Executive Supply Chain Status -->
+        <div id="sec-industrial-hero" class="glass-card p-5 sm:p-6 rounded-2xl border-sky-500/30 space-y-5 bg-gradient-to-br from-slate-900 via-slate-900/90 to-sky-950/20">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-4 gap-3">
             <div>
-              <div class="flex justify-between items-start">
-                <div>
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse">
-                    ● Monitor de Estrangulamiento Industrial en Tiempo Real
-                  </span>
-                  <h2 class="text-base sm:text-lg font-black text-white mt-2 flex items-center">
-                    <i data-lucide="flame" class="w-5 h-5 mr-2 text-rose-500"></i>
-                    Termómetro de Presión y Reputación Corporativa Airbus
-                  </h2>
-                  <a href="https://www.sima-fasp.net/" target="_blank" class="text-sky-400 underline font-mono text-[10px]">[Fuente: SIMA / Monitor Mediático]</a>
-                </div>
-                <div class="text-right">
-                  <span id="thermo-temp" class="text-3xl sm:text-4xl font-black text-rose-500">85.5°C</span>
-                  <span id="thermo-badge" class="block text-[10px] uppercase font-black text-rose-400">PRESIÓN CRÍTICA</span>
-                </div>
+              <div class="flex items-center space-x-2.5">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/40 animate-pulse">
+                  ● Monitor de Estrangulamiento Logístico JIT & Radar ADS-B
+                </span>
+                <span class="px-2 py-0.5 text-[10px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">Bloqueo Activo</span>
               </div>
-
-              <p id="thermo-desc" class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
-                La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe y la cobertura internacional fuerzan una concesión inminente en la mesa negociadora.
-              </p>
+              <h2 class="text-base sm:text-lg font-black text-white mt-1.5 flex items-center">
+                <i data-lucide="plane-takeoff" class="w-5 h-5 mr-2 text-sky-400"></i>
+                Observatorio de la Cadena de Suministro Industrial & Flota BelugaXL
+              </h2>
+              <p class="text-xs text-slate-300 mt-0.5">Seguimiento en tiempo real del transporte aeroespacial entre Getafe (LEGT) y las Líneas de Ensamblaje Final (Toulouse, Hamburgo, Broughton).</p>
             </div>
-
-            <div class="mt-5 space-y-2">
-              <div class="flex justify-between text-[11px] font-bold text-slate-400">
-                <span>0°C (Baja)</span>
-                <span>50°C (SIMA)</span>
-                <span>75°C (FALs Paradas)</span>
-                <span class="text-rose-400 font-extrabold">100°C (Capitulación)</span>
-              </div>
-              <div class="w-full h-4 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700">
-                <div id="thermo-bar" class="h-full rounded-full bg-gradient-to-r from-blue-500 via-amber-500 to-rose-600 transition-all duration-1000 shadow-lg shadow-rose-500/30" style="width: 85.5%;"></div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-5 pt-4 border-t border-slate-800">
-              <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block">Daño a Airbus (Palanca Huelga)</span>
-                <span id="thermo-bad-ratio" class="text-base font-black text-rose-400">87.5%</span>
-              </div>
-              <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800">
-                <span class="text-[11px] text-slate-400 block">Contraofensiva Empresa (Spin)</span>
-                <span id="thermo-good-ratio" class="text-base font-black text-amber-400">12.5%</span>
-              </div>
-              <div class="bg-slate-900/70 p-3 rounded-xl border border-slate-800 col-span-2 sm:col-span-1">
-                <span class="text-[11px] text-slate-400 block">Quemado Diario Caja</span>
-                <span class="text-base font-black text-white">-22,7 M€ / día</span>
-              </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a href="https://beluga.simcoe.co.uk/" target="_blank" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-sky-300 border border-slate-700 flex items-center transition shadow">
+                <i data-lucide="radar" class="w-3.5 h-3.5 mr-1.5 text-sky-400"></i> BelugaWatch Radar
+              </a>
+              <button onclick="refreshBelugaLive(true)" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white flex items-center shadow-lg shadow-sky-600/30 transition">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5 mr-1.5"></i> Actualizar
+              </button>
             </div>
           </div>
 
-          <!-- Beluga Logistics Card -->
-          <div class="glass-card p-5 sm:p-6 rounded-2xl border-sky-500/30 flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-center">
-                <h3 class="text-sm font-bold text-white flex items-center">
-                  <i data-lucide="plane" class="w-4 h-4 mr-2 text-sky-400"></i>
-                  Logística BelugaXL Live
-                </h3>
-                <a href="https://beluga.simcoe.co.uk/" target="_blank" class="text-[10px] text-sky-400 hover:underline flex items-center font-bold">
-                  BelugaWatch <i data-lucide="external-link" class="w-3 h-3 ml-1"></i>
-                </a>
+          <!-- 4 Executive Operational Disruption KPIs -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-rose-500/30 space-y-1 hover:border-rose-500/50 transition shadow-sm">
+              <div class="flex justify-between items-center text-slate-400 text-xs">
+                <span class="font-medium flex items-center gap-1"><i data-lucide="timer" class="w-3.5 h-3.5 text-rose-400"></i> Autonomía FALs</span>
+                <span class="text-[9px] font-bold px-1.5 py-0.2 bg-rose-500/20 text-rose-300 rounded font-mono">CRÍTICO</span>
               </div>
-              <p class="text-xs text-slate-400 mt-1">Conexión directa OpenSky Network para seguimiento de transporte de estabilizadores HTP Getafe.</p>
-
-              <div class="space-y-3 mt-4">
-                <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30">
-                  <div class="flex justify-between items-center">
-                    <span class="text-xs font-bold text-rose-300">Bloqueo Eje Getafe (LEGT)</span>
-                    <span class="text-[10px] font-extrabold px-2 py-0.5 bg-rose-500/20 text-rose-400 rounded">100% RETENIDO</span>
-                  </div>
-                  <p class="text-xs text-slate-300 mt-1.5">Cero vuelos Beluga detectados conectando con Getafe. El stock de derivas permanece retenido.</p>
-                </div>
-
-                <div class="grid grid-cols-2 gap-2 text-center">
-                  <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
-                    <span class="text-[10px] text-slate-400 block">Flota BelugaXL</span>
-                    <span class="text-base font-black text-white">6 aeronaves</span>
-                  </div>
-                  <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
-                    <span class="text-[10px] text-slate-400 block">Autonomía FALs</span>
-                    <span class="text-base font-black text-amber-400">&lt; 48-72h</span>
-                  </div>
-                </div>
-              </div>
+              <div class="text-xl font-black text-rose-400 font-mono">48 – 72 horas</div>
+              <p class="text-[10.5px] text-slate-400 leading-tight">Stock de estabilizadores HTP agotado sin reposición.</p>
             </div>
 
-            <div class="mt-4 pt-3 border-t border-slate-800">
-              <a href="https://beluga.simcoe.co.uk/" target="_blank" class="w-full py-2 px-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold flex items-center justify-center shadow-lg shadow-sky-600/30 transition">
-                <i data-lucide="radar" class="w-4 h-4 mr-2"></i> Abrir Radar BelugaWatch en Vivo
-              </a>
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-rose-500/30 space-y-1 hover:border-rose-500/50 transition shadow-sm">
+              <div class="flex justify-between items-center text-slate-400 text-xs">
+                <span class="font-medium flex items-center gap-1"><i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i> Veto Salidas Getafe</span>
+                <span class="text-[9px] font-bold px-1.5 py-0.2 bg-rose-500/20 text-rose-300 rounded font-mono">100%</span>
+              </div>
+              <div class="text-xl font-black text-white font-mono">0 Vuelos a España</div>
+              <p class="text-[10.5px] text-slate-400 leading-tight">100% de derivas A320/A350 retenidas en factoría.</p>
+            </div>
+
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-sky-500/30 space-y-1 hover:border-sky-500/50 transition shadow-sm">
+              <div class="flex justify-between items-center text-slate-400 text-xs">
+                <span class="font-medium flex items-center gap-1"><i data-lucide="plane" class="w-3.5 h-3.5 text-sky-400"></i> Flota BelugaXL</span>
+                <span class="text-[9px] font-bold px-1.5 py-0.2 bg-sky-500/20 text-sky-300 rounded font-mono">6 AIRCRAFT</span>
+              </div>
+              <div class="text-xl font-black text-sky-400 font-mono">F-GXLG ➔ F-GXLO</div>
+              <p class="text-[10.5px] text-slate-400 leading-tight">Rutas activas solo en eje europeo no afectado.</p>
+            </div>
+
+            <div class="bg-slate-900/80 p-4 rounded-xl border border-amber-500/30 space-y-1 hover:border-amber-500/50 transition shadow-sm">
+              <div class="flex justify-between items-center text-slate-400 text-xs">
+                <span class="font-medium flex items-center gap-1"><i data-lucide="flame" class="w-3.5 h-3.5 text-amber-400"></i> Quemado Parada FALs</span>
+                <span class="text-[9px] font-bold px-1.5 py-0.2 bg-amber-500/20 text-amber-300 rounded font-mono">FINANCIERO</span>
+              </div>
+              <div class="text-xl font-black text-amber-400 font-mono">-22,7 M€ / día</div>
+              <p class="text-[10.5px] text-slate-400 leading-tight">Coste por penalizaciones y retrasos comerciales.</p>
             </div>
           </div>
         </div>
@@ -2389,20 +2357,72 @@ y se acumula en pensión y pagas extra.</span>
 
       <!-- ==================== TAB 5: DOCUMENTACIÓN & EVIDENCIAS ==================== -->
       <div id="tab-evidence" class="tab-content hidden space-y-6">
-        <!-- Feed de Presión Mediática, Redes Sociales y Opinión Pública -->
-        <div id="sec-evidence-media-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+        <!-- Feed de Presión Mediática, Redes Sociales y Opinión Pública con Termómetro -->
+        <div id="sec-evidence-media-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-6">
+          <!-- Termómetro Header & Gauge -->
+          <div class="p-5 bg-slate-900/90 border border-rose-500/30 rounded-2xl space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-start gap-2">
+              <div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[11px] font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/40 animate-pulse">
+                  ● Barómetro de Opinión Pública & Presión Mediática
+                </span>
+                <h3 class="text-base sm:text-lg font-black text-white mt-1.5 flex items-center">
+                  <i data-lucide="flame" class="w-5 h-5 mr-2 text-rose-500"></i>
+                  Termómetro de Presión y Reputación Corporativa Airbus
+                </h3>
+                <p class="text-xs text-slate-400 mt-0.5">Calculado dinámicamente mediante análisis de sentimiento sobre el feed de redes, medios y comunicados sindicales.</p>
+              </div>
+              <div class="text-right shrink-0">
+                <span id="thermo-temp" class="text-3xl sm:text-4xl font-black text-rose-500 font-mono">85.8°C</span>
+                <span id="thermo-badge" class="block text-[10px] uppercase font-black text-rose-400 tracking-wider">PRESIÓN CRÍTICA</span>
+              </div>
+            </div>
+
+            <p id="thermo-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.
+            </p>
+
+            <div class="space-y-2 pt-1">
+              <div class="flex justify-between text-[11px] font-bold text-slate-400 font-mono">
+                <span>0°C (Baja)</span>
+                <span>50°C (SIMA)</span>
+                <span>75°C (FALs Paradas)</span>
+                <span class="text-rose-400 font-extrabold">100°C (Capitulación)</span>
+              </div>
+              <div class="w-full h-4 bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-700">
+                <div id="thermo-bar" class="h-full rounded-full bg-gradient-to-r from-blue-500 via-amber-500 to-rose-600 transition-all duration-1000 shadow-lg shadow-rose-500/30" style="width: 85.8%;"></div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-800">
+              <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <span class="text-[11px] text-slate-400 block">Daño a Airbus (Palanca Huelga)</span>
+                <span id="thermo-bad-ratio" class="text-base font-black text-rose-400 font-mono">85.1%</span>
+              </div>
+              <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                <span class="text-[11px] text-slate-400 block">Contraofensiva Empresa (Spin)</span>
+                <span id="thermo-good-ratio" class="text-base font-black text-emerald-400 font-mono">3.4%</span>
+              </div>
+              <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 col-span-2 sm:col-span-1">
+                <span class="text-[11px] text-slate-400 block">Quemado Diario Caja</span>
+                <span class="text-base font-black text-white font-mono">-22,7 M€ / día</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feed Controls Header -->
           <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-3 gap-3">
             <div>
               <div class="flex items-center space-x-2.5">
-                <h3 class="text-base font-bold text-white flex items-center">
-                  <i data-lucide="newspaper" class="w-5 h-5 mr-2 text-emerald-400"></i>
-                  Feed de Presión Mediática, Redes Sociales y Opinión Pública
-                </h3>
-                <span id="thermo-feed-count-badge" class="px-2 py-0.5 text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg">
-                  En Vivo
+                <h4 class="text-sm font-bold text-white flex items-center">
+                  <i data-lucide="newspaper" class="w-4 h-4 mr-2 text-emerald-400"></i>
+                  Publicaciones y Cobertura en Tiempo Real
+                </h4>
+                <span id="thermo-feed-count-badge" class="px-2 py-0.5 text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono">
+                  87 publicaciones
                 </span>
               </div>
-              <p class="text-xs text-slate-400 mt-0.5">Monitorización dinámica en tiempo real: Twitter/X, Reddit, Threads, Telegram Oficial, Reuters, El País y medios aeronáuticos.</p>
+              <p class="text-xs text-slate-400 mt-0.5">Sindicación multi-plataforma: Twitter/X, Reddit, Threads, Telegram Oficial, Reuters, El País y prensa especializada.</p>
             </div>
 
             <!-- Impact Filters -->
