@@ -2,6 +2,24 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [013-custom-wage-proposal-builder] - 2026-09-01
+
+### Added
+- **Dynamic Custom Salary Proposal Builder & Simulator (User Story 2)**:
+  - Added in-card interactive controls inside Card 3 (`#sc3-custom`): Initial wage increase slider (`0%` to `25%` in 0.5% steps), retroactive arrears dropdown (`0 €` to `15.000 €`), RSG inflation protection modes (`100% IPC`, `IPC + Margin`, `Fixed / No IPC`), and inflation caps (`3%`, `4%`, `5%`, or `Sin tope`).
+  - Added 3 instant one-click presets: *Pérdida Cero* ($r_0 = \text{IPC}$, 0 € arrears), *Recuperación 2030* (solved $r^*$ horizon rate + 5.000 € arrears + IPC + 1%), and *Equilibrio* (8,0% initial + 4.000 € arrears + 3% cap).
+  - Implemented client-side compounding engine `evaluateAnnualRaise()` and recovery horizon solver `solveRecoveryInitialRaise()` executing in $<20\text{ ms}$.
+- **Canonical Offers & Fictional SIMA Offer Elimination (User Story 1 - MVP)**:
+  - Eliminated hardcoded references to unverified 9.5% SIMA wage figures across codebase and dashboard.
+  - Standardized canonical benchmark scenario cards: *Oferta Patronal (+5% Fraccionado)* and *Plataforma del Comité (+12% Íntegro en Tablas)*.
+  - Linked Card 3 reactively to the custom proposal simulator with pure CSS formula tooltips.
+- **Differential KPIs & Multi-Series Chart Reactivity (User Story 3)**:
+  - Replaced SIMA differential KPI card with *Tu Propuesta Personalizada vs. Oferta Patronal (+5%)* calculating 5-year nominal and real purchasing power differentials.
+  - Updated `#salaryEvolutionChart` and `#wagesChart` datasets with dynamic live-updated series for custom proposals (Cyan `#38bdf8`).
+
+### Technical Notes
+- Preserved 100% mathematical invariant integrity across all 14 validation rules.
+- Fully compatible with shared URL parameters for instant scenario restoration.
 ## [012-salary-simulator-redesign] - 2026-09-01
 
 ### Added
