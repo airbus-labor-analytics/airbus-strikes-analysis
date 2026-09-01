@@ -2,6 +2,29 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [016-daily-timeline-assembly-validator] - 2026-09-01
+
+### Added
+- **Daily Timeline Freshness Validator (`src/validate_timeline_freshness.py`)**:
+  - Timezone-aware date arithmetic using standard library `zoneinfo` (`Europe/Madrid`).
+  - Operational status classification: `UP_TO_DATE` (Green), `PENDING_TODAY` (Amber), `WEEKEND_PAUSE` (Blue), and `STALE_ALERT` (Red).
+  - Strict chronological monotonicity validation and primary source document existence checks.
+- **Factory Assembly Minutes & Continuous Timeline (`data/conflict_metrics.json`, `src/analysis_engine.py`)**:
+  - 21 chronological conflict milestones spanning from 2021 through September 1, 2026.
+  - Direct cross-linking of 12 assembly events to factory minutes in `data/telegram_archive/assembly_minutes/`.
+- **Interactive Timeline Banner & Factory Filters (`dashboard/index.html`, `dashboard/app.js`, `dashboard/js/modules/union_force.js`)**:
+  - Dynamic freshness banner (`#timeline-freshness-banner`) and floating Dynamic Island HUD pill (`#hud-timeline-freshness`).
+  - Fast filter bar by 7 manufacturing plants and 4 actor categories.
+  - Modal viewer trigger for full assembly minutes transcripts.
+- **Rule 15 Invariant & CI/CD Automated Verification (`src/validate_invariants.py`, `.github/workflows/sync-news-data.yml`)**:
+  - Rule 15 integrated into comprehensive invariant suite.
+  - Freshness checking step added to continuous news sync GitHub Actions workflow.
+  - 6 unit test suites added in `tests/test_timeline_freshness.py` bringing total unit tests to 86.
+
+### Technical Notes
+- Full test suite: 86/86 unit tests passing.
+- Invariants: 15/15 rules verified with 100% mathematical, electoral, and factual consistency.
+
 ## [016-repo-wide-hardening-and-security] - 2026-09-01
 
 ### Added

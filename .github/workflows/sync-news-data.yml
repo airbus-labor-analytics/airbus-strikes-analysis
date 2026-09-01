@@ -45,12 +45,12 @@ jobs:
         run: |
           python3 src/analysis_engine.py
 
-      - name: 6. Recompile Strategic PDF Guide & Validate Invariants
+      - name: 6. Recompile Strategic PDF Guide, Check Timeline & Validate Invariants
         run: |
           python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf || true
+          python3 src/validate_timeline_freshness.py
           python3 src/validate_invariants.py
           python3 src/validate_sources.py
-
       - name: 7. Commit & Push Updated Data to Main
         run: |
           git add data/ dashboard/data.js docs/

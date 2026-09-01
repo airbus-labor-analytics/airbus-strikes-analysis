@@ -3159,6 +3159,225 @@ window.toggleOfferDetails = function(offerId) {
   if (window.lucide) lucide.createIcons();
 };
 // ==================== TIMELINE & ASSEMBLY RECORDS ====================
+let currentTimelinePlantFilter = 'ALL';
+let currentTimelineActorFilter = 'ALL';
+
+function getMadridDate() {
+  try {
+    const formatter = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' });
+    return formatter.format(new Date());
+  } catch (e) {
+    return new Date().toISOString().split('T')[0];
+  }
+}
+
+function parseTimelineDate(dateStr) {
+  if (!dateStr || typeof dateStr !== 'string') return null;
+  let clean = dateStr.toLowerCase().replace(/\(hoy\)/g, '').trim();
+  
+  // Range 2021 - 2025
+  const rangeMatch = clean.match(/^(\d{4})\s*[-–—]\s*(\d{4})/);
+  if (rangeMatch) return `${rangeMatch[1]}-01-01`;
+  
+  // ISO YYYY-MM-DD
+  const isoMatch = clean.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (isoMatch) {
+    return `${isoMatch[1]}-${isoMatch[2].padStart(2, '0')}-${isoMatch[3].padStart(2, '0')}`;
+  }
+  
+  // Spanish month matching
+  const months = {
+    'enero': '01', 'febrero': '02', 'marzo': '03', 'abril': '04',
+    'mayo': '05', 'junio': '06', 'julio': '07', 'agosto': '08',
+    'septiembre': '09', 'octubre': '10', 'noviembre': '11', 'diciembre': '12'
+  };
+  
+  const textMatch = clean.match(/(\d{1,2})\s+de\s+([a-záéíóú]+)(?:\s+de\s+(\d{4}))?/);
+  if (textMatch) {
+    const day = textMatch[1].padStart(2, '0');
+    const month = months[textMatch[2]] || '01';
+    const year = textMatch[3] || '2026';
+    return `${year}-${month}-${day}`;
+  }
+  
+  return null;
+}
+
+function evaluateTimelineFreshness(timeline) {
+  const todayMadrid = getMadridDate();
+  if (!timeline || timeline.length === 0) {
+    return {
+      statusCode: 'STALE_ALERT',
+      badgeColor: 'rose',
+      headline: 'Sin datos en cronología',
+      description: 'No se encontraron registros de eventos.',
+      actionRequired: true
+    };
+  }
+  
+  const parsed = [];
+  timeline.forEach(item => {
+    const d = item.iso_date || parseTimelineDate(item.date);
+    if (d) parsed.push({ date: d, item });
+  });
+  
+  parsed.sort((a, b) => a.date.localeCompare(b.date));
+  const latest = parsed[parsed.length - 1];
+  
+  if (!latest) {
+    return {
+      statusCode: 'STALE_ALERT',
+      badgeColor: 'rose',
+      headline: 'Sin fechas válidas',
+      description: 'No se pudieron procesar las fechas de la cronología.',
+      actionRequired: true
+    };
+  }
+  
+  const todayObj = new Date(todayMadrid);
+  const latestObj = new Date(latest.date);
+  const diffTime = todayObj.getTime() - latestObj.getTime();
+  const daysDelta = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const isWeekend = todayObj.getDay() === 0 || todayObj.getDay() === 6;
+  
+  let statusCode = 'UP_TO_DATE';
+  let badgeColor = 'emerald';
+  let headline = 'Cronología al Día: Novedades de hoy registradas';
+  let description = `Se han registrado los eventos y asambleas correspondientes a hoy (${todayMadrid.split('-').reverse().join('/')}).`;
+  let actionRequired = false;
+  
+  if (daysDelta <= 0) {
+    statusCode = 'UP_TO_DATE';
+    badgeColor = 'emerald';
+  } else if (daysDelta === 1 && !isWeekend) {
+    statusCode = 'PENDING_TODAY';
+    badgeColor = 'amber';
+    headline = '⚠️ Novedades de Hoy Pendientes de Registro';
+    description = `La última entrada registrada es del ${latest.date.split('-').reverse().join('/')}. Pendiente incorporar las asambleas y comunicados de hoy (${todayMadrid.split('-').reverse().join('/')}).`;
+    actionRequired = true;
+  } else if (isWeekend && daysDelta <= 2) {
+    statusCode = 'WEEKEND_PAUSE';
+    badgeColor = 'sky';
+    headline = '🔵 Fin de Semana / Pausa de Negociación';
+    description = `Última actividad registrada el ${latest.date.split('-').reverse().join('/')}. Fin de semana sin asambleas generales ordinarias.`;
+  } else {
+    statusCode = 'STALE_ALERT';
+    badgeColor = 'rose';
+    headline = `🚨 Alerta de Desactualización (${daysDelta} días sin registrar)`;
+    description = `La cronología no registra actividad desde el ${latest.date.split('-').reverse().join('/')}. Requiere sincronización urgente con fuentes de Telegram y notas sindicales.`;
+    actionRequired = true;
+  }
+  
+  return {
+    statusCode,
+    badgeColor,
+    headline,
+    description,
+    daysDelta,
+    todayMadrid,
+    latestDate: latest.date,
+    latestItem: latest.item,
+    actionRequired
+  };
+}
+
+function renderTimelineFreshnessBanner(freshness) {
+  const banner = document.getElementById('timeline-freshness-banner');
+  if (!banner) return;
+  
+  const colorClasses = {
+    emerald: 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300',
+    amber: 'bg-amber-950/40 border-amber-500/40 text-amber-300',
+    rose: 'bg-rose-950/40 border-rose-500/40 text-rose-300',
+    sky: 'bg-sky-950/40 border-sky-500/40 text-sky-300'
+  };
+  
+  const iconMap = {
+    emerald: 'check-circle-2',
+    amber: 'alert-triangle',
+    rose: 'alert-octagon',
+    sky: 'calendar'
+  };
+  
+  const cls = colorClasses[freshness.badgeColor] || colorClasses.emerald;
+  const icon = iconMap[freshness.badgeColor] || 'info';
+  
+  banner.innerHTML = `
+    <div class="p-4 rounded-xl border ${cls} flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+      <div class="flex items-start space-x-3">
+        <i data-lucide="${icon}" class="w-5 h-5 mt-0.5 shrink-0"></i>
+        <div>
+          <h4 class="text-xs sm:text-sm font-bold text-white">${escapeHTML(freshness.headline)}</h4>
+          <p class="text-xs text-slate-300 mt-0.5">${escapeHTML(freshness.description)}</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 self-end sm:self-auto shrink-0">
+        ${freshness.actionRequired ? `
+          <button onclick="switchTab('evidence')" class="px-2.5 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="send" class="w-3.5 h-3.5"></i>
+            Ver Telegram
+          </button>
+          <button onclick="triggerManualSync()" class="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            Sincronizar
+          </button>
+        ` : `
+          <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[11px] font-mono font-bold">
+            Zona Madrid: ${freshness.todayMadrid}
+          </span>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function updateHUDTimelineFreshness(freshness) {
+  const hudPill = document.getElementById('hud-timeline-freshness');
+  if (!hudPill) return;
+  
+  const colorMap = {
+    emerald: { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', text: 'text-emerald-400', dot: 'bg-emerald-400', label: 'Al Día' },
+    amber: { bg: 'bg-amber-500/10', border: 'border-amber-500/30', text: 'text-amber-400', dot: 'bg-amber-400', label: 'Pendiente' },
+    rose: { bg: 'bg-rose-500/10', border: 'border-rose-500/30', text: 'text-rose-400', dot: 'bg-rose-400', label: 'Desactualizada' },
+    sky: { bg: 'bg-sky-500/10', border: 'border-sky-500/30', text: 'text-sky-400', dot: 'bg-sky-400', label: 'Fin de Semana' }
+  };
+  
+  const theme = colorMap[freshness.badgeColor] || colorMap.emerald;
+  hudPill.className = `px-2.5 py-1 rounded-xl ${theme.bg} border ${theme.border} ${theme.text} font-semibold flex items-center hover:opacity-80 transition cursor-pointer`;
+  hudPill.innerHTML = `
+    <span class="w-1.5 h-1.5 rounded-full ${theme.dot} mr-1.5"></span>
+    <span>Cronología: <strong class="text-white">${theme.label}</strong></span>
+  `;
+}
+
+window.setTimelineFilter = function(filterType, filterValue) {
+  if (filterType === 'plant') {
+    currentTimelinePlantFilter = filterValue;
+    document.querySelectorAll('.tl-filter-plant').forEach(btn => {
+      if ((filterValue === 'ALL' && btn.innerText.includes('Todas')) || btn.innerText.trim() === filterValue || (filterValue === 'CBC El Puerto' && btn.innerText.trim() === 'CBC')) {
+        btn.className = "tl-filter-plant active px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold transition";
+      } else {
+        btn.className = "tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition";
+      }
+    });
+  } else if (filterType === 'actor') {
+    currentTimelineActorFilter = filterValue;
+    document.querySelectorAll('.tl-filter-actor').forEach(btn => {
+      if ((filterValue === 'ALL' && btn.innerText.includes('Todos')) || 
+          (filterValue === 'assembly' && btn.innerText.includes('Asambleas')) ||
+          (filterValue === 'sima' && btn.innerText.includes('SIMA')) ||
+          (filterValue === 'union' && btn.innerText.includes('Sindicatos')) ||
+          (filterValue === 'company' && btn.innerText.includes('Empresa'))) {
+        btn.className = "tl-filter-actor active px-2 py-0.5 rounded bg-blue-600 text-white font-bold transition";
+      } else {
+        btn.className = "tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition";
+      }
+    });
+  }
+  
+  initTimeline();
+};
+
 function initTimeline() {
   const container = document.getElementById('timeline-container');
   if (!container) return;
@@ -3166,56 +3385,129 @@ function initTimeline() {
   const timeline = conflictData?.timeline || [];
   if (timeline.length === 0) return;
 
-  container.innerHTML = timeline.map(item => `
+  const freshness = evaluateTimelineFreshness(timeline);
+  renderTimelineFreshnessBanner(freshness);
+  updateHUDTimelineFreshness(freshness);
+
+  const filtered = timeline.filter(item => {
+    // Plant filter
+    if (currentTimelinePlantFilter !== 'ALL') {
+      const itemPlant = (item.site || item.location || '').toLowerCase();
+      const targetPlant = currentTimelinePlantFilter.toLowerCase();
+      const plantMatches = itemPlant.includes(targetPlant) || 
+        (item.per_plant_detail || []).some(p => (p.plant || '').toLowerCase().includes(targetPlant));
+      if (!plantMatches) return false;
+    }
+    
+    // Actor filter
+    if (currentTimelineActorFilter !== 'ALL') {
+      const itemCat = (item.actor_category || '').toLowerCase();
+      const itemActors = (item.actors || []).map(a => a.toLowerCase()).join(' ');
+      const itemActor = (item.actor || '').toLowerCase();
+      
+      if (currentTimelineActorFilter === 'assembly') {
+        if (itemCat !== 'assembly' && !itemActor.includes('asamblea') && !itemActors.includes('asamblea')) return false;
+      } else if (currentTimelineActorFilter === 'sima') {
+        if (itemCat !== 'sima' && !itemActor.includes('sima') && !itemActors.includes('sima') && !(item.id || '').includes('sima')) return false;
+      } else if (currentTimelineActorFilter === 'union') {
+        if (itemCat !== 'union' && !itemActor.includes('sipa') && !itemActor.includes('ccoo') && !itemActor.includes('ugt') && !itemActor.includes('cgt') && !itemActors.includes('comité de huelga')) return false;
+      } else if (currentTimelineActorFilter === 'company') {
+        if (itemCat !== 'company' && !itemActor.includes('empresa') && !itemActor.includes('airbus se') && !itemActor.includes('patronal')) return false;
+      }
+    }
+    
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-8 text-center bg-slate-900/60 border border-slate-800 rounded-2xl space-y-2">
+        <i data-lucide="filter-x" class="w-8 h-8 text-slate-500 mx-auto"></i>
+        <p class="text-sm font-bold text-slate-300">No hay eventos para el filtro seleccionado</p>
+        <p class="text-xs text-slate-500">Prueba cambiando la factoría o el ámbito en los botones superiores.</p>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => `
     <div class="relative group">
       <!-- Dot on timeline -->
-      <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-${item.badge_color || 'blue'}-500 shadow-lg shadow-${item.badge_color || 'blue'}-500/30"></div>
+      <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-${escapeHTML(item.badge_color || 'blue')}-500 shadow-lg shadow-${escapeHTML(item.badge_color || 'blue')}-500/30"></div>
 
       <div class="bg-slate-900/80 border border-slate-800 group-hover:border-slate-700 p-4 sm:p-5 rounded-2xl transition space-y-3.5">
         <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-1.5">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="text-xs font-black text-white font-mono bg-slate-800 px-2.5 py-0.5 rounded-md border border-slate-700">${item.date}</span>
-            <span class="text-xs text-slate-400 font-medium">• ${item.phase}</span>
-            ${item.time ? `<span class="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded">🕒 ${item.time}</span>` : ''}
+            <span class="text-xs font-black text-white font-mono bg-slate-800 px-2.5 py-0.5 rounded-md border border-slate-700">${escapeHTML(item.date)}</span>
+            <span class="text-xs text-slate-400 font-medium">• ${escapeHTML(item.phase || 'Conflicto')}</span>
+            ${item.time ? `<span class="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-0.5 rounded">🕒 ${escapeHTML(item.time)}</span>` : ''}
+            ${item.site ? `<span class="text-[10px] font-mono text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2 py-0.5 rounded">📍 ${escapeHTML(item.site)}</span>` : ''}
           </div>
-          <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${item.badge_color || 'blue'}-500/20 text-${item.badge_color || 'blue'}-400 border border-${item.badge_color || 'blue'}-500/30 self-start sm:self-auto">
-            ${item.badge}
+          <span class="px-2 py-0.5 text-[10px] font-extrabold rounded bg-${escapeHTML(item.badge_color || 'blue')}-500/20 text-${escapeHTML(item.badge_color || 'blue')}-400 border border-${escapeHTML(item.badge_color || 'blue')}-500/30 self-start sm:self-auto">
+            ${escapeHTML(item.badge || 'Registro')}
           </span>
         </div>
 
         <div>
-          <h3 class="text-sm sm:text-base font-bold text-white">${item.title}</h3>
+          <h3 class="text-sm sm:text-base font-bold text-white">${escapeHTML(item.title)}</h3>
           ${item.location ? `
             <div class="flex items-center text-xs text-sky-400 mt-1 space-x-1.5">
               <i data-lucide="map-pin" class="w-3.5 h-3.5 text-sky-400 shrink-0"></i>
-              <span class="font-medium">${item.location}</span>
+              <span class="font-medium">${escapeHTML(item.location)}</span>
             </div>
           ` : ''}
         </div>
 
-        <p class="text-xs text-slate-300 leading-relaxed">${item.summary}</p>
+        <p class="text-xs text-slate-300 leading-relaxed">${escapeHTML(item.summary)}</p>
+
+        ${item.per_plant_detail ? `
+          <div class="p-3 bg-slate-950/90 border border-slate-800/80 rounded-xl space-y-2">
+            <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="building-2" class="w-3.5 h-3.5 text-amber-400"></i> Desglose por Factorías y Votaciones:
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              ${item.per_plant_detail.map(p => `
+                <div class="p-2 rounded bg-slate-900 border border-slate-800 flex justify-between items-center text-[11px]">
+                  <span class="font-bold text-slate-200">${escapeHTML(p.plant)}</span>
+                  <span class="text-emerald-400 font-mono">${escapeHTML(p.votes || p.attendees || '')}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
 
         ${item.census_and_votes ? `
           <div class="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl flex items-start space-x-2 text-xs">
             <i data-lucide="vote" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
             <div>
               <span class="font-bold text-emerald-400 text-[11px] uppercase tracking-wider block">Censo, Votación & Quórum:</span>
-              <span class="text-slate-300 font-mono text-[11px]">${item.census_and_votes}</span>
+              <span class="text-slate-300 font-mono text-[11px]">${escapeHTML(item.census_and_votes)}</span>
             </div>
           </div>
         ` : ''}
 
-        <div class="flex flex-wrap gap-1.5 pt-1">
-          ${(item.actors || []).map(a => `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">${a}</span>`).join('')}
-          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">Doc: ${item.source_ref}</span>
+        <div class="flex flex-wrap items-center gap-1.5 pt-1">
+          ${(item.actors || []).map(a => `<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700">${escapeHTML(a)}</span>`).join('')}
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">Doc: ${escapeHTML(item.source_ref || 'Archivo Oficial')}</span>
+          ${(item.document_id || item.source_url) ? `
+            <button onclick="openSourceModal('${escapeHTML(item.document_id || item.id)}')" class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-600/30 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/50 transition flex items-center gap-1 cursor-pointer">
+              <i data-lucide="file-text" class="w-3 h-3 text-blue-400"></i>
+              Ver Minuta Íntegra
+            </button>
+          ` : ''}
         </div>
 
-        <div class="p-2.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-[11px] text-slate-300">
-          <strong class="text-amber-400">Lección Estratégica:</strong> ${item.strategic_takeaway}
-        </div>
+        ${item.strategic_takeaway ? `
+          <div class="p-2.5 bg-slate-950/60 border border-slate-800/80 rounded-xl text-[11px] text-slate-300">
+            <strong class="text-amber-400">Lección Estratégica:</strong> ${escapeHTML(item.strategic_takeaway)}
+          </div>
+        ` : ''}
       </div>
     </div>
   `).join('');
+
+  if (window.lucide) lucide.createIcons();
 }
 
 // ==================== THERMOMETER & BELUGA LOGISTICS ====================
