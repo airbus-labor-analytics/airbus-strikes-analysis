@@ -234,5 +234,51 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         """Runs full validate_all() from validate_invariants module."""
         from src.validate_invariants import validate_all
         self.assertTrue(validate_all())
+
+    def test_beluga_tracker_decoupling_and_zero_synthetic_series(self):
+        """Validates BelugaTracker schema, presence of 6 registrations, European routes, citations, and zero synthetic series."""
+        try:
+            from beluga_tracker import BelugaTracker
+        except ImportError:
+            from src.beluga_tracker import BelugaTracker
+
+        tracker = BelugaTracker()
+        status = tracker.fetch_live_data()
+
+        # Assert required schema fields
+        self.assertIn("source", status)
+        self.assertIn("timestamp", status)
+        self.assertIn("fleet_count", status)
+        self.assertEqual(status["fleet_count"], 6)
+        self.assertIn("tracked_count", status)
+        self.assertIn("getafe_connected_aircraft", status)
+        self.assertIn("other_airborne_aircraft", status)
+        self.assertIn("grounded_aircraft", status)
+        self.assertIn("all_aircraft", status)
+        self.assertIn("european_routes", status)
+        self.assertIn("blockade_status", status)
+        self.assertIn("jit_stress_level", status)
+        self.assertIn("primary_source_citations", status)
+
+        # Assert primary source grounding
+        citations = status["primary_source_citations"]
+        self.assertGreaterEqual(len(citations), 1)
+        has_getafe_minutes = any("sources/721c0baa.txt" in c.get("id", "") for c in citations)
+        self.assertTrue(has_getafe_minutes, "Missing primary source citation for Getafe assembly minutes")
+
+        # Assert ZERO synthetic weekly arrays
+        self.assertNotIn("historical_movements", status)
+        self.assertNotIn("dynamic_movement_history", status)
+        self.assertNotIn("period_definitions", status)
+        self.assertNotIn("getafe_flights_per_week", status)
+        self.assertNotIn("accumulated_htp_retained", status)
+
+        # Assert fallback model also adheres strictly to schema
+        fallback = tracker.get_calibrated_fallback_status()
+        self.assertEqual(fallback["fleet_count"], 6)
+        self.assertIn("european_routes", fallback)
+        self.assertIn("primary_source_citations", fallback)
+        self.assertNotIn("period_definitions", fallback)
+        self.assertNotIn("dynamic_movement_history", fallback)
 if __name__ == "__main__":
     unittest.main()

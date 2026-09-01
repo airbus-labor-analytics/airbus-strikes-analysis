@@ -2243,11 +2243,12 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-09-01T16:15:48+00:00",
+    "timestamp": "2026-09-01T16:29:38+00:00",
     "fleet_count": 6,
     "airborne_count": 4,
     "tracked_count": 5,
-    "getafe_connected_aircraft": [
+    "getafe_connected_aircraft": [],
+    "other_airborne_aircraft": [
       {
         "id": "BXL-03",
         "name": "BelugaXL 3",
@@ -2256,17 +2257,15 @@ window.CONFLICT_DATA = {
         "status": "En Vuelo",
         "current_site": "St Nazaire",
         "location_label": "Near St Nazaire",
-        "route_from": "Broughton",
-        "route_to": "Getafe",
-        "lat": 47.2746,
-        "lon": -2.2565,
-        "altitude_ft": 3800,
-        "speed_kt": 176,
-        "is_spain_connection": true,
-        "strike_relevance": "Bloqueo HTP Getafe (Veto Salida)"
-      }
-    ],
-    "other_airborne_aircraft": [
+        "route_from": "St Nazaire",
+        "route_to": "Toulouse",
+        "lat": 46.1516,
+        "lon": -1.1722,
+        "altitude_ft": 27350,
+        "speed_kt": 440,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
       {
         "id": "BXL-05",
         "name": "BelugaXL 5",
@@ -2277,27 +2276,10 @@ window.CONFLICT_DATA = {
         "location_label": "Near Bremen",
         "route_from": "Broughton",
         "route_to": "Bremen",
-        "lat": 52.8956,
-        "lon": 5.3437,
-        "altitude_ft": 33775,
-        "speed_kt": 421,
-        "is_spain_connection": false,
-        "strike_relevance": "Circulación Europea"
-      },
-      {
-        "id": "BXL-06",
-        "name": "BelugaXL 6",
-        "registration": "F-GXLO",
-        "callsign": "BGA261R",
-        "status": "En Vuelo",
-        "current_site": "Toulouse",
-        "location_label": "Near Toulouse",
-        "route_from": "",
-        "route_to": "",
-        "lat": 43.3956,
-        "lon": 1.4556,
-        "altitude_ft": 3500,
-        "speed_kt": 226,
+        "lat": 52.9621,
+        "lon": 8.0176,
+        "altitude_ft": 18875,
+        "speed_kt": 397,
         "is_spain_connection": false,
         "strike_relevance": "Circulación Europea"
       }
@@ -2313,10 +2295,27 @@ window.CONFLICT_DATA = {
         "location_label": "At Broughton",
         "route_from": "",
         "route_to": "",
-        "lat": 53.177,
-        "lon": -2.9723,
+        "lat": 53.1773,
+        "lon": -2.9726,
         "altitude_ft": null,
-        "speed_kt": 10,
+        "speed_kt": 0,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
+      {
+        "id": "BXL-06",
+        "name": "BelugaXL 6",
+        "registration": "F-GXLO",
+        "callsign": "BGA261R",
+        "status": "En Tierra",
+        "current_site": "Toulouse",
+        "location_label": "At Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.6253,
+        "lon": 1.3574,
+        "altitude_ft": null,
+        "speed_kt": 0,
         "is_spain_connection": false,
         "strike_relevance": "Circulación Europea"
       },
@@ -2348,23 +2347,23 @@ window.CONFLICT_DATA = {
         "generation": "BelugaXL",
         "currentSite": "St Nazaire",
         "locationLabel": "Near St Nazaire",
-        "routeLabel": "Broughton to Getafe",
-        "routeFrom": "Broughton",
-        "routeTo": "Getafe",
+        "routeLabel": "St Nazaire to Toulouse",
+        "routeFrom": "St Nazaire",
+        "routeTo": "Toulouse",
         "airborne": true,
         "onGround": false,
-        "lat": 47.2746,
-        "lon": -2.2565,
-        "trueTrack": 181.3,
-        "speedKt": 176,
-        "altitudeFt": 3800,
-        "statusLabel": "Airborne 3800 ft / 176 kt",
-        "mission": "Callsign BGA221Y. Groundspeed 176 kt. Climbing 705 fpm.",
-        "note": "Estimated from live heading 181 degrees and groundspeed. Nearest Airbus site St Nazaire (3.3 km).",
+        "lat": 46.1516,
+        "lon": -1.1722,
+        "trueTrack": 146.67,
+        "speedKt": 440,
+        "altitudeFt": 27350,
+        "statusLabel": "Airborne 27350 ft / 440 kt",
+        "mission": "Callsign BGA221Y. Groundspeed 440 kt. Climbing 833 fpm.",
+        "note": "Estimated from live heading 147 degrees and groundspeed. Nearest Airbus site St Nazaire (147.8 km).",
         "positionMode": "live",
         "timingMode": "projected",
-        "nextEta": "2026-09-01T18:40:00+00:00",
-        "updatedAt": "2026-09-01T16:15:44+00:00",
+        "nextEta": "2026-09-01T16:55:23+00:00",
+        "updatedAt": "2026-09-01T16:29:26+00:00",
         "trackPoints": [
           {
             "lat": 43.6219,
@@ -5581,6 +5580,258 @@ window.CONFLICT_DATA = {
             "routeFrom": "Broughton",
             "routeTo": "Getafe",
             "eta": null
+          },
+          {
+            "lat": 47.2548,
+            "lon": -2.2559,
+            "updatedAt": "2026-09-01T16:16:05+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4025 ft / 209 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.2327,
+            "lon": -2.2538,
+            "updatedAt": "2026-09-01T16:16:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4250 ft / 244 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
+          },
+          {
+            "lat": 47.2057,
+            "lon": -2.2481,
+            "updatedAt": "2026-09-01T16:16:49+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 4875 ft / 264 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1773,
+            "lon": -2.2299,
+            "updatedAt": "2026-09-01T16:17:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 5925 ft / 273 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1373,
+            "lon": -2.2063,
+            "updatedAt": "2026-09-01T16:17:48+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 7250 ft / 287 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.1044,
+            "lon": -2.1858,
+            "updatedAt": "2026-09-01T16:18:14+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 8825 ft / 288 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.0902,
+            "lon": -2.1767,
+            "updatedAt": "2026-09-01T16:18:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 9500 ft / 290 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 47.0346,
+            "lon": -2.1399,
+            "updatedAt": "2026-09-01T16:19:10+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 11425 ft / 317 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.9942,
+            "lon": -2.1133,
+            "updatedAt": "2026-09-01T16:19:39+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 12375 ft / 334 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.9456,
+            "lon": -2.0557,
+            "updatedAt": "2026-09-01T16:20:19+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 13825 ft / 350 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.9267,
+            "lon": -2.0291,
+            "updatedAt": "2026-09-01T16:20:35+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 14475 ft / 351 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.8991,
+            "lon": -1.9903,
+            "updatedAt": "2026-09-01T16:20:59+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 15225 ft / 359 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.8724,
+            "lon": -1.9529,
+            "updatedAt": "2026-09-01T16:21:21+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 16000 ft / 362 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.8174,
+            "lon": -1.8761,
+            "updatedAt": "2026-09-01T16:22:06+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17625 ft / 366 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.8066,
+            "lon": -1.861,
+            "updatedAt": "2026-09-01T16:22:17+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 17850 ft / 369 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.73,
+            "lon": -1.7547,
+            "updatedAt": "2026-09-01T16:23:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 19400 ft / 385 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.6303,
+            "lon": -1.6301,
+            "updatedAt": "2026-09-01T16:24:30+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 21450 ft / 391 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.4527,
+            "lon": -1.4592,
+            "updatedAt": "2026-09-01T16:26:25+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 24100 ft / 412 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.3671,
+            "lon": -1.3773,
+            "updatedAt": "2026-09-01T16:27:16+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 25175 ft / 421 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.2422,
+            "lon": -1.2581,
+            "updatedAt": "2026-09-01T16:28:32+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 26475 ft / 432 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 46.1516,
+            "lon": -1.1722,
+            "updatedAt": "2026-09-01T16:29:26+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 27350 ft / 440 kt",
+            "routeFrom": "St Nazaire",
+            "routeTo": "Toulouse",
+            "eta": null
           }
         ]
       },
@@ -5598,10 +5849,10 @@ window.CONFLICT_DATA = {
         "routeTo": null,
         "airborne": false,
         "onGround": true,
-        "lat": 53.177,
-        "lon": -2.9723,
+        "lat": 53.1773,
+        "lon": -2.9726,
         "trueTrack": 132.19,
-        "speedKt": 10,
+        "speedKt": 0,
         "altitudeFt": null,
         "statusLabel": "On ground at Broughton",
         "mission": "Callsign BGA143J.",
@@ -5609,7 +5860,7 @@ window.CONFLICT_DATA = {
         "positionMode": "live",
         "timingMode": "none",
         "nextEta": null,
-        "updatedAt": "2026-09-01T16:15:42+00:00",
+        "updatedAt": "2026-09-01T16:29:22+00:00",
         "trackPoints": [
           {
             "lat": 43.6249,
@@ -8312,9 +8563,105 @@ window.CONFLICT_DATA = {
             "eta": null
           },
           {
+            "lat": 53.1777,
+            "lon": -2.9734,
+            "updatedAt": "2026-09-01T16:17:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1769,
+            "lon": -2.9738,
+            "updatedAt": "2026-09-01T16:18:24+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1775,
+            "lon": -2.9726,
+            "updatedAt": "2026-09-01T16:21:20+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1783,
+            "lon": -2.9699,
+            "updatedAt": "2026-09-01T16:22:12+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1772,
+            "lon": -2.9725,
+            "updatedAt": "2026-09-01T16:23:21+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
             "lat": 53.177,
-            "lon": -2.9723,
-            "updatedAt": "2026-09-01T16:15:42+00:00",
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T16:26:24+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1771,
+            "lon": -2.9722,
+            "updatedAt": "2026-09-01T16:27:13+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9724,
+            "updatedAt": "2026-09-01T16:28:30+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9726,
+            "updatedAt": "2026-09-01T16:29:22+00:00",
             "airborne": false,
             "currentSite": "Broughton",
             "locationLabel": "At Broughton",
@@ -8339,18 +8686,18 @@ window.CONFLICT_DATA = {
         "routeTo": "Bremen",
         "airborne": true,
         "onGround": false,
-        "lat": 52.8956,
-        "lon": 5.3437,
-        "trueTrack": 86.59,
-        "speedKt": 421,
-        "altitudeFt": 33775,
-        "statusLabel": "Airborne 33775 ft / 421 kt",
-        "mission": "Callsign BGA145N. Groundspeed 421 kt.",
-        "note": "Estimated from live heading 87 degrees and groundspeed. Nearest Airbus site Bremen (232.3 km).",
+        "lat": 52.9621,
+        "lon": 8.0176,
+        "trueTrack": 88.7,
+        "speedKt": 397,
+        "altitudeFt": 18875,
+        "statusLabel": "Airborne 18875 ft / 397 kt",
+        "mission": "Callsign BGA145N. Groundspeed 397 kt. Descending 3457 fpm.",
+        "note": "Estimated from live heading 89 degrees and groundspeed. Nearest Airbus site Bremen (54 km).",
         "positionMode": "live",
         "timingMode": "projected",
-        "nextEta": "2026-09-01T16:33:41+00:00",
-        "updatedAt": "2026-09-01T16:15:44+00:00",
+        "nextEta": "2026-09-01T16:34:01+00:00",
+        "updatedAt": "2026-09-01T16:29:26+00:00",
         "trackPoints": [
           {
             "lat": 43.626,
@@ -10703,6 +11050,258 @@ window.CONFLICT_DATA = {
             "routeFrom": "Broughton",
             "routeTo": "Bremen",
             "eta": null
+          },
+          {
+            "lat": 52.898,
+            "lon": 5.4102,
+            "updatedAt": "2026-09-01T16:16:05+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9004,
+            "lon": 5.4775,
+            "updatedAt": "2026-09-01T16:16:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 423 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.903,
+            "lon": 5.5525,
+            "updatedAt": "2026-09-01T16:16:49+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 425 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9057,
+            "lon": 5.6332,
+            "updatedAt": "2026-09-01T16:17:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 429 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9094,
+            "lon": 5.7455,
+            "updatedAt": "2026-09-01T16:17:48+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 430 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9122,
+            "lon": 5.8297,
+            "updatedAt": "2026-09-01T16:18:14+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 429 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9135,
+            "lon": 5.8697,
+            "updatedAt": "2026-09-01T16:18:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 429 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9179,
+            "lon": 6.0123,
+            "updatedAt": "2026-09-01T16:19:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 427 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9207,
+            "lon": 6.1073,
+            "updatedAt": "2026-09-01T16:19:39+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33750 ft / 426 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9245,
+            "lon": 6.2366,
+            "updatedAt": "2026-09-01T16:20:19+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33725 ft / 424 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.926,
+            "lon": 6.288,
+            "updatedAt": "2026-09-01T16:20:35+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33475 ft / 426 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9281,
+            "lon": 6.3652,
+            "updatedAt": "2026-09-01T16:20:59+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33075 ft / 427 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9301,
+            "lon": 6.4377,
+            "updatedAt": "2026-09-01T16:21:21+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 32725 ft / 430 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.934,
+            "lon": 6.5862,
+            "updatedAt": "2026-09-01T16:22:06+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31975 ft / 430 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9347,
+            "lon": 6.6132,
+            "updatedAt": "2026-09-01T16:22:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 31825 ft / 430 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9396,
+            "lon": 6.8128,
+            "updatedAt": "2026-09-01T16:23:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 30850 ft / 430 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9452,
+            "lon": 7.0568,
+            "updatedAt": "2026-09-01T16:24:30+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 29425 ft / 431 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9527,
+            "lon": 7.4331,
+            "updatedAt": "2026-09-01T16:26:24+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25750 ft / 420 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9557,
+            "lon": 7.6003,
+            "updatedAt": "2026-09-01T16:27:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 25650 ft / 425 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9597,
+            "lon": 7.8504,
+            "updatedAt": "2026-09-01T16:28:32+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 22100 ft / 416 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.9621,
+            "lon": 8.0176,
+            "updatedAt": "2026-09-01T16:29:26+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 18875 ft / 397 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
           }
         ]
       },
@@ -10714,24 +11313,24 @@ window.CONFLICT_DATA = {
         "callsign": "BGA261R",
         "generation": "BelugaXL",
         "currentSite": "Toulouse",
-        "locationLabel": "Near Toulouse",
-        "routeLabel": "Near Toulouse",
+        "locationLabel": "At Toulouse",
+        "routeLabel": "At Toulouse",
         "routeFrom": null,
         "routeTo": null,
-        "airborne": true,
-        "onGround": false,
-        "lat": 43.3956,
-        "lon": 1.4556,
-        "trueTrack": 87.72,
-        "speedKt": 226,
-        "altitudeFt": 3500,
-        "statusLabel": "Airborne 3500 ft / 226 kt",
-        "mission": "Callsign BGA261R. Groundspeed 226 kt. Descending 577 fpm.",
-        "note": "Nearest Airbus site Toulouse (23.2 km).",
+        "airborne": false,
+        "onGround": true,
+        "lat": 43.6253,
+        "lon": 1.3574,
+        "trueTrack": 323.44,
+        "speedKt": 0,
+        "altitudeFt": null,
+        "statusLabel": "On ground at Toulouse",
+        "mission": "Callsign BGA261R.",
+        "note": "Nearest Airbus site Toulouse (7.4 km).",
         "positionMode": "live",
         "timingMode": "none",
         "nextEta": null,
-        "updatedAt": "2026-09-01T16:15:44+00:00",
+        "updatedAt": "2026-09-01T16:29:27+00:00",
         "trackPoints": [
           {
             "lat": 43.6252,
@@ -14008,6 +14607,258 @@ window.CONFLICT_DATA = {
             "routeFrom": null,
             "routeTo": null,
             "eta": null
+          },
+          {
+            "lat": 43.4047,
+            "lon": 1.4802,
+            "updatedAt": "2026-09-01T16:16:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 208 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 43.4224,
+            "lon": 1.4924,
+            "updatedAt": "2026-09-01T16:16:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 195 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 43.4405,
+            "lon": 1.5063,
+            "updatedAt": "2026-09-01T16:16:50+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3300 ft / 195 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Hamburg",
+            "eta": null
+          },
+          {
+            "lat": 43.46,
+            "lon": 1.5204,
+            "updatedAt": "2026-09-01T16:17:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3300 ft / 194 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 43.4869,
+            "lon": 1.5092,
+            "updatedAt": "2026-09-01T16:17:48+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 178 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5041,
+            "lon": 1.4909,
+            "updatedAt": "2026-09-01T16:18:14+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3325 ft / 175 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5121,
+            "lon": 1.4828,
+            "updatedAt": "2026-09-01T16:18:27+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3300 ft / 173 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5392,
+            "lon": 1.4548,
+            "updatedAt": "2026-09-01T16:19:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2700 ft / 165 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5563,
+            "lon": 1.4373,
+            "updatedAt": "2026-09-01T16:19:40+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 2250 ft / 148 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.576,
+            "lon": 1.4168,
+            "updatedAt": "2026-09-01T16:20:20+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1775 ft / 120 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5831,
+            "lon": 1.4094,
+            "updatedAt": "2026-09-01T16:20:35+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1600 ft / 121 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.5934,
+            "lon": 1.3987,
+            "updatedAt": "2026-09-01T16:21:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1375 ft / 121 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6036,
+            "lon": 1.388,
+            "updatedAt": "2026-09-01T16:21:21+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 1125 ft / 120 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6231,
+            "lon": 1.3678,
+            "updatedAt": "2026-09-01T16:22:05+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 700 ft / 116 kt",
+            "routeFrom": "Toulouse",
+            "routeTo": "St Nazaire",
+            "eta": null
+          },
+          {
+            "lat": 43.6266,
+            "lon": 1.3642,
+            "updatedAt": "2026-09-01T16:22:16+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6303,
+            "lon": 1.3582,
+            "updatedAt": "2026-09-01T16:23:15+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6267,
+            "lon": 1.3609,
+            "updatedAt": "2026-09-01T16:24:30+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6252,
+            "lon": 1.3574,
+            "updatedAt": "2026-09-01T16:26:25+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6252,
+            "lon": 1.3574,
+            "updatedAt": "2026-09-01T16:27:12+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6252,
+            "lon": 1.3574,
+            "updatedAt": "2026-09-01T16:28:32+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.6253,
+            "lon": 1.3574,
+            "updatedAt": "2026-09-01T16:29:27+00:00",
+            "airborne": false,
+            "currentSite": "Toulouse",
+            "locationLabel": "At Toulouse",
+            "statusLabel": "On ground at Toulouse",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
           }
         ]
       },
@@ -14032,7 +14883,7 @@ window.CONFLICT_DATA = {
         "altitudeFt": null,
         "statusLabel": "On ground at Toulouse",
         "mission": "Callsign BGA141G.",
-        "note": "Nearest Airbus site Toulouse (7.3 km). No current OpenSky state vector for this aircraft; showing the last known OpenSky position from 38 minutes ago.",
+        "note": "Nearest Airbus site Toulouse (7.3 km). No current OpenSky state vector for this aircraft; showing the last known OpenSky position from 51 minutes ago.",
         "positionMode": "live-cached",
         "timingMode": "none",
         "nextEta": null,
@@ -16309,258 +17160,67 @@ window.CONFLICT_DATA = {
         ]
       }
     ],
-    "blockade_status": "Alerta de Vuelo: 1 aeronave(s) operando en eje Getafe.",
-    "jit_stress_level": "Monitoreo de Evacuación de Stock",
-    "historical_movements": {
-      "weeks": [
-        "Jun S1-S4 (Normal)",
-        "Jul S1 (1-7 Jul)",
-        "Jul S2 (8-15 Jul)",
-        "Jul S3 (16-23 Jul)",
-        "Jul S4 (24-31 Jul)",
-        "Ago S1-S3 (Técnica)",
-        "Ago S4 (Huelga Indef.)"
-      ],
-      "getafe_flights_per_week": [
-        14,
-        9,
-        6,
-        2,
-        1,
-        0,
-        0
-      ],
-      "normal_baseline_flights": [
-        14,
-        14,
-        14,
-        14,
-        14,
-        14,
-        14
-      ],
-      "accumulated_htp_retained": [
-        0,
-        8,
-        20,
-        38,
-        57,
-        85,
-        113
-      ],
-      "toulouse_fal_stock_buffer_pct": [
-        100.0,
-        85.0,
-        60.0,
-        30.0,
-        20.0,
-        15.0,
-        8.0
-      ],
-      "hamburg_fal_stock_buffer_pct": [
-        100.0,
-        89.2,
-        63.0,
-        31.5,
-        21.0,
-        15.8,
-        8.4
-      ],
-      "european_routes_distribution": [
-        {
-          "route": "Getafe (LEGT) ➔ Toulouse (LFBO)",
-          "flights": 0,
-          "status": "Bloqueado (100%)",
-          "color": "rose",
-          "component": "HTP A320 / A350"
-        },
-        {
-          "route": "Getafe (LEGT) ➔ Hamburgo (EDHI)",
-          "flights": 0,
-          "status": "Bloqueado (100%)",
-          "color": "rose",
-          "component": "HTP A321XLR"
-        },
-        {
-          "route": "Broughton (EGNR) ➔ Toulouse (LFBO)",
-          "flights": 6,
-          "status": "Operativo (Alas)",
-          "color": "sky",
-          "component": "Alas Comerciales"
-        },
-        {
-          "route": "Saint-Nazaire (LFRZ) ➔ Toulouse (LFBO)",
-          "flights": 5,
-          "status": "Operativo (Fuselaje)",
-          "color": "sky",
-          "component": "Secciones Fuselaje"
-        },
-        {
-          "route": "Bremen (EDDW) ➔ Hamburgo (EDHI)",
-          "flights": 4,
-          "status": "Operativo (Hipersust.)",
-          "color": "sky",
-          "component": "Flaps & Slats"
-        },
-        {
-          "route": "Toulouse (LFBO) ➔ Hamburgo (EDHI)",
-          "flights": 3,
-          "status": "Ruta Interna",
-          "color": "blue",
-          "component": "Equipamiento de Cabina"
-        }
-      ],
-      "dynamic_movement_history": [
-        {
-          "period_id": "W26",
-          "label": "Jun S1-S4 (Normal)",
-          "baseline_flights": 14,
-          "actual_flights": 14,
-          "accumulated_htp_retained": 0,
-          "fal_stock_buffer_pct": 100.0,
-          "fal_stock_buffer_hours": 60.0,
-          "status_summary": "14 vuelos operados"
-        },
-        {
-          "period_id": "W27",
-          "label": "Jul S1 (1-7 Jul)",
-          "baseline_flights": 14,
-          "actual_flights": 9,
-          "accumulated_htp_retained": 8,
-          "fal_stock_buffer_pct": 85.0,
-          "fal_stock_buffer_hours": 51.0,
-          "status_summary": "9 vuelos operados"
-        },
-        {
-          "period_id": "W28",
-          "label": "Jul S2 (8-15 Jul)",
-          "baseline_flights": 14,
-          "actual_flights": 6,
-          "accumulated_htp_retained": 20,
-          "fal_stock_buffer_pct": 60.0,
-          "fal_stock_buffer_hours": 36.0,
-          "status_summary": "6 vuelos operados"
-        },
-        {
-          "period_id": "W29",
-          "label": "Jul S3 (16-23 Jul)",
-          "baseline_flights": 14,
-          "actual_flights": 2,
-          "accumulated_htp_retained": 38,
-          "fal_stock_buffer_pct": 30.0,
-          "fal_stock_buffer_hours": 18.0,
-          "status_summary": "2 vuelos operados"
-        },
-        {
-          "period_id": "W30",
-          "label": "Jul S4 (24-31 Jul)",
-          "baseline_flights": 14,
-          "actual_flights": 1,
-          "accumulated_htp_retained": 57,
-          "fal_stock_buffer_pct": 20.0,
-          "fal_stock_buffer_hours": 12.0,
-          "status_summary": "1 vuelos operados"
-        },
-        {
-          "period_id": "W33",
-          "label": "Ago S1-S3 (Técnica)",
-          "baseline_flights": 14,
-          "actual_flights": 0,
-          "accumulated_htp_retained": 85,
-          "fal_stock_buffer_pct": 15.0,
-          "fal_stock_buffer_hours": 9.0,
-          "status_summary": "Bloqueo Total en LEGT"
-        },
-        {
-          "period_id": "W34",
-          "label": "Ago S4 (Huelga Indef.)",
-          "baseline_flights": 14,
-          "actual_flights": 0,
-          "accumulated_htp_retained": 113,
-          "fal_stock_buffer_pct": 8.0,
-          "fal_stock_buffer_hours": 4.8,
-          "status_summary": "Bloqueo Total en LEGT"
-        }
-      ],
-      "accumulated_htp_retained_total": 113,
-      "current_fal_buffer_hours": 4.8,
-      "calculated_at": "2026-09-01T16:16:00.106529+00:00"
-    },
-    "dynamic_movement_history": [
+    "european_routes": [
       {
-        "period_id": "W26",
-        "label": "Jun S1-S4 (Normal)",
-        "baseline_flights": 14,
-        "actual_flights": 14,
-        "accumulated_htp_retained": 0,
-        "fal_stock_buffer_pct": 100.0,
-        "fal_stock_buffer_hours": 60.0,
-        "status_summary": "14 vuelos operados"
+        "origin": "Getafe (LEGT)",
+        "destination": "Toulouse (LFBO)",
+        "component": "HTP A320 / A350",
+        "status": "Bloqueado (100%)",
+        "color": "rose",
+        "disruption_impact": "Parada inminente de FALs por falta de derivas"
       },
       {
-        "period_id": "W27",
-        "label": "Jul S1 (1-7 Jul)",
-        "baseline_flights": 14,
-        "actual_flights": 9,
-        "accumulated_htp_retained": 8,
-        "fal_stock_buffer_pct": 85.0,
-        "fal_stock_buffer_hours": 51.0,
-        "status_summary": "9 vuelos operados"
+        "origin": "Getafe (LEGT)",
+        "destination": "Hamburgo (EDHI)",
+        "component": "HTP A321XLR",
+        "status": "Bloqueado (100%)",
+        "color": "rose",
+        "disruption_impact": "Estrangulamiento de la línea A321XLR"
       },
       {
-        "period_id": "W28",
-        "label": "Jul S2 (8-15 Jul)",
-        "baseline_flights": 14,
-        "actual_flights": 6,
-        "accumulated_htp_retained": 20,
-        "fal_stock_buffer_pct": 60.0,
-        "fal_stock_buffer_hours": 36.0,
-        "status_summary": "6 vuelos operados"
+        "origin": "Broughton (EGNR)",
+        "destination": "Toulouse (LFBO)",
+        "component": "Alas Comerciales",
+        "status": "Operativo",
+        "color": "sky",
+        "disruption_impact": "Suministro normal de alas"
       },
       {
-        "period_id": "W29",
-        "label": "Jul S3 (16-23 Jul)",
-        "baseline_flights": 14,
-        "actual_flights": 2,
-        "accumulated_htp_retained": 38,
-        "fal_stock_buffer_pct": 30.0,
-        "fal_stock_buffer_hours": 18.0,
-        "status_summary": "2 vuelos operados"
+        "origin": "Saint-Nazaire (LFRZ)",
+        "destination": "Toulouse (LFBO)",
+        "component": "Secciones de Fuselaje",
+        "status": "Operativo",
+        "color": "sky",
+        "disruption_impact": "Suministro normal de fuselajes"
       },
       {
-        "period_id": "W30",
-        "label": "Jul S4 (24-31 Jul)",
-        "baseline_flights": 14,
-        "actual_flights": 1,
-        "accumulated_htp_retained": 57,
-        "fal_stock_buffer_pct": 20.0,
-        "fal_stock_buffer_hours": 12.0,
-        "status_summary": "1 vuelos operados"
-      },
-      {
-        "period_id": "W33",
-        "label": "Ago S1-S3 (Técnica)",
-        "baseline_flights": 14,
-        "actual_flights": 0,
-        "accumulated_htp_retained": 85,
-        "fal_stock_buffer_pct": 15.0,
-        "fal_stock_buffer_hours": 9.0,
-        "status_summary": "Bloqueo Total en LEGT"
-      },
-      {
-        "period_id": "W34",
-        "label": "Ago S4 (Huelga Indef.)",
-        "baseline_flights": 14,
-        "actual_flights": 0,
-        "accumulated_htp_retained": 113,
-        "fal_stock_buffer_pct": 8.0,
-        "fal_stock_buffer_hours": 4.8,
-        "status_summary": "Bloqueo Total en LEGT"
+        "origin": "Bremen (EDDW)",
+        "destination": "Hamburgo (EDHI)",
+        "component": "Hipersustentadores (Flaps & Slats)",
+        "status": "Operativo",
+        "color": "sky",
+        "disruption_impact": "Suministro normal de sistemas hipersustentadores"
       }
     ],
-    "accumulated_htp_retained_total": 113,
-    "current_fal_buffer_hours": 4.8,
-    "strategic_notes": "El veto asambleario a la salida de vuelos Beluga desde Getafe impide reponer los estabilizadores en Toulouse y Hamburgo, acelerando el estrangulamiento de las FALs en 48-72h."
+    "blockade_status": "Bloqueo Activo: Cero vuelos Beluga detectados conectando con Getafe (LEGT).",
+    "jit_stress_level": "Crítico (100% de estabilizadores HTP retenidos en factoría)",
+    "strategic_notes": "El veto asambleario a la salida de vuelos Beluga desde Getafe impide reponer los estabilizadores en Toulouse y Hamburgo, acelerando el estrangulamiento de las FALs en 48-72h.",
+    "primary_source_citations": [
+      {
+        "id": "sources/721c0baa.txt",
+        "title": "Minutas Asamblea en Huelga GETAFE - 17/07/2026",
+        "date": "2026-07-17",
+        "verbatim_excerpt": "El beluga ya no viene porque no tiene piezas que llevar a Toulouse.",
+        "relevance": "Constatación asamblearia de la suspensión de vuelos de derivas HTP hacia la FAL central."
+      },
+      {
+        "id": "docs/VI_Convenio_Colectivo_Airbus_BOE_2021.txt",
+        "title": "VI Convenio Colectivo Interempresas Airbus Group",
+        "date": "2021-10-15",
+        "verbatim_excerpt": "La planta de Getafe ostenta la exclusividad de diseño y fabricación del estabilizador horizontal para los programas comerciales.",
+        "relevance": "Monopolio industrial y productivo de componentes estructurales críticos."
+      }
+    ]
   },
   "salary_proposals_comparison": {
     "title": "Comparativa de Propuestas Salariales y Evolución Retributiva (2025 - 2030)",
@@ -16937,16 +17597,16 @@ window.CONFLICT_DATA = {
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-09-01T16:16:01.927093+00:00",
-    "temperature_celsius": 83.3,
+    "timestamp": "2026-09-01T16:30:02.421796+00:00",
+    "temperature_celsius": 82.6,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
     "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.",
-    "bad_for_airbus_count": 73,
+    "bad_for_airbus_count": 71,
     "good_for_airbus_count": 3,
-    "neutral_count": 15,
-    "total_items_monitored": 91,
-    "bad_for_airbus_percentage": 80.2,
+    "neutral_count": 16,
+    "total_items_monitored": 90,
+    "bad_for_airbus_percentage": 78.9,
     "good_for_airbus_percentage": 3.3,
     "channels_distribution": {
       "Reddit": 1,
@@ -16954,7 +17614,7 @@ window.CONFLICT_DATA = {
       "Prensa Económica": 1,
       "Telegram": 1,
       "Corporate PR": 1,
-      "Prensa Nacional & Economía": 57,
+      "Prensa Nacional & Economía": 56,
       "Aviation & Industry Press": 8,
       "Labor & Negociación": 16,
       "Logística & Cadena JIT": 5
@@ -17082,18 +17742,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-06",
-        "source": "Expansión",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
-        "date": "Mon, 24 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbWNVSkpHbzQ5TWwxMW1HOVEzTGMtRGQ3V3p0Smp4aW93ZktpT2xNTWhEVDlyS2ZNVzREejF0VlFUdzlYZG5UQ0J1UWx0QU9rMDdXeDRPajI1RVdvREYwRGhOOF91ZlRSb0U5dHVySk9MU3VZOU5DQTZvVDdCMG1WbNIBgAFBVV95cUxOQ1dseDByTVNfaWpRa3ZVMEFXNXViM3hmZlF3VFBPTXZWRG5sam5kMEZXVVlCd3JJS2d3ZjN2dXNJZlNXaUc1ME52SjhtUDlEUVhuRjJWNFc3WXFXMlowODdtSGkxd09RYVNoRXk2Mm5EYVgtLXdUamlrSk1VUzZ0aw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-07",
         "source": "Aviación Digital",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
@@ -17105,7 +17753,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-08",
+        "id": "rss-07",
         "source": "Diario en Positivo",
         "channel": "Prensa Nacional & Economía",
         "title": "UGT propone pausar la huelga en Airbus para dar un respiro a la empresa",
@@ -17117,8 +17765,20 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
       },
       {
+        "id": "rss-08",
+        "source": "Expansión",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
+        "date": "Mon, 24 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQbWNVSkpHbzQ5TWwxMW1HOVEzTGMtRGQ3V3p0Smp4aW93ZktpT2xNTWhEVDlyS2ZNVzREejF0VlFUdzlYZG5UQ0J1UWx0QU9rMDdXeDRPajI1RVdvREYwRGhOOF91ZlRSb0U5dHVySk9MU3VZOU5DQTZvVDdCMG1WbNIBgAFBVV95cUxOQ1dseDByTVNfaWpRa3ZVMEFXNXViM3hmZlF3VFBPTXZWRG5sam5kMEZXVVlCd3JJS2d3ZjN2dXNJZlNXaUc1ME52SjhtUDlEUVhuRjJWNFc3WXFXMlowODdtSGkxd09RYVNoRXk2Mm5EYVgtLXdUamlrSk1VUzZ0aw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
         "id": "rss-09",
-        "source": "cadenaser.com",
+        "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en la fábrica de Airbus en Getafe se recrudece tras una semana de protestas",
         "date": "Wed, 08 Jul 2026",
@@ -17126,7 +17786,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-10",
@@ -17166,7 +17826,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-13",
-        "source": "Euronews.com",
+        "source": "es.euronews.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive su mayor huelga en España con todas las plantas afectadas",
         "date": "Wed, 15 Jul 2026",
@@ -17174,7 +17834,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en es.euronews.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-14",
@@ -17214,7 +17874,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-17",
-        "source": "cadenaser.com",
+        "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
         "date": "Mon, 27 Jul 2026",
@@ -17222,7 +17882,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-18",
@@ -17238,7 +17898,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-19",
-        "source": "cadenaser.com",
+        "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
         "date": "Tue, 21 Jul 2026",
@@ -17246,7 +17906,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-20",
@@ -17262,7 +17922,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-21",
-        "source": "cadenaser.com",
+        "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "La mayoría sindical en Airbus firma un nuevo preacuerdo que someterá a referéndum este viernes",
         "date": "Thu, 23 Jul 2026",
@@ -17270,7 +17930,7 @@ window.CONFLICT_DATA = {
         "category": "GOOD_FOR_AIRBUS",
         "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-13°C",
-        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en cadenaser.com."
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cadena SER."
       },
       {
         "id": "rss-22",
@@ -17490,6 +18150,18 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-40",
+        "source": "El Español",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votan en contra del acuerdo con la dirección: el lunes deciden si mantienen la huelga",
+        "date": "Fri, 24 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQNUl0MFBzbHYwZnBCQlAzWVItbXdjNG5sSVJoMkJ1VjdiRkRNaVhORWlhQkNNNzVpNFotVFJ4dDlYXzdzcG5wdkNIZC1jRDRBbjJoZDdxWTZpR05wWm9Jck5vaVhxRzl1bEJGOWZtbFpBeGNnOWFaenFoekZTOEw4aS1od203bFR6ME9XRTktekRFRmJJbjFTSjVyVzFFX0lGWDRHd1BhcExoR2M5Z3hER0xIRHg1S3d1N21IZFlqT2dvdWtWcmJ3bnl0eUJ3ZXBOUVpqNllR0gHbAUFVX3lxTFBIU2RtMGllUTdqVE10OTlMMXU4RXI0Q2x1bXFfZUNIekhyVGVRTXVEdjdpMDdwcVd1SXNTOGZYdHpOSHZTRXM5dDJuT21oSUp1WlBtSVoyQmRweW11aVlYcFV0bTlIaEhUNENDS2lTVWNPYXRBOW82Y2xyM2FaQ3hHbVVGVS1KWkowTUFoaFdGTk1VNkF2bThMRDZ4dnp6dE5tanIwVHQ0UnVhWHVzQ1BRTkg3QWJ6R0NiN3Q0S3FxUXEyUnI4SERuTXRvMUlxRG15SWdwS2Y5eWp3VQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-41",
         "source": "MARCA",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España pone en marcha una huelga que afecta a sus factorías en pleno incremento de la producción",
@@ -17501,7 +18173,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-41",
+        "id": "rss-42",
         "source": "Aviacionline",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus plants in Spain resume operations as unions debate next steps in wage dispute",
@@ -17513,7 +18185,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviacionline."
       },
       {
-        "id": "rss-42",
+        "id": "rss-43",
         "source": "infobaires24.com.ar",
         "channel": "Prensa Nacional & Economía",
         "title": "España: Continúa la huelga histórica en Airbus",
@@ -17525,7 +18197,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en infobaires24.com.ar. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-43",
+        "id": "rss-44",
         "source": "Finanzas.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus debe acelerar un 51% sus entregas con una huelga en España que afecta al 88% de su producción",
@@ -17537,7 +18209,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-44",
+        "id": "rss-45",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos rechazan la propuesta de Airbus para terminar con la huelga",
@@ -17549,7 +18221,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-45",
+        "id": "rss-46",
         "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
         "title": "Reunión clave para desconvocar la huelga en Airbus",
@@ -17559,18 +18231,6 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-46",
-        "source": "ABC",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La votación para acabar con la huelga en Airbus separa a la plantilla de los sindicatos",
-        "date": "Fri, 24 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaFQ1RlM0WDhHWkRhUzF1TDRqMzRXWnhyaFVESGdoWlI3NzRPYlZ4R2VHWW1aT040NUUxSUg3UmljeFlIdmJ5V2hpT2wzcVdYZlYzUGFMNkMtN1ZZWHVTNXU5U3ZXZWsyYXBkM2ZFQ1NYeVBrSFh2Tk84VlNCS01JdXNrSEhLR0VfSGFGV0s5MXNvazFsbExFeXZ1VjZOY1lKS3NxbElKdEl1Q2ZD0gGyAUFVX3lxTE00ano2YllNY2J2UlFHeWdWT2czelFuY3Z6WDduY1FOam5uYlhaUDlMMUhLWTY4VkZWX2gzZktTeE9ReEhZYTRmNzREcl9qNHhNVXQxUlRNYkdVUkZRZDJHNkxJYm8wNUdiWTBZcVlLbVhRZnE3WENCbjJ3LTVaYXdveDhVYWQ4TThvYU9NaXh4RUtrOWlJdzJGUGV5cHhBdG1BM3YzNGFmMWc4czlhaU1KN3c?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-47",
@@ -17598,18 +18258,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-49",
-        "source": "Hispanidad",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Huelga en Airbus. La dirección amenaza con cancelar contratos... pero el Gobierno reacciona y le obliga a negociar con los sindicatos",
-        "date": "Mon, 31 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNTndaXzRvNlNYU05EcUU3RURwU0NBdjdGdnA3d3Fvc2JUd01iSFVRa1BYTzczNFNSYW9xbkxqSGR6R3JLWkZqbE1pb0pybk11ZjAzTjYtVE40a0l4TWpfYUdxSzd5M0U3WGdMTml2YzVWMUxhY2NCVmU3Mm1QWTlnZ2ZHV2ZjN0VWZEhDNHh2U2FzQzZXV3VCenJTSnRsWmdsR3FkRVhoNUVQc1Zjc0JibExnM044VWdmbmliRkkwRVV1X0h4YTd6YmsxcTRwdVdENEwybElFeEI3T29pUU1penNueHlOaGZtRjJwdXBGOTBkcnVxZy1vdlNB0gH-AUFVX3lxTFByQ0gyOTZQSEM5NFp4N0hpZno3TjY3M3pJWU5tY2lqVW5IUUtrTEoxS2hMVnNBR0p2ejBNclY2X3duMTRpV2V6bXVwOTdQZDZ0amR5NTR5RE1Pc3FOYjhGZ21IZ0V3NWIwSkdNR0g0T2hCSHlDRkpTdUtGc05FM2NpenVBcldhTjh0UGpFMDBVYWYzdzBBTk45eDBUc2dMU3lISjQ4Wmx5VktTMDJPYjU0SmVQSmFlQWkyOGFkLW5NWHZsQ0pOYTZMNzRFcnpKNTktSS1EazhXdnBidlhqOW9FZXJFT0NmLVo0dXdxX2dObnU2aXhtRGhNTVFXN2ZR?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hispanidad. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-50",
         "source": "El Confidencial",
         "channel": "Prensa Nacional & Economía",
         "title": "Rebelión en Airbus: la plantilla se harta por el bloqueo salarial, el tijeretazo social y el fin del teletrabajo",
@@ -17621,7 +18269,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-51",
+        "id": "rss-50",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Se mantiene la huelga en Airbus pese a que la dirección ofrece subidas salariales del 5% y mantener el teletrabajo",
@@ -17633,7 +18281,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-52",
+        "id": "rss-51",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
@@ -17645,19 +18293,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-53",
+        "id": "rss-52",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "El Gobierno mediará si se mantiene la huelga en Airbus: \"No podemos jugar con el pan de los próximos 30 años\"",
         "date": "Tue, 01 Sep 2026",
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWkxrSUVSOGRSWEhqMXFlOEoxcllmeEhHZkRJdVp3MGVxTTFFbURNSWhhVkNCVU1tU0JlYXhvU0xSNGJXWTZCMDBib3Q1VGl2S0YyVi05SzJuVkdTOThVZ1B5enJqZFpSMGVuekw2WVM2N3VISzBBNzBQMXJNNHF5RFZzeWFhLXRHVWx2X1Iyb1Z1bUJlOFpLbDF4NFNmTUV5VUFiSEduTXFVaUx1bjE4eUhhbWtmQlhIc21tM0FZdlJVQlRQZnBGLThtV0VCTTIyeTM0YXZn0gHbAUFVX3lxTE1NTWRTYXIwR2JmSnd4a19TZEw5RWtFTDA5QThGRUIxSzNHM0lkY0J6bWJlS01GSk5lQTBzaE9GZjFUY3VVNGhfNkg2cGF0bHloYVJlQVl2UEZYb1NSQmlQcEJQNUFMcTQ2c1VDX0RXcWFHbTh5WmQ2OGdGcW5yRTZNTjd1NkN0MVAtRWp5akJ4WmNSM3dFYlV4YWk0aVROUENKZWoxUTNnaDdhdmVUN0dNZ012MVl4T3VTSEVmY0xpeGRJN3VEUVlvRlBpcWhhYW9kZXIzWVphcmlSbw?oc=5",
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNTU1kU2FyMEdiZkp3eGtfU2RMOUVrRUwwOUE4RkVCMUszRzNJZGNCem1iZUtNRkpOZUEwc2hPRmYxVGN1VTRoXzZINnBhdGx5aGFSZUFZdlBGWG9TUkJpUHBCUDVBTHE0NnNVQ19EV3FhR204eVpkNjhnRnFuckU2TU43dTZDdDFQLUVqeWpCeFpjUjN3RWJVeGFpNGlUTlBDSmVqMVEzZ2g3YXZlVDdHTWdNdjFZeE91U0hFZmNMaXhkSTd1RFFZb0ZQaXFoYWFvZGVyM1laYXJpUm_SAdsBQVVfeXFMTU1NZFNhcjBHYmZKd3hrX1NkTDlFa0VMMDlBOEZFQjFLM0czSWRjQnptYmVLTUZKTmVBMHNoT0ZmMVRjdVU0aF82SDZwYXRseWhhUmVBWXZQRlhvU1JCaVBwQlA1QUxxNDZzVUNfRFdxYUdtOHlaZDY4Z0ZxbnJFNk1ON3U2Q3QxUC1FanlqQnhaY1Izd0ViVXhhaTRpVE5QQ0plajFRM2doN2F2ZVQ3R01nTXYxWXhPdVNIRWZjTGl4ZEk3dURRWW9GUGlxaGFhb2RlcjNZWmFyaVJv?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-54",
+        "id": "rss-53",
         "source": "Demócrata",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de SIPA en Airbus España rebasa la semana y se extiende con UGT y CGT mientras CCOO sigue fuera",
@@ -17669,7 +18317,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-55",
+        "id": "rss-54",
         "source": "Diario Red",
         "channel": "Prensa Nacional & Economía",
         "title": "Tras más de 5000 millones de euros de beneficio récord, Airbus se niega a mejorar las condiciones de la plantilla y los trabajadores inician una huelga",
@@ -17681,8 +18329,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Red. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-56",
-        "source": "cadenaser.com",
+        "id": "rss-55",
+        "source": "Cadena SER",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos hablan de seguimiento masivo de la huelga en Airbus Getafe",
         "date": "Wed, 02 Nov 2022",
@@ -17690,10 +18338,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-57",
+        "id": "rss-56",
         "source": "OkDiario",
         "channel": "Prensa Nacional & Economía",
         "title": "Las atroces condiciones de los subcontratados de Airbus España se agravan: casetas con goteras y ordenadore...",
@@ -17705,16 +18353,28 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en OkDiario."
       },
       {
-        "id": "rss-58",
-        "source": "Simple Flying",
+        "id": "rss-57",
+        "source": "Air Data News",
         "channel": "Aviation & Industry Press",
-        "title": "Lufthansa Group Is Losing $540 Million A Year To Aircraft Delivery Delays",
-        "date": "Tue, 09 Jul 2024",
-        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRmIzdVZZV0lwc2xrZlBQN0hfMDkyVlF1dVVEUG9BN184YVhOLVIwZ2Q0RUVMVC1JN2M0a1BuT3laR01Oc3VYRkJId0lTdjF5TG1SU3RXbGNQcjFxdjgzcGtiVGlqZHRuQ3dtLUN5a0ZJaHI4am16ZzR6V0dZQnpWS0JvYWU4bDNxaVg1Vm5lY1h6TEJp?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
+        "date": "Sat, 04 Apr 2026",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
+        "category": "NEUTRAL",
+        "impact": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
+      },
+      {
+        "id": "rss-58",
+        "source": "Crikey",
+        "channel": "Aviation & Industry Press",
+        "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
+        "date": "Tue, 23 Jun 2026",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
+        "category": "NEUTRAL",
+        "impact": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Crikey."
       },
       {
         "id": "rss-59",
@@ -17742,15 +18402,15 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-61",
-        "source": "airdatanews.com",
+        "source": "simpleflying.com",
         "channel": "Aviation & Industry Press",
-        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
-        "date": "Sat, 04 Apr 2026",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en airdatanews.com."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en simpleflying.com."
       },
       {
         "id": "rss-62",
@@ -17778,7 +18438,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-64",
-        "source": "Simple Flying",
+        "source": "simpleflying.com",
         "channel": "Aviation & Industry Press",
         "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
         "date": "Fri, 08 Nov 2024",
@@ -17786,22 +18446,10 @@ window.CONFLICT_DATA = {
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en simpleflying.com."
       },
       {
         "id": "rss-65",
-        "source": "Simple Flying",
-        "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
-        "category": "NEUTRAL",
-        "impact": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-      },
-      {
-        "id": "rss-66",
         "source": "UGT",
         "channel": "Labor & Negociación",
         "title": "UGT exige responsabilidad y negociación de buena fe a Airbus para avanzar en la resolución del conflicto laboral",
@@ -17813,7 +18461,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en UGT. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-67",
+        "id": "rss-66",
         "source": "Diario en Positivo",
         "channel": "Labor & Negociación",
         "title": "Airbus propone subir sueldos con el IPC y un 7,6% y sigue con teletrabajo",
@@ -17825,7 +18473,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
       },
       {
-        "id": "rss-68",
+        "id": "rss-67",
         "source": "Córdoba Buenas Noticias",
         "channel": "Labor & Negociación",
         "title": "Airbus propone atar sueldos al IPC real y subir un 7,6% para evitar huelga",
@@ -17837,7 +18485,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-69",
+        "id": "rss-68",
         "source": "Demócrata",
         "channel": "Labor & Negociación",
         "title": "Las claves de la huelga de Airbus: por qué la plantilla mantiene los paros indefinidos",
@@ -17849,7 +18497,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-70",
+        "id": "rss-69",
         "source": "El Economista",
         "channel": "Labor & Negociación",
         "title": "Airbus pide mediación al SIMA para reconducir la negociación con su plantilla y alejar la amenaza de huelga",
@@ -17861,7 +18509,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-71",
+        "id": "rss-70",
         "source": "Europa Press",
         "channel": "Labor & Negociación",
         "title": "Airbus pide una mediación del SIMA para acercar posturas tras el rechazo de los trabajadores al acuerdo",
@@ -17873,7 +18521,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-72",
+        "id": "rss-71",
         "source": "ABC",
         "channel": "Labor & Negociación",
         "title": "Los sindicatos anuncian una nueva huelga en Airbus para después del verano",
@@ -17885,7 +18533,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-73",
+        "id": "rss-72",
         "source": "Industry Talks",
         "channel": "Labor & Negociación",
         "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
@@ -17897,7 +18545,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-74",
+        "id": "rss-73",
         "source": "economiadigital.es",
         "channel": "Labor & Negociación",
         "title": "Airbus mueve ficha para frenar la huelga: subirá los sueldos un 7,6% y los ligará al IPC",
@@ -17909,7 +18557,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-75",
+        "id": "rss-74",
         "source": "Radio Intereconomía",
         "channel": "Labor & Negociación",
         "title": "Airbus: empresa y sindicatos se citan de nuevo mientras se mantiene la huelga",
@@ -17921,7 +18569,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Radio Intereconomía. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-76",
+        "id": "rss-75",
         "source": "Bolsamania",
         "channel": "Labor & Negociación",
         "title": "Economía.- Airbus ofrece ligar los sueldos al IPC real y un 7,6% más para frenar la huelga y mantiene el teletrabajo",
@@ -17933,8 +18581,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Bolsamania. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-77",
-        "source": "Madridiario",
+        "id": "rss-76",
+        "source": "madridiario.es",
         "channel": "Labor & Negociación",
         "title": "Airbus plantea un 7,6% de recuperación salarial y mantener el teletrabajo para acabar con la huelga",
         "date": "Fri, 28 Aug 2026",
@@ -17942,10 +18590,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Madridiario. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en madridiario.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-78",
+        "id": "rss-77",
         "source": "albaceteabierto.es",
         "channel": "Labor & Negociación",
         "title": "Airbus propone aumentar sueldos al IPC real y 7,6%",
@@ -17957,8 +18605,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en albaceteabierto.es."
       },
       {
-        "id": "rss-79",
-        "source": "madridactual.es",
+        "id": "rss-78",
+        "source": "Madrid Actual",
         "channel": "Labor & Negociación",
         "title": "Airbus liga los sueldos al IPC y exige el fin de la huelga",
         "date": "Fri, 28 Aug 2026",
@@ -17966,10 +18614,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en madridactual.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Madrid Actual. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-80",
+        "id": "rss-79",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "La plantilla de Airbus rechaza suspender la huelga con un 81 %",
@@ -17981,7 +18629,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-81",
+        "id": "rss-80",
         "source": "CLM24",
         "channel": "Labor & Negociación",
         "title": "Airbus liga salarios al IPC y ofrece recuperar un 7,6% hasta 2030",
@@ -17993,7 +18641,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en CLM24."
       },
       {
-        "id": "rss-82",
+        "id": "rss-81",
         "source": "Cathay Pacific",
         "channel": "Logística & Cadena JIT",
         "title": "A plane of many parts: tracing the global supply chain of an A350",
@@ -18005,7 +18653,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cathay Pacific."
       },
       {
-        "id": "rss-83",
+        "id": "rss-82",
         "source": "Simple Flying",
         "channel": "Logística & Cadena JIT",
         "title": "A 5-Step Guide To The Supply Chain Required To Produce Airbus A350s",
@@ -18017,8 +18665,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
-        "id": "rss-84",
-        "source": "North Wales Live",
+        "id": "rss-83",
+        "source": "dailypost.co.uk",
         "channel": "Logística & Cadena JIT",
         "title": "LOOK: Airbus' £30m Beluga station ensures wind does not halt play",
         "date": "Wed, 22 Jul 2015",
@@ -18026,10 +18674,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en North Wales Live. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en dailypost.co.uk. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-85",
+        "id": "rss-84",
         "source": "STAT Times",
         "channel": "Logística & Cadena JIT",
         "title": "Airbus ships first A350F Section 19 to Hamburg",
@@ -18041,7 +18689,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en STAT Times."
       },
       {
-        "id": "rss-86",
+        "id": "rss-85",
         "source": "The Times of India",
         "channel": "Logística & Cadena JIT",
         "title": "Giant of the skies: Kolkata welcomes Airbus Beluga XL for its inaugural stop",
@@ -18062,7 +18710,7 @@ window.CONFLICT_DATA = {
       "type": "Canal Oficial Asambleas Huelga Airbus España",
       "total_members": 5794,
       "status": "Activo / En seguimiento continuo",
-      "last_sync": "2026-09-01T13:56:51.617883+00:00"
+      "last_sync": "2026-09-01T16:16:04.919747+00:00"
     },
     "stats": {
       "total_documents": 275,
@@ -18073,7 +18721,7 @@ window.CONFLICT_DATA = {
         "assembly_minutes": 17
       }
     },
-    "last_sync": "2026-09-01T13:56:51.617896+00:00",
+    "last_sync": "2026-09-01T16:16:04.919754+00:00",
     "total_documents": 275,
     "categories_breakdown": {
       "documents": 189,
@@ -18083,7 +18731,7 @@ window.CONFLICT_DATA = {
     },
     "documents": [
       {
-        "id": "tg_6241821",
+        "id": "tg_0948987",
         "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
         "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
         "category": "legal_filings",
@@ -18095,7 +18743,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
       },
       {
-        "id": "tg_5623637",
+        "id": "tg_3873600",
         "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
         "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
         "category": "legal_filings",
@@ -18107,7 +18755,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
       },
       {
-        "id": "tg_9702502",
+        "id": "tg_3407092",
         "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
         "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
         "category": "legal_filings",
@@ -18121,7 +18769,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
       },
       {
-        "id": "tg_6385333",
+        "id": "tg_0042628",
         "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
         "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
         "category": "legal_filings",
@@ -18133,7 +18781,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
       },
       {
-        "id": "tg_2126412",
+        "id": "tg_9022114",
         "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
         "title": "Supply chain disruptions and resilience  a major review and future research agen",
         "category": "legal_filings",
@@ -18145,7 +18793,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
       },
       {
-        "id": "tg_9968229",
+        "id": "tg_1279199",
         "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
         "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
         "category": "legal_filings",
@@ -18157,7 +18805,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
       },
       {
-        "id": "tg_5223983",
+        "id": "tg_1040119",
         "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
         "title": "Salary comparison between Bangalore and Bristol - Reddit",
         "category": "legal_filings",
@@ -18169,17 +18817,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
       },
       {
-        "id": "tg_4300660",
+        "id": "tg_1729952",
         "filename": "SIPA.txt",
         "title": "SIPA",
         "category": "legal_filings",
         "date": "2026-08-31",
         "unions": [
+          "CGT",
           "CCOO",
           "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA"
         ],
         "site": "Getafe",
         "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SIPA javascript:void(null)",
@@ -18187,7 +18835,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/SIPA.txt"
       },
       {
-        "id": "tg_5021843",
+        "id": "tg_2316898",
         "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
         "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
         "category": "legal_filings",
@@ -18199,7 +18847,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
       },
       {
-        "id": "tg_2952743",
+        "id": "tg_9498306",
         "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
         "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
         "category": "legal_filings",
@@ -18211,7 +18859,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
       },
       {
-        "id": "tg_4228680",
+        "id": "tg_1276608",
         "filename": "Proposal_-_IAM_District_751.txt",
         "title": "Proposal - IAM District 751",
         "category": "legal_filings",
@@ -18223,7 +18871,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Proposal_-_IAM_District_751.txt"
       },
       {
-        "id": "tg_6383614",
+        "id": "tg_5765786",
         "filename": "Project_Bromo_-_Wikipedia.txt",
         "title": "Project Bromo - Wikipedia",
         "category": "legal_filings",
@@ -18235,7 +18883,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Project_Bromo_-_Wikipedia.txt"
       },
       {
-        "id": "tg_9645244",
+        "id": "tg_2289456",
         "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
         "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
         "category": "legal_filings",
@@ -18247,7 +18895,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
       },
       {
-        "id": "tg_3542856",
+        "id": "tg_3874114",
         "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
         "title": "Minima M tallurgie   La CGT ATOS-BULL",
         "category": "dossiers",
@@ -18261,7 +18909,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
       },
       {
-        "id": "tg_8671779",
+        "id": "tg_5094382",
         "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
         "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
         "category": "legal_filings",
@@ -18273,7 +18921,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
       },
       {
-        "id": "tg_4131783",
+        "id": "tg_5347088",
         "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
         "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
         "category": "legal_filings",
@@ -18285,7 +18933,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
       },
       {
-        "id": "tg_1989398",
+        "id": "tg_9524542",
         "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
         "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
         "category": "legal_filings",
@@ -18299,7 +18947,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
       },
       {
-        "id": "tg_3302611",
+        "id": "tg_0855747",
         "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
         "title": "Boeing complaint background   National Labor Relations Board",
         "category": "legal_filings",
@@ -18311,7 +18959,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_complaint_background___National_Labor_Relations_Board.txt"
       },
       {
-        "id": "tg_3013951",
+        "id": "tg_4118523",
         "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
         "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
         "category": "legal_filings",
@@ -18323,7 +18971,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
       },
       {
-        "id": "tg_5255219",
+        "id": "tg_4972213",
         "filename": "Boeing___SPEEA.txt",
         "title": "Boeing   SPEEA",
         "category": "legal_filings",
@@ -18335,7 +18983,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing___SPEEA.txt"
       },
       {
-        "id": "tg_2485531",
+        "id": "tg_6700493",
         "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
         "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
         "category": "legal_filings",
@@ -18347,7 +18995,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
       },
       {
-        "id": "tg_5579980",
+        "id": "tg_7245154",
         "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
         "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
         "category": "legal_filings",
@@ -18359,7 +19007,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
       },
       {
-        "id": "tg_3181468",
+        "id": "tg_9788313",
         "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
         "title": "Airbus - CSRD Report Reviews - BWD Strategic",
         "category": "legal_filings",
@@ -18371,7 +19019,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
       },
       {
-        "id": "tg_4526463",
+        "id": "tg_6007033",
         "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
         "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
         "category": "legal_filings",
@@ -18383,7 +19031,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
       },
       {
-        "id": "tg_9030728",
+        "id": "tg_9960689",
         "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
         "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
         "category": "legal_filings",
@@ -18395,7 +19043,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
       },
       {
-        "id": "tg_1099910",
+        "id": "tg_1220708",
         "filename": "4_5969781284744994502.pdf.txt",
         "title": "4 5969781284744994502",
         "category": "assembly_minutes",
@@ -18409,7 +19057,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt"
       },
       {
-        "id": "tg_3417924",
+        "id": "tg_5131613",
         "filename": "4_5796203638925829350.pdf.txt",
         "title": "4 5796203638925829350",
         "category": "legal_filings",
@@ -18421,7 +19069,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/4_5796203638925829350.pdf.txt"
       },
       {
-        "id": "tg_6229089",
+        "id": "tg_7009852",
         "filename": "www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt",
         "title": "www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensaci n de gastos.",
         "category": "documents",
@@ -18433,7 +19081,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt"
       },
       {
-        "id": "tg_4470132",
+        "id": "tg_5249209",
         "filename": "trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt",
         "title": "trabajar desde cualquier lugar  incluso tu coche   la nueva frontera del trabajo",
         "category": "documents",
@@ -18445,7 +19093,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt"
       },
       {
-        "id": "tg_7036463",
+        "id": "tg_8201745",
         "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
         "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
         "category": "documents",
@@ -18457,7 +19105,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
       },
       {
-        "id": "tg_6749891",
+        "id": "tg_5948150",
         "filename": "dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt",
         "title": "dossier recuperacion salarial airbus E1 v8",
         "category": "dossiers",
@@ -18469,7 +19117,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt"
       },
       {
-        "id": "tg_1947364",
+        "id": "tg_5888630",
         "filename": "censo_presentacion.pdf.txt",
         "title": "censo presentacion",
         "category": "documents",
@@ -18481,7 +19129,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/censo_presentacion.pdf.txt"
       },
       {
-        "id": "tg_6329298",
+        "id": "tg_4084893",
         "filename": "Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt",
         "title": "Workers Struggles  Europe  Middle East   Africa - World Socialist Web Site",
         "category": "documents",
@@ -18493,7 +19141,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt"
       },
       {
-        "id": "tg_4768036",
+        "id": "tg_3614314",
         "filename": "Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt",
         "title": "Wie viel verdient man bei Airbus  Dein Gehaltseinblick - kununu News",
         "category": "legal_filings",
@@ -18505,7 +19153,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt"
       },
       {
-        "id": "tg_2039574",
+        "id": "tg_9613761",
         "filename": "Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt",
         "title": "Wie viel kann ich f r einen ersten Job als Ingenieur bei Airbus in Deutschland v",
         "category": "legal_filings",
@@ -18517,7 +19165,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt"
       },
       {
-        "id": "tg_9110306",
+        "id": "tg_3035618",
         "filename": "Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt",
         "title": "Viewpoint  PATCO s Lessons for this Crisis - Labor Notes  ",
         "category": "documents",
@@ -18529,7 +19177,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt"
       },
       {
-        "id": "tg_3326407",
+        "id": "tg_5059217",
         "filename": "Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt",
         "title": "Verificador de derechos en teletrabajo - Alc ntara Moreno Abogados",
         "category": "documents",
@@ -18541,7 +19189,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt"
       },
       {
-        "id": "tg_4046114",
+        "id": "tg_6777244",
         "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
         "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
         "category": "documents",
@@ -18553,7 +19201,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
       },
       {
-        "id": "tg_4568582",
+        "id": "tg_3075786",
         "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
         "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
         "category": "documents",
@@ -18567,7 +19215,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
       },
       {
-        "id": "tg_1540692",
+        "id": "tg_5645961",
         "filename": "Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt",
         "title": "Ultim tum de Airbus a los sindicatos  No seguir  negociando si contin a la huelg",
         "category": "documents",
@@ -18579,7 +19227,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt"
       },
       {
-        "id": "tg_9843201",
+        "id": "tg_4273527",
         "filename": "UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt",
         "title": "UGT exige responsabilidad y negociaci n de buena fe a Airbus para avanzar en la ",
         "category": "documents",
@@ -18593,7 +19241,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt"
       },
       {
-        "id": "tg_2619732",
+        "id": "tg_4049589",
         "filename": "Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt",
         "title": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos model",
         "category": "assembly_minutes",
@@ -18605,7 +19253,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt"
       },
       {
-        "id": "tg_6152843",
+        "id": "tg_5524325",
         "filename": "Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt",
         "title": "Top Aerospace Supply Chain Challenges and How to Overcome Them - NTS Unitek",
         "category": "legal_filings",
@@ -18617,7 +19265,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt"
       },
       {
-        "id": "tg_9067584",
+        "id": "tg_3255324",
         "filename": "The_biggest_supply_chain_risks_across_industries_-_Marsh.txt",
         "title": "The biggest supply chain risks across industries - Marsh",
         "category": "documents",
@@ -18629,7 +19277,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_biggest_supply_chain_risks_across_industries_-_Marsh.txt"
       },
       {
-        "id": "tg_8034790",
+        "id": "tg_4020486",
         "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
         "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
         "category": "documents",
@@ -18641,7 +19289,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
       },
       {
-        "id": "tg_3176514",
+        "id": "tg_7732186",
         "filename": "The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt",
         "title": "The Economic Impact of Strikes  An Historical Boeing Case Study - AAF",
         "category": "documents",
@@ -18653,7 +19301,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt"
       },
       {
-        "id": "tg_6055131",
+        "id": "tg_8909468",
         "filename": "The_1981_PATCO_Strike_-_UTA_Libraries.txt",
         "title": "The 1981 PATCO Strike - UTA Libraries",
         "category": "documents",
@@ -18665,7 +19313,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_1981_PATCO_Strike_-_UTA_Libraries.txt"
       },
       {
-        "id": "tg_9604890",
+        "id": "tg_1808777",
         "filename": "Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt",
         "title": "Tarifrunde Metall und Elektro 2024 Verhandlungsergebnis  Mehr Geld  140 Euro meh",
         "category": "documents",
@@ -18677,7 +19325,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt"
       },
       {
-        "id": "tg_5370924",
+        "id": "tg_2172529",
         "filename": "Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt",
         "title": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall",
         "category": "documents",
@@ -18689,7 +19337,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt"
       },
       {
-        "id": "tg_3032143",
+        "id": "tg_9568088",
         "filename": "TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt",
         "title": "TS. Acuerdo de teletrabajo. Es v lida la cl usula que obliga al empleado a facil",
         "category": "legal_filings",
@@ -18701,7 +19349,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt"
       },
       {
-        "id": "tg_5097383",
+        "id": "tg_4902287",
         "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
         "title": "Supply chain disruptions and resilience  a major review and future research agen",
         "category": "documents",
@@ -18713,7 +19361,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
       },
       {
-        "id": "tg_5392936",
+        "id": "tg_6643059",
         "filename": "Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt",
         "title": "Supply Chain and Quality Manager - Myworkdayjobs.com",
         "category": "documents",
@@ -18725,7 +19373,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt"
       },
       {
-        "id": "tg_7203382",
+        "id": "tg_9886759",
         "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
         "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
         "category": "documents",
@@ -18737,7 +19385,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
       },
       {
-        "id": "tg_9166075",
+        "id": "tg_8189964",
         "filename": "Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt",
         "title": "Supply Chain Disruptions  Causes  Costs   Solutions - GoBolt",
         "category": "legal_filings",
@@ -18749,7 +19397,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt"
       },
       {
-        "id": "tg_8887985",
+        "id": "tg_0162932",
         "filename": "Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt",
         "title": "Supply Chain Disruptions  An Expert Guide - NetSuite",
         "category": "legal_filings",
@@ -18761,7 +19409,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt"
       },
       {
-        "id": "tg_0219427",
+        "id": "tg_4604304",
         "filename": "Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt",
         "title": "Sistema HJ - Resoluci n  SENTENCIA 11 1981",
         "category": "legal_filings",
@@ -18773,7 +19421,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt"
       },
       {
-        "id": "tg_8211978",
+        "id": "tg_6335101",
         "filename": "Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt",
         "title": "Sin acuerdo en la  ltima reuni n  la huelga sigue en Airbus  la empresa rechaza ",
         "category": "dossiers",
@@ -18785,7 +19433,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt"
       },
       {
-        "id": "tg_3452089",
+        "id": "tg_6504355",
         "filename": "Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt",
         "title": "Sin acuerdo en el SIMA  se mantiene la huelga en Groundforce - Sindicato USO Ser",
         "category": "legal_filings",
@@ -18799,7 +19447,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt"
       },
       {
-        "id": "tg_3142661",
+        "id": "tg_3264619",
         "filename": "Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt",
         "title": "Semi-Skilled Aircraft Fitter Jobs - Careers at Airbus UK - Guidant Global",
         "category": "documents",
@@ -18811,7 +19459,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt"
       },
       {
-        "id": "tg_5779056",
+        "id": "tg_5701435",
         "filename": "Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt",
         "title": "Se publica en el BOE el Convenio de Industrias C rnicas  que esquiv  el conflict",
         "category": "dossiers",
@@ -18825,7 +19473,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt"
       },
       {
-        "id": "tg_2616229",
+        "id": "tg_9536434",
         "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
         "title": "Salary comparison between Bangalore and Bristol - Reddit",
         "category": "documents",
@@ -18837,7 +19485,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
       },
       {
-        "id": "tg_5459565",
+        "id": "tg_3876298",
         "filename": "Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt",
         "title": "Salaire minimum  SMIC  2026   montant net et brut - Transport a rien   personnel",
         "category": "documents",
@@ -18849,7 +19497,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt"
       },
       {
-        "id": "tg_3164761",
+        "id": "tg_0632496",
         "filename": "Safari.pdf.txt",
         "title": "Safari",
         "category": "documents",
@@ -18861,17 +19509,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Safari.pdf.txt"
       },
       {
-        "id": "tg_5828819",
+        "id": "tg_8172399",
         "filename": "SIPA.txt",
         "title": "SIPA",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
+          "CGT",
           "CCOO",
           "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA"
         ],
         "site": "Getafe",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SIPA",
@@ -18879,7 +19527,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/SIPA.txt"
       },
       {
-        "id": "tg_8234090",
+        "id": "tg_3644810",
         "filename": "Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt",
         "title": "Reviving the Strike in the Shadow of PATCO - Monthly Review",
         "category": "documents",
@@ -18891,7 +19539,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt"
       },
       {
-        "id": "tg_1095089",
+        "id": "tg_1595409",
         "filename": "Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt",
         "title": "Resumen Ejecutivo recuperacion de poder adquisitivo en Airbus Espana",
         "category": "dossiers",
@@ -18903,7 +19551,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt"
       },
       {
-        "id": "tg_2034066",
+        "id": "tg_4571962",
         "filename": "Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt",
         "title": "Resoluci n de 12 de junio de 2023  de la Conseller a de Promoci n del Empleo e I",
         "category": "documents",
@@ -18915,7 +19563,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt"
       },
       {
-        "id": "tg_3512470",
+        "id": "tg_6759517",
         "filename": "Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt",
         "title": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco",
         "category": "assembly_minutes",
@@ -18927,7 +19575,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt"
       },
       {
-        "id": "tg_5168997",
+        "id": "tg_0659134",
         "filename": "Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt",
         "title": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Noticias",
         "category": "documents",
@@ -18942,7 +19590,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt"
       },
       {
-        "id": "tg_0818407",
+        "id": "tg_0097584",
         "filename": "Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt",
         "title": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos",
         "category": "documents",
@@ -18954,7 +19602,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt"
       },
       {
-        "id": "tg_9315662",
+        "id": "tg_1067126",
         "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
         "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
         "category": "documents",
@@ -18966,7 +19614,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
       },
       {
-        "id": "tg_6665506",
+        "id": "tg_7482834",
         "filename": "Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt",
         "title": "Renault Group signs-off on a three-year trade union agreement that places France",
         "category": "legal_filings",
@@ -18978,7 +19626,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt"
       },
       {
-        "id": "tg_2481958",
+        "id": "tg_2372836",
         "filename": "Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt",
         "title": "Renault Espa a suspende la adjudicaci n de veh culos ante la falta de acuerdo en",
         "category": "documents",
@@ -18990,7 +19638,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt"
       },
       {
-        "id": "tg_3537692",
+        "id": "tg_9855608",
         "filename": "Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt",
         "title": "Renault Espa a acepta incrementar los salarios en base al IPC 1  en 2026 y ofrec",
         "category": "documents",
@@ -19002,7 +19650,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt"
       },
       {
-        "id": "tg_1087555",
+        "id": "tg_0583530",
         "filename": "REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt",
         "title": "REUNIO N COMITE  DE HUELGA EN EL SIMA",
         "category": "legal_filings",
@@ -19014,7 +19662,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt"
       },
       {
-        "id": "tg_0493723",
+        "id": "tg_1008286",
         "filename": "REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt",
         "title": "REPRESI N Y RESISTENCIA EN C DIZ  24 ENCAUSADOS POR LA HUELGA DEL METAL - Canari",
         "category": "documents",
@@ -19026,7 +19674,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt"
       },
       {
-        "id": "tg_0406118",
+        "id": "tg_4094553",
         "filename": "RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt",
         "title": "RELOAD  two years of damage and growing dissatisfaction ",
         "category": "documents",
@@ -19040,7 +19688,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt"
       },
       {
-        "id": "tg_8691979",
+        "id": "tg_6872237",
         "filename": "RELOAD___Classification_-_My_CFE-CGC_Airbus.txt",
         "title": "RELOAD   Classification - My CFE-CGC Airbus",
         "category": "documents",
@@ -19052,7 +19700,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD___Classification_-_My_CFE-CGC_Airbus.txt"
       },
       {
-        "id": "tg_6171090",
+        "id": "tg_4272845",
         "filename": "Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt",
         "title": "Publicado en el Bolet n Oficial del Estado el VII Convenio del Sector de la Cons",
         "category": "documents",
@@ -19064,7 +19712,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt"
       },
       {
-        "id": "tg_3018013",
+        "id": "tg_6467545",
         "filename": "Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt",
         "title": "Protestas contra el cierre de Airbus Puerto Real",
         "category": "documents",
@@ -19076,7 +19724,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt"
       },
       {
-        "id": "tg_4043164",
+        "id": "tg_6526214",
         "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
         "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
         "category": "documents",
@@ -19088,7 +19736,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
       },
       {
-        "id": "tg_0677073",
+        "id": "tg_2271890",
         "filename": "Propuesta_ComiteHuelga270826.pdf.txt",
         "title": "Propuesta ComiteHuelga270826",
         "category": "documents",
@@ -19100,7 +19748,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Propuesta_ComiteHuelga270826.pdf.txt"
       },
       {
-        "id": "tg_3885685",
+        "id": "tg_1650467",
         "filename": "Proposal_-_IAM_District_751.txt",
         "title": "Proposal - IAM District 751",
         "category": "documents",
@@ -19112,7 +19760,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Proposal_-_IAM_District_751.txt"
       },
       {
-        "id": "tg_8864127",
+        "id": "tg_9934366",
         "filename": "Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt",
         "title": "Project Bromo Space Economy  Shaping Europe s New Aerospace Ecosystem - Kineton",
         "category": "documents",
@@ -19124,7 +19772,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt"
       },
       {
-        "id": "tg_1179115",
+        "id": "tg_2371023",
         "filename": "Project_Bromo_-_Wikipedia.txt",
         "title": "Project Bromo - Wikipedia",
         "category": "documents",
@@ -19136,7 +19784,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_-_Wikipedia.txt"
       },
       {
-        "id": "tg_7618583",
+        "id": "tg_9003018",
         "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
         "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
         "category": "documents",
@@ -19148,7 +19796,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
       },
       {
-        "id": "tg_3486214",
+        "id": "tg_0670958",
         "filename": "Plataforma_reivindicativa_de_los_trabajadores.pdf.txt",
         "title": "Plataforma reivindicativa de los trabajadores",
         "category": "documents",
@@ -19160,7 +19808,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Plataforma_reivindicativa_de_los_trabajadores.pdf.txt"
       },
       {
-        "id": "tg_0313429",
+        "id": "tg_1581829",
         "filename": "Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt",
         "title": "Passion for progress - Radar du devoir de vigilance",
         "category": "documents",
@@ -19172,7 +19820,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt"
       },
       {
-        "id": "tg_0165295",
+        "id": "tg_8065212",
         "filename": "PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt",
         "title": "PLIEGO DE GARANTIAS DEFINITIVO TRABAJADORES DE ESPACIO 2 pdf",
         "category": "documents",
@@ -19184,7 +19832,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt"
       },
       {
-        "id": "tg_8184363",
+        "id": "tg_7924373",
         "filename": "Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt",
         "title": "Oficinas y Seguros - FeSMC UGT-CV",
         "category": "documents",
@@ -19198,7 +19846,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt"
       },
       {
-        "id": "tg_6048032",
+        "id": "tg_7244637",
         "filename": "Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt",
         "title": "Nuevo Convenio Estatal de Industrias C rnicas para 2024-2025 - LSB-USO",
         "category": "documents",
@@ -19212,7 +19860,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt"
       },
       {
-        "id": "tg_7658871",
+        "id": "tg_9071671",
         "filename": "Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt",
         "title": "Nouvelle grille de salaires de la Convention M tallurgie 2026 - Juritravail",
         "category": "documents",
@@ -19224,7 +19872,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt"
       },
       {
-        "id": "tg_4692683",
+        "id": "tg_2655114",
         "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
         "title": "Minima M tallurgie   La CGT ATOS-BULL",
         "category": "documents",
@@ -19238,7 +19886,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
       },
       {
-        "id": "tg_7361734",
+        "id": "tg_3284829",
         "filename": "M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt",
         "title": "M s de 25.000 trabajadores se unen a la huelga del metal de C diz en su primera ",
         "category": "documents",
@@ -19250,7 +19898,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt"
       },
       {
-        "id": "tg_5352873",
+        "id": "tg_0400485",
         "filename": "MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt",
         "title": "MORE THAN A LABOR DISPUTE  THE PATCO STRIKE OF 1981 - The Economic and Business ",
         "category": "documents",
@@ -19262,7 +19910,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt"
       },
       {
-        "id": "tg_0044604",
+        "id": "tg_3904182",
         "filename": "Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt",
         "title": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus pla",
         "category": "documents",
@@ -19274,7 +19922,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt"
       },
       {
-        "id": "tg_1440245",
+        "id": "tg_7159293",
         "filename": "Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt",
         "title": "Los trabajadores del metal en C diz rechazan la traici n de los sindicatos en el",
         "category": "documents",
@@ -19286,7 +19934,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt"
       },
       {
-        "id": "tg_4086573",
+        "id": "tg_1007846",
         "filename": "Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt",
         "title": "Los trabajadores de atenci n telef nica de H M convocan una huelga para denuncia",
         "category": "documents",
@@ -19298,7 +19946,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt"
       },
       {
-        "id": "tg_3389140",
+        "id": "tg_4307335",
         "filename": "Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt",
         "title": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amen",
         "category": "documents",
@@ -19310,7 +19958,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt"
       },
       {
-        "id": "tg_0309409",
+        "id": "tg_0057839",
         "filename": "Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt",
         "title": "Los trabajadores de Concentrix  que prestan la atenci n telef nica de H M  convo",
         "category": "documents",
@@ -19322,7 +19970,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt"
       },
       {
-        "id": "tg_4204978",
+        "id": "tg_4755202",
         "filename": "Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt",
         "title": "Los trabajadores de Airbus votan ir a la huelga indefinida desde este martes - R",
         "category": "documents",
@@ -19334,7 +19982,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt"
       },
       {
-        "id": "tg_3394629",
+        "id": "tg_1128274",
         "filename": "Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt",
         "title": "Los trabajadores de Airbus inician una huelga indefinida con la negociaci n a n ",
         "category": "legal_filings",
@@ -19346,7 +19994,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt"
       },
       {
-        "id": "tg_5228597",
+        "id": "tg_7720876",
         "filename": "Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt",
         "title": "Los trabajadores de Airbus  un ejemplo de lucha contra la tiran a de la multinac",
         "category": "assembly_minutes",
@@ -19358,7 +20006,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt"
       },
       {
-        "id": "tg_5914924",
+        "id": "tg_2260031",
         "filename": "Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt",
         "title": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida ",
         "category": "legal_filings",
@@ -19370,7 +20018,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt"
       },
       {
-        "id": "tg_1400931",
+        "id": "tg_4086784",
         "filename": "Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt",
         "title": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si l",
         "category": "documents",
@@ -19382,7 +20030,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt"
       },
       {
-        "id": "tg_2911694",
+        "id": "tg_0874219",
         "filename": "Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt",
         "title": "Los sindicatos convocan paros en Renault Espa a para retomar la negociaci n del ",
         "category": "documents",
@@ -19394,7 +20042,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt"
       },
       {
-        "id": "tg_7338192",
+        "id": "tg_1059623",
         "filename": "Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt",
         "title": "Los ingenieros de Boeing rechazan el convenio y autorizan una huelga desde octub",
         "category": "legal_filings",
@@ -19406,7 +20054,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt"
       },
       {
-        "id": "tg_6915329",
+        "id": "tg_3465071",
         "filename": "Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt",
         "title": "Los empleados de Airbus Espa a rechazan y se convoca huelga indefinida",
         "category": "documents",
@@ -19418,7 +20066,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt"
       },
       {
-        "id": "tg_7312187",
+        "id": "tg_1000221",
         "filename": "Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt",
         "title": "Los altercados en la huelga del metal en Ourense se juzgar n en marzo de 2027",
         "category": "documents",
@@ -19430,7 +20078,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt"
       },
       {
-        "id": "tg_8558518",
+        "id": "tg_3042165",
         "filename": "Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt",
         "title": "Ley 10 2021  de 9 de julio  de trabajo a distancia - Noticias Jur dicas",
         "category": "documents",
@@ -19442,7 +20090,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt"
       },
       {
-        "id": "tg_0670701",
+        "id": "tg_5914960",
         "filename": "Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt",
         "title": "Las calles de C diz arden con la huelga del metal  piden que se equipare la subi",
         "category": "documents",
@@ -19454,7 +20102,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt"
       },
       {
-        "id": "tg_9081131",
+        "id": "tg_1830970",
         "filename": "Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt",
         "title": "Las 11 claves del nuevo conflicto del metal en C diz  el regreso de las barricad",
         "category": "documents",
@@ -19466,7 +20114,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt"
       },
       {
-        "id": "tg_5298592",
+        "id": "tg_7770561",
         "filename": "La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt",
         "title": "La situaci n de los trabajadores del Metal en C diz tras la huelga de 2021. Pers",
         "category": "documents",
@@ -19478,7 +20126,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt"
       },
       {
-        "id": "tg_6592970",
+        "id": "tg_1975803",
         "filename": "La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt",
         "title": "La plantilla de Airbus votar  el lunes si suspende la huelga y negocia la nueva ",
         "category": "documents",
@@ -19490,7 +20138,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt"
       },
       {
-        "id": "tg_0557584",
+        "id": "tg_0836947",
         "filename": "La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt",
         "title": "La plantilla de Airbus seguir  en huelga tras una nueva reuni n negociadora sin ",
         "category": "documents",
@@ -19502,7 +20150,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt"
       },
       {
-        "id": "tg_0977831",
+        "id": "tg_4713399",
         "filename": "La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt",
         "title": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes - H",
         "category": "documents",
@@ -19514,7 +20162,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt"
       },
       {
-        "id": "tg_6296036",
+        "id": "tg_2122621",
         "filename": "La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt",
         "title": "La plantilla de Airbus Espa a decide ir a la huelga indefinida hasta que la empr",
         "category": "documents",
@@ -19526,7 +20174,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt"
       },
       {
-        "id": "tg_5358954",
+        "id": "tg_7222880",
         "filename": "La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt",
         "title": "La plantilla de Airbus Espa a comienza una huelga indefinida desde este martes",
         "category": "documents",
@@ -19538,7 +20186,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt"
       },
       {
-        "id": "tg_6741024",
+        "id": "tg_9397204",
         "filename": "La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt",
         "title": "La plantilla de Acerinox  120 d as de huelga en nombre de la conciliaci n - Diar",
         "category": "documents",
@@ -19550,7 +20198,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt"
       },
       {
-        "id": "tg_4349747",
+        "id": "tg_5917937",
         "filename": "La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt",
         "title": "La mitad de la plantilla de Intrum en Valladolid  en huelga por la eliminaci n d",
         "category": "documents",
@@ -19562,7 +20210,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt"
       },
       {
-        "id": "tg_9951354",
+        "id": "tg_3704093",
         "filename": "La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt",
         "title": "La huelga que cambi  Estados Unidos - Cenital",
         "category": "documents",
@@ -19574,7 +20222,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt"
       },
       {
-        "id": "tg_8994472",
+        "id": "tg_0228866",
         "filename": "La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt",
         "title": "La huelga indefinida de Airbus Espa a sigue sin acuerdo tras el SIMA - Aviaci n ",
         "category": "legal_filings",
@@ -19586,7 +20234,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt"
       },
       {
-        "id": "tg_4864114",
+        "id": "tg_1801034",
         "filename": "La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt",
         "title": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un  ",
         "category": "documents",
@@ -19598,7 +20246,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt"
       },
       {
-        "id": "tg_0619420",
+        "id": "tg_1644619",
         "filename": "La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt",
         "title": "La huelga del metal inquieta a la provincia de C diz ante el  fantasma  de las p",
         "category": "documents",
@@ -19610,7 +20258,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt"
       },
       {
-        "id": "tg_3683826",
+        "id": "tg_6987026",
         "filename": "La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt",
         "title": "La direcci n de Airbus condiciona la negociaci n a que se suspenda temporalmente",
         "category": "documents",
@@ -19622,7 +20270,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_1124033",
+        "id": "tg_1148962",
         "filename": "La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt",
         "title": "La caja de resistencia para huelgas  Una herramienta m s en el conflicto trabajo",
         "category": "documents",
@@ -19634,7 +20282,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt"
       },
       {
-        "id": "tg_8035968",
+        "id": "tg_9166231",
         "filename": "La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt",
         "title": "La Moncloa. El Gobierno impulsa en Valladolid una inversi n estrat gica de casi ",
         "category": "documents",
@@ -19646,7 +20294,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt"
       },
       {
-        "id": "tg_1302118",
+        "id": "tg_2873308",
         "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
         "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
         "category": "documents",
@@ -19658,7 +20306,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
       },
       {
-        "id": "tg_6356713",
+        "id": "tg_7423829",
         "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
         "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
         "category": "documents",
@@ -19670,7 +20318,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
       },
       {
-        "id": "tg_2284896",
+        "id": "tg_8332751",
         "filename": "LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt",
         "title": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS C RNICAS SE INCREMENTAR N E",
         "category": "dossiers",
@@ -19684,7 +20332,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt"
       },
       {
-        "id": "tg_1410302",
+        "id": "tg_8385061",
         "filename": "Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt",
         "title": "Imposibilidad de ejecuci n de sentencia  sustituci n por indemnizaci n  e imputa",
         "category": "legal_filings",
@@ -19696,7 +20344,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt"
       },
       {
-        "id": "tg_7224681",
+        "id": "tg_3681770",
         "filename": "Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt",
         "title": "Ignacio Messina   Las cajas de resistencia  en apoyo a las huelgas  van a ser pr",
         "category": "documents",
@@ -19708,7 +20356,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt"
       },
       {
-        "id": "tg_4466840",
+        "id": "tg_7355274",
         "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
         "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
         "category": "documents",
@@ -19722,7 +20370,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
       },
       {
-        "id": "tg_0722712",
+        "id": "tg_9473333",
         "filename": "IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt",
         "title": "IG Metall Tariftabelle 2026 Hamburg Unterweser   ERA Entgelttabelle",
         "category": "documents",
@@ -19734,7 +20382,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt"
       },
       {
-        "id": "tg_8984575",
+        "id": "tg_9143002",
         "filename": "IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt",
         "title": "IG Metall Gehaltsrechner  ERA Entgeltrechner 2026",
         "category": "legal_filings",
@@ -19746,7 +20394,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt"
       },
       {
-        "id": "tg_5597859",
+        "id": "tg_3192915",
         "filename": "Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt",
         "title": "Huelga metal C diz y Cartagena  qu  piden los trabajadores - RTVE.es",
         "category": "documents",
@@ -19758,7 +20406,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt"
       },
       {
-        "id": "tg_5860244",
+        "id": "tg_7789897",
         "filename": "Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt",
         "title": "Huelga en Intrum Valladolid  UGT exige  soluciones  t cnicas y mantener el telet",
         "category": "documents",
@@ -19772,7 +20420,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt"
       },
       {
-        "id": "tg_4760243",
+        "id": "tg_4440310",
         "filename": "Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt",
         "title": "Huelga en Airbus  qu  reclaman los trabajadores y c mo puede afectar a la produc",
         "category": "documents",
@@ -19784,7 +20432,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt"
       },
       {
-        "id": "tg_3027148",
+        "id": "tg_2195229",
         "filename": "Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt",
         "title": "Huelga en Airbus  las propuestas de la empresa cierran varios frentes pero no el",
         "category": "dossiers",
@@ -19796,7 +20444,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt"
       },
       {
-        "id": "tg_4741602",
+        "id": "tg_4920439",
         "filename": "Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt",
         "title": "Huelga de 24 horas en Intrum Valladolid ante la eliminaci n del teletrabajo",
         "category": "documents",
@@ -19808,7 +20456,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt"
       },
       {
-        "id": "tg_8910345",
+        "id": "tg_9414379",
         "filename": "Huelga_Airbus.txt",
         "title": "Huelga Airbus",
         "category": "documents",
@@ -19820,7 +20468,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_Airbus.txt"
       },
       {
-        "id": "tg_7223687",
+        "id": "tg_8030750",
         "filename": "Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt",
         "title": "Hay preacuerdo en el convenio de Renault tras la reuni n con el ministro de Indu",
         "category": "documents",
@@ -19832,14 +20480,14 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt"
       },
       {
-        "id": "tg_0712577",
+        "id": "tg_9109654",
         "filename": "Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt",
         "title": "Gu a huelga indefinida desde 24 agosto 2026 en Airbus",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
-          "UGT",
-          "CGT"
+          "CGT",
+          "UGT"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) GUÍA PARA SECUNDAR LA HUELGA 24A EN AIRBUS",
@@ -19847,7 +20495,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_4089772",
+        "id": "tg_9832422",
         "filename": "Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt",
         "title": "Gu a de derechos y obligaciones con la nueva Ley de teletrabajo - Terranea Segur",
         "category": "documents",
@@ -19859,7 +20507,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt"
       },
       {
-        "id": "tg_5021723",
+        "id": "tg_0421754",
         "filename": "Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt",
         "title": "Group Grading Expert  f h    Airbus   Imagine Job Board",
         "category": "documents",
@@ -19871,7 +20519,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt"
       },
       {
-        "id": "tg_3669899",
+        "id": "tg_3009045",
         "filename": "Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt",
         "title": "Grille des minima - CGT Airbus Defence   Space Toulouse",
         "category": "documents",
@@ -19885,7 +20533,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt"
       },
       {
-        "id": "tg_6495857",
+        "id": "tg_6481972",
         "filename": "Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt",
         "title": "Gehaltsstufen IG Metall   Airbus DS   r arbeitsleben - Reddit",
         "category": "legal_filings",
@@ -19897,7 +20545,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt"
       },
       {
-        "id": "tg_0038305",
+        "id": "tg_7451845",
         "filename": "FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt",
         "title": "FO signe la Politique salariale 2023   objectifs atteints  ",
         "category": "legal_filings",
@@ -19909,7 +20557,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt"
       },
       {
-        "id": "tg_4898612",
+        "id": "tg_7425349",
         "filename": "FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt",
         "title": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACI N COLECTIVA  AENC  2023-2025",
         "category": "documents",
@@ -19923,7 +20571,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt"
       },
       {
-        "id": "tg_8397715",
+        "id": "tg_5091108",
         "filename": "Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt",
         "title": "Estructura Organizativa  Modelos de Clasificaci n de Puestos y Sistemas de Compe",
         "category": "documents",
@@ -19935,7 +20583,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt"
       },
       {
-        "id": "tg_0048563",
+        "id": "tg_4122598",
         "filename": "Entgelttabelle_Metall___Elektro_in_Bayern.txt",
         "title": "Entgelttabelle Metall   Elektro in Bayern",
         "category": "documents",
@@ -19947,7 +20595,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Entgelttabelle_Metall___Elektro_in_Bayern.txt"
       },
       {
-        "id": "tg_5599804",
+        "id": "tg_4444148",
         "filename": "El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt",
         "title": "El teletrabajo ya es una realidad para la plantilla del Grupo Campofr o - Confed",
         "category": "documents",
@@ -19961,7 +20609,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt"
       },
       {
-        "id": "tg_3847178",
+        "id": "tg_2124357",
         "filename": "El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt",
         "title": "El ministro de Industria intervendr  en el conflicto de Airbus si no hay acuerdo",
         "category": "documents",
@@ -19973,7 +20621,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt"
       },
       {
-        "id": "tg_4132996",
+        "id": "tg_7026042",
         "filename": "El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt",
         "title": "El ministro de Industria convoca a la direcci n y sindicatos de Renault ante la ",
         "category": "documents",
@@ -19985,7 +20633,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt"
       },
       {
-        "id": "tg_7887623",
+        "id": "tg_0450922",
         "filename": "El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt",
         "title": "El impacto de las tensiones macroecon micas y tecnol gicas en el di logo social ",
         "category": "dossiers",
@@ -19999,7 +20647,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt"
       },
       {
-        "id": "tg_5622461",
+        "id": "tg_3059126",
         "filename": "El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt",
         "title": "El gobierno amenaza a los trabajadores en huelga de Airbus   espero no tener que",
         "category": "documents",
@@ -20011,7 +20659,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt"
       },
       {
-        "id": "tg_7894127",
+        "id": "tg_3439538",
         "filename": "El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt",
         "title": "El convenio de grandes almacenes ya es oficial tras su publicaci n en el BOE - F",
         "category": "documents",
@@ -20023,7 +20671,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt"
       },
       {
-        "id": "tg_6671279",
+        "id": "tg_0799137",
         "filename": "El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt",
         "title": "El conflicto laboral de la aeron utica Airbus Espa a contin a con una huelga ind",
         "category": "documents",
@@ -20035,7 +20683,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt"
       },
       {
-        "id": "tg_1314760",
+        "id": "tg_5523864",
         "filename": "El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt",
         "title": "El conflicto laboral de Airbus Espa a en 2026  An lisis corporativo  impacto ind",
         "category": "documents",
@@ -20047,7 +20695,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt"
       },
       {
-        "id": "tg_9558994",
+        "id": "tg_2534494",
         "filename": "El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt",
         "title": "El comit  de Alestis convoca cuatro d as de huelga ante el bloqueo del convenio",
         "category": "documents",
@@ -20059,7 +20707,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt"
       },
       {
-        "id": "tg_5163499",
+        "id": "tg_5854188",
         "filename": "El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt",
         "title": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los ",
         "category": "legal_filings",
@@ -20071,7 +20719,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt"
       },
       {
-        "id": "tg_2339971",
+        "id": "tg_4283932",
         "filename": "El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt",
         "title": "El BOE recoge los cambios del convenio de Carrefour  m s salario y menos jornada",
         "category": "documents",
@@ -20083,7 +20731,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt"
       },
       {
-        "id": "tg_3243646",
+        "id": "tg_5554880",
         "filename": "EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt",
         "title": "EL ARBITRAJE  OBLIGATORIO  QUE PONE FIN A LA HUELGA - Dialnet",
         "category": "documents",
@@ -20095,7 +20743,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt"
       },
       {
-        "id": "tg_1050888",
+        "id": "tg_9322688",
         "filename": "Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt",
         "title": "Dos meses sin avances  El paro de Acerinox llega al Parlamento donde la oposici ",
         "category": "documents",
@@ -20107,7 +20755,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt"
       },
       {
-        "id": "tg_1212209",
+        "id": "tg_5540258",
         "filename": "Documentation_for_the_Annual_General_Meeting_-_Airbus.txt",
         "title": "Documentation for the Annual General Meeting - Airbus",
         "category": "documents",
@@ -20119,7 +20767,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Documentation_for_the_Annual_General_Meeting_-_Airbus.txt"
       },
       {
-        "id": "tg_2290129",
+        "id": "tg_9432100",
         "filename": "Disposici_n_9799_del_BOE_n_m._119_de_2025.txt",
         "title": "Disposici n 9799 del BOE n m. 119 de 2025",
         "category": "documents",
@@ -20131,7 +20779,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Disposici_n_9799_del_BOE_n_m._119_de_2025.txt"
       },
       {
-        "id": "tg_3310287",
+        "id": "tg_9178461",
         "filename": "Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt",
         "title": "Direcci n Airbus condiciona continuar negociando a que se suspenda temporalmente",
         "category": "documents",
@@ -20143,7 +20791,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_7008595",
+        "id": "tg_6458273",
         "filename": "Digital_and_IT_Careers_-_Airbus.txt",
         "title": "Digital and IT Careers - Airbus",
         "category": "documents",
@@ -20155,7 +20803,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Digital_and_IT_Careers_-_Airbus.txt"
       },
       {
-        "id": "tg_1162120",
+        "id": "tg_2931924",
         "filename": "Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt",
         "title": "Convenios Renault - CCOO Renault Espa a - Confederaci n Sindical de Comisiones O",
         "category": "documents",
@@ -20169,7 +20817,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt"
       },
       {
-        "id": "tg_1077050",
+        "id": "tg_2425919",
         "filename": "Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt",
         "title": "Convenio colectivo de la empresa Renault Espa a incluyendo FASA Renault 2021-202",
         "category": "documents",
@@ -20181,7 +20829,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt"
       },
       {
-        "id": "tg_7408229",
+        "id": "tg_1819487",
         "filename": "Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias Siderometal rgicas - CCOO App",
         "category": "documents",
@@ -20195,7 +20843,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_0374871",
+        "id": "tg_1660854",
         "filename": "Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias C rnicas - CCOO App",
         "category": "documents",
@@ -20209,7 +20857,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_9423897",
+        "id": "tg_9093117",
         "filename": "Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industria del Metal de C diz - CCOO App",
         "category": "documents",
@@ -20223,7 +20871,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt"
       },
       {
-        "id": "tg_4919590",
+        "id": "tg_0110939",
         "filename": "Convenio_Colectivo_Construcci_n_-_CCOO_App.txt",
         "title": "Convenio Colectivo Construcci n - CCOO App",
         "category": "documents",
@@ -20238,7 +20886,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Construcci_n_-_CCOO_App.txt"
       },
       {
-        "id": "tg_4316051",
+        "id": "tg_6385016",
         "filename": "Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt",
         "title": "Contin a la huelga en las plantas de Airbus  empresa y sindicatos seguir n negoc",
         "category": "documents",
@@ -20250,7 +20898,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt"
       },
       {
-        "id": "tg_2504610",
+        "id": "tg_7883180",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL   propuesta empresa",
         "category": "documents",
@@ -20262,14 +20910,14 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt"
       },
       {
-        "id": "tg_4504330",
+        "id": "tg_5065816",
         "filename": "Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt",
         "title": "Comunicado conjunto CGT  UGT y UTIL Huelga indefinida en Airbus",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
-          "UGT",
-          "CGT"
+          "CGT",
+          "UGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-4y5_76f2poEF_EhHRX0DWQ5I3c6I8g2nfKDpoCC8gGTYrk_dyfytMQMVXLGOH8jZCbarTPnYonVH9JsYDlO3euTCusz6pPe",
@@ -20277,7 +20925,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_5294916",
+        "id": "tg_6171588",
         "filename": "Comunicado_Huelga_070726-2.pdf.txt",
         "title": "Comunicado Huelga 070726-2",
         "category": "documents",
@@ -20291,7 +20939,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_Huelga_070726-2.pdf.txt"
       },
       {
-        "id": "tg_4602226",
+        "id": "tg_8326617",
         "filename": "Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt",
         "title": "Compensaci n de los gastos derivados del desarrollo del trabajo a distancia  A f",
         "category": "documents",
@@ -20303,7 +20951,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt"
       },
       {
-        "id": "tg_9840248",
+        "id": "tg_2709650",
         "filename": "Classification__current_status_for_Airbus_Commercial.txt",
         "title": "Classification  current status for Airbus Commercial",
         "category": "documents",
@@ -20315,7 +20963,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Classification__current_status_for_Airbus_Commercial.txt"
       },
       {
-        "id": "tg_8436636",
+        "id": "tg_1750429",
         "filename": "Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt",
         "title": "Classification Survey  The Results - CGT Airbus Commercial Aircraft",
         "category": "legal_filings",
@@ -20329,7 +20977,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt"
       },
       {
-        "id": "tg_1685257",
+        "id": "tg_9184651",
         "filename": "Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt",
         "title": "Categor a  0 - Comun a todos - Renault - CCOO App",
         "category": "documents",
@@ -20343,7 +20991,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt"
       },
       {
-        "id": "tg_1054829",
+        "id": "tg_4587928",
         "filename": "Carmen-Maja_Rex___Airbus.txt",
         "title": "Carmen-Maja Rex   Airbus",
         "category": "documents",
@@ -20355,7 +21003,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Carmen-Maja_Rex___Airbus.txt"
       },
       {
-        "id": "tg_2486962",
+        "id": "tg_7662567",
         "filename": "Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt",
         "title": "Cajas de resistencia  una herramienta m s para afrontar conflictos  o al menos i",
         "category": "documents",
@@ -20367,7 +21015,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt"
       },
       {
-        "id": "tg_7410742",
+        "id": "tg_2438242",
         "filename": "CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt",
         "title": "CONSULTA A LA PLANTILLA.docx  1   2 ",
         "category": "documents",
@@ -20381,7 +21029,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt"
       },
       {
-        "id": "tg_5545406",
+        "id": "tg_4129870",
         "filename": "CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt",
         "title": "CGT desconvoca la huelga en la Bah a de C diz por decisi n de las asambleas de t",
         "category": "assembly_minutes",
@@ -20395,7 +21043,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt"
       },
       {
-        "id": "tg_4151862",
+        "id": "tg_9938169",
         "filename": "CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt",
         "title": "CCOO logra un preacuerdo con importantes avances en salarios y derechos",
         "category": "documents",
@@ -20409,7 +21057,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt"
       },
       {
-        "id": "tg_2451120",
+        "id": "tg_5918039",
         "filename": "CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt",
         "title": "CCOO e Industria de Turbopropulsores  ITP  alcanzan un acuerdo para tres a os",
         "category": "documents",
@@ -20423,7 +21071,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt"
       },
       {
-        "id": "tg_8439019",
+        "id": "tg_0187166",
         "filename": "CCOO_de_Industria_de_Madrid.txt",
         "title": "CCOO de Industria de Madrid",
         "category": "documents",
@@ -20437,7 +21085,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_de_Industria_de_Madrid.txt"
       },
       {
-        "id": "tg_2096273",
+        "id": "tg_8244375",
         "filename": "Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt",
         "title": "Boeing union ready to strike after rejecting contract offer   KIRO 7 News Seattl",
         "category": "documents",
@@ -20449,7 +21097,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt"
       },
       {
-        "id": "tg_9729763",
+        "id": "tg_6765703",
         "filename": "Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt",
         "title": "Boeing strikes peace deal with 27000 machinists - The Guardian",
         "category": "legal_filings",
@@ -20461,7 +21109,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt"
       },
       {
-        "id": "tg_4717551",
+        "id": "tg_8528397",
         "filename": "Boeing_strike__shades_of_1995_-_HeraldNet.com.txt",
         "title": "Boeing strike  shades of 1995 - HeraldNet.com",
         "category": "documents",
@@ -20473,7 +21121,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_strike__shades_of_1995_-_HeraldNet.com.txt"
       },
       {
-        "id": "tg_7209145",
+        "id": "tg_7809801",
         "filename": "Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt",
         "title": "Boeing factory strike ends as union workers vote to accept contract   PBS News",
         "category": "documents",
@@ -20485,7 +21133,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt"
       },
       {
-        "id": "tg_4496864",
+        "id": "tg_1126010",
         "filename": "Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt",
         "title": "Boeing engineers and technical workers reject contract  vote to authorize strike",
         "category": "documents",
@@ -20497,7 +21145,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt"
       },
       {
-        "id": "tg_5064523",
+        "id": "tg_4688042",
         "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
         "title": "Boeing complaint background   National Labor Relations Board",
         "category": "documents",
@@ -20509,7 +21157,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_complaint_background___National_Labor_Relations_Board.txt"
       },
       {
-        "id": "tg_3523840",
+        "id": "tg_6172560",
         "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
         "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
         "category": "documents",
@@ -20521,7 +21169,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
       },
       {
-        "id": "tg_9550954",
+        "id": "tg_8176604",
         "filename": "Boeing___SPEEA.txt",
         "title": "Boeing   SPEEA",
         "category": "documents",
@@ -20533,7 +21181,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing___SPEEA.txt"
       },
       {
-        "id": "tg_2912822",
+        "id": "tg_3997214",
         "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
         "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
         "category": "documents",
@@ -20545,7 +21193,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
       },
       {
-        "id": "tg_1825062",
+        "id": "tg_7597875",
         "filename": "BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt",
         "title": "BOE-A-2023-8181 Resoluci n de 21 de marzo de 2023  de la Direcci n General de Tr",
         "category": "documents",
@@ -20557,7 +21205,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt"
       },
       {
-        "id": "tg_3195091",
+        "id": "tg_3932372",
         "filename": "Ausbildung_in_Deutschland_-_Airbus.txt",
         "title": "Ausbildung in Deutschland - Airbus",
         "category": "legal_filings",
@@ -20569,7 +21217,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Ausbildung_in_Deutschland_-_Airbus.txt"
       },
       {
-        "id": "tg_2290884",
+        "id": "tg_5712832",
         "filename": "Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt",
         "title": "Anatom a del Conflicto Laboral en el Sector Aeroespacial y de Automoci n  An lis",
         "category": "legal_filings",
@@ -20581,7 +21229,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt"
       },
       {
-        "id": "tg_6796912",
+        "id": "tg_6504729",
         "filename": "An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt",
         "title": "An lisis de la Situaci n del Convenio del Metal en C diz. - USO Industria",
         "category": "documents",
@@ -20595,15 +21243,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt"
       },
       {
-        "id": "tg_4789622",
+        "id": "tg_9057419",
         "filename": "An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt",
         "title": "An lisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnol",
         "category": "legal_filings",
         "date": "2026-08-29",
         "unions": [
           "CCOO",
-          "SIPA",
-          "ATP"
+          "ATP",
+          "SIPA"
         ],
         "site": "Getafe",
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Análisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnología y Automoción: Lecciones de la Huelga de Airbus 2026 y Prece",
@@ -20611,7 +21259,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt"
       },
       {
-        "id": "tg_1139615",
+        "id": "tg_8493522",
         "filename": "American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt",
         "title": "American air-traffic controllers strike for benefits and pay  1981",
         "category": "legal_filings",
@@ -20623,7 +21271,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt"
       },
       {
-        "id": "tg_9628196",
+        "id": "tg_0661616",
         "filename": "Aircraft_Fitter_at_Airbus___Flexa_Careers.txt",
         "title": "Aircraft Fitter at Airbus   Flexa Careers",
         "category": "documents",
@@ -20635,7 +21283,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aircraft_Fitter_at_Airbus___Flexa_Careers.txt"
       },
       {
-        "id": "tg_4847806",
+        "id": "tg_3765081",
         "filename": "Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt",
         "title": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producci n y b",
         "category": "documents",
@@ -20647,7 +21295,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt"
       },
       {
-        "id": "tg_8883212",
+        "id": "tg_8770233",
         "filename": "Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt",
         "title": "Airbus y los sindicatos mantienen posiciones distantes tras la reuni n en el SIM",
         "category": "legal_filings",
@@ -20659,7 +21307,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt"
       },
       {
-        "id": "tg_1168858",
+        "id": "tg_6888744",
         "filename": "Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt",
         "title": "Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupa",
         "category": "documents",
@@ -20671,7 +21319,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt"
       },
       {
-        "id": "tg_3439639",
+        "id": "tg_0747986",
         "filename": "Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt",
         "title": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial a n sin acuerdo",
         "category": "legal_filings",
@@ -20683,7 +21331,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt"
       },
       {
-        "id": "tg_3642542",
+        "id": "tg_5091715",
         "filename": "Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt",
         "title": "Airbus va verser une prime de 1 500     ses salari s - GIFAS",
         "category": "documents",
@@ -20695,7 +21343,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt"
       },
       {
-        "id": "tg_4097755",
+        "id": "tg_7173159",
         "filename": "Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt",
         "title": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo - Dem crata",
         "category": "documents",
@@ -20707,7 +21355,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt"
       },
       {
-        "id": "tg_5505565",
+        "id": "tg_7377292",
         "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
         "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
         "category": "documents",
@@ -20719,7 +21367,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
       },
       {
-        "id": "tg_9935717",
+        "id": "tg_6960073",
         "filename": "Airbus_reports_Half-Year__H1__2022_results.txt",
         "title": "Airbus reports Half-Year  H1  2022 results",
         "category": "legal_filings",
@@ -20731,7 +21379,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Half-Year__H1__2022_results.txt"
       },
       {
-        "id": "tg_8863452",
+        "id": "tg_4515287",
         "filename": "Airbus_reports_Full-Year__FY__2023_results.txt",
         "title": "Airbus reports Full-Year  FY  2023 results",
         "category": "legal_filings",
@@ -20743,7 +21391,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Full-Year__FY__2023_results.txt"
       },
       {
-        "id": "tg_1536339",
+        "id": "tg_5313214",
         "filename": "Airbus_reports_First_Quarter__Q1__2023_results.txt",
         "title": "Airbus reports First Quarter  Q1  2023 results",
         "category": "legal_filings",
@@ -20755,7 +21403,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_First_Quarter__Q1__2023_results.txt"
       },
       {
-        "id": "tg_2446924",
+        "id": "tg_9327318",
         "filename": "Airbus_in_France.txt",
         "title": "Airbus in France",
         "category": "documents",
@@ -20767,7 +21415,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_in_France.txt"
       },
       {
-        "id": "tg_8090472",
+        "id": "tg_8446444",
         "filename": "Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt",
         "title": "Airbus employees in Spain resume strike after rejecting offer   live - Euronext ",
         "category": "legal_filings",
@@ -20779,7 +21427,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt"
       },
       {
-        "id": "tg_7458129",
+        "id": "tg_5963876",
         "filename": "Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt",
         "title": "Airbus bows to remote working demands after series of strikes - The Guardian",
         "category": "documents",
@@ -20791,7 +21439,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt"
       },
       {
-        "id": "tg_2460323",
+        "id": "tg_3339731",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - CP24",
         "category": "legal_filings",
@@ -20803,7 +21451,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt"
       },
       {
-        "id": "tg_6096627",
+        "id": "tg_0861729",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - BNN Bloomber",
         "category": "legal_filings",
@@ -20815,7 +21463,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt"
       },
       {
-        "id": "tg_8196210",
+        "id": "tg_7850538",
         "filename": "Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt",
         "title": "Airbus backs down on four-day office plan after employee protests - Air Data New",
         "category": "legal_filings",
@@ -20827,7 +21475,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt"
       },
       {
-        "id": "tg_8410926",
+        "id": "tg_4146783",
         "filename": "Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt",
         "title": "Airbus augmente les salaires de 5 5  en France  face   l inflation - GIFAS",
         "category": "documents",
@@ -20839,7 +21487,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt"
       },
       {
-        "id": "tg_0947018",
+        "id": "tg_0904748",
         "filename": "Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt",
         "title": "Airbus amenaza con suspender las contrataciones previstas en Espa a si contin a ",
         "category": "documents",
@@ -20851,7 +21499,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt"
       },
       {
-        "id": "tg_4667756",
+        "id": "tg_9840301",
         "filename": "Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt",
         "title": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los ",
         "category": "documents",
@@ -20863,7 +21511,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt"
       },
       {
-        "id": "tg_1433085",
+        "id": "tg_0200855",
         "filename": "Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt",
         "title": "Airbus  dispuesta a llevarse carga de trabajo de sus plantas espa olas a otros p",
         "category": "documents",
@@ -20875,7 +21523,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt"
       },
       {
-        "id": "tg_2185333",
+        "id": "tg_9171807",
         "filename": "Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt",
         "title": "Airbus  Leonardo and Thales Press Brussels to Clear Project Bromo - Gro wald",
         "category": "documents",
@@ -20887,7 +21535,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt"
       },
       {
-        "id": "tg_1710815",
+        "id": "tg_8427136",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_3.txt",
         "title": "Airbus UK Pension Scheme   Schedule 3",
         "category": "documents",
@@ -20899,7 +21547,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_3.txt"
       },
       {
-        "id": "tg_7079437",
+        "id": "tg_7155391",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_2.txt",
         "title": "Airbus UK Pension Scheme   Schedule 2",
         "category": "documents",
@@ -20911,7 +21559,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_2.txt"
       },
       {
-        "id": "tg_0020794",
+        "id": "tg_9117254",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_1.txt",
         "title": "Airbus UK Pension Scheme   Schedule 1",
         "category": "documents",
@@ -20923,7 +21571,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_1.txt"
       },
       {
-        "id": "tg_2607753",
+        "id": "tg_8250371",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 5",
         "category": "documents",
@@ -20935,7 +21583,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt"
       },
       {
-        "id": "tg_7003729",
+        "id": "tg_8722159",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 4",
         "category": "documents",
@@ -20947,7 +21595,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt"
       },
       {
-        "id": "tg_5614250",
+        "id": "tg_2143791",
         "filename": "Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt",
         "title": "Airbus Spain strike resumes as dispute threatens key military aircraft programs",
         "category": "documents",
@@ -20959,7 +21607,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt"
       },
       {
-        "id": "tg_0037895",
+        "id": "tg_7359415",
         "filename": "Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt",
         "title": "Airbus Spain Workers Resume Strike After Rejected Pay Offer - Global Banking   F",
         "category": "documents",
@@ -20971,7 +21619,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt"
       },
       {
-        "id": "tg_2012723",
+        "id": "tg_4733998",
         "filename": "Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt",
         "title": "Airbus Spain Strike  Aerospace Supply Chain Faces Labor Disruptions - Doing Busi",
         "category": "documents",
@@ -20983,7 +21631,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt"
       },
       {
-        "id": "tg_8104573",
+        "id": "tg_3190616",
         "filename": "Airbus_SMH_grids.txt",
         "title": "Airbus SMH grids",
         "category": "documents",
@@ -20997,7 +21645,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_SMH_grids.txt"
       },
       {
-        "id": "tg_9422856",
+        "id": "tg_0773914",
         "filename": "Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt",
         "title": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spa",
         "category": "documents",
@@ -21009,7 +21657,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt"
       },
       {
-        "id": "tg_7752810",
+        "id": "tg_2820611",
         "filename": "Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt",
         "title": "Airbus Espa a reacciona a la huelga indefinida con la congelaci n inmediata de l",
         "category": "documents",
@@ -21021,7 +21669,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt"
       },
       {
-        "id": "tg_1042439",
+        "id": "tg_3006555",
         "filename": "Airbus_Annual_Report_2024_-_Bnains.org.txt",
         "title": "Airbus Annual Report 2024 - Bnains.org",
         "category": "documents",
@@ -21033,7 +21681,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Annual_Report_2024_-_Bnains.org.txt"
       },
       {
-        "id": "tg_3624412",
+        "id": "tg_3376220",
         "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
         "title": "Airbus - CSRD Report Reviews - BWD Strategic",
         "category": "documents",
@@ -21045,7 +21693,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
       },
       {
-        "id": "tg_4918948",
+        "id": "tg_9874458",
         "filename": "Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt",
         "title": "Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines - IATA",
         "category": "documents",
@@ -21057,7 +21705,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt"
       },
       {
-        "id": "tg_4958806",
+        "id": "tg_2375532",
         "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
         "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
         "category": "documents",
@@ -21069,7 +21717,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
       },
       {
-        "id": "tg_4008772",
+        "id": "tg_8094340",
         "filename": "Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt",
         "title": "Acuerdo para el desbloqueo del convenio colectivo del metal en C diz. - USO Indu",
         "category": "documents",
@@ -21083,7 +21731,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt"
       },
       {
-        "id": "tg_5988925",
+        "id": "tg_4088706",
         "filename": "Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt",
         "title": "Acuerdo en mediaci n para desconvocar la huelga de Acerinox tras mejorarse las c",
         "category": "documents",
@@ -21097,7 +21745,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt"
       },
       {
-        "id": "tg_2722572",
+        "id": "tg_1022737",
         "filename": "Acta_Asamblea_en_huelga_1407.pdf.txt",
         "title": "Acta Asamblea en huelga 1407",
         "category": "assembly_minutes",
@@ -21109,7 +21757,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt"
       },
       {
-        "id": "tg_8023769",
+        "id": "tg_2981236",
         "filename": "Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt",
         "title": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la pla",
         "category": "documents",
@@ -21121,7 +21769,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt"
       },
       {
-        "id": "tg_8865879",
+        "id": "tg_7689181",
         "filename": "Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt",
         "title": "Ab April 3 1   mehr Geld   und starke Sonderzahlungen im Jahr 2026 - IG Metall F",
         "category": "documents",
@@ -21133,7 +21781,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt"
       },
       {
-        "id": "tg_3236974",
+        "id": "tg_8554545",
         "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
         "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
         "category": "documents",
@@ -21145,7 +21793,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
       },
       {
-        "id": "tg_7791234",
+        "id": "tg_8169328",
         "filename": "8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt",
         "title": "8 julio  CGT convoca huelga y concentraci n ante H M-CONCENTRIX  servicio de ate",
         "category": "documents",
@@ -21159,7 +21807,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt"
       },
       {
-        "id": "tg_6578227",
+        "id": "tg_7987985",
         "filename": "5803119881057145292.pdf.txt",
         "title": "5803119881057145292",
         "category": "documents",
@@ -21171,7 +21819,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/5803119881057145292.pdf.txt"
       },
       {
-        "id": "tg_4867713",
+        "id": "tg_7146824",
         "filename": "4_5969781284744994502.pdf.txt",
         "title": "4 5969781284744994502",
         "category": "documents",
@@ -21185,7 +21833,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5969781284744994502.pdf.txt"
       },
       {
-        "id": "tg_8409643",
+        "id": "tg_7205253",
         "filename": "4_5796203638925829350.pdf.txt",
         "title": "4 5796203638925829350",
         "category": "documents",
@@ -21197,17 +21845,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5796203638925829350.pdf.txt"
       },
       {
-        "id": "tg_0211210",
+        "id": "tg_4707137",
         "filename": "396_AIRBUS_APLAZ.pdf.txt",
         "title": "396 AIRBUS APLAZ",
         "category": "documents",
         "date": "2026-08-29",
         "unions": [
+          "CGT",
           "CCOO",
           "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_jmU69qoF0TMknsXelB8DaaHKvOyMrUGBt1Va9YLg1MML5EJWKWko8CjjA_jES_E0z7YDDQDKHQYA70qPCufLxR7Dh0Wx7Z5YLpmsG6oxsyF",
@@ -21215,7 +21863,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/396_AIRBUS_APLAZ.pdf.txt"
       },
       {
-        "id": "tg_5251421",
+        "id": "tg_6419651",
         "filename": "2008_Boeing_machinists__strike_-_Wikipedia.txt",
         "title": "2008 Boeing machinists  strike - Wikipedia",
         "category": "legal_filings",
@@ -21227,7 +21875,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/2008_Boeing_machinists__strike_-_Wikipedia.txt"
       },
       {
-        "id": "tg_5610315",
+        "id": "tg_5951077",
         "filename": "Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt",
         "title": "Reuni n Comit  de Huelga en el SIMA el 27-08-2026  1 ",
         "category": "legal_filings",
@@ -21239,7 +21887,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt"
       },
       {
-        "id": "tg_3217740",
+        "id": "tg_1364459",
         "filename": "Minutas_Asamblea_Getafe_20260827.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260827",
         "category": "assembly_minutes",
@@ -21251,7 +21899,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260827.pdf.txt"
       },
       {
-        "id": "tg_7126080",
+        "id": "tg_6657423",
         "filename": "Minutas_Asamblea_Getafe_20260826-1.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260826-1.PDF",
         "category": "assembly_minutes",
@@ -21265,7 +21913,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260826-1.PDF.txt"
       },
       {
-        "id": "tg_7567377",
+        "id": "tg_4570861",
         "filename": "Minutas_Asamblea_Getafe_20260825.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825",
         "category": "assembly_minutes",
@@ -21277,7 +21925,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825.pdf.txt"
       },
       {
-        "id": "tg_4777789",
+        "id": "tg_7534415",
         "filename": "Minutas_Asamblea_Getafe_20260825-1.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825-1",
         "category": "assembly_minutes",
@@ -21289,7 +21937,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825-1.pdf.txt"
       },
       {
-        "id": "tg_4661893",
+        "id": "tg_0363018",
         "filename": "Minutas_Asamblea_Getafe_20260824__1_.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260824  1 .PDF",
         "category": "assembly_minutes",
@@ -21301,7 +21949,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260824__1_.PDF.txt"
       },
       {
-        "id": "tg_4539000",
+        "id": "tg_2530401",
         "filename": "2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt",
         "title": "2026 08 11 Plan de Acci n Medidas de Aplicacion en Mantenimiento",
         "category": "documents",
@@ -21316,7 +21964,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt"
       },
       {
-        "id": "tg_5349278",
+        "id": "tg_7601118",
         "filename": "Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt",
         "title": "Convocatoria huelga en Airbus comunicacion a Airbus 20260731 anonimizada",
         "category": "documents",
@@ -21328,7 +21976,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt"
       },
       {
-        "id": "tg_6354881",
+        "id": "tg_9193643",
         "filename": "Minutas_Asamblea_Getafe_20260729.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260729",
         "category": "assembly_minutes",
@@ -21342,17 +21990,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260729.pdf.txt"
       },
       {
-        "id": "tg_0498675",
+        "id": "tg_5992840",
         "filename": "DOC-20260725-WA0055..pdf.txt",
         "title": "DOC-20260725-WA0055.",
         "category": "documents",
         "date": "2026-07-25",
         "unions": [
+          "CGT",
           "CCOO",
           "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9pvhArinEthFmq0vuRcS5UReaKnxl0f-5zmepcBxX8RCARvqNMhIWCcW9WCgtZYofSPjbXJE4wuiXch853siZdH1o-a-zFoPKPIMBl8YgDkD",
@@ -21360,7 +22008,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/DOC-20260725-WA0055..pdf.txt"
       },
       {
-        "id": "tg_6063671",
+        "id": "tg_9037116",
         "filename": "Minutas_Asamblea_Getafe_20260723.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260723",
         "category": "assembly_minutes",
@@ -21376,15 +22024,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260723.pdf.txt"
       },
       {
-        "id": "tg_3739863",
+        "id": "tg_4291320",
         "filename": "Comunicado_CGT_estatal_-_20260723.pdf.txt",
         "title": "Comunicado CGT estatal - 20260723",
         "category": "documents",
         "date": "2026-07-23",
         "unions": [
           "CCOO",
-          "SIPA",
           "ATP",
+          "SIPA",
           "CGT"
         ],
         "site": null,
@@ -21393,7 +22041,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_CGT_estatal_-_20260723.pdf.txt"
       },
       {
-        "id": "tg_1053094",
+        "id": "tg_8871945",
         "filename": "Minutas_Asamblea_Getafe_20260722.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260722",
         "category": "assembly_minutes",
@@ -21407,7 +22055,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260722.pdf.txt"
       },
       {
-        "id": "tg_6102611",
+        "id": "tg_2089874",
         "filename": "Minutas_Asamblea_Getafe_20260721.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260721",
         "category": "assembly_minutes",
@@ -21421,7 +22069,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260721.pdf.txt"
       },
       {
-        "id": "tg_0183175",
+        "id": "tg_0093551",
         "filename": "Minutas_Asamblea_Getafe_20260720.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260720",
         "category": "assembly_minutes",
@@ -21433,16 +22081,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260720.pdf.txt"
       },
       {
-        "id": "tg_4112244",
+        "id": "tg_5500384",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260720",
         "category": "documents",
         "date": "2026-07-20",
         "unions": [
-          "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA",
+          "CGT",
+          "UGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_MKfc6_RQYNjv7phqXMCfmXJwBtJmI15CR-0tK0GRnTPgCwm4WKmbIlltI3Ua-HW6MGWqiiKvlWTEfRi4TmVk_ZOsByLHlXb",
@@ -21450,7 +22098,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt"
       },
       {
-        "id": "tg_3959421",
+        "id": "tg_6691609",
         "filename": "20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt",
         "title": "20260717 Comunicado Mayoria Sindical Airbus.docx",
         "category": "documents",
@@ -21462,7 +22110,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt"
       },
       {
-        "id": "tg_3291631",
+        "id": "tg_3097262",
         "filename": "Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt",
         "title": "Minutas Asamblea en Huelga GETAFE - 16 07 2026",
         "category": "assembly_minutes",
@@ -21474,16 +22122,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt"
       },
       {
-        "id": "tg_6012007",
+        "id": "tg_0496830",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
-          "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA",
+          "CGT",
+          "UGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_OyU1OUPkX2jzDPbf4wFsqIlICpnZgYAw0nZUrOQOasm4AfZ9IAyvBDY00hhAAtIukVtnEIny6CEyTOLplnMaBT_GQ3zv9K7",
@@ -21491,16 +22139,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt"
       },
       {
-        "id": "tg_0841907",
+        "id": "tg_7555604",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715-1",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
-          "UGT",
-          "SIPA",
           "ATP",
-          "CGT"
+          "SIPA",
+          "CGT",
+          "UGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9dP-ZT7OjrSFCozMe-aJMUpvI8oaZIR5XxuDRluFFUpu308gGAkCJZCZc_-r9EzAFaZuBgYLayR6LeRHr3juh_fqjT0NYhCN",
@@ -21508,7 +22156,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt"
       },
       {
-        "id": "tg_4709578",
+        "id": "tg_6593383",
         "filename": "20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt",
         "title": "20260630 - Nota de prensa - Huelga en Airbus 260710 201620",
         "category": "documents",
@@ -21522,7 +22170,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt"
       },
       {
-        "id": "tg_5764547",
+        "id": "tg_9905238",
         "filename": "BOCM-20240725-1_-_C__Otras_Disposiciones.txt",
         "title": "BOCM-20240725-1 - C  Otras Disposiciones",
         "category": "documents",

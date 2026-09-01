@@ -26,7 +26,6 @@ EXPECTED_CANVASES = [
     "companyRevenueChart",
     "companyDeliveriesChart",
     "shareholderPieChart",
-    "belugaHistoryChart",
     "wagesChart",
     "salaryEvolutionChart",
     "unionShareChart",

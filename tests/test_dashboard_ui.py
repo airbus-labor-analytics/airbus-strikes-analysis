@@ -33,7 +33,6 @@ EXPECTED_CANVASES = [
     "companyRevenueChart",
     "companyDeliveriesChart",
     "shareholderPieChart",
-    "belugaHistoryChart",
     "salaryEvolutionChart",
     "wagesChart",
     "unionShareChart",
@@ -232,5 +231,24 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function setCustomProposalPreset(", self.app_js_content, "Missing setCustomProposalPreset() in app.js")
         self.assertIn("function setCustomArrearsQuick(", self.app_js_content, "Missing setCustomArrearsQuick() in app.js")
         self.assertIn("function onRsgModeSelectChange(", self.app_js_content, "Missing onRsgModeSelectChange() in app.js")
+
+    def test_beluga_logistics_decoupling_and_chart_removal(self):
+        """Validates Feature 014: complete removal of #belugaHistoryChart and presence of decoupled Beluga logistics UI."""
+        # Verify #belugaHistoryChart is removed
+        self.assertNotIn('id="belugaHistoryChart"', self.html_content, "#belugaHistoryChart canvas should be removed")
+        self.assertNotIn('initBelugaHistoryChart', self.app_js_content, "initBelugaHistoryChart function should be removed")
+        
+        # Verify decoupled Beluga logistics DOM elements
+        self.assertIn('id="beluga-fleet-grid"', self.html_content, "Missing #beluga-fleet-grid in index.html")
+        self.assertIn('id="beluga-routes-grid"', self.html_content, "Missing #beluga-routes-grid in index.html")
+        self.assertIn('id="beluga-tail-filters"', self.html_content, "Missing #beluga-tail-filters in index.html")
+        self.assertIn('id="beluga-citations-container"', self.html_content, "Missing #beluga-citations-container in index.html")
+        
+        # Verify app.js standalone functions
+        self.assertIn("function initBelugaLogistics(", self.app_js_content, "Missing initBelugaLogistics() in app.js")
+        self.assertIn("function initThermometer(", self.app_js_content, "Missing initThermometer() in app.js")
+        self.assertIn("function renderBelugaFleet(", self.app_js_content, "Missing renderBelugaFleet() in app.js")
+        self.assertIn("function renderBelugaRoutes(", self.app_js_content, "Missing renderBelugaRoutes() in app.js")
+        self.assertIn("function startBelugaLivePolling(", self.app_js_content, "Missing startBelugaLivePolling() in app.js")
 if __name__ == "__main__":
     unittest.main()
