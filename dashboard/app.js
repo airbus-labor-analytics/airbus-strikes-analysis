@@ -260,10 +260,6 @@ function initAllModules() {
   initBelugaLogistics();
   updateAsymmetrySimulation();
   updateWageSimulation();
-  // Tab overview is default visible tab
-  initAsymmetryChart();
-  initAirbusStockChart();
-  initCompanyHealthCharts();
   if (window.lucide) lucide.createIcons();
 }
 
