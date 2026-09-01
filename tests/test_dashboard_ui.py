@@ -95,6 +95,23 @@ class TestDashboardUI(unittest.TestCase):
                 f"Missing or malformed tab container definition for '{tab_id}'"
             )
             self.assertIn(f'id="dock-{tab_id}"', self.html_content, f"Missing dock navigation button for '{tab_id}'")
+
+    def test_static_tab_visibility_defaults(self):
+        """Validates that in static HTML, only the default landing tab (tab-portal) is unhidden."""
+        # Match all <div id="tab-..." class="tab-content..."> definitions
+        tab_matches = re.findall(r'<div\s+id=["\'](tab-[a-zA-Z0-9_-]+)["\']\s+class=["\']([^"\']+)["\']', self.html_content)
+        self.assertEqual(len(tab_matches), 6, f"Expected 6 tab containers, found {len(tab_matches)}")
+        
+        unhidden_tabs = []
+        for tab_id, class_str in tab_matches:
+            classes = class_str.split()
+            self.assertIn("tab-content", classes, f"Container '{tab_id}' must have 'tab-content' class")
+            if "hidden" not in classes:
+                unhidden_tabs.append(tab_id)
+            else:
+                self.assertIn("hidden", classes, f"Non-default tab '{tab_id}' must have 'hidden' class in static HTML")
+        
+        self.assertEqual(unhidden_tabs, ["tab-portal"], f"Only 'tab-portal' should be unhidden in static HTML. Found: {unhidden_tabs}")
     def test_purged_obsolete_tabs(self):
         """Validates that obsolete legacy tabs (like tab-checklist) are completely removed."""
         self.assertNotIn('id="tab-checklist"', self.html_content)

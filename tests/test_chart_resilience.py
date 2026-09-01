@@ -75,6 +75,26 @@ class TestChartResilienceAndLifecycle(unittest.TestCase):
         self.assertIn("updateAsymmetrySimulation()", self.app_js_content)
         self.assertIn("updateWageSimulation()", self.app_js_content)
 
+    def test_salary_proposal_chart_update_bindings(self):
+        """Validates that custom salary proposal inputs dynamically drive charts and KPI updates."""
+        # Verify custom proposal getter and evaluation
+        self.assertIn("function getCustomProposalState()", self.app_js_content)
+        self.assertIn("function evaluateAnnualRaise(", self.app_js_content)
+        self.assertIn("function updateSalaryEvolutionChart(", self.app_js_content)
+        self.assertIn("function updateWagesChart(", self.app_js_content)
+        
+        # Verify updateWageSimulation updates differential cards and both charts
+        self.assertIn("calculateSalaryProposals(curSalary, ipcRate)", self.app_js_content)
+        self.assertIn("setText('kpi-diff-custom-5yr'", self.app_js_content)
+        self.assertIn("updateSalaryEvolutionChart(curSalary, ipcRate);", self.app_js_content)
+        self.assertIn("updateWagesChart(curSalary, ipcRate);", self.app_js_content)
+
+    def test_no_undefined_med_references(self):
+        """Validates that obsolete medBaseSalary / scen-med references are completely removed."""
+        self.assertNotIn("medBaseSalary", self.app_js_content)
+        self.assertNotIn("scen-med-salary", self.app_js_content)
+        self.assertNotIn("scen-med-net-total", self.app_js_content)
+
 
 if __name__ == "__main__":
     unittest.main()
