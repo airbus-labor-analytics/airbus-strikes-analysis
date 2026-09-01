@@ -3784,10 +3784,22 @@ function renderSourcesList(sources) {
 
 // Modal Reader Functions
 async function openSourceModal(sourceId) {
-  const source = sourcesCatalogData.find(s => {
+  const tgDocs = telegramDocsData.length > 0 ? telegramDocsData : (conflictData?.telegram_archive?.documents || []);
+
+  let source = sourcesCatalogData.find(s => {
     const cleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
     return cleanId === sourceId || s.id === sourceId || s.title === sourceId;
   });
+
+  let isTg = false;
+  if (!source) {
+    source = tgDocs.find(d => {
+      const cleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const cleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      return cleanId === sourceId || cleanTitle === sourceId || d.id === sourceId || d.title === sourceId;
+    });
+    if (source) isTg = true;
+  }
 
   const modalEl = document.getElementById('source-modal');
   const titleEl = document.getElementById('modal-source-title');
@@ -3798,58 +3810,35 @@ async function openSourceModal(sourceId) {
   const linkEl = document.getElementById('modal-source-link');
   const metaEl = document.getElementById('modal-source-footer-meta');
 
-  if (!source) {
-    // Check in telegram docs
-    const tgDoc = telegramDocsData.find(d => d.id === sourceId || d.title === sourceId);
-    if (tgDoc) {
-      currentModalSource = tgDoc;
-      if (titleEl) titleEl.textContent = tgDoc.title;
-      if (catEl) catEl.textContent = tgDoc.category;
-      if (typeEl) typeEl.textContent = 'TELEGRAM DOC';
-      if (sizeEl) sizeEl.textContent = tgDoc.size_chars ? `${(tgDoc.size_chars/1000).toFixed(1)}k caracteres` : '';
-      if (contentEl) contentEl.textContent = tgDoc.summary || 'Documento disponible en el canal EnfadadosconAirbus';
-      if (metaEl) metaEl.textContent = `Archivo: ${tgDoc.file_path || tgDoc.id}`;
-      if (linkEl) {
-        linkEl.href = tgDoc.file_path || '#';
-        linkEl.classList.remove('hidden');
-      }
-      if (modalEl) modalEl.classList.remove('hidden');
-      if (window.lucide) lucide.createIcons();
-      return;
-    }
-    return;
-  }
-
+  if (!source) return;
   currentModalSource = source;
 
   if (titleEl) titleEl.textContent = source.title;
   if (catEl) catEl.textContent = normalizeCategory(source.category);
-  if (typeEl) typeEl.textContent = (source.type || 'DOCUMENTO').toUpperCase();
-  if (sizeEl) sizeEl.textContent = source.char_count ? `${source.char_count.toLocaleString()} caracteres` : '';
-  if (metaEl) metaEl.textContent = `ID Fuente: ${source.id || 'N/A'}`;
+  if (typeEl) typeEl.textContent = isTg ? 'TELEGRAM OFICIAL' : (source.type ? source.type.toUpperCase() : 'DOCUMENTO');
+  if (sizeEl) sizeEl.textContent = source.char_count ? `${source.char_count.toLocaleString()} caracteres` : (source.size_chars ? `${(source.size_chars/1000).toFixed(1)}k caracteres` : '');
+  if (metaEl) metaEl.textContent = isTg ? `Canal: EnfadadosconAirbus (${source.file_path || 'Telegram'})` : `ID Fuente: ${source.id || sourceId}`;
 
   if (linkEl) {
-    if (source.url) {
-      linkEl.href = source.url;
-      linkEl.classList.remove('hidden');
-    } else {
-      linkEl.href = source.file_path || `data/sources/${source.id}.txt`;
-      linkEl.classList.remove('hidden');
-    }
+    const destUrl = source.url || source.group_url || (isTg ? 'https://t.me/+MnuqJDCAAgYyMGQ0' : '#');
+    linkEl.href = sanitizeURL(destUrl);
+    linkEl.classList.remove('hidden');
   }
 
   if (contentEl) {
-    contentEl.textContent = "Cargando texto completo...";
-    
-    // 1. First priority: fulltext_preview if substantial
-    if (source.fulltext_preview && source.fulltext_preview.length > 200) {
+    // 1. Immediate display of embedded full text or preview
+    if (source.fulltext_preview && source.fulltext_preview.length > 50) {
       contentEl.textContent = source.fulltext_preview;
+    } else if (source.summary) {
+      contentEl.textContent = source.summary;
+    } else {
+      contentEl.textContent = "Cargando texto completo...";
     }
 
     // 2. Fetch external text file if served over HTTP
-    if (window.location.protocol !== 'file:') {
+    if (window.location.protocol !== 'file:' && source.file_path) {
       try {
-        const relPath = source.file_path ? (source.file_path.startsWith('dashboard/') ? source.file_path.replace('dashboard/', '') : `data/${source.file_path}`) : `data/sources/${source.id}.txt`;
+        const relPath = source.file_path.startsWith('http') ? source.file_path : (source.file_path.startsWith('data/') || source.file_path.startsWith('sources/') ? source.file_path : `data/${source.file_path}`);
         const res = await fetch(relPath);
         if (res.ok) {
           const text = await res.text();

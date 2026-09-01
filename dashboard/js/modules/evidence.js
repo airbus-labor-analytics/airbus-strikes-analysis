@@ -321,38 +321,68 @@ function initSourceFilters() {
 
 export async function openSourceModal(sourceId) {
   const sourcesCatalogData = window.SOURCES_DATA || [];
-  const src = sourcesCatalogData.find(s => s.id === sourceId || s.id.replace(/[^a-zA-Z0-9_-]/g, '_') === sourceId);
+  const tgDocs = window.telegramDocsData || window.CONFLICT_DATA?.telegram_archive?.documents || [];
 
+  let src = sourcesCatalogData.find(s => {
+    const cleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+    return cleanId === sourceId || s.id === sourceId || s.title === sourceId;
+  });
+
+  let isTg = false;
+  if (!src) {
+    src = tgDocs.find(d => {
+      const cleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const cleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      return cleanId === sourceId || cleanTitle === sourceId || d.id === sourceId || d.title === sourceId;
+    });
+    if (src) isTg = true;
+  }
+
+  const modalEl = document.getElementById('source-modal');
   const titleEl = document.getElementById('modal-source-title');
   const catEl = document.getElementById('modal-source-category');
+  const typeEl = document.getElementById('modal-source-type');
+  const sizeEl = document.getElementById('modal-source-size');
   const contentEl = document.getElementById('modal-source-content');
-  const urlEl = document.getElementById('modal-source-url');
-  const modalEl = document.getElementById('source-modal');
+  const linkEl = document.getElementById('modal-source-link');
+  const metaEl = document.getElementById('modal-source-footer-meta');
 
   if (titleEl) titleEl.textContent = src ? src.title : `Documento #${sourceId}`;
   if (catEl) catEl.textContent = src ? normalizeCategory(src.category) : 'Documentación Primaria';
-  if (urlEl) {
-    if (src && src.url) {
-      urlEl.href = sanitizeURL(src.url);
-      urlEl.classList.remove('hidden');
-    } else {
-      urlEl.classList.add('hidden');
-    }
+  if (typeEl) typeEl.textContent = isTg ? 'TELEGRAM OFICIAL' : (src?.type ? src.type.toUpperCase() : 'DOCUMENTO');
+  if (sizeEl) sizeEl.textContent = src?.char_count ? `${src.char_count.toLocaleString()} caracteres` : (src?.size_chars ? `${(src.size_chars/1000).toFixed(1)}k caracteres` : '');
+  if (metaEl) metaEl.textContent = isTg ? `Canal: EnfadadosconAirbus (${src?.file_path || 'Telegram'})` : `ID Fuente: ${src?.id || sourceId}`;
+
+  if (linkEl) {
+    const destUrl = src?.url || src?.group_url || (isTg ? 'https://t.me/+MnuqJDCAAgYyMGQ0' : '#');
+    linkEl.href = sanitizeURL(destUrl);
+    linkEl.classList.remove('hidden');
   }
 
   if (contentEl) {
-    contentEl.textContent = "Cargando transcripción íntegra...";
-    try {
-      const filePath = src?.file_path || `data/sources/${sourceId}.txt`;
-      const res = await fetch(filePath);
-      if (res.ok) {
-        const text = await res.text();
-        contentEl.textContent = text;
-      } else {
-        contentEl.textContent = src?.summary || "Documento disponible como referencia oficial en actas del SIMA y convenios BOE.";
+    // Immediate display of embedded full text / preview
+    if (src?.fulltext_preview && src.fulltext_preview.length > 50) {
+      contentEl.textContent = src.fulltext_preview;
+    } else if (src?.summary) {
+      contentEl.textContent = src.summary;
+    } else {
+      contentEl.textContent = "Cargando transcripción íntegra...";
+    }
+
+    // Background live fetch if served via HTTP
+    if (window.location.protocol !== 'file:' && src?.file_path) {
+      try {
+        const fetchPath = src.file_path.startsWith('http') ? src.file_path : (src.file_path.startsWith('data/') || src.file_path.startsWith('sources/') ? src.file_path : `data/${src.file_path}`);
+        const res = await fetch(fetchPath);
+        if (res.ok) {
+          const fullText = await res.text();
+          if (fullText && fullText.trim().length > 0) {
+            contentEl.textContent = fullText;
+          }
+        }
+      } catch (e) {
+        // Keep embedded text
       }
-    } catch (e) {
-      contentEl.textContent = src?.summary || "Contenido no disponible en local.";
     }
   }
 
@@ -362,7 +392,6 @@ export async function openSourceModal(sourceId) {
   }
   if (window.lucide) lucide.createIcons();
 }
-
 // ==================== 4. TELEGRAM ARCHIVE BROWSER ====================
 
 export async function initTelegramArchive() {

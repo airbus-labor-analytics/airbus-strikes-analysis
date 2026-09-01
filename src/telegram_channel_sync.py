@@ -89,10 +89,23 @@ class TelegramChannelSync:
                     
                     # Extract date
                     date_match = re.search(r"(\d{4}[\/\-\.]\d{2}[\/\-\.]\d{2}|\d{1,2}[\/\-\.]\d{1,2}[\/\-\.]\d{2,4})", title + " " + content[:300])
-                    doc_date = date_match.group(0) if date_match else "Julio - Agosto 2026"
+                    doc_date = date_match.group(0) if date_match else "2026-08-31"
 
-                    summary = content.replace("#", "").strip()[:250]
-                    if len(content) > 250:
+                    # Extract unions
+                    unions = []
+                    for u in ["SIPA", "CCOO", "UGT", "CGT", "ATP", "UTIL", "ASETMA"]:
+                        if u in title or u in content[:500]:
+                            unions.append(u)
+
+                    # Extract plant sites
+                    site = None
+                    for s in ["Getafe", "Illescas", "San Pablo", "Tablada", "Puerto Real", "Albacete", "Barajas", "Toulouse", "Hamburg"]:
+                        if s.lower() in (title + " " + content[:400]).lower():
+                            site = s
+                            break
+
+                    summary = content.replace("#", "").strip()[:350]
+                    if len(content) > 350:
                         summary += "..."
 
                     items.append({
@@ -100,16 +113,19 @@ class TelegramChannelSync:
                         "title": title,
                         "category": category,
                         "date": doc_date,
+                        "unions": unions,
+                        "site": site,
                         "size_chars": len(content),
                         "file_path": str(p.relative_to(BASE_DIR)),
                         "filename": p.name,
                         "group": TELEGRAM_GROUP_NAME,
                         "group_url": TELEGRAM_GROUP_URL,
-                        "summary": summary if summary else title
+                        "url": TELEGRAM_GROUP_URL,
+                        "summary": summary if summary else title,
+                        "fulltext_preview": content[:1500]
                     })
                 except Exception as e:
                     print(f"Error scanning archive file {p.name}: {e}", file=sys.stderr)
-
         # 2. Extract from sources/fulltext/ if present and not yet cataloged
         fulltext_dir = SOURCES_DIR / "fulltext"
         if fulltext_dir.exists():
@@ -135,20 +151,34 @@ class TelegramChannelSync:
                     if archive_file not in seen_paths:
                         seen_paths.add(archive_file)
                         date_match = re.search(r"(\d{4}[\/\-\.]\d{2}[\/\-\.]\d{2}|\d{1,2}[\/\-\.]\d{1,2}[\/\-\.]\d{2,4})", title + " " + content[:300])
-                        doc_date = date_match.group(0) if date_match else "Julio - Agosto 2026"
+                        doc_date = date_match.group(0) if date_match else "2026-08-31"
                         
+                        unions = []
+                        for u in ["SIPA", "CCOO", "UGT", "CGT", "ATP", "UTIL", "ASETMA"]:
+                            if u in title or u in content[:500]:
+                                unions.append(u)
+
+                        site = None
+                        for s in ["Getafe", "Illescas", "San Pablo", "Tablada", "Puerto Real", "Albacete", "Barajas"]:
+                            if s.lower() in (title + " " + content[:400]).lower():
+                                site = s
+                                break
+
                         items.append({
                             "id": f"tg-doc-{len(items)+1:03d}",
                             "title": title,
                             "category": category,
                             "date": doc_date,
+                            "unions": unions,
+                            "site": site,
                             "size_chars": len(content),
                             "file_path": str(archive_file.relative_to(BASE_DIR)),
                             "filename": archive_file.name,
-                            "original_source_id": d.get("source_id"),
                             "group": TELEGRAM_GROUP_NAME,
                             "group_url": TELEGRAM_GROUP_URL,
-                            "summary": content[:250].strip() + ("..." if len(content) > 250 else "")
+                            "url": TELEGRAM_GROUP_URL,
+                            "summary": content.replace("#", "").strip()[:350],
+                            "fulltext_preview": content[:1500]
                         })
                 except Exception as e:
                     print(f"Error parsing source {p.name}: {e}", file=sys.stderr)
