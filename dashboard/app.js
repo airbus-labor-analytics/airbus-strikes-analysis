@@ -3326,11 +3326,109 @@ function renderBelugaRoutes(beluga) {
   }
 }
 
+function renderBelugaMovements(beluga) {
+  const container = document.getElementById('beluga-movements-container');
+  const countBadge = document.getElementById('movements-count-badge');
+  if (!container) return;
+
+  const movements = beluga.recent_movements || [];
+  const filtered = movements.filter(m => {
+    if (selectedBelugaTail === 'ALL') return true;
+    return (m.registration === selectedBelugaTail) ||
+           (m.name && m.name.includes(selectedBelugaTail)) ||
+           (m.aircraft_id === selectedBelugaTail);
+  });
+
+  if (countBadge) {
+    countBadge.textContent = `${filtered.length} registro${filtered.length === 1 ? '' : 's'}`;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-6 text-center bg-slate-900/40 border border-dashed border-slate-800 rounded-xl space-y-1.5">
+        <p class="text-xs font-semibold text-slate-400">Sin movimientos recientes registrados para este criterio.</p>
+        <p class="text-[11px] text-slate-500 font-mono">Filtro activo: ${selectedBelugaTail} | Todos los vuelos en tierra o bajo seguimiento.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(m => {
+    const isEnVuelo = m.flight_status === 'En Vuelo';
+    const isCanceled = m.flight_status && m.flight_status.includes('Cancelado');
+    const isGetafe = m.is_spain_connection || m.origin_code === 'LEGT' || m.destination_code === 'LEGT';
+    
+    let statusBadgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+    if (isEnVuelo) {
+      statusBadgeClass = 'bg-amber-500/20 text-amber-300 border-amber-500/30 animate-pulse';
+    } else if (isCanceled) {
+      statusBadgeClass = 'bg-rose-500/20 text-rose-300 border-rose-500/30 font-extrabold';
+    } else if (m.flight_status === 'Completado') {
+      statusBadgeClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+    }
+
+    const corridor = `${m.origin_name} (${m.origin_code}) ➔ ${m.destination_name} (${m.destination_code})`;
+    const depTimeFormatted = m.departure_time ? m.departure_time.replace('T', ' ').replace('Z', ' UTC') : 'N/A';
+
+    return `
+      <div class="p-3 bg-slate-900/80 border ${isGetafe ? 'border-rose-900/40 bg-rose-950/10' : 'border-slate-800'} rounded-xl space-y-2 hover:border-slate-700 transition shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+          <div class="flex items-center gap-2">
+            <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-800 text-sky-400 rounded border border-slate-700">
+              ${m.registration || m.name}
+            </span>
+            <span class="text-xs font-bold text-white font-mono">${m.callsign || 'N/A'}</span>
+            <span class="text-[11px] text-slate-400 font-medium">(${m.name || 'BelugaXL'})</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 text-[9px] font-bold rounded border ${statusBadgeClass}">
+              ${m.flight_status || 'Programado'}
+            </span>
+            ${isGetafe ? `
+              <span class="px-2 py-0.5 text-[9px] font-extrabold bg-rose-600/30 text-rose-300 border border-rose-500/40 rounded flex items-center gap-1">
+                <i data-lucide="shield-alert" class="w-3 h-3 text-rose-400"></i> Veto Getafe
+              </span>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pt-1 border-t border-slate-800/80">
+          <div>
+            <div class="text-[10.5px] text-slate-400 flex items-center gap-1">
+              <i data-lucide="navigation" class="w-3 h-3 text-sky-400"></i>
+              <span class="font-semibold text-slate-300">Ruta:</span>
+              <span class="font-mono text-white">${corridor}</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3 text-slate-500"></i>
+              <span>Salida: ${depTimeFormatted}</span>
+              ${m.duration_formatted ? `<span class="text-slate-400">(${m.duration_formatted})</span>` : ''}
+            </div>
+          </div>
+
+          <div class="text-right md:text-right text-[10.5px]">
+            <div class="text-slate-400">
+              <span class="font-semibold text-slate-300">Carga / Componente:</span>
+              <span class="text-amber-300 font-medium">${m.component_payload || 'Componentes Aeronáuticos'}</span>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-0.5">
+              <span>Impacto: <strong class="${isGetafe ? 'text-rose-400' : 'text-sky-400'}">${m.strike_relevance || 'Circulación Europea'}</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
 function initBelugaLogistics() {
   const beluga = conflictData?.beluga_logistics;
   if (!beluga) return;
   renderBelugaFleet(beluga);
   renderBelugaRoutes(beluga);
+  renderBelugaMovements(beluga);
 }
 
 function initThermometer() {

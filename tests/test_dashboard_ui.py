@@ -250,5 +250,12 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function renderBelugaFleet(", self.app_js_content, "Missing renderBelugaFleet() in app.js")
         self.assertIn("function renderBelugaRoutes(", self.app_js_content, "Missing renderBelugaRoutes() in app.js")
         self.assertIn("function startBelugaLivePolling(", self.app_js_content, "Missing startBelugaLivePolling() in app.js")
+
+    def test_beluga_recent_movements_log_ui(self):
+        """Validates Feature 015: Beluga recent flight movements log DOM and controller functions."""
+        self.assertIn('id="sec-industrial-movements"', self.html_content, "Missing #sec-industrial-movements in index.html")
+        self.assertIn('id="beluga-movements-container"', self.html_content, "Missing #beluga-movements-container in index.html")
+        self.assertIn('id="movements-count-badge"', self.html_content, "Missing #movements-count-badge in index.html")
+        self.assertIn("function renderBelugaMovements(", self.app_js_content, "Missing renderBelugaMovements() in app.js")
 if __name__ == "__main__":
     unittest.main()

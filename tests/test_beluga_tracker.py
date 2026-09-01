@@ -96,5 +96,37 @@ class TestBelugaTrackerDecoupled(unittest.TestCase):
             self.assertIn("title", c)
 
 
+    def test_recent_movements_structure(self):
+        """Validates that recent_movements contains verified schema fields."""
+        data = self.tracker.fetch_live_data()
+        self.assertIn("recent_movements", data)
+        movements = data["recent_movements"]
+        self.assertIsInstance(movements, list)
+        self.assertGreaterEqual(len(movements), 1)
+        for m in movements:
+            self.assertIn("id", m)
+            self.assertIn("registration", m)
+            self.assertIn("origin_code", m)
+            self.assertIn("destination_code", m)
+            self.assertIn("flight_status", m)
+            self.assertIn("is_spain_connection", m)
+            self.assertIn("strike_relevance", m)
+
+    def test_recent_movements_live_injection(self):
+        """Validates that active airborne flights are synthesized at top of recent_movements."""
+        raw_aircraft = [
+            {
+                "id": "BXL-06",
+                "name": "BelugaXL 6",
+                "registration": "F-GXLO",
+                "callsign": "BGA231R",
+                "airborne": True,
+                "routeFrom": "Toulouse",
+                "routeTo": "Hamburg"
+            }
+        ]
+        movements = self.tracker.get_recent_movements(raw_aircraft)
+        self.assertTrue(any(m["registration"] == "F-GXLO" and m["flight_status"] == "En Vuelo" for m in movements))
+
 if __name__ == "__main__":
     unittest.main()
