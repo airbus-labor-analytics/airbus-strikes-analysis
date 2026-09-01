@@ -970,22 +970,92 @@ function solveRecoveryInitialRaise(histLoss = 0.118, targetYear = 2030, rsgMargi
 
 function getCustomProposalState() {
   const slider = document.getElementById('sim-custom-raise') || document.getElementById('custom-raise-slider');
-  const arrearsSel = document.getElementById('sim-custom-arrears') || document.getElementById('custom-arrears-input');
+  const raiseInput = document.getElementById('sim-custom-raise-input');
+  const arrearsInput = document.getElementById('sim-custom-arrears') || document.getElementById('sim-custom-arrears-input') || document.getElementById('custom-arrears-input');
   const rsgModeSel = document.getElementById('sim-custom-rsg-mode') || document.getElementById('custom-rsg-mode');
-  const capModeSel = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
+  const ipcLinkedToggle = document.getElementById('sim-custom-ipc-linked');
+  const marginInput = document.getElementById('sim-custom-rsg-margin');
+  const capToggle = document.getElementById('sim-custom-cap-toggle');
+  const capInput = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
 
-  const initialRaisePct = slider ? parseFloat(slider.value) || 8.0 : 8.0;
-  const arrears = arrearsSel ? parseFloat(arrearsSel.value) || 4000 : 4000;
-  const rsgMode = rsgModeSel ? rsgModeSel.value : 'ipc_100';
-  const rsgMargin = rsgMode === 'ipc_margin' ? 0.01 : (rsgMode === 'none' ? 0.015 : 0.0);
-  const capVal = capModeSel && capModeSel.value !== 'none' ? parseFloat(capModeSel.value) / 100.0 : null;
+  // Initial raise %
+  let initialRaisePct = 8.0;
+  if (raiseInput && raiseInput.value !== '') {
+    initialRaisePct = parseFloat(raiseInput.value) || 0.0;
+  } else if (slider) {
+    initialRaisePct = parseFloat(slider.value) || 8.0;
+  }
+
+  // Arrears €
+  const arrears = arrearsInput ? (parseFloat(arrearsInput.value) || 0) : 4000;
+
+  // RSG Mode & Margin
+  const isIpcLinked = ipcLinkedToggle ? ipcLinkedToggle.checked : (rsgModeSel ? rsgModeSel.value !== 'none' : true);
+  const rawMargin = marginInput ? (parseFloat(marginInput.value) || 0.0) / 100.0 : 0.0;
+  
+  let rsgMode = 'ipc_100';
+  let rsgMargin = 0.0;
+  if (!isIpcLinked) {
+    rsgMode = 'none';
+    rsgMargin = rawMargin !== 0.0 ? rawMargin : 0.015;
+  } else if (rawMargin !== 0.0) {
+    rsgMode = 'ipc_margin';
+    rsgMargin = rawMargin;
+  } else {
+    rsgMode = rsgModeSel ? rsgModeSel.value : 'ipc_100';
+    rsgMargin = rsgMode === 'ipc_margin' ? 0.01 : 0.0;
+  }
+
+  // Hyperinflation Cap
+  let capVal = null;
+  const isCapEnabled = capToggle ? capToggle.checked : (capInput && capInput.value !== 'none');
+  if (isCapEnabled && capInput && capInput.value !== '' && capInput.value !== 'none') {
+    capVal = parseFloat(capInput.value) / 100.0;
+  }
 
   return { initialRaisePct, arrears, rsgMode, rsgMargin, rsgCap: capVal };
 }
 
-function updateCustomRaise(val) {
+function updateCustomRaise(val, source = 'slider') {
+  const slider = document.getElementById('sim-custom-raise') || document.getElementById('custom-raise-slider');
+  const raiseInput = document.getElementById('sim-custom-raise-input');
   const badge = document.getElementById('sim-custom-raise-badge') || document.getElementById('custom-raise-badge');
-  if (badge) badge.textContent = `${parseFloat(val).toFixed(1).replace('.', ',')}%`;
+
+  const numVal = parseFloat(val) || 0;
+  if (source === 'slider' && raiseInput) {
+    raiseInput.value = numVal.toFixed(1);
+  } else if (source === 'input' && slider) {
+    slider.value = numVal;
+  }
+  if (badge) badge.textContent = `${numVal.toFixed(1).replace('.', ',')}%`;
+  updateWageSimulation();
+}
+
+function setCustomArrearsQuick(amount) {
+  const arrearsInput = document.getElementById('sim-custom-arrears') || document.getElementById('sim-custom-arrears-input');
+  if (arrearsInput) {
+    arrearsInput.value = amount;
+  }
+  updateWageSimulation();
+}
+
+function onRsgModeSelectChange(mode) {
+  const ipcLinkedToggle = document.getElementById('sim-custom-ipc-linked');
+  const marginInput = document.getElementById('sim-custom-rsg-margin');
+  if (mode === 'none') {
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = false;
+    if (marginInput) marginInput.value = '1.5';
+  } else if (mode === 'ipc_margin') {
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = true;
+    if (marginInput) marginInput.value = '1.0';
+  } else {
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = true;
+    if (marginInput) marginInput.value = '0.0';
+  }
+  updateWageSimulation();
+}
+
+function onCapToggleChange() {
   updateWageSimulation();
 }
 
@@ -995,32 +1065,46 @@ function updateCustomProposal() {
 
 function setCustomProposalPreset(presetKey) {
   const slider = document.getElementById('sim-custom-raise') || document.getElementById('custom-raise-slider');
+  const raiseInput = document.getElementById('sim-custom-raise-input');
   const badge = document.getElementById('sim-custom-raise-badge') || document.getElementById('custom-raise-badge');
-  const arrearsSel = document.getElementById('sim-custom-arrears') || document.getElementById('custom-arrears-input');
+  const arrearsInput = document.getElementById('sim-custom-arrears') || document.getElementById('sim-custom-arrears-input') || document.getElementById('custom-arrears-input');
   const rsgModeSel = document.getElementById('sim-custom-rsg-mode') || document.getElementById('custom-rsg-mode');
-  const capModeSel = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
+  const ipcLinkedToggle = document.getElementById('sim-custom-ipc-linked');
+  const marginInput = document.getElementById('sim-custom-rsg-margin');
+  const capToggle = document.getElementById('sim-custom-cap-toggle');
+  const capInput = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
   const ipcRate = parseFloat(document.getElementById('sim-ipc-rate')?.value || '2.5') / 100.0;
 
   if (presetKey === 'loss_zero') {
     const targetPct = (ipcRate * 100).toFixed(1);
     if (slider) slider.value = targetPct;
+    if (raiseInput) raiseInput.value = targetPct;
     if (badge) badge.textContent = `${targetPct.replace('.', ',')}%`;
-    if (arrearsSel) arrearsSel.value = '0';
+    if (arrearsInput) arrearsInput.value = '0';
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = true;
     if (rsgModeSel) rsgModeSel.value = 'ipc_100';
-    if (capModeSel) capModeSel.value = 'none';
+    if (marginInput) marginInput.value = '0.0';
+    if (capToggle) capToggle.checked = false;
   } else if (presetKey === 'recovery_2030') {
     const reqPct = (solveRecoveryInitialRaise(0.118, 2030, 0.01) * 100).toFixed(1);
     if (slider) slider.value = reqPct;
+    if (raiseInput) raiseInput.value = reqPct;
     if (badge) badge.textContent = `${reqPct.replace('.', ',')}%`;
-    if (arrearsSel) arrearsSel.value = '5000';
+    if (arrearsInput) arrearsInput.value = '5000';
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = true;
     if (rsgModeSel) rsgModeSel.value = 'ipc_margin';
-    if (capModeSel) capModeSel.value = 'none';
+    if (marginInput) marginInput.value = '1.0';
+    if (capToggle) capToggle.checked = false;
   } else if (presetKey === 'equilibrium') {
     if (slider) slider.value = '8.0';
+    if (raiseInput) raiseInput.value = '8.0';
     if (badge) badge.textContent = '8,0%';
-    if (arrearsSel) arrearsSel.value = '4000';
+    if (arrearsInput) arrearsInput.value = '4000';
+    if (ipcLinkedToggle) ipcLinkedToggle.checked = true;
     if (rsgModeSel) rsgModeSel.value = 'ipc_100';
-    if (capModeSel) capModeSel.value = '3.0';
+    if (marginInput) marginInput.value = '0.0';
+    if (capToggle) capToggle.checked = true;
+    if (capInput) capInput.value = '3.0';
   }
   updateWageSimulation();
 }
