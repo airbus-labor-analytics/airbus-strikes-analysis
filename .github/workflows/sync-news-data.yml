@@ -45,15 +45,14 @@ jobs:
         run: |
           python3 src/analysis_engine.py
 
-      - name: 6. Validate Mathematical Invariants & Sources
+      - name: 6. Recompile Strategic PDF Guide & Validate Invariants
         run: |
+          python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf || true
           python3 src/validate_invariants.py
           python3 src/validate_sources.py
 
       - name: 7. Commit & Push Updated Data to Main
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
           git add data/ dashboard/data.js docs/
           if git diff --staged --quiet; then
             echo "No data changes detected. Everything up to date."
