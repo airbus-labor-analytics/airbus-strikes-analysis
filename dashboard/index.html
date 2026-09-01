@@ -1010,28 +1010,6 @@
           </div>
         </div>
 
-        <!-- Filtered Feed -->
-        <div id="sec-industrial-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
-          <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b border-slate-800 pb-3 gap-2">
-            <div>
-              <h3 class="text-sm font-bold text-white flex items-center">
-                <i data-lucide="newspaper" class="w-4 h-4 mr-2 text-emerald-400"></i>
-                Feed de Presión Mediática, Redes Sociales y Opinión Pública
-              </h3>
-              <p class="text-xs text-slate-400 mt-0.5">Clasificación de impacto: Noticias y debates en Reuters, El País, Reddit, Twitter/X y Threads.</p>
-            </div>
-
-            <div class="flex items-center space-x-1.5">
-              <button onclick="filterThermoFeed('ALL')" id="btn-feed-all" class="px-2.5 py-1 rounded text-xs font-bold bg-blue-600 text-white">Todos</button>
-              <button onclick="filterThermoFeed('BAD_FOR_AIRBUS')" id="btn-feed-bad" class="px-2.5 py-1 rounded text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700">🔴 Palanca Huelga</button>
-              <button onclick="filterThermoFeed('GOOD_FOR_AIRBUS')" id="btn-feed-good" class="px-2.5 py-1 rounded text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700">🟢 Spin Empresa</button>
-            </div>
-          </div>
-
-          <div class="space-y-3 mt-4" id="thermo-feed-container">
-            <!-- Dynamically populated -->
-          </div>
-        </div>
 
         <!-- Section 3: Inmunidad y Vulnerabilidad Logística del Monopolio HTP -->
         <div id="sec-industrial-fals" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-6">
@@ -2411,6 +2389,46 @@ y se acumula en pensión y pagas extra.</span>
 
       <!-- ==================== TAB 5: DOCUMENTACIÓN & EVIDENCIAS ==================== -->
       <div id="tab-evidence" class="tab-content hidden space-y-6">
+        <!-- Feed de Presión Mediática, Redes Sociales y Opinión Pública -->
+        <div id="sec-evidence-media-feed" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-4">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-3 gap-3">
+            <div>
+              <div class="flex items-center space-x-2.5">
+                <h3 class="text-base font-bold text-white flex items-center">
+                  <i data-lucide="newspaper" class="w-5 h-5 mr-2 text-emerald-400"></i>
+                  Feed de Presión Mediática, Redes Sociales y Opinión Pública
+                </h3>
+                <span id="thermo-feed-count-badge" class="px-2 py-0.5 text-[11px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg">
+                  En Vivo
+                </span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Monitorización dinámica en tiempo real: Twitter/X, Reddit, Threads, Telegram Oficial, Reuters, El País y medios aeronáuticos.</p>
+            </div>
+
+            <!-- Impact Filters -->
+            <div class="flex items-center space-x-1.5 shrink-0">
+              <button onclick="filterThermoFeed('ALL')" id="btn-feed-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition">Todos</button>
+              <button onclick="filterThermoFeed('BAD_FOR_AIRBUS')" id="btn-feed-bad" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">🔴 Palanca Huelga</button>
+              <button onclick="filterThermoFeed('GOOD_FOR_AIRBUS')" id="btn-feed-good" class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition">🟢 Spin Empresa</button>
+            </div>
+          </div>
+
+          <!-- Platform Filter Pills -->
+          <div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-xs" id="feed-platform-pills">
+            <button onclick="filterThermoPlatform('ALL')" data-platform="ALL" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition whitespace-nowrap">Todas las Redes</button>
+            <button onclick="filterThermoPlatform('TWITTER')" data-platform="TWITTER" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="twitter" class="w-3 h-3 text-sky-400"></i> Twitter / X</button>
+            <button onclick="filterThermoPlatform('REDDIT')" data-platform="REDDIT" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="message-square" class="w-3 h-3 text-orange-400"></i> Reddit</button>
+            <button onclick="filterThermoPlatform('THREADS')" data-platform="THREADS" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="at-sign" class="w-3 h-3 text-purple-400"></i> Threads</button>
+            <button onclick="filterThermoPlatform('TELEGRAM')" data-platform="TELEGRAM" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="send" class="w-3 h-3 text-sky-400"></i> Telegram</button>
+            <button onclick="filterThermoPlatform('PRENSA')" data-platform="PRENSA" class="feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1"><i data-lucide="newspaper" class="w-3 h-3 text-emerald-400"></i> Prensa</button>
+          </div>
+
+          <!-- Dynamic Feed Items Container -->
+          <div class="space-y-3 max-h-[620px] overflow-y-auto custom-scrollbar pr-1" id="thermo-feed-container">
+            <!-- Dynamically populated by renderThermoFeed() -->
+          </div>
+        </div>
+
         <div id="sec-evidence-sources" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
           <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-4 gap-3">
             <div>

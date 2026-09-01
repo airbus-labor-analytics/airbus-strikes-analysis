@@ -257,5 +257,14 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn('id="beluga-movements-container"', self.html_content, "Missing #beluga-movements-container in index.html")
         self.assertIn('id="movements-count-badge"', self.html_content, "Missing #movements-count-badge in index.html")
         self.assertIn("function renderBelugaMovements(", self.app_js_content, "Missing renderBelugaMovements() in app.js")
+
+    def test_evidence_media_feed_ui(self):
+        """Validates dynamic multi-platform media and social feed located in Tab 5 (Evidencias)."""
+        self.assertIn('id="sec-evidence-media-feed"', self.html_content, "Missing #sec-evidence-media-feed in index.html")
+        self.assertIn('id="thermo-feed-container"', self.html_content, "Missing #thermo-feed-container in index.html")
+        self.assertIn('id="feed-platform-pills"', self.html_content, "Missing #feed-platform-pills in index.html")
+        self.assertIn("function filterThermoPlatform(", self.app_js_content, "Missing filterThermoPlatform() in app.js")
+        self.assertIn("function filterThermoFeed(", self.app_js_content, "Missing filterThermoFeed() in app.js")
+        self.assertIn("function renderThermoFeed(", self.app_js_content, "Missing renderThermoFeed() in app.js")
 if __name__ == "__main__":
     unittest.main()

@@ -553,6 +553,7 @@ function switchTab(tabId) {
       initTimeline();
       initWorkflows();
     } else if (normalizedTabId === 'tab-evidence') {
+      initThermometer();
       initSources();
       initTelegramArchive();
       initBenchmarks();
@@ -595,9 +596,9 @@ const TAB_SECTION_MAP = {
     title: 'Beluga / Logística',
     sections: [
       { id: 'sec-industrial-thermo', label: 'Termómetro de Presión', icon: 'flame' },
-      { id: 'sec-industrial-fleet', label: 'Flota Beluga en Tierra', icon: 'compass' },
-      { id: 'sec-industrial-history', label: 'Vuelos & Retención HTP', icon: 'history' },
-      { id: 'sec-industrial-feed', label: 'Monitor de Envíos JIT', icon: 'activity' },
+      { id: 'sec-industrial-beluga', label: 'Flota BelugaXL Live', icon: 'compass' },
+      { id: 'sec-industrial-routes', label: 'Rutas & Conexiones FALs', icon: 'navigation' },
+      { id: 'sec-industrial-movements', label: 'Registro de Movimientos', icon: 'history' },
       { id: 'sec-industrial-fals', label: 'Cuello de Botella FALs', icon: 'boxes' }
     ]
   },
@@ -626,6 +627,7 @@ const TAB_SECTION_MAP = {
   'tab-evidence': {
     title: 'Evidencias',
     sections: [
+      { id: 'sec-evidence-media-feed', label: 'Feed Redes & Prensa en Vivo', icon: 'newspaper' },
       { id: 'sec-evidence-sources', label: 'Fuentes Primarias (269+)', icon: 'book-open' },
       { id: 'sec-evidence-telegram', label: 'Canal Telegram & Docs', icon: 'send' },
       { id: 'sec-evidence-benchmarks', label: 'Benchmark Conflictos', icon: 'award' }
@@ -3453,50 +3455,157 @@ function initThermometer() {
   renderThermoFeed(thermoFeedData);
 }
 
+let selectedThermoCategory = 'ALL';
+let selectedThermoPlatform = 'ALL';
+
 function renderThermoFeed(items) {
   const container = document.getElementById('thermo-feed-container');
+  const countBadge = document.getElementById('thermo-feed-count-badge');
   if (!container) return;
 
-  container.innerHTML = items.map(item => `
-    <div class="p-3.5 bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 rounded-xl transition space-y-1.5">
-      <div class="flex justify-between items-center">
-        <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded ${item.impact === 'BAD_FOR_AIRBUS' ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">${item.source} • ${item.date}</span>
-        <span class="text-[10px] text-slate-400 font-medium">${item.category}</span>
+  const filtered = items.filter(item => {
+    // 1. Filter by category
+    if (selectedThermoCategory === 'BAD_FOR_AIRBUS') {
+      const isBad = item.category === 'BAD_FOR_AIRBUS' || item.impact === 'BAD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('+'));
+      if (!isBad) return false;
+    } else if (selectedThermoCategory === 'GOOD_FOR_AIRBUS') {
+      const isGood = item.category === 'GOOD_FOR_AIRBUS' || item.impact === 'GOOD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('-'));
+      if (!isGood) return false;
+    }
+
+    // 2. Filter by platform
+    if (selectedThermoPlatform !== 'ALL') {
+      const p = (item.platform || 'PRENSA').toUpperCase();
+      if (p !== selectedThermoPlatform) return false;
+    }
+
+    return true;
+  });
+
+  if (countBadge) {
+    countBadge.textContent = `${filtered.length} publicaciones`;
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="p-8 text-center bg-slate-900/40 border border-dashed border-slate-800 rounded-xl space-y-1.5">
+        <p class="text-xs font-semibold text-slate-400">No se encontraron publicaciones con los filtros seleccionados.</p>
+        <p class="text-[11px] text-slate-500 font-mono">Filtros: ${selectedThermoCategory} | Plataforma: ${selectedThermoPlatform}</p>
       </div>
-      <a href="${item.url}" target="_blank" class="text-xs font-bold text-white hover:text-sky-400 transition block">
-        ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500"></i>
-      </a>
-      <p class="text-xs text-slate-300 mt-1 leading-relaxed">${item.summary}</p>
-    </div>
-  `).join('');
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => {
+    const isBad = item.category === 'BAD_FOR_AIRBUS' || item.impact === 'BAD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('+'));
+    const isGood = item.category === 'GOOD_FOR_AIRBUS' || item.impact === 'GOOD_FOR_AIRBUS' || (item.pressure_impact && String(item.pressure_impact).startsWith('-'));
+    
+    let badgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+    let impactText = item.pressure_impact || '0°C';
+    let impactBadgeClass = 'bg-slate-800 text-slate-400 border-slate-700';
+    
+    if (isBad) {
+      badgeClass = 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+      impactBadgeClass = 'bg-rose-500/20 text-rose-300 border border-rose-500/30 font-extrabold';
+    } else if (isGood) {
+      badgeClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+      impactBadgeClass = 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-extrabold';
+    }
+
+    // Platform icons and colors
+    const plat = (item.platform || 'PRENSA').toUpperCase();
+    let platIcon = 'newspaper';
+    let platColor = 'text-emerald-400';
+    let platLabel = item.channel || item.source || 'Prensa';
+
+    if (plat === 'TWITTER' || (item.source && item.source.includes('Twitter'))) {
+      platIcon = 'twitter';
+      platColor = 'text-sky-400';
+      platLabel = 'Twitter / X';
+    } else if (plat === 'REDDIT' || (item.source && item.source.includes('Reddit'))) {
+      platIcon = 'message-square';
+      platColor = 'text-orange-400';
+      platLabel = 'Reddit';
+    } else if (plat === 'THREADS' || (item.source && item.source.includes('Threads'))) {
+      platIcon = 'at-sign';
+      platColor = 'text-purple-400';
+      platLabel = 'Threads';
+    } else if (plat === 'TELEGRAM' || (item.source && item.source.includes('Telegram'))) {
+      platIcon = 'send';
+      platColor = 'text-sky-400';
+      platLabel = 'Telegram';
+    }
+
+    return `
+      <div class="p-4 bg-slate-900/80 hover:bg-slate-900 border border-slate-800/90 hover:border-slate-700 rounded-xl transition space-y-2 shadow-sm group">
+        <div class="flex flex-wrap justify-between items-center gap-1.5">
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+              <i data-lucide="${platIcon}" class="w-3 h-3 ${platColor}"></i>
+              <span>${item.source || platLabel}</span>
+            </span>
+            <span class="text-[10px] text-slate-500 font-mono">${item.date || 'Reciente'}</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 text-[9.5px] font-mono rounded ${impactBadgeClass}">
+              ${impactText}
+            </span>
+            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${badgeClass}">
+              ${isBad ? 'Palanca Huelga' : (isGood ? 'Spin Empresa' : 'Seguimiento')}
+            </span>
+          </div>
+        </div>
+
+        <a href="${item.url}" target="_blank" class="text-xs sm:text-sm font-bold text-white group-hover:text-sky-400 transition block leading-snug">
+          ${item.title} <i data-lucide="external-link" class="inline w-3 h-3 ml-1 text-slate-500 group-hover:text-sky-400"></i>
+        </a>
+
+        <p class="text-xs text-slate-300 leading-relaxed">${item.summary || ''}</p>
+      </div>
+    `;
+  }).join('');
 
   if (window.lucide) lucide.createIcons();
 }
 
 function filterThermoFeed(category) {
+  selectedThermoCategory = category;
+
   document.getElementById('btn-feed-all')?.classList.remove('bg-blue-600', 'text-white');
   document.getElementById('btn-feed-bad')?.classList.remove('bg-rose-600', 'text-white');
   document.getElementById('btn-feed-good')?.classList.remove('bg-emerald-600', 'text-white');
 
-  document.getElementById('btn-feed-all')?.classList.add('bg-slate-800', 'text-slate-300');
-  document.getElementById('btn-feed-bad')?.classList.add('bg-slate-800', 'text-slate-300');
-  document.getElementById('btn-feed-good')?.classList.add('bg-slate-800', 'text-slate-300');
+  document.getElementById('btn-feed-all')?.classList.add('bg-slate-900', 'text-slate-300');
+  document.getElementById('btn-feed-bad')?.classList.add('bg-slate-900', 'text-slate-300');
+  document.getElementById('btn-feed-good')?.classList.add('bg-slate-900', 'text-slate-300');
 
   if (category === 'ALL') {
     document.getElementById('btn-feed-all')?.classList.add('bg-blue-600', 'text-white');
-    document.getElementById('btn-feed-all')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData);
+    document.getElementById('btn-feed-all')?.classList.remove('bg-slate-900', 'text-slate-300');
   } else if (category === 'BAD_FOR_AIRBUS') {
     document.getElementById('btn-feed-bad')?.classList.add('bg-rose-600', 'text-white');
-    document.getElementById('btn-feed-bad')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'BAD_FOR_AIRBUS' || i.impact === 'BAD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('+')))));
+    document.getElementById('btn-feed-bad')?.classList.remove('bg-slate-900', 'text-slate-300');
   } else if (category === 'GOOD_FOR_AIRBUS') {
     document.getElementById('btn-feed-good')?.classList.add('bg-emerald-600', 'text-white');
-    document.getElementById('btn-feed-good')?.classList.remove('bg-slate-800', 'text-slate-300');
-    renderThermoFeed(thermoFeedData.filter(i => (i.category === 'GOOD_FOR_AIRBUS' || i.impact === 'GOOD_FOR_AIRBUS' || (i.pressure_impact && String(i.pressure_impact).startsWith('-')))));
+    document.getElementById('btn-feed-good')?.classList.remove('bg-slate-900', 'text-slate-300');
   }
+
+  renderThermoFeed(thermoFeedData);
 }
 
+function filterThermoPlatform(platform) {
+  selectedThermoPlatform = platform;
+  document.querySelectorAll('.feed-plat-pill').forEach(pill => {
+    const p = pill.getAttribute('data-platform');
+    if (p === platform) {
+      pill.className = "feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white transition whitespace-nowrap flex items-center gap-1";
+    } else {
+      pill.className = "feed-plat-pill px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition whitespace-nowrap flex items-center gap-1";
+    }
+  });
+
+  renderThermoFeed(thermoFeedData);
+}
 function startBelugaLivePolling() {
   if (belugaPollingInterval) clearInterval(belugaPollingInterval);
   belugaPollingInterval = setInterval(async () => {
