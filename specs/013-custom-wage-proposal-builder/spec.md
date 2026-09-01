@@ -15,6 +15,13 @@ En su lugar, se incorpora un **Constructor y Simulador Paramétrico de Oferta Pe
 3. Función de optimización y meta de recuperación de poder adquisitivo acumulado (ej. recuperación total del 100% de la pérdida del VI Convenio en 2028, 2030 u otro año horizonte).
 4. Comparativa dinámica en tiempo real (tarjeta de escenario reactiva y series en gráficos de evolución multianual) frente a la Oferta Patronal oficial (+5%) y la Plataforma del Comité (+12%).
 
+## Clarifications
+
+### Session 2026-09-01
+- Q: ¿Cómo y dónde debe integrarse en la interfaz el panel de control del constructor de la oferta personalizada? → A: Directamente en la 3ª tarjeta ("Tu Propuesta Personalizada") con sliders y selectores compactos in-place y presets rápidos, permitiendo ver el resultado y editarlo en el mismo bloque.
+- Q: ¿Qué preajustes rápidos (presets) deben incluirse en el constructor de la oferta personalizada para facilitar la simulación con un solo clic? → A: 3 presets estándar: 1) "Pérdida Cero (100% IPC)", 2) "Recuperación 2030 (IPC + 1%)" y 3) "Equilibrio (8% + 4.000 € atrasos + IPC cap 3%)".
+- Q: ¿Qué comparación debe mostrar la segunda tarjeta de KPI diferencial acumulada a 5 años tras sustituir la oferta de SIMA? → A: Comparar "Tu Oferta Personalizada vs. Oferta Patronal Airbus" (mostrando la ganancia diferencial neta nominal y real en € a 5 años respecto a la oferta del +5% de la empresa).
+
 ---
 
 ## User Scenarios & Testing
