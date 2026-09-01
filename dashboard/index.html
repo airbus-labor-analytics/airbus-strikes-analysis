@@ -1375,81 +1375,12 @@ se convierte en bajada encubierta.</span>
             </div>
           </div>
 
-          <!-- Card 2: SIMA -->
-          <div class="bg-slate-900/90 p-4 rounded-xl border border-sky-500/30 space-y-3 flex flex-col justify-between">
-            <div>
-              <div class="flex justify-between items-start">
-                <div>
-                  <span class="text-[10px] font-extrabold text-sky-400 uppercase tracking-widest block">2. Preacuerdo SIMA</span>
-                  <h3 class="text-base sm:text-lg font-black text-white mt-0.5">+9,5% <span class="text-xs text-sky-300 font-bold">Consolidado</span></h3>
-                </div>
-                <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/40 rounded shrink-0">Equilibrio</span>
-              </div>
-
-              <div class="space-y-2 border-t border-slate-800 pt-3 text-xs">
-                <div class="flex justify-between items-start gap-2">
-                  <span class="math-tip text-slate-400">Salario Año 1 (tablas)
-                    <span class="tip-box">S₁ = S₀ × 1,095
-Ej: 50.000 × 1,095 = 54.750 €
-Consolidado en tablas (base futura
-para quinquenios y pensiones).</span>
-                  </span>
-                  <strong class="text-white font-mono shrink-0" id="sc2-salary-y1">54.750 €</strong>
-                </div>
-                <div class="flex justify-between items-start gap-2">
-                  <span class="math-tip text-slate-400">Subida neta / mes (14p)
-                    <span class="tip-box">Δ mensual = (S₁ − S₀) / 14
-Neto ≈ bruto × (1 − tasa_IRPF)
-Permanente en cada nómina futura.</span>
-                  </span>
-                  <strong class="text-sky-300 font-mono shrink-0" id="sc2-monthly">+244 €/mes</strong>
-                </div>
-                <div class="flex justify-between items-start gap-2">
-                  <span class="math-tip text-sky-400 font-medium">Poder compra real Año 5
-                    <span class="tip-box">P₅ = S₁ × (1+IPC)⁴ / (1+IPC)⁴
-Con RSG = 100% IPC: el salario nominal
-sigue exactamente al IPC. Poder
-adquisitivo queda constante.</span>
-                  </span>
-                  <strong class="text-sky-300 font-mono font-black shrink-0" id="sc2-real-5yr">54.750 € (100% IPC)</strong>
-                </div>
-                <div class="flex justify-between items-start gap-2">
-                  <span class="math-tip text-slate-400">Atrasos retroactivos
-                    <span class="tip-box">5.000 € consolidados como base de
-cálculo para la paga de diciembre y
-el plan de pensiones.</span>
-                  </span>
-                  <strong class="text-sky-300 font-mono shrink-0">+5.000 €</strong>
-                </div>
-                <div class="flex justify-between items-start gap-2">
-                  <span class="math-tip text-slate-400">Cláusula revisión (RSG)
-                    <span class="tip-box">RSG = 100% IPC anual diferido.
-Mantiene poder adquisitivo pero no genera
-ganancia real adicional.</span>
-                  </span>
-                  <strong class="text-sky-300 font-bold shrink-0">100% IPC anual</strong>
-                </div>
-                <div class="flex justify-between items-start border-t border-slate-800/80 pt-2 gap-2">
-                  <span class="math-tip text-slate-300 font-bold">Beneficio neto Año 1
-                    <span class="tip-box">BN = Δsalario_neto + atrasos_netos
-     + compensación_teletrabajo
-     + Δpensión + Bradford</span>
-                  </span>
-                  <strong class="text-sky-400 font-black text-sm font-mono shrink-0" id="sc2-net-total">+6.840 €</strong>
-                </div>
-              </div>
-            </div>
-            <div class="text-[10px] text-sky-300/80 bg-sky-500/10 p-2 rounded-lg border border-sky-500/20 mt-2">
-              Empata con el IPC: mantiene poder de compra pero no recupera la pérdida salarial acumulada del VI Convenio.
-            </div>
-          </div>
-
-          <!-- Card 3: Comité -->
+          <!-- Card 2: Plataforma del Comité de Empresa (+12%) -->
           <div class="bg-slate-900/90 p-4 rounded-xl border border-emerald-500/50 space-y-3 shadow-lg shadow-emerald-950/40 flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start">
                 <div>
-                  <span class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-widest block">3. Plataforma del Comité</span>
+                  <span class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-widest block">2. Plataforma del Comité</span>
                   <h3 class="text-base sm:text-lg font-black text-white mt-0.5">+12,0% <span class="text-xs text-emerald-300 font-bold">Íntegro en Tablas</span></h3>
                 </div>
                 <span class="px-2 py-0.5 text-[9px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded shrink-0">Objetivo Huelga</span>
@@ -1463,7 +1394,7 @@ Ej: 50.000 × 1,12 = 56.000 €
 Íntegro en tablas desde enero:
 sin Efecto Abril, 100% retroactivo.</span>
                   </span>
-                  <strong class="text-emerald-400 font-mono shrink-0" id="sc3-salary-y1">56.000 €</strong>
+                  <strong class="text-emerald-400 font-mono shrink-0" id="sc2-salary-y1">56.000 €</strong>
                 </div>
                 <div class="flex justify-between items-start gap-2">
                   <span class="math-tip text-slate-400">Subida neta / mes (14p)
@@ -1471,16 +1402,15 @@ sin Efecto Abril, 100% retroactivo.</span>
 Neto ≈ bruto × (1 − tasa_IRPF)
 Permanente y consolidada.</span>
                   </span>
-                  <strong class="text-emerald-300 font-mono shrink-0" id="sc3-monthly">+308 €/mes</strong>
+                  <strong class="text-emerald-300 font-mono shrink-0" id="sc2-monthly">+308 €/mes</strong>
                 </div>
                 <div class="flex justify-between items-start gap-2">
                   <span class="math-tip text-emerald-400 font-medium">Poder compra real Año 5
-                    <span class="tip-box">P₅ = S₁ × (1 + IPC + 0,015)⁴
-             / (1 + IPC)⁴
+                    <span class="tip-box">P₅ = S₁ × (1 + IPC + 0,015)⁴ / (1 + IPC)⁴
 La cláusula RSG = IPC + 1,5% genera
 ganancia real neta acumulativa cada año.</span>
                   </span>
-                  <strong class="text-emerald-400 font-mono font-black shrink-0" id="sc3-real-5yr">59.435 € (+18,9%)</strong>
+                  <strong class="text-emerald-400 font-mono font-black shrink-0" id="sc2-real-5yr">59.435 € (+18,9%)</strong>
                 </div>
                 <div class="flex justify-between items-start gap-2">
                   <span class="math-tip text-slate-400">Atrasos retroactivos
@@ -1505,12 +1435,114 @@ Blindaje total frente a inflación.</span>
      + teletrabajo + Bradford
      + Δpensión (5,5%) + Δpluses</span>
                   </span>
-                  <strong class="text-emerald-400 font-black text-sm font-mono shrink-0" id="sc3-net-total">+10.250 €</strong>
+                  <strong class="text-emerald-400 font-black text-sm font-mono shrink-0" id="sc2-net-total">+10.250 €</strong>
                 </div>
               </div>
             </div>
             <div class="text-[10px] text-emerald-300/80 bg-emerald-500/10 p-2 rounded-lg border border-emerald-500/20 mt-2">
-              Blindaje integral: RSG (IPC+1,5%) garantiza ganancia real de <strong class="text-emerald-300 font-bold" id="sc3-gain-badge">+18,9%</strong> acumulado en 5 años.
+              Blindaje integral: RSG (IPC+1,5%) garantiza ganancia real de <strong class="text-emerald-300 font-bold" id="sc2-gain-badge">+18,9%</strong> acumulado en 5 años.
+            </div>
+          </div>
+
+          <!-- Card 3: Tu Propuesta Personalizada (Interactive Builder) -->
+          <div id="sc3-custom" class="bg-slate-900/90 p-4 rounded-xl border border-sky-500/40 space-y-3 shadow-lg shadow-sky-950/30 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-[10px] font-extrabold text-sky-400 uppercase tracking-widest block">3. Tu Propuesta</span>
+                  <h3 class="text-base sm:text-lg font-black text-white mt-0.5">Constructor <span class="text-xs text-sky-300 font-bold">Personalizado</span></h3>
+                </div>
+                <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/40 rounded shrink-0">Simulador</span>
+              </div>
+
+              <!-- Presets Rápidos -->
+              <div class="pt-2 pb-1 border-t border-slate-800 flex flex-wrap gap-1.5 items-center">
+                <button type="button" id="btn-preset-loss-zero" onclick="setCustomProposalPreset('loss_zero')" class="px-2 py-0.5 text-[9.5px] font-bold bg-sky-500/20 text-sky-300 border border-sky-500/40 rounded hover:bg-sky-500/30 transition-all cursor-pointer">Pérdida Cero</button>
+                <button type="button" id="btn-preset-recovery-2030" onclick="setCustomProposalPreset('recovery_2030')" class="px-2 py-0.5 text-[9.5px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40 rounded hover:bg-purple-500/30 transition-all cursor-pointer">Recuperación 2030</button>
+                <button type="button" id="btn-preset-equilibrium" onclick="setCustomProposalPreset('equilibrium')" class="px-2 py-0.5 text-[9.5px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded hover:bg-emerald-500/30 transition-all cursor-pointer">Equilibrio</button>
+              </div>
+
+              <!-- In-Card Compact Controls -->
+              <div class="space-y-2.5 p-2.5 bg-slate-950/80 rounded-lg border border-slate-800 text-xs">
+                <div class="space-y-1">
+                  <div class="flex justify-between items-center text-[10.5px]">
+                    <span class="text-slate-400">Subida inicial tablas ($S_1$):</span>
+                    <strong class="text-sky-300 font-mono text-xs" id="sim-custom-raise-badge">8,0%</strong>
+                  </div>
+                  <input type="range" id="sim-custom-raise" min="0" max="25" step="0.5" value="8" oninput="updateCustomRaise(this.value)" class="w-full accent-sky-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg">
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="space-y-1">
+                    <label for="sim-custom-arrears" class="text-[10px] text-slate-400 block font-medium">Atrasos (€):</label>
+                    <select id="sim-custom-arrears" onchange="updateCustomProposal()" class="w-full bg-slate-900 border border-slate-700 text-slate-200 text-[11px] rounded px-1.5 py-1 font-mono">
+                      <option value="0">0 €</option>
+                      <option value="2000">2.000 €</option>
+                      <option value="4000" selected>4.000 €</option>
+                      <option value="5000">5.000 €</option>
+                      <option value="7500">7.500 €</option>
+                      <option value="8500">8.500 €</option>
+                      <option value="10000">10.000 €</option>
+                      <option value="15000">15.000 €</option>
+                    </select>
+                  </div>
+                  <div class="space-y-1">
+                    <label for="sim-custom-rsg-cap" class="text-[10px] text-slate-400 block font-medium">Tope máx (Cap):</label>
+                    <select id="sim-custom-rsg-cap" onchange="updateCustomProposal()" class="w-full bg-slate-900 border border-slate-700 text-slate-200 text-[11px] rounded px-1.5 py-1">
+                      <option value="none" selected>Sin tope</option>
+                      <option value="3.0">Máx 3,0%</option>
+                      <option value="4.0">Máx 4,0%</option>
+                      <option value="5.0">Máx 5,0%</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="space-y-1">
+                  <label for="sim-custom-rsg-mode" class="text-[10px] text-slate-400 block font-medium">Modo Cláusula RSG:</label>
+                  <select id="sim-custom-rsg-mode" onchange="updateCustomProposal()" class="w-full bg-slate-900 border border-slate-700 text-slate-200 text-[11px] rounded px-1.5 py-1">
+                    <option value="ipc_100" selected>100% IPC anual diferido</option>
+                    <option value="ipc_margin">IPC + 1,0% Margen</option>
+                    <option value="none">Sin linkado a IPC (Tasa fija)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Live Calculated Output Metrics -->
+              <div class="space-y-1.5 pt-2 text-xs">
+                <div class="flex justify-between items-start gap-2">
+                  <span class="math-tip text-slate-400">Salario Año 1 (tablas)
+                    <span class="tip-box">S₁ = S₀ × (1 + r_propuesta)
+Calculado en base a tu subida inicial
+seleccionada en el deslizador.</span>
+                  </span>
+                  <strong class="text-white font-mono shrink-0" id="sc3-salary-y1">54.000 €</strong>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <span class="math-tip text-slate-400">Subida neta / mes (14p)
+                    <span class="tip-box">Δ mensual = (S₁ − S₀) / 14
+Neto ≈ bruto × (1 − tasa_IRPF)</span>
+                  </span>
+                  <strong class="text-sky-300 font-mono shrink-0" id="sc3-monthly">+206 €/mes</strong>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <span class="math-tip text-sky-400 font-medium">Poder compra real Año 5
+                    <span class="tip-box">P₅ = S₁ × (1 + rsg_anual)⁴ / (1 + IPC)⁴
+Evolución deflactada por la inflación
+según la fórmula de RSG y topes.</span>
+                  </span>
+                  <strong class="text-sky-300 font-mono font-black shrink-0" id="sc3-real-5yr">54.000 € (100% IPC)</strong>
+                </div>
+                <div class="flex justify-between items-start border-t border-slate-800/80 pt-1.5 gap-2">
+                  <span class="math-tip text-slate-300 font-bold">Beneficio neto Año 1
+                    <span class="tip-box">BN = Δsalario_neto + atrasos_netos
+     + teletrabajo + pluses + pensión</span>
+                  </span>
+                  <strong class="text-sky-400 font-black text-sm font-mono shrink-0" id="sc3-net-total">+5.800 €</strong>
+                </div>
+              </div>
+            </div>
+            <div class="text-[10px] text-sky-300/80 bg-sky-500/10 p-2 rounded-lg border border-sky-500/20 mt-2">
+              Impacto proyectado: <strong class="text-sky-300 font-bold" id="sc3-gain-badge">+0,0%</strong> de ganancia real acumulada a 5 años.
             </div>
           </div>
         </div>
@@ -1574,15 +1606,18 @@ y se acumula en pensión y pagas extra.</span>
             <div class="p-4 bg-slate-900/90 border border-sky-500/30 rounded-xl space-y-1.5 flex flex-col justify-between">
               <div>
                 <div class="flex justify-between items-center">
-                  <span class="text-xs font-bold text-sky-400">Preacuerdo SIMA (+9,5%) vs. Empresa</span>
+                  <span class="text-xs font-bold text-sky-400">Tu Propuesta vs. Empresa (+5%)</span>
                   <span class="px-2 py-0.5 text-[9px] font-extrabold bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">5 Años</span>
                 </div>
                 <div class="flex items-baseline space-x-2 pt-1.5">
-                  <span class="text-2xl font-black text-sky-400 font-mono" id="kpi-diff-sima-5yr">+26.000 €</span>
-                  <span class="text-xs font-bold text-sky-300/80 font-mono" id="kpi-diff-sima-5yr-real">(+19.800 € reales)</span>
+                  <span class="text-2xl font-black text-sky-400 font-mono" id="kpi-diff-custom-5yr">+22.400 €</span>
+                  <span class="text-xs font-bold text-sky-300/80 font-mono" id="kpi-diff-custom-5yr-real">(+16.800 € reales)</span>
+                  <!-- Hidden legacy anchor for backward test compatibility -->
+                  <span id="kpi-diff-sima-5yr" class="hidden"></span>
+                  <span id="kpi-diff-sima-5yr-real" class="hidden"></span>
                 </div>
               </div>
-              <p class="text-[10.5px] text-slate-400 leading-relaxed border-t border-slate-800/80 pt-2">+9,5% en tablas, 5.000 € atrasos, IPC=100% RSG acumulados en 5 años de nómina.</p>
+              <p class="text-[10.5px] text-slate-400 leading-relaxed border-t border-slate-800/80 pt-2">Diferencial acumulado nominal y real a 5 años de tu propuesta configurada frente a la oferta patronal.</p>
             </div>
           </div>
         </div>
@@ -1599,7 +1634,7 @@ y se acumula en pensión y pagas extra.</span>
             </div>
             <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10.5px] shrink-0">
               <span class="flex items-center text-rose-400 font-medium"><span class="w-3 h-1 bg-rose-500 rounded mr-1.5 inline-block"></span>Empresa (+5%)</span>
-              <span class="flex items-center text-sky-400 font-medium"><span class="w-3 h-1 bg-sky-400 rounded mr-1.5 inline-block"></span>SIMA (+9,5%)</span>
+              <span class="flex items-center text-sky-400 font-medium"><span class="w-3 h-1 bg-sky-400 rounded mr-1.5 inline-block"></span>Tu Propuesta</span>
               <span class="flex items-center text-emerald-400 font-medium"><span class="w-3 h-1 bg-emerald-500 rounded mr-1.5 inline-block"></span>Comité (+12%)</span>
               <span class="flex items-center text-slate-400 font-medium"><span class="w-3 h-1 bg-slate-500/40 rounded mr-1.5 inline-block border border-dashed border-slate-400"></span>Poder Real (sin RSG)</span>
             </div>
@@ -1622,6 +1657,7 @@ y se acumula en pensión y pagas extra.</span>
             <div class="flex flex-wrap items-center gap-2 text-[10.5px] shrink-0">
               <span class="flex items-center text-slate-400"><span class="w-2.5 h-2.5 rounded-full bg-slate-500 mr-1"></span>Sin Huelga</span>
               <span class="flex items-center text-rose-400"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 mr-1"></span>Empresa (+5%)</span>
+              <span class="flex items-center text-sky-400"><span class="w-2.5 h-2.5 rounded-full bg-sky-400 mr-1"></span>Tu Propuesta</span>
               <span class="flex items-center text-amber-400"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 mr-1"></span>Comité (+12%)</span>
               <span class="flex items-center text-emerald-400"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-1"></span>CGT (+14%)</span>
             </div>

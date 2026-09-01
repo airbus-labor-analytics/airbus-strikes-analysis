@@ -945,6 +945,85 @@ function setIpcPreset(val) {
     updateWageSimulation();
   }
 }
+function evaluateAnnualRaise(ipcRate, rsgMode = 'ipc_100', rsgMargin = 0.0, rsgCap = null) {
+  let nominalRaise = 0.0;
+  if (rsgMode === 'none') {
+    nominalRaise = rsgMargin;
+  } else if (rsgMode === 'ipc_100') {
+    nominalRaise = ipcRate;
+  } else if (rsgMode === 'ipc_margin') {
+    nominalRaise = ipcRate + rsgMargin;
+  } else {
+    nominalRaise = ipcRate;
+  }
+  if (rsgCap !== null && rsgCap !== undefined && rsgCap > 0) {
+    nominalRaise = Math.min(nominalRaise, rsgCap);
+  }
+  return Math.max(nominalRaise, 0.0);
+}
+
+function solveRecoveryInitialRaise(histLoss = 0.118, targetYear = 2030, rsgMargin = 0.0) {
+  const years = Math.max(targetYear - 2025, 1);
+  if (rsgMargin === 0.0) return histLoss;
+  return (1.0 + histLoss) / Math.pow(1.0 + rsgMargin, years - 1) - 1.0;
+}
+
+function getCustomProposalState() {
+  const slider = document.getElementById('sim-custom-raise') || document.getElementById('custom-raise-slider');
+  const arrearsSel = document.getElementById('sim-custom-arrears') || document.getElementById('custom-arrears-input');
+  const rsgModeSel = document.getElementById('sim-custom-rsg-mode') || document.getElementById('custom-rsg-mode');
+  const capModeSel = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
+
+  const initialRaisePct = slider ? parseFloat(slider.value) || 8.0 : 8.0;
+  const arrears = arrearsSel ? parseFloat(arrearsSel.value) || 4000 : 4000;
+  const rsgMode = rsgModeSel ? rsgModeSel.value : 'ipc_100';
+  const rsgMargin = rsgMode === 'ipc_margin' ? 0.01 : (rsgMode === 'none' ? 0.015 : 0.0);
+  const capVal = capModeSel && capModeSel.value !== 'none' ? parseFloat(capModeSel.value) / 100.0 : null;
+
+  return { initialRaisePct, arrears, rsgMode, rsgMargin, rsgCap: capVal };
+}
+
+function updateCustomRaise(val) {
+  const badge = document.getElementById('sim-custom-raise-badge') || document.getElementById('custom-raise-badge');
+  if (badge) badge.textContent = `${parseFloat(val).toFixed(1).replace('.', ',')}%`;
+  updateWageSimulation();
+}
+
+function updateCustomProposal() {
+  updateWageSimulation();
+}
+
+function setCustomProposalPreset(presetKey) {
+  const slider = document.getElementById('sim-custom-raise') || document.getElementById('custom-raise-slider');
+  const badge = document.getElementById('sim-custom-raise-badge') || document.getElementById('custom-raise-badge');
+  const arrearsSel = document.getElementById('sim-custom-arrears') || document.getElementById('custom-arrears-input');
+  const rsgModeSel = document.getElementById('sim-custom-rsg-mode') || document.getElementById('custom-rsg-mode');
+  const capModeSel = document.getElementById('sim-custom-rsg-cap') || document.getElementById('custom-cap-mode');
+  const ipcRate = parseFloat(document.getElementById('sim-ipc-rate')?.value || '2.5') / 100.0;
+
+  if (presetKey === 'loss_zero') {
+    const targetPct = (ipcRate * 100).toFixed(1);
+    if (slider) slider.value = targetPct;
+    if (badge) badge.textContent = `${targetPct.replace('.', ',')}%`;
+    if (arrearsSel) arrearsSel.value = '0';
+    if (rsgModeSel) rsgModeSel.value = 'ipc_100';
+    if (capModeSel) capModeSel.value = 'none';
+  } else if (presetKey === 'recovery_2030') {
+    const reqPct = (solveRecoveryInitialRaise(0.118, 2030, 0.01) * 100).toFixed(1);
+    if (slider) slider.value = reqPct;
+    if (badge) badge.textContent = `${reqPct.replace('.', ',')}%`;
+    if (arrearsSel) arrearsSel.value = '5000';
+    if (rsgModeSel) rsgModeSel.value = 'ipc_margin';
+    if (capModeSel) capModeSel.value = 'none';
+  } else if (presetKey === 'equilibrium') {
+    if (slider) slider.value = '8.0';
+    if (badge) badge.textContent = '8,0%';
+    if (arrearsSel) arrearsSel.value = '4000';
+    if (rsgModeSel) rsgModeSel.value = 'ipc_100';
+    if (capModeSel) capModeSel.value = '3.0';
+  }
+  updateWageSimulation();
+}
 
 function calculateSalaryProposals(baseSalary, ipcRate) {
   const w0 = Number(baseSalary) || 50000;
@@ -1004,10 +1083,29 @@ function calculateSalaryProposals(baseSalary, ipcRate) {
   const com_total_nom = com_nom.slice(1).reduce((a, b) => a + b, 0);
   const com_total_real = com_real.slice(1).reduce((a, b) => a + b, 0);
 
+  // 4. Custom Proposal (Interactive Builder)
+  const cState = getCustomProposalState();
+  const cust_w1_base = w0 * (1.0 + cState.initialRaisePct / 100.0);
+  const cust_w1 = cust_w1_base + cState.arrears;
+  const cust_rate = evaluateAnnualRaise(i, cState.rsgMode, cState.rsgMargin, cState.rsgCap);
+  const cust_w2 = cust_w1_base * (1 + cust_rate);
+  const cust_w3 = cust_w2 * (1 + cust_rate);
+  const cust_w4 = cust_w3 * (1 + cust_rate);
+  const cust_w5 = cust_w4 * (1 + cust_rate);
+  const cust_nom = [w0, cust_w1, cust_w2, cust_w3, cust_w4, cust_w5];
+  const cust_real = cust_nom.map((v, idx) => v / d[idx]);
+  const cust_cum_nom = [w0];
+  for (let y = 1; y <= 5; y++) cust_cum_nom.push(cust_cum_nom[y - 1] + cust_nom[y]);
+  const cust_cum_real = [w0];
+  for (let y = 1; y <= 5; y++) cust_cum_real.push(cust_cum_real[y - 1] + cust_real[y]);
+  const cust_total_nom = cust_nom.slice(1).reduce((a, b) => a + b, 0);
+  const cust_total_real = cust_real.slice(1).reduce((a, b) => a + b, 0);
+
   return {
     company: { yearly_nom: co_nom, yearly_real: co_real, cum_nom: co_cum_nom, cum_real: co_cum_real, total_5yr_nom: co_total_nom, total_5yr_real: co_total_real, arrears: 2000 },
     cgt: { yearly_nom: cgt_nom, yearly_real: cgt_real, cum_nom: cgt_cum_nom, cum_real: cgt_cum_real, total_5yr_nom: cgt_total_nom, total_5yr_real: cgt_total_real, arrears: 8500, delta_vs_co_nom: cgt_total_nom - co_total_nom, delta_vs_co_real: cgt_total_real - co_total_real },
-    strike_committee: { yearly_nom: com_nom, yearly_real: com_real, cum_nom: com_cum_nom, cum_real: com_cum_real, total_5yr_nom: com_total_nom, total_5yr_real: com_total_real, arrears: 7500, delta_vs_co_nom: com_total_nom - co_total_nom, delta_vs_co_real: com_total_real - co_total_real }
+    strike_committee: { yearly_nom: com_nom, yearly_real: com_real, cum_nom: com_cum_nom, cum_real: com_cum_real, total_5yr_nom: com_total_nom, total_5yr_real: com_total_real, arrears: 7500, delta_vs_co_nom: com_total_nom - co_total_nom, delta_vs_co_real: com_total_real - co_total_real },
+    custom: { yearly_nom: cust_nom, yearly_real: cust_real, cum_nom: cust_cum_nom, cum_real: cust_cum_real, total_5yr_nom: cust_total_nom, total_5yr_real: cust_total_real, arrears: cState.arrears, delta_vs_co_nom: cust_total_nom - co_total_nom, delta_vs_co_real: cust_total_real - co_total_real }
   };
 }
 // Shared helper: set textContent by id (safe no-op if element missing)
@@ -1094,24 +1192,7 @@ function updateWageSimulation() {
   const coRealLossPct = ((coRealYear5 / curSalary) - 1) * 100;
   const coRealLossAmt = coRealYear5 - curSalary;
 
-  // --- SCENARIO 2: PREACUERDO SIMA (+9.5% consolidado, 5.000 € atrasos, teletrabajo 30€/m, 100% IPC diferido) ---
-  const medBaseSalary = curSalary * 1.095;
-  const medMonthlyIncrease = (medBaseSalary - curSalary) / 14.0;
-  const medArrears = 5000;
-  const medSeniority = medBaseSalary * seniorityPct;
-  const medShiftPlus = medBaseSalary * shiftPct;
-  const medPension = medBaseSalary * (pensionRate + 0.005);
-  const medTelework = teleworkDays > 0 ? (teleworkDays * 18 * 12) : 0;
-  const medBradford = 400;
-  const medNetTotalGain = (medBaseSalary - curSalary) * (1 - taxRate) + (medArrears * (1 - taxRate)) + (medPension - curPension) + (medSeniority - curSeniority) + (medShiftPlus - curShiftPlus) + medTelework + medBradford;
-
-  // 5-Year Macro Trajectory for SIMA (100% IPC anual diferido):
-  const medNomYear1 = medBaseSalary;
-  const medNomYear5 = medNomYear1 * Math.pow(1 + ipcRate, 4);
-  const medRealYear5 = medNomYear5 / cumDeflator4yr; // Exactly medNomYear1
-  const medRealGainPct = ((medRealYear5 / curSalary) - 1) * 100;
-
-  // --- SCENARIO 3: PLATAFORMA DEL COMITÉ (+12% íntegro, 7.500 € atrasos, 5.5% pensiones, Bradford refund, 60€/m teletrabajo, RSG = IPC + 1.5% sin techo) ---
+  // --- SCENARIO 2: PLATAFORMA DEL COMITÉ (+12% íntegro, 7.500 € atrasos, 5.5% pensiones, Bradford refund, 60€/m teletrabajo, RSG = IPC + 1.5% sin techo) ---
   const unionBaseSalary = curSalary * 1.12;
   const unionMonthlyIncrease = (unionBaseSalary - curSalary) / 14.0;
   const unionArrears = 7500;
@@ -1136,6 +1217,25 @@ function updateWageSimulation() {
   const unionRealGainPct = ((unionRealYear5 / curSalary) - 1) * 100;
   const unionRealGainAmt = unionRealYear5 - curSalary;
 
+  // --- SCENARIO 3: TU PROPUESTA PERSONALIZADA (Constructor Interactivo) ---
+  const cState = getCustomProposalState();
+  const custBaseSalary = curSalary * (1.0 + cState.initialRaisePct / 100.0);
+  const custMonthlyIncrease = (custBaseSalary - curSalary) / 14.0;
+  const custArrears = cState.arrears;
+  const custSeniority = custBaseSalary * seniorityPct;
+  const custShiftPlus = custBaseSalary * shiftPct;
+  const custPension = custBaseSalary * (pensionRate + 0.005);
+  const custTelework = teleworkDays > 0 ? (teleworkDays * 18 * 12) : 0;
+  const custBradford = curSalary > 45000 ? 600 : 400;
+  const custNetTotalGain = (custBaseSalary - curSalary) * (1 - taxRate) + (custArrears * (1 - taxRate)) + (custPension - curPension) + (custSeniority - curSeniority) + (custShiftPlus - curShiftPlus) + custTelework + custBradford;
+
+  const custAnnualRate = evaluateAnnualRaise(ipcRate, cState.rsgMode, cState.rsgMargin, cState.rsgCap);
+  const custNomYear1 = custBaseSalary;
+  const custNomYear5 = custNomYear1 * Math.pow(1 + custAnnualRate, 4);
+  const custRealYear5 = custNomYear5 / cumDeflator4yr;
+  const custRealGainPct = ((custRealYear5 / curSalary) - 1) * 100;
+  const custRealGainAmt = custRealYear5 - curSalary;
+
   // Current Baseline 5-Year Real Trajectory:
   const curNomYear5 = curSalary;
   const curRealYear5 = curSalary / cumDeflator4yr;
@@ -1158,8 +1258,9 @@ function updateWageSimulation() {
 
   // Net Monthly Increases (14 payments, after IRPF + SS)
   const coNetMonthlyIncrease = coMonthlyIncrease * (1 - taxRate);
-  const medNetMonthlyIncrease = medMonthlyIncrease * (1 - taxRate);
   const unionNetMonthlyIncrease = unionMonthlyIncrease * (1 - taxRate);
+  const custNetMonthlyIncrease = custMonthlyIncrease * (1 - taxRate);
+
   // --- SCENARIO 1 (Empresa) UI ---
   setText('sc1-salary-y1', `${Math.round(coBaseSalary).toLocaleString()} €`);
   setText('sc1-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
@@ -1167,19 +1268,20 @@ function updateWageSimulation() {
   setText('sc1-loss-badge', `${coRealLossPct.toFixed(1).replace('.', ',')}%`);
   setText('sc1-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
 
-  // --- SCENARIO 2 (SIMA) UI ---
-  setText('sc2-salary-y1', `${Math.round(medBaseSalary).toLocaleString()} €`);
-  setText('sc2-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
-  setText('sc2-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (100% IPC)`);
-  setText('sc2-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
+  // --- SCENARIO 2 (Comité +12%) UI ---
+  setText('sc2-salary-y1', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('sc2-monthly', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc2-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc2-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc2-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
 
-  // --- SCENARIO 3 (Comité) UI ---
-  setText('sc3-salary-y1', `${Math.round(unionBaseSalary).toLocaleString()} €`);
-  setText('sc3-monthly', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes`);
-  setText('sc3-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
-  setText('sc3-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
-  setText('sc3-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
-
+  // --- SCENARIO 3 (Tu Propuesta) UI ---
+  const custGainSign = custRealGainPct >= 0 ? '+' : '';
+  setText('sc3-salary-y1', `${Math.round(custBaseSalary).toLocaleString()} €`);
+  setText('sc3-monthly', `+${Math.round(custNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc3-real-5yr', `${Math.round(custRealYear5).toLocaleString()} € (${custGainSign}${custRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc3-gain-badge', `${custGainSign}${custRealGainPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc3-net-total', `+${Math.round(custNetTotalGain).toLocaleString()} €`);
   // Legacy fallbacks for compatibility
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
   setText('scen-co-salary-5yr', `${Math.round(coNomYear5).toLocaleString()} €`);
@@ -1292,17 +1394,14 @@ function updateWageSimulation() {
   setText('tb-prop-comite-diff', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
 
   // Differential KPI Cards
-  const simaNom5yrTot = medNomYear1 + (medBaseSalary * Math.pow(1 + ipcRate, 1)) + (medBaseSalary * Math.pow(1 + ipcRate, 2)) + (medBaseSalary * Math.pow(1 + ipcRate, 3)) + (medBaseSalary * Math.pow(1 + ipcRate, 4)) + 5000;
-  const simaDeltaCoNom = simaNom5yrTot - props.company.total_5yr_nom;
-  const simaDeltaCoReal = (simaNom5yrTot / cumDeflator4yr) - (props.company.total_5yr_nom / cumDeflator4yr);
-
   setText('kpi-diff-cgt-5yr', `+${Math.round(props.cgt.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-cgt-5yr-real', `+${Math.round(props.cgt.delta_vs_co_real).toLocaleString()} € reales`);
   setText('kpi-diff-comite-5yr', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-comite-5yr-real', `+${Math.round(props.strike_committee.delta_vs_co_real).toLocaleString()} € reales`);
-  setText('kpi-diff-sima-5yr', `+${Math.round(simaDeltaCoNom).toLocaleString()} €`);
-  setText('kpi-diff-sima-5yr-real', `+${Math.round(simaDeltaCoReal).toLocaleString()} € reales`);
-
+  setText('kpi-diff-custom-5yr', `+${Math.round(props.custom.delta_vs_co_nom).toLocaleString()} €`);
+  setText('kpi-diff-custom-5yr-real', `+${Math.round(props.custom.delta_vs_co_real).toLocaleString()} € reales`);
+  setText('kpi-diff-sima-5yr', `+${Math.round(props.custom.delta_vs_co_nom).toLocaleString()} €`);
+  setText('kpi-diff-sima-5yr-real', `+${Math.round(props.custom.delta_vs_co_real).toLocaleString()} € reales`);
   // Update Strike ROI
   setText('roi-strike-days-label', `${strikeDays} días`);
   setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
@@ -1439,8 +1538,8 @@ function initSalaryEvolutionChart() {
           pointBackgroundColor: '#10b981'
         },
         {
-          label: 'Preacuerdo SIMA (+9,5% + RSG 100% IPC)',
-          data: [50000, 54750, 56119, 57522, 58960, 60434],
+          label: 'Tu Propuesta Personalizada',
+          data: [50000, 54000, 55350, 56733, 58152, 59605],
           borderColor: '#38bdf8',
           backgroundColor: 'rgba(56, 189, 248, 0.08)',
           fill: false,
@@ -1533,13 +1632,15 @@ function updateSalaryEvolutionChart(curSalary, ipcRate = 0.025) {
   const u5 = u4 * (1 + ipcRate + 0.015);
   const unionData = [y0, u1, u2, u3, u4, u5];
 
-  // Scenario 2: SIMA (+9.5%, then 100% IPC annually)
-  const s1 = curSalary * 1.095;
-  const s2 = s1 * (1 + ipcRate);
-  const s3 = s2 * (1 + ipcRate);
-  const s4 = s3 * (1 + ipcRate);
-  const s5 = s4 * (1 + ipcRate);
-  const simaData = [y0, s1, s2, s3, s4, s5];
+  // Scenario 3: Custom Proposal
+  const cState = getCustomProposalState();
+  const custAnnualRate = evaluateAnnualRaise(ipcRate, cState.rsgMode, cState.rsgMargin, cState.rsgCap);
+  const cust1 = curSalary * (1.0 + cState.initialRaisePct / 100.0);
+  const cust2 = cust1 * (1 + custAnnualRate);
+  const cust3 = cust2 * (1 + custAnnualRate);
+  const cust4 = cust3 * (1 + custAnnualRate);
+  const cust5 = cust4 * (1 + custAnnualRate);
+  const customData = [y0, cust1, cust2, cust3, cust4, cust5];
 
   // Scenario 1: Company (+5%, then min(ipc*0.25, 0.01))
   const c1 = curSalary * 1.05;
@@ -1559,7 +1660,7 @@ function updateSalaryEvolutionChart(curSalary, ipcRate = 0.025) {
   const realData = [y0, r1, r2, r3, r4, r5];
 
   salaryEvolutionChart.data.datasets[0].data = unionData.map(Math.round);
-  salaryEvolutionChart.data.datasets[1].data = simaData.map(Math.round);
+  salaryEvolutionChart.data.datasets[1].data = customData.map(Math.round);
   salaryEvolutionChart.data.datasets[2].data = companyData.map(Math.round);
   salaryEvolutionChart.data.datasets[3].data = realData.map(Math.round);
   salaryEvolutionChart.update('none');
@@ -1594,6 +1695,18 @@ function initWagesChart() {
           pointRadius: 4,
           pointHoverRadius: 6,
           pointBackgroundColor: '#f59e0b'
+        },
+        {
+          label: 'Tu Propuesta Personalizada (Atrasos + RSG a Medida)',
+          data: [50000, 108000, 163350, 220083, 278235, 337841],
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.08)',
+          fill: false,
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#38bdf8'
         },
         {
           label: 'Oferta Empresa (+5% Fraccionado + Paga Única 2k€ + Techo 1%)',
@@ -1688,8 +1801,9 @@ function updateWagesChart(curSalary, ipcRate = 0.025) {
 
   wagesChart.data.datasets[0].data = props.cgt.cum_nom.map(Math.round);
   wagesChart.data.datasets[1].data = props.strike_committee.cum_nom.map(Math.round);
-  wagesChart.data.datasets[2].data = props.company.cum_nom.map(Math.round);
-  wagesChart.data.datasets[3].data = base_cum_real.map(Math.round);
+  wagesChart.data.datasets[2].data = props.custom.cum_nom.map(Math.round);
+  wagesChart.data.datasets[3].data = props.company.cum_nom.map(Math.round);
+  wagesChart.data.datasets[4].data = base_cum_real.map(Math.round);
   wagesChart.update('none');
 }
 

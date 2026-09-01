@@ -1592,8 +1592,89 @@ class StrikeAnalysisEngine:
                 }
             ]
         }
-    def get_salary_proposals_comparison(self, base_salary: float = 50000.0, cpi_rate: float = 0.025) -> Dict[str, Any]:
-        """Generates detailed 5-year gross salary projections and point-by-point comparative matrix across all 3 proposals."""
+    @staticmethod
+    def evaluate_annual_raise(ipc_rate: float, rsg_mode: str = "ipc_100", rsg_margin: float = 0.0, rsg_cap: Optional[float] = None) -> float:
+        """Evaluates nominal annual increase given inflation rate, RSG mode, margin, and cap."""
+        if rsg_mode == "none":
+            nominal_raise = rsg_margin
+        elif rsg_mode == "ipc_100":
+            nominal_raise = ipc_rate
+        elif rsg_mode == "ipc_margin":
+            nominal_raise = ipc_rate + rsg_margin
+        else:
+            nominal_raise = ipc_rate
+            
+        if rsg_cap is not None and rsg_cap > 0:
+            nominal_raise = min(nominal_raise, rsg_cap)
+            
+        return max(nominal_raise, 0.0)
+
+    @staticmethod
+    def solve_recovery_initial_raise(historical_loss_pct: float = 0.118, target_year: int = 2030, rsg_margin: float = 0.0) -> float:
+        """Solves for the initial raise required in base tables to recover historical purchasing power loss by target year."""
+        years_horizon = max(target_year - 2025, 1)
+        if rsg_margin == 0.0:
+            return historical_loss_pct
+        return (1.0 + historical_loss_pct) / pow(1.0 + rsg_margin, years_horizon - 1) - 1.0
+
+    def evaluate_custom_proposal_series(
+        self,
+        base_salary: float = 50000.0,
+        cpi_rate: float = 0.025,
+        initial_raise_pct: float = 8.0,
+        arrears: float = 4000.0,
+        rsg_mode: str = "ipc_100",
+        rsg_margin: float = 0.0,
+        rsg_cap: Optional[float] = None,
+    ) -> Dict[str, Any]:
+        """Calculates 5-year nominal and real trajectory for a custom user-defined proposal."""
+        d = [pow(1 + cpi_rate, y) for y in range(6)]
+        w0 = float(base_salary)
+        w1_base = w0 * (1.0 + initial_raise_pct / 100.0)
+        w1 = w1_base + arrears
+        
+        annual_rate = self.evaluate_annual_raise(cpi_rate, rsg_mode, rsg_margin, rsg_cap)
+        w2 = w1_base * (1.0 + annual_rate)
+        w3 = w2 * (1.0 + annual_rate)
+        w4 = w3 * (1.0 + annual_rate)
+        w5 = w4 * (1.0 + annual_rate)
+        
+        nom = [round(x, 2) for x in [w0, w1, w2, w3, w4, w5]]
+        real = [round(nom[y] / d[y], 2) for y in range(6)]
+        cum_nom = [nom[0]]
+        for y in range(1, 6):
+            cum_nom.append(round(cum_nom[-1] + nom[y], 2))
+        cum_real = [real[0]]
+        for y in range(1, 6):
+            cum_real.append(round(cum_real[-1] + real[y], 2))
+        total_nom = round(sum(nom[1:]), 2)
+        total_real = round(sum(real[1:]), 2)
+        
+        return {
+            "yearly_nom": nom,
+            "yearly_real": real,
+            "cum_nom": cum_nom,
+            "cum_real": cum_real,
+            "total_5yr_nom": total_nom,
+            "total_5yr_real": total_real,
+            "arrears": arrears,
+            "initial_raise_pct": initial_raise_pct,
+            "rsg_mode": rsg_mode,
+            "rsg_margin": rsg_margin,
+            "rsg_cap": rsg_cap
+        }
+
+    def get_salary_proposals_comparison(
+        self,
+        base_salary: float = 50000.0,
+        cpi_rate: float = 0.025,
+        custom_raise_pct: float = 8.0,
+        custom_arrears: float = 4000.0,
+        custom_rsg_mode: str = "ipc_100",
+        custom_rsg_margin: float = 0.0,
+        custom_rsg_cap: Optional[float] = None,
+    ) -> Dict[str, Any]:
+        """Generates detailed 5-year gross salary projections and point-by-point comparative matrix across all proposals."""
         d = [pow(1 + cpi_rate, y) for y in range(6)]
         w0 = float(base_salary)
         
@@ -1658,6 +1739,16 @@ class StrikeAnalysisEngine:
             com_cum_real.append(round(com_cum_real[-1] + com_real[y], 2))
         com_total_nom = round(sum(com_nom[1:]), 2)
         com_total_real = round(sum(com_real[1:]), 2)
+        # 4. Custom Proposal
+        custom_res = self.evaluate_custom_proposal_series(
+            base_salary=w0,
+            cpi_rate=cpi_rate,
+            initial_raise_pct=custom_raise_pct,
+            arrears=custom_arrears,
+            rsg_mode=custom_rsg_mode,
+            rsg_margin=custom_rsg_margin,
+            rsg_cap=custom_rsg_cap,
+        )
 
         return {
             "title": "Comparativa de Propuestas Salariales y Evolución Retributiva (2025 - 2030)",
@@ -1720,6 +1811,25 @@ class StrikeAnalysisEngine:
                     "workweek_hours": 35.0,
                     "source_name": "Documento 11 Puntos Innegociables SIMA",
                     "source_url": "https://www.sima-fasp.net/"
+                },
+                {
+                    "id": "proposal-custom",
+                    "name": "Tu Propuesta Personalizada (Simulador)",
+                    "short_name": "Tu Propuesta",
+                    "proposer": "Configuración Interactiva de Usuario",
+                    "date_presented": "Simulación en Tiempo Real",
+                    "status": "Configurable",
+                    "color": "#38bdf8",
+                    "initial_increase_pct": custom_raise_pct,
+                    "consolidation_date": "01/01/2026 (Consolidado en Tablas Salariales)",
+                    "arrears_lump_sum_eur": custom_arrears,
+                    "arrears_payment_date": "Inmediato",
+                    "rsg_formula": f"RSG: {custom_rsg_mode}" + (f" + {custom_rsg_margin}%" if custom_rsg_margin else "") + (f" (Tope {custom_rsg_cap}%)" if custom_rsg_cap else ""),
+                    "rsg_cap_pct": custom_rsg_cap,
+                    "duration_years": 2,
+                    "workweek_hours": 35.0,
+                    "source_name": "Simulador Salarial Airbus 2026",
+                    "source_url": "https://github.com/sergiomh499/airbus-strikes-analysis"
                 }
             ],
             "comparison_matrix": [
@@ -1880,6 +1990,17 @@ class StrikeAnalysisEngine:
                     "arrears": 7500.0,
                     "delta_vs_company_nominal": round(com_total_nom - co_total_nom, 2),
                     "delta_vs_company_real": round(com_total_real - co_total_real, 2)
+                },
+                "custom": {
+                    "yearly_nominal_wages": custom_res["yearly_nom"],
+                    "yearly_real_wages": custom_res["yearly_real"],
+                    "cumulative_nominal": custom_res["cum_nom"],
+                    "cumulative_real": custom_res["cum_real"],
+                    "total_5yr_nominal": custom_res["total_5yr_nom"],
+                    "total_5yr_real": custom_res["total_5yr_real"],
+                    "arrears": custom_arrears,
+                    "delta_vs_company_nominal": round(custom_res["total_5yr_nom"] - co_total_nom, 2),
+                    "delta_vs_company_real": round(custom_res["total_5yr_real"] - co_total_real, 2)
                 }
             }
         }

@@ -210,6 +210,22 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function toggleQuickCalculatorDrawer(", self.app_js_content, "Missing toggleQuickCalculatorDrawer() in app.js")
         self.assertIn("function syncDrawerCalculator(", self.app_js_content, "Missing syncDrawerCalculator() in app.js")
         self.assertIn("function scrollToTop(", self.app_js_content, "Missing scrollToTop() in app.js")
+    def test_custom_proposal_builder_controls_and_logic(self):
+        """Validates dynamic custom proposal builder in Card 3, in-card controls, presets, and RSG cap."""
+        # In-card controls
+        self.assertIn('id="sim-custom-raise"', self.html_content, "Missing #sim-custom-raise in index.html")
+        self.assertIn('id="sim-custom-raise-badge"', self.html_content, "Missing #sim-custom-raise-badge in index.html")
+        self.assertIn('id="sim-custom-arrears"', self.html_content, "Missing #sim-custom-arrears in index.html")
+        self.assertIn('id="sim-custom-rsg-mode"', self.html_content, "Missing #sim-custom-rsg-mode in index.html")
+        self.assertIn('id="sim-custom-rsg-cap"', self.html_content, "Missing #sim-custom-rsg-cap in index.html")
+        self.assertIn('id="kpi-diff-custom-5yr"', self.html_content, "Missing #kpi-diff-custom-5yr in index.html")
+        self.assertIn('id="kpi-diff-custom-5yr-real"', self.html_content, "Missing #kpi-diff-custom-5yr-real in index.html")
+
+        # App.js functions
+        self.assertIn("function getCustomProposalState(", self.app_js_content, "Missing getCustomProposalState() in app.js")
+        self.assertIn("function evaluateAnnualRaise(", self.app_js_content, "Missing evaluateAnnualRaise() in app.js")
+        self.assertIn("function solveRecoveryInitialRaise(", self.app_js_content, "Missing solveRecoveryInitialRaise() in app.js")
+        self.assertIn("function setCustomProposalPreset(", self.app_js_content, "Missing setCustomProposalPreset() in app.js")
 
 if __name__ == "__main__":
     unittest.main()

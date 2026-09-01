@@ -170,15 +170,16 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         self.assertIn("net_loss_gap_annual", wages_offer["math_calculation"])
 
     def test_salary_proposals_comparison_integrity(self):
-        """Validates the 3-way salary proposals comparison model and 5-year projections."""
+        """Validates the 4-way salary proposals comparison model (including custom simulator) and 5-year projections."""
         res = self.engine.get_salary_proposals_comparison(base_salary=50000.0, cpi_rate=0.025)
-        self.assertEqual(len(res["proposals"]), 3)
+        self.assertEqual(len(res["proposals"]), 4)
         self.assertEqual(len(res["comparison_matrix"]), 10)
         
         proposals = {p["id"]: p for p in res["proposals"]}
         self.assertIn("proposal-company", proposals)
         self.assertIn("proposal-cgt", proposals)
         self.assertIn("proposal-strike-committee", proposals)
+        self.assertIn("proposal-custom", proposals)
         
         self.assertEqual(proposals["proposal-company"]["initial_increase_pct"], 5.0)
         self.assertEqual(proposals["proposal-company"]["arrears_lump_sum_eur"], 2000.0)
@@ -193,11 +194,13 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         co = proj["company"]
         cgt = proj["cgt"]
         com = proj["strike_committee"]
+        cust = proj["custom"]
         
         # Year 0 conservation
         self.assertEqual(co["yearly_nominal_wages"][0], 50000.0)
         self.assertEqual(cgt["yearly_nominal_wages"][0], 50000.0)
         self.assertEqual(com["yearly_nominal_wages"][0], 50000.0)
+        self.assertEqual(cust["yearly_nominal_wages"][0], 50000.0)
         
         # 5-Year totals ordering: CGT > Strike Committee > Company
         self.assertGreater(cgt["total_5yr_nominal"], com["total_5yr_nominal"])
@@ -206,7 +209,6 @@ class TestStrikeAnalysisEngine(unittest.TestCase):
         # Deltas
         self.assertGreater(com["delta_vs_company_nominal"], 40000.0)
         self.assertGreater(cgt["delta_vs_company_nominal"], 50000.0)
-
     def test_stock_market_analysis_veracity(self):
         """Validates stock market analysis bounds, Euronext URL, and market cap formula."""
         data = self.engine.export_full_dataset()
