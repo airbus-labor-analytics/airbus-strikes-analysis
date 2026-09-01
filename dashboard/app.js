@@ -38,6 +38,7 @@ let telegramDocsData = [];
 const chartRegistry = {};
 let asymmetryChart = null;
 let wagesChart = null;
+let salaryEvolutionChart = null;
 let belugaHistoryChart = null;
 let airbusStockChart = null;
 let companyRevenueChart = null;
@@ -541,6 +542,7 @@ function switchTab(tabId) {
       initBelugaHistoryChart();
       initThermometerAndBeluga();
     } else if (normalizedTabId === 'tab-purchasing-power') {
+      initSalaryEvolutionChart();
       initWagesChart();
       updateWageSimulation();
       initHistoricalLosses();
@@ -1158,8 +1160,27 @@ function updateWageSimulation() {
   const coNetMonthlyIncrease = coMonthlyIncrease * (1 - taxRate);
   const medNetMonthlyIncrease = medMonthlyIncrease * (1 - taxRate);
   const unionNetMonthlyIncrease = unionMonthlyIncrease * (1 - taxRate);
+  // --- SCENARIO 1 (Empresa) UI ---
+  setText('sc1-salary-y1', `${Math.round(coBaseSalary).toLocaleString()} €`);
+  setText('sc1-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc1-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc1-loss-badge', `${coRealLossPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc1-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
 
-  // Update Scenario 1 UI
+  // --- SCENARIO 2 (SIMA) UI ---
+  setText('sc2-salary-y1', `${Math.round(medBaseSalary).toLocaleString()} €`);
+  setText('sc2-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc2-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (100% IPC)`);
+  setText('sc2-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
+
+  // --- SCENARIO 3 (Comité) UI ---
+  setText('sc3-salary-y1', `${Math.round(unionBaseSalary).toLocaleString()} €`);
+  setText('sc3-monthly', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} €/mes`);
+  setText('sc3-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
+  setText('sc3-gain-badge', `+${unionRealGainPct.toFixed(1).replace('.', ',')}%`);
+  setText('sc3-net-total', `+${Math.round(unionNetTotalGain).toLocaleString()} €`);
+
+  // Legacy fallbacks for compatibility
   setText('scen-co-salary', `${Math.round(coBaseSalary).toLocaleString()} €`);
   setText('scen-co-salary-5yr', `${Math.round(coNomYear5).toLocaleString()} €`);
   setText('scen-co-real-5yr', `${Math.round(coRealYear5).toLocaleString()} € (${coRealLossPct.toFixed(1).replace('.', ',')}%)`);
@@ -1167,16 +1188,12 @@ function updateWageSimulation() {
   setText('scen-co-monthly', `+${Math.round(coMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-monthly', `+${Math.round(coNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-co-net-total', `+${Math.round(coNetTotalGain).toLocaleString()} €`);
-
-  // Update Scenario 2 UI
   setText('scen-med-salary', `${Math.round(medBaseSalary).toLocaleString()} €`);
   setText('scen-med-salary-5yr', `${Math.round(medNomYear5).toLocaleString()} €`);
   setText('scen-med-real-5yr', `${Math.round(medRealYear5).toLocaleString()} € (+${medRealGainPct.toFixed(1).replace('.', ',')}%)`);
   setText('scen-med-monthly', `+${Math.round(medMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-monthly', `+${Math.round(medNetMonthlyIncrease).toLocaleString()} €/mes`);
   setText('scen-med-net-total', `+${Math.round(medNetTotalGain).toLocaleString()} €`);
-
-  // Update Scenario 3 UI
   setText('scen-union-salary', `${Math.round(unionBaseSalary).toLocaleString()} €`);
   setText('scen-union-salary-5yr', `${Math.round(unionNomYear5).toLocaleString()} €`);
   setText('scen-union-real-5yr', `${Math.round(unionRealYear5).toLocaleString()} € (+${unionRealGainPct.toFixed(1).replace('.', ',')}%)`);
@@ -1275,22 +1292,29 @@ function updateWageSimulation() {
   setText('tb-prop-comite-diff', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
 
   // Differential KPI Cards
+  const simaNom5yrTot = medNomYear1 + (medBaseSalary * Math.pow(1 + ipcRate, 1)) + (medBaseSalary * Math.pow(1 + ipcRate, 2)) + (medBaseSalary * Math.pow(1 + ipcRate, 3)) + (medBaseSalary * Math.pow(1 + ipcRate, 4)) + 5000;
+  const simaDeltaCoNom = simaNom5yrTot - props.company.total_5yr_nom;
+  const simaDeltaCoReal = (simaNom5yrTot / cumDeflator4yr) - (props.company.total_5yr_nom / cumDeflator4yr);
+
   setText('kpi-diff-cgt-5yr', `+${Math.round(props.cgt.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-cgt-5yr-real', `+${Math.round(props.cgt.delta_vs_co_real).toLocaleString()} € reales`);
   setText('kpi-diff-comite-5yr', `+${Math.round(props.strike_committee.delta_vs_co_nom).toLocaleString()} €`);
   setText('kpi-diff-comite-5yr-real', `+${Math.round(props.strike_committee.delta_vs_co_real).toLocaleString()} € reales`);
+  setText('kpi-diff-sima-5yr', `+${Math.round(simaDeltaCoNom).toLocaleString()} €`);
+  setText('kpi-diff-sima-5yr-real', `+${Math.round(simaDeltaCoReal).toLocaleString()} € reales`);
 
   // Update Strike ROI
   setText('roi-strike-days-label', `${strikeDays} días`);
   setText('roi-strike-cost', `-${Math.round(totalStrikeCost).toLocaleString()} € netos`);
-  setText('roi-monthly-gain', `+${Math.round(netMonthlyGainInPocket).toLocaleString()} € netos/mes`);
+  setText('roi-monthly-gain', `+${Math.round(unionNetMonthlyIncrease).toLocaleString()} € netos/mes`);
   setText('roi-amortization-time', strikeDays === 0 ? '0 días' : `${amortizationMonths.toFixed(1)} meses (${Math.round(amortizationMonths * 4.3)} semanas)`);
   setText('roi-5yr-gain', `+${Math.round(gain5Years).toLocaleString()} €`);
   // Sync URL so the current simulation is shareable
   syncSimulatorURL(curSalary, document.getElementById('sim-shift')?.value || 'ordinaria',
     strikeDays, quinquenios, pensionRate * 100, ipcRate * 100);
 
-  // Update 5-Year Cumulative Projection Chart
+  // Update Charts
+  updateSalaryEvolutionChart(curSalary, ipcRate);
   updateWagesChart(curSalary, ipcRate);
 }
 
@@ -1397,6 +1421,150 @@ function restoreSimulatorFromURL() {
   updateWageSimulation();
   showToast('🔄 Simulación restaurada desde el vínculo compartido.', 'sky');
 }
+function initSalaryEvolutionChart() {
+  salaryEvolutionChart = renderResilientChart('salaryEvolutionChart', () => ({
+    type: 'line',
+    data: {
+      labels: ['2025 (Base)', '2026 (Año 1)', '2027 (Año 2)', '2028 (Año 3)', '2029 (Año 4)', '2030 (Año 5)'],
+      datasets: [
+        {
+          label: 'Plataforma Comité (+12% + RSG IPC+1,5%)',
+          data: [50000, 56000, 58240, 60570, 62992, 65512],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          fill: false,
+          borderWidth: 3,
+          tension: 0.2,
+          pointRadius: 4,
+          pointBackgroundColor: '#10b981'
+        },
+        {
+          label: 'Preacuerdo SIMA (+9,5% + RSG 100% IPC)',
+          data: [50000, 54750, 56119, 57522, 58960, 60434],
+          borderColor: '#38bdf8',
+          backgroundColor: 'rgba(56, 189, 248, 0.08)',
+          fill: false,
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 4,
+          pointBackgroundColor: '#38bdf8'
+        },
+        {
+          label: 'Oferta Empresa (+5% Fraccionado, Techo 1%)',
+          data: [50000, 52500, 53025, 53555, 54091, 54632],
+          borderColor: '#f43f5e',
+          borderDash: [5, 4],
+          borderWidth: 2.5,
+          tension: 0.2,
+          pointRadius: 3,
+          pointBackgroundColor: '#f43f5e',
+          fill: false
+        },
+        {
+          label: 'Poder de Compra Real (Sin Blindaje IPC)',
+          data: [50000, 51220, 49970, 48751, 47562, 46402],
+          borderColor: '#64748b',
+          backgroundColor: 'rgba(100, 116, 139, 0.12)',
+          borderDash: [2, 2],
+          borderWidth: 1.5,
+          tension: 0.1,
+          pointRadius: 2,
+          pointBackgroundColor: '#64748b',
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      scales: {
+        y: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: {
+            color: '#94a3b8',
+            callback: v => `${(v/1000).toFixed(0)}k €`
+          },
+          title: {
+            display: true,
+            text: 'Salario Bruto Anual (€/año)',
+            color: '#94a3b8',
+            font: { size: 10, weight: 'bold' }
+          }
+        },
+        x: {
+          grid: { color: 'rgba(51, 65, 85, 0.4)' },
+          ticks: { color: '#e2e8f0', font: { weight: 'bold', size: 11 } }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#cbd5e1', font: { size: 10.5, weight: 'bold' } }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(15, 23, 42, 0.95)',
+          titleColor: '#38bdf8',
+          bodyColor: '#f8fafc',
+          borderColor: '#334155',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: function(context) {
+              return ` ${context.dataset.label}: ${Math.round(context.raw).toLocaleString()} €/año`;
+            }
+          }
+        }
+      }
+    }
+  }));
+}
+
+function updateSalaryEvolutionChart(curSalary, ipcRate = 0.025) {
+  if (!salaryEvolutionChart) return;
+  const y0 = curSalary;
+  // Scenario 3: Union (+12%, then IPC + 1.5% annually)
+  const u1 = curSalary * 1.12;
+  const u2 = u1 * (1 + ipcRate + 0.015);
+  const u3 = u2 * (1 + ipcRate + 0.015);
+  const u4 = u3 * (1 + ipcRate + 0.015);
+  const u5 = u4 * (1 + ipcRate + 0.015);
+  const unionData = [y0, u1, u2, u3, u4, u5];
+
+  // Scenario 2: SIMA (+9.5%, then 100% IPC annually)
+  const s1 = curSalary * 1.095;
+  const s2 = s1 * (1 + ipcRate);
+  const s3 = s2 * (1 + ipcRate);
+  const s4 = s3 * (1 + ipcRate);
+  const s5 = s4 * (1 + ipcRate);
+  const simaData = [y0, s1, s2, s3, s4, s5];
+
+  // Scenario 1: Company (+5%, then min(ipc*0.25, 0.01))
+  const c1 = curSalary * 1.05;
+  const cRate = Math.min(ipcRate * 0.25, 0.01);
+  const c2 = c1 * (1 + cRate);
+  const c3 = c2 * (1 + cRate);
+  const c4 = c3 * (1 + cRate);
+  const c5 = c4 * (1 + cRate);
+  const companyData = [y0, c1, c2, c3, c4, c5];
+
+  // Real Deflated Value of Company Offer without RSG
+  const r1 = c1 / (1 + ipcRate);
+  const r2 = c2 / Math.pow(1 + ipcRate, 2);
+  const r3 = c3 / Math.pow(1 + ipcRate, 3);
+  const r4 = c4 / Math.pow(1 + ipcRate, 4);
+  const r5 = c5 / Math.pow(1 + ipcRate, 5);
+  const realData = [y0, r1, r2, r3, r4, r5];
+
+  salaryEvolutionChart.data.datasets[0].data = unionData.map(Math.round);
+  salaryEvolutionChart.data.datasets[1].data = simaData.map(Math.round);
+  salaryEvolutionChart.data.datasets[2].data = companyData.map(Math.round);
+  salaryEvolutionChart.data.datasets[3].data = realData.map(Math.round);
+  salaryEvolutionChart.update('none');
+}
+
 function initWagesChart() {
   wagesChart = renderResilientChart('wagesChart', () => ({
     type: 'line',

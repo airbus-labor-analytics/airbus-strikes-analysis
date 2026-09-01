@@ -42,6 +42,7 @@ class TestChartResilienceAndLifecycle(unittest.TestCase):
             "companyDeliveriesChart",
             "shareholderPieChart",
             "belugaHistoryChart",
+            "salaryEvolutionChart",
             "wagesChart",
             "unionShareChart",
             "unionEvolutionChart",

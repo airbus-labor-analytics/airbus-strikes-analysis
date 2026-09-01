@@ -34,6 +34,7 @@ EXPECTED_CANVASES = [
     "companyDeliveriesChart",
     "shareholderPieChart",
     "belugaHistoryChart",
+    "salaryEvolutionChart",
     "wagesChart",
     "unionShareChart",
     "unionEvolutionChart",
@@ -167,14 +168,17 @@ class TestDashboardUI(unittest.TestCase):
         """Validates Feature 008 components: 10-dimension matrix, 3-proposal comparison, differential KPIs, and calculation engine."""
         # HTML DOM containers and IDs
         self.assertIn('id="salary-proposals-matrix-body"', self.html_content, "Missing #salary-proposals-matrix-body in index.html")
-        self.assertIn('id="tb-prop-co-y1-nom"', self.html_content, "Missing #tb-prop-co-y1-nom in index.html")
-        self.assertIn('id="tb-prop-cgt-y1-nom"', self.html_content, "Missing #tb-prop-cgt-y1-nom in index.html")
-        self.assertIn('id="tb-prop-comite-y1-nom"', self.html_content, "Missing #tb-prop-comite-y1-nom in index.html")
-        self.assertIn('id="kpi-diff-cgt-5yr"', self.html_content, "Missing #kpi-diff-cgt-5yr in index.html")
+        self.assertIn('id="sc1-salary-y1"', self.html_content, "Missing #sc1-salary-y1 in index.html")
+        self.assertIn('id="sc2-salary-y1"', self.html_content, "Missing #sc2-salary-y1 in index.html")
+        self.assertIn('id="sc3-salary-y1"', self.html_content, "Missing #sc3-salary-y1 in index.html")
+        self.assertIn('id="kpi-diff-sima-5yr"', self.html_content, "Missing #kpi-diff-sima-5yr in index.html")
         self.assertIn('id="kpi-diff-comite-5yr"', self.html_content, "Missing #kpi-diff-comite-5yr in index.html")
+        self.assertIn('id="roi-strike-cost"', self.html_content, "Missing #roi-strike-cost in index.html")
+        self.assertIn('id="salaryEvolutionChart"', self.html_content, "Missing #salaryEvolutionChart in index.html")
 
         # App.js calculation & rendering functions
         self.assertIn("function calculateSalaryProposals(", self.app_js_content, "Missing calculateSalaryProposals() in app.js")
+        self.assertIn("function updateSalaryEvolutionChart(", self.app_js_content, "Missing updateSalaryEvolutionChart() in app.js")
         self.assertIn("function renderSalaryProposalsMatrix(", self.app_js_content, "Missing renderSalaryProposalsMatrix() in app.js")
         self.assertIn("renderSalaryProposalsMatrix();", self.app_js_content, "renderSalaryProposalsMatrix() not invoked in app.js")
 
