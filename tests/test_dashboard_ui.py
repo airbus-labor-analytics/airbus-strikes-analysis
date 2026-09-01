@@ -210,6 +210,27 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("function toggleQuickCalculatorDrawer(", self.app_js_content, "Missing toggleQuickCalculatorDrawer() in app.js")
         self.assertIn("function syncDrawerCalculator(", self.app_js_content, "Missing syncDrawerCalculator() in app.js")
         self.assertIn("function scrollToTop(", self.app_js_content, "Missing scrollToTop() in app.js")
+    def test_custom_proposal_builder_controls_and_logic(self):
+        """Validates dynamic custom proposal builder in Card 3, in-card keyboard controls, presets, IPC linkage, and RSG cap."""
+        # In-card controls & keyboard inputs
+        self.assertIn('id="sim-custom-raise"', self.html_content, "Missing #sim-custom-raise in index.html")
+        self.assertIn('id="sim-custom-raise-input"', self.html_content, "Missing #sim-custom-raise-input in index.html")
+        self.assertIn('id="sim-custom-raise-badge"', self.html_content, "Missing #sim-custom-raise-badge in index.html")
+        self.assertIn('id="sim-custom-arrears"', self.html_content, "Missing #sim-custom-arrears in index.html")
+        self.assertIn('id="sim-custom-ipc-linked"', self.html_content, "Missing #sim-custom-ipc-linked in index.html")
+        self.assertIn('id="sim-custom-rsg-margin"', self.html_content, "Missing #sim-custom-rsg-margin in index.html")
+        self.assertIn('id="sim-custom-rsg-mode"', self.html_content, "Missing #sim-custom-rsg-mode in index.html")
+        self.assertIn('id="sim-custom-cap-toggle"', self.html_content, "Missing #sim-custom-cap-toggle in index.html")
+        self.assertIn('id="sim-custom-rsg-cap"', self.html_content, "Missing #sim-custom-rsg-cap in index.html")
+        self.assertIn('id="kpi-diff-custom-5yr"', self.html_content, "Missing #kpi-diff-custom-5yr in index.html")
+        self.assertIn('id="kpi-diff-custom-5yr-real"', self.html_content, "Missing #kpi-diff-custom-5yr-real in index.html")
 
+        # App.js functions
+        self.assertIn("function getCustomProposalState(", self.app_js_content, "Missing getCustomProposalState() in app.js")
+        self.assertIn("function evaluateAnnualRaise(", self.app_js_content, "Missing evaluateAnnualRaise() in app.js")
+        self.assertIn("function solveRecoveryInitialRaise(", self.app_js_content, "Missing solveRecoveryInitialRaise() in app.js")
+        self.assertIn("function setCustomProposalPreset(", self.app_js_content, "Missing setCustomProposalPreset() in app.js")
+        self.assertIn("function setCustomArrearsQuick(", self.app_js_content, "Missing setCustomArrearsQuick() in app.js")
+        self.assertIn("function onRsgModeSelectChange(", self.app_js_content, "Missing onRsgModeSelectChange() in app.js")
 if __name__ == "__main__":
     unittest.main()

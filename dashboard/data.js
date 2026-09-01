@@ -2243,25 +2243,25 @@ window.CONFLICT_DATA = {
   ],
   "beluga_logistics": {
     "source": "BelugaWatch / OpenSky Network (https://beluga.simcoe.co.uk/)",
-    "timestamp": "2026-09-01T15:47:10+00:00",
+    "timestamp": "2026-09-01T16:15:48+00:00",
     "fleet_count": 6,
     "airborne_count": 4,
     "tracked_count": 5,
     "getafe_connected_aircraft": [
       {
-        "id": "BXL-06",
-        "name": "BelugaXL 6",
-        "registration": "F-GXLO",
-        "callsign": "BGA261R",
+        "id": "BXL-03",
+        "name": "BelugaXL 3",
+        "registration": "F-GXLI",
+        "callsign": "BGA221Y",
         "status": "En Vuelo",
-        "current_site": "Getafe",
-        "location_label": "Near Getafe",
-        "route_from": "Getafe",
-        "route_to": "Toulouse",
-        "lat": 41.5333,
-        "lon": -1.8305,
-        "altitude_ft": 31725,
-        "speed_kt": 431,
+        "current_site": "St Nazaire",
+        "location_label": "Near St Nazaire",
+        "route_from": "Broughton",
+        "route_to": "Getafe",
+        "lat": 47.2746,
+        "lon": -2.2565,
+        "altitude_ft": 3800,
+        "speed_kt": 176,
         "is_spain_connection": true,
         "strike_relevance": "Bloqueo HTP Getafe (Veto Salida)"
       }
@@ -2273,36 +2273,36 @@ window.CONFLICT_DATA = {
         "registration": "F-GXLN",
         "callsign": "BGA145N",
         "status": "En Vuelo",
-        "current_site": "Broughton",
-        "location_label": "Near Broughton",
+        "current_site": "Bremen",
+        "location_label": "Near Bremen",
         "route_from": "Broughton",
         "route_to": "Bremen",
-        "lat": 53.2108,
-        "lon": -0.1708,
-        "altitude_ft": 30275,
-        "speed_kt": 441,
+        "lat": 52.8956,
+        "lon": 5.3437,
+        "altitude_ft": 33775,
+        "speed_kt": 421,
+        "is_spain_connection": false,
+        "strike_relevance": "Circulación Europea"
+      },
+      {
+        "id": "BXL-06",
+        "name": "BelugaXL 6",
+        "registration": "F-GXLO",
+        "callsign": "BGA261R",
+        "status": "En Vuelo",
+        "current_site": "Toulouse",
+        "location_label": "Near Toulouse",
+        "route_from": "",
+        "route_to": "",
+        "lat": 43.3956,
+        "lon": 1.4556,
+        "altitude_ft": 3500,
+        "speed_kt": 226,
         "is_spain_connection": false,
         "strike_relevance": "Circulación Europea"
       }
     ],
     "grounded_aircraft": [
-      {
-        "id": "BXL-03",
-        "name": "BelugaXL 3",
-        "registration": "F-GXLI",
-        "callsign": "BGA221Y",
-        "status": "En Tierra",
-        "current_site": "St Nazaire",
-        "location_label": "At St Nazaire",
-        "route_from": "",
-        "route_to": "",
-        "lat": 47.3142,
-        "lon": -2.1609,
-        "altitude_ft": null,
-        "speed_kt": 0,
-        "is_spain_connection": false,
-        "strike_relevance": "Circulación Europea"
-      },
       {
         "id": "BXL-04",
         "name": "BelugaXL 4",
@@ -2314,9 +2314,9 @@ window.CONFLICT_DATA = {
         "route_from": "",
         "route_to": "",
         "lat": 53.177,
-        "lon": -2.9724,
+        "lon": -2.9723,
         "altitude_ft": null,
-        "speed_kt": 0,
+        "speed_kt": 10,
         "is_spain_connection": false,
         "strike_relevance": "Circulación Europea"
       },
@@ -2347,24 +2347,24 @@ window.CONFLICT_DATA = {
         "callsign": "BGA221Y",
         "generation": "BelugaXL",
         "currentSite": "St Nazaire",
-        "locationLabel": "At St Nazaire",
-        "routeLabel": "At St Nazaire",
-        "routeFrom": null,
-        "routeTo": null,
-        "airborne": false,
-        "onGround": true,
-        "lat": 47.3142,
-        "lon": -2.1609,
-        "trueTrack": 343.12,
-        "speedKt": 0,
-        "altitudeFt": null,
-        "statusLabel": "On ground at St Nazaire",
-        "mission": "Callsign BGA221Y.",
-        "note": "Nearest Airbus site St Nazaire (6 km).",
+        "locationLabel": "Near St Nazaire",
+        "routeLabel": "Broughton to Getafe",
+        "routeFrom": "Broughton",
+        "routeTo": "Getafe",
+        "airborne": true,
+        "onGround": false,
+        "lat": 47.2746,
+        "lon": -2.2565,
+        "trueTrack": 181.3,
+        "speedKt": 176,
+        "altitudeFt": 3800,
+        "statusLabel": "Airborne 3800 ft / 176 kt",
+        "mission": "Callsign BGA221Y. Groundspeed 176 kt. Climbing 705 fpm.",
+        "note": "Estimated from live heading 181 degrees and groundspeed. Nearest Airbus site St Nazaire (3.3 km).",
         "positionMode": "live",
-        "timingMode": "none",
-        "nextEta": null,
-        "updatedAt": "2026-09-01T15:46:59+00:00",
+        "timingMode": "projected",
+        "nextEta": "2026-09-01T18:40:00+00:00",
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.6219,
@@ -5437,6 +5437,150 @@ window.CONFLICT_DATA = {
             "routeFrom": null,
             "routeTo": null,
             "eta": null
+          },
+          {
+            "lat": 47.3142,
+            "lon": -2.161,
+            "updatedAt": "2026-09-01T15:52:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.16,
+            "updatedAt": "2026-09-01T16:02:09+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3134,
+            "lon": -2.1599,
+            "updatedAt": "2026-09-01T16:07:07+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3122,
+            "lon": -2.1574,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3122,
+            "lon": -2.1494,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1366,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3148,
+            "lon": -2.1363,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": false,
+            "currentSite": "St Nazaire",
+            "locationLabel": "At St Nazaire",
+            "statusLabel": "On ground at St Nazaire",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3124,
+            "lon": -2.1482,
+            "updatedAt": "2026-09-01T16:13:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 200 ft / 131 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.3078,
+            "lon": -2.1711,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 1150 ft / 139 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.301,
+            "lon": -2.2056,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 2450 ft / 148 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2955,
+            "lon": -2.2321,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3075 ft / 159 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 47.2746,
+            "lon": -2.2565,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "St Nazaire",
+            "locationLabel": "Near St Nazaire",
+            "statusLabel": "Airborne 3800 ft / 176 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Getafe",
+            "eta": null
           }
         ]
       },
@@ -5455,9 +5599,9 @@ window.CONFLICT_DATA = {
         "airborne": false,
         "onGround": true,
         "lat": 53.177,
-        "lon": -2.9724,
+        "lon": -2.9723,
         "trueTrack": 132.19,
-        "speedKt": 0,
+        "speedKt": 10,
         "altitudeFt": null,
         "statusLabel": "On ground at Broughton",
         "mission": "Callsign BGA143J.",
@@ -5465,7 +5609,7 @@ window.CONFLICT_DATA = {
         "positionMode": "live",
         "timingMode": "none",
         "nextEta": null,
-        "updatedAt": "2026-09-01T15:47:04+00:00",
+        "updatedAt": "2026-09-01T16:15:42+00:00",
         "trackPoints": [
           {
             "lat": 43.6249,
@@ -8094,6 +8238,90 @@ window.CONFLICT_DATA = {
             "routeFrom": null,
             "routeTo": null,
             "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T15:52:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9728,
+            "updatedAt": "2026-09-01T16:02:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.1773,
+            "lon": -2.9755,
+            "updatedAt": "2026-09-01T16:07:08+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9719,
+            "updatedAt": "2026-09-01T16:08:07+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9719,
+            "updatedAt": "2026-09-01T16:09:54+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9731,
+            "updatedAt": "2026-09-01T16:11:00+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 53.177,
+            "lon": -2.9723,
+            "updatedAt": "2026-09-01T16:15:42+00:00",
+            "airborne": false,
+            "currentSite": "Broughton",
+            "locationLabel": "At Broughton",
+            "statusLabel": "On ground at Broughton",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
           }
         ]
       },
@@ -8104,25 +8332,25 @@ window.CONFLICT_DATA = {
         "icao24": "395d6d",
         "callsign": "BGA145N",
         "generation": "BelugaXL",
-        "currentSite": "Broughton",
-        "locationLabel": "Near Broughton",
+        "currentSite": "Bremen",
+        "locationLabel": "Near Bremen",
         "routeLabel": "Broughton to Bremen",
         "routeFrom": "Broughton",
         "routeTo": "Bremen",
         "airborne": true,
         "onGround": false,
-        "lat": 53.2108,
-        "lon": -0.1708,
-        "trueTrack": 107.7,
-        "speedKt": 441,
-        "altitudeFt": 30275,
-        "statusLabel": "Airborne 30275 ft / 441 kt",
-        "mission": "Callsign BGA145N. Groundspeed 441 kt. Climbing 1089 fpm.",
-        "note": "Estimated from live heading 108 degrees and groundspeed. Nearest Airbus site Broughton (187.2 km).",
+        "lat": 52.8956,
+        "lon": 5.3437,
+        "trueTrack": 86.59,
+        "speedKt": 421,
+        "altitudeFt": 33775,
+        "statusLabel": "Airborne 33775 ft / 421 kt",
+        "mission": "Callsign BGA145N. Groundspeed 421 kt.",
+        "note": "Estimated from live heading 87 degrees and groundspeed. Nearest Airbus site Bremen (232.3 km).",
         "positionMode": "live",
         "timingMode": "projected",
-        "nextEta": "2026-09-01T16:31:07+00:00",
-        "updatedAt": "2026-09-01T15:47:05+00:00",
+        "nextEta": "2026-09-01T16:33:41+00:00",
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.626,
@@ -10331,6 +10559,150 @@ window.CONFLICT_DATA = {
             "routeFrom": "Broughton",
             "routeTo": "Bremen",
             "eta": null
+          },
+          {
+            "lat": 53.0198,
+            "lon": 0.7971,
+            "updatedAt": "2026-09-01T15:52:10+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33825 ft / 427 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.7998,
+            "lon": 2.7202,
+            "updatedAt": "2026-09-01T16:02:11+00:00",
+            "airborne": true,
+            "currentSite": "Broughton",
+            "locationLabel": "Near Broughton",
+            "statusLabel": "Airborne 33825 ft / 428 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8299,
+            "lon": 3.6926,
+            "updatedAt": "2026-09-01T16:07:10+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 426 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.835,
+            "lon": 3.8898,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 425 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8499,
+            "lon": 4.2274,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33800 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8612,
+            "lon": 4.4807,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8774,
+            "lon": 4.868,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8802,
+            "lon": 4.9366,
+            "updatedAt": "2026-09-01T16:13:38+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.883,
+            "lon": 5.009,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8877,
+            "lon": 5.1286,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8909,
+            "lon": 5.2151,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 422 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
+          },
+          {
+            "lat": 52.8956,
+            "lon": 5.3437,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "Bremen",
+            "locationLabel": "Near Bremen",
+            "statusLabel": "Airborne 33775 ft / 421 kt",
+            "routeFrom": "Broughton",
+            "routeTo": "Bremen",
+            "eta": null
           }
         ]
       },
@@ -10341,25 +10713,25 @@ window.CONFLICT_DATA = {
         "icao24": "395d6e",
         "callsign": "BGA261R",
         "generation": "BelugaXL",
-        "currentSite": "Getafe",
-        "locationLabel": "Near Getafe",
-        "routeLabel": "Getafe to Toulouse",
-        "routeFrom": "Getafe",
-        "routeTo": "Toulouse",
+        "currentSite": "Toulouse",
+        "locationLabel": "Near Toulouse",
+        "routeLabel": "Near Toulouse",
+        "routeFrom": null,
+        "routeTo": null,
         "airborne": true,
         "onGround": false,
-        "lat": 41.5333,
-        "lon": -1.8305,
-        "trueTrack": 38.97,
-        "speedKt": 431,
-        "altitudeFt": 31725,
-        "statusLabel": "Airborne 31725 ft / 431 kt",
-        "mission": "Callsign BGA261R. Groundspeed 431 kt.",
-        "note": "Estimated from live heading 39 degrees and groundspeed. Nearest Airbus site Getafe (210 km).",
+        "lat": 43.3956,
+        "lon": 1.4556,
+        "trueTrack": 87.72,
+        "speedKt": 226,
+        "altitudeFt": 3500,
+        "statusLabel": "Airborne 3500 ft / 226 kt",
+        "mission": "Callsign BGA261R. Groundspeed 226 kt. Descending 577 fpm.",
+        "note": "Nearest Airbus site Toulouse (23.2 km).",
         "positionMode": "live",
-        "timingMode": "projected",
-        "nextEta": "2026-09-01T16:13:44+00:00",
-        "updatedAt": "2026-09-01T15:47:05+00:00",
+        "timingMode": "none",
+        "nextEta": null,
+        "updatedAt": "2026-09-01T16:15:44+00:00",
         "trackPoints": [
           {
             "lat": 43.6252,
@@ -13492,6 +13864,150 @@ window.CONFLICT_DATA = {
             "routeFrom": "Getafe",
             "routeTo": "Toulouse",
             "eta": null
+          },
+          {
+            "lat": 42.013,
+            "lon": -1.3072,
+            "updatedAt": "2026-09-01T15:52:10+00:00",
+            "airborne": true,
+            "currentSite": "Getafe",
+            "locationLabel": "Near Getafe",
+            "statusLabel": "Airborne 31700 ft / 435 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 42.843,
+            "lon": -0.1101,
+            "updatedAt": "2026-09-01T16:02:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 28025 ft / 449 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.1929,
+            "lon": 0.53,
+            "updatedAt": "2026-09-01T16:07:10+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 19850 ft / 401 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.2691,
+            "lon": 0.6403,
+            "updatedAt": "2026-09-01T16:08:11+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 17575 ft / 386 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.3972,
+            "lon": 0.8162,
+            "updatedAt": "2026-09-01T16:09:56+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 13550 ft / 363 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.4044,
+            "lon": 0.9851,
+            "updatedAt": "2026-09-01T16:11:15+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 12025 ft / 311 kt",
+            "routeFrom": "Getafe",
+            "routeTo": "Toulouse",
+            "eta": null
+          },
+          {
+            "lat": 43.4004,
+            "lon": 1.2137,
+            "updatedAt": "2026-09-01T16:13:16+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 7150 ft / 272 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3996,
+            "lon": 1.2488,
+            "updatedAt": "2026-09-01T16:13:38+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 6275 ft / 260 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3988,
+            "lon": 1.287,
+            "updatedAt": "2026-09-01T16:14:00+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 5300 ft / 268 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3976,
+            "lon": 1.3501,
+            "updatedAt": "2026-09-01T16:14:37+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 4250 ft / 267 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3967,
+            "lon": 1.395,
+            "updatedAt": "2026-09-01T16:15:04+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3875 ft / 253 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
+          },
+          {
+            "lat": 43.3956,
+            "lon": 1.4556,
+            "updatedAt": "2026-09-01T16:15:44+00:00",
+            "airborne": true,
+            "currentSite": "Toulouse",
+            "locationLabel": "Near Toulouse",
+            "statusLabel": "Airborne 3500 ft / 226 kt",
+            "routeFrom": null,
+            "routeTo": null,
+            "eta": null
           }
         ]
       },
@@ -13516,7 +14032,7 @@ window.CONFLICT_DATA = {
         "altitudeFt": null,
         "statusLabel": "On ground at Toulouse",
         "mission": "Callsign BGA141G.",
-        "note": "Nearest Airbus site Toulouse (7.3 km). No current OpenSky state vector for this aircraft; showing the last known OpenSky position from 9 minutes ago.",
+        "note": "Nearest Airbus site Toulouse (7.3 km). No current OpenSky state vector for this aircraft; showing the last known OpenSky position from 38 minutes ago.",
         "positionMode": "live-cached",
         "timingMode": "none",
         "nextEta": null,
@@ -15968,7 +16484,7 @@ window.CONFLICT_DATA = {
       ],
       "accumulated_htp_retained_total": 113,
       "current_fal_buffer_hours": 4.8,
-      "calculated_at": "2026-09-01T15:47:17.157996+00:00"
+      "calculated_at": "2026-09-01T16:16:00.106529+00:00"
     },
     "dynamic_movement_history": [
       {
@@ -16107,6 +16623,25 @@ window.CONFLICT_DATA = {
         "workweek_hours": 35.0,
         "source_name": "Documento 11 Puntos Innegociables SIMA",
         "source_url": "https://www.sima-fasp.net/"
+      },
+      {
+        "id": "proposal-custom",
+        "name": "Tu Propuesta Personalizada (Simulador)",
+        "short_name": "Tu Propuesta",
+        "proposer": "Configuración Interactiva de Usuario",
+        "date_presented": "Simulación en Tiempo Real",
+        "status": "Configurable",
+        "color": "#38bdf8",
+        "initial_increase_pct": 8.0,
+        "consolidation_date": "01/01/2026 (Consolidado en Tablas Salariales)",
+        "arrears_lump_sum_eur": 4000.0,
+        "arrears_payment_date": "Inmediato",
+        "rsg_formula": "RSG: ipc_100",
+        "rsg_cap_pct": null,
+        "duration_years": 2,
+        "workweek_hours": 35.0,
+        "source_name": "Simulador Salarial Airbus 2026",
+        "source_url": "https://github.com/sergiomh499/airbus-strikes-analysis"
       }
     ],
     "comparison_matrix": [
@@ -16358,21 +16893,60 @@ window.CONFLICT_DATA = {
         "arrears": 7500.0,
         "delta_vs_company_nominal": 43637.23,
         "delta_vs_company_real": 40409.05
+      },
+      "custom": {
+        "yearly_nominal_wages": [
+          50000.0,
+          58000.0,
+          55350.0,
+          56733.75,
+          58152.09,
+          59605.9
+        ],
+        "yearly_real_wages": [
+          50000.0,
+          56585.37,
+          52682.93,
+          52682.93,
+          52682.92,
+          52682.93
+        ],
+        "cumulative_nominal": [
+          50000.0,
+          108000.0,
+          163350.0,
+          220083.75,
+          278235.84,
+          337841.74
+        ],
+        "cumulative_real": [
+          50000.0,
+          106585.37,
+          159268.3,
+          211951.23,
+          264634.15,
+          317317.08
+        ],
+        "total_5yr_nominal": 287841.74,
+        "total_5yr_real": 267317.08,
+        "arrears": 4000.0,
+        "delta_vs_company_nominal": 20664.91,
+        "delta_vs_company_real": 19125.23
       }
     }
   },
   "sentiment_thermometer": {
     "source": "Airbus Strike Dynamic Multi-Source Sentiment Engine (Google News RSS + Social Syndication)",
-    "timestamp": "2026-09-01T15:47:17.527363+00:00",
-    "temperature_celsius": 82.9,
+    "timestamp": "2026-09-01T16:16:01.927093+00:00",
+    "temperature_celsius": 83.3,
     "status_label": "PRESIÓN CRÍTICA (Asfixia Industrial en Progreso)",
     "status_color": "red",
     "status_description": "La dirección de Airbus SE se encuentra bajo máximo estrés operativo y mediático. La paralización de componentes HTP en Getafe, el bloqueo Beluga y la cobertura internacional fuerzan una concesión inminente en la mesa del SIMA.",
     "bad_for_airbus_count": 73,
     "good_for_airbus_count": 3,
-    "neutral_count": 16,
-    "total_items_monitored": 92,
-    "bad_for_airbus_percentage": 79.3,
+    "neutral_count": 15,
+    "total_items_monitored": 91,
+    "bad_for_airbus_percentage": 80.2,
     "good_for_airbus_percentage": 3.3,
     "channels_distribution": {
       "Reddit": 1,
@@ -16381,7 +16955,7 @@ window.CONFLICT_DATA = {
       "Telegram": 1,
       "Corporate PR": 1,
       "Prensa Nacional & Economía": 57,
-      "Aviation & Industry Press": 9,
+      "Aviation & Industry Press": 8,
       "Labor & Negociación": 16,
       "Logística & Cadena JIT": 5
     },
@@ -16448,15 +17022,15 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-01",
-        "source": "fly-news.es",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "UGT plantea parar la huelga en Airbus varios días mientras continuen las negociaciones - fly-news.es",
+        "title": "UGT plantea parar la huelga en Airbus varios días mientras continuen las negociaciones",
         "date": "Tue, 01 Sep 2026",
         "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPZ0UzNHNDWjBtUXRPWjBnSDZkeG1kczkzMVc5d0hGcHQ0UlpyMlVOQTRuQnVOX2I3VWxWTGotMjY4OUJHQmx5bzhxUlFMTnRFNDhEbzVkU1J5eDNLS1NEeEprRERzdW0tSXdJMXhvYVhBMEJ0MXZIS0xHN0FhWEZWb1VfNW5waTZaWnN2STg3NmFTUHhiR1g2XzkyaE9US211Y0FONXRxQmZJQ0tyMkU4ekp4MWVBNHJB?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-02",
@@ -16508,30 +17082,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-06",
-        "source": "Aviación Digital",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
-        "date": "Wed, 26 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-07",
-        "source": "Diario en Positivo",
-        "channel": "Prensa Nacional & Economía",
-        "title": "UGT propone pausar la huelga en Airbus para dar un respiro a la empresa",
-        "date": "Sat, 29 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQ2hOZ2hCeDNHdzdyRmlMSjFyb3ZxcXhHQzg1Zk03d05HMzl3dFZKNnJ1Nm5yS0Y0QXZqRk5UUXdzSUxTUWQ2NE1MaGdzeDVEMTExMUJHUnFCWTRCSHhfNjVBTzJ1VlFNN1pEcmkzVVhnWkdXUEFjMlhDYVppUm9DYi0tYTZWZU0zbWRVeDVKcVpldkVWbTNQNk5EN3EteHFGRDVjYTRGZ3NselJ6Sk9lMnVkZFJLenV4VjdHRU16dXlob3dBbzVPYWNSZnNfaG11dXcyTE5VN2pPSnfSAeABQVVfeXFMTzFtY19MenVoanlZRUdRZkxwSmdVeVotakhvV051R0VZd01LdWhXbm9qZW54bVpZdzZneVZxZzhBV3dqZURQSWh2QWk5SUtsUkhKYUhOalRXTFVTMG9GNEExbEJzdXhFWG95U0VfMXFoU1J0cFVEeWczWjR4NEhzN1ptSUJPdjZYdTN4NmIweVNPamFSQlEzMm5sb0RtbC1LVXRvQWp3YkQ1SC03V3BtLXlFS3NpZ0RYNkdfZkVjdklIZU5obVRqTjZtOEs3MmdxT3FpTl82VHljSm1DbXU4TW0?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-08",
         "source": "Expansión",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España vota mantener la huelga indefinida",
@@ -16543,32 +17093,32 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Expansión. Incrementa la presión sobre Guillaume Faury."
       },
       {
+        "id": "rss-07",
+        "source": "Aviación Digital",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
+        "date": "Wed, 26 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTVB3aXBxY0R4c0hJeXVpa3pOU1c2YU5oSEtrS0pObWhNVFBITU8taEhSdklmLWZmUmdWanhWekVEeVl0cDV1MVRVaXFhbFBtOHdieUU1VGZDSlNoUzYwWHpTTHZ1U1h5YnQxVzgtV1JRazBkYThVeWhzMkhUQi1OSjFKcw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-08",
+        "source": "Diario en Positivo",
+        "channel": "Prensa Nacional & Economía",
+        "title": "UGT propone pausar la huelga en Airbus para dar un respiro a la empresa",
+        "date": "Sat, 29 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPQ2hOZ2hCeDNHdzdyRmlMSjFyb3ZxcXhHQzg1Zk03d05HMzl3dFZKNnJ1Nm5yS0Y0QXZqRk5UUXdzSUxTUWQ2NE1MaGdzeDVEMTExMUJHUnFCWTRCSHhfNjVBTzJ1VlFNN1pEcmkzVVhnWkdXUEFjMlhDYVppUm9DYi0tYTZWZU0zbWRVeDVKcVpldkVWbTNQNk5EN3EteHFGRDVjYTRGZ3NselJ6Sk9lMnVkZFJLenV4VjdHRU16dXlob3dBbzVPYWNSZnNfaG11dXcyTE5VN2pPSnfSAeABQVVfeXFMTzFtY19MenVoanlZRUdRZkxwSmdVeVotakhvV051R0VZd01LdWhXbm9qZW54bVpZdzZneVZxZzhBV3dqZURQSWh2QWk5SUtsUkhKYUhOalRXTFVTMG9GNEExbEJzdXhFWG95U0VfMXFoU1J0cFVEeWczWjR4NEhzN1ptSUJPdjZYdTN4NmIweVNPamFSQlEzMm5sb0RtbC1LVXRvQWp3YkQ1SC03V3BtLXlFS3NpZ0RYNkdfZkVjdklIZU5obVRqTjZtOEs3MmdxT3FpTl82VHljSm1DbXU4TW0?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
         "id": "rss-09",
-        "source": "El Mundo",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Llega el 'día d' para Airbus: empresa y plantilla acercan posturas para evitar una huelga que estalló por el teletrabajo",
-        "date": "Mon, 24 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNanphWGFnelBvOE9uOUk3cUxwY0NlLVlLZ29RWnNpRHctWlp6SFNWS1lHLXlnZnJlWkdZclFVb29ONlBDUlZTa1ZGSFpCRmJVeXMyVFpLRXJBLUt5RTFKUXVCaThucXhIbjZFT3RBQmVqT1UyTjZWaF82T1JLbzlHQ2xjZURFS3RI0gGIAUFVX3lxTE9kck9rV2J1TWdDcU9EdVN0ZTV4NVREeVJkanFuQzVLekowXzlPakUwNXFNcEs2LUhzZ3VKMl9STFBwazVsRm1HVS1BR2JFdHJlVUMySG84Z21yTDlzNnVlNmRrVjREdnJNMjFva0VMYnR1bFRoWkIyNnFCUjUwRjFSNVA0V1lkM1U?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-10",
-        "source": "Andalucía Información",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Illescas y Albacete pausarán la huelga en Airbus mientras otros centros votan",
-        "date": "Mon, 31 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNVnFYSkV1WXhqRWR3ZWxwMmlHbUNiWElvUnRDX1RtcU9JNmZrR3VacU1wRWg3eG52R3lXMkhVTEVKem1pdTJuanRYT3JsbU5jemhUZTZweWNHSnFVazZGVTJKUmM4VEEwc1dBeE1oanppZjJXY2pMQ3hIR1JWcW5SVHZWSUVoZkJ2MDlfNzI4RWQwcldLTTQxWG0xV0R0RXhjR0t3Sk10U2pZd0F1bGt4UnJkbldCT1hfMUN6RVcxX1FST2x3SVRsOWFUclNBMm8zSW1qTDBlcjd5RzNxbGpCamc3MXJGYmI0REpfVFNtOG5TUdIB9wFBVV95cUxOd2lFMXNQWU02c0xpS2pzWmh5VFkxVkFMLU5DczZLbUs4MWp4Y3N0dXNmRHRjM1ltZjZ1aGRjcWVuM21zVDdCMFBXY0cwR1gzN0RjNEJNdDVnTEowQVZFZFVaZjMzcjU2bDZnZVU4VkRScnNBbkp0UVNxRDRhSHdlQXlMSGlxaUo1aEpfZy00cVR2bzI0aU9Mc0VnTU16RmQxUjRXaWtVUHdwZGNSWU1keGZraDJZd05tSzcwbXdCOGJ3c1J0TTFIWnlvYlh1VF9ZSFNqbTVZb1V1R0M1ZFpwNnczdkZ2UTlNRFJZaDRva1ZmaEhNM2VZ?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Andalucía Información. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-11",
-        "source": "Cadena SER",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en la fábrica de Airbus en Getafe se recrudece tras una semana de protestas",
         "date": "Wed, 08 Jul 2026",
@@ -16576,11 +17126,11 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-12",
-        "source": "cincodias.elpais.com",
+        "id": "rss-10",
+        "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus España se plantean una huelga indefinida a partir del 24 de agosto",
         "date": "Tue, 21 Jul 2026",
@@ -16588,11 +17138,11 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cincodias.elpais.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-13",
-        "source": "Infodefensa",
+        "id": "rss-11",
+        "source": "infodefensa.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Huelga indefinida en Airbus España: UGT, CGT y ÚTIL convocan paros totales a partir del 24 de agosto",
         "date": "Fri, 31 Jul 2026",
@@ -16600,10 +17150,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+27°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infodefensa. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en infodefensa.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-14",
+        "id": "rss-12",
         "source": "Industry Talks",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus: la plantilla dice no al preacuerdo en el referéndum y el sindicato convocante de la huelga la retira",
@@ -16615,19 +17165,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-15",
-        "source": "elDiario.es",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
-        "date": "Thu, 20 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-16",
+        "id": "rss-13",
         "source": "Euronews.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive su mayor huelga en España con todas las plantas afectadas",
@@ -16639,31 +17177,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Euronews.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-17",
-        "source": "Cadena SER",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
-        "date": "Mon, 27 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORm9mOVoydGdqel9TQ1BwX3NvSjkySjFFS0M1ZTg3YTNPUlYyWldWNHdvZVR4bFMwc3J2ek5aNVZpUFpJX19BLUsySDdxTmRQVDhwVGFNRHZMYmpqR1U0T3U1NkJNZDZCbFR4TFA3Z3ZmVTQtWXZvY0R1MkxRTmpnQVNYaUcyOUV3QlZ3Ylc1X1J2bHhmOFNUbS1PaUVpM1RYWlZNWDV1cG5ib2NpeDZ0UXFDbmhFa055VEYxYTBVRnF5bHNFcGJpZkY3Q0o5THhPLUFxSEliVnhfa3RNejN2Y1Q0V0pEQk85a1hLRFNTbmvSAYQCQVVfeXFMTVpxV0RoYUc2NFRLYWpyRzVKVGlVVmtYWGJaVTk2b01lbXdnWUNuYlFTT0k2MG9kNlNGS2dlYWpFRFRYTDhZRjRScmZsbGFITzFPQ1IwY2FmNzZKMHlCNHNLRmxRWEZTTTdwdDlDNXdYTHRhR2tJNzNJUUljUzlRMTRxcUY5d0lqRzdMWmdFQVZZY09qWURfTXBwMGEzZWR4aFFHb2VndkdQaTJOaVE2cFliOGJ3elV4MXoxRXZ1ZHFqRHZMbno0UW05dEdwT09VRzZDWkpaS19ib0RaVy1Fc2h3SndrTFd3dE1IeTV3elpmQU1WNHlVOFdwVy1ONWZZN2ozaEI?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-18",
-        "source": "fly-news.es",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Airbus: Sigue la huelga en España - fly-news.es",
-        "date": "Tue, 14 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-19",
+        "id": "rss-14",
         "source": "El Mundo",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus en España afronta su cuarta semana y pone a prueba su capacidad productiva",
@@ -16675,19 +17189,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-20",
-        "source": "Cadena SER",
-        "channel": "Prensa Nacional & Economía",
-        "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
-        "date": "Tue, 21 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNVmZMTUROUERrb0s0UTFURHdZZHM3OF9UV19WOUNMMHJUV2hCQlhMamcwLTNoVTBMR2FpWnJDQnB5RkJCbEZBVFg0VWpqNVgxaW0tQ1BtZ1h1dGdiSk56N1BnMkoxZ2lvb2tRdVFPNTdWbnJEcVdDSnFRcHdjVkhJNXJVNWtOMlU0YVd1MTF4QW5QYXM0MU9JYXdmaHowX05ZZWJSNU41cUZ6Ul9WOHI0ZnNmVnRrM1hSS09FU3ltUVZNZHNUSWZfNDRSR0lDRk0xRGRYRWYzcHZkdHR2UzVHNVJHLVg2a0E1UXQtZFFMOUVBcTVt0gGIAkFVX3lxTFBBN0JaQ1NBMkdXN24yN2RXdDdTeENJaVBkeHVwMEp3a1pKVjlwY1VBQXoxUEdlS25sbVliLS1oSTNtbk9OY0JhOFVGMTJReVpvTjVKUi1VUmxMN1JlRlhXQUNORERLZHE1VUJLZHI3eGlxX3o0NldBUzRNOU1sRjNueE5lc01XN0p5Q3pINlM2dmZkVWo2V0F3MXFfYWg2U3R0Ykw5NWZCSUt1Q1NFT2tQUUdCWlpaQ25WeS02MGlCVnNja1cyNEVuTVMwYUVmSmFhU0NyT2JKWHZVNGRYOVZHSFZxY3hjemZ4c3BOaUxYdEpvWmdjVzFfM250QnE1bWp3MzUtYlFMQw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-21",
+        "id": "rss-15",
         "source": "Diario Público",
         "channel": "Prensa Nacional & Economía",
         "title": "Cerca de 5.000 trabajadores de Airbus España se manifiestan en Getafe tras 16 días en huelga",
@@ -16699,20 +17201,68 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-22",
-        "source": "fly-news.es",
+        "id": "rss-16",
+        "source": "elDiario.es",
         "channel": "Prensa Nacional & Economía",
-        "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga - fly-news.es",
+        "title": "Airbus se muestra abierta al diálogo con la plantilla tras una semana de huelga al alza: \"Tomamos nota\"",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPelRZNnpHQkRiYzlILUR3eVkwSFdNMkZ2ZnNDQk9RaXpYMXRxQzZDVU1iVHh2WnlPcHV5a2dpck5iUUlrODZYOE5QMWl2N0dnbW9UdDVBbDdELWRVb3o3M0pPMkpybmRidThhMXVGaUp2MV9xSm5wMlJUeFJvWk0yV3Z2dTFlN2dnN2pQNkotZjlJV0k5Q3dtVHphWjNodEpsXzBZd2xfUEVEczlUSlBib1ZsM3p1WjBlUjZQZHln0gHDAUFVX3lxTE8tb3NxOUhGTmUyVzJEbEl6V3NUc283ck5sVUtZMnd1ZnY0eFN2eGJSaHUzaXh1ZkR0dGJ6dHJ2ZHE0TVh3VnhGczA0RGFhYTJYLTJUQm90WjM5RHItUkk3NDdkeGtDLUozbW15eWZzekJGM0s3Zk40WG5RVWtRLUljTTdJd2ozcWtmT1JoMUY2QndJR2RjTWpMWVJ5clZ0eXBXRWFORkpFajNlOWNUZFJ0MGxRVTVRUl9oQzlGY3BRak1SRQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-17",
+        "source": "cadenaser.com",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Incertidumbre en Airbus tras el no de los trabajadores al preacuerdo y por la desconvocatoria de la huelga",
+        "date": "Mon, 27 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxORm9mOVoydGdqel9TQ1BwX3NvSjkySjFFS0M1ZTg3YTNPUlYyWldWNHdvZVR4bFMwc3J2ek5aNVZpUFpJX19BLUsySDdxTmRQVDhwVGFNRHZMYmpqR1U0T3U1NkJNZDZCbFR4TFA3Z3ZmVTQtWXZvY0R1MkxRTmpnQVNYaUcyOUV3QlZ3Ylc1X1J2bHhmOFNUbS1PaUVpM1RYWlZNWDV1cG5ib2NpeDZ0UXFDbmhFa055VEYxYTBVRnF5bHNFcGJpZkY3Q0o5THhPLUFxSEliVnhfa3RNejN2Y1Q0V0pEQk85a1hLRFNTbmvSAYQCQVVfeXFMTVpxV0RoYUc2NFRLYWpyRzVKVGlVVmtYWGJaVTk2b01lbXdnWUNuYlFTT0k2MG9kNlNGS2dlYWpFRFRYTDhZRjRScmZsbGFITzFPQ1IwY2FmNzZKMHlCNHNLRmxRWEZTTTdwdDlDNXdYTHRhR2tJNzNJUUljUzlRMTRxcUY5d0lqRzdMWmdFQVZZY09qWURfTXBwMGEzZWR4aFFHb2VndkdQaTJOaVE2cFliOGJ3elV4MXoxRXZ1ZHFqRHZMbno0UW05dEdwT09VRzZDWkpaS19ib0RaVy1Fc2h3SndrTFd3dE1IeTV3elpmQU1WNHlVOFdwVy1ONWZZN2ozaEI?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-18",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus: Sigue la huelga en España",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xX201eEUza0ZUaDNOaFU0R25lSzBYS08zZkdCRUN6MUUyOGt1SGdvSnVqUmJnZmVLenlweGFJSHZ6UThJWVlnd1JiRnFmMVQ5NFI5TEM5QnFyS2JfenNGNUM2ZklEdHl2a2o1aHFXSzk?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-19",
+        "source": "cadenaser.com",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus seguirá en huelga y convertirá en indefinido el paro tras las vacaciones de agosto",
+        "date": "Tue, 21 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNVmZMTUROUERrb0s0UTFURHdZZHM3OF9UV19WOUNMMHJUV2hCQlhMamcwLTNoVTBMR2FpWnJDQnB5RkJCbEZBVFg0VWpqNVgxaW0tQ1BtZ1h1dGdiSk56N1BnMkoxZ2lvb2tRdVFPNTdWbnJEcVdDSnFRcHdjVkhJNXJVNWtOMlU0YVd1MTF4QW5QYXM0MU9JYXdmaHowX05ZZWJSNU41cUZ6Ul9WOHI0ZnNmVnRrM1hSS09FU3ltUVZNZHNUSWZfNDRSR0lDRk0xRGRYRWYzcHZkdHR2UzVHNVJHLVg2a0E1UXQtZFFMOUVBcTVt0gGIAkFVX3lxTFBBN0JaQ1NBMkdXN24yN2RXdDdTeENJaVBkeHVwMEp3a1pKVjlwY1VBQXoxUEdlS25sbVliLS1oSTNtbk9OY0JhOFVGMTJReVpvTjVKUi1VUmxMN1JlRlhXQUNORERLZHE1VUJLZHI3eGlxX3o0NldBUzRNOU1sRjNueE5lc01XN0p5Q3pINlM2dmZkVWo2V0F3MXFfYWg2U3R0Ykw5NWZCSUt1Q1NFT2tQUUdCWlpaQ25WeS02MGlCVnNja1cyNEVuTVMwYUVmSmFhU0NyT2JKWHZVNGRYOVZHSFZxY3hjemZ4c3BOaUxYdEpvWmdjVzFfM250QnE1bWp3MzUtYlFMQw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-20",
+        "source": "Fly News",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La plantilla de Airbus rechaza el preacuerdo entre la dirección y CCOO y seguirán en huelga",
         "date": "Sat, 18 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVk9RWV9jYV9ub25faGwxZGtYQ3lOQkd1TVlwS09HMXotMzhUR1MzVlJEUTRqR09LaDhOMHFqdVNlWHU1YzZqa0R6UEtzank3ZEZwMDdJZGxGbXh1dWQ0LU1vcjhkWl8wblBGYUpqSXV0YjNDeWRJZGVrX09zeEljUlFqOHF2VGdKb2J4cWZyNVdlbmFIUnNzWFFvbFZ1aG0wU0ZaV3g1bw?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-23",
-        "source": "Cadena SER",
+        "id": "rss-21",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "La mayoría sindical en Airbus firma un nuevo preacuerdo que someterá a referéndum este viernes",
         "date": "Thu, 23 Jul 2026",
@@ -16720,11 +17270,11 @@ window.CONFLICT_DATA = {
         "category": "GOOD_FOR_AIRBUS",
         "impact": "GOOD_FOR_AIRBUS",
         "pressure_impact": "-13°C",
-        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cadena SER."
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en cadenaser.com."
       },
       {
-        "id": "rss-24",
-        "source": "Economía Digital",
+        "id": "rss-22",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus España: reunión sindical clave para marcar el futuro de las movilizaciones tras una semana de huelga",
         "date": "Wed, 08 Jul 2026",
@@ -16732,22 +17282,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-25",
-        "source": "El Español",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Crece la tensión en Airbus: huelga indefinida desde el 24 de agosto en todas las plantas en España",
-        "date": "Tue, 21 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSFFwLWhvczBTY2VMV0VVc3ZjM3FlY3lwbFFfczhES2czRmUtSmNSYVRtaXY1Qjd5TzJPTHU4eWZpNjFoak1YcW9vNjVhdlpWR3FXckhuaWU3UXFBeTd5U1JtZnBmUnhUUVpHbk91b3hlQzlucTMzMTZjMWJBeUltdHY3Q0NhbVNZTzgwODBJaWtoMWt5VFJ3UHlzNFlfZ3hEcS1xS2lNWFJnZUNnWU8yYjRKQnA2MnBpN1VIUko5bHBzLUxqdnNRVUcwY9IB0AFBVV95cUxQTGxGYm9QaGM1cXdpZ1ZadHpCQ1JjZGZhT2ZOemwzU2tZYVU1Z3RlVmNib1AwU3psS2VDVnhqRkwxVVZNVTQ2YUFkcWU4VVE1SVJNWUFmbkN0UE56N0VmZEdpZUlVdi0zSWxDVHhRcER1dHlIRlhuN3dMSExVeG1UWXVpNzVubkhnR3Y4ZkI3YkVaV25mOWtJNEV2QkVhYlFpejRGYmFXdnFLQnp3LVhLV05WUlFHOHRTdzdnMlhxX21jRi11NzB0aHBZUG1Wd19W?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-26",
+        "id": "rss-23",
         "source": "soydemadrid.com",
         "channel": "Prensa Nacional & Economía",
         "title": "GETAFE | La plantilla de Airbus va a la huelga por los salarios y el teletrabajo",
@@ -16759,32 +17297,20 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en soydemadrid.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-27",
+        "id": "rss-24",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
-        "date": "Mon, 27 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
+        "title": "Crece la tensión en Airbus: huelga indefinida desde el 24 de agosto en todas las plantas en España",
+        "date": "Tue, 21 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPSFFwLWhvczBTY2VMV0VVc3ZjM3FlY3lwbFFfczhES2czRmUtSmNSYVRtaXY1Qjd5TzJPTHU4eWZpNjFoak1YcW9vNjVhdlpWR3FXckhuaWU3UXFBeTd5U1JtZnBmUnhUUVpHbk91b3hlQzlucTMzMTZjMWJBeUltdHY3Q0NhbVNZTzgwODBJaWtoMWt5VFJ3UHlzNFlfZ3hEcS1xS2lNWFJnZUNnWU8yYjRKQnA2MnBpN1VIUko5bHBzLUxqdnNRVUcwY9IB0AFBVV95cUxQTGxGYm9QaGM1cXdpZ1ZadHpCQ1JjZGZhT2ZOemwzU2tZYVU1Z3RlVmNib1AwU3psS2VDVnhqRkwxVVZNVTQ2YUFkcWU4VVE1SVJNWUFmbkN0UE56N0VmZEdpZUlVdi0zSWxDVHhRcER1dHlIRlhuN3dMSExVeG1UWXVpNzVubkhnR3Y4ZkI3YkVaV25mOWtJNEV2QkVhYlFpejRGYmFXdnFLQnp3LVhLV05WUlFHOHRTdzdnMlhxX21jRi11NzB0aHBZUG1Wd19W?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-28",
-        "source": "Economía Digital",
-        "channel": "Prensa Nacional & Economía",
-        "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
-        "date": "Tue, 14 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-29",
-        "source": "Economía Digital",
+        "id": "rss-25",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España inicia una huelga en pleno rearme europeo: 30% de paro en su mayor factoría",
         "date": "Thu, 02 Jul 2026",
@@ -16792,10 +17318,22 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+23°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-30",
+        "id": "rss-26",
+        "source": "economiadigital.es",
+        "channel": "Prensa Nacional & Economía",
+        "title": "CCOO mantiene su rechazo a la huelga en Airbus España mientras gana fuerza con el resto de sindicatos",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcGp3MkE0aUhrVzZOS2xtdkNWTnZhZFhrRVVzMFVVLWNaR2xPQkdQck9wNnpqWEVPUElCUjEtTEF6ZEJBYTB1aHlRRncxWFR6a1RIcm1WdkFnWXhXek9xSzRtWXNRQnh5amZKOWFwQzR6RWtvSkM1OXdTZURGWDFsQjhVZEQ0eHN6U2tWdHU2b9IBlAFBVV95cUxPNEowMlYyNjA1VERLVi1GRXIzQVhwbzlsNF9XanI2cTNfSjVUU2FjbkR0WERYYU1jLXRuaENRX2xhc0E4TmhHQjFFR1BZMThYOEYxRWNEc004cEVjOEtzazk3ZXh2dXd5N0duWjR3UUVFdlhaLTFnaUtndl91blJNeW1yYURfdHVGYXVaWExhVlQzNGNF?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+23°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-27",
         "source": "elDiario.es",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus va a la huelga por los salarios y la reducción del teletrabajo en un momento de beneficios récords",
@@ -16807,20 +17345,20 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-31",
-        "source": "elconciso.es",
+        "id": "rss-28",
+        "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
-        "date": "Thu, 23 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
-        "category": "GOOD_FOR_AIRBUS",
-        "impact": "GOOD_FOR_AIRBUS",
-        "pressure_impact": "-13°C",
-        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en elconciso.es."
+        "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
+        "date": "Mon, 27 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-32",
-        "source": "Economía Digital",
+        "id": "rss-29",
+        "source": "economiadigital.es",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos aprietan a Airbus y dan cinco días para negociar y evitar una escalada del conflicto",
         "date": "Fri, 03 Jul 2026",
@@ -16828,10 +17366,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-33",
+        "id": "rss-30",
         "source": "El Independiente",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de Airbus lleva a la compañía a delegar trabajos de ingeniería a otras filiales en pleno rearme",
@@ -16843,7 +17381,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Independiente. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-34",
+        "id": "rss-31",
+        "source": "El Conciso",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los trabajadores de Airbus votarán este viernes el preacuerdo que alcanzó la empresa con CCOO",
+        "date": "Thu, 23 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPTjV3NEFBbXBKLTBPaXZObzJIN1J6cEY4XzJCNUJrQmtDT2FtZlZ4dkg0MGV0Ri0wWFZLUXJ5eVRIUEU3SWZSTFpYbVE2eFhlcVlaMU1xU1hXUFBvUlEyVUJocWc1RlVQYkFUeDMwR2ZxR2lPV04tbFlUZHpRMllZWHAtX0VNdU1zQ09zaE5mZlYzZ2VzYzRBZ3otZzM2QnfSAaQBQVVfeXFMTUJNRUp1SFV1dVRvbUUwYWhvc0xvclowVUNHRlZPVEFQc29SckFLajlZclF6U3ZKNEctX2NNZWs1UXp4UTBoQVB0WWpqdThzeEU1SzZrSGtBSEh4bHB2NC12bzVlQmJsbHNCV1dKbGw2T29nak1KMU44OXhUc3RMaGtEM094M2Z2SC1vQjJpbzV3V1V5SExjSW9fNlphQnlmSTA1b04?oc=5",
+        "category": "GOOD_FOR_AIRBUS",
+        "impact": "GOOD_FOR_AIRBUS",
+        "pressure_impact": "-13°C",
+        "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
+      },
+      {
+        "id": "rss-32",
         "source": "The Objective",
         "channel": "Prensa Nacional & Economía",
         "title": "Los empleados de Airbus inician una huelga en España en un momento de beneficios récord",
@@ -16855,7 +17405,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Objective. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-35",
+        "id": "rss-33",
         "source": "Hosteltur",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus vive una de sus mayores huelgas en España con paros en todos los centros",
@@ -16867,8 +17417,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hosteltur. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-36",
-        "source": "cincodias.elpais.com",
+        "id": "rss-34",
+        "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga en Airbus España se extiende por todos los centros con la rebaja del teletrabajo como detonante",
         "date": "Thu, 16 Jul 2026",
@@ -16876,22 +17426,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cincodias.elpais.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-37",
-        "source": "ABC",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Los sindicatos cifran en un 95 % el seguimiento de la huelga en Airbus en España",
-        "date": "Tue, 14 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQR0d0NG1lYUpoMkU2V0FlYTVlZGpzd0U2WVd1bTk5bWFRZnBWSkw2elFwc1V2MF9ESzJQbHg4RF9KMjhNdkdIR0pOMTl3QklTV2lIM2dDLXlEQXhuMXJxTkxDWmhncGoycDI1Si1ZNnRDbHVncFVtNWtGTEpFa2RYQ2Z4VVE0RGFPZkJacEhUM3NIOEFpZnpBSVl5QVNvaVoxSEFJ?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-38",
+        "id": "rss-35",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Arrecia la huelga en Airbus por una subida salarial por debajo del IPC y el recorte del teletrabajo",
@@ -16903,7 +17441,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-39",
+        "id": "rss-36",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Los sindicatos cifran en un 95 % el seguimiento de la huelga en Airbus en España",
+        "date": "Tue, 14 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQR0d0NG1lYUpoMkU2V0FlYTVlZGpzd0U2WVd1bTk5bWFRZnBWSkw2elFwc1V2MF9ESzJQbHg4RF9KMjhNdkdIR0pOMTl3QklTV2lIM2dDLXlEQXhuMXJxTkxDWmhncGoycDI1Si1ZNnRDbHVncFVtNWtGTEpFa2RYQ2Z4VVE0RGFPZkJacEhUM3NIOEFpZnpBSVl5QVNvaVoxSEFJ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-37",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus quiere \"reconstruir la confianza\" de sus 14.000 empleados en España y evitar que la huelga prenda en Francia",
@@ -16915,19 +17465,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-40",
-        "source": "Infobae",
-        "channel": "Prensa Nacional & Economía",
-        "title": "Airbus convoca de nuevo la negociación el lunes mientras se mantiene la huelga en España",
-        "date": "Sat, 18 Jul 2026",
-        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR1hPanBkdzRaNERLWDFnSWhfOFJtRXV2T09RdVMtYlNwY3F3cmZucnBvWGNJVmMtR0ZTc1Z5RnNET2NtTG1ncTAtN0dOMTA0YmtGdjY1RDd0bmpEaVlLTjQ4eUNZa0tSaDV3TV81Tlo2WGpOM2RySnFKM2pVeDNWYlpTbU5DWmdrbzlTVEhuM1BjTkN0RlZWVHN0VG92Y1ppVkR4bU1hNVNvZHlDalRoX0pBcjl1MGx2eklRMVhkUG9XWVllZGhvLVBlcktRenVwTnUzWjhOTdIB8gFBVV95cUxQNDlyTDEyNzlCTnNGUGx2Zmx3WlJ4U2sxZElXOFZTX0xWRi1qN1hGZUZXcnhHOUozc1dZWHhSV0JzWHdyMFNyUjN3N3I0ekk0NXZFV1dzVlRyZm00bUdzbnJDQ2RRcmFTbkNTaUJlM2tSbE9MR1p4b2pZZGlhTWtZRzJRSnAtM2lrTEZJX0UwMHl5RWl4cVdfUHFQY3NfZkVGcUp1aUNZcDZadXJ1NUotbDdIZ25oNXlfUWFuNC1GX0M4ZW9kYmtzX2ttUHZka3RZVjZKamh4ZldMSjVwcUJLckE3Z29VTmd3ZTRRSHdFdlNEdw?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-41",
+        "id": "rss-38",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "La huelga de trabajadores de Airbus comienza con el bloqueo de la entrada a su planta de Getafe",
@@ -16939,7 +17477,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-42",
+        "id": "rss-39",
+        "source": "Infobae",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Airbus convoca de nuevo la negociación el lunes mientras se mantiene la huelga en España",
+        "date": "Sat, 18 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOR1hPanBkdzRaNERLWDFnSWhfOFJtRXV2T09RdVMtYlNwY3F3cmZucnBvWGNJVmMtR0ZTc1Z5RnNET2NtTG1ncTAtN0dOMTA0YmtGdjY1RDd0bmpEaVlLTjQ4eUNZa0tSaDV3TV81Tlo2WGpOM2RySnFKM2pVeDNWYlpTbU5DWmdrbzlTVEhuM1BjTkN0RlZWVHN0VG92Y1ppVkR4bU1hNVNvZHlDalRoX0pBcjl1MGx2eklRMVhkUG9XWVllZGhvLVBlcktRenVwTnUzWjhOTdIB8gFBVV95cUxQNDlyTDEyNzlCTnNGUGx2Zmx3WlJ4U2sxZElXOFZTX0xWRi1qN1hGZUZXcnhHOUozc1dZWHhSV0JzWHdyMFNyUjN3N3I0ekk0NXZFV1dzVlRyZm00bUdzbnJDQ2RRcmFTbkNTaUJlM2tSbE9MR1p4b2pZZGlhTWtZRzJRSnAtM2lrTEZJX0UwMHl5RWl4cVdfUHFQY3NfZkVGcUp1aUNZcDZadXJ1NUotbDdIZ25oNXlfUWFuNC1GX0M4ZW9kYmtzX2ttUHZka3RZVjZKamh4ZldMSjVwcUJLckE3Z29VTmd3ZTRRSHdFdlNEdw?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-40",
         "source": "MARCA",
         "channel": "Prensa Nacional & Economía",
         "title": "La plantilla de Airbus en España pone en marcha una huelga que afecta a sus factorías en pleno incremento de la producción",
@@ -16951,7 +17501,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en MARCA. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-43",
+        "id": "rss-41",
         "source": "Aviacionline",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus plants in Spain resume operations as unions debate next steps in wage dispute",
@@ -16963,8 +17513,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviacionline."
       },
       {
-        "id": "rss-44",
-        "source": "InfoBaires24",
+        "id": "rss-42",
+        "source": "infobaires24.com.ar",
         "channel": "Prensa Nacional & Economía",
         "title": "España: Continúa la huelga histórica en Airbus",
         "date": "Thu, 23 Jul 2026",
@@ -16972,10 +17522,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en InfoBaires24. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en infobaires24.com.ar. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-45",
+        "id": "rss-43",
         "source": "Finanzas.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Airbus debe acelerar un 51% sus entregas con una huelga en España que afecta al 88% de su producción",
@@ -16987,7 +17537,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Finanzas.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-46",
+        "id": "rss-44",
         "source": "ABC",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos rechazan la propuesta de Airbus para terminar con la huelga",
@@ -16999,20 +17549,32 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-47",
-        "source": "fly-news.es",
+        "id": "rss-45",
+        "source": "Fly News",
         "channel": "Prensa Nacional & Economía",
-        "title": "Reunión clave para desconvocar la huelga en Airbus - fly-news.es",
+        "title": "Reunión clave para desconvocar la huelga en Airbus",
         "date": "Wed, 08 Jul 2026",
         "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd0JRMXVvajRXazNGVGdfdHF2YndXdVlUS1hvYl8wdmItOXp3alhYSVdTS1hqTjdyc0NXV3ZCU0Zka0dYV3ZyMlVOZ3k5LTYtdFZ0MUZvVUtDaE42dl9jbkVVSHdoWDFMTWFWanoyd2wxcUNka3VnNHBVRFJYQVpxSjNDVHJZRm45?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en fly-news.es. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Fly News. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-48",
-        "source": "cincodias.elpais.com",
+        "id": "rss-46",
+        "source": "ABC",
+        "channel": "Prensa Nacional & Economía",
+        "title": "La votación para acabar con la huelga en Airbus separa a la plantilla de los sindicatos",
+        "date": "Fri, 24 Jul 2026",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaFQ1RlM0WDhHWkRhUzF1TDRqMzRXWnhyaFVESGdoWlI3NzRPYlZ4R2VHWW1aT040NUUxSUg3UmljeFlIdmJ5V2hpT2wzcVdYZlYzUGFMNkMtN1ZZWHVTNXU5U3ZXZWsyYXBkM2ZFQ1NYeVBrSFh2Tk84VlNCS01JdXNrSEhLR0VfSGFGV0s5MXNvazFsbExFeXZ1VjZOY1lKS3NxbElKdEl1Q2ZD0gGyAUFVX3lxTE00ano2YllNY2J2UlFHeWdWT2czelFuY3Z6WDduY1FOam5uYlhaUDlMMUhLWTY4VkZWX2gzZktTeE9ReEhZYTRmNzREcl9qNHhNVXQxUlRNYkdVUkZRZDJHNkxJYm8wNUdiWTBZcVlLbVhRZnE3WENCbjJ3LTVaYXdveDhVYWQ4TThvYU9NaXh4RUtrOWlJdzJGUGV5cHhBdG1BM3YzNGFmMWc4czlhaU1KN3c?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-47",
+        "source": "Cinco Días",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus votan en contra del acuerdo con la empresa de revisión salarial y teletrabajo",
         "date": "Sat, 25 Jul 2026",
@@ -17020,10 +17582,10 @@ window.CONFLICT_DATA = {
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en cincodias.elpais.com."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cinco Días."
       },
       {
-        "id": "rss-49",
+        "id": "rss-48",
         "source": "LaSexta",
         "channel": "Prensa Nacional & Economía",
         "title": "Los trabajadores de Airbus, en huelga tras meses sin acuerdo en el convenio mientras la empresa logra beneficios récord",
@@ -17033,6 +17595,18 @@ window.CONFLICT_DATA = {
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en LaSexta. Incrementa la presión sobre Guillaume Faury."
+      },
+      {
+        "id": "rss-49",
+        "source": "Hispanidad",
+        "channel": "Prensa Nacional & Economía",
+        "title": "Huelga en Airbus. La dirección amenaza con cancelar contratos... pero el Gobierno reacciona y le obliga a negociar con los sindicatos",
+        "date": "Mon, 31 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNTndaXzRvNlNYU05EcUU3RURwU0NBdjdGdnA3d3Fvc2JUd01iSFVRa1BYTzczNFNSYW9xbkxqSGR6R3JLWkZqbE1pb0pybk11ZjAzTjYtVE40a0l4TWpfYUdxSzd5M0U3WGdMTml2YzVWMUxhY2NCVmU3Mm1QWTlnZ2ZHV2ZjN0VWZEhDNHh2U2FzQzZXV3VCenJTSnRsWmdsR3FkRVhoNUVQc1Zjc0JibExnM044VWdmbmliRkkwRVV1X0h4YTd6YmsxcTRwdVdENEwybElFeEI3T29pUU1penNueHlOaGZtRjJwdXBGOTBkcnVxZy1vdlNB0gH-AUFVX3lxTFByQ0gyOTZQSEM5NFp4N0hpZno3TjY3M3pJWU5tY2lqVW5IUUtrTEoxS2hMVnNBR0p2ejBNclY2X3duMTRpV2V6bXVwOTdQZDZ0amR5NTR5RE1Pc3FOYjhGZ21IZ0V3NWIwSkdNR0g0T2hCSHlDRkpTdUtGc05FM2NpenVBcldhTjh0UGpFMDBVYWYzdzBBTk45eDBUc2dMU3lISjQ4Wmx5VktTMDJPYjU0SmVQSmFlQWkyOGFkLW5NWHZsQ0pOYTZMNzRFcnpKNTktSS1EazhXdnBidlhqOW9FZXJFT0NmLVo0dXdxX2dObnU2aXhtRGhNTVFXN2ZR?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hispanidad. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-50",
@@ -17062,9 +17636,9 @@ window.CONFLICT_DATA = {
         "id": "rss-52",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "El Gobierno mediará si se mantiene la huelga en Airbus: \"No podemos jugar con el pan de los próximos 30 años\"",
-        "date": "Tue, 01 Sep 2026",
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWkxrSUVSOGRSWEhqMXFlOEoxcllmeEhHZkRJdVp3MGVxTTFFbURNSWhhVkNCVU1tU0JlYXhvU0xSNGJXWTZCMDBib3Q1VGl2S0YyVi05SzJuVkdTOThVZ1B5enJqZFpSMGVuekw2WVM2N3VISzBBNzBQMXJNNHF5RFZzeWFhLXRHVWx2X1Iyb1Z1bUJlOFpLbDF4NFNmTUV5VUFiSEduTXFVaUx1bjE4eUhhbWtmQlhIc21tM0FZdlJVQlRQZnBGLThtV0VCTTIyeTM0YXZn0gHbAUFVX3lxTE1NTWRTYXIwR2JmSnd4a19TZEw5RWtFTDA5QThGRUIxSzNHM0lkY0J6bWJlS01GSk5lQTBzaE9GZjFUY3VVNGhfNkg2cGF0bHloYVJlQVl2UEZYb1NSQmlQcEJQNUFMcTQ2c1VDX0RXcWFHbTh5WmQ2OGdGcW5yRTZNTjd1NkN0MVAtRWp5akJ4WmNSM3dFYlV4YWk0aVROUENKZWoxUTNnaDdhdmVUN0dNZ012MVl4T3VTSEVmY0xpeGRJN3VEUVlvRlBpcWhhYW9kZXIzWVphcmlSbw?oc=5",
+        "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
+        "date": "Thu, 20 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
@@ -17074,9 +17648,9 @@ window.CONFLICT_DATA = {
         "id": "rss-53",
         "source": "El Español",
         "channel": "Prensa Nacional & Economía",
-        "title": "Los 14.000 trabajadores de Airbus España votan el lunes huelga indefinida o negociar una nueva oferta de la dirección",
-        "date": "Thu, 20 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNREotZmw2dk1OMnJpN0RBS1kxRFJGOFlwNDZ0ZmZJd2U3d0xHU1JMSnpteTZ3LUVmajgzeWVoUXBTZFowVEgxUGpmblR1TEo1aHdiWWpRMGxPTUhiTU43eGd1TGtEV3pJOGtNWnEzem5xR0p6WVFSYjYtMjc2bjgzMkZNV0wxbUZEa1IwcG9ISXFwSEl2X2pLZWFObTAyZnVRYUdDbkhrNWRJMXlzdTY5SDY1X2tyRUxDel9RNlFtcHpMWE5CWDN3bDFjZXg5TDN4UDktV1VHaFBmdWpx0gHiAUFVX3lxTFBBWlJmdExLU0lsdmlhVFZDQUxIVkJXc043RXBXeHRNWUdZOE5KeEZ5dVFGdmxQTk11SWZQeDNyV1BQdTU1SGNycVEyUWFXbnJfWTEtaTZFY0lRWUx1czZWUFFLYi1GMmdMbVU1Y0IyWlJ4UFQybzlvQUxQU3RVVzRFN3JqbkhJTnZ6R21yZEExLTRWeEpPSW1kMFFITWZLN2xwRDJUdkdrRDk1cElVZWItV19Gbk5LYzBBNUtVTE10c29wNS1GV0lXN2RPWnZhWjIxSFVKTTlyb085YWhoQVZWM2c?oc=5",
+        "title": "El Gobierno mediará si se mantiene la huelga en Airbus: \"No podemos jugar con el pan de los próximos 30 años\"",
+        "date": "Tue, 01 Sep 2026",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWkxrSUVSOGRSWEhqMXFlOEoxcllmeEhHZkRJdVp3MGVxTTFFbURNSWhhVkNCVU1tU0JlYXhvU0xSNGJXWTZCMDBib3Q1VGl2S0YyVi05SzJuVkdTOThVZ1B5enJqZFpSMGVuekw2WVM2N3VISzBBNzBQMXJNNHF5RFZzeWFhLXRHVWx2X1Iyb1Z1bUJlOFpLbDF4NFNmTUV5VUFiSEduTXFVaUx1bjE4eUhhbWtmQlhIc21tM0FZdlJVQlRQZnBGLThtV0VCTTIyeTM0YXZn0gHbAUFVX3lxTE1NTWRTYXIwR2JmSnd4a19TZEw5RWtFTDA5QThGRUIxSzNHM0lkY0J6bWJlS01GSk5lQTBzaE9GZjFUY3VVNGhfNkg2cGF0bHloYVJlQVl2UEZYb1NSQmlQcEJQNUFMcTQ2c1VDX0RXcWFHbTh5WmQ2OGdGcW5yRTZNTjd1NkN0MVAtRWp5akJ4WmNSM3dFYlV4YWk0aVROUENKZWoxUTNnaDdhdmVUN0dNZ012MVl4T3VTSEVmY0xpeGRJN3VEUVlvRlBpcWhhYW9kZXIzWVphcmlSbw?oc=5",
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
@@ -17108,7 +17682,7 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-56",
-        "source": "Cadena SER",
+        "source": "cadenaser.com",
         "channel": "Prensa Nacional & Economía",
         "title": "Los sindicatos hablan de seguimiento masivo de la huelga en Airbus Getafe",
         "date": "Wed, 02 Nov 2022",
@@ -17116,7 +17690,7 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cadenaser.com. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-57",
@@ -17132,30 +17706,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-58",
-        "source": "Air Data News",
-        "channel": "Aviation & Industry Press",
-        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
-        "date": "Sat, 04 Apr 2026",
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
-        "category": "NEUTRAL",
-        "impact": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
-      },
-      {
-        "id": "rss-59",
-        "source": "crikey.com.au",
-        "channel": "Aviation & Industry Press",
-        "title": "Qantas has made a song and dance about its new ultra-long-haul planes. Pilots have concerns",
-        "date": "Tue, 23 Jun 2026",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUXRTbWlCUVg1TmxQRmlEZUc1aUxaam83ZjhWb3Z6OFdzZWwxbjhPT1dUSUk5ZEt0dWpieFEwSkJWREhiWXJwVkV4Z2ZhSHNpZFZEeElYUHNUVF9ndG16eDZ4YThWNWhjanZ1VnpiUUNTdTNteEZ2bHVaekxuS3EyTENBZ0JiU1VrYjBQdFE2T0Ytcnpjc1lnWXpOY0pJaHVQ?oc=5",
-        "category": "NEUTRAL",
-        "impact": "NEUTRAL",
-        "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en crikey.com.au."
-      },
-      {
-        "id": "rss-60",
         "source": "Simple Flying",
         "channel": "Aviation & Industry Press",
         "title": "Lufthansa Group Is Losing $540 Million A Year To Aircraft Delivery Delays",
@@ -17167,7 +17717,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-61",
+        "id": "rss-59",
         "source": "Forecast International",
         "channel": "Aviation & Industry Press",
         "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
@@ -17179,7 +17729,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
       },
       {
-        "id": "rss-62",
+        "id": "rss-60",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Airbus warns customers of aircraft delivery delays: report",
@@ -17191,19 +17741,19 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en AeroTime. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-63",
-        "source": "Simple Flying",
+        "id": "rss-61",
+        "source": "airdatanews.com",
         "channel": "Aviation & Industry Press",
-        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
-        "date": "Sun, 11 Jan 2026",
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "title": "KLM expects first A350 delivery by late summer; aircraft enters final assembly",
+        "date": "Sat, 04 Apr 2026",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUXNGb2hXUlNYczhZZlQ4NXp1WEdJM3VCQXRWT2RQejB6dHVfVEdEd2RydDlLX1hSYW03ZFJISW9pdFNUcHo5VUs0T2xXcUllU0xuVFd4cmxiRHpPdkswVkd0alZiQXcyUW8ydWxQN2VKUkxDQlluOVRvR3JxY19BNGdPajZ1cnFjQXNMMi1VRkJBb3hFVThCUzVrWGEwYWxCZEwwa1ZKYlBlZw?oc=5",
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en airdatanews.com."
       },
       {
-        "id": "rss-64",
+        "id": "rss-62",
         "source": "Key Aero",
         "channel": "Aviation & Industry Press",
         "title": "THAI A350 DELIVERY",
@@ -17215,7 +17765,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
       },
       {
-        "id": "rss-65",
+        "id": "rss-63",
         "source": "AeroTime",
         "channel": "Aviation & Industry Press",
         "title": "Behind the scenes at ATR’s turboprop factory",
@@ -17227,7 +17777,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AeroTime."
       },
       {
-        "id": "rss-66",
+        "id": "rss-64",
         "source": "Simple Flying",
         "channel": "Aviation & Industry Press",
         "title": "Malaysia Airlines 1st Airbus A330neo Takes 1st Flight",
@@ -17239,7 +17789,19 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
-        "id": "rss-67",
+        "id": "rss-65",
+        "source": "Simple Flying",
+        "channel": "Aviation & Industry Press",
+        "title": "Why Airbus Has Such Rapid Production & Delivery Rates Right Now",
+        "date": "Sun, 11 Jan 2026",
+        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5vRUhYc3AzLW5rUGpJM1hOWEdvcENXcld0VlI0blV6TDVpbFVnM3ZsWXhMVTRMNTZ5OUltMHpEam51TFhwY3pGR1lfWW1LQmFWc0kwdUNhdDRnNEFMWUJiaDljZ0hMdkYwamFFa3BtOVM5Tk9rZTNaUi1RRFE?oc=5",
+        "category": "NEUTRAL",
+        "impact": "NEUTRAL",
+        "pressure_impact": "0°C",
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+      },
+      {
+        "id": "rss-66",
         "source": "UGT",
         "channel": "Labor & Negociación",
         "title": "UGT exige responsabilidad y negociación de buena fe a Airbus para avanzar en la resolución del conflicto laboral",
@@ -17251,7 +17813,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en UGT. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-68",
+        "id": "rss-67",
         "source": "Diario en Positivo",
         "channel": "Labor & Negociación",
         "title": "Airbus propone subir sueldos con el IPC y un 7,6% y sigue con teletrabajo",
@@ -17263,8 +17825,8 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario en Positivo."
       },
       {
-        "id": "rss-69",
-        "source": "cordobabn.com",
+        "id": "rss-68",
+        "source": "Córdoba Buenas Noticias",
         "channel": "Labor & Negociación",
         "title": "Airbus propone atar sueldos al IPC real y subir un 7,6% para evitar huelga",
         "date": "Fri, 28 Aug 2026",
@@ -17272,10 +17834,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en cordobabn.com. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Córdoba Buenas Noticias. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-70",
+        "id": "rss-69",
         "source": "Demócrata",
         "channel": "Labor & Negociación",
         "title": "Las claves de la huelga de Airbus: por qué la plantilla mantiene los paros indefinidos",
@@ -17287,7 +17849,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-71",
+        "id": "rss-70",
         "source": "El Economista",
         "channel": "Labor & Negociación",
         "title": "Airbus pide mediación al SIMA para reconducir la negociación con su plantilla y alejar la amenaza de huelga",
@@ -17299,7 +17861,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-72",
+        "id": "rss-71",
         "source": "Europa Press",
         "channel": "Labor & Negociación",
         "title": "Airbus pide una mediación del SIMA para acercar posturas tras el rechazo de los trabajadores al acuerdo",
@@ -17311,7 +17873,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-73",
+        "id": "rss-72",
         "source": "ABC",
         "channel": "Labor & Negociación",
         "title": "Los sindicatos anuncian una nueva huelga en Airbus para después del verano",
@@ -17323,7 +17885,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-74",
+        "id": "rss-73",
         "source": "Industry Talks",
         "channel": "Labor & Negociación",
         "title": "Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto",
@@ -17335,8 +17897,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-75",
-        "source": "Economía Digital",
+        "id": "rss-74",
+        "source": "economiadigital.es",
         "channel": "Labor & Negociación",
         "title": "Airbus mueve ficha para frenar la huelga: subirá los sueldos un 7,6% y los ligará al IPC",
         "date": "Sat, 29 Aug 2026",
@@ -17344,10 +17906,10 @@ window.CONFLICT_DATA = {
         "category": "BAD_FOR_AIRBUS",
         "impact": "BAD_FOR_AIRBUS",
         "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en economiadigital.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-76",
+        "id": "rss-75",
         "source": "Radio Intereconomía",
         "channel": "Labor & Negociación",
         "title": "Airbus: empresa y sindicatos se citan de nuevo mientras se mantiene la huelga",
@@ -17359,7 +17921,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Radio Intereconomía. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-77",
+        "id": "rss-76",
         "source": "Bolsamania",
         "channel": "Labor & Negociación",
         "title": "Economía.- Airbus ofrece ligar los sueldos al IPC real y un 7,6% más para frenar la huelga y mantiene el teletrabajo",
@@ -17371,7 +17933,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Bolsamania. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-78",
+        "id": "rss-77",
         "source": "Madridiario",
         "channel": "Labor & Negociación",
         "title": "Airbus plantea un 7,6% de recuperación salarial y mantener el teletrabajo para acabar con la huelga",
@@ -17383,8 +17945,8 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en Madridiario. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-79",
-        "source": "Albaceteabierto",
+        "id": "rss-78",
+        "source": "albaceteabierto.es",
         "channel": "Labor & Negociación",
         "title": "Airbus propone aumentar sueldos al IPC real y 7,6%",
         "date": "Fri, 28 Aug 2026",
@@ -17392,7 +17954,19 @@ window.CONFLICT_DATA = {
         "category": "NEUTRAL",
         "impact": "NEUTRAL",
         "pressure_impact": "0°C",
-        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Albaceteabierto."
+        "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en albaceteabierto.es."
+      },
+      {
+        "id": "rss-79",
+        "source": "madridactual.es",
+        "channel": "Labor & Negociación",
+        "title": "Airbus liga los sueldos al IPC y exige el fin de la huelga",
+        "date": "Fri, 28 Aug 2026",
+        "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOUGRVOExSdUQ3ckZyQTI3a1FxQmVvS1J6R0dTMDFhamFJUjN2dmV3RUhFd0tZR2NzZXl2RERPaE0xd3FENk5FQlYzblRxLWU2OG9oWkVhLWJsNS12Yk9ZWmFQVWNaSVZ2SERfckRLYWNvaE1XYmItNkxXRFEwcHMyVDR5cDN0M091UF9Jc1FMTmZJRzVBZGk3RnNYRDRtNWVldkVkb2g0RjhtWWkyZUpjak5CTzdaWVg2YlZwdWFhOGFFYzFTOEVaeE5ZSmhXUGdSMXZzSGNXXzFrdEZJLW5jUVV6NUdaQQ?oc=5",
+        "category": "BAD_FOR_AIRBUS",
+        "impact": "BAD_FOR_AIRBUS",
+        "pressure_impact": "+19°C",
+        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en madridactual.es. Incrementa la presión sobre Guillaume Faury."
       },
       {
         "id": "rss-80",
@@ -17420,18 +17994,6 @@ window.CONFLICT_DATA = {
       },
       {
         "id": "rss-82",
-        "source": "CLM24",
-        "channel": "Labor & Negociación",
-        "title": "La plantilla de Airbus vota seguir en huelga en Illescas y Albacete",
-        "date": "Mon, 24 Aug 2026",
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSUFHUy1wYVVRNmtBZTVwSWEyeWdhMzRtdW1jZ2xTZk5VZlg3eVB4aTBMWGpwVktBQ2xoNnF2Y25rd2RBc2NEVUZLVlYtb1RNV1pMenRfb0JZUnI1bFNKZkJkcEZPcTd6dWxFc280M2pGbUdheWRUNDB6am1DM29ZNWNFUUhFUGp2TDJoeHhpX0NOcmVvQ29RM0RLTnNxVldKaVRjRDFoYnItZnlYejNmcUVOZlNUbU5RZHhlNTdn0gHDAUFVX3lxTE5aclkwY19nVnNwUFYtV2l3aVZTeEdiZ1ZlTWVPaUw1UGg1SkJUV3duZWdjejB0TUU5V1FJbmt2U2RsTTBXaFc3LWpNUWhOOGhsckxWZUhMY1VzQUlVanZ4aGtjdjVlX25pbV94QnlFUWU1SmoxNFMtTU90aTFSUkJtakx6N0FnbFc1cEZqMXhvV2RSQW9aV21Ia0pUa0RrLWhwVE8tcnZJTk04U0FYZTRLVFAxN216ZE9RQm90WVdIbGtuNA?oc=5",
-        "category": "BAD_FOR_AIRBUS",
-        "impact": "BAD_FOR_AIRBUS",
-        "pressure_impact": "+19°C",
-        "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
-      },
-      {
-        "id": "rss-83",
         "source": "Cathay Pacific",
         "channel": "Logística & Cadena JIT",
         "title": "A plane of many parts: tracing the global supply chain of an A350",
@@ -17443,7 +18005,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cathay Pacific."
       },
       {
-        "id": "rss-84",
+        "id": "rss-83",
         "source": "Simple Flying",
         "channel": "Logística & Cadena JIT",
         "title": "A 5-Step Guide To The Supply Chain Required To Produce Airbus A350s",
@@ -17455,7 +18017,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
       },
       {
-        "id": "rss-85",
+        "id": "rss-84",
         "source": "North Wales Live",
         "channel": "Logística & Cadena JIT",
         "title": "LOOK: Airbus' £30m Beluga station ensures wind does not halt play",
@@ -17467,7 +18029,7 @@ window.CONFLICT_DATA = {
         "summary": "Noticia de alto impacto sobre la cadena de valor o la cohesión de la huelga en North Wales Live. Incrementa la presión sobre Guillaume Faury."
       },
       {
-        "id": "rss-86",
+        "id": "rss-85",
         "source": "STAT Times",
         "channel": "Logística & Cadena JIT",
         "title": "Airbus ships first A350F Section 19 to Hamburg",
@@ -17479,7 +18041,7 @@ window.CONFLICT_DATA = {
         "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en STAT Times."
       },
       {
-        "id": "rss-87",
+        "id": "rss-86",
         "source": "The Times of India",
         "channel": "Logística & Cadena JIT",
         "title": "Giant of the skies: Kolkata welcomes Airbus Beluga XL for its inaugural stop",
@@ -17500,7 +18062,7 @@ window.CONFLICT_DATA = {
       "type": "Canal Oficial Asambleas Huelga Airbus España",
       "total_members": 5794,
       "status": "Activo / En seguimiento continuo",
-      "last_sync": "2026-09-01T15:47:15.437998+00:00"
+      "last_sync": "2026-09-01T13:56:51.617883+00:00"
     },
     "stats": {
       "total_documents": 275,
@@ -17511,7 +18073,7 @@ window.CONFLICT_DATA = {
         "assembly_minutes": 17
       }
     },
-    "last_sync": "2026-09-01T15:47:15.438009+00:00",
+    "last_sync": "2026-09-01T13:56:51.617896+00:00",
     "total_documents": 275,
     "categories_breakdown": {
       "documents": 189,
@@ -17521,47 +18083,11 @@ window.CONFLICT_DATA = {
     },
     "documents": [
       {
-        "id": "tg_0632209",
-        "filename": "www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt",
-        "title": "www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensaci n de gastos.",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-UESFPaGTDKGI1DI-QRlI6NjmYepE-7cErPQRgNxB6pYmAFLcIX0xU-UuBiSeEeMOXwWYVX2OpgJF8xRzBALQCFMMC6CeiofI9dm0dy90sx7",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt"
-      },
-      {
-        "id": "tg_5625399",
-        "filename": "trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt",
-        "title": "trabajar desde cualquier lugar  incluso tu coche   la nueva frontera del trabajo",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Trabajar desde cualquier lugar (incluso tu coche)",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt"
-      },
-      {
-        "id": "tg_7482775",
-        "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
-        "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) inFO RELOAD – Classification #1",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
-      },
-      {
-        "id": "tg_8894562",
+        "id": "tg_6241821",
         "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
         "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-31",
         "unions": [],
         "site": null,
         "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) inFO RELOAD – Classification #1 Actus",
@@ -17569,107 +18095,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
       },
       {
-        "id": "tg_4571114",
-        "filename": "dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt",
-        "title": "dossier recuperacion salarial airbus E1 v8",
-        "category": "dossiers",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Dossier Económico / Técnico Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Recuperación del poder adquisitivo en Airbus",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/dossiers/dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt"
-      },
-      {
-        "id": "tg_7684385",
-        "filename": "censo_presentacion.pdf.txt",
-        "title": "censo presentacion",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9nSeNBYrJfIyaSMqT1Mt3bJxidTU3yFhMykSQwXEiGlpicbfBtaeENNmmwqFEUXECSq0CjbI04WOpzw5R0oVQ-lgNGYZEuv55WvGXFcEw0DN",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/censo_presentacion.pdf.txt"
-      },
-      {
-        "id": "tg_0831630",
-        "filename": "Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt",
-        "title": "Workers Struggles  Europe  Middle East   Africa - World Socialist Web Site",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: 2026/08/27 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt"
-      },
-      {
-        "id": "tg_2428394",
-        "filename": "Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt",
-        "title": "Wie viel verdient man bei Airbus  Dein Gehaltseinblick - kununu News",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Wie viel verdient man bei Airbus? Dein Gehaltseinblick | kununu News",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt"
-      },
-      {
-        "id": "tg_0281297",
-        "filename": "Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt",
-        "title": "Wie viel kann ich f r einen ersten Job als Ingenieur bei Airbus in Deutschland v",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt"
-      },
-      {
-        "id": "tg_0987835",
-        "filename": "Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt",
-        "title": "Viewpoint  PATCO s Lessons for this Crisis - Labor Notes  ",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Viewpoint: PATCO's Lessons for this Crisis | Labor Notes",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt"
-      },
-      {
-        "id": "tg_9957150",
-        "filename": "Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt",
-        "title": "Verificador de derechos en teletrabajo - Alc ntara Moreno Abogados",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Alcantara Moreno Abobagos",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt"
-      },
-      {
-        "id": "tg_8778526",
-        "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
-        "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
-      },
-      {
-        "id": "tg_7765430",
+        "id": "tg_5623637",
         "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
         "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-31",
         "unions": [],
         "site": null,
         "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt HOME",
@@ -17677,25 +18107,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
       },
       {
-        "id": "tg_1752280",
-        "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
-        "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
-        "category": "documents",
-        "date": "2026-09-01",
-        "unions": [
-          "UGT"
-        ],
-        "site": null,
-        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Valladolid Business services (debt collection & Call center) Strike on 21 May and 10 June 2026",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/documents/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
-      },
-      {
-        "id": "tg_4160883",
+        "id": "tg_9702502",
         "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
         "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-31",
         "unions": [
           "UGT"
         ],
@@ -17705,11 +18121,457 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
       },
       {
-        "id": "tg_4027213",
+        "id": "tg_6385333",
+        "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
+        "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008? Menu",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
+      },
+      {
+        "id": "tg_2126412",
+        "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
+        "title": "Supply chain disruptions and resilience  a major review and future research agen",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Checking your browser - reCAPTCHA Checking your browser before accessing pmc.ncbi.nlm.nih.gov ...",
+        "char_count": 659,
+        "file_path": "data/telegram_archive/legal_filings/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
+      },
+      {
+        "id": "tg_9968229",
+        "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
+        "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Supply Chain Disruptions: Managing Volatility in 2026 Skip to content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
+      },
+      {
+        "id": "tg_5223983",
+        "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
+        "title": "Salary comparison between Bangalore and Bristol - Reddit",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Salary comparison between Bangalore and Bristol : r/bristol Skip to main content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
+      },
+      {
+        "id": "tg_4300660",
+        "filename": "SIPA.txt",
+        "title": "SIPA",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [
+          "CCOO",
+          "UGT",
+          "SIPA",
+          "ATP",
+          "CGT"
+        ],
+        "site": "Getafe",
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SIPA javascript:void(null)",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/SIPA.txt"
+      },
+      {
+        "id": "tg_5021843",
+        "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
+        "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault logra un preacuerdo de convenio en la reunión de mediación en Industria - La Tribuna de Automoción Gestionar el consentimiento de las cookies",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
+      },
+      {
+        "id": "tg_2952743",
+        "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
+        "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) en Stratégie",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
+      },
+      {
+        "id": "tg_4228680",
+        "filename": "Proposal_-_IAM_District_751.txt",
+        "title": "Proposal - IAM District 751",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Highlights of October 31 Proposal Red Line of Offer October 31 Proposal",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Proposal_-_IAM_District_751.txt"
+      },
+      {
+        "id": "tg_6383614",
+        "filename": "Project_Bromo_-_Wikipedia.txt",
+        "title": "Project Bromo - Wikipedia",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Project Bromo - Wikipedia Jump to content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Project_Bromo_-_Wikipedia.txt"
+      },
+      {
+        "id": "tg_9645244",
+        "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
+        "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Professional Air Traffic Controllers Organization (Washington, D.C.) – Special Collections & University Archives The University of Massachusetts Amherst",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
+      },
+      {
+        "id": "tg_3542856",
+        "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
+        "title": "Minima M tallurgie   La CGT ATOS-BULL",
+        "category": "dossiers",
+        "date": "2026-08-31",
+        "unions": [
+          "CGT"
+        ],
+        "site": null,
+        "summary": "Categoría: Dossiers & Tablas Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Minima Métallurgie | La CGT ATOS-BULL Actualités",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/dossiers/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
+      },
+      {
+        "id": "tg_8671779",
+        "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
+        "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral | LawAndTrends Utilizamos ",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
+      },
+      {
+        "id": "tg_4131783",
+        "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
+        "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) LA IMPORTANCIA DE LA CAJA DE RESISTENCIA – co.bas Catalunya WhatsApp",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
+      },
+      {
+        "id": "tg_1989398",
+        "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
+        "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [
+          "CCOO"
+        ],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) error al insertar registro: Table './servicioses/lectura' is marked as crashed and last (automatic?) repair failed III Convenio colectivo de Lidl Supermercados, SAU",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
+      },
+      {
+        "id": "tg_3302611",
+        "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
+        "title": "Boeing complaint background   National Labor Relations Board",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing complaint background | National Labor Relations Board Skip to main content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Boeing_complaint_background___National_Labor_Relations_Board.txt"
+      },
+      {
+        "id": "tg_3013951",
+        "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
+        "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing, engineers union to try novel bargaining strategy in test of labor peace Library",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
+      },
+      {
+        "id": "tg_5255219",
+        "filename": "Boeing___SPEEA.txt",
+        "title": "Boeing   SPEEA",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SPEEA Boeing – SPEEA",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Boeing___SPEEA.txt"
+      },
+      {
+        "id": "tg_2485531",
+        "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
+        "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing Reponse to Rejected Offer : r/SPEEA Skip to main content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
+      },
+      {
+        "id": "tg_5579980",
+        "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
+        "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Eases Return-to-Office Plans Amid Workforce Pressure Live News",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
+      },
+      {
+        "id": "tg_3181468",
+        "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
+        "title": "Airbus - CSRD Report Reviews - BWD Strategic",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus – CSRD Report Reviews BWD Portal",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
+      },
+      {
+        "id": "tg_4526463",
+        "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
+        "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Commercial aerospace supply chain challenges | McKinsey Skip to main content",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
+      },
+      {
+        "id": "tg_9030728",
+        "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
+        "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El abono tiene carácter legal imperativo Inicio",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
+      },
+      {
+        "id": "tg_1099910",
+        "filename": "4_5969781284744994502.pdf.txt",
+        "title": "4 5969781284744994502",
+        "category": "assembly_minutes",
+        "date": "2026-08-31",
+        "unions": [
+          "CCOO"
+        ],
+        "site": "Getafe",
+        "summary": "Categoría: Actas de Asamblea Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Minutas Asamblea en Huelga GETAFE - 17/07/2026  Mensajes generales: - La producción de la planta de Marignan se ha visto impactada por nuestra huelga y sufrirá paros a partir d",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt"
+      },
+      {
+        "id": "tg_3417924",
+        "filename": "4_5796203638925829350.pdf.txt",
+        "title": "4 5796203638925829350",
+        "category": "legal_filings",
+        "date": "2026-08-31",
+        "unions": [],
+        "site": "Cádiz",
+        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX8qYrGHiuaJUC6tuImLfR5mxNx2lOPel1eEGhpgTSOQEMM-m3GyTh4xyJ0pxzC4YjSz6jyQpgy-s_h0V9ReMY1g6pfJ3OR4mSSyo8V6uP9Jwt9ECqb5Rl5XD4P",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/4_5796203638925829350.pdf.txt"
+      },
+      {
+        "id": "tg_6229089",
+        "filename": "www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt",
+        "title": "www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensaci n de gastos.",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-UESFPaGTDKGI1DI-QRlI6NjmYepE-7cErPQRgNxB6pYmAFLcIX0xU-UuBiSeEeMOXwWYVX2OpgJF8xRzBALQCFMMC6CeiofI9dm0dy90sx7",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/www.laboral-social.com_Trabajo_a_distancia._Teletrabajo._Compensaci_n_de_gastos..txt"
+      },
+      {
+        "id": "tg_4470132",
+        "filename": "trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt",
+        "title": "trabajar desde cualquier lugar  incluso tu coche   la nueva frontera del trabajo",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Trabajar desde cualquier lugar (incluso tu coche)",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/trabajar_desde_cualquier_lugar__incluso_tu_coche___la_nueva_frontera_del_trabajo.txt"
+      },
+      {
+        "id": "tg_7036463",
+        "filename": "inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt",
+        "title": "inFO RELOAD   Classification  1 - FO AIRBUS TLSE",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) inFO RELOAD – Classification #1",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/inFO_RELOAD___Classification__1_-_FO_AIRBUS_TLSE.txt"
+      },
+      {
+        "id": "tg_6749891",
+        "filename": "dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt",
+        "title": "dossier recuperacion salarial airbus E1 v8",
+        "category": "dossiers",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Dossier Económico / Técnico Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Recuperación del poder adquisitivo en Airbus",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/dossiers/dossier_recuperacion_salarial_airbus_E1_v8.pdf.txt"
+      },
+      {
+        "id": "tg_1947364",
+        "filename": "censo_presentacion.pdf.txt",
+        "title": "censo presentacion",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9nSeNBYrJfIyaSMqT1Mt3bJxidTU3yFhMykSQwXEiGlpicbfBtaeENNmmwqFEUXECSq0CjbI04WOpzw5R0oVQ-lgNGYZEuv55WvGXFcEw0DN",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/censo_presentacion.pdf.txt"
+      },
+      {
+        "id": "tg_6329298",
+        "filename": "Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt",
+        "title": "Workers Struggles  Europe  Middle East   Africa - World Socialist Web Site",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: 2026/08/27 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Workers Struggles: Europe, Middle East & Africa - World Socialist Web Site",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/Workers_Struggles__Europe__Middle_East___Africa_-_World_Socialist_Web_Site.txt"
+      },
+      {
+        "id": "tg_4768036",
+        "filename": "Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt",
+        "title": "Wie viel verdient man bei Airbus  Dein Gehaltseinblick - kununu News",
+        "category": "legal_filings",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Wie viel verdient man bei Airbus? Dein Gehaltseinblick | kununu News",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Wie_viel_verdient_man_bei_Airbus__Dein_Gehaltseinblick_-_kununu_News.txt"
+      },
+      {
+        "id": "tg_2039574",
+        "filename": "Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt",
+        "title": "Wie viel kann ich f r einen ersten Job als Ingenieur bei Airbus in Deutschland v",
+        "category": "legal_filings",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/legal_filings/Wie_viel_kann_ich_f_r_einen_ersten_Job_als_Ingenieur_bei_Airbus_in_Deutschland_v.txt"
+      },
+      {
+        "id": "tg_9110306",
+        "filename": "Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt",
+        "title": "Viewpoint  PATCO s Lessons for this Crisis - Labor Notes  ",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Viewpoint: PATCO's Lessons for this Crisis | Labor Notes",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/Viewpoint__PATCO_s_Lessons_for_this_Crisis_-_Labor_Notes__.txt"
+      },
+      {
+        "id": "tg_3326407",
+        "filename": "Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt",
+        "title": "Verificador de derechos en teletrabajo - Alc ntara Moreno Abogados",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Alcantara Moreno Abobagos",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/Verificador_de_derechos_en_teletrabajo_-_Alc_ntara_Moreno_Abogados.txt"
+      },
+      {
+        "id": "tg_4046114",
+        "filename": "Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt",
+        "title": "Verhandlungsergebnis Metall und Elektro 2024  Mehr Geld  140 Euro mehr f r Azubi",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/Verhandlungsergebnis_Metall_und_Elektro_2024__Mehr_Geld__140_Euro_mehr_f_r_Azubi.txt"
+      },
+      {
+        "id": "tg_4568582",
+        "filename": "Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt",
+        "title": "Valladolid  Intrum workers call 24 hour strikes on 21 May and 10 June",
+        "category": "documents",
+        "date": "2026-08-29",
+        "unions": [
+          "UGT"
+        ],
+        "site": null,
+        "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Valladolid Business services (debt collection & Call center) Strike on 21 May and 10 June 2026",
+        "char_count": 2048,
+        "file_path": "data/telegram_archive/documents/Valladolid__Intrum_workers_call_24_hour_strikes_on_21_May_and_10_June.txt"
+      },
+      {
+        "id": "tg_1540692",
         "filename": "Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt",
         "title": "Ultim tum de Airbus a los sindicatos  No seguir  negociando si contin a la huelg",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Ultimátum de Airbus a los sindicatos: No seguirá negociando si continúa la huelga",
@@ -17717,11 +18579,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ultim_tum_de_Airbus_a_los_sindicatos__No_seguir__negociando_si_contin_a_la_huelg.txt"
       },
       {
-        "id": "tg_1825516",
+        "id": "tg_9843201",
         "filename": "UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt",
         "title": "UGT exige responsabilidad y negociaci n de buena fe a Airbus para avanzar en la ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "UGT"
         ],
@@ -17731,11 +18593,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/UGT_exige_responsabilidad_y_negociaci_n_de_buena_fe_a_Airbus_para_avanzar_en_la_.txt"
       },
       {
-        "id": "tg_1125204",
+        "id": "tg_2619732",
         "filename": "Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt",
         "title": "Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos model",
         "category": "assembly_minutes",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Minuta de Asamblea Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Trabajo formaliza el convenio de Renault que abre la puerta a cinco nuevos modelos para Valladolid y Palencia",
@@ -17743,11 +18605,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Trabajo_formaliza_el_convenio_de_Renault_que_abre_la_puerta_a_cinco_nuevos_model.txt"
       },
       {
-        "id": "tg_6883178",
+        "id": "tg_6152843",
         "filename": "Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt",
         "title": "Top Aerospace Supply Chain Challenges and How to Overcome Them - NTS Unitek",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Top Aerospace Supply Chain Challenges and How to Overcome Them",
@@ -17755,11 +18617,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Top_Aerospace_Supply_Chain_Challenges_and_How_to_Overcome_Them_-_NTS_Unitek.txt"
       },
       {
-        "id": "tg_6294526",
+        "id": "tg_9067584",
         "filename": "The_biggest_supply_chain_risks_across_industries_-_Marsh.txt",
         "title": "The biggest supply chain risks across industries - Marsh",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The biggest supply chain risks across industries | Marsh",
@@ -17767,11 +18629,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_biggest_supply_chain_risks_across_industries_-_Marsh.txt"
       },
       {
-        "id": "tg_4709494",
+        "id": "tg_8034790",
         "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
         "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008?",
@@ -17779,23 +18641,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
       },
       {
-        "id": "tg_9381953",
-        "filename": "The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt",
-        "title": "The Last Machinist Strike  What Happened When Boeing s Unions Walked Out In 2008",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The Last Machinist Strike: What Happened When Boeing's Unions Walked Out In 2008? Menu",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/The_Last_Machinist_Strike__What_Happened_When_Boeing_s_Unions_Walked_Out_In_2008.txt"
-      },
-      {
-        "id": "tg_1194129",
+        "id": "tg_3176514",
         "filename": "The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt",
         "title": "The Economic Impact of Strikes  An Historical Boeing Case Study - AAF",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The Economic Impact of Strikes: An Historical Boeing Case Study - AAF",
@@ -17803,11 +18653,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_Economic_Impact_of_Strikes__An_Historical_Boeing_Case_Study_-_AAF.txt"
       },
       {
-        "id": "tg_6632592",
+        "id": "tg_6055131",
         "filename": "The_1981_PATCO_Strike_-_UTA_Libraries.txt",
         "title": "The 1981 PATCO Strike - UTA Libraries",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) The 1981 PATCO Strike | UTA Libraries",
@@ -17815,11 +18665,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/The_1981_PATCO_Strike_-_UTA_Libraries.txt"
       },
       {
-        "id": "tg_2749171",
+        "id": "tg_9604890",
         "filename": "Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt",
         "title": "Tarifrunde Metall und Elektro 2024 Verhandlungsergebnis  Mehr Geld  140 Euro meh",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Metall-Tarifergebnis 2024",
@@ -17827,11 +18677,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_Metall_und_Elektro_2024_Verhandlungsergebnis__Mehr_Geld__140_Euro_meh.txt"
       },
       {
-        "id": "tg_8124831",
+        "id": "tg_5370924",
         "filename": "Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt",
         "title": "Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall",
@@ -17839,11 +18689,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Tarifrunde_2024_-_Arbeitgeberverband_Gesamtmetall.txt"
       },
       {
-        "id": "tg_8086876",
+        "id": "tg_3032143",
         "filename": "TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt",
         "title": "TS. Acuerdo de teletrabajo. Es v lida la cl usula que obliga al empleado a facil",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Se respeta el principio de minimización de datos",
@@ -17851,11 +18701,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/TS._Acuerdo_de_teletrabajo._Es_v_lida_la_cl_usula_que_obliga_al_empleado_a_facil.txt"
       },
       {
-        "id": "tg_7785490",
+        "id": "tg_5097383",
         "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
         "title": "Supply chain disruptions and resilience  a major review and future research agen",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Checking your browser - reCAPTCHA",
@@ -17863,23 +18713,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
       },
       {
-        "id": "tg_8429473",
-        "filename": "Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt",
-        "title": "Supply chain disruptions and resilience  a major review and future research agen",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Checking your browser - reCAPTCHA Checking your browser before accessing pmc.ncbi.nlm.nih.gov ...",
-        "char_count": 659,
-        "file_path": "data/telegram_archive/legal_filings/Supply_chain_disruptions_and_resilience__a_major_review_and_future_research_agen.txt"
-      },
-      {
-        "id": "tg_7156585",
+        "id": "tg_5392936",
         "filename": "Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt",
         "title": "Supply Chain and Quality Manager - Myworkdayjobs.com",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Careers",
@@ -17887,11 +18725,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_and_Quality_Manager_-_Myworkdayjobs.com.txt"
       },
       {
-        "id": "tg_9803061",
+        "id": "tg_7203382",
         "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
         "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Supply Chain Disruptions: Managing Volatility in 2026",
@@ -17899,23 +18737,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
       },
       {
-        "id": "tg_1603175",
-        "filename": "Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt",
-        "title": "Supply Chain Disruptions  Managing Volatility in 2026 - Agistix",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Supply Chain Disruptions: Managing Volatility in 2026 Skip to content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Managing_Volatility_in_2026_-_Agistix.txt"
-      },
-      {
-        "id": "tg_6176421",
+        "id": "tg_9166075",
         "filename": "Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt",
         "title": "Supply Chain Disruptions  Causes  Costs   Solutions - GoBolt",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Supply Chain Disruptions: Causes, Costs & Solutions",
@@ -17923,11 +18749,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__Causes__Costs___Solutions_-_GoBolt.txt"
       },
       {
-        "id": "tg_0820455",
+        "id": "tg_8887985",
         "filename": "Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt",
         "title": "Supply Chain Disruptions  An Expert Guide - NetSuite",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Supply Chain Disruptions: An Expert Guide | NetSuite",
@@ -17935,11 +18761,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Supply_Chain_Disruptions__An_Expert_Guide_-_NetSuite.txt"
       },
       {
-        "id": "tg_1445753",
+        "id": "tg_0219427",
         "filename": "Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt",
         "title": "Sistema HJ - Resoluci n  SENTENCIA 11 1981",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Sistema HJ - Resolución: SENTENCIA 11/1981",
@@ -17947,11 +18773,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sistema_HJ_-_Resoluci_n__SENTENCIA_11_1981.txt"
       },
       {
-        "id": "tg_0513629",
+        "id": "tg_8211978",
         "filename": "Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt",
         "title": "Sin acuerdo en la  ltima reuni n  la huelga sigue en Airbus  la empresa rechaza ",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Dossier Económico / Técnico Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Sin acuerdo en la última reunión, la huelga sigue en Airbus: la empresa rechaza la propuesta de los convocantes, que incluye una paga de 7.",
@@ -17959,11 +18785,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Sin_acuerdo_en_la__ltima_reuni_n__la_huelga_sigue_en_Airbus__la_empresa_rechaza_.txt"
       },
       {
-        "id": "tg_2019472",
+        "id": "tg_3452089",
         "filename": "Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt",
         "title": "Sin acuerdo en el SIMA  se mantiene la huelga en Groundforce - Sindicato USO Ser",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "USO"
         ],
@@ -17973,11 +18799,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Sin_acuerdo_en_el_SIMA__se_mantiene_la_huelga_en_Groundforce_-_Sindicato_USO_Ser.txt"
       },
       {
-        "id": "tg_9671697",
+        "id": "tg_3142661",
         "filename": "Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt",
         "title": "Semi-Skilled Aircraft Fitter Jobs - Careers at Airbus UK - Guidant Global",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Semi-Skilled Aircraft Fitter Jobs | Airbus UK",
@@ -17985,11 +18811,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Semi-Skilled_Aircraft_Fitter_Jobs_-_Careers_at_Airbus_UK_-_Guidant_Global.txt"
       },
       {
-        "id": "tg_7311882",
+        "id": "tg_5779056",
         "filename": "Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt",
         "title": "Se publica en el BOE el Convenio de Industrias C rnicas  que esquiv  el conflict",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -17999,11 +18825,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Se_publica_en_el_BOE_el_Convenio_de_Industrias_C_rnicas__que_esquiv__el_conflict.txt"
       },
       {
-        "id": "tg_9036584",
+        "id": "tg_2616229",
         "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
         "title": "Salary comparison between Bangalore and Bristol - Reddit",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Salary comparison between Bangalore and Bristol : r/bristol",
@@ -18011,23 +18837,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
       },
       {
-        "id": "tg_1940798",
-        "filename": "Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt",
-        "title": "Salary comparison between Bangalore and Bristol - Reddit",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Salary comparison between Bangalore and Bristol : r/bristol Skip to main content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Salary_comparison_between_Bangalore_and_Bristol_-_Reddit.txt"
-      },
-      {
-        "id": "tg_4941299",
+        "id": "tg_5459565",
         "filename": "Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt",
         "title": "Salaire minimum  SMIC  2026   montant net et brut - Transport a rien   personnel",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Salaire minimum (SMIC) 2026 : montant net et brut - Transport aérien : personnel au sol - Code du travail numérique",
@@ -18035,11 +18849,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Salaire_minimum__SMIC__2026___montant_net_et_brut_-_Transport_a_rien___personnel.txt"
       },
       {
-        "id": "tg_6173222",
+        "id": "tg_3164761",
         "filename": "Safari.pdf.txt",
         "title": "Safari",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) CENSO DE VOTACIÓN",
@@ -18047,17 +18861,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Safari.pdf.txt"
       },
       {
-        "id": "tg_6626492",
+        "id": "tg_5828819",
         "filename": "SIPA.txt",
         "title": "SIPA",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO",
-          "CGT",
           "UGT",
           "SIPA",
-          "ATP"
+          "ATP",
+          "CGT"
         ],
         "site": "Getafe",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SIPA",
@@ -18065,29 +18879,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/SIPA.txt"
       },
       {
-        "id": "tg_0378591",
-        "filename": "SIPA.txt",
-        "title": "SIPA",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [
-          "CCOO",
-          "CGT",
-          "UGT",
-          "SIPA",
-          "ATP"
-        ],
-        "site": "Getafe",
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SIPA javascript:void(null)",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/SIPA.txt"
-      },
-      {
-        "id": "tg_1881693",
+        "id": "tg_8234090",
         "filename": "Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt",
         "title": "Reviving the Strike in the Shadow of PATCO - Monthly Review",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Reviving the Strike in the Shadow of PATCO - Monthly Review",
@@ -18095,11 +18891,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Reviving_the_Strike_in_the_Shadow_of_PATCO_-_Monthly_Review.txt"
       },
       {
-        "id": "tg_5469499",
+        "id": "tg_1095089",
         "filename": "Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt",
         "title": "Resumen Ejecutivo recuperacion de poder adquisitivo en Airbus Espana",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Dossier Económico / Técnico Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) RECUPERACIÓN DEL PODER ADQUISITIVO EN AIRBUS ESPAÑA",
@@ -18107,11 +18903,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Resumen_Ejecutivo_recuperacion_de_poder_adquisitivo_en_Airbus_Espana.pdf.txt"
       },
       {
-        "id": "tg_9456891",
+        "id": "tg_2034066",
         "filename": "Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt",
         "title": "Resoluci n de 12 de junio de 2023  de la Conseller a de Promoci n del Empleo e I",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Resolución de 12 de junio de 2023, de la Consellería de Promoción",
@@ -18119,11 +18915,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Resoluci_n_de_12_de_junio_de_2023__de_la_Conseller_a_de_Promoci_n_del_Empleo_e_I.txt"
       },
       {
-        "id": "tg_2031802",
+        "id": "tg_3512470",
         "filename": "Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt",
         "title": "Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco",
         "category": "assembly_minutes",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Minuta de Asamblea Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault y los sindicatos firman el convenio 2026-2028 que abre la puerta a cinco nuevos modelos en España | Economía y negocios | Cadena SER",
@@ -18131,11 +18927,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Renault_y_los_sindicatos_firman_el_convenio_2026-2028_que_abre_la_puerta_a_cinco.txt"
       },
       {
-        "id": "tg_6622889",
+        "id": "tg_5168997",
         "filename": "Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt",
         "title": "Renault y los sindicatos UGT y CCOO firman el preacuerdo del convenio - Noticias",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO",
           "UGT"
@@ -18146,11 +18942,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_y_los_sindicatos_UGT_y_CCOO_firman_el_preacuerdo_del_convenio_-_Noticias.txt"
       },
       {
-        "id": "tg_5640619",
+        "id": "tg_0818407",
         "filename": "Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt",
         "title": "Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault plantea un preacuerdo para el convenio 2026-2028 ligado a nuevos modelos para Palencia y Valladolid - Tribuna de Valladolid.",
@@ -18158,11 +18954,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_plantea_un_preacuerdo_para_el_convenio_2026-2028_ligado_a_nuevos_modelos.txt"
       },
       {
-        "id": "tg_9013474",
+        "id": "tg_9315662",
         "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
         "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault logra un preacuerdo de convenio en la reunión de mediación en Industria - La Tribuna de Automoción",
@@ -18170,23 +18966,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
       },
       {
-        "id": "tg_6173567",
-        "filename": "Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt",
-        "title": "Renault logra un preacuerdo de convenio en la reuni n de mediaci n en Industria",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault logra un preacuerdo de convenio en la reunión de mediación en Industria - La Tribuna de Automoción Gestionar el consentimiento de las cookies",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Renault_logra_un_preacuerdo_de_convenio_en_la_reuni_n_de_mediaci_n_en_Industria.txt"
-      },
-      {
-        "id": "tg_1120771",
+        "id": "tg_6665506",
         "filename": "Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt",
         "title": "Renault Group signs-off on a three-year trade union agreement that places France",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) en",
@@ -18194,11 +18978,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Renault_Group_signs-off_on_a_three-year_trade_union_agreement_that_places_France.txt"
       },
       {
-        "id": "tg_1555535",
+        "id": "tg_2481958",
         "filename": "Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt",
         "title": "Renault Espa a suspende la adjudicaci n de veh culos ante la falta de acuerdo en",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault no adjudica vehículos por falta de acuerdo en el convenio",
@@ -18206,11 +18990,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_suspende_la_adjudicaci_n_de_veh_culos_ante_la_falta_de_acuerdo_en.txt"
       },
       {
-        "id": "tg_0213040",
+        "id": "tg_3537692",
         "filename": "Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt",
         "title": "Renault Espa a acepta incrementar los salarios en base al IPC 1  en 2026 y ofrec",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Renault España acepta incrementar los salarios en base al IPC+1% en 2026 y ofrece una cantidad adicional de un pago único de 400 euros - Palencia en la Red",
@@ -18218,11 +19002,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Renault_Espa_a_acepta_incrementar_los_salarios_en_base_al_IPC_1__en_2026_y_ofrec.txt"
       },
       {
-        "id": "tg_6785026",
+        "id": "tg_1087555",
         "filename": "REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt",
         "title": "REUNIO N COMITE  DE HUELGA EN EL SIMA",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_F2jwdT5ZK_Y-S9Kbv7a8235Re4XM0nSCa8tqhWZ6Dc6BCbDkHHJVC2_bXtcTGXZaZBvXk1-5Lq9otPjXw2P2Q3Dq-bp_",
@@ -18230,11 +19014,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/REUNIO_N_COMITE__DE_HUELGA_EN_EL_SIMA.pdf.txt"
       },
       {
-        "id": "tg_9312106",
+        "id": "tg_0493723",
         "filename": "REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt",
         "title": "REPRESI N Y RESISTENCIA EN C DIZ  24 ENCAUSADOS POR LA HUELGA DEL METAL - Canari",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cádiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) REPRESIÓN Y RESISTENCIA EN CÁDIZ: 24 ENCAUSADOS POR LA HUELGA DEL METAL | Canarias-semanal I Digital informativo alternativo de ámbito internacional y actualiz",
@@ -18242,11 +19026,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/REPRESI_N_Y_RESISTENCIA_EN_C_DIZ__24_ENCAUSADOS_POR_LA_HUELGA_DEL_METAL_-_Canari.txt"
       },
       {
-        "id": "tg_6119754",
+        "id": "tg_0406118",
         "filename": "RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt",
         "title": "RELOAD  two years of damage and growing dissatisfaction ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -18256,11 +19040,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD__two_years_of_damage_and_growing_dissatisfaction_.txt"
       },
       {
-        "id": "tg_4706740",
+        "id": "tg_8691979",
         "filename": "RELOAD___Classification_-_My_CFE-CGC_Airbus.txt",
         "title": "RELOAD   Classification - My CFE-CGC Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: 2022/10/06 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) RELOAD – Classification – My CFE-CGC Airbus",
@@ -18268,11 +19052,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/RELOAD___Classification_-_My_CFE-CGC_Airbus.txt"
       },
       {
-        "id": "tg_8102020",
+        "id": "tg_6171090",
         "filename": "Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt",
         "title": "Publicado en el Bolet n Oficial del Estado el VII Convenio del Sector de la Cons",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Publicado en el Boletín Oficial del Estado el VII Convenio del Sector de la Construcción",
@@ -18280,11 +19064,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Publicado_en_el_Bolet_n_Oficial_del_Estado_el_VII_Convenio_del_Sector_de_la_Cons.txt"
       },
       {
-        "id": "tg_7162641",
+        "id": "tg_3018013",
         "filename": "Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt",
         "title": "Protestas contra el cierre de Airbus Puerto Real",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Getafe",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) pero texto en madrid contra el cierre de la planta de airbus en puerto real en la sureña provincia de cádiz más de medio millar de trabajadores han participado",
@@ -18292,11 +19076,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protestas_contra_el_cierre_de_Airbus_Puerto_Real.txt"
       },
       {
-        "id": "tg_5520673",
+        "id": "tg_4043164",
         "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
         "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) en",
@@ -18304,23 +19088,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
       },
       {
-        "id": "tg_3978288",
-        "filename": "Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt",
-        "title": "Protect  accelerate  transform  Renault Group signs a three-year trade union agr",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) en Stratégie",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Protect__accelerate__transform__Renault_Group_signs_a_three-year_trade_union_agr.txt"
-      },
-      {
-        "id": "tg_6592074",
+        "id": "tg_0677073",
         "filename": "Propuesta_ComiteHuelga270826.pdf.txt",
         "title": "Propuesta ComiteHuelga270826",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Número Concepto",
@@ -18328,11 +19100,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Propuesta_ComiteHuelga270826.pdf.txt"
       },
       {
-        "id": "tg_5479694",
+        "id": "tg_3885685",
         "filename": "Proposal_-_IAM_District_751.txt",
         "title": "Proposal - IAM District 751",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Highlights of October 31 Proposal",
@@ -18340,23 +19112,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Proposal_-_IAM_District_751.txt"
       },
       {
-        "id": "tg_6125079",
-        "filename": "Proposal_-_IAM_District_751.txt",
-        "title": "Proposal - IAM District 751",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Highlights of October 31 Proposal Red Line of Offer October 31 Proposal",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Proposal_-_IAM_District_751.txt"
-      },
-      {
-        "id": "tg_4005185",
+        "id": "tg_8864127",
         "filename": "Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt",
         "title": "Project Bromo Space Economy  Shaping Europe s New Aerospace Ecosystem - Kineton",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Project Bromo Space Economy: Europe's New Aerospace Strategy - Kineton",
@@ -18364,11 +19124,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_Space_Economy__Shaping_Europe_s_New_Aerospace_Ecosystem_-_Kineton.txt"
       },
       {
-        "id": "tg_3983777",
+        "id": "tg_1179115",
         "filename": "Project_Bromo_-_Wikipedia.txt",
         "title": "Project Bromo - Wikipedia",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Project Bromo - Wikipedia",
@@ -18376,23 +19136,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Project_Bromo_-_Wikipedia.txt"
       },
       {
-        "id": "tg_2289994",
-        "filename": "Project_Bromo_-_Wikipedia.txt",
-        "title": "Project Bromo - Wikipedia",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Project Bromo - Wikipedia Jump to content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Project_Bromo_-_Wikipedia.txt"
-      },
-      {
-        "id": "tg_3005824",
+        "id": "tg_7618583",
         "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
         "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Professional Air Traffic Controllers Organization (Washington, D.C.) – Special Collections & University Archives",
@@ -18400,23 +19148,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
       },
       {
-        "id": "tg_7796178",
-        "filename": "Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt",
-        "title": "Professional Air Traffic Controllers Organization  Washington  D.C. ",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Professional Air Traffic Controllers Organization (Washington, D.C.) – Special Collections & University Archives The University of Massachusetts Amherst",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Professional_Air_Traffic_Controllers_Organization__Washington__D.C._.txt"
-      },
-      {
-        "id": "tg_2615220",
+        "id": "tg_3486214",
         "filename": "Plataforma_reivindicativa_de_los_trabajadores.pdf.txt",
         "title": "Plataforma reivindicativa de los trabajadores",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX8HHboVYIqZuU_FTNm_QsV_V8eF-98cojy0WHx0lfu-1_DC8zLQU4o3E00L0Zn7besC34aCKHc9C51WZ_5IytozjOGwH976PxnmiTwXIiu7QR",
@@ -18424,11 +19160,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Plataforma_reivindicativa_de_los_trabajadores.pdf.txt"
       },
       {
-        "id": "tg_6717996",
+        "id": "tg_0313429",
         "filename": "Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt",
         "title": "Passion for progress - Radar du devoir de vigilance",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9DenSZL87mTNSEw5_pXeKQ3bp0kFm_2YDFMnrlJP0egOmJWWNXfRKXJ5oxoYFBIXp2RdTGmoXarhWKC8DzohWNPoNnlDX2GBCngqg7kA0b6B",
@@ -18436,11 +19172,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Passion_for_progress_-_Radar_du_devoir_de_vigilance.txt"
       },
       {
-        "id": "tg_8145033",
+        "id": "tg_0165295",
         "filename": "PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt",
         "title": "PLIEGO DE GARANTIAS DEFINITIVO TRABAJADORES DE ESPACIO 2 pdf",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Getafe",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) PLIEGO DE GARANTÍAS DEFINITIVO -TRABAJADORES DE ESPACIO",
@@ -18448,11 +19184,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/PLIEGO_DE_GARANTIAS_DEFINITIVO_TRABAJADORES_DE_ESPACIO_2_pdf.pdf.txt"
       },
       {
-        "id": "tg_7618179",
+        "id": "tg_8184363",
         "filename": "Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt",
         "title": "Oficinas y Seguros - FeSMC UGT-CV",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "UGT"
         ],
@@ -18462,11 +19198,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Oficinas_y_Seguros_-_FeSMC_UGT-CV.txt"
       },
       {
-        "id": "tg_3736297",
+        "id": "tg_6048032",
         "filename": "Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt",
         "title": "Nuevo Convenio Estatal de Industrias C rnicas para 2024-2025 - LSB-USO",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "USO"
         ],
@@ -18476,11 +19212,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nuevo_Convenio_Estatal_de_Industrias_C_rnicas_para_2024-2025_-_LSB-USO.txt"
       },
       {
-        "id": "tg_5935154",
+        "id": "tg_7658871",
         "filename": "Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt",
         "title": "Nouvelle grille de salaires de la Convention M tallurgie 2026 - Juritravail",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Métallurgie : les grilles de salaires pour 2026",
@@ -18488,11 +19224,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Nouvelle_grille_de_salaires_de_la_Convention_M_tallurgie_2026_-_Juritravail.txt"
       },
       {
-        "id": "tg_9512993",
+        "id": "tg_4692683",
         "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
         "title": "Minima M tallurgie   La CGT ATOS-BULL",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -18502,25 +19238,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
       },
       {
-        "id": "tg_5456431",
-        "filename": "Minima_M_tallurgie___La_CGT_ATOS-BULL.txt",
-        "title": "Minima M tallurgie   La CGT ATOS-BULL",
-        "category": "dossiers",
-        "date": "2026-09-01",
-        "unions": [
-          "CGT"
-        ],
-        "site": null,
-        "summary": "Categoría: Dossiers & Tablas Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Minima Métallurgie | La CGT ATOS-BULL Actualités",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/dossiers/Minima_M_tallurgie___La_CGT_ATOS-BULL.txt"
-      },
-      {
-        "id": "tg_7255557",
+        "id": "tg_7361734",
         "filename": "M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt",
         "title": "M s de 25.000 trabajadores se unen a la huelga del metal de C diz en su primera ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cadiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Más de 25.000 trabajadores se unen a la huelga del metal de Cádiz en su primera jornada - El Salto - Andalucía",
@@ -18528,11 +19250,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/M_s_de_25.000_trabajadores_se_unen_a_la_huelga_del_metal_de_C_diz_en_su_primera_.txt"
       },
       {
-        "id": "tg_0869484",
+        "id": "tg_5352873",
         "filename": "MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt",
         "title": "MORE THAN A LABOR DISPUTE  THE PATCO STRIKE OF 1981 - The Economic and Business ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX8u8TO44srq4v0Hssr3fPH7mBdhRcLppJ080AKQ5jROv7qzGbZtiZ2iSMNWdhPIiiC-f50HN8xRduC5srlxMTOE4jH_4BzhD17A7cKWyfIYVn",
@@ -18540,11 +19262,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/MORE_THAN_A_LABOR_DISPUTE__THE_PATCO_STRIKE_OF_1981_-_The_Economic_and_Business_.txt"
       },
       {
-        "id": "tg_3058775",
+        "id": "tg_0044604",
         "filename": "Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt",
         "title": "Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus pla",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Luz verde al convenio de Renault que garantiza cinco nuevos modelos para sus plantas - Tribuna de Valladolid.",
@@ -18552,11 +19274,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Luz_verde_al_convenio_de_Renault_que_garantiza_cinco_nuevos_modelos_para_sus_pla.txt"
       },
       {
-        "id": "tg_9504307",
+        "id": "tg_1440245",
         "filename": "Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt",
         "title": "Los trabajadores del metal en C diz rechazan la traici n de los sindicatos en el",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cádiz",
         "summary": "Categoría: General Fecha: 2025/06/28 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores del metal en Cádiz rechazan la traición de los sindicatos en el convenio - World Socialist Web Site",
@@ -18564,11 +19286,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_del_metal_en_C_diz_rechazan_la_traici_n_de_los_sindicatos_en_el.txt"
       },
       {
-        "id": "tg_9389227",
+        "id": "tg_4086573",
         "filename": "Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt",
         "title": "Los trabajadores de atenci n telef nica de H M convocan una huelga para denuncia",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de atención telefónica de H&M convocan una huelga para denunciar la reducción de plantilla",
@@ -18576,11 +19298,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_atenci_n_telef_nica_de_H_M_convocan_una_huelga_para_denuncia.txt"
       },
       {
-        "id": "tg_7608389",
+        "id": "tg_3389140",
         "filename": "Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt",
         "title": "Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amen",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de Renault inician movilizaciones con un amplio respaldo y amenaza de huelga indefinida - Tribuna de Valladolid.",
@@ -18588,11 +19310,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Renault_inician_movilizaciones_con_un_amplio_respaldo_y_amen.txt"
       },
       {
-        "id": "tg_0742861",
+        "id": "tg_0309409",
         "filename": "Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt",
         "title": "Los trabajadores de Concentrix  que prestan la atenci n telef nica de H M  convo",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de Concentrix, que prestan la atención telefónica de H&M, convocan una huelga de 24 horas - Forbes España",
@@ -18600,11 +19322,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Concentrix__que_prestan_la_atenci_n_telef_nica_de_H_M__convo.txt"
       },
       {
-        "id": "tg_8103325",
+        "id": "tg_4204978",
         "filename": "Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt",
         "title": "Los trabajadores de Airbus votan ir a la huelga indefinida desde este martes - R",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de Airbus votan ir a la huelga indefinida",
@@ -18612,11 +19334,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_trabajadores_de_Airbus_votan_ir_a_la_huelga_indefinida_desde_este_martes_-_R.txt"
       },
       {
-        "id": "tg_7713683",
+        "id": "tg_3394629",
         "filename": "Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt",
         "title": "Los trabajadores de Airbus inician una huelga indefinida con la negociaci n a n ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: 2026/08/27 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de Airbus inician una huelga indefinida",
@@ -18624,11 +19346,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_trabajadores_de_Airbus_inician_una_huelga_indefinida_con_la_negociaci_n_a_n_.txt"
       },
       {
-        "id": "tg_2597691",
+        "id": "tg_5228597",
         "filename": "Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt",
         "title": "Los trabajadores de Airbus  un ejemplo de lucha contra la tiran a de la multinac",
         "category": "assembly_minutes",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Minuta de Asamblea Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los trabajadores de Airbus, un ejemplo de lucha contra la tiranía de la multinacional: las asambleas guían la huelga indefinida",
@@ -18636,11 +19358,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Los_trabajadores_de_Airbus__un_ejemplo_de_lucha_contra_la_tiran_a_de_la_multinac.txt"
       },
       {
-        "id": "tg_9152704",
+        "id": "tg_5914924",
         "filename": "Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt",
         "title": "Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los sindicatos de Renault fijan un primer paro y advierten de huelga indefinida si la empresa no negocia el convenio - La Tribuna de Automoción",
@@ -18648,11 +19370,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_sindicatos_de_Renault_fijan_un_primer_paro_y_advierten_de_huelga_indefinida_.txt"
       },
       {
-        "id": "tg_5592603",
+        "id": "tg_1400931",
         "filename": "Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt",
         "title": "Los sindicatos de Renault convocan paros parciales como previa a una huelga si l",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los sindicatos de Renault convocan paros parciales como previa a una huelga si la empresa no responde | Sociedad | Cadena SER",
@@ -18660,11 +19382,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_de_Renault_convocan_paros_parciales_como_previa_a_una_huelga_si_l.txt"
       },
       {
-        "id": "tg_9133714",
+        "id": "tg_2911694",
         "filename": "Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt",
         "title": "Los sindicatos convocan paros en Renault Espa a para retomar la negociaci n del ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los sindicatos convocan paros en Renault España para retomar la negociación del convenio",
@@ -18672,11 +19394,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_sindicatos_convocan_paros_en_Renault_Espa_a_para_retomar_la_negociaci_n_del_.txt"
       },
       {
-        "id": "tg_8161073",
+        "id": "tg_7338192",
         "filename": "Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt",
         "title": "Los ingenieros de Boeing rechazan el convenio y autorizan una huelga desde octub",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los ingenieros de Boeing rechazan el convenio y autorizan la huelga",
@@ -18684,11 +19406,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Los_ingenieros_de_Boeing_rechazan_el_convenio_y_autorizan_una_huelga_desde_octub.txt"
       },
       {
-        "id": "tg_1375152",
+        "id": "tg_6915329",
         "filename": "Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt",
         "title": "Los empleados de Airbus Espa a rechazan y se convoca huelga indefinida",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los empleados de Airbus España rechazan y se convoca huelga indefinida – Avion Revue Internacional",
@@ -18696,11 +19418,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_empleados_de_Airbus_Espa_a_rechazan_y_se_convoca_huelga_indefinida.txt"
       },
       {
-        "id": "tg_7877346",
+        "id": "tg_7312187",
         "filename": "Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt",
         "title": "Los altercados en la huelga del metal en Ourense se juzgar n en marzo de 2027",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027",
@@ -18708,11 +19430,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Los_altercados_en_la_huelga_del_metal_en_Ourense_se_juzgar_n_en_marzo_de_2027.txt"
       },
       {
-        "id": "tg_3117273",
+        "id": "tg_8558518",
         "filename": "Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt",
         "title": "Ley 10 2021  de 9 de julio  de trabajo a distancia - Noticias Jur dicas",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Ley 10/2021, de 9 de julio, de trabajo a",
@@ -18720,11 +19442,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ley_10_2021__de_9_de_julio__de_trabajo_a_distancia_-_Noticias_Jur_dicas.txt"
       },
       {
-        "id": "tg_7071377",
+        "id": "tg_0670701",
         "filename": "Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt",
         "title": "Las calles de C diz arden con la huelga del metal  piden que se equipare la subi",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cadiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Las calles de Cádiz arden con la huelga del metal: piden que se equipare la subida de los sueldos con el IPC",
@@ -18732,11 +19454,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_calles_de_C_diz_arden_con_la_huelga_del_metal__piden_que_se_equipare_la_subi.txt"
       },
       {
-        "id": "tg_0630276",
+        "id": "tg_9081131",
         "filename": "Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt",
         "title": "Las 11 claves del nuevo conflicto del metal en C diz  el regreso de las barricad",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cadiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un \"convenio definitivo\"",
@@ -18744,11 +19466,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Las_11_claves_del_nuevo_conflicto_del_metal_en_C_diz__el_regreso_de_las_barricad.txt"
       },
       {
-        "id": "tg_0144109",
+        "id": "tg_5298592",
         "filename": "La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt",
         "title": "La situaci n de los trabajadores del Metal en C diz tras la huelga de 2021. Pers",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cadiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La situación de los trabajadores del Metal en Cádiz tras la huelga de 2021. Perspectivas y posibilidades para un futuro digno y una transformación ecosocialist",
@@ -18756,11 +19478,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_situaci_n_de_los_trabajadores_del_Metal_en_C_diz_tras_la_huelga_de_2021._Pers.txt"
       },
       {
-        "id": "tg_4868948",
+        "id": "tg_6592970",
         "filename": "La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt",
         "title": "La plantilla de Airbus votar  el lunes si suspende la huelga y negocia la nueva ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Airbus votará el lunes si suspende la huelga y negocia la nueva propuesta",
@@ -18768,11 +19490,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_votar__el_lunes_si_suspende_la_huelga_y_negocia_la_nueva_.txt"
       },
       {
-        "id": "tg_8767452",
+        "id": "tg_0557584",
         "filename": "La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt",
         "title": "La plantilla de Airbus seguir  en huelga tras una nueva reuni n negociadora sin ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Airbus seguirá en huelga",
@@ -18780,11 +19502,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_seguir__en_huelga_tras_una_nueva_reuni_n_negociadora_sin_.txt"
       },
       {
-        "id": "tg_3515809",
+        "id": "tg_0977831",
         "filename": "La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt",
         "title": "La plantilla de Airbus confirma la huelga indefinida a partir de este martes - H",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Airbus confirma la huelga indefinida a partir de este martes",
@@ -18792,11 +19514,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_confirma_la_huelga_indefinida_a_partir_de_este_martes_-_H.txt"
       },
       {
-        "id": "tg_3288514",
+        "id": "tg_6296036",
         "filename": "La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt",
         "title": "La plantilla de Airbus Espa a decide ir a la huelga indefinida hasta que la empr",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Airbus España decide ir a la huelga indefinida hasta que la empresa avance en sus propuestas – industry TALKS. Diario Digital de la Industria E",
@@ -18804,11 +19526,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_decide_ir_a_la_huelga_indefinida_hasta_que_la_empr.txt"
       },
       {
-        "id": "tg_0165562",
+        "id": "tg_5358954",
         "filename": "La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt",
         "title": "La plantilla de Airbus Espa a comienza una huelga indefinida desde este martes",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Airbus España comienza una huelga indefinida desde este martes",
@@ -18816,11 +19538,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Airbus_Espa_a_comienza_una_huelga_indefinida_desde_este_martes.txt"
       },
       {
-        "id": "tg_3693875",
+        "id": "tg_6741024",
         "filename": "La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt",
         "title": "La plantilla de Acerinox  120 d as de huelga en nombre de la conciliaci n - Diar",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La plantilla de Acerinox, 120 días, con sus noches, de huelga en nombre de la conciliación y la defensa del tiempo libre | Público",
@@ -18828,11 +19550,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_plantilla_de_Acerinox__120_d_as_de_huelga_en_nombre_de_la_conciliaci_n_-_Diar.txt"
       },
       {
-        "id": "tg_8439293",
+        "id": "tg_4349747",
         "filename": "La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt",
         "title": "La mitad de la plantilla de Intrum en Valladolid  en huelga por la eliminaci n d",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La mitad de la plantilla de Intrum en Valladolid, en huelga por la eliminación del teletrabajo",
@@ -18840,11 +19562,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_mitad_de_la_plantilla_de_Intrum_en_Valladolid__en_huelga_por_la_eliminaci_n_d.txt"
       },
       {
-        "id": "tg_3349353",
+        "id": "tg_9951354",
         "filename": "La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt",
         "title": "La huelga que cambi  Estados Unidos - Cenital",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La huelga que cambió Estados Unidos | Cenital",
@@ -18852,11 +19574,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_que_cambi__Estados_Unidos_-_Cenital.txt"
       },
       {
-        "id": "tg_4792912",
+        "id": "tg_8994472",
         "filename": "La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt",
         "title": "La huelga indefinida de Airbus Espa a sigue sin acuerdo tras el SIMA - Aviaci n ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La huelga indefinida de Airbus España sigue sin acuerdo tras el SIMA",
@@ -18864,11 +19586,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/La_huelga_indefinida_de_Airbus_Espa_a_sigue_sin_acuerdo_tras_el_SIMA_-_Aviaci_n_.txt"
       },
       {
-        "id": "tg_1998430",
+        "id": "tg_4864114",
         "filename": "La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt",
         "title": "La huelga del sector siderometal en Ourense se convierte en indefinida tras un  ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La huelga del sector siderometal en Ourense se convierte en indefinida tras un último intento de acuerdo fallido",
@@ -18876,11 +19598,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_sector_siderometal_en_Ourense_se_convierte_en_indefinida_tras_un__.txt"
       },
       {
-        "id": "tg_9165769",
+        "id": "tg_0619420",
         "filename": "La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt",
         "title": "La huelga del metal inquieta a la provincia de C diz ante el  fantasma  de las p",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Puerto Real",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La huelga del metal inquieta a la provincia de Cádiz ante el 'fantasma' de las protestas de 2021",
@@ -18888,11 +19610,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_huelga_del_metal_inquieta_a_la_provincia_de_C_diz_ante_el__fantasma__de_las_p.txt"
       },
       {
-        "id": "tg_7864773",
+        "id": "tg_3683826",
         "filename": "La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt",
         "title": "La direcci n de Airbus condiciona la negociaci n a que se suspenda temporalmente",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La dirección de Airbus condiciona la negociación a que se suspenda temporalmente la huelga | Economía y negocios | Cadena SER",
@@ -18900,11 +19622,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_direcci_n_de_Airbus_condiciona_la_negociaci_n_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_4161336",
+        "id": "tg_1124033",
         "filename": "La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt",
         "title": "La caja de resistencia para huelgas  Una herramienta m s en el conflicto trabajo",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La caja de resistencia para huelgas: Una herramienta más en el conflicto trabajo-capital",
@@ -18912,11 +19634,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_caja_de_resistencia_para_huelgas__Una_herramienta_m_s_en_el_conflicto_trabajo.txt"
       },
       {
-        "id": "tg_4903995",
+        "id": "tg_8035968",
         "filename": "La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt",
         "title": "La Moncloa. El Gobierno impulsa en Valladolid una inversi n estrat gica de casi ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La Moncloa. El Gobierno impulsa en Valladolid una inversión estratégica de casi 1.000 millones que situará a España en la vanguardia europea de las baterías el",
@@ -18924,11 +19646,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Moncloa._El_Gobierno_impulsa_en_Valladolid_una_inversi_n_estrat_gica_de_casi_.txt"
       },
       {
-        "id": "tg_3320013",
+        "id": "tg_1302118",
         "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
         "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral | LawAndTrend",
@@ -18936,23 +19658,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
       },
       {
-        "id": "tg_9905139",
-        "filename": "La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt",
-        "title": "La Audiencia Nacional declara nulas varias cl usulas de un acuerdo de teletrabaj",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral | LawAndTrends Utilizamos ",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/La_Audiencia_Nacional_declara_nulas_varias_cl_usulas_de_un_acuerdo_de_teletrabaj.txt"
-      },
-      {
-        "id": "tg_7235808",
+        "id": "tg_6356713",
         "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
         "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) LA IMPORTANCIA DE LA CAJA DE RESISTENCIA – co.bas Catalunya",
@@ -18960,23 +19670,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
       },
       {
-        "id": "tg_5039915",
-        "filename": "LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt",
-        "title": "LA IMPORTANCIA DE LA CAJA DE RESISTENCIA - co.bas Catalunya",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) LA IMPORTANCIA DE LA CAJA DE RESISTENCIA – co.bas Catalunya WhatsApp",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/LA_IMPORTANCIA_DE_LA_CAJA_DE_RESISTENCIA_-_co.bas_Catalunya.txt"
-      },
-      {
-        "id": "tg_7590947",
+        "id": "tg_2284896",
         "filename": "LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt",
         "title": "LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS C RNICAS SE INCREMENTAR N E",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "UGT"
         ],
@@ -18986,11 +19684,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/LAS_TABLAS_SALARIALES_DEL_CONVENIO_DE_LAS_INDUSTRIAS_C_RNICAS_SE_INCREMENTAR_N_E.txt"
       },
       {
-        "id": "tg_6836062",
+        "id": "tg_1410302",
         "filename": "Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt",
         "title": "Imposibilidad de ejecuci n de sentencia  sustituci n por indemnizaci n  e imputa",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Imposibilidad de ejecución de sentencia, sustitución por indemnización, e imputación de su abono .. (comentario a la Sentencia del Tribunal Supr",
@@ -18998,11 +19696,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Imposibilidad_de_ejecuci_n_de_sentencia__sustituci_n_por_indemnizaci_n__e_imputa.txt"
       },
       {
-        "id": "tg_4645328",
+        "id": "tg_7224681",
         "filename": "Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt",
         "title": "Ignacio Messina   Las cajas de resistencia  en apoyo a las huelgas  van a ser pr",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Ignacio Messina: “Las cajas de resistencia, en apoyo a las huelgas, van a ser protagonistas en el marco de las relaciones laborales aragonesas”",
@@ -19010,11 +19708,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ignacio_Messina___Las_cajas_de_resistencia__en_apoyo_a_las_huelgas__van_a_ser_pr.txt"
       },
       {
-        "id": "tg_8902382",
+        "id": "tg_4466840",
         "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
         "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19024,25 +19722,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
       },
       {
-        "id": "tg_8111931",
-        "filename": "III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt",
-        "title": "III Convenio colectivo de Lidl Supermercados  SAU - CCOO Servicios",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [
-          "CCOO"
-        ],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) error al insertar registro: Table './servicioses/lectura' is marked as crashed and last (automatic?) repair failed III Convenio colectivo de Lidl Supermercados, SAU",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/III_Convenio_colectivo_de_Lidl_Supermercados__SAU_-_CCOO_Servicios.txt"
-      },
-      {
-        "id": "tg_7278505",
+        "id": "tg_0722712",
         "filename": "IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt",
         "title": "IG Metall Tariftabelle 2026 Hamburg Unterweser   ERA Entgelttabelle",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) IG Metall Tariftabelle 2026 Hamburg/Unterweser – ERA Entgelttabelle",
@@ -19050,11 +19734,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/IG_Metall_Tariftabelle_2026_Hamburg_Unterweser___ERA_Entgelttabelle.txt"
       },
       {
-        "id": "tg_1549023",
+        "id": "tg_8984575",
         "filename": "IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt",
         "title": "IG Metall Gehaltsrechner  ERA Entgeltrechner 2026",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) ERA Entgeltrechner 2026 – IG Metall Gehaltsrechner",
@@ -19062,11 +19746,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/IG_Metall_Gehaltsrechner__ERA_Entgeltrechner_2026.txt"
       },
       {
-        "id": "tg_2994156",
+        "id": "tg_5597859",
         "filename": "Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt",
         "title": "Huelga metal C diz y Cartagena  qu  piden los trabajadores - RTVE.es",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cadiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga metal Cádiz y Cartagena: qué piden los trabajadores",
@@ -19074,11 +19758,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_metal_C_diz_y_Cartagena__qu__piden_los_trabajadores_-_RTVE.es.txt"
       },
       {
-        "id": "tg_3063301",
+        "id": "tg_5860244",
         "filename": "Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt",
         "title": "Huelga en Intrum Valladolid  UGT exige  soluciones  t cnicas y mantener el telet",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "UGT"
         ],
@@ -19088,11 +19772,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Intrum_Valladolid__UGT_exige__soluciones__t_cnicas_y_mantener_el_telet.txt"
       },
       {
-        "id": "tg_6538968",
+        "id": "tg_4760243",
         "filename": "Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt",
         "title": "Huelga en Airbus  qu  reclaman los trabajadores y c mo puede afectar a la produc",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga en Airbus: qué reclaman los trabajadores y cómo puede afectar a la producción en España | Demócrata",
@@ -19100,11 +19784,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_en_Airbus__qu__reclaman_los_trabajadores_y_c_mo_puede_afectar_a_la_produc.txt"
       },
       {
-        "id": "tg_1830897",
+        "id": "tg_3027148",
         "filename": "Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt",
         "title": "Huelga en Airbus  las propuestas de la empresa cierran varios frentes pero no el",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Dossier Económico / Técnico Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga en Airbus: las propuestas de la empresa cierran varios frentes pero no el salarial, la solución al conflicto – industry TALKS. Diari",
@@ -19112,11 +19796,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/Huelga_en_Airbus__las_propuestas_de_la_empresa_cierran_varios_frentes_pero_no_el.txt"
       },
       {
-        "id": "tg_6253008",
+        "id": "tg_4741602",
         "filename": "Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt",
         "title": "Huelga de 24 horas en Intrum Valladolid ante la eliminaci n del teletrabajo",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga de 24 horas en Intrum Valladolid ante la eliminación del teletrabajo",
@@ -19124,11 +19808,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_de_24_horas_en_Intrum_Valladolid_ante_la_eliminaci_n_del_teletrabajo.txt"
       },
       {
-        "id": "tg_6732117",
+        "id": "tg_8910345",
         "filename": "Huelga_Airbus.txt",
         "title": "Huelga Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga Airbus",
@@ -19136,11 +19820,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Huelga_Airbus.txt"
       },
       {
-        "id": "tg_0290789",
+        "id": "tg_7223687",
         "filename": "Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt",
         "title": "Hay preacuerdo en el convenio de Renault tras la reuni n con el ministro de Indu",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Hay preacuerdo en el convenio de Renault tras la reunión con el ministro de Industria como mediador: \"Asegura el futuro\"",
@@ -19148,14 +19832,14 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Hay_preacuerdo_en_el_convenio_de_Renault_tras_la_reuni_n_con_el_ministro_de_Indu.txt"
       },
       {
-        "id": "tg_7342636",
+        "id": "tg_0712577",
         "filename": "Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt",
         "title": "Gu a huelga indefinida desde 24 agosto 2026 en Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
-          "CGT",
-          "UGT"
+          "UGT",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) GUÍA PARA SECUNDAR LA HUELGA 24A EN AIRBUS",
@@ -19163,11 +19847,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_huelga_indefinida_desde_24_agosto_2026_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_0248285",
+        "id": "tg_4089772",
         "filename": "Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt",
         "title": "Gu a de derechos y obligaciones con la nueva Ley de teletrabajo - Terranea Segur",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Guía de derechos y obligaciones con la nueva Ley de teletrabajo",
@@ -19175,11 +19859,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Gu_a_de_derechos_y_obligaciones_con_la_nueva_Ley_de_teletrabajo_-_Terranea_Segur.txt"
       },
       {
-        "id": "tg_2006951",
+        "id": "tg_5021723",
         "filename": "Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt",
         "title": "Group Grading Expert  f h    Airbus   Imagine Job Board",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Group Grading Expert (f/h) @ Airbus | Imagine Job Board",
@@ -19187,11 +19871,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Group_Grading_Expert__f_h____Airbus___Imagine_Job_Board.txt"
       },
       {
-        "id": "tg_2769616",
+        "id": "tg_3669899",
         "filename": "Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt",
         "title": "Grille des minima - CGT Airbus Defence   Space Toulouse",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -19201,11 +19885,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Grille_des_minima_-_CGT_Airbus_Defence___Space_Toulouse.txt"
       },
       {
-        "id": "tg_0634830",
+        "id": "tg_6495857",
         "filename": "Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt",
         "title": "Gehaltsstufen IG Metall   Airbus DS   r arbeitsleben - Reddit",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Salary levels IG Metall / Airbus DS : r/arbeitsleben",
@@ -19213,11 +19897,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Gehaltsstufen_IG_Metall___Airbus_DS___r_arbeitsleben_-_Reddit.txt"
       },
       {
-        "id": "tg_9190917",
+        "id": "tg_0038305",
         "filename": "FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt",
         "title": "FO signe la Politique salariale 2023   objectifs atteints  ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) FO signe la Politique salariale 2023 : objectifs atteints !",
@@ -19225,11 +19909,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/FO_signe_la_Politique_salariale_2023___objectifs_atteints__.txt"
       },
       {
-        "id": "tg_8328289",
+        "id": "tg_4898612",
         "filename": "FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt",
         "title": "FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACI N COLECTIVA  AENC  2023-2025",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "UGT"
         ],
@@ -19239,11 +19923,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/FIRMADO_EL_V_ACUERDO_PARA_EL_EMPLEO_Y_LA_NEGOCIACI_N_COLECTIVA__AENC__2023-2025.txt"
       },
       {
-        "id": "tg_7473178",
+        "id": "tg_8397715",
         "filename": "Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt",
         "title": "Estructura Organizativa  Modelos de Clasificaci n de Puestos y Sistemas de Compe",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Estructura Organizativa, Modelos de Clasificación de Puestos y Sistemas de Compensación Global en Airbus: Un Análisis Comparativo Multilateral",
@@ -19251,11 +19935,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Estructura_Organizativa__Modelos_de_Clasificaci_n_de_Puestos_y_Sistemas_de_Compe.txt"
       },
       {
-        "id": "tg_8509843",
+        "id": "tg_0048563",
         "filename": "Entgelttabelle_Metall___Elektro_in_Bayern.txt",
         "title": "Entgelttabelle Metall   Elektro in Bayern",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Entgelttabelle Metall & Elektro in Bayern",
@@ -19263,11 +19947,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Entgelttabelle_Metall___Elektro_in_Bayern.txt"
       },
       {
-        "id": "tg_8288175",
+        "id": "tg_5599804",
         "filename": "El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt",
         "title": "El teletrabajo ya es una realidad para la plantilla del Grupo Campofr o - Confed",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19277,11 +19961,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_teletrabajo_ya_es_una_realidad_para_la_plantilla_del_Grupo_Campofr_o_-_Confed.txt"
       },
       {
-        "id": "tg_8302504",
+        "id": "tg_3847178",
         "filename": "El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt",
         "title": "El ministro de Industria intervendr  en el conflicto de Airbus si no hay acuerdo",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El ministro de Industria intervendrá en el conflicto de Airbus si no hay acuerdo con los sindicatos",
@@ -19289,11 +19973,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_intervendr__en_el_conflicto_de_Airbus_si_no_hay_acuerdo.txt"
       },
       {
-        "id": "tg_8074123",
+        "id": "tg_4132996",
         "filename": "El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt",
         "title": "El ministro de Industria convoca a la direcci n y sindicatos de Renault ante la ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El ministro de Industria convoca a la dirección y sindicatos de Renault ante la amenaza de huelga indefinida",
@@ -19301,11 +19985,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_ministro_de_Industria_convoca_a_la_direcci_n_y_sindicatos_de_Renault_ante_la_.txt"
       },
       {
-        "id": "tg_5245926",
+        "id": "tg_7887623",
         "filename": "El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt",
         "title": "El impacto de las tensiones macroecon micas y tecnol gicas en el di logo social ",
         "category": "dossiers",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -19315,11 +19999,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/dossiers/El_impacto_de_las_tensiones_macroecon_micas_y_tecnol_gicas_en_el_di_logo_social_.txt"
       },
       {
-        "id": "tg_9105100",
+        "id": "tg_5622461",
         "filename": "El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt",
         "title": "El gobierno amenaza a los trabajadores en huelga de Airbus   espero no tener que",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El gobierno amenaza a los trabajadores en huelga de Airbus: «espero no tener que intervenir»",
@@ -19327,11 +20011,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_gobierno_amenaza_a_los_trabajadores_en_huelga_de_Airbus___espero_no_tener_que.txt"
       },
       {
-        "id": "tg_2555337",
+        "id": "tg_7894127",
         "filename": "El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt",
         "title": "El convenio de grandes almacenes ya es oficial tras su publicaci n en el BOE - F",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El convenio de grandes almacenes ya es oficial tras su publicación en el BOE | FRS",
@@ -19339,11 +20023,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_convenio_de_grandes_almacenes_ya_es_oficial_tras_su_publicaci_n_en_el_BOE_-_F.txt"
       },
       {
-        "id": "tg_0499434",
+        "id": "tg_6671279",
         "filename": "El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt",
         "title": "El conflicto laboral de la aeron utica Airbus Espa a contin a con una huelga ind",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El conflicto laboral de la aeronáutica Airbus España continúa con una huelga indefinida - Infobae",
@@ -19351,11 +20035,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_la_aeron_utica_Airbus_Espa_a_contin_a_con_una_huelga_ind.txt"
       },
       {
-        "id": "tg_1694619",
+        "id": "tg_1314760",
         "filename": "El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt",
         "title": "El conflicto laboral de Airbus Espa a en 2026  An lisis corporativo  impacto ind",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El conflicto laboral de Airbus España en 2026: Análisis corporativo, impacto industrial y la encrucijada de las relaciones laborales transnacionales",
@@ -19363,11 +20047,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_conflicto_laboral_de_Airbus_Espa_a_en_2026__An_lisis_corporativo__impacto_ind.txt"
       },
       {
-        "id": "tg_2959613",
+        "id": "tg_9558994",
         "filename": "El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt",
         "title": "El comit  de Alestis convoca cuatro d as de huelga ante el bloqueo del convenio",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El comité de Alestis convoca cuatro días de huelga ante el bloqueo del convenio",
@@ -19375,11 +20059,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_comit__de_Alestis_convoca_cuatro_d_as_de_huelga_ante_el_bloqueo_del_convenio.txt"
       },
       {
-        "id": "tg_5683475",
+        "id": "tg_5163499",
         "filename": "El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt",
         "title": "El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El TSJPV declara nulo el despido de ITP y obliga a la empresa a readmitir a los 90 trabajadores - El Salto - Edición General",
@@ -19387,11 +20071,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/El_TSJPV_declara_nulo_el_despido_de_ITP_y_obliga_a_la_empresa_a_readmitir_a_los_.txt"
       },
       {
-        "id": "tg_1895122",
+        "id": "tg_2339971",
         "filename": "El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt",
         "title": "El BOE recoge los cambios del convenio de Carrefour  m s salario y menos jornada",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El BOE recoge los cambios del convenio de Carrefour: más salario y menos jornada para sus 50.000 trabajadores",
@@ -19399,11 +20083,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/El_BOE_recoge_los_cambios_del_convenio_de_Carrefour__m_s_salario_y_menos_jornada.txt"
       },
       {
-        "id": "tg_1577780",
+        "id": "tg_3243646",
         "filename": "EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt",
         "title": "EL ARBITRAJE  OBLIGATORIO  QUE PONE FIN A LA HUELGA - Dialnet",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) EL ARBITRAJE “OBLIGATORIO” QUE PONE FIN A LA HUELGA",
@@ -19411,11 +20095,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/EL_ARBITRAJE__OBLIGATORIO__QUE_PONE_FIN_A_LA_HUELGA_-_Dialnet.txt"
       },
       {
-        "id": "tg_6168148",
+        "id": "tg_1050888",
         "filename": "Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt",
         "title": "Dos meses sin avances  El paro de Acerinox llega al Parlamento donde la oposici ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) ACERINOX | Dos meses en huelga: Acerinox lleva sus reclamaciones al Parlamento y pide al Gobierno andaluz que medie en el conflicto",
@@ -19423,11 +20107,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Dos_meses_sin_avances__El_paro_de_Acerinox_llega_al_Parlamento_donde_la_oposici_.txt"
       },
       {
-        "id": "tg_0774063",
+        "id": "tg_1212209",
         "filename": "Documentation_for_the_Annual_General_Meeting_-_Airbus.txt",
         "title": "Documentation for the Annual General Meeting - Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9gZAEvAZiEwf7-S8ssY858AMJx98iiNZX7_xmd-AXkPc8xxC4fEoDtmj4LBtKNpXi2FVHVOF0e5D692mY0YUJsKR616CR4zQS4HPDm1qoQ__",
@@ -19435,11 +20119,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Documentation_for_the_Annual_General_Meeting_-_Airbus.txt"
       },
       {
-        "id": "tg_2516450",
+        "id": "tg_2290129",
         "filename": "Disposici_n_9799_del_BOE_n_m._119_de_2025.txt",
         "title": "Disposici n 9799 del BOE n m. 119 de 2025",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-tTpH7aYTTDGZYAsL-F4d_YmURBilBlHeAlURxzNAO6RHL-_DXToFAiNjOr9PvFiAVJzd5gtqixNGyK6h9qyIEN1xlWgAaJkhe_XoPXP1qFc",
@@ -19447,11 +20131,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Disposici_n_9799_del_BOE_n_m._119_de_2025.txt"
       },
       {
-        "id": "tg_3505843",
+        "id": "tg_3310287",
         "filename": "Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt",
         "title": "Direcci n Airbus condiciona continuar negociando a que se suspenda temporalmente",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Dirección Airbus condiciona continuar negociando a que se suspenda temporalmente la huelga - Infobae",
@@ -19459,11 +20143,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Direcci_n_Airbus_condiciona_continuar_negociando_a_que_se_suspenda_temporalmente.txt"
       },
       {
-        "id": "tg_4692073",
+        "id": "tg_7008595",
         "filename": "Digital_and_IT_Careers_-_Airbus.txt",
         "title": "Digital and IT Careers - Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Digital and IT Careerst | Airbus",
@@ -19471,11 +20155,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Digital_and_IT_Careers_-_Airbus.txt"
       },
       {
-        "id": "tg_6517683",
+        "id": "tg_1162120",
         "filename": "Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt",
         "title": "Convenios Renault - CCOO Renault Espa a - Confederaci n Sindical de Comisiones O",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19485,11 +20169,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenios_Renault_-_CCOO_Renault_Espa_a_-_Confederaci_n_Sindical_de_Comisiones_O.txt"
       },
       {
-        "id": "tg_2484819",
+        "id": "tg_1077050",
         "filename": "Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt",
         "title": "Convenio colectivo de la empresa Renault Espa a incluyendo FASA Renault 2021-202",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Convenio colectivo de la empresa Renault España incluyendo FASA Renault 2021-2025 | CNT Valladolid",
@@ -19497,11 +20181,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_colectivo_de_la_empresa_Renault_Espa_a_incluyendo_FASA_Renault_2021-202.txt"
       },
       {
-        "id": "tg_6784415",
+        "id": "tg_7408229",
         "filename": "Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias Siderometal rgicas - CCOO App",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19511,11 +20195,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_Siderometal_rgicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_0448364",
+        "id": "tg_0374871",
         "filename": "Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industrias C rnicas - CCOO App",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19525,11 +20209,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industrias_C_rnicas_-_CCOO_App.txt"
       },
       {
-        "id": "tg_3986178",
+        "id": "tg_9423897",
         "filename": "Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt",
         "title": "Convenio Colectivo Industria del Metal de C diz - CCOO App",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19539,11 +20223,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Industria_del_Metal_de_C_diz_-_CCOO_App.txt"
       },
       {
-        "id": "tg_8351506",
+        "id": "tg_4919590",
         "filename": "Convenio_Colectivo_Construcci_n_-_CCOO_App.txt",
         "title": "Convenio Colectivo Construcci n - CCOO App",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO",
           "UGT"
@@ -19554,11 +20238,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convenio_Colectivo_Construcci_n_-_CCOO_App.txt"
       },
       {
-        "id": "tg_2913799",
+        "id": "tg_4316051",
         "filename": "Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt",
         "title": "Contin a la huelga en las plantas de Airbus  empresa y sindicatos seguir n negoc",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Continúa la huelga en las plantas de Airbus: empresa y sindicatos seguirán negociando el próximo martes",
@@ -19566,11 +20250,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Contin_a_la_huelga_en_las_plantas_de_Airbus__empresa_y_sindicatos_seguir_n_negoc.txt"
       },
       {
-        "id": "tg_6142296",
+        "id": "tg_2504610",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL   propuesta empresa",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Getafe",
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9saj9JP2OG6lD7s4jsB7y_Q79PAJPYkL3cPpmyocE3o31pyDF-PXfh-9IJxTc3VkdGQZC_S14rX4d7K-EqRvhKkg4fS-V1c8",
@@ -19578,14 +20262,14 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL___propuesta_empresa.pdf.txt"
       },
       {
-        "id": "tg_9856047",
+        "id": "tg_4504330",
         "filename": "Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt",
         "title": "Comunicado conjunto CGT  UGT y UTIL Huelga indefinida en Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
-          "CGT",
-          "UGT"
+          "UGT",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-4y5_76f2poEF_EhHRX0DWQ5I3c6I8g2nfKDpoCC8gGTYrk_dyfytMQMVXLGOH8jZCbarTPnYonVH9JsYDlO3euTCusz6pPe",
@@ -19593,11 +20277,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_CGT__UGT_y_UTIL_Huelga_indefinida_en_Airbus.pdf.txt"
       },
       {
-        "id": "tg_2236824",
+        "id": "tg_5294916",
         "filename": "Comunicado_Huelga_070726-2.pdf.txt",
         "title": "Comunicado Huelga 070726-2",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -19607,11 +20291,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_Huelga_070726-2.pdf.txt"
       },
       {
-        "id": "tg_5144697",
+        "id": "tg_4602226",
         "filename": "Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt",
         "title": "Compensaci n de los gastos derivados del desarrollo del trabajo a distancia  A f",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) BOE.es - Compensación de los gastos derivados del desarrollo del trabajo a distancia: A falta de convenio colectivo o acuerdo- individual o colectivo- que prec",
@@ -19619,11 +20303,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Compensaci_n_de_los_gastos_derivados_del_desarrollo_del_trabajo_a_distancia__A_f.txt"
       },
       {
-        "id": "tg_5574857",
+        "id": "tg_9840248",
         "filename": "Classification__current_status_for_Airbus_Commercial.txt",
         "title": "Classification  current status for Airbus Commercial",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: 05/07/2023 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Classification: current status for Airbus Commercial",
@@ -19631,11 +20315,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Classification__current_status_for_Airbus_Commercial.txt"
       },
       {
-        "id": "tg_5883317",
+        "id": "tg_8436636",
         "filename": "Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt",
         "title": "Classification Survey  The Results - CGT Airbus Commercial Aircraft",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -19645,11 +20329,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Classification_Survey__The_Results_-_CGT_Airbus_Commercial_Aircraft.txt"
       },
       {
-        "id": "tg_9056340",
+        "id": "tg_1685257",
         "filename": "Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt",
         "title": "Categor a  0 - Comun a todos - Renault - CCOO App",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19659,11 +20343,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Categor_a__0_-_Comun_a_todos_-_Renault_-_CCOO_App.txt"
       },
       {
-        "id": "tg_1584446",
+        "id": "tg_1054829",
         "filename": "Carmen-Maja_Rex___Airbus.txt",
         "title": "Carmen-Maja Rex   Airbus",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Carmen-Maja Rex | Airbus",
@@ -19671,11 +20355,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Carmen-Maja_Rex___Airbus.txt"
       },
       {
-        "id": "tg_0452269",
+        "id": "tg_2486962",
         "filename": "Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt",
         "title": "Cajas de resistencia  una herramienta m s para afrontar conflictos  o al menos i",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Cajas de resistencia, una herramienta más para afrontar conflictos (o al menos intentarlo) - Todo Por Hacer",
@@ -19683,11 +20367,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Cajas_de_resistencia__una_herramienta_m_s_para_afrontar_conflictos__o_al_menos_i.txt"
       },
       {
-        "id": "tg_4675262",
+        "id": "tg_7410742",
         "filename": "CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt",
         "title": "CONSULTA A LA PLANTILLA.docx  1   2 ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19697,11 +20381,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CONSULTA_A_LA_PLANTILLA.docx__1___2_.pdf.txt"
       },
       {
-        "id": "tg_2477762",
+        "id": "tg_5545406",
         "filename": "CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt",
         "title": "CGT desconvoca la huelga en la Bah a de C diz por decisi n de las asambleas de t",
         "category": "assembly_minutes",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -19711,11 +20395,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/CGT_desconvoca_la_huelga_en_la_Bah_a_de_C_diz_por_decisi_n_de_las_asambleas_de_t.txt"
       },
       {
-        "id": "tg_3126062",
+        "id": "tg_4151862",
         "filename": "CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt",
         "title": "CCOO logra un preacuerdo con importantes avances en salarios y derechos",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19725,11 +20409,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos.txt"
       },
       {
-        "id": "tg_7270788",
+        "id": "tg_2451120",
         "filename": "CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt",
         "title": "CCOO e Industria de Turbopropulsores  ITP  alcanzan un acuerdo para tres a os",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19739,11 +20423,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_e_Industria_de_Turbopropulsores__ITP__alcanzan_un_acuerdo_para_tres_a_os.txt"
       },
       {
-        "id": "tg_1598142",
+        "id": "tg_8439019",
         "filename": "CCOO_de_Industria_de_Madrid.txt",
         "title": "CCOO de Industria de Madrid",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -19753,11 +20437,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/CCOO_de_Industria_de_Madrid.txt"
       },
       {
-        "id": "tg_3552506",
+        "id": "tg_2096273",
         "filename": "Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt",
         "title": "Boeing union ready to strike after rejecting contract offer   KIRO 7 News Seattl",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) WATCH",
@@ -19765,11 +20449,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_union_ready_to_strike_after_rejecting_contract_offer___KIRO_7_News_Seattl.txt"
       },
       {
-        "id": "tg_7192438",
+        "id": "tg_9729763",
         "filename": "Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt",
         "title": "Boeing strikes peace deal with 27000 machinists - The Guardian",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing strikes peace deal with 27,000 machinists | Boeing | The Guardian",
@@ -19777,11 +20461,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Boeing_strikes_peace_deal_with_27000_machinists_-_The_Guardian.txt"
       },
       {
-        "id": "tg_4225609",
+        "id": "tg_4717551",
         "filename": "Boeing_strike__shades_of_1995_-_HeraldNet.com.txt",
         "title": "Boeing strike  shades of 1995 - HeraldNet.com",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing strike: shades of 1995 | HeraldNet.com",
@@ -19789,11 +20473,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_strike__shades_of_1995_-_HeraldNet.com.txt"
       },
       {
-        "id": "tg_7907831",
+        "id": "tg_7209145",
         "filename": "Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt",
         "title": "Boeing factory strike ends as union workers vote to accept contract   PBS News",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing factory strike ends as union workers vote to accept contract | PBS News",
@@ -19801,11 +20485,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_factory_strike_ends_as_union_workers_vote_to_accept_contract___PBS_News.txt"
       },
       {
-        "id": "tg_6961673",
+        "id": "tg_4496864",
         "filename": "Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt",
         "title": "Boeing engineers and technical workers reject contract  vote to authorize strike",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Menu",
@@ -19813,11 +20497,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_engineers_and_technical_workers_reject_contract__vote_to_authorize_strike.txt"
       },
       {
-        "id": "tg_5234292",
+        "id": "tg_5064523",
         "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
         "title": "Boeing complaint background   National Labor Relations Board",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing complaint background | National Labor Relations Board",
@@ -19825,23 +20509,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_complaint_background___National_Labor_Relations_Board.txt"
       },
       {
-        "id": "tg_0286757",
-        "filename": "Boeing_complaint_background___National_Labor_Relations_Board.txt",
-        "title": "Boeing complaint background   National Labor Relations Board",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing complaint background | National Labor Relations Board Skip to main content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Boeing_complaint_background___National_Labor_Relations_Board.txt"
-      },
-      {
-        "id": "tg_7245034",
+        "id": "tg_3523840",
         "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
         "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing, engineers union to try novel bargaining strategy in test of labor peace",
@@ -19849,23 +20521,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
       },
       {
-        "id": "tg_4748360",
-        "filename": "Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt",
-        "title": "Boeing  engineers union to try novel bargaining strategy in test of labor peace",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing, engineers union to try novel bargaining strategy in test of labor peace Library",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Boeing__engineers_union_to_try_novel_bargaining_strategy_in_test_of_labor_peace.txt"
-      },
-      {
-        "id": "tg_6422482",
+        "id": "tg_9550954",
         "filename": "Boeing___SPEEA.txt",
         "title": "Boeing   SPEEA",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SPEEA",
@@ -19873,23 +20533,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing___SPEEA.txt"
       },
       {
-        "id": "tg_5021273",
-        "filename": "Boeing___SPEEA.txt",
-        "title": "Boeing   SPEEA",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) SPEEA Boeing – SPEEA",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Boeing___SPEEA.txt"
-      },
-      {
-        "id": "tg_0549999",
+        "id": "tg_2912822",
         "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
         "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing Reponse to Rejected Offer : r/SPEEA",
@@ -19897,23 +20545,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
       },
       {
-        "id": "tg_2315066",
-        "filename": "Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt",
-        "title": "Boeing Reponse to Rejected Offer   r SPEEA - Reddit",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Boeing Reponse to Rejected Offer : r/SPEEA Skip to main content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Boeing_Reponse_to_Rejected_Offer___r_SPEEA_-_Reddit.txt"
-      },
-      {
-        "id": "tg_0780262",
+        "id": "tg_1825062",
         "filename": "BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt",
         "title": "BOE-A-2023-8181 Resoluci n de 21 de marzo de 2023  de la Direcci n General de Tr",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) BOE-A-2023-8181 Resolución de 21 de marzo de 2023, de la Dirección General de Trabajo, por la que se registra y publica el texto del V Convenio colectivo del g",
@@ -19921,11 +20557,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/BOE-A-2023-8181_Resoluci_n_de_21_de_marzo_de_2023__de_la_Direcci_n_General_de_Tr.txt"
       },
       {
-        "id": "tg_0742571",
+        "id": "tg_3195091",
         "filename": "Ausbildung_in_Deutschland_-_Airbus.txt",
         "title": "Ausbildung in Deutschland - Airbus",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Ausbildung in Deutschland | Airbus",
@@ -19933,11 +20569,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Ausbildung_in_Deutschland_-_Airbus.txt"
       },
       {
-        "id": "tg_8696130",
+        "id": "tg_2290884",
         "filename": "Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt",
         "title": "Anatom a del Conflicto Laboral en el Sector Aeroespacial y de Automoci n  An lis",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cádiz",
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Anatomía del Conflicto Laboral en el Sector Aeroespacial y de Automoción: Análisis Comparativo de la Huelga de Airbus 2026, Precedentes Históric",
@@ -19945,11 +20581,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Anatom_a_del_Conflicto_Laboral_en_el_Sector_Aeroespacial_y_de_Automoci_n__An_lis.txt"
       },
       {
-        "id": "tg_8531528",
+        "id": "tg_6796912",
         "filename": "An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt",
         "title": "An lisis de la Situaci n del Convenio del Metal en C diz. - USO Industria",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "USO"
         ],
@@ -19959,11 +20595,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/An_lisis_de_la_Situaci_n_del_Convenio_del_Metal_en_C_diz._-_USO_Industria.txt"
       },
       {
-        "id": "tg_9181275",
+        "id": "tg_4789622",
         "filename": "An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt",
         "title": "An lisis Comparativo de la Conflictividad Laboral en la Industria de Alta Tecnol",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO",
           "SIPA",
@@ -19975,11 +20611,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/An_lisis_Comparativo_de_la_Conflictividad_Laboral_en_la_Industria_de_Alta_Tecnol.txt"
       },
       {
-        "id": "tg_8635402",
+        "id": "tg_1139615",
         "filename": "American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt",
         "title": "American air-traffic controllers strike for benefits and pay  1981",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) American air-traffic controllers strike for benefits and pay, 1981 | Global Nonviolent Action Database",
@@ -19987,11 +20623,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/American_air-traffic_controllers_strike_for_benefits_and_pay__1981.txt"
       },
       {
-        "id": "tg_5560346",
+        "id": "tg_9628196",
         "filename": "Aircraft_Fitter_at_Airbus___Flexa_Careers.txt",
         "title": "Aircraft Fitter at Airbus   Flexa Careers",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Aircraft Fitter at Airbus | Flexa Careers",
@@ -19999,11 +20635,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aircraft_Fitter_at_Airbus___Flexa_Careers.txt"
       },
       {
-        "id": "tg_1328690",
+        "id": "tg_4847806",
         "filename": "Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt",
         "title": "Airbus y tres sindicatos firman un preacuerdo para desbloquear la producci n y b",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus y tres sindicatos firman un preacuerdo para desbloquear la producción y blindar a los empleados que pasen a Bromo – industry TALKS. Diario Digital de la",
@@ -20011,11 +20647,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_tres_sindicatos_firman_un_preacuerdo_para_desbloquear_la_producci_n_y_b.txt"
       },
       {
-        "id": "tg_8718494",
+        "id": "tg_8883212",
         "filename": "Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt",
         "title": "Airbus y los sindicatos mantienen posiciones distantes tras la reuni n en el SIM",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus y los sindicatos mantienen posiciones distantes tras la reunión en el SIMA mientras continúan los paros",
@@ -20023,11 +20659,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_y_los_sindicatos_mantienen_posiciones_distantes_tras_la_reuni_n_en_el_SIM.txt"
       },
       {
-        "id": "tg_8633048",
+        "id": "tg_1168858",
         "filename": "Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt",
         "title": "Airbus y los sindicatos buscan una salida a la huelga mientras crece la preocupa",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Huelga en Airbus: sindicatos y empresa negocian salarios y teletrabajo ante el riesgo de trasladar producción",
@@ -20035,11 +20671,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_y_los_sindicatos_buscan_una_salida_a_la_huelga_mientras_crece_la_preocupa.txt"
       },
       {
-        "id": "tg_3795691",
+        "id": "tg_3439639",
         "filename": "Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt",
         "title": "Airbus vuelve al SIMA con la huelga activa y una oferta salarial a n sin acuerdo",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus vuelve al SIMA con la huelga activa y una oferta salarial aún sin acuerdo – Ola Next | Noticias de la Eurorregión Pirineos-Mediterráneo",
@@ -20047,11 +20683,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_vuelve_al_SIMA_con_la_huelga_activa_y_una_oferta_salarial_a_n_sin_acuerdo.txt"
       },
       {
-        "id": "tg_1602861",
+        "id": "tg_3642542",
         "filename": "Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt",
         "title": "Airbus va verser une prime de 1 500     ses salari s - GIFAS",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus va verser une prime de 1 500 € à ses salariés",
@@ -20059,11 +20695,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_va_verser_une_prime_de_1_500_____ses_salari_s_-_GIFAS.txt"
       },
       {
-        "id": "tg_0001631",
+        "id": "tg_4097755",
         "filename": "Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt",
         "title": "Airbus sube sueldos ligados al IPC y mantiene teletrabajo - Dem crata",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus sube sueldos ligados al IPC y mantiene teletrabajo | Demócrata",
@@ -20071,11 +20707,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_sube_sueldos_ligados_al_IPC_y_mantiene_teletrabajo_-_Dem_crata.txt"
       },
       {
-        "id": "tg_3894319",
+        "id": "tg_5505565",
         "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
         "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Eases Return-to-Office Plans Amid Workforce Pressure",
@@ -20083,23 +20719,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
       },
       {
-        "id": "tg_6332692",
-        "filename": "Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt",
-        "title": "Airbus softens return-to-office push as workforce pressures reshape aerospace em",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Eases Return-to-Office Plans Amid Workforce Pressure Live News",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Airbus_softens_return-to-office_push_as_workforce_pressures_reshape_aerospace_em.txt"
-      },
-      {
-        "id": "tg_9877953",
+        "id": "tg_9935717",
         "filename": "Airbus_reports_Half-Year__H1__2022_results.txt",
         "title": "Airbus reports Half-Year  H1  2022 results",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus reports Half-Year (H1) 2022 results | Airbus",
@@ -20107,11 +20731,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Half-Year__H1__2022_results.txt"
       },
       {
-        "id": "tg_5876272",
+        "id": "tg_8863452",
         "filename": "Airbus_reports_Full-Year__FY__2023_results.txt",
         "title": "Airbus reports Full-Year  FY  2023 results",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus reports Full-Year (FY) 2023 results | Airbus",
@@ -20119,11 +20743,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_Full-Year__FY__2023_results.txt"
       },
       {
-        "id": "tg_6953705",
+        "id": "tg_1536339",
         "filename": "Airbus_reports_First_Quarter__Q1__2023_results.txt",
         "title": "Airbus reports First Quarter  Q1  2023 results",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus reports First Quarter (Q1) 2023 results | Airbus",
@@ -20131,11 +20755,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_reports_First_Quarter__Q1__2023_results.txt"
       },
       {
-        "id": "tg_3685706",
+        "id": "tg_2446924",
         "filename": "Airbus_in_France.txt",
         "title": "Airbus in France",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus in France | Airbus",
@@ -20143,11 +20767,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_in_France.txt"
       },
       {
-        "id": "tg_9300578",
+        "id": "tg_8090472",
         "filename": "Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt",
         "title": "Airbus employees in Spain resume strike after rejecting offer   live - Euronext ",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus employees in Spain resume strike after rejecting offer | live",
@@ -20155,11 +20779,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_employees_in_Spain_resume_strike_after_rejecting_offer___live_-_Euronext_.txt"
       },
       {
-        "id": "tg_9127717",
+        "id": "tg_7458129",
         "filename": "Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt",
         "title": "Airbus bows to remote working demands after series of strikes - The Guardian",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus bows to remote working demands after series of strikes | Airbus | The Guardian",
@@ -20167,11 +20791,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_bows_to_remote_working_demands_after_series_of_strikes_-_The_Guardian.txt"
       },
       {
-        "id": "tg_4094829",
+        "id": "tg_2460323",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - CP24",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: 2026/08/21 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus backs down on return-to-office after protests, sources say – CP24",
@@ -20179,11 +20803,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_CP24.txt"
       },
       {
-        "id": "tg_3614432",
+        "id": "tg_6096627",
         "filename": "Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt",
         "title": "Airbus backs down on return-to-office after protests  sources say - BNN Bloomber",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: 2026/08/21 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus backs down on return-to-office after protests, sources say – BNN Bloomberg",
@@ -20191,11 +20815,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_return-to-office_after_protests__sources_say_-_BNN_Bloomber.txt"
       },
       {
-        "id": "tg_5165661",
+        "id": "tg_8196210",
         "filename": "Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt",
         "title": "Airbus backs down on four-day office plan after employee protests - Air Data New",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus backs down on four-day office plan after employee protests - Air Data News",
@@ -20203,11 +20827,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Airbus_backs_down_on_four-day_office_plan_after_employee_protests_-_Air_Data_New.txt"
       },
       {
-        "id": "tg_8819549",
+        "id": "tg_8410926",
         "filename": "Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt",
         "title": "Airbus augmente les salaires de 5 5  en France  face   l inflation - GIFAS",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus augmente les salaires de 5,5% en France, face à l'inflation",
@@ -20215,11 +20839,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_augmente_les_salaires_de_5_5__en_France__face___l_inflation_-_GIFAS.txt"
       },
       {
-        "id": "tg_9993579",
+        "id": "tg_0947018",
         "filename": "Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt",
         "title": "Airbus amenaza con suspender las contrataciones previstas en Espa a si contin a ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus amenaza con suspender las contrataciones previstas en España si continúa la huelga | Sociedad | Cadena SER",
@@ -20227,11 +20851,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_suspender_las_contrataciones_previstas_en_Espa_a_si_contin_a_.txt"
       },
       {
-        "id": "tg_5659756",
+        "id": "tg_4667756",
         "filename": "Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt",
         "title": "Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus amenaza con congelar las jubilaciones y prejubilaciones pactadas con los trabajadores si continúan con la huelga",
@@ -20239,11 +20863,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_amenaza_con_congelar_las_jubilaciones_y_prejubilaciones_pactadas_con_los_.txt"
       },
       {
-        "id": "tg_5670194",
+        "id": "tg_1433085",
         "filename": "Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt",
         "title": "Airbus  dispuesta a llevarse carga de trabajo de sus plantas espa olas a otros p",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus, dispuesta a llevarse carga de trabajo de sus plantas españolas a otros países por la huelga",
@@ -20251,11 +20875,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__dispuesta_a_llevarse_carga_de_trabajo_de_sus_plantas_espa_olas_a_otros_p.txt"
       },
       {
-        "id": "tg_0269384",
+        "id": "tg_2185333",
         "filename": "Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt",
         "title": "Airbus  Leonardo and Thales Press Brussels to Clear Project Bromo - Gro wald",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus, Leonardo and Thales Press Brussels to Clear Project Bromo",
@@ -20263,11 +20887,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus__Leonardo_and_Thales_Press_Brussels_to_Clear_Project_Bromo_-_Gro_wald.txt"
       },
       {
-        "id": "tg_4921701",
+        "id": "tg_1710815",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_3.txt",
         "title": "Airbus UK Pension Scheme   Schedule 3",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus UK Pension Scheme | Schedule 3 | Airbus",
@@ -20275,11 +20899,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_3.txt"
       },
       {
-        "id": "tg_3647409",
+        "id": "tg_7079437",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_2.txt",
         "title": "Airbus UK Pension Scheme   Schedule 2",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus UK Pension Scheme | Schedule 2 | Airbus",
@@ -20287,11 +20911,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_2.txt"
       },
       {
-        "id": "tg_4975632",
+        "id": "tg_0020794",
         "filename": "Airbus_UK_Pension_Scheme___Schedule_1.txt",
         "title": "Airbus UK Pension Scheme   Schedule 1",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus UK Pension Scheme | Schedule 1 | Airbus",
@@ -20299,11 +20923,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Schedule_1.txt"
       },
       {
-        "id": "tg_9730551",
+        "id": "tg_2607753",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 5",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus UK Pension Scheme | Schedule 5 | Airbus",
@@ -20311,11 +20935,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_5.txt"
       },
       {
-        "id": "tg_6684440",
+        "id": "tg_7003729",
         "filename": "Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt",
         "title": "Airbus UK Pension Scheme   Retirement Plan Schedule 4",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus UK Pension Scheme | Schedule 4 | Airbus",
@@ -20323,11 +20947,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_UK_Pension_Scheme___Retirement_Plan_Schedule_4.txt"
       },
       {
-        "id": "tg_0874266",
+        "id": "tg_5614250",
         "filename": "Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt",
         "title": "Airbus Spain strike resumes as dispute threatens key military aircraft programs",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Spain strike resumes as dispute threatens key military aircraft programs - Air Data News",
@@ -20335,11 +20959,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_strike_resumes_as_dispute_threatens_key_military_aircraft_programs.txt"
       },
       {
-        "id": "tg_6777003",
+        "id": "tg_0037895",
         "filename": "Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt",
         "title": "Airbus Spain Workers Resume Strike After Rejected Pay Offer - Global Banking   F",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Spain Workers Resume Strike After Rejected Pay Offer",
@@ -20347,11 +20971,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Workers_Resume_Strike_After_Rejected_Pay_Offer_-_Global_Banking___F.txt"
       },
       {
-        "id": "tg_4984108",
+        "id": "tg_2012723",
         "filename": "Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt",
         "title": "Airbus Spain Strike  Aerospace Supply Chain Faces Labor Disruptions - Doing Busi",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Spain Strike: Aerospace Supply Chain Faces Labor Disruptions",
@@ -20359,11 +20983,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Spain_Strike__Aerospace_Supply_Chain_Faces_Labor_Disruptions_-_Doing_Busi.txt"
       },
       {
-        "id": "tg_3049916",
+        "id": "tg_8104573",
         "filename": "Airbus_SMH_grids.txt",
         "title": "Airbus SMH grids",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -20373,11 +20997,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_SMH_grids.txt"
       },
       {
-        "id": "tg_3273656",
+        "id": "tg_9422856",
         "filename": "Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt",
         "title": "Airbus Runs into Opposition with Satellite Business Consolidation - European Spa",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus Runs into Opposition with Satellite Business Consolidation - European Spaceflight",
@@ -20385,11 +21009,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Runs_into_Opposition_with_Satellite_Business_Consolidation_-_European_Spa.txt"
       },
       {
-        "id": "tg_5368142",
+        "id": "tg_7752810",
         "filename": "Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt",
         "title": "Airbus Espa a reacciona a la huelga indefinida con la congelaci n inmediata de l",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus España reacciona a la huelga indefinida con la congelación inmediata de las contrataciones que tenía previstas",
@@ -20397,11 +21021,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Espa_a_reacciona_a_la_huelga_indefinida_con_la_congelaci_n_inmediata_de_l.txt"
       },
       {
-        "id": "tg_4730047",
+        "id": "tg_1042439",
         "filename": "Airbus_Annual_Report_2024_-_Bnains.org.txt",
         "title": "Airbus Annual Report 2024 - Bnains.org",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX837hiURyTXkSVoHuS2XYheFQyIrHquzhk74VI8hTWCxAeixs1kI9tmPj2ovUMeHnmSZCbptARVOyEpAtqIRBmIjNToOsQdrh6TSmIMeopg-W",
@@ -20409,11 +21033,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_Annual_Report_2024_-_Bnains.org.txt"
       },
       {
-        "id": "tg_4214078",
+        "id": "tg_3624412",
         "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
         "title": "Airbus - CSRD Report Reviews - BWD Strategic",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus – CSRD Report Reviews",
@@ -20421,23 +21045,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
       },
       {
-        "id": "tg_1061460",
-        "filename": "Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt",
-        "title": "Airbus - CSRD Report Reviews - BWD Strategic",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Airbus – CSRD Report Reviews BWD Portal",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Airbus_-_CSRD_Report_Reviews_-_BWD_Strategic.txt"
-      },
-      {
-        "id": "tg_1907935",
+        "id": "tg_4918948",
         "filename": "Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt",
         "title": "Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines - IATA",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) IATA - Aerospace Supply Chain Bottlenecks Continue to Constrain Airlines",
@@ -20445,11 +21057,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Aerospace_Supply_Chain_Bottlenecks_Continue_to_Constrain_Airlines_-_IATA.txt"
       },
       {
-        "id": "tg_3525301",
+        "id": "tg_4958806",
         "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
         "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Commercial aerospace supply chain challenges | McKinsey",
@@ -20457,23 +21069,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
       },
       {
-        "id": "tg_0483657",
-        "filename": "Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt",
-        "title": "Addressing continued turbulence  The commercial-aerospace supply chain - McKinse",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Commercial aerospace supply chain challenges | McKinsey Skip to main content",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/Addressing_continued_turbulence__The_commercial-aerospace_supply_chain_-_McKinse.txt"
-      },
-      {
-        "id": "tg_8646111",
+        "id": "tg_4008772",
         "filename": "Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt",
         "title": "Acuerdo para el desbloqueo del convenio colectivo del metal en C diz. - USO Indu",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "USO"
         ],
@@ -20483,11 +21083,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_para_el_desbloqueo_del_convenio_colectivo_del_metal_en_C_diz._-_USO_Indu.txt"
       },
       {
-        "id": "tg_3318969",
+        "id": "tg_5988925",
         "filename": "Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt",
         "title": "Acuerdo en mediaci n para desconvocar la huelga de Acerinox tras mejorarse las c",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "USO"
         ],
@@ -20497,11 +21097,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acuerdo_en_mediaci_n_para_desconvocar_la_huelga_de_Acerinox_tras_mejorarse_las_c.txt"
       },
       {
-        "id": "tg_3479989",
+        "id": "tg_2722572",
         "filename": "Acta_Asamblea_en_huelga_1407.pdf.txt",
         "title": "Acta Asamblea en huelga 1407",
         "category": "assembly_minutes",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Minuta de Asamblea Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9nJtVc3fEvjWRTTyTo82IAh5jD3eg6Djd5Ub52QUYLMM7nsAeFGhSofsTSgPe2SQDf4Z8RncAwrHswEUodvmXbXCFXc14hinF",
@@ -20509,11 +21109,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt"
       },
       {
-        "id": "tg_2171970",
+        "id": "tg_8023769",
         "filename": "Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt",
         "title": "Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la pla",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Acerinox reclama 30 millones de euros a siete sindicalistas por huelga en la planta de Palmones | Diario Socialista",
@@ -20521,11 +21121,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Acerinox_reclama_30_millones_de_euros_a_siete_sindicalistas_por_huelga_en_la_pla.txt"
       },
       {
-        "id": "tg_7648396",
+        "id": "tg_8865879",
         "filename": "Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt",
         "title": "Ab April 3 1   mehr Geld   und starke Sonderzahlungen im Jahr 2026 - IG Metall F",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Ab April 3,1 % mehr Geld – und starke Sonderzahlungen i...",
@@ -20533,11 +21133,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Ab_April_3_1___mehr_Geld___und_starke_Sonderzahlungen_im_Jahr_2026_-_IG_Metall_F.txt"
       },
       {
-        "id": "tg_7004473",
+        "id": "tg_3236974",
         "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
         "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El abono tiene carácter legal imperativo",
@@ -20545,23 +21145,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
       },
       {
-        "id": "tg_1536329",
-        "filename": "AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt",
-        "title": "AN. En el teletrabajo no cabe sustituir la compensaci n de gastos por tiempo de ",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": null,
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) El abono tiene carácter legal imperativo Inicio",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/AN._En_el_teletrabajo_no_cabe_sustituir_la_compensaci_n_de_gastos_por_tiempo_de_.txt"
-      },
-      {
-        "id": "tg_9158147",
+        "id": "tg_7791234",
         "filename": "8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt",
         "title": "8 julio  CGT convoca huelga y concentraci n ante H M-CONCENTRIX  servicio de ate",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CGT"
         ],
@@ -20571,11 +21159,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/8_julio__CGT_convoca_huelga_y_concentraci_n_ante_H_M-CONCENTRIX__servicio_de_ate.txt"
       },
       {
-        "id": "tg_8642155",
+        "id": "tg_6578227",
         "filename": "5803119881057145292.pdf.txt",
         "title": "5803119881057145292",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9guuZmthqidaGIgD7C_AAqlBafZucqNORyDNKfVTqcV-E7zxb8Aoq9EeP7ypf-L5f7b9uNKT-bsekzEockdBJti9SejaGY8gc0Q4hmhiOt5l",
@@ -20583,11 +21171,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/5803119881057145292.pdf.txt"
       },
       {
-        "id": "tg_6884456",
+        "id": "tg_4867713",
         "filename": "4_5969781284744994502.pdf.txt",
         "title": "4 5969781284744994502",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO"
         ],
@@ -20597,25 +21185,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5969781284744994502.pdf.txt"
       },
       {
-        "id": "tg_2336287",
-        "filename": "4_5969781284744994502.pdf.txt",
-        "title": "4 5969781284744994502",
-        "category": "assembly_minutes",
-        "date": "2026-09-01",
-        "unions": [
-          "CCOO"
-        ],
-        "site": "Getafe",
-        "summary": "Categoría: Actas de Asamblea Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Minutas Asamblea en Huelga GETAFE - 17/07/2026  Mensajes generales: - La producción de la planta de Marignan se ha visto impactada por nuestra huelga y sufrirá paros a partir d",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt"
-      },
-      {
-        "id": "tg_6337543",
+        "id": "tg_8409643",
         "filename": "4_5796203638925829350.pdf.txt",
         "title": "4 5796203638925829350",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": "Cádiz",
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX-Hx3A76FFYMPOYCTAfab6gDCR4_LVruhAFHQZKzf02Hp9DG4bE6XpcQKcH5Xwoq5g1i8Ti1jDMAadwD7BP9Y54ZQzcqGZxsS8-uAnQcK1boc",
@@ -20623,29 +21197,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/4_5796203638925829350.pdf.txt"
       },
       {
-        "id": "tg_5370336",
-        "filename": "4_5796203638925829350.pdf.txt",
-        "title": "4 5796203638925829350",
-        "category": "legal_filings",
-        "date": "2026-09-01",
-        "unions": [],
-        "site": "Cádiz",
-        "summary": "Categoría: Jurídico & Sentencias Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX8qYrGHiuaJUC6tuImLfR5mxNx2lOPel1eEGhpgTSOQEMM-m3GyTh4xyJ0pxzC4YjSz6jyQpgy-s_h0V9ReMY1g6pfJ3OR4mSSyo8V6uP9Jwt9ECqb5Rl5XD4P",
-        "char_count": 2048,
-        "file_path": "data/telegram_archive/legal_filings/4_5796203638925829350.pdf.txt"
-      },
-      {
-        "id": "tg_3497277",
+        "id": "tg_0211210",
         "filename": "396_AIRBUS_APLAZ.pdf.txt",
         "title": "396 AIRBUS APLAZ",
         "category": "documents",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [
           "CCOO",
-          "CGT",
           "UGT",
           "SIPA",
-          "ATP"
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_jmU69qoF0TMknsXelB8DaaHKvOyMrUGBt1Va9YLg1MML5EJWKWko8CjjA_jES_E0z7YDDQDKHQYA70qPCufLxR7Dh0Wx7Z5YLpmsG6oxsyF",
@@ -20653,11 +21215,11 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/396_AIRBUS_APLAZ.pdf.txt"
       },
       {
-        "id": "tg_4549974",
+        "id": "tg_5251421",
         "filename": "2008_Boeing_machinists__strike_-_Wikipedia.txt",
         "title": "2008 Boeing machinists  strike - Wikipedia",
         "category": "legal_filings",
-        "date": "2026-09-01",
+        "date": "2026-08-29",
         "unions": [],
         "site": null,
         "summary": "Categoría: Documento Legal / SIMA Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) 2008 Boeing machinists' strike - Wikipedia",
@@ -20665,7 +21227,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/2008_Boeing_machinists__strike_-_Wikipedia.txt"
       },
       {
-        "id": "tg_8806075",
+        "id": "tg_5610315",
         "filename": "Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt",
         "title": "Reuni n Comit  de Huelga en el SIMA el 27-08-2026  1 ",
         "category": "legal_filings",
@@ -20677,7 +21239,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/legal_filings/Reuni_n_Comit__de_Huelga_en_el_SIMA_el_27-08-2026__1_.pdf.txt"
       },
       {
-        "id": "tg_8946729",
+        "id": "tg_3217740",
         "filename": "Minutas_Asamblea_Getafe_20260827.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260827",
         "category": "assembly_minutes",
@@ -20689,7 +21251,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260827.pdf.txt"
       },
       {
-        "id": "tg_5490176",
+        "id": "tg_7126080",
         "filename": "Minutas_Asamblea_Getafe_20260826-1.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260826-1.PDF",
         "category": "assembly_minutes",
@@ -20703,7 +21265,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260826-1.PDF.txt"
       },
       {
-        "id": "tg_4004182",
+        "id": "tg_7567377",
         "filename": "Minutas_Asamblea_Getafe_20260825.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825",
         "category": "assembly_minutes",
@@ -20715,7 +21277,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825.pdf.txt"
       },
       {
-        "id": "tg_9697872",
+        "id": "tg_4777789",
         "filename": "Minutas_Asamblea_Getafe_20260825-1.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260825-1",
         "category": "assembly_minutes",
@@ -20727,7 +21289,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825-1.pdf.txt"
       },
       {
-        "id": "tg_6178166",
+        "id": "tg_4661893",
         "filename": "Minutas_Asamblea_Getafe_20260824__1_.PDF.txt",
         "title": "Minutas Asamblea Getafe 20260824  1 .PDF",
         "category": "assembly_minutes",
@@ -20739,7 +21301,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260824__1_.PDF.txt"
       },
       {
-        "id": "tg_6823133",
+        "id": "tg_4539000",
         "filename": "2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt",
         "title": "2026 08 11 Plan de Acci n Medidas de Aplicacion en Mantenimiento",
         "category": "documents",
@@ -20754,7 +21316,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/2026_08_11_Plan_de_Acci_n_Medidas_de_Aplicacion_en_Mantenimiento.pdf.txt"
       },
       {
-        "id": "tg_5964601",
+        "id": "tg_5349278",
         "filename": "Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt",
         "title": "Convocatoria huelga en Airbus comunicacion a Airbus 20260731 anonimizada",
         "category": "documents",
@@ -20766,7 +21328,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Convocatoria_huelga_en_Airbus_comunicacion_a_Airbus_20260731_anonimizada.pdf.txt"
       },
       {
-        "id": "tg_7737007",
+        "id": "tg_6354881",
         "filename": "Minutas_Asamblea_Getafe_20260729.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260729",
         "category": "assembly_minutes",
@@ -20780,17 +21342,17 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260729.pdf.txt"
       },
       {
-        "id": "tg_3010914",
+        "id": "tg_0498675",
         "filename": "DOC-20260725-WA0055..pdf.txt",
         "title": "DOC-20260725-WA0055.",
         "category": "documents",
         "date": "2026-07-25",
         "unions": [
           "CCOO",
-          "CGT",
           "UGT",
           "SIPA",
-          "ATP"
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: General Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9pvhArinEthFmq0vuRcS5UReaKnxl0f-5zmepcBxX8RCARvqNMhIWCcW9WCgtZYofSPjbXJE4wuiXch853siZdH1o-a-zFoPKPIMBl8YgDkD",
@@ -20798,15 +21360,15 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/DOC-20260725-WA0055..pdf.txt"
       },
       {
-        "id": "tg_1481277",
+        "id": "tg_6063671",
         "filename": "Minutas_Asamblea_Getafe_20260723.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260723",
         "category": "assembly_minutes",
         "date": "2026-07-23",
         "unions": [
-          "CGT",
+          "ATP",
           "SIPA",
-          "ATP"
+          "CGT"
         ],
         "site": "Getafe",
         "summary": "Categoría: Minuta de Asamblea Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) Minutas Asambleas Getafe",
@@ -20814,16 +21376,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260723.pdf.txt"
       },
       {
-        "id": "tg_0713208",
+        "id": "tg_3739863",
         "filename": "Comunicado_CGT_estatal_-_20260723.pdf.txt",
         "title": "Comunicado CGT estatal - 20260723",
         "category": "documents",
         "date": "2026-07-23",
         "unions": [
           "CCOO",
-          "CGT",
           "SIPA",
-          "ATP"
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_hgAuct9k4qpX_XpY6KnsoyWKzSS6PMcbV_s-RFhNm__p49ok7tQnBWZiNTG0mpuop6Yp2OV1H6wedoF0p3lVLzub3jZQlfn",
@@ -20831,7 +21393,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_CGT_estatal_-_20260723.pdf.txt"
       },
       {
-        "id": "tg_8660775",
+        "id": "tg_1053094",
         "filename": "Minutas_Asamblea_Getafe_20260722.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260722",
         "category": "assembly_minutes",
@@ -20845,7 +21407,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260722.pdf.txt"
       },
       {
-        "id": "tg_2197078",
+        "id": "tg_6102611",
         "filename": "Minutas_Asamblea_Getafe_20260721.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260721",
         "category": "assembly_minutes",
@@ -20859,7 +21421,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260721.pdf.txt"
       },
       {
-        "id": "tg_9591362",
+        "id": "tg_0183175",
         "filename": "Minutas_Asamblea_Getafe_20260720.pdf.txt",
         "title": "Minutas Asamblea Getafe 20260720",
         "category": "assembly_minutes",
@@ -20871,16 +21433,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260720.pdf.txt"
       },
       {
-        "id": "tg_1299546",
+        "id": "tg_4112244",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260720",
         "category": "documents",
         "date": "2026-07-20",
         "unions": [
-          "CGT",
-          "SIPA",
           "UGT",
-          "ATP"
+          "SIPA",
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_MKfc6_RQYNjv7phqXMCfmXJwBtJmI15CR-0tK0GRnTPgCwm4WKmbIlltI3Ua-HW6MGWqiiKvlWTEfRi4TmVk_ZOsByLHlXb",
@@ -20888,7 +21450,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260720.pdf.txt"
       },
       {
-        "id": "tg_3352384",
+        "id": "tg_3959421",
         "filename": "20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt",
         "title": "20260717 Comunicado Mayoria Sindical Airbus.docx",
         "category": "documents",
@@ -20900,7 +21462,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf.txt"
       },
       {
-        "id": "tg_2294204",
+        "id": "tg_3291631",
         "filename": "Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt",
         "title": "Minutas Asamblea en Huelga GETAFE - 16 07 2026",
         "category": "assembly_minutes",
@@ -20912,16 +21474,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt"
       },
       {
-        "id": "tg_2543276",
+        "id": "tg_6012007",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
-          "CGT",
-          "SIPA",
           "UGT",
-          "ATP"
+          "SIPA",
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX_OyU1OUPkX2jzDPbf4wFsqIlICpnZgYAw0nZUrOQOasm4AfZ9IAyvBDY00hhAAtIukVtnEIny6CEyTOLplnMaBT_GQ3zv9K7",
@@ -20929,16 +21491,16 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715.pdf.txt"
       },
       {
-        "id": "tg_9746924",
+        "id": "tg_0841907",
         "filename": "Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt",
         "title": "Comunicado conjunto SIPA  ATP  CGT  UGT y UTIL - 20260715-1",
         "category": "documents",
         "date": "2026-07-15",
         "unions": [
-          "CGT",
-          "SIPA",
           "UGT",
-          "ATP"
+          "SIPA",
+          "ATP",
+          "CGT"
         ],
         "site": null,
         "summary": "Categoría: Comunicado Sindical Fecha: Julio - Agosto 2026 Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0) https://lh3.googleusercontent.com/notebooklm/AKYWMX9dP-ZT7OjrSFCozMe-aJMUpvI8oaZIR5XxuDRluFFUpu308gGAkCJZCZc_-r9EzAFaZuBgYLayR6LeRHr3juh_fqjT0NYhCN",
@@ -20946,7 +21508,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/Comunicado_conjunto_SIPA__ATP__CGT__UGT_y_UTIL_-_20260715-1.pdf.txt"
       },
       {
-        "id": "tg_8923673",
+        "id": "tg_4709578",
         "filename": "20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt",
         "title": "20260630 - Nota de prensa - Huelga en Airbus 260710 201620",
         "category": "documents",
@@ -20960,7 +21522,7 @@ window.CONFLICT_DATA = {
         "file_path": "data/telegram_archive/documents/20260630_-_Nota_de_prensa_-_Huelga_en_Airbus_260710_201620.pdf.txt"
       },
       {
-        "id": "tg_6121129",
+        "id": "tg_5764547",
         "filename": "BOCM-20240725-1_-_C__Otras_Disposiciones.txt",
         "title": "BOCM-20240725-1 - C  Otras Disposiciones",
         "category": "documents",
