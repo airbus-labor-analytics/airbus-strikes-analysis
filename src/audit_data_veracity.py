@@ -112,9 +112,11 @@ def audit_dashboard_parity(data_js_path: Path, conflict_json_path: Path) -> Tupl
     try:
         with open(data_js_path, "r", encoding="utf-8") as f:
             content = f.read()
-            match = re.search(r'const\s+INITIAL_DATA\s*=\s*(\{.*\});', content, re.DOTALL)
+            match = re.search(r'window\.CONFLICT_DATA\s*=\s*(\{.*?\});\s*\n', content, re.DOTALL)
             if not match:
-                match = re.search(r'=\s*(\{.*\});', content, re.DOTALL)
+                match = re.search(r'const\s+INITIAL_DATA\s*=\s*(\{.*?\});', content, re.DOTALL)
+            if not match:
+                match = re.search(r'=\s*(\{.*?\});', content, re.DOTALL)
             if match:
                 d_data = json.loads(match.group(1))
             else:

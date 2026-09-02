@@ -258,6 +258,7 @@ function initAllModules() {
   initTelegramArchive();
   initThermometer();
   initBelugaLogistics();
+  initWelcomePack();
   updateAsymmetrySimulation();
   updateWageSimulation();
   if (window.lucide) lucide.createIcons();
@@ -504,7 +505,11 @@ function switchTab(tabId) {
     'tab-fuentes': 'tab-evidence',
     'tab-documentos': 'tab-evidence',
     'tab-workflows': 'tab-union-force',
-    'tab-checklist': 'tab-purchasing-power'
+    'tab-checklist': 'tab-purchasing-power',
+    'tab-welcome-pack': 'tab-welcome-pack',
+    'tab-welcome': 'tab-welcome-pack',
+    'tab-guia': 'tab-welcome-pack',
+    'tab-introduccion': 'tab-welcome-pack',
   };
   if (tabAliases[normalizedTabId]) {
     normalizedTabId = tabAliases[normalizedTabId];
@@ -564,8 +569,9 @@ function switchTab(tabId) {
       initSources();
       initTelegramArchive();
       initBenchmarks();
+    } else if (normalizedTabId === 'tab-welcome-pack') {
+      initWelcomePack();
     }
-
     // Ensure all active Chart.js instances perform a clean immediate resize
     const activeCanvases = activeTab ? activeTab.querySelectorAll('canvas') : [];
     activeCanvases.forEach(canvas => {
@@ -587,6 +593,16 @@ const TAB_SECTION_MAP = {
       { id: 'sec-portal-mission', label: 'Misión & Principios', icon: 'shield-check' },
       { id: 'sec-portal-kpis', label: 'KPIs Ejecutivos Flash', icon: 'trending-up' },
       { id: 'sec-portal-sitemap', label: 'Mapa del Portal', icon: 'compass' }
+    ]
+  },
+  'tab-welcome-pack': {
+    title: 'Welcome Pack',
+    sections: [
+      { id: 'sec-welcome-hero', label: 'Causas de la Huelga', icon: 'compass' },
+      { id: 'sec-welcome-economics', label: 'Asimetría Económica', icon: 'calculator' },
+      { id: 'sec-welcome-quotes', label: 'Citas de Actas', icon: 'quote' },
+      { id: 'sec-welcome-phases', label: 'Cronología en 3 Fases', icon: 'history' },
+      { id: 'sec-welcome-platform', label: 'Plataforma 11 Puntos', icon: 'shield-check' }
     ]
   },
   'tab-overview': {
@@ -4483,3 +4499,236 @@ document.addEventListener('click', (e) => {
     closeGlassModal();
   }
 });
+
+// ==================== WELCOME PACK & 3-PHASE CHRONOLOGY ====================
+let currentWelcomePhaseFilter = 'all';
+
+function initWelcomePack() {
+  renderWelcomePack();
+}
+
+function renderWelcomePack() {
+  const wp = conflictData?.welcome_pack || window.WELCOME_PACK_DATA || {};
+  const exec = wp.executive_summary || {};
+  const eco = exec.economic_breakdown || {};
+
+  // 1. Freshness Badge
+  const badgeEl = document.getElementById('welcome-freshness-badge');
+  if (badgeEl && wp.last_updated_display) {
+    badgeEl.innerHTML = `
+      <span class="w-2 h-2 rounded-full bg-rose-400 mr-1.5 animate-ping"></span>
+      Última actualización: ${escapeHTML(wp.last_updated_display)}
+    `;
+  }
+
+  // 2. Economics Cards
+  const ecoContainer = document.getElementById('welcome-economics-cards');
+  if (ecoContainer && eco.loss_range_pct) {
+    ecoContainer.innerHTML = `
+      <div class="p-4 rounded-xl bg-slate-900/80 border border-rose-500/30 space-y-1">
+        <span class="text-[11px] font-semibold text-slate-400">Pérdida Poder Adquisitivo</span>
+        <p class="text-2xl font-black text-rose-400 font-mono">${escapeHTML(eco.loss_range_pct)}</p>
+        <p class="text-[11px] text-slate-400">-${eco.net_loss_eur ? eco.net_loss_eur.toLocaleString('es-ES') : '26.030'} € netos perdidos / trabajador</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/30 space-y-1">
+        <span class="text-[11px] font-semibold text-slate-400">Inflación Acumulada (2020-25)</span>
+        <p class="text-2xl font-black text-amber-400 font-mono">+${eco.inflation_general_pct || 19.3}% IPC</p>
+        <p class="text-[11px] text-slate-400">+${eco.inflation_food_pct || 31.2}% en cesta básica de alimentos</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/30 space-y-1">
+        <span class="text-[11px] font-semibold text-slate-400">Beneficio Neto Airbus (2025)</span>
+        <p class="text-2xl font-black text-emerald-400 font-mono">${eco.airbus_profit_2025_meur ? eco.airbus_profit_2025_meur.toLocaleString('es-ES') : '5.221'} M€</p>
+        <p class="text-[11px] text-slate-400">EBIT: ${eco.airbus_ebit_2025_meur ? eco.airbus_ebit_2025_meur.toLocaleString('es-ES') : '7.138'} M€ | Div: ${eco.shareholder_payout_2025_meur ? eco.shareholder_payout_2025_meur.toLocaleString('es-ES') : '2.500'} M€</p>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/30 space-y-1">
+        <span class="text-[11px] font-semibold text-slate-400">Coste Demanda vs. Bolsa</span>
+        <p class="text-2xl font-black text-indigo-400 font-mono">${eco.union_demand_annual_cost_meur || 118} M€ vs ${eco.market_cap_lost_conflict_meur ? eco.market_cap_lost_conflict_meur.toLocaleString('es-ES') : '14.459,5'} M€</p>
+        <p class="text-[11px] text-slate-400">122.5x más pérdida en Euronext que coste salarial</p>
+      </div>
+    `;
+  }
+
+  // 3. Primary Quotes
+  renderWelcomeQuotes(exec.core_quotes || []);
+
+  // 4. Chronology Phases
+  renderWelcomeChronology(currentWelcomePhaseFilter);
+
+  // 5. 11-Point Platform Grid
+  renderWelcomePlatform();
+
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderWelcomeQuotes(quotes) {
+  const container = document.getElementById('welcome-quotes-container');
+  if (!container) return;
+
+  if (!quotes || quotes.length === 0) {
+    container.innerHTML = `<p class="text-slate-500 text-xs italic">Cargando citas autenticadas...</p>`;
+    return;
+  }
+
+  container.innerHTML = quotes.map(q => {
+    const rawFileName = q.file_ref ? q.file_ref.split('/').pop() : '';
+    return `
+      <div class="p-4 rounded-xl bg-slate-950/70 border border-slate-800/90 hover:border-sky-500/40 transition flex flex-col justify-between space-y-3">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="px-2 py-0.5 rounded bg-sky-500/15 text-sky-300 font-semibold border border-sky-500/30 flex items-center gap-1">
+              <i data-lucide="file-text" class="w-3 h-3"></i> ${escapeHTML(q.source || 'Documento Oficial')}
+            </span>
+            ${rawFileName ? `<span class="text-[10px] font-mono text-slate-500 truncate max-w-[180px]">${escapeHTML(rawFileName)}</span>` : ''}
+          </div>
+          <p class="text-xs sm:text-sm text-slate-200 italic leading-relaxed">
+            «${escapeHTML(q.quote || '')}»
+          </p>
+        </div>
+        <div class="pt-2 border-t border-slate-800/70 flex items-center justify-between">
+          <p class="text-[11px] text-slate-400">${escapeHTML(q.context || '')}</p>
+          ${rawFileName ? `
+            <button onclick="openSourceModal('${escapeHTML(rawFileName)}')" class="px-2.5 py-1 rounded-lg bg-sky-600/20 hover:bg-sky-600 text-sky-300 hover:text-white border border-sky-500/30 text-[11px] font-bold transition flex items-center gap-1 cursor-pointer shrink-0 ml-2">
+              <i data-lucide="eye" class="w-3 h-3 text-sky-400"></i> Ver Documento
+            </button>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function filterWelcomeChronology(phaseId) {
+  currentWelcomePhaseFilter = phaseId;
+
+  // Update button active styles
+  document.querySelectorAll('.wf-filter-btn').forEach(btn => {
+    btn.classList.remove('bg-purple-600', 'text-white', 'font-bold', 'shadow');
+    btn.classList.add('text-slate-400', 'font-semibold');
+  });
+
+  const activeBtn = document.getElementById(`btn-wf-${phaseId}`);
+  if (activeBtn) {
+    activeBtn.classList.remove('text-slate-400', 'font-semibold');
+    activeBtn.classList.add('bg-purple-600', 'text-white', 'font-bold', 'shadow');
+  }
+
+  renderWelcomeChronology(phaseId);
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderWelcomeChronology(filterPhase = 'all') {
+  const container = document.getElementById('welcome-chronology-container');
+  if (!container) return;
+
+  const wp = conflictData?.welcome_pack || window.WELCOME_PACK_DATA || {};
+  const phases = wp.chronology_phases || [];
+  const timeline = conflictData?.timeline || [];
+
+  const phasesToRender = filterPhase === 'all' 
+    ? phases 
+    : phases.filter(p => p.phase_id === filterPhase);
+
+  if (phasesToRender.length === 0) {
+    container.innerHTML = `<p class="text-slate-500 text-xs italic">No hay hitos para la fase seleccionada.</p>`;
+    return;
+  }
+
+  container.innerHTML = phasesToRender.map(phase => {
+    // Collect matching milestones
+    let matchingMilestones = [];
+    if (phase.phase_id === 'phase_1_gestation') {
+      matchingMilestones = timeline.filter(m => m.iso_date < '2026-07-01');
+    } else if (phase.phase_id === 'phase_2_escalation') {
+      matchingMilestones = timeline.filter(m => m.iso_date >= '2026-07-01' && m.iso_date <= '2026-08-24');
+    } else if (phase.phase_id === 'phase_3_indefinite_strike') {
+      matchingMilestones = timeline.filter(m => m.iso_date >= '2026-08-25');
+    }
+
+    const badgeColorClass = phase.badge_color === 'rose' 
+      ? 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+      : (phase.badge_color === 'amber' ? 'bg-amber-500/20 text-amber-300 border-amber-500/30' : 'bg-blue-500/20 text-blue-300 border-blue-500/30');
+
+    return `
+      <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-4">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-800/80 pb-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 text-[10px] font-bold rounded border ${badgeColorClass}">
+                ${escapeHTML(phase.badge || 'Fase')}
+              </span>
+              <h4 class="text-sm sm:text-base font-bold text-white">${escapeHTML(phase.phase_title || '')}</h4>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">${escapeHTML(phase.description || '')}</p>
+          </div>
+          <span class="text-xs font-mono font-bold text-slate-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800 shrink-0">
+            ${escapeHTML(phase.date_range || '')}
+          </span>
+        </div>
+
+        <!-- Milestones list -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+          ${matchingMilestones.map(m => `
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800/90 hover:border-purple-500/40 transition space-y-2 flex flex-col justify-between">
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between gap-1 text-[11px]">
+                  <span class="font-mono font-bold text-purple-300">${escapeHTML(m.date || m.iso_date)}</span>
+                  <span class="px-1.5 py-0.5 text-[9.5px] font-bold rounded bg-slate-800 text-slate-300 border border-slate-700">
+                    ${escapeHTML(m.location ? m.location.split('|')[0].trim() : 'Airbus España')}
+                  </span>
+                </div>
+                <h5 class="text-xs font-bold text-white leading-snug">${escapeHTML(m.title || '')}</h5>
+                <p class="text-[11.5px] text-slate-300 leading-relaxed line-clamp-3">${escapeHTML(m.summary || '')}</p>
+                ${m.census_and_votes ? `
+                  <div class="p-1.5 rounded bg-slate-950/80 border border-slate-800 text-[10.5px] text-amber-300 font-mono">
+                    <strong>Votación / Censo:</strong> ${escapeHTML(m.census_and_votes)}
+                  </div>
+                ` : ''}
+              </div>
+
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[10.5px]">
+                <span class="text-slate-500 truncate max-w-[160px]">${escapeHTML(m.source_ref ? m.source_ref.split('|')[0].trim() : 'Fuente Oficial')}</span>
+                ${(m.document_id || m.source_url) ? `
+                  <button onclick="openSourceModal('${escapeHTML(m.document_id || m.id)}')" class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-600/30 hover:bg-purple-600 text-purple-200 hover:text-white border border-purple-500/40 transition flex items-center gap-1 cursor-pointer shrink-0">
+                    <i data-lucide="file-text" class="w-3 h-3 text-purple-300"></i> Ver Minuta
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderWelcomePlatform() {
+  const container = document.getElementById('welcome-platform-grid');
+  if (!container) return;
+
+  const platformItems = [
+    { num: 1, title: "12% Salario en Tablas", desc: "Incremento fijo consolidado a 1 de enero de 2026 para recuperar la pérdida histórica del VI Convenio.", icon: "trending-up" },
+    { num: 2, title: "7.500 € Compensación", desc: "Abono a tanto alzado libre de cargas por la merma salarial soportada entre 2020 y 2025.", icon: "banknote" },
+    { num: 3, title: "Garantía IPC + 1,5%", desc: "Cláusula de revisión automática anual vinculada al IPC real de España sin topes a la baja.", icon: "shield-check" },
+    { num: 4, title: "Fin al Método Bradford", desc: "Eliminación inmediata de cualquier índice punitivo sobre bajas médicas o absentismo justificado.", icon: "x-circle" },
+    { num: 5, title: "Teletrabajo Blindado (3 días)", desc: "Mínimo 3 días semanales con compensación íntegra de gastos según la Ley 10/2021.", icon: "laptop" },
+    { num: 6, title: "Blindaje de Carga y Empleo", desc: "Garantía expresa de no deslocalización de aeroestructuras ni paquetes tecnológicos a otras plantas.", icon: "lock" },
+    { num: 7, title: "Plan de Rejuvenecimiento", desc: "Contratos de relevo obligatorios al 100% al cumplir la edad legal de jubilación parcial.", icon: "users" },
+    { num: 8, title: "Pase a Fijos de Contratas", desc: "Internalización paulatina de puestos de trabajo estructurales actualmente subcontratados.", icon: "user-plus" },
+    { num: 9, title: "Igualdad y Desconexión", desc: "Garantía efectiva de desconexión digital fuera de jornada y conciliación laboral real.", icon: "heart" },
+    { num: 10, title: "Salud Laboral Reforzada", desc: "Protocolos estrictos de ergonomía en líneas de montaje y protección en entornos químicos.", icon: "activity" },
+    { num: 11, title: "Retirada de Sanciones", desc: "Anulación y archivo inmediato de cualquier expediente coercitivo o sanción a huelguistas.", icon: "shield-alert" }
+  ];
+
+  container.innerHTML = platformItems.map(item => `
+    <div class="p-3.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1.5 hover:border-slate-700 transition">
+      <div class="flex items-center justify-between">
+        <span class="px-2 py-0.5 text-[10px] font-black rounded bg-slate-900 border border-slate-800 text-slate-300 font-mono">
+          Punto ${item.num}
+        </span>
+        <i data-lucide="${item.icon}" class="w-4 h-4 text-sky-400"></i>
+      </div>
+      <h5 class="text-xs font-bold text-white">${escapeHTML(item.title)}</h5>
+      <p class="text-[11.5px] text-slate-400 leading-relaxed">${escapeHTML(item.desc)}</p>
+    </div>
+  `).join('');
+}

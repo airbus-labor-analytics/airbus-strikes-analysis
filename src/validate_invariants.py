@@ -19,6 +19,7 @@ Rules checked:
 10. Purchasing power loss econometric table balance (Gross sum: -28,085€, Payouts: +3,100€, Net loss: -26,030€)
 11. Cost of union platform (12% wage increase: 93.372 M€ direct / 122.317 M€ with SS; 7,500€ lump sum: 116.715 M€)
 12. Historical union hegemony evolution data integrity (2010-2026)
+23. Rule 16: Welcome Pack and 3-Phase Chronology data integrity and source file linkage
 """
 
 import json
@@ -308,6 +309,32 @@ def validate_all():
                 print(f"  [PASS] Rule 15: Timeline integrity & freshness verified: {len(timeline)} milestones, latest={report['latest_milestone_date']}, status={report['status_code']}")
     except Exception as ex:
         errors.append(f"Rule 15 FAIL: Exception running timeline freshness validator: {ex}")
+    # -------------------------------------------------------------
+    # Rule 16: Welcome Pack & 3-Phase Chronology Integrity Gate
+    # -------------------------------------------------------------
+    wp = d.get("welcome_pack", {})
+    if not wp:
+        errors.append("Rule 16 FAIL: Missing 'welcome_pack' in conflict_metrics.json")
+    else:
+        if wp.get("last_updated") != "2026-09-02" or wp.get("strike_day") != 9:
+            errors.append(f"Rule 16 FAIL: Welcome pack last_updated/strike_day ({wp.get('last_updated')}, {wp.get('strike_day')}) != Expected ('2026-09-02', 9)")
+        phases = wp.get("chronology_phases", [])
+        if len(phases) != 3:
+            errors.append(f"Rule 16 FAIL: Expected 3 chronology phases in welcome pack, found {len(phases)}")
+        eco = wp.get("executive_summary", {}).get("economic_breakdown", {})
+        if eco.get("loss_range_pct") != "20,9% - 24,4%" or eco.get("net_loss_eur") != 26030:
+            errors.append(f"Rule 16 FAIL: Economic breakdown mismatch in welcome pack ({eco.get('loss_range_pct')}, {eco.get('net_loss_eur')})")
+        quotes = wp.get("executive_summary", {}).get("core_quotes", [])
+        for q in quotes:
+            ref = PROJECT_ROOT / q.get("file_ref", "")
+            if not ref.exists():
+                errors.append(f"Rule 16 FAIL: Primary quote file does not exist: {q.get('file_ref')}")
+        dossier_path = PROJECT_ROOT / "docs" / "Welcome_Pack_Conflicto_Airbus_2026.md"
+        if not dossier_path.exists() or dossier_path.stat().st_size < 500:
+            errors.append("Rule 16 FAIL: docs/Welcome_Pack_Conflicto_Airbus_2026.md is missing or incomplete")
+        else:
+            print(f"  [PASS] Rule 16: Welcome Pack & 3-Phase Chronology verified: 3 phases, {len(quotes)} quotes, dossier compiled ({dossier_path.stat().st_size} bytes)")
+    # -------------------------------------------------------------
     # -------------------------------------------------------------
     if errors:
         print("\n[VALIDATION FAILED] The following discrepancies were found:")

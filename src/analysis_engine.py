@@ -2184,6 +2184,39 @@ class StrikeAnalysisEngine:
                 }
             }
         }
+    def get_welcome_pack(self) -> Dict[str, Any]:
+        """Returns the canonical Welcome Pack and 3-Phase Chronology structure."""
+        metrics_file = DATA_DIR / "conflict_metrics.json"
+        if metrics_file.exists():
+            try:
+                with open(metrics_file, "r", encoding="utf-8") as f:
+                    raw_data = json.load(f)
+                    if "welcome_pack" in raw_data:
+                        return raw_data["welcome_pack"]
+            except Exception:
+                pass
+        return {
+            "last_updated": "2026-09-02",
+            "last_updated_display": "2 de septiembre de 2026 (Día 9 de Huelga Indefinida)",
+            "strike_day": 9,
+            "executive_summary": {
+                "title": "Guía del Conflicto & Welcome Pack: Causas Estructurales, Asimetría Económica y Democracia de Base",
+                "subtitle": "Por qué la plantilla de Airbus en España ha convocado la mayor huelga general indefinida de su historia",
+                "hook": "¿Qué nos ha llevado a la huelga indefinida?",
+                "economic_breakdown": {
+                    "loss_range_pct": "20,9% - 24,4%",
+                    "net_loss_eur": 26030,
+                    "inflation_general_pct": 19.3,
+                    "inflation_food_pct": 31.2,
+                    "airbus_profit_2025_meur": 5221,
+                    "airbus_ebit_2025_meur": 7138,
+                    "shareholder_payout_2025_meur": 2500
+                },
+                "core_quotes": []
+            },
+            "chronology_phases": []
+        }
+
 
     def export_full_dataset(self) -> Dict[str, Any]:
         """Compiles all metrics into a consolidated analytical JSON dictionary."""
@@ -2211,6 +2244,7 @@ class StrikeAnalysisEngine:
             "salary_proposals_comparison": self.get_salary_proposals_comparison(),
             "sentiment_thermometer": SentimentThermometerEngine().evaluate_pressure_metrics(),
             "telegram_archive": self._load_telegram_archive(),
+            "welcome_pack": self.get_welcome_pack(),
         }
     def _load_telegram_archive(self) -> Dict[str, Any]:
         tg_index_path = DATA_DIR / "telegram_archive" / "telegram_index.json"
@@ -2275,6 +2309,7 @@ def main():
         f.write("window.SOURCES_DATA = ")
         json.dump(sources_data, f, indent=2, ensure_ascii=False)
         f.write(";\n")
+        f.write("\nwindow.WELCOME_PACK_DATA = window.CONFLICT_DATA.welcome_pack || {};\n")
     print(f"✓ dashboard/data.js   → {args.export_dashboard} (with {len(sources_data)} indexed sources)")
 
     cost = data["platform_cost"]

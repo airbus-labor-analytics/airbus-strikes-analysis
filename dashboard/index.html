@@ -210,6 +210,9 @@
       </div>
 
       <!-- Right Actions -->
+        <button onclick="switchTab('tab-welcome-pack')" title="Welcome Pack al Conflicto: Causas y Cronología" class="hidden sm:inline-flex items-center px-2.5 py-1 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 border border-sky-400/30 text-sky-300 text-xs font-bold transition cursor-pointer shadow-sm">
+          <i data-lucide="compass" class="w-3.5 h-3.5 mr-1 text-sky-400"></i> ¿Qué nos ha traído aquí?
+        </button>
       <div class="flex items-center space-x-2">
         <button id="btn-live-sync" onclick="triggerManualSync()" title="Sincronizar datos y noticias en vivo" class="flex items-center px-2.5 py-1 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs font-semibold transition cursor-pointer">
           <span id="live-sync-indicator" class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
@@ -309,6 +312,32 @@
             </div>
             <span class="text-[11px] font-bold px-2 py-0.5 bg-slate-800 text-slate-300 rounded border border-slate-700">5 Módulos</span>
           </div>
+          <!-- Featured Welcome Pack Card -->
+          <div onclick="switchTab('tab-welcome-pack')" class="glass-card p-5 sm:p-6 rounded-2xl border-sky-500/40 bg-gradient-to-r from-sky-950/40 via-slate-900 to-indigo-950/40 hover:border-sky-400/70 transition cursor-pointer group shadow-xl relative overflow-hidden mb-4">
+            <div class="absolute right-0 top-0 w-48 h-48 bg-sky-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="flex flex-col md:flex-row justify-between md:items-center gap-4 relative z-10">
+              <div class="space-y-1.5 max-w-2xl">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">GUÍA DE INDUCCIÓN & CRONOLOGÍA</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded">2 de Septiembre — Día 9 de Huelga</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-black text-white group-hover:text-sky-300 transition flex items-center gap-2">
+                  <i data-lucide="compass" class="w-5 h-5 text-sky-400"></i>
+                  Welcome Pack al Conflicto: ¿Qué nos ha llevado a la Huelga Indefinida?
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Resumen ejecutivo del conflicto laboral con citas literales de las actas de asamblea en Telegram, análisis de la pérdida salarial del 20,9% al 24,4% (-26.030 € netos) frente a los 5.221 M€ de beneficios de Airbus SE, y cronología en 3 fases hasta el día de hoy.
+                </p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="px-4 py-2 rounded-xl bg-sky-500 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-lg shadow-sky-500/20 group-hover:bg-sky-400 transition">
+                  <span>Abrir Guía del Conflicto</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Card 1: Centro de Mando -->
@@ -439,6 +468,183 @@
           </div>
         </div>
       </div>
+      <!-- ==================== TAB: WELCOME PACK AL CONFLICTO ==================== -->
+      <div id="tab-welcome-pack" class="tab-content hidden space-y-6">
+        <!-- Hero & Context Header -->
+        <div id="sec-welcome-hero" class="glass-card p-6 sm:p-8 rounded-2xl border-sky-500/30 bg-gradient-to-br from-slate-900 via-slate-900/95 to-sky-950/30 relative overflow-hidden space-y-5">
+          <div class="absolute -right-12 -bottom-12 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <div class="flex flex-col md:flex-row justify-between md:items-start border-b border-slate-800 pb-4 gap-4 relative z-10">
+            <div class="space-y-2">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-500/30 text-xs font-bold">
+                  <i data-lucide="compass" class="w-3.5 h-3.5 text-sky-400"></i> Guía del Conflicto & Welcome Pack
+                </span>
+                <span id="welcome-freshness-badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                  <span class="w-2 h-2 rounded-full bg-rose-400 mr-1.5 animate-ping"></span>
+                  Última actualización: 2 de septiembre de 2026 — Día 9 de Huelga
+                </span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                ¿Qué nos ha llevado a la Huelga General Indefinida en Airbus España?
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-300 max-w-4xl leading-relaxed">
+                Guía ejecutiva de inducción, contextualización laboral y pedagogía documental para toda la plantilla, asambleas y delegados sindicales. Basada al 100% en actas oficiales de asamblea, acuerdos del SIMA, convenios del BOE y estados financieros auditados de Airbus SE.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 shrink-0">
+              <a href="docs/Welcome_Pack_Conflicto_Airbus_2026.md" download class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-600/30 transition">
+                <i data-lucide="file-text" class="w-4 h-4 mr-1.5"></i> Dossier Markdown
+              </a>
+              <a href="docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf" download class="inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 transition">
+                <i data-lucide="file-down" class="w-4 h-4 mr-1.5"></i> Guía Estratégica (PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Narrative Intros -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-300 leading-relaxed relative z-10">
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+              <h4 class="font-bold text-white flex items-center gap-1.5 text-xs text-sky-400">
+                <i data-lucide="trending-down" class="w-4 h-4"></i> La Pérdida Estructural (2020–2025)
+              </h4>
+              <p>
+                Durante la vigencia del VI Convenio Colectivo, los incrementos salariales fijos pactados (+1% en 2020, +1% en 2021, +1,5% en 2022 y +4,4% en 2023) quedaron pulverizados frente a una inflación real acumulada del <strong>+19,3% general</strong> y superior al <strong>+31,2% en alimentos básicos</strong>.
+              </p>
+              <p class="text-slate-400 text-xs">
+                Esto representa una merma neta directa de <strong>26.030 euros</strong> por cada trabajador (entre el 20,9% y el 24,4% de su poder adquisitivo).
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2">
+              <h4 class="font-bold text-white flex items-center gap-1.5 text-xs text-emerald-400">
+                <i data-lucide="award" class="w-4 h-4"></i> Récord Financiero de Airbus SE
+              </h4>
+              <p>
+                Mientras se exigía contención salarial a las factorías españolas, Airbus SE cerró 2025 con <strong>5.221 millones de euros de beneficio neto</strong> y 7.138 millones de EBIT ajustado, repartiendo más de 2.500 millones en dividendos.
+              </p>
+              <p class="text-slate-400 text-xs">
+                El coste anual total de la plataforma sindical unitaria (118 M€) representa solo un <strong>4,8% del beneficio anual</strong>, mientras que el paro logístico ya ha generado pérdidas bursátiles superiores a 14.459 M€ en Euronext Paris.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Economics Breakdown -->
+        <div id="sec-welcome-economics" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
+          <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-white flex items-center">
+                <i data-lucide="calculator" class="w-5 h-5 mr-2 text-emerald-400"></i>
+                1. Asimetría Económica: Pérdida Salarial vs. Beneficios Corporativos
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Indicadores auditados de masa salarial, inflación acumulada y balances financieros de Airbus SE.</p>
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-emerald-400 border border-emerald-500/30">100% Datos Oficiales (INE / BOE / Airbus IR)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="welcome-economics-cards">
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-rose-500/30 space-y-1">
+              <span class="text-[11px] font-semibold text-slate-400">Pérdida Poder Adquisitivo</span>
+              <p class="text-2xl font-black text-rose-400 font-mono">-20,9% a -24,4%</p>
+              <p class="text-[11px] text-slate-400">-26.030 € netos perdidos / trabajador</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-amber-500/30 space-y-1">
+              <span class="text-[11px] font-semibold text-slate-400">Inflación Acumulada (2020-25)</span>
+              <p class="text-2xl font-black text-amber-400 font-mono">+19,3% IPC</p>
+              <p class="text-[11px] text-slate-400">+31,2% en cesta de alimentos básicos</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-emerald-500/30 space-y-1">
+              <span class="text-[11px] font-semibold text-slate-400">Beneficio Neto Airbus (2025)</span>
+              <p class="text-2xl font-black text-emerald-400 font-mono">5.221 M€</p>
+              <p class="text-[11px] text-slate-400">EBIT: 7.138 M€ | Dividendos: 2.500 M€</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-indigo-500/30 space-y-1">
+              <span class="text-[11px] font-semibold text-slate-400">Coste Demanda vs. Bolsa</span>
+              <p class="text-2xl font-black text-indigo-400 font-mono">118 M€ vs 14.459 M€</p>
+              <p class="text-[11px] text-slate-400">122.5x más pérdida bursátil que coste salarial</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Primary Quotes -->
+        <div id="sec-welcome-quotes" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
+          <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-white flex items-center">
+                <i data-lucide="quote" class="w-5 h-5 mr-2 text-sky-400"></i>
+                2. Citas Textuales Verificadas de Documentos Primarios
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Fragmentos literales de los comunicados conjuntos, actas de asamblea y propuestas del Comité de Huelga.</p>
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-sky-400 border border-sky-500/30">Archivo Primario Autenticado</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="welcome-quotes-container">
+            <!-- Dynamically populated from WELCOME_PACK_DATA.executive_summary.core_quotes -->
+          </div>
+        </div>
+
+        <!-- Section 4: 3-Phase Chronology -->
+        <div id="sec-welcome-phases" class="glass-card p-5 sm:p-6 rounded-2xl border-purple-500/30 space-y-6">
+          <div class="border-b border-slate-800 pb-3.5 flex flex-col lg:flex-row justify-between lg:items-center gap-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base sm:text-lg font-bold text-white flex items-center">
+                  <i data-lucide="history" class="w-5 h-5 mr-2 text-purple-400"></i>
+                  3. Cronología Primaria en 3 Fases
+                </h3>
+                <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded">3 FASES HISTÓRICAS</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Desde los orígenes en el VI Convenio hasta la huelga indefinida activa hoy 2 de septiembre.</p>
+            </div>
+
+            <!-- Phase Filter Buttons -->
+            <div class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-950 rounded-xl border border-slate-800" id="welcome-phase-filters">
+              <button type="button" onclick="filterWelcomeChronology('all')" id="btn-wf-all" class="wf-filter-btn px-3 py-1 rounded-lg text-xs font-bold text-white bg-purple-600 shadow transition">
+                Todas
+              </button>
+              <button type="button" onclick="filterWelcomeChronology('phase_1_gestation')" id="btn-wf-phase_1_gestation" class="wf-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+                Fase 1: Gestación
+              </button>
+              <button type="button" onclick="filterWelcomeChronology('phase_2_escalation')" id="btn-wf-phase_2_escalation" class="wf-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+                Fase 2: Escalada
+              </button>
+              <button type="button" onclick="filterWelcomeChronology('phase_3_indefinite_strike')" id="btn-wf-phase_3_indefinite_strike" class="wf-filter-btn px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+                Fase 3: Huelga Indefinida (HOY)
+              </button>
+            </div>
+          </div>
+
+          <!-- Chronology Phases Content Container -->
+          <div class="space-y-6" id="welcome-chronology-container">
+            <!-- Dynamically populated by renderWelcomeChronology() -->
+          </div>
+        </div>
+
+        <!-- Section 5: 11-Point Platform Breakdown -->
+        <div id="sec-welcome-platform" class="glass-card p-5 sm:p-6 rounded-2xl border-slate-800 space-y-5">
+          <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+            <div>
+              <h3 class="text-base sm:text-lg font-bold text-white flex items-center">
+                <i data-lucide="shield-check" class="w-5 h-5 mr-2 text-amber-400"></i>
+                4. La Plataforma de 11 Puntos del Comité de Huelga
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Mandato formal aprobado en asamblea y presentado en la mediación del SIMA el 27 de agosto de 2026.</p>
+            </div>
+            <button onclick="switchTab('tab-purchasing-power')" class="text-xs font-bold text-sky-400 hover:underline flex items-center gap-1 cursor-pointer">
+              <span>Ver Simulador Salarial Completo</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5" id="welcome-platform-grid">
+            <!-- Dynamically populated by renderWelcomePlatform() -->
+          </div>
+        </div>
+      </div>
+
 
       <!-- ==================== TAB 1: CENTRO DE MANDO & ASIMETRÍA ==================== -->
       <div id="tab-overview" class="tab-content hidden space-y-6">
@@ -2766,6 +2972,10 @@ y se acumula en pensión y pagas extra.</span>
     <button onclick="switchTab('tab-portal')" id="dock-tab-portal" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-blue-600 flex items-center gap-1.5 transition shadow-lg shadow-blue-600/30">
       <i data-lucide="compass" class="w-4 h-4"></i>
       <span class="hidden md:inline">Portal</span>
+    </button>
+    <button onclick="switchTab('tab-welcome-pack')" id="dock-tab-welcome-pack" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
+      <i data-lucide="compass" class="w-4 h-4 text-sky-400"></i>
+      <span class="hidden md:inline">Guía Conflicto</span>
     </button>
     <button onclick="switchTab('tab-overview')" id="dock-tab-overview" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
       <i data-lucide="layout-dashboard" class="w-4 h-4 text-indigo-400"></i>

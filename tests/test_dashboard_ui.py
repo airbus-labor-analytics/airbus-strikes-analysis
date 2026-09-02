@@ -20,6 +20,7 @@ METRICS_JSON_PATH = PROJECT_ROOT / "data" / "conflict_metrics.json"
 
 EXPECTED_TABS = [
     "tab-portal",
+    "tab-welcome-pack",
     "tab-overview",
     "tab-industrial",
     "tab-purchasing-power",
