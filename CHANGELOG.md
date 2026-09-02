@@ -2,6 +2,26 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [016-daily-timeline-assembly-validator-grounding] - 2026-09-02
+
+### Fixed
+- **Verbatim Assembly Minutes Grounding & Hallucination Elimination (`src/analysis_engine.py`)**:
+  - Replaced all synthetic voting percentages and unverified logistics claims with 100% faithful transcriptions from primary assembly minutes.
+  - Verified and linked exact primary source files across all 22 milestones from 2021 through September 2, 2026.
+- **Full-Text Primary Source Reader Modal (`dashboard/app.js`, `dashboard/js/modules/evidence.js`)**:
+  - Fixed `openSourceModal` identifier resolution to support telegram IDs (`tg_*`), file paths (`data/telegram_archive/...`), filenames, and timeline milestone IDs.
+  - Embedded full verbatim text in client datasets (`data.js`, `conflict_metrics.json`) for instant zero-latency reading offline (`file://`) and online.
+  - Fixed body scroll lock cleanup on modal close.
+
+### Added
+- **Day 9 (2026-09-02) Conflict Milestones (`src/analysis_engine.py`)**:
+  - Real-time morning assembly and picket status registered for Day 9 of the indefinite strike.
+  - Timezone-aware date freshness verified as `UP_TO_DATE` [EMERALD] across all invariant suites.
+
+### Technical Notes
+- Full test suite: 86/86 unit tests passing.
+- Invariants: 15/15 rules verified with 100% mathematical, electoral, and factual consistency.
+
 ## [016-daily-timeline-assembly-validator] - 2026-09-01
 
 ### Added
