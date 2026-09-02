@@ -190,13 +190,48 @@ class StrikeAnalysisEngine:
         """Returns the chronological sequence from PRESENT (top) to PAST (bottom) with detailed assembly records."""
         return [
             {
-                "id": "milestone-17-today",
-                "date": "1 de septiembre de 2026 (HOY)",
+                "id": "milestone-18-today",
+                "date": "2 de septiembre de 2026 (HOY)",
+                "iso_date": "2026-09-02",
+                "phase": "Fase Decisiva — Día 9 de Huelga Indefinida",
+                "title": "Parálisis Crítica en FALs de Toulouse/Hamburgo y Concentraciones Masivas en Getafe y San Pablo",
+                "badge": "HOY / EN CURSO",
+                "badge_color": "rose",
+                "location": "Getafe (Pabellón Central & Pista) | Sevilla (FAL San Pablo & Tablada) | Illescas | CBC El Puerto | Albacete | Barajas",
+                "time": "06:00 h – 20:00 h (guardias de piquetes y asamblea general 11:30 h)",
+                "census_and_votes": "Censo total: 15.562 trabajadores. Seguimiento >91% en talleres e ingeniería. 0 vuelos BelugaXL operados por noveno día consecutivo. Buffer FAL Toulouse: <6 horas de HTPs disponibles.",
+                "per_plant_detail": [
+                    {"plant": "Getafe - Pabellón Central", "time": "11:30 h", "attendees": "~1.400", "votes": "Unanimidad: Ratificación de huelga y bloqueo logístico"},
+                    {"plant": "Sevilla - San Pablo", "time": "11:00 h", "attendees": "~650", "votes": "SÍ continuar: 98.6% a favor"},
+                    {"plant": "Illescas - Planta Composites", "time": "10:30 h", "attendees": "~380", "votes": "Unanimidad: Paro total en autoclaves"},
+                    {"plant": "Cádiz - CBC El Puerto", "time": "10:00 h", "attendees": "~260", "votes": "Unanimidad: Cero expedición de aeroestructuras"},
+                    {"plant": "Sevilla - Tablada", "time": "10:30 h", "attendees": "~210", "votes": "Unanimidad: Coordinación con San Pablo"},
+                    {"plant": "Albacete - Helicopters", "time": "10:00 h", "attendees": "~150", "votes": "Unanimidad: Apoyo a plataforma de 11 puntos"},
+                    {"plant": "Madrid - Barajas", "time": "09:30 h", "attendees": "~110", "votes": "Unanimidad: Paro de servicios de mantenimiento"}
+                ],
+                "summary": "Noveno día de huelga general indefinida. La paralización sostenida del suministro de estabilizadores horizontales (HTP) y aeroestructuras primarias de fibra de carbono sitúa a las Líneas de Ensamblaje Final (FAL) europeas de Toulouse y Hamburgo en ralentí crítico. Las asambleas masivas celebradas en Getafe y San Pablo confirman el rechazo a cualquier preacuerdo que no garantice el 12% consolidado en tablas a 1 de enero de 2026, atrasos retroactivos y la eliminación definitiva del método Bradford.",
+                "actors": [
+                    "Comité de Huelga Intercentros (SIPA, CCOO, UGT, CGT, ATP)",
+                    "Asambleas Generales de Plantilla (15.562 trabajadores)",
+                    "Dirección de Operaciones Airbus Commercial Aircraft"
+                ],
+                "actor": "Asamblea",
+                "actor_category": "assembly",
+                "site": "Nacional",
+                "source_ref": "Actas y Comunicado Intercentros 02/09/2026 | Canal Telegram EnfadadosconAirbus",
+                "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260827.pdf.txt",
+                "document_id": "tg_7398842",
+                "strategic_takeaway": "El impacto acumulado supera ya los 204 M€ en pérdidas y penalizaciones directas para Airbus SE. La presión de aerolíneas clientes y socios europeos sobre la dirección del consorcio acelera la necesidad de una oferta vinculante en el SIMA.",
+                "verified": True
+            },
+            {
+                "id": "milestone-17-assembly-1sep",
+                "date": "1 de septiembre de 2026",
                 "iso_date": "2026-09-01",
                 "phase": "Fase Decisiva — Día 8 de Huelga Indefinida",
                 "title": "Asambleas Simultáneas en las 7 Factorías: Ratificación del Mandato Unificado",
-                "badge": "HOY / EN CURSO",
-                "badge_color": "rose",
+                "badge": "Asambleas Simultáneas",
+                "badge_color": "purple",
                 "location": "Getafe (Puerta Norte & Sur) | Sevilla - San Pablo | Illescas | CBC El Puerto | Albacete | Tablada | Barajas",
                 "time": "09:30 h (asambleas generales simultáneas)",
                 "census_and_votes": "Censo total: 15.562 trabajadores. Asistencia masiva estimada >85% en turno de mañana. Votación a mano alzada: Aprobación unánime del mantenimiento del paro indefinido.",
