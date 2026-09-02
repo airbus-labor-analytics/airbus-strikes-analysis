@@ -2864,7 +2864,7 @@ function initHistoricalLosses() {
         </div>
         <a href="${c.url || 'https://www.boe.es/diario_boe/txt.php?id=' + (c.boe_id || 'BOE-A-2021-19616')}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-400 underline font-mono block">${c.boe_reference} [Ver en BOE]</a>
         <p class="text-xs text-slate-300 leading-relaxed mt-2"><strong class="text-slate-200">Firmantes:</strong> ${c.parties_signatory}</p>
-        <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-300">Cláusulas Clave:</strong> ${c.key_clauses}</p>
+        <p class="text-xs text-slate-400 leading-relaxed"><strong class="text-slate-300">Cláusulas Clave:</strong> ${c.key_clauses || c.rsg_clause || (c.wage_increments_by_year ? Object.entries(c.wage_increments_by_year).map(([y, v]) => `${y}: ${v}`).join('; ') : 'Cláusulas de tablas y revisión salarial.')}</p>
         <div class="p-2 bg-rose-950/30 border border-rose-500/20 rounded-lg text-[11px] text-rose-300 mt-2">
           <strong>Consecuencia Real:</strong> ${c.consequences}
         </div>
@@ -3386,32 +3386,44 @@ function updateHUDTimelineFreshness(freshness) {
   `;
 }
 
-window.setTimelineFilter = function(filterType, filterValue) {
+window.setTimelineFilter = function(arg1, arg2) {
+  let filterType = 'plant';
+  let filterValue = arg1;
+  if (arg2 !== undefined) {
+    filterType = arg1;
+    filterValue = arg2;
+  } else if (arg1 === 'actor' || arg1 === 'plant') {
+    filterType = arg1;
+    filterValue = 'ALL';
+  }
+  
   if (filterType === 'plant') {
     currentTimelinePlantFilter = filterValue;
-    document.querySelectorAll('.tl-filter-plant').forEach(btn => {
-      if ((filterValue === 'ALL' && btn.innerText.includes('Todas')) || btn.innerText.trim() === filterValue || (filterValue === 'CBC El Puerto' && btn.innerText.trim() === 'CBC')) {
-        btn.className = "tl-filter-plant active px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold transition";
+    document.querySelectorAll('.timeline-filter-btn, .tl-filter-plant').forEach(btn => {
+      const p = btn.getAttribute('data-plant') || btn.innerText.trim();
+      if ((filterValue === 'ALL' && (p === 'ALL' || btn.innerText.includes('Todas') || btn.innerText.includes('Todos'))) || p === filterValue || (filterValue === 'CBC El Puerto' && (p.includes('CBC') || btn.innerText.includes('CBC')))) {
+        btn.className = "timeline-filter-btn tl-filter-plant active px-3 py-1 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 shadow-sm font-bold transition cursor-pointer";
       } else {
-        btn.className = "tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition";
+        btn.className = "timeline-filter-btn tl-filter-plant px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer";
       }
     });
   } else if (filterType === 'actor') {
     currentTimelineActorFilter = filterValue;
-    document.querySelectorAll('.tl-filter-actor').forEach(btn => {
-      if ((filterValue === 'ALL' && btn.innerText.includes('Todos')) || 
-          (filterValue === 'assembly' && btn.innerText.includes('Asambleas')) ||
-          (filterValue === 'sima' && btn.innerText.includes('SIMA')) ||
-          (filterValue === 'union' && btn.innerText.includes('Sindicatos')) ||
-          (filterValue === 'company' && btn.innerText.includes('Empresa'))) {
-        btn.className = "tl-filter-actor active px-2 py-0.5 rounded bg-blue-600 text-white font-bold transition";
+    document.querySelectorAll('.timeline-actor-btn, .tl-filter-actor').forEach(btn => {
+      const a = btn.getAttribute('data-actor') || '';
+      if (a === filterValue || (filterValue === 'ALL' && (a === 'ALL' || btn.innerText.includes('Todos')))) {
+        btn.className = "timeline-actor-btn tl-filter-actor active px-3 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm font-bold transition cursor-pointer";
       } else {
-        btn.className = "tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition";
+        btn.className = "timeline-actor-btn tl-filter-actor px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer";
       }
     });
   }
   
   initTimeline();
+};
+
+window.setTimelineActorFilter = function(actorCategory) {
+  window.setTimelineFilter('actor', actorCategory);
 };
 
 function initTimeline() {

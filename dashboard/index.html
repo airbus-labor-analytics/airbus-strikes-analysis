@@ -203,10 +203,10 @@
         <div class="px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-amber-300 font-semibold">
           15.562 trab.
         </div>
-        <a href="#sec-unions-timeline" id="hud-timeline-freshness" class="px-2.5 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold flex items-center hover:bg-emerald-500/20 transition cursor-pointer" title="Estado de actualización de la cronología">
+        <button onclick="switchTab('tab-timeline')" id="hud-timeline-freshness" class="px-2.5 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold flex items-center hover:bg-emerald-500/20 transition cursor-pointer" title="Ver módulo de cronología y actas">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5"></span>
           <span>Cronología: <strong class="text-white">Al Día</strong></span>
-        </a>
+        </button>
       </div>
 
       <!-- Right Actions -->
@@ -2968,7 +2968,7 @@ y se acumula en pensión y pagas extra.</span>
     </main>
 
   <!-- ==================== GLOBAL FLOATING DOCK ==================== -->
-  <nav id="global-floating-dock" aria-label="Navegación Global" class="fixed bottom-6 inset-x-0 mx-auto w-max max-w-[96vw] z-50 px-3 py-2 rounded-2xl bg-black/85 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/90 flex items-center gap-1 sm:gap-2">
+  <nav id="global-floating-dock" aria-label="Navegación Global" class="fixed bottom-4 sm:bottom-6 inset-x-0 mx-auto w-max max-w-[96vw] z-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-2xl bg-black/90 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/90 flex items-center gap-1 sm:gap-1.5 overflow-x-auto custom-scrollbar select-none">
     <button onclick="switchTab('tab-portal')" id="dock-tab-portal" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-bold text-white bg-blue-600 flex items-center gap-1.5 transition shadow-lg shadow-blue-600/30">
       <i data-lucide="compass" class="w-4 h-4"></i>
       <span class="hidden md:inline">Portal</span>
