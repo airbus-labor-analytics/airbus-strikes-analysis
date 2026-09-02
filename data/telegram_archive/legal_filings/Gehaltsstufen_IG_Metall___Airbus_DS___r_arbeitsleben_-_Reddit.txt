@@ -1,0 +1,618 @@
+# Gehaltsstufen IG Metall / Airbus DS : r/arbeitsleben - Reddit
+Categoría: Documento Legal / SIMA
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+Salary levels IG Metall / Airbus DS : r/arbeitsleben
+Skip to main content
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#main-content
+ Salary levels IG Metall / Airbus DS : r/arbeitsleben
+Open menu
+Open navigation 
+https://www.reddit.com/
+Go to Reddit Home
+Search Reddit
+Sign Up
+https://www.reddit.com/register/
+Sign up for Reddit
+Log In
+https://www.reddit.com/login/
+Log in to Reddit
+Expand user menu
+Open settings menu
+Skip to Sign up
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#left-sidebar-container
+ 
+Skip to Right Sidebar
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/#right-sidebar-container
+Post is translated, original language available Translations active Show original
+Back
+Go to arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+â€¢ 2mo ago
+TehBens
+https://www.reddit.com/user/TehBens/
+Locked post
+Stickied post
+Archived post
+Award this post
+Show original
+Language and translations
+Report
+Salary levels IG Metall / Airbus DS
+Gehalt
+https://www.reddit.com/r/arbeitsleben/?f=flair_name%3A%22Gehalt%22
+I applied for a really cool position at Airbus DS and have the final interview round coming up soon. Based on the job description, I considered which IG Metall salary level it could be to understand the salary range I might ask for. Airbus DS, as far as I understand, is included in the IG Metall collective agreement but has its own internal level designations.
+The job description references two levels, roughly like this (it's about software development): "Responsibilities: Architecture responsibility (Senior) or involvement in implementation (Professional); determination of the overall strategy for X (Senior) or implementation (Professional)." I've seen very similar wording in other job postings.
+So they seem to be looking for either a "Senior" or "Professional." But what IG Metall levels are those? I was assuming levels 13-15, but when I mentioned a salary of 110,000 euros for a 40-hour workweek (which presumably corresponds to level 15 
+link
+https://www.igmetall.de/download/20250430_IGM_Bro_Ingenieur_Geh_lter_2025_2026_BaW__DE_Web_6496b193126163ad2b94cb17c46d1e7fddfb11e5.pdf
+), they just looked shocked. When I asked what salary level is planned for the position, they didnâ€™t answer, saying, "it depends. It will be decided later based on the suitability that emerges during the discussions."
+Now the final interview round is coming up with the top boss, and Iâ€™d like to understand if that was just negotiation tactics, or if the attendees (HR + representation of the actual person) maybe didnâ€™t know the budget or classification at all. Or if I have just misjudged the whole situation.
+For me, this is about a lot of money - even 100,000 would be way more than Iâ€™m earning now - and Iâ€™d really rather not give Airbus 10,000 euros every year because I didnâ€™t properly assess the value of my work there.
+Read more
+Upvote 0 Downvote 22 Go to comments
+Share
+Sort by: Best
+Open comment sort options
+Best
+Top
+New
+Controversial
+Old
+Q&A
+Search Comments Expand comment search
+Cancel
+Comments Section
+DrDolphin245
+https://www.reddit.com/user/DrDolphin245/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/oto8xel/
+ â€¢
+Your link shows a PDF from IGM Baden-WÃ¼rttemberg. Is your position also in Baden-WÃ¼rttemberg? Because the IGM levels vary by region. Here in SH, there are fewer pay groups, but more intermediate levels. Accordingly, for example, an EG11 is more like your mentioned EG15 in terms of salary.
+Apart from that, your salary expectations are not unrealistic, especially if you already have several years of experience. Maybe you overestimated their reaction?
+Upvote 14 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+TehBens
+https://www.reddit.com/user/TehBens/
+OP â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otp94qc/
+ â€¢
+Okay, I didn't know that the categories are also different. Good to know. But yes, the state fits.
+Maybe you overestimated her reaction?
+Maybe. But they definitely said that it's over budget.
+Upvote 1 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+multi_singularity
+https://www.reddit.com/user/multi_singularity/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otovjzh/
+ â€¢
+And performance bonuses vary from region to region.
+In addition, Airbus has subsidiaries that are not bound by collective agreements, and even if ERA classifies the position, it often happens that you still receive less and then get a development plan.
+Upvote 3 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/oto8xel/?force-legacy-sct=1
+throwaway826803
+https://www.reddit.com/user/throwaway826803/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otobzkx/
+ â€¢
+Are you talking about the same thing?
+35 vs 40 h
+All in or salary + allowance?
+A position usually has a target salary group. You should ask about that
+Upvote 6 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+TehBens
+https://www.reddit.com/user/TehBens/
+OP â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otp8y5r/
+ â€¢
+It was explicitly about the "40-hour equivalent" of the salary. All in or salary + bonus could have been the misunderstanding. I said "in total," but maybe it was misunderstood.
+A position usually has a target pay grade. That's what you need to ask about.
+Exactly, that's what I did. The response was, "well, that has to be seen, depending on how suitability is ultimately assessed."
+Upvote 0 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+Professional_Tank594
+https://www.reddit.com/user/Professional_Tank594/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otpqzms/
+ â€¢
+I can hardly imagine that they are talking about the 40-hour equivalent; that's extremely unusual, and the IGM works council doesn't find it funny at all.
+Upvote 4 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+throwaway826803
+https://www.reddit.com/user/throwaway826803/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otpcml0/
+ â€¢
+The target pay grade is independent of suitability and is based solely on the job description. Which pay grade you receive then depends on your suitability.
+Do you understand your system? ðŸ˜‚
+Upvote 0 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+1 more reply
+1 more reply
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otpcml0/?force-legacy-sct=1
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otp8y5r/?force-legacy-sct=1
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otobzkx/?force-legacy-sct=1
+ 
+fargoths_revenge
+https://www.reddit.com/user/fargoths_revenge/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otoxjt4/
+ â€¢
+EG15 are normally not â‚¬110k in Baden-WÃ¼rttemberg. Maybe with a high tenure and a 40-hour contract.
+Upvote 3 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+TehBens
+https://www.reddit.com/user/TehBens/
+OP â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otp9jnr/
+ â€¢
+Exactly, it was about the calculation for 40 hours. That comes to just under 110,000 euros at EG15 mathematically.
+Upvote 0 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otoxjt4/?force-legacy-sct=1
+ 
+Serbj90
+https://www.reddit.com/user/Serbj90/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/oto7wo0/
+ â€¢
+Are you sure it's about a 40-hour contract?
+Upvote 8 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+Professional_Tank594
+https://www.reddit.com/user/Professional_Tank594/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otpqi7h/
+ â€¢
+Normal at 35H you should go in with 90k. It's only discussed above 35H.
+40h will only come after a few months if at all, but depending on the area, they're not really welcomed.
+If you get a 40h contract performance bonuses and tiers will quickly increase to a very decent amount within the first 3 years.
+Upvote 3 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+SchnullerBack3
+https://www.reddit.com/user/SchnullerBack3/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otq2bkl/
+ â€¢
+Check your DMs.
+Upvote 2 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+Mmmm9042
+https://www.reddit.com/user/Mmmm9042/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otovlyp/
+ â€¢
+I work for a supplier to Airbus and can only say how it is for us (IG Metall NRW).
+Positions are assigned to an EG range. For engineers, it's usually 11-13 (of 14 in NRW). There, you get classified based on your experience and then normally progress through the experience levels. After one year at the highest level, you can then be classified at a higher level.
+I started at 12/2 with guaranteed development up to 14. I've not been here long enough to confirm it myself, but my direct colleagues from the department have approved it.
+As long as salary development is secured, you're not giving away any money. No matter how experienced you are, you always have to get to know a new company first.
+Upvote 1 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+desMaxle
+https://www.reddit.com/user/desMaxle/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otrjtk4/
+ â€¢
+The exemplary job descriptions from BW are completely absurd and unrealistic in most IGM companies. You'll be classified much lower..
+Upvote 1 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+ 
+[deleted]
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otqip1n/
+ â€¢
+How much work experience do you have?
+Upvote 0 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+ 
+[deleted]
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/oto8793/
+Comment removed by moderator
+Upvote 20 Downvote Reply
+Share
+Report
+Language and translations
+drmnfsmthng
+https://www.reddit.com/user/drmnfsmthng/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otodvhp/
+ â€¢
+Are the 40-hour contracts really sought after by you? Here, everyone is switching from 40 hours to 35 hours because that little bit of extra salary isn't worth it and people prefer the free time. But we are also just being hired poorly, Bachelor and Master positions at E7â€¦
+Upvote 5 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share 
+xXnadXx
+https://www.reddit.com/user/xXnadXx/
+â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otq2szy/
+ â€¢
+The "little extra" is still 13%.
+Upvote 1 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otodvhp/?force-legacy-sct=1
+ 
+TehBens
+https://www.reddit.com/user/TehBens/
+OP â€¢ 
+2mo ago
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/otp9aq5/
+ â€¢
+85k total salary at 40 hours would be a real shame...
+Upvote -3 Downvote Reply Award
+Share
+Report
+Show original
+Language and translations
+Award
+Share
+More replies
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/comment/oto8793/?force-legacy-sct=1
+More posts you may like
+Related posts
+Is Airbus a good employer in Hamburg?
+https://www.reddit.com/r/hamburg/comments/1pyugjo/ist_airbus_ein_guter_arbeitgeber_in_hamburg/
+ 
+r/hamburg
+https://www.reddit.com/r/hamburg/
+ â€¢ 8mo ago [
+Is Airbus a good employer in Hamburg?
+](https://www.reddit.com/r/hamburg/comments/1pyugjo/ist_airbus_ein_guter_arbeitgeber_in_hamburg/) 14 upvotes Â· 33 comments
+salary expectation
+https://www.reddit.com/r/arbeitsleben/comments/1vmoq0r/gehaltsvorstellung/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 16d ago [
+salary expectation
+](https://www.reddit.com/r/arbeitsleben/comments/1vmoq0r/gehaltsvorstellung/) 
+ 1:07 541 upvotes Â· 44 comments
+Salary payments are getting later and later
+https://www.reddit.com/r/arbeitsleben/comments/1sergdf/immer_spÃ¤tere_gehaltszahlung/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 5mo ago [
+Salary payments are getting later and later
+](https://www.reddit.com/r/arbeitsleben/comments/1sergdf/immer_sp%C3%83%C2%A4tere_gehaltszahlung/) 32 upvotes Â· 29 comments
+Thinking about leaving an IG Metall company?
+https://www.reddit.com/r/arbeitsleben/comments/1nvxsqj/ig_metall_unternehmen_verlassen/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 1y ago [
+Thinking about leaving an IG Metall company?
+](https://www.reddit.com/r/arbeitsleben/comments/1nvxsqj/ig_metall_unternehmen_verlassen/) 29 comments
+Unhappy with my salary since finding out about other salaries
+https://www.reddit.com/r/arbeitsleben/comments/1tuyclk/unzufrieden_mit_meinem_gehalt_seit_info_Ã¼ber/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 3mo ago [
+Unhappy with my salary since finding out about other salaries
+](https://www.reddit.com/r/arbeitsleben/comments/1tuyclk/unzufrieden_mit_meinem_gehalt_seit_info_%C3%83%C2%BCber/) 71 upvotes Â· 68 comments
+Help with actual salary IGM Bavaria EG9
+https://www.reddit.com/r/arbeitsleben/comments/1s531hd/hilfe_tatsÃ¤chliches_gehalt_igm_bayern_eg9/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 5mo ago [
+Help with actual salary IGM Bavaria EG9
+](https://www.reddit.com/r/arbeitsleben/comments/1s531hd/hilfe_tats%C3%83%C2%A4chliches_gehalt_igm_bayern_eg9/) 6 upvotes Â· 25 comments
+Demanding a raise with a new job offer
+https://www.reddit.com/r/arbeitsleben/comments/1sunc9k/gehaltserhÃ¶hung_mit_neuer_stelle_fordern/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 4mo ago [
+Demanding a raise with a new job offer
+](https://www.reddit.com/r/arbeitsleben/comments/1sunc9k/gehaltserh%C3%83%C2%B6hung_mit_neuer_stelle_fordern/) 7 upvotes Â· 29 comments
+How to deal with older people?
+https://www.reddit.com/r/arbeitsleben/comments/1vnzv9p/wie_mit_den_Ã¤lteren_umgehen/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 14d ago [
+How to deal with older people?
+](https://www.reddit.com/r/arbeitsleben/comments/1vnzv9p/wie_mit_den_%C3%83%C2%A4lteren_umgehen/) 25 upvotes Â· 40 comments
+Would you accept an IG-Metall EG12 (about 70k annual salary) for 35h/week even though you don't want to work there?
+https://www.reddit.com/r/arbeitsleben/comments/1svj4pu/wÃ¼rdet_ihr_einen_igmetall_eg12_ca_70k/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 4mo ago [
+Would you accept an IG-Metall EG12 (about 70k annual salary) for 35h/week even though you don't want to work there?
+](https://www.reddit.com/r/arbeitsleben/comments/1svj4pu/w%C3%83%C2%BCrdet_ihr_einen_igmetall_eg12_ca_70k/) 37 comments
+95k IGM - outside of collective contract
+https://www.reddit.com/r/arbeitsleben/comments/1se540e/95k_ig_metall_auÃŸertariflicher_vertrag/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 5mo ago [
+95k IGM - outside of collective contract
+](https://www.reddit.com/r/arbeitsleben/comments/1se540e/95k_ig_metall_au%C3%83%C5%B8ertariflicher_vertrag/) 22 comments
+What was your starting salary and your salary after you switched jobs?
+https://www.reddit.com/r/arbeitsleben/comments/1vqoqu6/was_war_euer_einstiegsgehalt_und_das_gehalt_nach/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 11d ago [
+What was your starting salary and your salary after you switched jobs?
+](https://www.reddit.com/r/arbeitsleben/comments/1vqoqu6/was_war_euer_einstiegsgehalt_und_das_gehalt_nach/) 55 comments
+Best IG Metall company for employees?
+https://www.reddit.com/r/arbeitsleben/comments/1p3hh0g/bester_ig_metall_betrieb_fÃ¼r_arbeinehmer/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 9mo ago [
+Best IG Metall company for employees?
+](https://www.reddit.com/r/arbeitsleben/comments/1p3hh0g/bester_ig_metall_betrieb_f%C3%83%C2%BCr_arbeinehmer/) 14 comments
+System Engineer â€“ Salary fair or rather low?
+https://www.reddit.com/r/arbeitsleben/comments/1pw1e47/system_engineer_gehalt_fair_oder_eher_niedrig/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 8mo ago [
+System Engineer â€“ Salary fair or rather low?
+](https://www.reddit.com/r/arbeitsleben/comments/1pw1e47/system_engineer_gehalt_fair_oder_eher_niedrig/) 10 upvotes Â· 26 comments
+Do you notice differences between colleagues with vocational training and those with a degree in everyday work?
+https://www.reddit.com/r/arbeitsleben/comments/1ur1p79/merkt_ihr_im_arbeitsalltag_unterschiede_zwischen/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 2mo ago [
+Do you notice differences between colleagues with vocational training and those with a degree in everyday work?
+](https://www.reddit.com/r/arbeitsleben/comments/1ur1p79/merkt_ihr_im_arbeitsalltag_unterschiede_zwischen/) 47 upvotes Â· 75 comments
+Werkstudent at Airbus, realistic to convert to permanent? Tips from anyone who's done it?
+https://www.reddit.com/r/hamburg/comments/1smg45v/werkstudent_at_airbus_realistic_to_convert_to/
+ 
+r/hamburg
+https://www.reddit.com/r/hamburg/
+ â€¢ 4mo ago [
+Werkstudent at Airbus, realistic to convert to permanent? Tips from anyone who's done it?
+](https://www.reddit.com/r/hamburg/comments/1smg45v/werkstudent_at_airbus_realistic_to_convert_to/) 15 comments
+Changing careers to become a pilot at 26, even though you're in debt and have a secure job â€“ is that a pipe dream?
+https://www.reddit.com/r/Ratschlag/comments/1rpriuu/karrierewechsel_mit_26_zum_piloten_trotz_schulden/
+ 
+r/Ratschlag
+https://www.reddit.com/r/Ratschlag/
+ â€¢ 6mo ago [
+Changing careers to become a pilot at 26, even though you're in debt and have a secure job â€“ is that a pipe dream?
+](https://www.reddit.com/r/Ratschlag/comments/1rpriuu/karrierewechsel_mit_26_zum_piloten_trotz_schulden/) 25 upvotes Â· 94 comments
+Temporarily working as a cleaner - how should I go about it best?
+https://www.reddit.com/r/arbeitsleben/comments/1sdqorx/vorÃ¼bergehend_als_reinigungskraft_arbeiten_wie/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 5mo ago [
+Temporarily working as a cleaner - how should I go about it best?
+](https://www.reddit.com/r/arbeitsleben/comments/1sdqorx/vor%C3%83%C2%BCbergehend_als_reinigungskraft_arbeiten_wie/) 8 upvotes Â· 18 comments
+PhD in Mechanical Engineering: The most sensible option right now?
+https://www.reddit.com/r/arbeitsleben/comments/1qcpcpd/promotion_im_maschinenbau_aktuell_die_sinnvollste/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 8mo ago [
+PhD in Mechanical Engineering: The most sensible option right now?
+](https://www.reddit.com/r/arbeitsleben/comments/1qcpcpd/promotion_im_maschinenbau_aktuell_die_sinnvollste/) 15 upvotes Â· 33 comments
+How integrated is AI into your daily work, and what do you do?
+https://www.reddit.com/r/arbeitsleben/comments/1vhx3bw/wie_weit_ist_ki_in_euren_arbeitsalltag_integriert/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 21d ago [
+How integrated is AI into your daily work, and what do you do?
+](https://www.reddit.com/r/arbeitsleben/comments/1vhx3bw/wie_weit_ist_ki_in_euren_arbeitsalltag_integriert/) 3 upvotes Â· 36 comments
+How much time do I have to apply to Airbus?
+https://www.reddit.com/r/arbeitsleben/comments/1m40mat/wie_lange_zeit_habe_ich_um_mich_bei_airbus_zu/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 1y ago [
+How much time do I have to apply to Airbus?
+](https://www.reddit.com/r/arbeitsleben/comments/1m40mat/wie_lange_zeit_habe_ich_um_mich_bei_airbus_zu/) 4 comments
+What's harder right now? Finding suitable applicants or suitable jobs?
+https://www.reddit.com/r/arbeitsleben/comments/1s1xqvt/was_ist_schwerer_momentan_geeignete_bewerber_zu/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 5mo ago [
+What's harder right now? Finding suitable applicants or suitable jobs?
+](https://www.reddit.com/r/arbeitsleben/comments/1s1xqvt/was_ist_schwerer_momentan_geeignete_bewerber_zu/) 17 upvotes Â· 50 comments
+the data protection in the company where I started working today is outrageous
+https://www.reddit.com/r/arbeitsleben/comments/1ve6ptt/der_datenschutz_in_dem_unternehmen_wo_ich_seit/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 25d ago [
+the data protection in the company where I started working today is outrageous
+](https://www.reddit.com/r/arbeitsleben/comments/1ve6ptt/der_datenschutz_in_dem_unternehmen_wo_ich_seit/) 110 upvotes Â· 31 comments
+How is that supposed to work?
+https://www.reddit.com/r/arbeitsleben/comments/1vshpqd/wie_soll_das_gehen/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 9d ago [
+How is that supposed to work?
+](https://www.reddit.com/r/arbeitsleben/comments/1vshpqd/wie_soll_das_gehen/) 36 upvotes Â· 35 comments
+Coworker hits me and threatens me
+https://www.reddit.com/r/arbeitsleben/comments/1t2yvh2/arbeitskollege_schlÃ¤gt_mich_und_droht_mir/
+ 
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+ â€¢ 4mo ago [
+Coworker hits me and threatens me
+](https://www.reddit.com/r/arbeitsleben/comments/1t2yvh2/arbeitskollege_schl%C3%83%C2%A4gt_mich_und_droht_mir/) 107 upvotes Â· 30 comments
+Got selected for Airbus internship but have another offer with a deadline
+https://www.reddit.com/r/hamburg/comments/1rh7685/got_selected_for_airbus_internship_but_have/
+ 
+r/hamburg
+https://www.reddit.com/r/hamburg/
+ â€¢ 6mo ago [
+Got selected for Airbus internship but have another offer with a deadline
+](https://www.reddit.com/r/hamburg/comments/1rh7685/got_selected_for_airbus_internship_but_have/) 15 upvotes Â· 4 comments
+Community Info Section
+r/arbeitsleben
+https://www.reddit.com/r/arbeitsleben/
+Join
+arbeitsleben
+FÃ¼r Arbeitende und Nichtarbeitende Ã¼ber Arbeit und Nichtarbeit
+Show more
+Public
+Anyone can view, post, and comment to this community
+Home
+https://www.reddit.com/?feed=home
+Popular
+https://www.reddit.com/r/popular/
+News
+https://www.reddit.com/news/
+Explore
+https://www.reddit.com/explore/
+Best of Reddit
+https://www.reddit.com/posts/2026/global/
+Best of Reddit in Portuguese
+https://www.reddit.com/posts/2026/tl-pt-BR/
+Best of Reddit in German
+https://www.reddit.com/posts/2026/tl-de/
+Reddit Rules
+https://www.redditinc.com/policies/content-policy
+Privacy Policy
+https://www.reddit.com/policies/privacy-policy
+User Agreement
+https://www.redditinc.com/policies/user-agreement
+Your Privacy Choices
+https://support.reddithelp.com/hc/articles/43980704794004
+Accessibility
+https://support.reddithelp.com/hc/sections/38303584022676-Accessibility
+Reddit, Inc. Â© 2026. All rights reserved.
+https://redditinc.com/
+ 
+Join the most real place on the internet
+Continue with Apple
+ï£¿â€…Sign in with Apple
+Continue with Phone Number
+https://www.reddit.com/login/
+Continue with Email
+https://www.reddit.com/register/
+By continuing, you agree to our 
+User Agreement
+https://www.redditinc.com/policies/user-agreement
+ and acknowledge that you understand the 
+Privacy Policy
+https://www.redditinc.com/policies/privacy-policy
+.
+ 
+0cAFcWeA4AoXntTe5svURY6M8DFnEZ85mMFLiCqo7mF18KkeDMWOwb597Hid8ElRu43ElglNG8hKl4b7mh5uG7FkNFcE1rFOrM412wlMboKjUSljEsxn1G9uLEZLgO4PDV0cjAnjuawNnHGLJ2s8nVWA8NHdWe-pMILIOEfbhZqZUB_g9r9iokG48l6iRKuv2CHH9k-PeRfqA9clWANOCa5-pXktEkHV3XBQ1f74oFama2i4v2Hs-W_6vskc8r9awjKQKyV-i-2k10yWnTkxzBgpQylgKKOyfDr96LwjUFiGiZWrPjW7BFdAUP6rIPyYGlZDFxXsXa_f8e_yfKdd7I4Z7XUEg70KMvsEkx6ApHOPIPTywnio0u9x2pcwFEKLyJCLa32FTixa-7aAoJnaveqTxXJ4-ylaPbfvYj4C_1kQ2UFkw7J-ZvDp879SAV43nizC-KWcoZRyXNmmUUvoIjyhNtVVo-gz5Ou6w24h67v6_3rmQIxePwcPf8xuJNbMSf1WPL9HO-5GZcDmrnzBJC-BPHT26OV5G3-JVX89cOnqPJt80g4YwK4835Efg1TZLXfqLCDREdYSS7BIHPWuq82OjF0Cm0m_YIBHaTnKhVIZto4ej0OHSRSpdVrq07Violpa5XrFh4BIwIcJlhS9X0LWUDZEY01sFME9YYcc2zJK3YyAJJaf0QlVHnwkmrZHa_9iivRK2oVZrnZ_WPyiqgipBPdMJ9XtWeub36tKQj2YF7hnMS1yEwhk9O6OaOc7ZwekH1-t58dRmi3v8CjNuye0dcjZE_wz3OsMdREWxRA7c9eYlZR2nbiK3yRvL2Nk4XSJzWG_lXDj7xe9Q7aPxb7JzsO1E7lSMKLQiVEJbo5M6ahsAx19pjxVyc13QdGLTDCueD9UfQhmg5VFXUskK7d-1XuZ7w-dUVptnq1IRihdlPqUgcgVl8JbSHt7LDYtfpRTWX64WgpR42-ddPgeRTIUQMPN6RGIYJNljp0joL0U0vgWOOWCmKKCxCRbkELoYOTDsXy8I78H7Ovr3AuME4oqRaI4fw3aBS_r_KKY6hfnyjzlZls1-TTelcRdbyDd5f_cMuhnZjWyKm_LiRWM4-Tibw9x4LgoRrwJBYKz42uLUdczbJtzvw0dUpEenfOLeNL3h-vpid4rQ0OPb1jnXW7i1xJDZurm2PCvn1I1B4R4zTLYkQI45wWfLY52trKsPESyi2jQ4eTmSAL4EZ-Yrn70lS00No_A4NUT1QocnZorcdd6kVjv5K6ofeGC3ya-X_yC0Br3XR63DqpOI_413awlpiTaIeh1VDRh8pzeuFoWXfLPnvsRsBfUGW7oVQiODAILKFK930fyXb9d-S3RSjB1i6yw-e4aK_ho47uMkPX1Selb2oJofngkFkkqnKckfPbiKLtf0qnabl6h2rwoW0XtZu-2jvrkg7EgNEITWNvhtiNoPAnqGUzihXCfraNCXvQB24LW2mBzl3dxRCbTGhIPv4ZUzmQVfG1zxbcQ-Tga6C8kagYGGJpS7CvX1BvIeCEHPryGWjZ_ofYGMwF-uaVHqlMXoZV9U8oaFV5_5Dlod_gH1b4uEtuF5JJjhr9jQUk4ILp-9hGolxuaE97ftostQ_kxuFjZOhE_oIl5c7HBg078E_gGOBHA8eT4P7ZvtOAuw02FNu0l4fcoGZlXAIxPhW1vJSiUYDdZg1bPfDHxu7vnmELhkUwoWRxUqKKM4eGLvUJjrVPSpXQzGLlWvzl2ZNGglRxPuc9-unkQT2aO5C8_NUE_lJV-IZ0FHYO3FLnyoXV7Glr5TPikCYls0vOL3U8wHTUDB6APrANh2KtY1B1FLsHV9qVSDMJr16EbcqAn-UZyxPYACYsDYbSJ6imZYtIGF-dIe3Nq9-Xbt3tPnFKbMQ1DYfH-_q0bFEzQZdVqvZY6YwePfnM45xpQoRRqLqNSvoIsKeYHnKWe3mCuoo10vS8l83MPW0RzkNnIKZ2LdXuCQEzDD1EfB0rOnWEXD0NpwwDQIVOlhtXWKYvGtkwUD6UkCkNV_GhK-0xaT1CiHdboxTdcs3X1sEU35--Q7f_taU9HSbC0fyqwmSiObX7CIfO53qUWZXe6PIIcUtalviX87TlaG4ARYqEVnDsl3Pd4Z4PZOYJnllSzo0WT2HLgx1Yh2o4y67hKNwp_3xJ981ORl9cYifd5hlLyS4GU68Byy5GnmbbC5-rYxdOAJ9AOvl39DrUNYbjCadRgLFYPK7ZcgLA7QufYbmN6gXoOHMvfeb6fQr6cLYQnrPfSKVhVYVmrcQRwk

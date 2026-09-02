@@ -1,0 +1,494 @@
+# La plantilla de Acerinox, 120 días de huelga en nombre de la conciliación - Diario Público
+Categoría: General
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+La plantilla de Acerinox, 120 días, con sus noches, de huelga en nombre de la conciliación y la defensa del tiempo libre | Público
+ 
+Si eres suscriptor, [inicia sesión](javascript:if (tp && tp.pianoId && typeof(tp.pianoId.isUserValid) == 'function' && tp.pianoId.isUserValid()) {    tp.pianoId.loadExtendedUser({        extendedUserLoaded: function (data) {            for (var i in data.custom_field_values) {                var fieldName = data.custom_field_values[i].field_name;                var fieldValue = data.custom_field_values[i].value;                            if (fieldName == 'profile' && fieldValue == '2') {                    window.Didomi.setUserDisagreeToAll();                    location.reload();                }            }        }, formName: 'customFieldsCustomForm'    });        const h3 = document.getElementById('didomi-login-h3'),          newH3 = document.createElement('h3');    newH3.textContent = 'Ya has iniciado sesión con tu correo ' + tp.pianoId.getUser()['email'] + '. Por favor, confirma tus preferencias.';    h3.parentNode.insertBefore(newH3, h3.nextSibling);    h3.remove();} else {    document.getElementById('didomi-host').style.display = 'none';     location.href = 'https://www.publico.es/login';}) en Público
+Público te permite navegación gratuita mediante la aceptación de cookies. 
+Más información.
+Esto implicará el uso de navegación con un fin publicitario. Es esencial para que podamos seguir ofreciendo contenido de calidad, servicios eficaces a nuestros lectores y una mejora en la experiencia de uso. Para nuestro medio es indispensable seguir apostando por un periodismo serio e incómodo y denunciar lo que pocos somos capaces de hacer. Pero investigar es costoso y necesitamos la publicidad y vuestro apoyo para continuar con esta labor de denuncia por una sociedad mejor para todas y todos.
+Con tu consentimiento, nosotros y 
+nuestros 1023 socios
+javascript:Didomi.preferences.show('vendors')
+ usamos cookies o tecnologías similares para almacenar, acceder y procesar datos personales, como tus visitas a esta página web, las direcciones IP y los identificadores de cookies. Algunos socios no te piden consentimiento para procesar tus datos y se amparan en su legítimo interés comercial. Puedes retirar tu consentimiento u oponerte al procesamiento de datos según el interés legítimo en cualquier momento haciendo clic en ''Obtener más información'' o en la política de privacidad de esta página web.
+Nosotros y nuestros socios hacemos el siguiente tratamiento de datos: Almacenar la información en un dispositivo y/o acceder a ella, Datos de localización geográfica precisa e identificación mediante análisis de dispositivos, Publicidad y contenido personalizados, medición de publicidad y contenido, investigación de audiencia y desarrollo de servicios
+Más información Rechaza y suscríbete por 9€/mes Acepta y navega gratis
+Hoy interesa
+Menores migrantes
+https://www.publico.es/politica/partidos/rajoy-blindo-ley-proteccion-menores-migrantes-feijoo-abraza-discurso-vox-expulsarlos.html
+PSOE Marruecos
+https://www.publico.es/politica/partidos/psoe-queda-defensa-marruecos-crisis-ceuta-frente-ofensiva-grupos-congreso.html
+Hazte Oír
+https://www.publico.es/politica/hazte-oir-maquina-captacion-donativos-lobby-ultra-recibio-millon-plena-campana-gobierno.html
+Tragedia Nepal
+https://www.publico.es/opinion/columnas/glaciares-mueren-matando.html
+Zohran Mamdani
+https://www.publico.es/internacional/eeuu/precariedad-robar-neoyorkinos-mamdani-lleva-derecho-ocio-politica.html
+Justicia trabajadores
+https://www.publico.es/sociedad/justicia-retira-indemnizacion-camarera-embarazada-pese-mantener-despido-nulo.html
+Referéndum Islandia
+https://www.publico.es/internacional/europa/islandia-pone-prueba-referendum-atractivo-ue-paises-ricos-norte.html
+Catalunya
+https://www.publico.es/politica/catalunya-arranca-curso-politico-marcado-crisis-educativa-rodalies.html
+Menú
+Logo de PúblicoLogo de Público
+https://www.publico.es/
+Inicia sesión
+https://www.publico.es/login
+Mi cuenta
+https://www.publico.es/mi-cuenta/mis-datos
+Público
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html
+Inicia sesión
+https://www.publico.es/login
+ 
+Mi cuenta
+https://www.publico.es/mi-cuenta/mis-datos
+Tamaño de letra
+Color de fondo
+[x]
+ 
+Área de usuario
+Inicia sesión
+https://www.publico.es/login
+Mis datos
+https://www.publico.es/mi-cuenta/mis-datos
+Cambiar contraseña
+https://www.publico.es/mi-cuenta/cambiar-contrasena
+Newsletters
+https://www.publico.es/landing/newsletter
+Mis comentarios
+https://www.publico.es/mi-cuenta/mis-comentarios
+Revistas trimestrales
+https://www.publico.es/mi-cuenta/mis-especiales
+La comunidad de Público
+https://www.publico.es/editorial/la-comunidad-de-publico
+Ayuda
+https://www.publico.es/mi-cuenta/ayuda
+Cerrar sesión
+https://www.publico.es/logout
+ 
+[x]
+ 
+Secciones
+Política
+https://www.publico.es/politica
+Opinión
+https://www.publico.es/opinion
+Tremending
+https://www.publico.es/tremending
+Internacional
+https://www.publico.es/internacional
+Sociedad
+https://www.publico.es/sociedad
+Feminismos
+https://www.publico.es/mujer
+Medio Ambiente
+https://www.publico.es/sociedad/m-ambiente
+Memoria Pública
+https://www.publico.es/politica/memoria-publica
+Culturas
+https://www.publico.es/culturas
+Ciencias
+https://www.publico.es/ciencias
+Economía
+https://www.publico.es/economia
+Deportes
+https://www.publico.es/deportes
+La buena vida
+https://www.publico.es/la-buena-vida
+UwU
+https://www.publico.es/uwu
+Psicología y Mente
+https://www.publico.es/psicologia-y-mente
+Ahorro inteligente
+https://www.publico.es/ahorro-inteligente
+En ruta
+https://www.publico.es/en-ruta
+Yo animal
+https://www.publico.es/yo-animal
+Públic
+https://www.diaripublic.cat/
+Vídeos
+https://www.publico.es/videos
+Viñetas
+https://www.publico.es/opinion/vinetas
+Especiales
+https://www.publico.es/especiales
+ 
+[-]
+ 
+Colaboradores
+El Diario Cantabria
+https://eldiariocantabria.publico.es/
+Periódico CLM
+https://periodicoclm.publico.es/
+El Asombrario
+https://elasombrario.publico.es/
+Sal y roca
+https://www.salyroca.es/
+Librújula
+https://librujula.publico.es/
+Nortes
+https://www.nortes.me/
+Nueva Tribuna
+https://www.nuevatribuna.es/
+Luzes
+https://www.publico.es/luzes
+Página 12
+https://www.pagina12.com.ar/
+Carretera y Manta
+https://www.publico.es/carretera-y-manta
+Espacio Público
+https://espacio-publico.com/
+Descarga nuestra app
+Google Play
+https://play.google.com/store/apps/details?id=com.publico.app
+App Store
+https://apps.apple.com/es/app/p%C3%BAblico/id6447959725
+Buscar
+Buscar
+Síguenos
+Política
+https://www.publico.es/politica
+Opinión
+https://www.publico.es/opinion
+Tremending
+https://www.publico.es/tremending
+Internacional
+https://www.publico.es/internacional
+Feminismos
+https://www.publico.es/mujer
+Medio Ambiente
+https://www.publico.es/sociedad/m-ambiente
+Memoria
+https://www.publico.es/politica/memoria-publica
+Culturas
+https://www.publico.es/culturas
+Ciencias
+https://www.publico.es/ciencias
+Economía
+https://www.publico.es/economia
+Public
+https://www.publico.es/public
+Economía
+https://www.publico.es/economia
+Vivienda
+https://www.publico.es/economia/vivienda
+ÚLTIMA HORA En directo Última hora de las comparecencias de Marlaska, Albares y Saiz sobre Ceuta
+https://www.publico.es/politica/ultima-hora-comparecencias-marlaska-albares-saiz-sobre-ceuta-directo.html
+ÚLTIMA HORA En directo Última hora de las comparecencias de Marlaska, Albares y Saiz sobre Ceuta
+https://www.publico.es/politica/ultima-hora-comparecencias-marlaska-albares-saiz-sobre-ceuta-directo.html
+Este artículo se publicó hace 2 años.
+La plantilla de Acerinox, 120 días de huelga en nombre de la conciliación
+Más de 30 reuniones y cuatro meses después, no se ha logrado cerrar un acuerdo para retomar el trabajo en una fábrica clave ubicada en Los Barrios, en la provincia de Cádiz.
+ 
+Los trabajadores de Acerinox durante una concentración en Sevilla, en abril. Imagen de Archivo. 
+Rocío Ruz / Europa Press
+Comparte
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=share-modal
+Comenta
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=comments-modal
+Leer después
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=read-later-modal
+Tamaño de letra
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=change-size-modal
+Color de fondo
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=change-theme-modal
+Añade Público a Google
+https://www.google.com/preferences/source?q=publico.es
+Raúl Bocanegra
+https://www.publico.es/author/raul-bocanegra
+01/06/2024 21:33 - Actualizado a 01/06/2024 22:18
+Comparte
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=share-modal
+0 Comenta
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=comments-modal
+Leer después
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=read-later-modal
+Tamaño de letra
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=change-size-modal
+Color de fondo
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=change-theme-modal
+La plantilla de Acerinox en Los Barrios (Cádiz) lleva ya 120 días, con sus noches, en huelga y, por tanto, sin cobrar. La factoría, que produce y exporta acero inoxidable, está parada. La dirección de la multinacional, que cotiza en el Ibex, y el comité 
+no han logrado cerrar un acuerdo sobre el nuevo convenio laboral en este tiempo
+. Son más de 2.000 familias directamente implicadas, entre la plantilla de Acerinox, unas 1.800 personas, y las de las contratas.
+Publicidad
+La mediación de la Junta de Andalucía en el conflicto laboral, que afecta ya a toda la comarca, tampoco ha logrado desbloquearlo. A mediados de mayo, 
+la inmensa mayoría de la plantilla –1.200 sobre 1.639 votos–
+https://www.facebook.com/people/Acerinox-Europa-SAU-en-huelga/61556647750081/
+ rechazó en una votación el plan que se les presentaba, que venía del Consejo Andaluz de Relaciones Laborales y que la empresa había aceptado. Este lunes se retoman las conversaciones en una nueva reunión –ha habido ya más de 30– en Madrid.
+La huelga tiene una motivación fundamental, según explica a 
+Público
+ el portavoz del comité de huelga, 
+José Antonio Gómez Valencia
+, del sindicato Asociación de Trabajadores del Acero: "Estamos peleando casi más por la conciliación familiar y la defensa del tiempo libre que por el dinero. La revisión salarial es algo justo y que debería ser por ley. No estamos pidiendo nada del otro mundo".
+Relacionado con este tema
+100 días de lucha, con Acerinox: así ha sido el directo de Marina Lobo
+https://www.publico.es/politica/100-dias-lucha-acerinox-sido-directo-marina-lobo.html
+Público
+https://www.publico.es/politica/100-dias-lucha-acerinox-sido-directo-marina-lobo.html
+"Lo quieren maquillar de una manera o de otra, [pero su idea es] tener al personal a su disposición en días de descanso, que tengamos una disponibilidad. 
+Esa es la historia. Como le está constando trabajo que cedamos en eso, [y no lo hacemos porque] eso sería llevar a la plantilla a una esclavitud
+, ahora quieren imponer tres turnos", lamenta Gómez Valencia. "Lo que nos piden no es habitual ni lógico. Por conciliación no podemos aceptarlo", añade. La plantilla está compuesta mayoritariamente de hombres.
+Esta semana, después del fracaso de la mediación de la Junta de Andalucía, Acerinox lanzó un comunicado en el que exponía lo siguiente: "A la vista de las condiciones de mercado y de los resultados económicos de los últimos años, y la necesidad de implantar un nuevo modelo organizativo y de producción en la fábrica [...] 
+se va a operar la planta a tres turnos, en lugar de los cinco habituales
+".
+Publicidad
+La empresa añade que ahora 
+se valorará "el impacto en el volumen de empleo actual de la plantilla
+ que se puede producir como consecuencia de la implementación de un modelo organizativo a tres turnos". Traducido al castellano: despidos en el horizonte.
+"Aquí no se está negociando un ERE, aquí lo que se está negociando es un convenio"
+"Nos quedamos con que vamos a retomar las negociaciones", asume el comité. "La empresa tiene una herramienta que es asustar a la gente y que todo el mundo se piense que van a despedir a mucha gente". " 
+Aquí no se está negociando un ERE, aquí lo que se está negociando es un convenio
+, que se dejen de tirar más piedras a su plantilla con amenaza de despido, porque aquí lo que le tiene que quedar claro es que aquí vamos a entrar todos después de la huelga, y si después quieren plantear un ERE, pues habrá que negociarlo", afirma Gómez Valencia.
+Relacionado con este tema
+Los trabajadores de Acerinox en Los Barrios (Cádiz) en huelga por el nuevo convenio
+https://www.publico.es/videos/1116403/los-trabajadores-de-acerinox-en-los-barrios-cadiz-en-huelga-por-el-nuevo-convenio
+EFE
+https://www.publico.es/videos/1116403/los-trabajadores-de-acerinox-en-los-barrios-cadiz-en-huelga-por-el-nuevo-convenio
+"Si las condiciones son buenas para la gente, como pasó en el 2019 que se fueron más de 200 compañeros en unas buenas condiciones, pues 
+habrá que negociarlo una vez que estemos dentro
+", agregó, después de conocer el nuevo paradigma en el que quiere moverse la dirección de la empresa.
+Publicidad
+Acerinox ha presentado en el primer trimestre unos beneficios millonarios -" 
+después de impuestos y minoritarios ascendió a 53 millones de euros
+"- y confían en sus perspectivas de negocio en mejorar los datos en el segundo trimestre, según han expuesto en sus 
+comunicaciones oficiales
+https://www.acerinox.com/es/comunicacion/noticias/Acerinox-registra-una-importante-reduccion-de-deuda-y-un-crecimiento-del-EBITDA-en-el-primer-trimestre-de-2024/
+. La empresa tiene además inversiones en sus plantas "en marcha superiores a los 300 millones de euros".
+Relacionado con este tema
+Acerinox, 40 días de huelga con "represión" y sin solución
+https://www.publico.es/economia/acerinox-40-dias-huelga-represion-solucion.html
+Raúl Bocanegra
+https://www.publico.es/economia/acerinox-40-dias-huelga-represion-solucion.html
+Sin embargo, para la factoría de Los Barrios exponen otros números: "Durante el primer trimestre de 2024, 
+Acerinox Europa registró pérdidas por importe de 31 millones de euros
+, 15 de ellos derivadas de la situación de mercado y 8 millones mensuales achacables a la huelga".
+Los trabajadores no terminan de comprender la lógica de la dirección: "Con cuatro meses la fábrica parada, con pérdidas de clientes, con otros centros de servicios parados... 
+Al final está perdiendo dinero y es mucho más de lo que pedimos nosotros. No entendemos la actitud de la empresa
+ cuando lo que se pide es una subida salarial con subida de IPC, que es lo lógico, y que respeten los horarios de descanso y no tener que estar pendientes a un teléfono. No es gran cosa lo que se pide".
+"Negociar sí se ha negociado. Desde la primera a la última propuesta hay muchísimo movimiento. Pero en la parte empresarial siguen empeñados en lo mismo. 
+La dignidad no se puede perder.
+ Cuando entras a negociar en un convenio que te quieren quitar la dignidad y el tiempo libre, ¿no luchas por ello?", lanza Gómez Valencia.
+Cuatro meses sin cobrar
+Después de 120 días, y del espaldarazo recibido por el comité en la votación de hace unos días, la plantilla 
+no piensa ceder ahora, salvo que el acuerdo sea razonable
+. "[El escenario] nos está perjudicando a nosotros también", afirma el portavoz de los trabajadores.
+Publicidad
+"Llevamos cuatro meses sin cobrar. En las familias, el tema económico, te puedes imaginar. 
+Tenemos una caja de resistencia para que la gente tenga comida en su casa. Con eso estamos aguantando
+", agrega. " 
+Se está haciendo duro, pero después de 120 días no podemos ceder ahora y tirar todo por la borda
+", remacha.
+Gómez Valencia agradece todos los apoyos: "La comarca se está volcando". Este sábado pasado, 
+una manifestación recorrió las calles de Algeciras
+. En próximas fechas, la plantilla acampará durante seis días en la Plaza Alta.
+Publicidad
+La huelga afecta sobremanera ya en una 
+zona azotada por el paro
+. Las familias de Acerinox sostienen parte del PIB. "Está afectando a muchos negocios, comercios de la zona, empresas auxiliares, incluso supermercados, restaurantes. Se nota bastante. Esta huelga afecta a una comarca. No entendemos cómo todavía la Junta no intenta que se solucione: el Consejo Andaluz de Relaciones Laborales no ha sido efectivo, pero no tenían un plan B".
+La semana pasada, el debate sobre Acerinox llegó al Parlamento andaluz de nuevo. El diputado de Adelante 
+José Ignacio García
+ apareció vestido con la ropa de trabajo de los trabajadores y le reclamó al presidente, 
+Juan Manuel Moreno
+, implicación. Para los trabajadores existe "poca implicación" por parte del Gobierno autonómico.
+El Ejecutivo central sí les ha mostrado apoyo, pero no han visto tampoco, más allá de eso, "mucho movimiento de ministros ni de ministras". Los partidos con representación en Andalucía, además de Adelante, sí han estado, incluido el propio 
+Juan Espadas
+ (PSOE).
+Publicidad
+No es suficiente para los trabajadores: "Para la fotografía, todo el mundo es bueno. No hay que tener pelos en la lengua. La verdad es que nosotros somos los que votamos. 
+Y cuando hay un problema grave, los curritos nos vemos desamparados
+. No me valen las palmadas, incluso, llega un momento que molestan: lo que queremos son soluciones".
+Sobre la firma
+Raúl Bocanegra
+https://www.publico.es/author/raul-bocanegra
+Redactor en Andalucía.
+Ver biografía
+https://www.publico.es/author/raul-bocanegra
+Comparte
+https://www.publico.es/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html?action=share-modal
+Etiquetas
+Andalucía
+https://www.publico.es/tag/andalucia
+Industria
+https://www.publico.es/tag/industria
+derechos laborales
+https://www.publico.es/tag/derechos-laborales
+Vídeos de 'Público'
+Keep Watching
+Así han sido las reacciones de la izquierda al hantavirus: "España es referente internacional" Así han sido las reacciones de la izquierda al hantavirus: "España es referente internacional"
+Te puede interesar
+Comentarios de nuestros socias/os
+¿Quieres comentar?
+Para ver los comentarios de nuestros socias y socios, primero tienes que 
+iniciar sesión
+https://www.publico.es/login?next=/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html#comments
+ o 
+registrarte
+https://www.publico.es/registro?next=/economia/plantilla-acerinox-120-dias-huelga-nombre-conciliacion.html#comments
+.
+Escribe tu comentario 
+Recuerda las normas de la comunidad.
+https://www.publico.es/info/normas-sobre-comentarios-comunidad-publico.html
+Enviar Descartar
+Publicidad
+Lo más leído
+1.
+Astrid Gil-Casares, la escritora, empresaria fracasada y miembro de la 'jet' que le vendió el ático al Gobierno de Ayuso
+https://www.publico.es/politica/astrid-gil-casares-escritora-empresaria-fracasada-miembro-jet-le-vendio-atico-gobierno-ayuso.html
+2.
+Un economista retrata a la perfección las propuestas de Vox: "Prometen patria, pero te quitan el pan"
+https://www.publico.es/tremending/economista-retrata-perfeccion-propuestas-vox-prometen-patria-pero-te-quitan-pan.html
+3.
+El nuevo rey noruego elige el nombre de Haakon VIII y mantiene el lema de su padre: "Todo por Noruega"
+https://www.publico.es/internacional/europa/nuevo-rey-noruego-elige-nombre-haakon-viii-mantiene-lema-padre-noruega.html
+Opinión
+https://www.publico.es/opinion/columnas/cia-diplomacia-negociando-moscu.html
+Cuando la CIA hace de diplomacia: ¿qué se está negociando en Moscú?
+https://www.publico.es/opinion/columnas/cia-diplomacia-negociando-moscu.html
+Por 
+Ruth Ferrero-turrión
+https://www.publico.es/opinion/columnas/cia-diplomacia-negociando-moscu.html
+Opinión
+https://www.publico.es/opinion/aznar-pidiendo-guerra-ceuta.html
+Y Aznar, pidiendo guerra
+https://www.publico.es/opinion/aznar-pidiendo-guerra-ceuta.html
+Por 
+Ana Pardo De Vera
+https://www.publico.es/opinion/aznar-pidiendo-guerra-ceuta.html
+Publicidad
+ 
+Público
+https://www.publico.es/
+DISPLAY CONNECTORS, SL.
+Gestionar mi cuenta
+https://www.publico.es/mi-cuenta/mis-datos
+Newsletters
+https://www.publico.es/landing/newsletter
+Aportación puntual
+https://www.publico.es/landing/suscripciones#aportacion-puntual
+Regala Público
+https://www.publico.es/landing/suscripciones#regala-publico
+La comunidad de Público
+https://www.publico.es/editorial/la-comunidad-de-publico
+Ayuda
+https://ayuda.publico.es/hc/es
+Síguenos
+https://www.ivoox.com/perfil-publico_a8_podcaster_9242046_1.html
+ 
+[-]
+Secciones
+Política
+https://www.publico.es/politica
+Opinión
+https://www.publico.es/opinion
+Internacional
+https://www.publico.es/internacional
+Sociedad
+https://www.publico.es/sociedad
+Feminismos
+https://www.publico.es/mujer
+Medio Ambiente
+https://www.publico.es/sociedad/m-ambiente
+Memoria Pública
+https://www.publico.es/politica/memoria-publica
+Culturas
+https://www.publico.es/culturas
+Ciencias
+https://www.publico.es/ciencias
+Economía
+https://www.publico.es/economia
+Públic
+https://www.publico.es/public
+Vídeos
+https://www.publico.es/videos
+Viñetas
+https://www.publico.es/opinion/vinetas
+Últimas noticias
+https://www.publico.es/ultimas-noticias
+ 
+[-]
+Verticales
+Tremending
+https://www.publico.es/tremending
+La buena vida
+https://www.publico.es/la-buena-vida
+Uwu
+https://www.publico.es/uwu
+Psicología y Mente
+https://www.publico.es/psicologia-y-mente
+Ahorro inteligente
+https://www.publico.es/ahorro-inteligente
+En ruta
+https://www.publico.es/en-ruta
+Yo animal
+https://www.publico.es/yo-animal
+Carretera y manta
+https://www.publico.es/carretera-y-manta
+ 
+[-]
+Revistas trimestrales
+Lawfare
+https://www.publico.es/especiales/lawfare
+Otro modelo de vivienda
+https://www.publico.es/especiales/hacia-otro-modelo-vivienda
+Contra el rearme
+https://www.publico.es/especiales/contra-el-rearme
+Autoritarismo y reacción
+https://www.publico.es/especiales/autoritarismo-y-reaccion
+Todos los especiales
+https://www.publico.es/especiales
+ 
+[-]
+Colaboradores
+Espacio Público
+https://espacio-publico.com/
+El Diario Cantabria
+https://eldiariocantabria.publico.es/
+Periódico CLM
+https://periodicoclm.publico.es/
+Nortes
+https://www.nortes.me/
+Nueva Tribuna
+https://www.nuevatribuna.es/
+El Asombrario
+https://elasombrario.publico.es/
+Librújula
+https://librujula.publico.es/
+Luzes
+https://www.publico.es/luzes
+Página 12
+https://www.pagina12.com.ar/
+ 
+[-]
+Legal
+Aviso legal
+https://www.publico.es/info/aviso-legal.html
+Política de cookies
+https://www.publico.es/info/politica-cookies.html
+Política de privacidad
+https://www.publico.es/info/politica-privacidad.html
+ 
+[-]
+Público
+Quiénes somos
+https://www.publico.es/info/quienes.html
+Transparencia
+https://www.publico.es/info/transparencia.html
+Nuestro periodismo
+Banderas editoriales
+https://www.publico.es/info/banderas-publico.html
+Feminismos
+https://www.publico.es/info/perspectiva-feminista-genero-publico.html
+Uso de la IA
+https://www.publico.es/info/guia-sobre-uso-ia-publico.html
+Contacto
+https://www.publico.es/info/contacto.html
+Descarga nuestra app
+Google Play
+https://play.google.com/store/apps/details?id=com.publico.app
+App Store
+https://apps.apple.com/es/app/p%C3%BAblico/id6447959725

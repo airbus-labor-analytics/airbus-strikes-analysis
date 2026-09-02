@@ -1,0 +1,581 @@
+Estructura Organizativa, Modelos de Clasificación de Puestos y Sistemas de Compensación Global en Airbus: Un Análisis Comparativo Multilateral
+Arquitectura Corporativa y Evolución del Capital Humano Global
+La corporación aeroespacial Airbus se posiciona como el principal referente de la industria aeronáutica y de defensa en el continente europeo, consolidando una red manufacturera y de diseño de alta complejidad técnica [cite: 1, 2]. Al cierre del ejercicio fiscal de 2024, la compañía reportó una facturación global de 69.230 millones de euros [cite: 3], sustentada por una fuerza laboral activa de 156.921 empleados a nivel mundial [cite: 3]. Esta cifra refleja una trayectoria de expansión constante del capital humano de la empresa, que pasó de 126.495 trabajadores en 2021 [cite: 4, 5, 6], a 134.267 en 2022 [cite: 4, 6, 7], y a 147.893 al finalizar el ejercicio de 2023 [cite: 3, 6]. Este acelerado ritmo de reclutamiento responde a la necesidad de dar soporte a una cartera de pedidos sin precedentes históricos y de mitigar las persistentes presiones en las cadenas globales de suministro [cite: 1, 8].
+La estructura organizativa del grupo se articula en torno a tres grandes divisiones industriales que operan de forma interconectada [cite: 1, 9]:
+Airbus (Commercial Aircraft):
+ Constituye el núcleo central de la actividad comercial y el principal motor financiero de la corporación [cite: 1]. Al cierre de 2024, esta división empleaba a 97.433 ingenieros, operarios y personal de soporte, generando unos ingresos de 50.600 millones de euros [cite: 1].
+Airbus Defence and Space:
+ Especializada en sistemas de defensa militar, telecomunicaciones seguras, ciberseguridad y plataformas espaciales, concentraba a una plantilla de 36.347 empleados con una aportación a los ingresos del grupo de 12.100 millones de euros [cite: 1].
+Airbus Helicopters:
+ División enfocada en el diseño y fabricación de helicópteros para los sectores civil y militar, que registraba 23.141 trabajadores en activo y una facturación de 7.900 millones de euros [cite: 1].
+Métrica de Estructura Industrial (Cierre de 2024)
+Airbus Commercial Aircraft
+Airbus Defence and Space
+Airbus Helicopters
+Total Corporativo
+Plantilla Activa (Headcount)
+ [cite: 1, 3]
+97.433
+36.347
+23.141
+156.921
+Ingresos Anuales (Euros)
+ [cite: 1, 3]
+50.600 millones
+12.100 millones
+7.900 millones
+69.230 millones
+Porcentaje de Participación en Ventas
+ [cite: 10]
+74%
+17%
+9%
+100%
+A nivel de distribución geográfica, Airbus mantiene su arraigo industrial en sus cuatro países fundadores (Francia, Alemania, España y el Reino Unido) [cite: 9], los cuales concentran la inmensa mayoría de la capacidad productiva del consorcio [cite: 11, 12]. Sin embargo, la empresa ha consolidado polos tecnológicos en mercados emergentes de alta especialización, destacando su presencia en la India con más de 3.600 empleados altamente cualificados [cite: 1], Rumanía con más de 9.000 puestos de trabajo directos e indirectos [cite: 12], y Finlandia con una fuerza técnica superior a los 370 ingenieros dedicados a la investigación y el desarrollo de tecnologías de conectividad [cite: 12].
+
+--------------------------------------------------------------------------------
+
+Metodologías de Clasificación de Puestos: El Impacto de RELOAD y los Desafíos del "Puesto Tipo"
+La transformación organizativa más profunda experimentada por Airbus en los últimos años corresponde a la implantación del programa de clasificación de puestos denominado "RELOAD" [cite: 13, 14, 15]. Este marco surge como consecuencia directa de la firma del nuevo Convenio Colectivo Nacional de la Metalurgia en Francia (
+Nouveau Dispositif Conventionnel de la Métallurgie
+ o NDCM), negociado a nivel de la federación patronal UIMM con el respaldo de las principales centrales sindicales del sector [cite: 13, 16]. El sistema RELOAD, implantado con carácter obligatorio el 1 de enero de 2024, supuso la derogación del antiguo modelo de clasificación fundamentado en coeficientes de puntos de cotización individuales (escalas de 190 a 335 puntos para personal no técnico y clasificaciones II, IIIA, IIIB para el personal técnico y directivo) [cite: 16].
+La filosofía que rige el sistema RELOAD introduce un cambio radical en la valoración del capital humano: la clasificación se asocia exclusivamente a la posición y a la realidad de las funciones desempeñadas, desvinculándose de la trayectoria personal del trabajador que ocupa el puesto [cite: 16]. De este modo, el empleado ya no "porta" su rango salarial o nivel de 
+grading
+ a lo largo de sus rotaciones internas, sino que su remuneración mínima garantizada queda sujeta al nivel de cotización asignado al puesto específico que desempeña en cada etapa de su carrera [cite: 16].
+Para parametrizar y catalogar cada puesto dentro de la organización, la metodología RELOAD utiliza un modelo de análisis basado en seis criterios clasificadores transversales, cada uno de los cuales recibe una puntuación del 1 al 10 en función de su complejidad técnica [cite: 16]:
+Complejidad de la actividad:
+ Mide el grado de dificultad inherente a los procesos y tareas asignadas [cite: 16].
+Conocimientos requeridos:
+ Evalúa la formación académica, las certificaciones y la experiencia práctica indispensables para la posición [cite: 16].
+Autonomía:
+ Determina el margen de decisión operativa y el nivel de supervisión jerárquica directa que requiere el puesto [cite: 16].
+Contribución:
+ Pondera el impacto real y la trascendencia de los resultados del puesto en la eficiencia global de la unidad de negocio [cite: 16].
+Encadramiento y Cooperación:
+ Analiza los requerimientos de coordinación de personal, liderazgo de equipos y cooperación transversal [cite: 16].
+Comunicación:
+ Evalúa las demandas de intercambio de información, negociación y relaciones institucionales externas o internas [cite: 16].
+La agregación de las puntuaciones de estos criterios genera una escala numérica de valoración de 6 a 60 puntos, la cual determina el encuadramiento del puesto en 18 clases profesionales, agrupadas en familias de la A a la I [cite: 16, 17]. Las posiciones que pertenecen a la categoría directiva o técnica superior (
+cadre
+) se sitúan de manera obligatoria a partir de la clase profesional F11 (un mínimo de 37 puntos en la valoración de criterios) [cite: 16, 17].
+Grupo de Empleos [cite: 18]
+Clases Profesionales [cite: 17]
+Puntos de Cotización [cite: 16]
+Caracterización de las Funciones del Puesto Tipo [cite: 16, 19]
+Grupo A
+A1 - A2
+6 - 9 puntos
+Operarios con instrucciones básicas de trabajo, tareas repetitivas y alta supervisión.
+Grupo B
+B3 - B4
+10 - 17 puntos
+Personal operativo con formación técnica de nivel medio y autonomía procedimental acotada.
+Grupo C
+C5 - C6
+18 - 25 puntos
+Especialistas técnicos de taller y soporte administrativo con formación cualificada.
+Grupo D
+D7 - D8
+26 - 32 puntos
+Personal técnico superior y tecnólogos con capacidad de resolver incidencias de mediana complejidad.
+Grupo E
+E9 - E10
+33 - 36 puntos
+Ingenieros noveles y coordinadores de equipo de soporte con autonomía para ejecutar proyectos específicos.
+Grupo F
+F11 - F12
+37 - 42 puntos
+Umbral de categoría 
+Cadre
+. Diseñadores de sistemas, ingenieros de desarrollo e investigadores.
+Grupo G
+G13 - G14
+43 - 48 puntos
+Jefes de proyectos complejos, consultores sénior y especialistas en arquitectura de sistemas.
+Grupo H
+H15 - H16
+49 - 54 puntos
+Directores de programas industriales estratégicos y científicos principales de desarrollo.
+Grupo I
+I17 - I18
+55 - 60 puntos
+Directores generales corporativos, directores de grandes centros fabriles y alta dirección técnica.
+La implantación práctica de esta metodología ha generado importantes disputas internas entre los comités sindicales y la dirección del grupo [cite: 13, 14]. Las organizaciones de representación de los trabajadores, como la CGT, sostienen que la dirección ha empleado RELOAD como un mecanismo de contención del gasto salarial directo, asignando de manera unilateral puntuaciones bajas a puestos de alta complejidad técnica para situar el Salario Mínimo Jerárquico (
+SMH
+) por debajo del salario real percibido por el empleado [cite: 13, 14]. Esta discrepancia bloquea de facto los incrementos de sueldo individuales, argumentando que el profesional ya percibe una retribución que supera los mínimos fijados por el convenio sectorial [cite: 13, 14].
+A pesar de estas tensiones, el despliegue del sistema RELOAD facilitó una reconfiguración interna de los perfiles profesionales, propiciando un total de 1.877 promociones directas en las plantas francesas de Airbus Commercial Aircraft [cite: 20]. Este volumen de ascensos se concentró de forma prioritaria en 1.555 posiciones dentro de Airbus Operations SAS y 322 en Airbus SAS [cite: 20]. El análisis pormenorizado de estas promociones refleja una clara apuesta por la profesionalización técnica y el crecimiento de la estructura ejecutiva de soporte:
+Un total de 1.020 empleados pasaron de la categoría de personal no acogido a jornada flexible ni cargos de responsabilidad (
+Non-Cadre Non forfaité
+) a la de personal técnico con flexibilidad horaria regulada por objetivos (
+Non-Cadre Forfaité
+) [cite: 20].
+Se registraron 642 promociones que supusieron el ascenso directo de profesionales no directivos a la categoría de directivos o titulados superiores de ingeniería (
+Cadre
+) [cite: 20].
+Un colectivo de 215 profesionales pertenecientes a la escala de ingenieros (
+Cadre
+) obtuvieron un ascenso de nivel hacia posiciones directivas de alta responsabilidad [cite: 20].
+Asimismo, las presiones y las comisiones de seguimiento técnico promovidas por sindicatos como FO permitieron la revisión al alza de un total de 532 descripciones de puestos tipo en Airbus Commercial Aircraft, cuyos requerimientos técnicos y responsabilidades habían sido inicialmente infravalorados por los equipos de recursos humanos [cite: 20].
+En lo referente a la alta dirección corporativa y los cargos que se sitúan a partir del denominado "Band III" (ejecutivos mundiales de primer nivel), la empresa recurre a la metodología externa de valoración de puestos provista por la firma consultora Willis Towers Watson (WTW) y al sistema interno de arquitectura organizativa "Onion" [cite: 21]. Este proceso es supervisado de manera centralizada por el equipo global de Compensación Ejecutiva (
+Executive Reward
+) para garantizar la homogeneidad de rangos a nivel de las distintas filiales nacionales [cite: 21].
+
+--------------------------------------------------------------------------------
+
+Análisis de las Condiciones Retributivas y Beneficios por País
+Francia: Salarios Mínimos y Cláusulas de Ajuste de RELOAD
+En el mercado francés, la estructura de remuneraciones de Airbus se articula en torno a la escala anual del SMH, calculada sobre una jornada laboral de referencia de 35 horas semanales, y cuya mensualidad estándar se obtiene mediante la división de la cuantía anual entre 13 pagas [cite: 17]. El convenio sectorial de la metalurgia establece que, al cierre de cada ejercicio, la retribución anual acumulada percibida por el empleado debe ser contrastada con el SMH correspondiente a su clase profesional [cite: 17]. En caso de que la suma total sea inferior a dicho límite anual garantizado, la empresa abona un complemento extraordinario de regularización salarial (
+Complément Annuel de rémunération
+) en el mes de mayo del ejercicio posterior, manteniendo inalterable el sueldo base mensual pactado individualmente [cite: 17].
+Las tablas oficiales del SMH para el año 2026 reflejan una revalorización media del 0,9% para toda la rama industrial de la metalurgia [cite: 22], estructurándose los ingresos mínimos garantizados de la siguiente forma atendiendo al régimen de jornada y el puesto tipo [cite: 17]:
+Clase Profesional
+SMH Anual 2026 (Jornada 35h)
+SMH Anual 2026 (Forfait Horario Anual)
+SMH Anual 2026 (Forfait en Días)
+SMH Anual 2026 (Sin Referencia Horaria)
+Clase 1 (A1)
+23.668 €
+—
+—
+—
+Clase 5 (C5)
+27.314 €
+31.411 €
+—
+—
+Clase 9 (E9)
+32.909 €
+37.846 €
+42.783 €
+—
+Clase 11 (F11)
+38.566 €
+44.351 €
+50.136 €
+—
+Clase 12 (F12)
+39.942 €
+45.934 €
+51.925 €
+—
+Clase 13 (G13)
+43.079 €
+49.541 €
+56.003 €
+—
+Clase 14 (G14)
+46.652 €
+53.651 €
+60.649 €
+—
+Clase 15 (H15)
+59.289 €
+—
+77.076 €
+—
+Clase 16 (H16)
+72.048 €
+—
+—
+93.663 €
+Clase 18 (I18)
+93.854 €
+—
+—
+122.011 €
+Nota: Los puestos clasificados en las escalas 1 y 2, al situarse nominalmente por debajo de los límites legales del Salario Mínimo Interprofesional (SMIC de 2026 fijado en 22.404,20 euros brutos anuales), se ajustan de manera automática para cumplir con el mínimo de obligado cumplimiento dictaminado por la legislación laboral de Francia [cite: 18, 22].
+Para contrarrestar el impacto del menor rango de entrada que sufren los jóvenes graduados menores de 24 y 27 años incorporados en las clases técnicas de ingeniería 11 y 12, Airbus aplica de manera transitoria la denominada "Rampe de lancement" (Rampa de lanzamiento) [cite: 17, 18]. Este baremo establece unos mínimos de protección salarial reducidos durante los primeros seis años de andadura profesional en la corporación [cite: 17, 18]:
+Categoría, Tramo de Edad y Tipo de Forfait [cite: 17]
+SMH Anual Reducido (Jornada 35h)
+SMH Anual Reducido (Forfait Horario)
+SMH Anual Reducido (Forfait en Días)
+Clase 11 (< 24 años) - Rampa de Salida
+33.036 €
+37.992 €
+42.947 €
+Clase 11 (< 27 años) - Rampa de Salida
+35.513 €
+40.840 €
+46.167 €
+Clase 12 (< 24 años) - Rampa de Salida
+34.902 €
+40.138 €
+45.374 €
+Clase 12 (< 27 años) - Rampa de Salida
+37.257 €
+42.845 €
+48.434 €
+
+--------------------------------------------------------------------------------
+
+Alemania: El Modelo ERA de IG Metall y Estructura de Compensación Directa
+La filial alemana del consorcio aeroespacial fundamenta sus relaciones colectivas y sus escalas de compensación económica directa en el Convenio de la Industria Metalúrgica y Eléctrica de IG Metall, aplicando el baremo de clasificación sectorial ERA (
+Entgeltrahmen-Tarifvertrag
+) [cite: 23, 24, 25]. La jornada ordinaria de convenio se fija en 35 horas semanales, calculándose la retribución bruta a partir de 12 mensualidades básicas a las que se incorporan pluses y compensaciones diferidas de obligado cumplimiento [cite: 23, 25, 26].
+Los ingenieros de nuevo ingreso con titulación de Máster acceden habitualmente con una clasificación objetiva orientada a la posición de destino EG10 [cite: 24]. Sin embargo, la falta de experiencia práctica de los egresados de menor edad (por ejemplo, perfiles con 24 años) suele motivar una incorporación inicial sujeta a las escalas de entrada de los grados EG8 o EG9, vinculada a un itinerario formativo tutorizado (
+Entwicklungsplan
+) para converger en el grado de destino en un periodo estimado de tres años [cite: 24, 27].
+La tabla de salarios base del convenio sectorial de Baviera, efectiva a partir del 1 de abril de 2026 tras contemplar un incremento de revalorización lineal del 3,1%, define las siguientes cuantías base mensuales [cite: 28]:
+Grado de Convenio (ERA Baviera)
+Nivel Inicial de Entrada (Stufe A)
+Nivel Medio Consolidado (Stufe B)
+Nivel Superior (Stufe C)
+EG 01
+ [cite: 28]
+2.741 €
+—
+—
+EG 04
+ [cite: 28]
+3.117 €
+3.207 €
+3.412 €
+EG 06
+ [cite: 28]
+3.714 €
+3.843 €
+—
+EG 08
+ [cite: 28]
+4.344 €
+4.525 €
+—
+EG 09
+ [cite: 28]
+4.757 €
+4.991 €
+—
+EG 10
+ [cite: 28]
+5.261 €
+5.528 €
+—
+EG 11
+ [cite: 28]
+5.818 €
+6.104 €
+—
+EG 12
+ [cite: 28]
+6.378 €
+6.650 €
+—
+A nivel estadístico, los registros salariales de la plantilla de Airbus en Alemania revelan un sueldo medio bruto de 75.083 euros anuales [cite: 29]. La distribución retributiva por puesto tipo muestra una estructura coherente con los niveles de responsabilidad técnica exigidos por el sector:
+Puesto de Trabajo Tipo en Airbus Alemania
+Salario Medio Anual Bruto
+Técnico / Mecánico de Equipos de Vuelo
+ [cite: 29]
+58.800 €
+Desarrollador / Ingeniero de Software
+ [cite: 29]
+76.800 €
+Gestor de Proyectos (Project Manager)
+ [cite: 29]
+82.200 €
+Ingeniero General de Sistemas / Diseño
+ [cite: 29]
+86.200 €
+Responsable de Programa (Program Manager)
+ [cite: 29]
+112.600 €
+Director / Gerente de Área (Manager)
+ [cite: 29]
+121.500 €
+En Baviera, la compensación mensual base se complementa con la prima por rendimiento individual (
+Leistungszulage
+), que teóricamente puede oscilar entre el 0% y el 28% [cite: 30]. No obstante, por acuerdo específico de empresa, esta prima por rendimiento se encuentra limitada a un máximo del 13,5% para las nuevas contrataciones, un tope que se consolida de forma automática transcurridos aproximadamente tres años de desempeño continuado en la misma posición [cite: 30].
+Por otra parte, la estructura retributiva de Airbus en el mercado alemán incorpora un conjunto de complementos anuales diferidos [cite: 26, 28]:
+Paga Extraordinaria de Navidad (
+Weihnachtsgeld
+):
+ Consiste en un decimotercer sueldo que se abona en noviembre en función de la antigüedad del empleado en la compañía [cite: 26, 28]. El porcentaje aplicable se sitúa en el 25% tras los primeros seis meses de relación laboral, el 35% al cumplir un año, el 45% a los dos años y se consolida en el 55% una vez completados los tres años de permanencia ininterrumpida en la corporación [cite: 26, 28].
+Paga de Vacaciones (
+Urlaubsgeld
+):
+ Abono anual equivalente al 69% del sueldo base mensual, desembolsado habitualmente al inicio del periodo estival de descanso en el mes de junio [cite: 25, 26].
+Tarifliches Zusatzgeld (T-ZUG):
+ Prima extraordinaria de carácter anual que se desglosa en dos tramos diferenciados: el T-ZUG A (un pago directo del 27,5% de la nómina mensual base que el empleado puede canjear, si así lo solicita, por hasta 8 días laborables de descanso adicional) y el T-ZUG B (un importe fijo no condicionado a la categoría salarial individual, calculado a partir del salario medio de referencia de la región de Baviera) [cite: 26].
+Fondo de Transformación (
+Transformationsgeld
+):
+ Equivale al 27,6% de la retribución base mensual ordinaria y se desembolsa anualmente en el mes de febrero para financiar la recualificación y el desarrollo de competencias ante la digitalización industrial del sector aeroespacial [cite: 26, 30].
+
+--------------------------------------------------------------------------------
+
+España: Grupos Profesionales, la Huelga Indefinida de 2026 y la Dualidad Sindical
+En territorio español, el marco convencional que rige las relaciones laborales de las tres filiales operativas del grupo (Airbus Operations SL, Airbus Defence and Space SAU, y Airbus Helicopters España SAU) es el VII Convenio Colectivo Interempresas, cuya resolución oficial fue publicada en el Boletín Oficial del Estado el 5 de mayo de 2025 [cite: 31]. Este marco de relaciones clasifica al personal en cinco grandes grupos profesionales (del GP2 al GP6) que ordenan jerárquicamente las funciones de talleres, áreas técnicas de soporte y puestos directivos corporativos [cite: 32].
+Grupo Profesional / Banda Salarial (Convenio España)
+Salario Mínimo Base Mensual
+Salario de Ingreso Base Anual
+Salario Máximo Base Mensual
+Salario Máximo Base Anual
+GP2 (Operarios e Ingresos de Taller)
+ [cite: 32]
+1.641,78 €
+22.985 €
+2.632,78 €
+36.859 €
+GP3 (Especialistas Técnicos y Administrativos)
+ [cite: 32]
+1.909,44 €
+26.732 €
+3.363,35 €
+47.087 €
+GP4 (Salario de Acceso de Ingenieros)
+ [cite: 32]
+2.268,84 €
+31.764 €
+2.765,62 €
+38.719 €
+GP4 - Banda VI (Ingenieros Consolidados)
+ [cite: 32]
+2.765,62 €
+38.719 €
+4.496,58 €
+62.952 €
+GP5 - Banda V.2 (Jefaturas Técnicas)
+ [cite: 32]
+3.462,20 €
+48.471 €
+6.240,85 €
+87.372 €
+GP6 - Banda V.1 (Especialistas y Directores)
+ [cite: 32]
+4.153,99 €
+58.156 €
+7.381,15 €
+103.336 €
+La retribución ordinaria en España se complementa mediante pluses específicos regulados de forma minuciosa por el convenio interempresas [cite: 31, 32]:
+Plus de Antigüedad (Quinquenios):
+ Una prima fija mensual de 46,79 euros brutos que se devenga y acumula de manera automática por cada cinco años de servicio continuado dentro de la corporación para los grupos del GP2 al GP6 [cite: 32].
+Pluses por Turnos y Nocturnidad:
+ Compensaciones de carácter horario consistentes en un plus de doble turno (0,88 euros/hora), plus de triple turno (1,06 euros/hora) y plus de nocturnidad (2,54 euros/hora), orientadas a retribuir la rotación de los equipos de fabricación [cite: 31, 32].
+Trabajos Especiales en Línea de Vuelo:
+ Un complemento específico de 0,45 euros por cada hora efectiva de trabajo desempeñada en pistas de despegue y hangares de pruebas aerodinámicas [cite: 31, 32].
+Calendario de Saturación y Jornadas Especiales:
+ Un plus de 17,77 euros por cada hora de prolongación de jornada desempeñada bajo regímenes especiales de producción que requieran de un calendario de saturación fabril [cite: 32].
+El Conflicto Colectivo de 2026: Negociación, Preacuerdo de Julio y Reactivación de la Huelga en Agosto
+Durante el ejercicio de 2026, la filial de Airbus en España se vio inmersa en un conflicto laboral de gran intensidad que derivó en la convocatoria de movilizaciones a partir de julio y culminó en una huelga indefinida con una afectación directa sobre el 40% de la plantilla del consorcio en el país (equivalente a unos 14.000 profesionales de las divisiones de aviación civil, espacio y helicópteros) [cite: 8, 33, 34]. Los detonantes principales de la protesta incluían la pérdida de poder adquisitivo acumulada desde la pandemia (que los sindicatos cifraban en torno a un 9%) [cite: 35], la directriz corporativa de limitar el teletrabajo a un único día presencial a la semana [cite: 35], la imposición patronal de disfrutar de manera obligatoria de tres semanas de vacaciones en agosto bloqueando la conciliación de los trabajadores [cite: 35], la suspensión unilateral del complemento por incapacidad temporal aplicada por la dirección como medida de control del absentismo [cite: 35], y el temor de que la segregación del negocio de satélites en la joint venture "Bromo" debilitara la representatividad laboral de la división de espacio [cite: 35].
+Para desbloquear las negociaciones, en la madrugada del 23 de julio de 2026, la dirección de Airbus y los sindicatos mayoritarios CCOO, SIPA y ATP alcanzaron un preacuerdo de mediación encaminado a garantizar la paz social y regular las condiciones sociolaborales del grupo hasta el ejercicio de 2031 [cite: 35]. No obstante, este preacuerdo fue rechazado de plano por las centrales sindicales UGT y CGT por considerarlo insuficiente en sus dotaciones financieras [cite: 35].
+Los compromisos alcanzados en el preacuerdo de julio de 2026 contemplaban las siguientes medidas reguladoras [cite: 35]:
+Acuerdo Salarial Plurianual (2026-2031):
+ Un marco de incrementos salariales diseñado para neutralizar la inflación y recuperar el poder adquisitivo de los empleados [cite: 35]. Para los ejercicios de 2026 y 2027, se fijó un incremento fijo garantizado de sueldo del 5%, blindando un suelo de aumento del IPC más el 1,5% si la inflación de mercado superaba la barrera del 3,5% [cite: 35]. Para los años 2028 y 2029, la revalorización se estableció en el IPC más un diferencial garantizado del 1% [cite: 35]. En los ejercicios 2030 y 2031, se acordó aplicar un diferencial de cierre para asegurar que el incremento neto acumulado de sueldo del periodo completo alcanzara de forma consolidada el IPC más un 7,6% de ganancia real [cite: 35]. Estos aumentos entraban en vigor con carácter retroactivo a fecha del 1 de abril de 2026, fijándose además un pago extraordinario de compensación de 2.000 euros brutos para paliar el desfase de retribuciones del primer trimestre del año [cite: 35].
+Teletrabajo y Flexibilidad de Vacaciones:
+ Se mantuvo la vigencia de los convenios de teletrabajo anteriores (permitiendo una media de dos días de trabajo en remoto para el personal de oficinas) y se extendieron estas mismas condiciones protectoras a los empleados de nuevo ingreso, neutralizando el plan de recorte del consejero delegado global [cite: 35]. De forma paralela, se eliminó la obligatoriedad de disfrutar de las tres semanas de vacaciones en agosto, garantizándose la flexibilidad de negociación de un mínimo de dos semanas flexibles de vacaciones anuales por planta para ajustarlas a las necesidades de conciliación de los trabajadores [cite: 35].
+Restauración del Complemento por IT:
+ Airbus se comprometió formalmente a dejar en suspenso la penalización de los complementos salariales por baja médica mientras el Tribunal Supremo se pronunciaba de manera definitiva sobre el recurso de casación interpuesto por la multinacional contra la sentencia anulatoria previa de la Audiencia Nacional, deteniendo además la aplicación del polémico índice Bradford de control de absentismo y abriendo una mesa sectorial de prevención de la salud [cite: 35, 36].
+Seguridad Laboral ante la Segregación de "Bromo":
+ Se garantizó que el personal adscrito a la joint venture europea de espacio "Bromo" continuará amparado bajo el marco del VII Convenio Colectivo Interempresas de Airbus, asegurándose de esta manera sus derechos de retribución, antigüedad y la preservación de un canal de retorno prioritario a la matriz de aviación [cite: 35].
+A pesar de las expectativas generadas por el preacuerdo de julio, el conflicto no quedó resuelto en todas las asambleas locales de los centros de trabajo [cite: 37]. El 26 de agosto de 2026, los comités de huelga convocaron de nuevo paros generales tras someterse la última propuesta retributiva de la multinacional a votación en los comités de planta, donde el rechazo mayoritario de las bases sindicales lideradas por UGT y CGT propició el inicio de una huelga indefinida [cite: 37]. Los portavoces sindicales reportaron una adhesión a la huelga del 90% del personal de producción en el paro del martes 25 de agosto de 2026, denunciando que las propuestas de mediación carecían de dotación presupuestaria garantizada para el transporte y los complementos de las jornadas reducidas de los turnos especiales [cite: 37]. Esta reactivación del conflicto supuso una importante ralentización de las líneas de producción militar y comercial, amenazando el cumplimiento de la exigente meta de entregas anuales del grupo [cite: 37].
+
+--------------------------------------------------------------------------------
+
+Reino Unido: Graduate Scheme, Salarios Técnicos y Complejidad de los Fondos de Pensión
+En las plantas industriales británicas de Filton y Broughton, Airbus aplica una jornada de trabajo ordinaria de 35 horas semanales de lunes a viernes, complementada por un sistema retributivo altamente competitivo en el contexto del sector manufacturero de las islas [cite: 38, 39]. Los jóvenes profesionales que acceden a través de los programas de inserción de desarrollo profesional (
+Graduate Schemes
+) inician su andadura en la multinacional aeroespacial con un sueldo bruto de entrada fijado en aproximadamente 29.000 libras anuales, una retribución que se sitúa en la media del mercado pero por debajo de los incentivos de entrada que ofrecen firmas de automoción o consultoría de la región de Bristol [cite: 40]. Tras completar los primeros tres años de andadura, las trayectorias de promoción estiman una revalorización del sueldo hasta alcanzar un rango de unas 35.000 libras anuales, el cual se consolida entre las 40.000 y 55.000 libras anuales para aquellos perfiles que acreditan entre cinco y diez años de experiencia técnica continuada en el consorcio [cite: 40].
+Para el personal de taller, un montador aeronáutico cualificado de Belfast (
+Skilled Aircraft Fitter
+) percibe un salario base mensual que oscila entre las 32.495 y las 35.367 libras anuales [cite: 41]. Al incorporar pluses específicos de rotación de turnos y horas extraordinarias programadas, los ingresos de estos operarios superan con regularidad las 40.000 libras anuales brutas [cite: 41].
+Por otro lado, la complejidad del sistema retributivo británico de Airbus radica en la estructuración de sus beneficios diferidos y en la existencia de cinco fondos de pensiones o planes de jubilación históricos diferenciados denominados "Schedules" [cite: 42, 43, 44, 45, 46]:
+Fondo de Pensión (Schedules Reino Unido)
+Régimen de Previsión Social
+Tasa de Aportación del Trabajador (Vía Sacrificio de Sueldo)
+Tasa de Aportación Garantizada de la Empresa
+Características y Beneficios Complementarios
+Schedule 1
+ [cite: 46]
+Esquema Híbrido
+Sujeto a límites de cotización acumulados
+Aportación variable de equilibrio
+Combina una pensión de prestación definida de sueldo final con una cuenta de inversión de aportación definida gestionada por Legal & General. Cerrado a nuevas altas [cite: 46].
+Schedule 2
+ [cite: 42]
+Prestación Definida Final
+8% del sueldo de cotización
+Aportación de cobertura ordinaria
+Fondo clásico de reparto sobre el salario final de jubilación. Ofrece coberturas de matching alternativas y aportaciones adicionales de voluntariado (AVC) [cite: 42].
+Schedule 3
+ [cite: 43]
+Prestación Definida Modular
+Variable según nivel de aportación: 7,29%, 9,29% o 17%
+Aportación de cobertura ordinaria
+Permite al cotizante seleccionar anualmente su porcentaje de cobertura de jubilación de base (Nivel 125, Nivel 167 o Nivel 200). Cerrado a nuevos ingresos [cite: 43].
+Schedule 4
+ [cite: 45]
+Aportación Definida (The Retirement Plan)
+4% del sueldo de cotización (inicial)
+6% del sueldo de cotización (inicial)
+Régimen obligatorio estándar para todas las incorporaciones de personal desde el año 2013. Permite escalar la cuota al 5% o 6% con matching patronal del 7% y 8% [cite: 45].
+Schedule 5
+ [cite: 44]
+Aportación Cerrada por Edad
+5% del sueldo de cotización
+Variable por tramos de edad: de 10% a 21%
+Diseñado históricamente para incentivar la permanencia de los perfiles más veteranos. Ofrece coberturas de matching mejoradas del plan SMART (de 10,69% a 21,69%) [cite: 44].
+En lo que respecta a las coberturas de fallecimiento en activo, los miembros acogidos a los fondos históricos del Schedule 5 disfrutan de una indemnización garantizada para sus beneficiarios equivalente a tres veces el sueldo bruto anual [cite: 44], cuantía que se eleva hasta las seis anualidades completas de salario bruto garantizado para todos aquellos empleados que se encuentran encuadrados en los esquemas modernos de aportación definida del Schedule 4 [cite: 45].
+
+--------------------------------------------------------------------------------
+
+Mecanismos de Retribución de la Alta Dirección y Gobernanza ESG
+La política de retribuciones del equipo ejecutivo y de la alta dirección de Airbus se rige por un estricto modelo de supervisión aprobado de forma colegiada por el Consejo de Administración de la sociedad, con el asesoramiento técnico especializado del Comité de Nombramientos, Retribuciones y Gobernanza [cite: 47]. Este marco corporativo persigue alinear los intereses de los gestores con la creación de valor a largo plazo y el cumplimiento de las metas socioambientales de sostenibilidad integradas en la estrategia de la compañía [cite: 47].
+La compensación económica directa que percibe el consejero delegado del consorcio (CEO) se compone de un sueldo básico anual de carácter fijo, una prima variable de incentivos a corto plazo y una adjudicación anual de opciones sobre acciones de la compañía sujeta al cumplimiento del plan de incentivos a largo plazo (LTIP) [cite: 47]. Las estadísticas del ejercicio de 2024 muestran la siguiente estructuración porcentual de la retribución total diferida y las variables de gobernanza de la alta dirección [cite: 47]:
+La compensación de carácter variable del consejero delegado se compone en proporciones idénticas (un 50% y un 50% respectivamente) por incentivos financieros de rendimiento a corto plazo e incentivos de crecimiento del capital a largo plazo de la compañía [cite: 47].
+La prima variable de corto plazo se vincula en un 50% a objetivos corporativos generales de eficiencia financiera y en otro 50% al cumplimiento de un conjunto común de objetivos colectivos de sostenibilidad socioambiental [cite: 47].
+Dentro de estos objetivos colectivos, las métricas ESG de sostenibilidad representan de manera agregada un peso específico del 20% en la valoración de los incentivos financieros directos del equipo directivo [cite: 47].
+La ponderación interna de estas métricas ESG se reparte en proporciones idénticas (un 10% y un 10% respectivamente) entre dos grandes metas de desempeño de la organización: el cumplimiento estricto del calendario de reducción de emisiones de gases de efecto invernadero (Scopes 1 y 2, alineado con el plan de descarbonización industrial de la Unión Europea) y la tasa global de frecuencia de accidentes de trabajo con baja médica del personal en activo de las plantas (indicador de salud laboral FR1) [cite: 47].
+Este esquema de retribuciones variables directas para los altos directivos y miembros del comité de dirección general se ha consolidado en todas las divisiones industriales de Airbus [cite: 47]. El modelo de gobernanza del grupo persigue de esta manera integrar de forma real y efectiva la seguridad ocupacional y el control medioambiental en la toma de decisiones empresariales cotidianas del consorcio [cite: 1, 47].
+
+--------------------------------------------------------------------------------
+
+Conclusiones Estratégicas y Perspectivas de Atracción de Talento
+El análisis pormenorizado de las condiciones de remuneración, clasificación y relaciones colectivas de Airbus pone de manifiesto la existencia de un escenario de transición compleja en el que coexisten diversos factores de riesgo organizativo y de competencia por el talento [cite: 1, 8]. La multinacional aeroespacial se enfrenta al reto ineludible de coordinar las presiones productivas y de incremento del ritmo de entregas industriales de su aviación civil con la creciente demanda de flexibilidad, conciliación familiar y retribuciones competitivas que caracteriza al mercado laboral contemporáneo de la ingeniería [cite: 8, 33].
+La necesidad de integrar de forma masiva a nuevos perfiles profesionales de alta capacitación científica (tales como analistas de ciberseguridad, ingenieros de desarrollo de software, científicos de datos y especialistas en arquitectura de inteligencia artificial aplicada a la aviónica) obliga al consorcio a competir de manera directa con firmas tecnológicas globales y compañías de desarrollo de servicios digitales [cite: 8, 48]. En este mercado de alta competencia sectorial, Airbus adolece de cierta rigidez organizativa frente a las políticas de retribución por objetivos y las dinámicas de flexibilidad extrema de las startups digitales [cite: 8]. Adicionalmente, el relevo generacional derivado de las jubilaciones masivas de la pospandemia (que ha provocado que un tercio de la fuerza laboral total de la empresa cuente con menos de tres años de antigüedad en el consorcio) incrementa la complejidad del proceso de transferencia y consolidación de competencias técnicas entre los veteranos de la fabricación y el nuevo personal [cite: 8, 33, 34].
+Por último, la resolución progresiva de los conflictos laborales en España y la exitosa adaptación de los modelos de clasificación de puestos en Francia determinarán la viabilidad del plan de descarbonización industrial, la retención de los ingenieros más jóvenes de su Graduate Scheme y la consolidación de un clima de paz social duradero que permita al grupo mantener su hegemonía en el sector de la aviación comercial y militar a nivel global [cite: 1, 8, 35, 40].
+
+--------------------------------------------------------------------------------
+
+Airbus Day | PDF | Airbus | Amber - Scribd, 
+https://www.scribd.com/document/1058039508/Airbus-Day
+https://www.scribd.com/document/1058039508/Airbus-Day
+Documentation for the Annual General Meeting - Airbus, 
+https://www.airbus.com/sites/g/files/jlcbta136/files/2021-09/agm-08-documentation-en.pdf
+https://www.airbus.com/sites/g/files/jlcbta136/files/2021-09/agm-08-documentation-en.pdf
+Airbus Annual Report 2024 Overview - Scribd, 
+https://www.scribd.com/document/888650650/Airbus-Annual-Report-Overview-2024
+https://www.scribd.com/document/888650650/Airbus-Annual-Report-Overview-2024
+Airbus Annual Report 2022 Overview | PDF | Orion (Spacecraft) | Sustainability - Scribd, 
+https://www.scribd.com/document/656488817/Airbus-Annual-Report-Overview-2022
+https://www.scribd.com/document/656488817/Airbus-Annual-Report-Overview-2022
+Airbus reports Half-Year (H1) 2022 results, 
+https://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results
+https://www.airbus.com/en/newsroom/press-releases/2022-07-airbus-reports-half-year-h1-2022-results
+Airbus reports Full-Year (FY) 2023 results, 
+https://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results
+https://www.airbus.com/en/newsroom/press-releases/2024-02-airbus-reports-full-year-fy-2023-results
+Airbus reports First Quarter (Q1) 2023 results, 
+https://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results
+https://www.airbus.com/en/newsroom/press-releases/2023-05-airbus-reports-first-quarter-q1-2023-results
+Airbus backs down on four-day office plan after employee protests - Air Data News, 
+https://www.airdatanews.com/airbus-backs-down-on-four-day-office-plan-after-employee-protests/
+https://www.airdatanews.com/airbus-backs-down-on-four-day-office-plan-after-employee-protests/
+Airbus: Global Presence and Operations | PDF | Computers | Technology & Engineering - Scribd, 
+https://www.scribd.com/doc/280484149/Fim-Report-Airbus-Group-6
+https://www.scribd.com/doc/280484149/Fim-Report-Airbus-Group-6
+Passion for progress - Radar du devoir de vigilance, 
+https://plan-vigilance.org/wp-content/uploads/vigilance-pdf/a468a75ff42914b0e276f6e7f12a7b7f.pdf
+https://plan-vigilance.org/wp-content/uploads/vigilance-pdf/a468a75ff42914b0e276f6e7f12a7b7f.pdf
+Airbus Annual Report 2024 - Bnains.org, 
+https://www.bnains.org/archives/communiques/EADS/20250225_Annual_report_2024_Airbus_EN.pdf
+https://www.bnains.org/archives/communiques/EADS/20250225_Annual_report_2024_Airbus_EN.pdf
+Airbus in France, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-france
+RELOAD: two years of damage and growing dissatisfaction!, 
+https://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/
+https://avions.cgtairbus.com/english/reload-two-years-of-damage-and-growing-dissatisfaction/
+Classification Survey: The Results - CGT Airbus Commercial Aircraft, 
+https://avions.cgtairbus.com/english/classification-survey-the-results/
+https://avions.cgtairbus.com/english/classification-survey-the-results/
+RELOAD – Classification - My CFE-CGC Airbus, 
+https://airbus.avions.cfe-cgc.fr/2022/10/06/reload-classification-3/
+https://airbus.avions.cfe-cgc.fr/2022/10/06/reload-classification-3/
+inFO RELOAD – Classification #1 - FO AIRBUS TLSE, 
+https://www.fo-airbus-operations-toulouse.fr/actus/i/61724303/article-n-907
+https://www.fo-airbus-operations-toulouse.fr/actus/i/61724303/article-n-907
+Grille des minima - CGT Airbus Defence & Space Toulouse, 
+https://www.cgt-airbusds.com/grille-des-minima/
+https://www.cgt-airbusds.com/grille-des-minima/
+Minima Métallurgie | La CGT ATOS-BULL, 
+https://www.cgtatos.org/minima-metallurgie/
+https://www.cgtatos.org/minima-metallurgie/
+Salaire minimum (SMIC) 2026 : montant net et brut - Transport aérien : personnel au sol, 
+https://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum
+https://code.travail.gouv.fr/contribution/275-quel-est-le-salaire-minimum
+Classification: current status for Airbus Commercial, 
+https://www.lesyndicat.info/news/i/79523791/classification-current-status-airbus-commercial
+https://www.lesyndicat.info/news/i/79523791/classification-current-status-airbus-commercial
+Group Grading Expert (f/h) @ Airbus | Imagine Job Board, 
+https://jobs.joinimagine.com/companies/airbus/jobs/62931251-group-grading-expert-f-h
+https://jobs.joinimagine.com/companies/airbus/jobs/62931251-group-grading-expert-f-h
+Nouvelle grille de salaires de la Convention Métallurgie 2026 - Juritravail, 
+https://www.juritravail.com/Actualite/grille-de-salaires-convention-collective-unique-metallurgie/Id/376656
+https://www.juritravail.com/Actualite/grille-de-salaires-convention-collective-unique-metallurgie/Id/376656
+Ausbildung in Deutschland - Airbus, 
+https://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany
+https://www.airbus.com/de/careers/students-and-graduates/apprentices/apprenticeships-in-germany
+Wie viel kann ich für einen ersten Job als Ingenieur bei Airbus in Deutschland verlangen? : r/germany - Reddit, 
+https://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de
+https://www.reddit.com/r/germany/comments/znbjm0/how_much_can_i_ask_for_a_first_engineer_job_in/?tl=de
+IG Metall Tariftabelle 2026 Hamburg/Unterweser – ERA Entgelttabelle, 
+https://www.era-rechner.de/entgelttabelle-hamburg.html
+https://www.era-rechner.de/entgelttabelle-hamburg.html
+IG Metall Gehaltsrechner: ERA Entgeltrechner 2026, 
+https://www.era-rechner.de/
+https://www.era-rechner.de/
+Gehaltsstufen IG Metall / Airbus DS : r/arbeitsleben - Reddit, 
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/
+https://www.reddit.com/r/arbeitsleben/comments/1uf0qpz/gehaltsstufen_ig_metall_airbus_ds/
+Entgelttabelle Metall & Elektro in Bayern, 
+https://bayern.igmetall.de/aktuell/metall--und-elektroindustrie
+https://bayern.igmetall.de/aktuell/metall--und-elektroindustrie
+Wie viel verdient man bei Airbus? Dein Gehaltseinblick - kununu News, 
+https://news.kununu.com/einblick-gehalt-airbus/
+https://news.kununu.com/einblick-gehalt-airbus/
+Wie im IGM-Tarif aufsteigen - Mikrocontroller.net, 
+https://www.mikrocontroller.net/topic/528085
+https://www.mikrocontroller.net/topic/528085
+Disposición 9799 del BOE núm. 119 de 2025, 
+http://convenios.ugtandalucia.es/gestion/ficheros/2025-05-17%20%20Airbus.pdf
+http://convenios.ugtandalucia.es/gestion/ficheros/2025-05-17%20%20Airbus.pdf
+Tablas Salariales Airbus 2022 | PDF | Ética de negocios | Economía demográfica - Scribd, 
+https://www.scribd.com/document/706584424/Tablas-2022
+https://www.scribd.com/document/706584424/Tablas-2022
+Airbus backs down on return-to-office after protests, sources say - CP24, 
+https://www.cp24.com/news/world/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/
+https://www.cp24.com/news/world/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/
+Airbus backs down on return-to-office after protests, sources say - BNN Bloomberg, 
+https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/
+https://www.bnnbloomberg.ca/business/company-news/2026/08/21/airbus-backs-down-on-return-to-office-after-protests-sources-say/
+Airbus y tres sindicatos firman un preacuerdo para desbloquear la producción y blindar a los empleados que pasen a Bromo - Industry Talks, 
+https://industrytalks.es/airbus-y-tres-sindicatos-firman-un-preacuerdo-para-desbloquear-la-produccion-y-blindar-a-los-empleados-que-pasen-a-bromo/
+https://industrytalks.es/airbus-y-tres-sindicatos-firman-un-preacuerdo-para-desbloquear-la-produccion-y-blindar-a-los-empleados-que-pasen-a-bromo/
+CCOO logra un preacuerdo con importantes avances en salarios y derechos, 
+https://industria.ccoo.es/noticia:764664--CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos&opc_id=14d9a05d1dad008126cf50f5898eb5a4
+https://industria.ccoo.es/noticia:764664--CCOO_logra_un_preacuerdo_con_importantes_avances_en_salarios_y_derechos&opc_id=14d9a05d1dad008126cf50f5898eb5a4
+Airbus employees in Spain resume strike after rejecting offer | live - Euronext Markets, 
+https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer
+https://live.euronext.com/en/financial-news/airbus-employees-spain-resume-strike-after-rejecting-offer
+Semi-Skilled Aircraft Fitter Jobs - Careers at Airbus UK - Guidant Global, 
+https://airbus.guidantglobal.com/semi-skilled-aircraft-fitter
+https://airbus.guidantglobal.com/semi-skilled-aircraft-fitter
+Supply Chain and Quality Manager - Myworkdayjobs.com, 
+https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Supply-Chain-and-Quality-Manager_JR10421050
+https://ag.wd3.myworkdayjobs.com/en-US/Airbus/job/Supply-Chain-and-Quality-Manager_JR10421050
+Salary comparison between Bangalore and Bristol - Reddit, 
+https://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/
+https://www.reddit.com/r/bristol/comments/y76y4a/salary_comparison_between_bangalore_and_bristol/
+Aircraft Fitter at Airbus | Flexa Careers, 
+https://flexa.careers/jobs/airbus-aircraft-fitter-69effd4386f78699dd38440b
+https://flexa.careers/jobs/airbus-aircraft-fitter-69effd4386f78699dd38440b
+Airbus UK Pension Scheme | Schedule 2, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-2
+Airbus UK Pension Scheme | Schedule 3, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-3
+Airbus UK Pension Scheme | Retirement Plan Schedule 5, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-5
+Airbus UK Pension Scheme | Retirement Plan Schedule 4, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-4
+Airbus UK Pension Scheme | Schedule 1, 
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1
+https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-europe/airbus-in-the-united-kingdom/airbus-uk-pension-schedule-1
+Airbus - CSRD Report Reviews - BWD Strategic, 
+https://csrd.bwdstrategic.com/company/airbus
+https://csrd.bwdstrategic.com/company/airbus
+Digital and IT Careers - Airbus, 
+https://www.airbus.com/en/careers/professionals/digital-it-careers
+https://www.airbus.com/en/careers/professionals/digital-it-careers

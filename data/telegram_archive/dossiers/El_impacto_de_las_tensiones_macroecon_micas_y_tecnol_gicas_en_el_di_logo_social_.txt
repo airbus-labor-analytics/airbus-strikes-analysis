@@ -1,0 +1,300 @@
+# El impacto de las tensiones macroeconómicas y tecnológicas en el diálogo social europeo (2021–2026): renegociación salarial, flexibilidad laboral y la gobernanza del teletrabajo
+Categoría: Dossier Económico / Técnico
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+El impacto de las tensiones macroeconómicas y tecnológicas en el diálogo social europeo (2021–2026): renegociación salarial, flexibilidad laboral y la gobernanza del teletrabajo
+La respuesta de la industria pesada ante la crisis inflacionaria
+La reactivación de la negociación colectiva en el sector industrial europeo durante el ciclo de alta inflación (2021–2026) ha estado marcada por una escalada de la conflictividad y por el desarrollo de complejos mecanismos de salvaguarda salarial. Las organizaciones sindicales y empresariales han abandonado progresivamente las fórmulas de incremento fijo no consolidable para adoptar esquemas dinámicos de indexación, reajustes en la ordenación de la jornada y complementos de penosidad que compensen la pérdida acumulada de poder adquisitivo.
+En el sector aeroespacial, las tensiones salariales en Airbus Francia entre 2022 y 2024 reflejaron la presión de las plantillas por contrarrestar la inflación estructural en un periodo de óptimo rendimiento financiero de la firma [cite: 1]. El conflicto derivó en un acuerdo salarial que fijó una subida acumulada del 6,8% estructurada en escalones temporales, respaldado por una cláusula de revisión específica por IPC para responder a las variaciones del coste de la vida y un pago extraordinario inicial de 1.500 euros [cite: 2]. El pacto evidenció debates técnicos de calado, como la interacción de estas subidas con el salario mínimo jerárquico (SMH) y las fórmulas para evitar la absorción de complementos salariales básicos [cite: 3], todo ello bajo la estrecha vigilancia de sindicatos como la CGT y FO en las factorías de Toulouse y Airbus Atlantic [cite: 1, 3, 4].
+En España, las provincias de Ourense y Cádiz se convirtieron en epicentros de la conflictividad metalúrgica. El conflicto del metal de Ourense (2022–2024) desencadenó una huelga sectorial de 16 días que paralizó de forma indefinida la industria provincial a finales de 2022 [cite: 5, 6]. El convenio colectivo suscrito contempló subidas escalonadas del 5% para 2022, 5,5% para 2023 y 4,5% para 2024 [cite: 7]. Su blindaje económico descansó sobre una cláusula de garantía salarial ligada a la suma de los IPC reales de dicho trienio, sujeta a un tope máximo del 18%, combinada con una reducción de la jornada laboral anual y la regulación de preavisos para el cese voluntario [cite: 7, 8]. La dureza de este conflicto conllevó una severa judicialización por altercados y desperfectos en el polígono industrial de San Cibrao das Viñas y Carballiño, proyectando vistas penales hasta marzo de 2027 [cite: 5, 6].
+Por su parte, el sector del metal de Cádiz ha protagonizado dos ciclos diferenciados de alta intensidad huelguística. El conflicto de Cádiz 2021 se saldó con una huelga indefinida de nueve días caracterizada por enfrentamientos urbanos y cargas policiales [cite: 9]. El convenio de transición (2021–2023) resultante de esta movilización pactó un incremento del 2% anual, incorporando una cláusula de revisión técnica que actualizaba el 80% de la diferencia entre el IPC real acumulado y el incremento inicial garantizado [cite: 9, 10]. El resultado de este acuerdo sirvió de referencia directa para que provincias vecinas como Sevilla negociaran de forma concertada sus convenios para el periodo 2021–2023, logrando incrementos de entre el 9% y el 13% en función de la inflación de dichos años. Posteriormente, Sevilla consolidó su marco mediante el convenio 2024–2026, el cual fijó incrementos iniciales del 3% anual, complementados con cláusulas de revisión diferidas con efectos en enero de 2026 si la inflación acumulada superaba los límites proyectados [cite: 11, 12].
+La inestabilidad laboral retornó a la Bahía de Cádiz con el estallido del conflicto del metal de Cádiz 2025 [cite: 10]. Las asambleas y sindicatos sectoriales bloquearon el inicio de la negociación del nuevo convenio apoyándose en la ultraactividad del convenio de 2021 para preservar las condiciones de partida [cite: 13]. La plataforma de reivindicaciones exigió la revalorización salarial estricta conforme al IPC real [cite: 9, 14], la regulación de coeficientes reductores para favorecer la jubilación anticipada de los operarios expuestos a entornos de producción severos [cite: 13], y la restitución incondicionada del plus de toxicidad, penosidad, peligrosidad y turnicidad (PPTP), suprimido en el año 2013 [cite: 9].
+El desbloqueo del conflicto de Cádiz de 2025 se instrumentó mediante un laudo de mediación coordinado por el Consejo Andaluz de Relaciones Laborales (CARL) [cite: 15]. Este acuerdo estableció un marco de estabilidad extraordinario de siete años de vigencia (2024–2031) [cite: 15]. Sus condiciones salariales clave incluyeron un incremento del 3% en 2024 (con abono de atrasos retroactivos) y del 2,8% en 2025 [cite: 9, 16], garantizando la revalorización de las tablas salariales de acuerdo con el IPC anual consolidado desde ese momento hasta el final de la vigencia en 2030 [cite: 9].
+El laudo de Cádiz integró además la recuperación progresiva del plus PPTP hasta alcanzar una cuantía de 5,75 euros diarios en 2030 [cite: 9]. No obstante, el pacto generó profundas divisiones en el seno de la representación de los trabajadores y tensiones en las asambleas, al institucionalizar un Salario de Nuevo Ingreso (SNI) que permite recortar al 75% el salario base de los nuevos trabajadores sin experiencia durante los primeros 18 meses de contratación [cite: 9]. Igualmente, se limitó el tiempo máximo de inactividad de los trabajadores fijos discontinuos de las contratas a seis meses [cite: 15], lo que motivó el rechazo de sindicatos alternativos y asambleas de base, desembocando en paros paralelos y procesos judiciales con 24 trabajadores encausados [cite: 10, 17, 18].
+En el contexto europeo, la industria metalúrgica y eléctrica de Alemania, nucleada en torno a IG Metall, adoptó una estrategia de negociación innovadora durante la ronda tarifaria 2024–2026 [cite: 19]. Tras huelgas de advertencia masivas que movilizaron a más de 620.000 operarios ante las puertas de las fábricas [cite: 19, 20], se firmó un acuerdo de 25 meses de duración, con vigencia hasta el 31 de octubre de 2026 [cite: 19, 21]. Las condiciones salariales incluyeron un aumento escalonado del 2% a partir de abril de 2025 y un 3,1% adicional desde abril de 2026, amortiguados por un pago único de 600 euros a principios de 2025 para compensar la inflación acumulada [cite: 19, 21].
+La particularidad estructural del acuerdo alemán radicó en la flexibilización de los tiempos de trabajo y en las garantías sociales: el Pago Suplementario Tarifario (T-ZUG B) se incrementó de forma permanente del 18,5% al 26,5% del salario base a partir de febrero de 2026 para actuar como una compensación social de carácter distributivo [cite: 19, 20, 22]. El acuerdo simplificó y amplió además las opciones para que los trabajadores sometidos a condiciones de turnicidad, cuidado de hijos o atención a dependientes puedan canjear este suplemento por tiempo libre (hasta 8 días de descanso anuales), extendiendo este derecho de conversión de manera pionera a las plantillas contratadas a tiempo parcial [cite: 19, 20].
+Conflicto y Ámbito
+Duración de la Huelga / Paros
+Incremento Salarial Acordado
+Cláusulas de Revisión y Garantía de IPC
+Medidas de Flexibilidad y Pluses
+Airbus Francia (2022–2024)
+ [cite: 23]
+Paros intermitentes por centro de trabajo [cite: 1]
+6,8% acumulado en escalones temporales [cite: 2]
+Cláusula de revisión salarial activa a principios de 2023 por IPC [cite: 2]
+Abono de una prima extraordinaria de 1.500 euros [cite: 2]; debate sobre límites de absorción del SMH [cite: 3].
+Metal de Ourense (2022–2024)
+ [cite: 7]
+16 días de huelga sectorial indefinida [cite: 5, 6]
+5% (2022), 5,5% (2023), 4,5% (2024) [cite: 7]
+Garantía ligada al IPC real acumulado de los tres años con tope máximo del 18% [cite: 7]
+Reducción de la jornada de trabajo anual efectiva y regulación de preavisos por cese [cite: 7, 8].
+Metal de Cádiz 2021
+ [cite: 9]
+9 días de huelga sectorial indefinida [cite: 9]
++2% anual durante el periodo 2021–2023 [cite: 9]
+Cláusula de revisión al 80% de la diferencia entre el IPC real y el 2% pactado [cite: 9]
+Convenio referencial que impulsó reajustes en cascada en provincias limítrofes [cite: 9, 10].
+Metal de Sevilla (2021–2026)
+ [cite: 12]
+Movilizaciones de apoyo y concertación paritaria [cite: 10]
+9% al 13% en el periodo 2021–2023; 3% en el año 2024 [cite: 12]
+Cláusula de ajuste al IPC real acumulado en 2021-2023 y revisión adicional de 1,75% en 2026 [cite: 11]
+Salario de nuevo ingreso regulado al 75% para contratos en prácticas [cite: 12].
+Metal de Cádiz 2025
+ [cite: 15]
+Paros indefinidos parciales y piquetes sectoriales [cite: 10, 18]
+3% (2024 con atrasos) y 2,8% (2025) [cite: 9, 16]
+Actualización de tablas según el IPC real anual hasta el fin del ciclo en 2030 [cite: 9]
+Recuperación progresiva del plus PPTP [cite: 9]; creación del Salario de Nuevo Ingreso al 75% [cite: 9].
+IG Metall Alemania (2024–2026)
+ [cite: 19]
+Huelgas de advertencia masivas (620.000 operarios) [cite: 19]
+2% (abril de 2025), 3,1% (abril de 2026) [cite: 19]
+Pago único extraordinario de 600 euros en febrero de 2025 [cite: 19, 21]
+Incremento de T-ZUG B al 26,5% [cite: 19] y ampliación de canje de salario por tiempo de descanso [cite: 20].
+
+--------------------------------------------------------------------------------
+
+2. Acuerdos salariales marco, distribución comercial e industrias agroalimentarias
+Fuera de la industria pesada, las relaciones colectivas en España buscaron un cauce macroeconómico de estabilidad a través de la firma del Quinto Acuerdo para el Empleo y la Negociación Colectiva (V AENC) para el periodo 2023–2025 [cite: 24]. Este acuerdo tripartito de recomendación estatal fijó una pauta de incrementos salariales del 4% para 2023, del 3% para 2024 y del 3% para 2025 [cite: 24]. Su principal aportación como instrumento de paz social fue el diseño de una cláusula de revisión salarial de hasta el 1% adicional si el IPC real anual superaba los incrementos pactados en cada ejercicio, con el objetivo de encauzar la recuperación del poder adquisitivo sin generar efectos de segunda ronda sobre la inflación [cite: 24].
+Esta referencia del V AENC fue adoptada y adaptada en diferentes convenios estatales de gran cobertura:
+Convenio Estatal de la Construcción (2022–2024):
+ Suscribió subidas salariales acumuladas de alrededor del 10% repartidas en tres años [cite: 25]. Con el propósito de dotar de estabilidad a las licitaciones y costes de obra, el convenio estatal desvinculó los incrementos fijos del IPC real nacional, pero delegó en las mesas de negociación provinciales la capacidad de aplicar márgenes de revisión adicionales en función del dinamismo de los mercados inmobiliarios locales [cite: 26].
+Convenio Estatal de Industrias Cárnicas (2022–2024):
+ Este convenio acumuló incrementos salariales del 17% a lo largo del periodo (con subidas del 8,25% en 2022 y del 8,95% en 2023) [cite: 27, 28]. El convenio integró una potente cláusula de garantía salarial que actualizaba automáticamente el 75% de la diferencia adicional si la inflación del ejercicio desbordaba los incrementos pactados. En su posterior renovación para el ciclo 2024–2025, el sector pactó un aumento base del 3% anual [cite: 29], con revisiones retroactivas topadas en el 1% [cite: 29], junto con incrementos en el plus de nocturnidad y una reducción progresiva de la jornada laboral anual hasta alcanzar las 1.748 horas en 2025 [cite: 29, 30].
+Convenios de Supermercados y Distribución Comercial (2022–2024):
+ El sector de la gran distribución y supermercados (Dia, Lidl, Mercadona, entre otros) firmó acuerdos con subidas de entre el 8% y el 12% acumulado durante el periodo de alta inflación, incorporando cláusulas de revisión parcial ligadas al IPC real para amortiguar el encarecimiento de la cesta de la compra. En Lidl Supermercados, el III Convenio Colectivo consolidó una subida del 6,5% para garantizar un sueldo mínimo de 18.000 euros anuales a la finalización del pacto [cite: 31]. En el Grupo Dia, el V Convenio Colectivo reguló las condiciones económicas con efectos retroactivos desde 2023, introduciendo mejoras de jornada y turnos, límites de absorción salarial y el compromiso vinculante de mantener un volumen de empleo indefinido no inferior al 85% de la plantilla global [cite: 32]. En el ámbito de los Grandes Almacenes e hipermercados, el convenio de sector consolidó un aumento salarial del 17% en cuatro años (estructurado en un 14% de incremento fijo escalonado y un 3% en concepto de pago único de retribución no consolidable) [cite: 33], permitiendo que cadenas integradas como Carrefour reajustaran sus tablas y compensaran atrasos de forma ordenada [cite: 34].
+
+--------------------------------------------------------------------------------
+
+3. Estrategias de concertación y flexibilidad en el sector de la automoción
+La industria de la automoción en Europa occidental ha canalizado la negociación colectiva no solo como un mecanismo de actualización de rentas, sino como una herramienta de reconversión industrial y flexibilidad interna adaptada a la transición hacia el vehículo eléctrico y la digitalización de los procesos de trabajo.
+El grupo Renault en Francia diseñó el acuerdo plurianual de transformación nacional "Re-Nouveau France 2025" (2021–2025) [cite: 35]. Mediante este instrumento, negociado con los sindicatos mayoritarios (CFE-CGC, CFDT y FO), la empresa vinculó de forma directa la reorganización del tiempo de trabajo y el empleo a la viabilidad industrial de sus plantas [cite: 35]. El plan comprometió la asignación de la producción de nueve nuevos modelos eléctricos a las factorías francesas y la creación del hub "Renault ElectriCity", garantizando además la incorporación estable de 2.500 profesionales y el desarrollo de 10.000 acciones de recualificación y formación a través de la Universidad "Re-Know" [cite: 35, 36].
+A cambio, el pacto contempló una reorganización del empleo terciario que incluyó 1.700 salidas voluntarias, la reducción del 50% de la superficie física de las oficinas corporativas en Île-de-France y una regulación estricta del teletrabajo híbrido [cite: 35]. El modelo se complementó con el acuerdo social posterior (2025–2027), enfocado en blindar a las plantillas ante las oscilaciones de la demanda de producción a través de un mecanismo de solidaridad que garantiza el 100% de la retribución neta en escenarios de desempleo parcial o paros técnicos por desabastecimiento [cite: 37].
+En España, Renault replicó esta lógica de concertación y flexibilidad en su Convenio Colectivo Interprovincial (2021–2024) [cite: 38, 39]. Para facilitar la viabilidad industrial ante la escasez de componentes, la representación social aceptó una congelación salarial parcial durante las fases iniciales del acuerdo, compensada con subidas posteriores indexadas al IPC real y vinculadas a la consecución de los objetivos de producción del grupo [cite: 40]. Como contrapartida, la compañía se comprometió a formalizar un mínimo de 1.000 contratos indefinidos para estabilizar las plantillas de las plantas de montaje de Valladolid, Palencia y Sevilla [cite: 41]. El convenio reguló de forma detallada las compensaciones por turnicidad, reducciones de jornada en el turno de noche y un sistema de vacaciones anuales complementarias vinculadas a la antigüedad del operario (un día adicional por cada cinco años de trabajo efectivo, con un máximo de cuatro días al año) [cite: 41].
+A nivel organizativo, la regulación del teletrabajo en Renault España representó un hito en el año 2021 [cite: 42]. Al amparo de la legislación nacional, el acuerdo colectivo específico definió un modelo híbrido voluntario y reversible para los perfiles administrativos y técnicos de la corporación [cite: 43]. Este acuerdo fijó una compensación económica directa destinada a sufragar los costes del trabajo a distancia (como suministros eléctricos y conectividad a internet), estructurada de acuerdo con la cantidad de días mensuales de trabajo remoto efectivo bajo una fórmula de doble escalón:
+\text{Compensación mensual} =
+ 
+\begin{cases}
+ 
+24\ \text{€} & \text{si se teletrabaja de 1 a 6 días al mes} \
+ 
+48\ \text{€} & \text{si se teletrabaja más de 6 días al mes}
+ 
+\end{cases}
+Esta fórmula de compensación directa permitió canalizar de forma ordenada la transición hacia el modelo híbrido del personal de oficina y servicios del grupo [cite: 44], evitando los focos de litigación colectiva que caracterizaron a los sectores de servicios externalizados durante este periodo [cite: 40, 45].
+
+--------------------------------------------------------------------------------
+
+4. Conflictividad y gobernanza jurídica del teletrabajo en los servicios de atención al cliente
+La rápida implantación del trabajo a distancia en los servicios de atención al cliente (
+Contact Centers
+) en España tensionó las relaciones laborales tradicionales, derivando en prolongados bloqueos de convenios colectivos y en una elevada judicialización. Durante el ciclo 2016–2022, el sector de Contact Centers a nivel estatal experimentó huelgas recurrentes convocadas por la representación sindical para protestar por la parálisis del convenio sectorial, la desregulación de las condiciones operativas de las plantillas de telemarketing y la pérdida de poder adquisitivo al no aplicarse subidas que amortiguaran la escalada de la inflación [cite: 46].
+Esta inestabilidad sectorial se agudizó en entornos regionales específicos. En las movilizaciones del Contact Center de Valencia en 2022, los sindicatos lideraron paros y concentraciones frente a empresas que prestaban servicios de atención telefónica para grandes operadoras de telecomunicaciones como Vodafone y Telefónica [cite: 46]. Los manifestantes denunciaron la congelación salarial de las tablas de categoría desde el año 2019, la precariedad estructural del modelo de subcontratación y el retraso patronal en la formalización de los gastos derivados del trabajo en domicilio [cite: 46].
+La aprobación de la Ley 10/2021 de Trabajo a Distancia buscó encauzar estas situaciones regulando la obligatoriedad del acuerdo por escrito, la voluntariedad de la medida, el derecho al registro horario y la provisión y mantenimiento de los equipos de trabajo a cargo del empresario [cite: 47, 48]. Sin embargo, la remisión genérica de la ley a la negociación colectiva para fijar las compensaciones económicas abrió un escenario de disputas en torno al abono de gastos corrientes, la distribución presencial y remota de las jornadas y la eficacia jurídica de los acuerdos extraestatutarios o cláusulas de adhesión individual que las empresas redactaban de forma unilateral para eludir los convenios sectoriales [cite: 47, 49, 50].
+En este contexto judicial, la Sentencia del Tribunal Supremo (STS) 267/2025 dictada sobre Teleperformance España, SAU el 11 de marzo de 2025 resolvió de forma definitiva el conflicto colectivo interpuesto contra las cláusulas restrictivas incorporadas en los anexos individuales de teletrabajo de la compañía [cite: 51, 52]. Los pronunciamientos de la Audiencia Nacional y el Tribunal Supremo fijaron criterios sustantivos para la gobernanza jurídica de los entornos virtuales de trabajo:
+Compensación de gastos operativos:
+ Se declaró la nulidad absoluta de las cláusulas que remitían de forma genérica la compensación de gastos a lo dispuesto en la negociación colectiva de sector si no se concretaba un pago mínimo inmediato y suficiente [cite: 53]. Se determinó que, ante la falta de abono de los gastos debidamente justificados de conectividad, electricidad o mobiliario ergonómico, el trabajador puede accionar en reclamación de cumplimiento de daños y perjuicios o instar la resolución indemnizada de su contrato de trabajo conforme al artículo 50.1.c) del Estatuto de los Trabajadores [cite: 47, 53]. Asimismo, los tribunales determinaron que la concesión de tiempo libre (como días de descanso o libre disposición adicionales) no puede sustituir ni compensar la obligación legal y dineraria de abono de los gastos asociados al teletrabajo [cite: 50, 54].
+Medios de comunicación de carácter personal:
+ Los tribunales declararon nulas las cláusulas que obligaban al empleado a facilitar su número de teléfono móvil privado o su correo electrónico de carácter personal a la empresa por urgencias del servicio [cite: 53]. El Tribunal Supremo dictaminó que es el empresario quien debe costear y suministrar los terminales y herramientas de comunicación necesarios para el desarrollo de la actividad, sin que la urgencia operativa justifique que el trabajador ponga sus medios e infraestructuras privadas a disposición de la corporación [cite: 53].
+Límites unilaterales a la desconexión digital:
+ Se anularon las cláusulas que permitían al empresario delimitar excepciones al derecho de desconexión digital tras finalizar la jornada ordinaria basándose de forma unilateral en criterios vagos como "perjuicio empresarial inmediato" [cite: 53]. Cualquier límite o alteración al derecho de desconexión digital debe ajustarse a lo establecido en la negociación colectiva con la representación legal de los trabajadores [cite: 53].
+La tensión por la reversibilidad y condiciones del teletrabajo se tradujo en huelgas directas en 2026. En la huelga de Intrum Valladolid por la eliminación del teletrabajo en mayo y junio de 2026, más del 50% de la plantilla del centro de atención telefónica secundó paros de 24 horas convocados por el sindicato UGT [cite: 55, 56, 57]. La plantilla protestó contra la decisión de la dirección de la multinacional de suprimir unilateralmente y sin negociación previa el exitoso modelo híbrido que funcionaba desde el año 2022 para la conciliación de los trabajadores, denunciando además fallos graves en los sistemas de software de la empresa que impedían el registro correcto de las actividades y recortaban de forma automática la retribución variable de los operadores [cite: 56, 58].
+Finalmente, la huelga en Concentrix en julio de 2026 ilustró la fragilidad laboral en los servicios de atención al cliente externalizados [cite: 59]. La plantilla que prestaba el servicio de atención telefónica de la multinacional textil sueca H&M llevó a cabo una huelga de 24 horas convocada por la CGT [cite: 59, 60]. Los trabajadores denunciaron que, desde la externalización del servicio a Concentrix hacía apenas nueve meses, la empresa había recortado 59 puestos de trabajo (un 25% de la plantilla total) mediante la imposición de despidos disciplinarios basados en cartas tipo genéricas y la inducción de bajas voluntarias [cite: 59]. Según la representación sindical, esta reducción encubierta de personal se utilizaba para evitar la tramitación de Expedientes de Regulación de Empleo (ERE), precarizando las condiciones de salud laboral de los teleoperadores mediante incrementos inasumibles de las llamadas concurrentes y presiones cotidianas sobre los tiempos de respuesta [cite: 59, 61].
+
+--------------------------------------------------------------------------------
+
+Conclusiones
+El análisis comparativo de la conflictividad colectiva e industrial entre 2021 y 2026 revela transformaciones estructurales en la articulación del diálogo social en Europa occidental.
+En primer lugar, los acuerdos de revalorización salarial han evolucionado desde indexaciones automáticas y rígidas hacia fórmulas híbridas de salvaguarda. Como reflejan los laudos del metal de Ourense y Cádiz de 2025, la patronal y las centrales sindicales tienden a pactar incrementos nominales moderados a corto plazo acompañados de cláusulas de revisión diferidas con efectos al término de la vigencia del convenio. Esta estrategia busca conciliar la protección del poder adquisitivo con la certidumbre económica que demandan las empresas auxiliares del sector aeronáutico y naval para asegurar el cumplimiento de sus plazos de entrega. Sin embargo, estas fórmulas de consenso conviven a menudo con la introducción de categorías salariales recortadas para los nuevos empleados (como el Salario de Nuevo Ingreso), lo que genera tensiones y divisiones en el movimiento obrero.
+En segundo lugar, se constata una reorientación estratégica de las centrales sindicales más sólidas hacia la flexibilidad del tiempo de trabajo y la reducción de la jornada anual como alternativa al incremento puramente monetario de las tablas. Los acuerdos marco instrumentados en Alemania por IG Metall y en Francia por Renault demuestran que las economías de mayor valor añadido lideran la implantación de mecanismos de conversión voluntaria de pluses y complementos salariales (como el T-ZUG) en jornadas adicionales de descanso para favorecer la conciliación y aliviar el desgaste en el trabajo por turnos, configurando el tiempo libre como un vector prioritario de salud laboral.
+Por último, la gobernanza jurídica del teletrabajo en los sectores de servicios auxiliares y tecnología de la información define un nuevo campo de batalla sindical en torno a los límites físicos y digitales de la prestación de servicios. La jurisprudencia emanada del Tribunal Supremo español a través de fallos como la sentencia de Teleperformance en 2025 consolida una doctrina de protección estricta del empleado a distancia, invalidando cláusulas que trasladen los costes informáticos y telefónicos a los trabajadores o limiten unilateralmente el derecho a la desconexión. Las huelgas en los Contact Centers de Intrum y Concentrix en 2026 evidencian que el teletrabajo y la presencialidad forzada son utilizados por las empresas como variables de ajuste organizativo. Esto obliga al sindicalismo contemporáneo a desplazar su tradicional labor de tutela en las factorías físicas hacia los entornos de trabajo híbridos y las redes digitales de control empresarial.
+
+--------------------------------------------------------------------------------
+
+Airbus augmente les salaires de 5,5% en France, face à l'inflation - GIFAS, 
+https://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation
+https://www.gifas.fr/press-summary/airbus-augmente-les-salaires-de-5-5-en-france-face-a-l-inflation
+Airbus va verser une prime de 1 500 € à ses salariés - GIFAS, 
+https://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries
+https://www.gifas.fr/press-summary/airbus-va-verser-une-prime-de-1-500-a-ses-salaries
+Airbus SMH grids, 
+https://avions.cgtairbus.com/airbus-smh-grids/
+https://avions.cgtairbus.com/airbus-smh-grids/
+FO signe la Politique salariale 2023 : objectifs atteints !, 
+https://www.fo-airbus-operations-toulouse.fr/actus/i/72040192/article-n-1154
+https://www.fo-airbus-operations-toulouse.fr/actus/i/72040192/article-n-1154
+Los altercados en la huelga del metal en Ourense se juzgarán en marzo de 2027, 
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+https://www.laregion.es/ourense/altercados-huelga-metal-ourense-juzgaran_1_20260702-4337650.html
+La huelga del sector siderometal en Ourense se convierte en indefinida tras un último intento de acuerdo fallido - La Voz de Galicia, 
+https://www.lavozdegalicia.es/noticia/ourense/2022/10/04/huelga-sector-siderometal-ourense-convierte-indefinida-tras-ultimo-intento-acuerdo-fallido/00031664904765544341328.htm
+https://www.lavozdegalicia.es/noticia/ourense/2022/10/04/huelga-sector-siderometal-ourense-convierte-indefinida-tras-ultimo-intento-acuerdo-fallido/00031664904765544341328.htm
+Convenio Siderometal Ourense 2022-2024 | PDF | Business | Empleo - Scribd, 
+https://es.scribd.com/document/743536814/316-convenio-metal-ourense-2024
+https://es.scribd.com/document/743536814/316-convenio-metal-ourense-2024
+Resolución de 12 de junio de 2023, de la Consellería de Promoción del Empleo e Igualdad, por la que se acuerda la inscripción y publicación del Convenio colectivo para el sector del comercio del metal de la provincia de Ourense para los años 2023 y 2024 - Noticias Jurídicas, 
+https://noticias.juridicas.com/base_datos/Laboral/766398-convenio-colectivo-para-el-sector-del-comercio-del-metal-ourense-2023-2024.html
+https://noticias.juridicas.com/base_datos/Laboral/766398-convenio-colectivo-para-el-sector-del-comercio-del-metal-ourense-2023-2024.html
+Las 11 claves del nuevo conflicto del metal en Cádiz: el regreso de las barricadas por un "convenio definitivo" - El Diario, 
+https://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html
+https://www.eldiario.es/andalucia/cadiz/once-claves-nuevo-conflicto-metal-cadiz-regreso-barricadas-convenio-definitivo_1_12394395.html
+Huelga metal Cádiz y Cartagena: qué piden los trabajadores - RTVE.es, 
+https://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml
+https://www.rtve.es/noticias/20250620/claves-huelga-metal-cadiz-cartagena-trabajadores/16633475.shtml
+Convenio colectivo del Metal de Sevilla: tablas salariales de 2025 - Climatización y Confort, 
+https://climatizacion-y-confort.cdecomunicacion.es/noticias/instaladores/144250/convenio-colectivo-de-la-industria-del-metal-de-sevilla-tablas-salariales
+https://climatizacion-y-confort.cdecomunicacion.es/noticias/instaladores/144250/convenio-colectivo-de-la-industria-del-metal-de-sevilla-tablas-salariales
+Convenio Colectivo Industrias Siderometalúrgicas - CCOO App, 
+https://ccoo.app/convenio/convenio-colectivo-industrias-siderometalurgicas-de-sevilla/
+https://ccoo.app/convenio/convenio-colectivo-industrias-siderometalurgicas-de-sevilla/
+Análisis de la Situación del Convenio del Metal en Cádiz. - USO Industria, 
+https://usoindustria.org/convenio-metal-cadiz/
+https://usoindustria.org/convenio-metal-cadiz/
+Las calles de Cádiz arden con la huelga del metal: piden que se equipare la subida de los sueldos con el IPC - LaSexta, 
+https://www.lasexta.com/noticias/sociedad/calles-cadiz-arden-huelga-metal-piden-que-equipare-subida-sueldos-ipc_202506186852d5e4f68fe227a842a2d0.html
+https://www.lasexta.com/noticias/sociedad/calles-cadiz-arden-huelga-metal-piden-que-equipare-subida-sueldos-ipc_202506186852d5e4f68fe227a842a2d0.html
+Acuerdo para el desbloqueo del convenio colectivo del metal en Cádiz. - USO Industria, 
+https://usoindustria.org/acuerdo-para-el-desbloqueo-del-convenio-colectivo-del-metal-en-cadiz/
+https://usoindustria.org/acuerdo-para-el-desbloqueo-del-convenio-colectivo-del-metal-en-cadiz/
+Convenio Colectivo Industria del Metal de Cádiz - CCOO App, 
+https://ccoo.app/convenio/convenio-colectivo-industria-del-metal-de-cadiz/
+https://ccoo.app/convenio/convenio-colectivo-industria-del-metal-de-cadiz/
+Los trabajadores del metal en Cádiz rechazan la traición de los sindicatos en el convenio, 
+https://www.wsws.org/es/articles/2025/06/28/1420-j28.html
+https://www.wsws.org/es/articles/2025/06/28/1420-j28.html
+REPRESIÓN Y RESISTENCIA EN CÁDIZ: 24 ENCAUSADOS POR LA HUELGA DEL METAL - Canarias Semanal, 
+https://canarias-semanal.org/art/38905/represion-y-resistencia-en-cadiz-24-encausados-por-la-huelga-del-metal
+https://canarias-semanal.org/art/38905/represion-y-resistencia-en-cadiz-24-encausados-por-la-huelga-del-metal
+Tarifrunde Metall und Elektro 2024 Verhandlungsergebnis: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall, 
+https://www.igmetall.de/tarif/tarifrunden/metall-und-elektro/tarifrunde-metall-und-elektro-2024
+https://www.igmetall.de/tarif/tarifrunden/metall-und-elektro/tarifrunde-metall-und-elektro-2024
+Verhandlungsergebnis Metall und Elektro 2024: Mehr Geld, 140 Euro mehr für Azubis, mehr freie Tage - IG Metall Bocholt, 
+https://igmetall-bocholt.de/verhandlungsergebnis-metall-und-elektro-2024-mehr-geld-140-euro-mehr-fuer-azubis-mehr-freie-tage/
+https://igmetall-bocholt.de/verhandlungsergebnis-metall-und-elektro-2024-mehr-geld-140-euro-mehr-fuer-azubis-mehr-freie-tage/
+Tarifrunde 2024 - Arbeitgeberverband Gesamtmetall, 
+https://www.gesamtmetall.de/themen/tarifrunde-2024/
+https://www.gesamtmetall.de/themen/tarifrunde-2024/
+Ab April 3,1 % mehr Geld – und starke Sonderzahlungen im Jahr 2026 - IG Metall Frankfurt, 
+https://frankfurt.igmetall.de/Aktuelles/2025/mehr-geld-ab-april-2026
+https://frankfurt.igmetall.de/Aktuelles/2025/mehr-geld-ab-april-2026
+Accord de groupe annuel relatif à la politique salariale des salariés du groupe Airbus en France - Légifrance, 
+https://www.legifrance.gouv.fr/acco/id/ACCOTEXT000051618815
+https://www.legifrance.gouv.fr/acco/id/ACCOTEXT000051618815
+FIRMADO EL V ACUERDO PARA EL EMPLEO Y LA NEGOCIACIÓN COLECTIVA (AENC) 2023-2025, 
+https://ugtficabcn.cat/firmado-el-v-acuerdo-para-el-empleo-y-la-negociacion-colectiva-aenc-2023-2025/
+https://ugtficabcn.cat/firmado-el-v-acuerdo-para-el-empleo-y-la-negociacion-colectiva-aenc-2023-2025/
+Publicado en el Boletín Oficial del Estado el VII Convenio del Sector de la Construcción, 
+https://www.fundacionlaboral.org/actualidad/noticias/sector/publicado-en-el-boletin-oficial-del-estado-el-vii-convenio-del-sector-de-la-construccion
+https://www.fundacionlaboral.org/actualidad/noticias/sector/publicado-en-el-boletin-oficial-del-estado-el-vii-convenio-del-sector-de-la-construccion
+Convenio Colectivo Construcción - CCOO App, 
+https://ccoo.app/convenio/convenio-colectivo-construccion-de-espana/
+https://ccoo.app/convenio/convenio-colectivo-construccion-de-espana/
+Se publica en el BOE el Convenio de Industrias Cárnicas, que esquivó el conflicto al recoger una potente subida salarial y garantizar el poder adquisitivo - Confederación Sindical de Comisiones Obreras, 
+https://www.ccoo.es/noticia:632330--Se%20publica%20en%20el%20BOE%20el%20Convenio%20de%20Industrias%20C%C3%A1rnicas,%20que%20esquiv%C3%B3%20el%20conflicto%20al%20recoger%20una%20potente%20subida%20salarial%20y%20garantizar%20el%20poder%20adquisitivo
+https://www.ccoo.es/noticia:632330--Se%20publica%20en%20el%20BOE%20el%20Convenio%20de%20Industrias%20C%C3%A1rnicas,%20que%20esquiv%C3%B3%20el%20conflicto%20al%20recoger%20una%20potente%20subida%20salarial%20y%20garantizar%20el%20poder%20adquisitivo
+LAS TABLAS SALARIALES DEL CONVENIO DE LAS INDUSTRIAS CÁRNICAS SE INCREMENTARÁN EN UN 8,95% ESTE AÑO, 
+https://ugtficabcn.cat/las-tablas-salariales-del-convenio-de-las-industrias-carnicas-se-incrementaran-en-un-895-este-ano/
+https://ugtficabcn.cat/las-tablas-salariales-del-convenio-de-las-industrias-carnicas-se-incrementaran-en-un-895-este-ano/
+Nuevo Convenio Estatal de Industrias Cárnicas para 2024-2025 - LSB-USO, 
+https://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/
+https://lsb-uso.com/2025/07/nuevo-convenio-estatal-industrias-carnicas-2024-2025/
+Convenio Colectivo Industrias Cárnicas - CCOO App, 
+https://ccoo.app/convenio/convenio-colectivo-industrias-carnicas-de-espana/
+https://ccoo.app/convenio/convenio-colectivo-industrias-carnicas-de-espana/
+III Convenio colectivo de Lidl Supermercados, SAU - CCOO Servicios, 
+https://www.ccoo-servicios.es/lidl/html/55861.html
+https://www.ccoo-servicios.es/lidl/html/55861.html
+BOE-A-2023-8181 Resolución de 21 de marzo de 2023, de la Dirección General de Trabajo, por la que se registra y publica el texto del V Convenio colectivo del grupo de empresas Distribuidora Internacional de Alimentación, SA, y Día Retail España, SAU., 
+https://www.boe.es/buscar/doc.php?id=BOE-A-2023-8181
+https://www.boe.es/buscar/doc.php?id=BOE-A-2023-8181
+El convenio de grandes almacenes ya es oficial tras su publicación en el BOE - Food Retail, 
+https://www.foodretail.es/retailers/grandes-almacenes-convenio-oficial-publicacion-boe_0_1773722625.html
+https://www.foodretail.es/retailers/grandes-almacenes-convenio-oficial-publicacion-boe_0_1773722625.html
+El BOE recoge los cambios del convenio de Carrefour: más salario y menos jornada para sus 50.000 trabajadores - El Español, 
+https://www.elespanol.com/invertia/empresas/distribucion/20240504/boe-recoge-cambios-convenio-carrefour-salario-jornada-trabajadores/852414998_0.html
+https://www.elespanol.com/invertia/empresas/distribucion/20240504/boe-recoge-cambios-convenio-carrefour-salario-jornada-trabajadores/852414998_0.html
+Renault Group signs-off on a three-year trade union agreement that places France at the heart of its value-creating activities, 
+https://media.renaultgroup.com/renault-group-signs-off-on-a-three-year-trade-union-agreement-that-places-france-at-the-heart-of-its-value-creating-activities/
+https://media.renaultgroup.com/renault-group-signs-off-on-a-three-year-trade-union-agreement-that-places-france-at-the-heart-of-its-value-creating-activities/
+Automotive site transitions to Europe's first circular economy factory | TUC, 
+https://www.tuc.org.uk/workplace-guidance/case-studies/automotive-site-transitions-europes-first-circular-economy-factory
+https://www.tuc.org.uk/workplace-guidance/case-studies/automotive-site-transitions-europes-first-circular-economy-factory
+Protect, accelerate, transform: Renault Group signs a three-year trade union agreement, 
+https://media.renaultgroup.com/protect-accelerate-transform-renault-group-signs-a-three-year-trade-union-agreement/
+https://media.renaultgroup.com/protect-accelerate-transform-renault-group-signs-a-three-year-trade-union-agreement/
+Convenios Renault - CCOO Renault España - Confederación Sindical de Comisiones Obreras, 
+https://renault.ccoo.es/Convenios_Renault
+https://renault.ccoo.es/Convenios_Renault
+Categoría: 0 - Comun a todos - Renault - CCOO App, 
+https://ccoo.app/renault/category/0-comun-a-todos/
+https://ccoo.app/renault/category/0-comun-a-todos/
+CCOO de Industria de Madrid, 
+https://industriamadrid.ccoo.es/
+https://industriamadrid.ccoo.es/
+Convenio colectivo de la empresa Renault España incluyendo FASA Renault 2021-2025 - CNT de Valladolid, 
+https://www.cntvalladolid.es/convenio-colectivo-de-la-empresa-renault-espana/
+https://www.cntvalladolid.es/convenio-colectivo-de-la-empresa-renault-espana/
+El teletrabajo ya es una realidad para la plantilla del Grupo Campofrío - Confederación Sindical de Comisiones Obreras, 
+https://ccoo.es/noticia:602898--El%20teletrabajo%20ya%20es%20una%20realidad%20para%20la%20plantilla%20del%20Grupo%20Campofr%C3%ADo
+https://ccoo.es/noticia:602898--El%20teletrabajo%20ya%20es%20una%20realidad%20para%20la%20plantilla%20del%20Grupo%20Campofr%C3%ADo
+Guía de derechos y obligaciones con la nueva Ley de teletrabajo - Terranea Seguros, 
+https://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/
+https://blog.terranea.es/derechos-obligaciones-nueva-ley-teletrabajo/
+BOCM-20240725-1 - C) Otras Disposiciones, 
+https://www.bocm.es/boletin/CM_Orden_BOCM/2024/07/25/BOCM-20240725-1.PDF
+https://www.bocm.es/boletin/CM_Orden_BOCM/2024/07/25/BOCM-20240725-1.PDF
+trabajar desde cualquier lugar (incluso tu coche): la nueva frontera del trabajo flexible, 
+https://www.renault.es/blog/detras-del-volante/trabajar-desde-cualquier-lugar-incluso-tu-coche.html
+https://www.renault.es/blog/detras-del-volante/trabajar-desde-cualquier-lugar-incluso-tu-coche.html
+Oficinas y Seguros - FeSMC UGT-CV, 
+https://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2
+https://www.fesmcugtcv.org/cms/index.php/oficinas-y-seguros-2
+Verificador de derechos en teletrabajo - Alcántara Moreno Abogados, 
+https://alcantaramoreno.com/herramientas/ley-teletrabajo/
+https://alcantaramoreno.com/herramientas/ley-teletrabajo/
+Ley 10/2021, de 9 de julio, de trabajo a distancia - Noticias Jurídicas, 
+https://noticias.juridicas.com/base_datos/Laboral/702807-ley-10-2021-de-9-de-julio-de-trabajo-a-distancia.html
+https://noticias.juridicas.com/base_datos/Laboral/702807-ley-10-2021-de-9-de-julio-de-trabajo-a-distancia.html
+Compensación de los gastos derivados del desarrollo del trabajo a distancia: A falta de convenio colectivo o acuerdo - BOE.es, 
+https://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo.php?id=ANU-L-2021-00000001347
+https://www.boe.es/biblioteca_juridica/anuarios_derecho/articulo.php?id=ANU-L-2021-00000001347
+www.laboral-social.com Trabajo a distancia. Teletrabajo. Compensación de gastos. Empresa que vino aplicando una política de tr, 
+https://www.laboral-social.com/sites/laboral-social.com/files/62-2024-3-junio.pdf
+https://www.laboral-social.com/sites/laboral-social.com/files/62-2024-3-junio.pdf
+TS. Acuerdo de teletrabajo. Es válida la cláusula que obliga al empleado a facilitar a la empresa su correo electrónico y número de teléfono personal por si fuera necesario contactar con él por urgencias del servicio - Laboral Social, 
+https://www.laboral-social.com/contrato-teletrabajo-es-valida-clausula-obliga-empleado-facilitar-empresa-correo-electronico-numero-telefono-personal
+https://www.laboral-social.com/contrato-teletrabajo-es-valida-clausula-obliga-empleado-facilitar-empresa-correo-electronico-numero-telefono-personal
+Imposibilidad de ejecución de sentencia, sustitución por indemnización, e imputación de su abono . . (comentario a la Sentencia del Tribunal Supremo 267/2025 de 11 de marzo) | CEPC, 
+https://www.cepc.gob.es/publicaciones/revistas/revista-de-administracion-publica/numero-227-mayoagosto-2025/imposibilidad-de-ejecucion-de-sentencia-sustitucion-por-indemnizacion-e-imputacion-de-su-abono
+https://www.cepc.gob.es/publicaciones/revistas/revista-de-administracion-publica/numero-227-mayoagosto-2025/imposibilidad-de-ejecucion-de-sentencia-sustitucion-por-indemnizacion-e-imputacion-de-su-abono
+La Audiencia Nacional declara nulas varias cláusulas de un acuerdo de teletrabajo por ser contrarias a los derechos de los trabajadores | Laboral - Law&Trends, 
+https://www.lawandtrends.com/noticias/teletrabajo/la-audiencia-nacional-declara-nulas-varias-clausulas-de-un-acuerdo-de-teletrabajo-por-ser-contrarias-a-los-derechos-de-1.html
+https://www.lawandtrends.com/noticias/teletrabajo/la-audiencia-nacional-declara-nulas-varias-clausulas-de-un-acuerdo-de-teletrabajo-por-ser-contrarias-a-los-derechos-de-1.html
+AN. En el teletrabajo no cabe sustituir la compensación de gastos por tiempo de descanso retribuido - Laboral Social, 
+https://www.laboral-social.com/trabajo-distancia-teletrabajo-compensacion-gastos-descanso-retribuido-libre-disposicion
+https://www.laboral-social.com/trabajo-distancia-teletrabajo-compensacion-gastos-descanso-retribuido-libre-disposicion
+Valladolid: Intrum workers call 24‑hour strikes on 21 May and 10 June, 
+https://striketracker.app/strikes-in-spain/transport-strike-valladolid-21-may-10-jun-2026
+https://striketracker.app/strikes-in-spain/transport-strike-valladolid-21-may-10-jun-2026
+Huelga de 24 horas en Intrum Valladolid ante la eliminación del teletrabajo, 
+https://www.diariodevalladolid.es/negocios-cyl/260521/283004/huelga-24-horas-intrum-eliminacion-teletrabajo-valladolid.html
+https://www.diariodevalladolid.es/negocios-cyl/260521/283004/huelga-24-horas-intrum-eliminacion-teletrabajo-valladolid.html
+La mitad de la plantilla de Intrum en Valladolid, en huelga por la eliminación del teletrabajo, 
+https://www.eldiario.es/castilla-y-leon/economia/mitad-plantilla-intrum-valladolid-huelga-eliminacion-teletrabajo_1_13239672.html
+https://www.eldiario.es/castilla-y-leon/economia/mitad-plantilla-intrum-valladolid-huelga-eliminacion-teletrabajo_1_13239672.html
+Huelga en Intrum Valladolid: UGT exige "soluciones" técnicas y mantener el teletrabajo, 
+https://www.elespanol.com/castilla-y-leon/region/valladolid/20260429/huelga-intrum-valladolid-ugt-exige-soluciones-tecnicas-mantener-teletrabajo/1003744227999_0.html
+https://www.elespanol.com/castilla-y-leon/region/valladolid/20260429/huelga-intrum-valladolid-ugt-exige-soluciones-tecnicas-mantener-teletrabajo/1003744227999_0.html
+Los trabajadores de atención telefónica de H&M convocan una huelga para denunciar la reducción de plantilla - Metrópoli Abierta, 
+https://metropoliabierta.elespanol.com/el-pulso-de-la-ciudad/20260707/trabajadores-atencion-telefonica-hm-convocan-huelga-denunciar-reduccion-plantilla/1003742777677_0.html
+https://metropoliabierta.elespanol.com/el-pulso-de-la-ciudad/20260707/trabajadores-atencion-telefonica-hm-convocan-huelga-denunciar-reduccion-plantilla/1003742777677_0.html
+8 julio: CGT convoca huelga y concentración ante H&M-CONCENTRIX, servicio de atención telefónica de la multinacional sueca., 
+https://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multinacional-sueca/
+https://cgt.es/8-julio-cgt-convoca-huelga-y-concentracion-ante-hm-concentrix-servicio-de-atencion-telefonica-de-la-multinacional-sueca/
+Los trabajadores de Concentrix, que prestan la atención telefónica de H&M, convocan una huelga de 24 horas - Forbes España, 
+https://forbes.es/ultima-hora/973997/los-trabajadores-de-concentrix-que-prestan-la-atencion-telefonica-de-hm-convocan-una-huelga-de-24-horas/
+https://forbes.es/ultima-hora/973997/los-trabajadores-de-concentrix-que-prestan-la-atencion-telefonica-de-hm-convocan-una-huelga-de-24-horas/
