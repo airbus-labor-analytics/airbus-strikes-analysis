@@ -352,6 +352,7 @@ class StrikeAnalysisEngine:
             {
                 "id": "milestone-13-beluga-choke",
                 "date": "28 de agosto de 2026",
+                "iso_date": "2026-08-28",
                 "phase": "Estrangulamiento Logístico JIT — Día 4",
                 "title": "Bloqueo Total de Rutas BelugaXL: Cuarto Día Sin Estabilizadores HTP hacia las FALs",
                 "badge": "Cuello de Botella JIT",
@@ -366,12 +367,19 @@ class StrikeAnalysisEngine:
                     "FAL Hamburgo (EDHI)",
                     "Plantilla en huelga Getafe (parada de producción HTP)"
                 ],
+                "actor": "Logística",
+                "actor_category": "logistics",
+                "site": "Getafe",
                 "source_ref": "OpenSky Network / BelugaWatch API / Datos ADS-B 28/08/2026",
-                "strategic_takeaway": "La asimetría crítica 185x entra en su fase máxima: 22,7 M€/día de coste directo vs 137 €/día de pérdida neta por trabajador. Cada hora de huelga cuesta a Airbus SE más que 165 trabajadores."
+                "source_url": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt",
+                "document_id": "tg_5106243",
+                "strategic_takeaway": "La asimetría crítica 185x entra en su fase máxima: 22,7 M€/día de coste directo vs 137 €/día de pérdida neta por trabajador. Cada hora de huelga cuesta a Airbus SE más que 165 trabajadores.",
+                "verified": True
             },
             {
                 "id": "milestone-12-assembly-27ago",
                 "date": "27 de agosto de 2026",
+                "iso_date": "2026-08-27",
                 "phase": "Huelga Indefinida — Día 3 / Propuesta 11 Puntos SIMA",
                 "title": "Asamblea en Getafe bajo la Lluvia y Entrega Formal de los 11 Puntos en el SIMA",
                 "badge": "Propuesta 11 Puntos",
@@ -401,17 +409,19 @@ class StrikeAnalysisEngine:
                     "Portavoz ÚTIL",
                     "Representante UGT FICA"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 27/08/2026 | Propuesta Formal SIMA 27/08/2026 | Telegram EnfadadosconAirbus",
-                "strategic_takeaway": "La plantilla formaliza una plataforma técnica inatacable y blindada legalmente. La carta al Gobierno internacionaliza el conflicto y eleva la presión política sobre Airbus SE.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 27/08/2026 | Propuesta Formal SIMA 27/08/2026 | Telegram EnfadadosconAirbus",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260827.pdf.txt",
                 "document_id": "tg_7398842",
+                "strategic_takeaway": "La plantilla formaliza una plataforma técnica inatacable y blindada legalmente. La carta al Gobierno internacionaliza el conflicto y eleva la presión política sobre Airbus SE.",
                 "verified": True
             },
             {
                 "id": "milestone-11-assembly-26ago",
                 "date": "26 de agosto de 2026",
+                "iso_date": "2026-08-26",
                 "phase": "Huelga Indefinida — Día 2 / Rechazo de Amenazas",
                 "title": "Asamblea en Getafe (Puerta Norte): Rechazo Rotundo a las Amenazas de Deslocalización de Carmen-Maja Rex",
                 "badge": "Firmeza Sindical",
@@ -426,17 +436,19 @@ class StrikeAnalysisEngine:
                     "Comité de Huelga (UGT, CGT, ÚTIL)",
                     "Carmen-Maja Rex (CHRO Global Airbus SE)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 26/08/2026 | Acta SIMA Sesión 2 — 26/08/2026",
-                "strategic_takeaway": "El chantaje patronal queda técnicamente desacreditado: Toulouse y Hamburgo no tienen capacidad de absorber la carga HTP de Getafe. La amenaza refuerza la unidad de la plantilla.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 26/08/2026 | Acta SIMA Sesión 2 — 26/08/2026",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260826-1.PDF.txt",
                 "document_id": "tg_6042690",
+                "strategic_takeaway": "El chantaje patronal queda técnicamente desacreditado: Toulouse y Hamburgo no tienen capacidad de absorber la carga HTP de Getafe. La amenaza refuerza la unidad de la plantilla.",
                 "verified": True
             },
             {
                 "id": "milestone-10-assembly-25ago",
                 "date": "25 de agosto de 2026",
+                "iso_date": "2026-08-25",
                 "phase": "Huelga Indefinida — Día 1 / Inicio del Estrangulamiento",
                 "title": "Inicio de la Huelga Indefinida: Asamblea Masiva en Getafe (Puerta Sur) y Votación de Marcha a los Ministerios",
                 "badge": "Inicio Huelga Indefinida",
@@ -451,17 +463,19 @@ class StrikeAnalysisEngine:
                     "Delegación solidaria de Toulouse",
                     "Comité de Huelga (UGT, CGT, ÚTIL)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 25/08/2026 | Acta SIMA Sesión 1 — 25/08/2026",
-                "strategic_takeaway": "Comienza la asfixia industrial de Airbus: el impacto en las FALs europeas es inmediato y supera los 22 M€ en el primer día.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 25/08/2026 | Acta SIMA Sesión 1 — 25/08/2026",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260825.pdf.txt",
                 "document_id": "tg_6203508",
+                "strategic_takeaway": "Comienza la asfixia industrial de Airbus: el impacto en las FALs europeas es inmediato y supera los 22 M€ en el primer día.",
                 "verified": True
             },
             {
                 "id": "milestone-09-assemblies-24ago",
                 "date": "24 de agosto de 2026",
+                "iso_date": "2026-08-24",
                 "phase": "Asambleas Generales Nacionales — Mandato de Huelga Indefinida",
                 "title": "Asambleas en las 6 Factorías: SÍ Unánime a la Huelga Indefinida desde el 25 de Agosto",
                 "badge": "Mandato Absoluto",
@@ -485,36 +499,45 @@ class StrikeAnalysisEngine:
                     "ÚTIL",
                     "Nacho Abascal (portavoz San Pablo)"
                 ],
-                "source_ref": "Actas Asambleas Multi-Planta 24/08/2026 | Guía de Huelga Indefinida | Telegram EnfadadosconAirbus",
-                "strategic_takeaway": "Respaldo total e histórico de la plantilla. La decisión unánime en las 6 factorías blinda democráticamente la huelga indefinida.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Actas Asambleas Multi-Planta 24/08/2026 | Guía de Huelga Indefinida | Telegram EnfadadosconAirbus",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260824__1_.PDF.txt",
                 "document_id": "tg_6359712",
+                "strategic_takeaway": "Respaldo total e histórico de la plantilla. La decisión unánime en las 6 factorías blinda democráticamente la huelga indefinida.",
                 "verified": True
             },
             {
                 "id": "milestone-08b-sima-21ago",
                 "date": "21 de agosto de 2026",
+                "iso_date": "2026-08-21",
                 "phase": "SIMA — Sesión Previa a la Huelga Indefinida",
                 "title": "Sesión SIMA del 21 de Agosto: La Empresa Acepta Retirar el Recurso Bradford pero No Mejora el Salario",
-                "badge": "SIMA — Acuerdo Parcial Bradford",
+                "badge": "SIMA — Retirada Bradford",
                 "badge_color": "sky",
                 "location": "Sede SIMA — Madrid",
                 "time": "10:00 h",
-                "census_and_votes": "N/A (mesa de negociación). Compromiso de la empresa de desistir del recurso de casación ante el Tribunal Supremo sobre el método Bradford.",
+                "census_and_votes": "Mesa de negociación paritaria. Compromiso formal de Airbus de desistir del recurso de casación sobre Bradford.",
                 "summary": "En la sesión del SIMA del 21 de agosto, Airbus Operations S.L.U. acepta formalmente comprometerse a desistir del recurso de casación ante el Tribunal Supremo sobre la nulidad del método Bradford de control de absentismo, y a devolver los complementos de IT retenidos desde su implantación. Sin embargo, no presenta ninguna mejora sobre la oferta salarial. Las asambleas del 24/08 consideran este compromiso insuficiente para desconvocar la huelga indefinida.",
                 "actors": [
                     "Comité de Huelga (UGT, CGT, ÚTIL)",
                     "Dirección Negociadora Airbus Operations S.L.U.",
                     "Conciliadores SIMA"
                 ],
+                "actor": "SIMA",
+                "actor_category": "sima",
+                "site": "Nacional",
                 "source_ref": "Acta SIMA 21/08/2026 | Comunicado Comité de Huelga 22/08/2026",
-                "strategic_takeaway": "La concesión sobre Bradford es real pero insuficiente. Confirma que la presión de huelga funciona, pero la brecha salarial sigue intacta."
+                "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260824__1_.PDF.txt",
+                "document_id": "tg_6359712",
+                "strategic_takeaway": "La concesión sobre Bradford es real pero insuficiente. Confirma que la presión de huelga funciona, pero la brecha salarial sigue intacta.",
+                "verified": True
             },
             {
                 "id": "milestone-08-assembly-29jul",
                 "date": "29 de julio de 2026",
+                "iso_date": "2026-07-29",
                 "phase": "Asamblea Retribuida — Ratificación de la Fecha de Agosto",
                 "title": "Asamblea Retribuida en Getafe (Puerta Norte): Presentación de la Papeleta de Huelga Indefinida para el 24 de Agosto",
                 "badge": "Papeleta Legal Registrada",
@@ -529,24 +552,26 @@ class StrikeAnalysisEngine:
                     "ÚTIL (convocante registrado)",
                     "UGT FICA (adherido)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 29/07/2026 | Papeleta de Huelga Indefinida registrada ante autoridad laboral",
-                "strategic_takeaway": "Estrategia de continuidad: El conflicto no se apaga durante las vacaciones obligatorias de agosto. La papeleta legal garantiza la cobertura jurídica de la huelga indefinida.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 29/07/2026 | Papeleta de Huelga Indefinida registrada ante autoridad laboral",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260729.pdf.txt",
                 "document_id": "tg_5489498",
+                "strategic_takeaway": "Estrategia de continuidad: El conflicto no se apaga durante las vacaciones obligatorias de agosto. La papeleta legal garantiza la cobertura jurídica de la huelga indefinida.",
                 "verified": True
             },
             {
                 "id": "milestone-07-referendum-24jul",
                 "date": "24 de julio de 2026",
+                "iso_date": "2026-07-24",
                 "phase": "Referéndum en Urna Histórico",
-                "title": "Referéndum General de la Plantilla: El 51,13% Tumba el Preacuerdo — Dimisión de la Cúpula de SIPA",
+                "title": "Referéndum General de la Plantilla: El 49,15% del Censo (53,76% Rechazo Global) Tumba el Preacuerdo",
                 "badge": "Victoria de las Bases",
                 "badge_color": "emerald",
                 "location": "Urnas en todos los centros de trabajo de Airbus España (Getafe, San Pablo, Tablada, Illescas, Albacete, Cádiz)",
                 "time": "Jornada electoral completa (06:00 h – 18:00 h)",
-                "census_and_votes": "Censo electoral: 15.562 trabajadores. Participación: 81,44% (12.674 votantes). Votos NO: 51,13% (6.482 votos / 49,15% del censo). Votos SÍ: 48,87% (6.192 votos / 45,95% del censo). Votos Blancos: 0,8% (101). Votos Nulos: 0,3% (38). Quórum superado.",
+                "census_and_votes": "Censo electoral: 15.562 trabajadores. Participación: 81,44% (12.674 votantes). Votos NO: 6.229 votos (49,15% del total / 51,52% de opciones válidas). Votos SÍ: 5.860 votos (46,24% del total / 48,48% de opciones válidas). Votos Blancos: 585 votos (4,62%). Rechazo global (NO + Blanco): 53,76% (6.814 votos).",
                 "summary": "En votación secreta en urna física con interventores de todos los sindicatos, las bases de Airbus desautorizan a las cúpulas de CCOO, SIPA y ATP y rechazan el preacuerdo firmado en la madrugada del 23 de julio. El preacuerdo ofrecía solo el 5%+5% fraccionado hasta 2027 sin garantizar el 12% consolidado en tablas a 1/1/2026 ni atrasos justos. Tras la derrota en las urnas, la cúpula negociadora de SIPA dimite en bloque.",
                 "actors": [
                     "Plantilla de Fábrica (15.562 trabajadores)",
@@ -556,12 +581,19 @@ class StrikeAnalysisEngine:
                     "ATP (firmante del preacuerdo rechazado)",
                     "CGT y ÚTIL (contrarios al preacuerdo)"
                 ],
+                "actor": "Referéndum",
+                "actor_category": "referendum",
+                "site": "Nacional",
                 "source_ref": "Actas Electorales Oficiales del Referéndum 24/07/2026 | Nota de prensa Comité Interempresas",
-                "strategic_takeaway": "Punto de inflexión histórico: La democracia directa asamblearia recupera el control de las negociaciones y derrota al pactismo institucional. El NO representa el 49,15% de toda la plantilla, un mandato inequívoco."
+                "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260729.pdf.txt",
+                "document_id": "tg_5489498",
+                "strategic_takeaway": "Punto de inflexión histórico: La democracia directa asamblearia recupera el control de las negociaciones y derrota al pactismo institucional. El NO representa el 49,15% de toda la plantilla, un mandato inequívoco.",
+                "verified": True
             },
             {
                 "id": "milestone-06-assembly-23jul",
                 "date": "23 de julio de 2026",
+                "iso_date": "2026-07-23",
                 "phase": "Asamblea de Emergencia — Rebelión contra el Preacuerdo",
                 "title": "Asamblea en Getafe (Puerta Sur): Rebelión Masiva contra el Preacuerdo firmado a las 02:00 AM",
                 "badge": "Rebelión en Fábrica",
@@ -578,17 +610,19 @@ class StrikeAnalysisEngine:
                     "CCOO (firmante del preacuerdo)",
                     "ATP (firmante del preacuerdo)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 23/07/2026 | Comunicado CGT-ÚTIL 23/07/2026",
-                "strategic_takeaway": "La asamblea se convierte en el contrapoder efectivo frente a las componendas de despacho. La traición de la madrugada genera la mayor movilización del conflicto.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 23/07/2026 | Comunicado CGT-ÚTIL 23/07/2026",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260723.pdf.txt",
                 "document_id": "tg_5028895",
+                "strategic_takeaway": "La asamblea se convierte en el contrapoder efectivo frente a las componendas de despacho. La traición de la madrugada genera la mayor movilización del conflicto.",
                 "verified": True
             },
             {
                 "id": "milestone-05-assembly-22jul",
                 "date": "22 de julio de 2026",
+                "iso_date": "2026-07-22",
                 "phase": "Unidad Intercentros — Manifiesto de los 5 Sindicatos",
                 "title": "Asamblea en Getafe (Puerta Norte): Ratificación del Manifiesto Conjunto de 5 Sindicatos y Apoyo de Tablada, San Pablo e Illescas",
                 "badge": "Unidad Intercentros",
@@ -603,17 +637,19 @@ class StrikeAnalysisEngine:
                     "WG Documentación",
                     "WG Comunicaciones (Canal Telegram EnfadadosconAirbus)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 22/07/2026 | Manifiesto Conjunto 5 Sindicatos 22/07/2026 (20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf)",
-                "strategic_takeaway": "La unidad de los 5 sindicatos blinda el frente negociador y coordina la lucha en toda la geografía española.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 22/07/2026 | Manifiesto Conjunto 5 Sindicatos 22/07/2026 (20260717_Comunicado_Mayoria_Sindical_Airbus.docx.pdf)",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260722.pdf.txt",
                 "document_id": "tg_0731238",
+                "strategic_takeaway": "La unidad de los 5 sindicatos blinda el frente negociador y coordina la lucha en toda la geografía española.",
                 "verified": True
             },
             {
                 "id": "milestone-04-assembly-21jul",
                 "date": "21 de julio de 2026",
+                "iso_date": "2026-07-21",
                 "phase": "Votación de Huelga Indefinida — Censo 3.430",
                 "title": "Asamblea en Getafe (Puerta Sur): Aprobación de Huelga Indefinida y Publicación del Censo de 3.430 Trabajadores",
                 "badge": "Huelga Aprobada",
@@ -628,17 +664,19 @@ class StrikeAnalysisEngine:
                     "WG Logística (organización de piquetes)",
                     "Representantes de San Pablo, Tablada, Illescas, Albacete"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 21/07/2026 | Acta de Constitución del Comité de Huelga",
-                "strategic_takeaway": "La fuerza asamblearia se dota de un censo formal propio para blindar la legitimidad democrática de las decisiones.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 21/07/2026 | Acta de Constitución del Comité de Huelga",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260721.pdf.txt",
                 "document_id": "tg_9328475",
+                "strategic_takeaway": "La fuerza asamblearia se dota de un censo formal propio para blindar la legitimidad democrática de las decisiones.",
                 "verified": True
             },
             {
                 "id": "milestone-03-assembly-20jul",
                 "date": "20 de julio de 2026",
+                "iso_date": "2026-07-20",
                 "phase": "Despliegue del Censo Presencial con Badge",
                 "title": "Asamblea en Getafe (Puerta Norte): Presentación del Dossier Financiero y Inicio del Censo con Badge",
                 "badge": "Censo Presencial — Día 1",
@@ -652,17 +690,19 @@ class StrikeAnalysisEngine:
                     "WG Documentación (Dossier Financiero v1)",
                     "WG Comunicaciones (activación Canal Telegram EnfadadosconAirbus: 5.794 miembros)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 20/07/2026 | Dossier Financiero v1 20/07/2026",
-                "strategic_takeaway": "Rigor técnico y transparencia informativa para toda la masa social. El canal Telegram se convierte en el principal medio de comunicación sindical.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 20/07/2026 | Dossier Financiero v1 20/07/2026",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_Getafe_20260720.pdf.txt",
                 "document_id": "tg_0609751",
+                "strategic_takeaway": "Rigor técnico y transparencia informativa para toda la masa social. El canal Telegram se convierte en el principal medio de comunicación sindical.",
                 "verified": True
             },
             {
                 "id": "milestone-02-assemblies-17jul",
                 "date": "17 de julio de 2026",
+                "iso_date": "2026-07-17",
                 "phase": "Asambleas Simultáneas Estatales — ~95% NO",
                 "title": "Asambleas Estatales Simultáneas: ~95% de Rechazo a la Oferta Patronal del 16 de Julio",
                 "badge": "95% NO Nacional",
@@ -676,17 +716,19 @@ class StrikeAnalysisEngine:
                     "Delegados de Planta de cada factoría",
                     "CGT, ÚTIL, UGT (convocantes del Comité de Huelga)"
                 ],
-                "source_ref": "Minutas Asambleas Estatales 17/07/2026 | Informe de Impacto Logístico 17/07/2026",
-                "strategic_takeaway": "Primera confirmación pública de que la huelga en España paraliza la logística JIT europea de Airbus SE. El impacto en Marignane y Toulouse valida la asimetría 185x.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minutas Asambleas Estatales 17/07/2026 | Informe de Impacto Logístico 17/07/2026",
                 "source_url": "data/telegram_archive/assembly_minutes/4_5969781284744994502.pdf.txt",
                 "document_id": "tg_5106243",
+                "strategic_takeaway": "Primera confirmación pública de que la huelga en España paraliza la logística JIT europea de Airbus SE. El impacto en Marignane y Toulouse valida la asimetría 185x.",
                 "verified": True
             },
             {
                 "id": "milestone-01b-assembly-march-16jul",
                 "date": "16 de julio de 2026",
+                "iso_date": "2026-07-16",
                 "phase": "Marcha Histórica al Ayuntamiento de Getafe",
                 "title": "Marcha al Ayuntamiento de Getafe: 'El Punto de Ruptura está Cerca' — Intervención de Nacho Abascal (San Pablo)",
                 "badge": "Marcha Obrera",
@@ -701,17 +743,19 @@ class StrikeAnalysisEngine:
                     "Portavoces de Tablada, Illescas, Albacete y Cádiz",
                     "Alcaldesa de Getafe (recepción institucional)"
                 ],
-                "source_ref": "Minuta Asamblea Getafe 16/07/2026 | Cobertura de Prensa Local",
-                "strategic_takeaway": "Alianza social e institucional con el municipio de Getafe. La marcha consolida el carácter público del conflicto y genera cobertura mediática nacional.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
                 "site": "Getafe",
+                "source_ref": "Minuta Asamblea Getafe 16/07/2026 | Cobertura de Prensa Local",
                 "source_url": "data/telegram_archive/assembly_minutes/Minutas_Asamblea_en_Huelga_GETAFE_-_16_07_2026.pdf.txt",
                 "document_id": "tg_1673021",
+                "strategic_takeaway": "Alianza social e institucional con el municipio de Getafe. La marcha consolida el carácter público del conflicto y genera cobertura mediática nacional.",
                 "verified": True
             },
             {
                 "id": "milestone-01-assembly-14jul",
                 "date": "14 de julio de 2026",
+                "iso_date": "2026-07-14",
                 "phase": "Asamblea Constituyente de Tablada — Autoorganización",
                 "title": "Asamblea en Tablada (Salón de Actos): Creación de los 4 Grupos Autogestionados y 'Voz Común de Sevilla'",
                 "badge": "Autoorganización",
@@ -727,17 +771,19 @@ class StrikeAnalysisEngine:
                     "Enlace con Nacho Abascal (San Pablo)",
                     "Representante CBC Cádiz-Puerto Real"
                 ],
-                "source_ref": "Minuta Asamblea Tablada 14/07/2026 | Acta Constitución Grupos de Trabajo Tablada",
-                "strategic_takeaway": "La autoorganización descentralizada en Tablada replica el modelo asambleario de Getafe, extendiendo la estructura de lucha a todos los centros del sur.",
+                "actor": "Asamblea",
                 "actor_category": "assembly",
-                "site": "Getafe",
+                "site": "Tablada",
+                "source_ref": "Minuta Asamblea Tablada 14/07/2026 | Acta Constitución Grupos de Trabajo Tablada",
                 "source_url": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt",
                 "document_id": "tg_3047",
+                "strategic_takeaway": "La autoorganización descentralizada en Tablada replica el modelo asambleario de Getafe, extendiendo la estructura de lucha a todos los centros del sur.",
                 "verified": True
             },
             {
                 "id": "milestone-00b-strike-start",
                 "date": "1 de julio de 2026",
+                "iso_date": "2026-07-01",
                 "phase": "Estallido del Conflicto — Paros Parciales",
                 "title": "Inicio de las Movilizaciones: Paros Parciales y Huelgas Rotativas Convocadas por SIPA, UGT, CGT y ÚTIL",
                 "badge": "Inicio del Conflicto",
@@ -754,12 +800,19 @@ class StrikeAnalysisEngine:
                     "Dirección Negociadora Airbus Operations S.L.U.",
                     "Comité de Negociación del Convenio (CNC)"
                 ],
+                "actor": "Sindicatos",
+                "actor_category": "union",
+                "site": "Nacional",
                 "source_ref": "Nota de Prensa SIPA 30/06/2026 | Convocatoria Oficial de Huelga Registrada | 20260630_-_Nota_de_prensa_-_Huelga_en_Airbus.pdf",
-                "strategic_takeaway": "Ruptura del statu quo tras años de moderación salarial frente a los beneficios récord de Airbus SE (5.221 M€ en 2025). Las 5 demandas son la base de toda la negociación posterior."
+                "source_url": "data/telegram_archive/assembly_minutes/Acta_Asamblea_en_huelga_1407.pdf.txt",
+                "document_id": "tg_3047",
+                "strategic_takeaway": "Ruptura del statu quo tras años de moderación salarial frente a los beneficios récord de Airbus SE (5.221 M€ en 2025). Las 5 demandas son la base de toda la negociación posterior.",
+                "verified": True
             },
             {
                 "id": "milestone-00-origin",
                 "date": "2021 – 2025",
+                "iso_date": "2025-12-31",
                 "phase": "Erosión Estructural — Origen del Conflicto",
                 "title": "Origen: Pérdida Acumulada del 20,9% al 24,4% de Poder Adquisitivo bajo el VI Convenio (BOE 297/2021)",
                 "badge": "Causa Estructural",
@@ -776,8 +829,14 @@ class StrikeAnalysisEngine:
                     "BCE",
                     "Airbus SE (beneficiario de la brecha salarial)"
                 ],
+                "actor": "Convenio",
+                "actor_category": "convenio",
+                "site": "Nacional",
                 "source_ref": "BOE núm. 297, de 11 de noviembre de 2021 | Dossier Económico de Pérdida de Poder Adquisitivo (v8) | INE IPC 2020–2025",
-                "strategic_takeaway": "La exigencia del 12% en tablas es la recuperación mínima imprescindible del salario real absorbido. No es un capricho: es aritmética del poder adquisitivo."
+                "source_url": "docs/Dossier_Perdida_Salarial_Airbus_2020_2025.txt",
+                "document_id": "tg_dossier_inflacion",
+                "strategic_takeaway": "La exigencia del 12% en tablas es la recuperación mínima imprescindible del salario real absorbido. No es un capricho: es aritmética del poder adquisitivo.",
+                "verified": True
             }
         ]
 

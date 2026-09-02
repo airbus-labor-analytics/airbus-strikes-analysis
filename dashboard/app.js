@@ -469,32 +469,43 @@ function switchTab(tabId) {
   // Backward compatibility alias map
   const tabAliases = {
     'tab-portal': 'tab-portal',
-    'tab-inicio': 'tab-portal',
-    'tab-mapa': 'tab-portal',
-    'tab-financiero': 'tab-overview',
-    'tab-logistica': 'tab-industrial',
-    'tab-salarios': 'tab-purchasing-power',
-    'tab-sindical': 'tab-union-force',
-    'tab-evidencias': 'tab-evidence',
+    'tab-resumen': 'tab-portal',
+    'tab-hub': 'tab-portal',
+    'tab-overview': 'tab-overview',
+    'tab-asimetria': 'tab-overview',
+    'tab-finanzas': 'tab-overview',
     'tab-kpis': 'tab-overview',
     'tab-stock': 'tab-overview',
     'tab-company-health': 'tab-overview',
+    'tab-industrial': 'tab-industrial',
     'tab-jit': 'tab-industrial',
     'tab-thermometer': 'tab-industrial',
     'tab-beluga': 'tab-industrial',
+    'tab-logistica': 'tab-industrial',
+    'tab-purchasing-power': 'tab-purchasing-power',
     'tab-wages': 'tab-purchasing-power',
     'tab-historical-losses': 'tab-purchasing-power',
     'tab-negotiation': 'tab-purchasing-power',
+    'tab-salarios': 'tab-purchasing-power',
+    'tab-poder-adquisitivo': 'tab-purchasing-power',
+    'tab-union-force': 'tab-union-force',
     'tab-unions': 'tab-union-force',
     'tab-referendum': 'tab-union-force',
-    'tab-timeline': 'tab-union-force',
-    'tab-workflows': 'tab-union-force',
+    'tab-sindicatos': 'tab-union-force',
+    'tab-asamblea': 'tab-union-force',
+    'tab-timeline': 'tab-timeline',
+    'tab-cronologia': 'tab-timeline',
+    'tab-actas': 'tab-timeline',
+    'tab-cronograma': 'tab-timeline',
+    'tab-evidence': 'tab-evidence',
     'tab-sources': 'tab-evidence',
     'tab-telegram-archive': 'tab-evidence',
     'tab-benchmarks': 'tab-evidence',
+    'tab-fuentes': 'tab-evidence',
+    'tab-documentos': 'tab-evidence',
+    'tab-workflows': 'tab-union-force',
     'tab-checklist': 'tab-purchasing-power'
   };
-
   if (tabAliases[normalizedTabId]) {
     normalizedTabId = tabAliases[normalizedTabId];
   }
@@ -616,8 +627,17 @@ const TAB_SECTION_MAP = {
       { id: 'sec-unions-referendum', label: 'Referéndum 24-Julio', icon: 'vote' },
       { id: 'sec-unions-sections', label: 'Secciones Sindicales', icon: 'pie-chart' },
       { id: 'sec-unions-sociology', label: 'Claves Sociológicas', icon: 'shield-alert' },
-      { id: 'sec-unions-timeline', label: 'Línea Temporal & Minutas', icon: 'history' },
+      { id: 'sec-unions-timeline-link', label: 'Módulo Cronología →', icon: 'history' },
       { id: 'sec-unions-workflows', label: 'Árboles de Decisión', icon: 'git-merge' }
+    ]
+  },
+  'tab-timeline': {
+    title: 'Cronología & Actas',
+    sections: [
+      { id: 'sec-timeline-hero', label: 'Resumen & Telemetría', icon: 'history' },
+      { id: 'sec-timeline-freshness', label: 'Validador de Frescura', icon: 'calendar-check' },
+      { id: 'sec-timeline-filters', label: 'Filtros y Búsqueda', icon: 'filter' },
+      { id: 'sec-timeline-stream', label: 'Hitos & Actas 2026', icon: 'list' }
     ]
   },
   'tab-evidence': {

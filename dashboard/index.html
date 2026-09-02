@@ -374,7 +374,7 @@
               </div>
             </div>
 
-            <!-- Card 4: Fuerza Sindical & Asamblea -->
+            <!-- Card 4: Fuerza Sindical & Representación -->
             <div onclick="switchTab('tab-union-force')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-amber-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
               <div>
                 <div class="flex items-center justify-between">
@@ -383,23 +383,44 @@
                 </div>
                 <h4 class="text-sm font-bold text-white mt-2 group-hover:text-amber-300 transition flex items-center">
                   <i data-lucide="users" class="w-4 h-4 mr-1.5 text-amber-400"></i>
-                  Fuerza Sindical & Asamblea
+                  Fuerza Sindical & Elecciones
                 </h4>
                 <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                  Mapa de 198 delegados electos en las 7 factorías, resultados del referéndum del 24-J, cronología exhaustiva de asambleas y protocolos de huelga.
+                  Mapa de 198 delegados electos en las 7 factorías, matriz 2D centros $\times$ sindicatos y análisis electoral del referéndum del 24-J.
                 </p>
               </div>
               <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
-                <span>Mapa de Centros & Referéndum</span>
+                <span>198 Delegados & Referéndum</span>
                 <span class="text-amber-400 font-bold group-hover:underline">Explorar →</span>
               </div>
             </div>
 
-            <!-- Card 5: Documentación & Evidencias -->
+            <!-- Card 5: Cronología & Actas Asamblearias -->
+            <div onclick="switchTab('tab-timeline')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-purple-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded">Módulo 5</span>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition"></i>
+                </div>
+                <h4 class="text-sm font-bold text-white mt-2 group-hover:text-purple-300 transition flex items-center">
+                  <i data-lucide="history" class="w-4 h-4 mr-1.5 text-purple-400"></i>
+                  Cronología & Asambleas
+                </h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Seguimiento continuo de los 22 hitos del conflicto, validador de frescura (Europa/Madrid), actas de asambleas y filtros por factoría.
+                </p>
+              </div>
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span>22 Hitos & Validador de Frescura</span>
+                <span class="text-purple-400 font-bold group-hover:underline">Explorar →</span>
+              </div>
+            </div>
+
+            <!-- Card 6: Documentación & Evidencias -->
             <div onclick="switchTab('tab-evidence')" class="glass-card p-5 rounded-2xl border-slate-800 hover:border-sky-500/50 cursor-pointer transition flex flex-col justify-between group space-y-3 bg-slate-900/60 hover:bg-slate-900/90">
               <div>
                 <div class="flex items-center justify-between">
-                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">Módulo 5</span>
+                  <span class="px-2 py-0.5 text-[10px] font-black bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded">Módulo 6</span>
                   <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-500 group-hover:text-sky-400 transition"></i>
                 </div>
                 <h4 class="text-sm font-bold text-white mt-2 group-hover:text-sky-300 transition flex items-center">
@@ -407,7 +428,7 @@
                   Documentación & Evidencias
                 </h4>
                 <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-                  Buscador de <span class="dynamic-total-sources-count">269</span> fuentes primarias oficiales, archivo indexado de asambleas Telegram y benchmarks estratégicos de huelgas del sector aeroespacial.
+                  Buscador de <span class="dynamic-total-sources-count">269</span> fuentes primarias oficiales, archivo indexado de asambleas Telegram y benchmarks estratégicos de huelgas aeroespaciales.
                 </p>
               </div>
               <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
@@ -2323,58 +2344,25 @@ y se acumula en pensión y pagas extra.</span>
           </div>
         </div>
 
-        <div id="sec-unions-timeline" class="glass-card p-5 sm:p-6 rounded-2xl border-amber-500/30">
-          <div class="border-b border-slate-800 pb-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
-            <div>
-              <h2 class="text-base font-bold text-white flex items-center">
-                <i data-lucide="history" class="w-5 h-5 mr-2 text-amber-400"></i>
-                Línea Temporal & Minutas Detalladas de Asambleas de Fábrica
-              </h2>
-              <p class="text-xs text-slate-400 mt-0.5">Orden cronológico inverso: Desde el presente (1 de Septiembre) hasta el origen del conflicto (2021-2025). Desglose por factorías, minutas y acuerdos.</p>
-            </div>
+        <!-- Shortcut Banner to Dedicated Timeline Module -->
+        <div id="sec-unions-timeline-link" class="glass-card p-5 sm:p-6 rounded-2xl border-purple-500/30 bg-gradient-to-r from-slate-900 via-purple-950/20 to-slate-900 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <div class="space-y-1">
             <div class="flex items-center space-x-2">
-              <span class="px-2.5 py-1 text-xs font-black bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-lg">
-                PRESENTE (HOY) ↓ PASADO
-              </span>
+              <span class="px-2 py-0.5 text-[10px] font-black bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded uppercase tracking-wider">Nuevo Módulo Dedicado</span>
+              <h3 class="text-base font-bold text-white flex items-center">
+                <i data-lucide="history" class="w-5 h-5 mr-2 text-purple-400"></i>
+                Cronología Exhaustiva & Minutas de Fábrica
+              </h3>
             </div>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+              Accede al nuevo apartado interactivo con los 22 hitos del conflicto, el validador de frescura en tiempo real, filtros por factoría y transcripciones íntegras de actas asamblearias.
+            </p>
           </div>
-
-          <!-- Dynamic Daily Freshness Banner -->
-          <div id="timeline-freshness-banner" class="mt-4">
-            <!-- Injected dynamically via evaluateTimelineFreshness() -->
-          </div>
-
-          <!-- Timeline Filter Controls -->
-          <div class="mt-5 p-3.5 bg-slate-950/70 border border-slate-800 rounded-xl space-y-3">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div class="flex items-center space-x-2">
-                <i data-lucide="filter" class="w-4 h-4 text-amber-400"></i>
-                <span class="text-xs font-bold text-slate-200">Filtros de Cronología:</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-1 text-[11px]" id="timeline-plant-filters">
-                <span class="text-slate-400 mr-1">Factoría:</span>
-                <button onclick="setTimelineFilter('plant', 'ALL')" class="tl-filter-plant active px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold transition">Todas</button>
-                <button onclick="setTimelineFilter('plant', 'Getafe')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Getafe</button>
-                <button onclick="setTimelineFilter('plant', 'Illescas')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Illescas</button>
-                <button onclick="setTimelineFilter('plant', 'San Pablo')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">San Pablo</button>
-                <button onclick="setTimelineFilter('plant', 'Tablada')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Tablada</button>
-                <button onclick="setTimelineFilter('plant', 'CBC El Puerto')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">CBC</button>
-                <button onclick="setTimelineFilter('plant', 'Albacete')" class="tl-filter-plant px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">Albacete</button>
-              </div>
-            </div>
-            <div class="flex flex-wrap items-center gap-1.5 text-[11px] pt-1 border-t border-slate-850" id="timeline-actor-filters">
-              <span class="text-slate-400 mr-1">Ámbito / Actor:</span>
-              <button onclick="setTimelineFilter('actor', 'ALL')" class="tl-filter-actor active px-2 py-0.5 rounded bg-blue-600 text-white font-bold transition">Todos</button>
-              <button onclick="setTimelineFilter('actor', 'assembly')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">🏛️ Asambleas</button>
-              <button onclick="setTimelineFilter('actor', 'sima')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">⚖️ SIMA / Mediación</button>
-              <button onclick="setTimelineFilter('actor', 'union')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">✊ Sindicatos</button>
-              <button onclick="setTimelineFilter('actor', 'company')" class="tl-filter-actor px-2 py-0.5 rounded bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800 transition">🏢 Empresa</button>
-            </div>
-          </div>
-
-          <div class="relative pl-6 sm:pl-8 border-l-2 border-slate-800 space-y-8 mt-6" id="timeline-container">
-            <!-- Dynamically populated from timeline -->
-          </div>
+          <button onclick="switchTab('tab-timeline')" class="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs flex items-center space-x-2 shadow-lg shadow-purple-600/30 transition shrink-0 cursor-pointer">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>Abrir Cronología Completa</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+          </button>
         </div>
 
         <div id="sec-unions-workflows" class="glass-card p-5 sm:p-6 rounded-2xl border-indigo-500/30">
@@ -2388,6 +2376,127 @@ y se acumula en pensión y pagas extra.</span>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5" id="workflows-container">
             <!-- Dynamically populated from workflows -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 5: CRONOLOGÍA & ASAMBLEAS ==================== -->
+      <div id="tab-timeline" class="tab-content hidden space-y-6">
+        <!-- Hero & Telemetry Header -->
+        <div id="sec-timeline-hero" class="glass-card p-5 sm:p-6 rounded-2xl border-purple-500/30 bg-gradient-to-br from-slate-900 via-slate-900/90 to-purple-950/20 space-y-5">
+          <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-slate-800 pb-4 gap-3">
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-black bg-purple-500/20 text-purple-300 border border-purple-500/40 uppercase tracking-wider">Módulo 5</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30 animate-pulse">Día 9 de Huelga Indefinida</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center">
+                <i data-lucide="history" class="w-6 h-6 mr-2.5 text-purple-400"></i>
+                Cronología del Conflicto & Actas Asamblearias
+              </h2>
+              <p class="text-xs text-slate-400 mt-1">
+                Seguimiento cronológico continuo día a día desde el origen estructural (2021-2025) hasta las asambleas masivas y sesiones del SIMA de hoy.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <div class="px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs font-mono text-slate-300 flex items-center space-x-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Hora Madrid: <strong>CEST</strong></span>
+              </div>
+              <a href="https://t.me/+MnuqJDCAAgYyMGQ0" target="_blank" rel="noopener noreferrer" 
+                 class="px-3 py-1.5 rounded-xl bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 text-blue-400 font-semibold text-xs flex items-center space-x-1.5 transition">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Telegram Oficial</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Stats Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 bg-slate-950/60 border border-slate-800 rounded-xl">
+              <span class="text-[10px] text-slate-500 font-mono block uppercase">Total Hitos</span>
+              <span class="text-lg font-black text-purple-400 font-mono">22</span>
+              <span class="text-[10px] text-slate-400 block">Registros verificados</span>
+            </div>
+            <div class="p-3 bg-slate-950/60 border border-slate-800 rounded-xl">
+              <span class="text-[10px] text-slate-500 font-mono block uppercase">Días Huelga Indefinida</span>
+              <span class="text-lg font-black text-rose-400 font-mono">9</span>
+              <span class="text-[10px] text-slate-400 block">Desde el 25 de agosto</span>
+            </div>
+            <div class="p-3 bg-slate-950/60 border border-slate-800 rounded-xl">
+              <span class="text-[10px] text-slate-500 font-mono block uppercase">Factorías en Lucha</span>
+              <span class="text-lg font-black text-amber-400 font-mono">7 / 7</span>
+              <span class="text-[10px] text-slate-400 block">15.562 trabajadores</span>
+            </div>
+            <div class="p-3 bg-slate-950/60 border border-slate-800 rounded-xl">
+              <span class="text-[10px] text-slate-500 font-mono block uppercase">Actas Vinculadas</span>
+              <span class="text-lg font-black text-emerald-400 font-mono">18</span>
+              <span class="text-[10px] text-slate-400 block">Documentos primarios</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Daily Freshness Banner -->
+        <div id="sec-timeline-freshness">
+          <div id="timeline-freshness-banner">
+            <!-- Injected dynamically via evaluateTimelineFreshness() -->
+          </div>
+        </div>
+
+        <!-- Timeline Filters & Search Card -->
+        <div id="sec-timeline-filters" class="glass-card p-4 sm:p-5 rounded-2xl border-slate-800 space-y-4">
+          <div class="flex flex-col md:flex-row justify-between md:items-center gap-3">
+            <div>
+              <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                <i data-lucide="filter" class="w-4 h-4 text-purple-400"></i>
+                <span>Filtros y Búsqueda en el Cronograma</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Filtra por factoría específica, actor institucional o introduce términos clave.</p>
+            </div>
+            
+            <!-- Live Search Bar -->
+            <div class="relative w-full md:w-72">
+              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input type="text" id="timeline-search-input" oninput="if(window.setTimelineSearchQuery) window.setTimelineSearchQuery(this.value);" 
+                     placeholder="Buscar en asambleas, acuerdos..." 
+                     class="w-full pl-9 pr-3 py-1.5 bg-slate-900/90 border border-slate-700/80 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition">
+            </div>
+          </div>
+
+          <!-- Plant and Actor Filters -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 pt-3 border-t border-slate-800/80 text-xs">
+            <!-- Plant Filter Buttons -->
+            <div class="space-y-1.5">
+              <span class="text-[11px] font-bold text-slate-400 block">Factoría / Centro de Trabajo:</span>
+              <div class="flex flex-wrap gap-1.5" id="timeline-plant-filters">
+                <button onclick="setTimelineFilter('ALL')" data-plant="ALL" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-blue-600 text-white shadow-sm transition cursor-pointer">Todas</button>
+                <button onclick="setTimelineFilter('Getafe')" data-plant="Getafe" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">Getafe</button>
+                <button onclick="setTimelineFilter('Illescas')" data-plant="Illescas" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">Illescas</button>
+                <button onclick="setTimelineFilter('San Pablo')" data-plant="San Pablo" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">San Pablo</button>
+                <button onclick="setTimelineFilter('Tablada')" data-plant="Tablada" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">Tablada</button>
+                <button onclick="setTimelineFilter('CBC El Puerto')" data-plant="CBC El Puerto" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">CBC Cádiz</button>
+                <button onclick="setTimelineFilter('Albacete')" data-plant="Albacete" class="timeline-filter-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">Albacete</button>
+              </div>
+            </div>
+
+            <!-- Actor Category Buttons -->
+            <div class="space-y-1.5">
+              <span class="text-[11px] font-bold text-slate-400 block">Ámbito / Tipo de Actor:</span>
+              <div class="flex flex-wrap gap-1.5" id="timeline-actor-filters">
+                <button onclick="setTimelineActorFilter('ALL')" data-actor="ALL" class="timeline-actor-btn px-3 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow-sm transition cursor-pointer">Todos</button>
+                <button onclick="setTimelineActorFilter('assembly')" data-actor="assembly" class="timeline-actor-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">🏛️ Asambleas</button>
+                <button onclick="setTimelineActorFilter('sima')" data-actor="sima" class="timeline-actor-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">⚖️ SIMA</button>
+                <button onclick="setTimelineActorFilter('logistics')" data-actor="logistics" class="timeline-actor-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">✈️ Logística</button>
+                <button onclick="setTimelineActorFilter('referendum')" data-actor="referendum" class="timeline-actor-btn px-3 py-1 rounded-lg text-xs font-semibold bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer">🗳️ Referéndum</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stream of Timeline Cards -->
+        <div id="sec-timeline-stream" class="relative pl-6 sm:pl-8 border-l-2 border-slate-800 space-y-6">
+          <div id="timeline-container" class="space-y-6">
+            <!-- Dynamically populated via renderTimeline() in timeline.js -->
           </div>
         </div>
       </div>
@@ -2673,6 +2782,10 @@ y se acumula en pensión y pagas extra.</span>
     <button onclick="switchTab('tab-union-force')" id="dock-tab-union-force" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
       <i data-lucide="users" class="w-4 h-4 text-amber-400"></i>
       <span class="hidden md:inline">Sindicatos</span>
+    </button>
+    <button onclick="switchTab('tab-timeline')" id="dock-tab-timeline" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
+      <i data-lucide="history" class="w-4 h-4 text-purple-400"></i>
+      <span class="hidden md:inline">Cronología</span>
     </button>
     <button onclick="switchTab('tab-evidence')" id="dock-tab-evidence" class="dock-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5 transition">
       <i data-lucide="book-open" class="w-4 h-4 text-sky-400"></i>

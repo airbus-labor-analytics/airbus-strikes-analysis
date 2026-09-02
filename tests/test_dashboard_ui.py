@@ -24,6 +24,7 @@ EXPECTED_TABS = [
     "tab-industrial",
     "tab-purchasing-power",
     "tab-union-force",
+    "tab-timeline",
     "tab-evidence"
 ]
 
@@ -100,7 +101,7 @@ class TestDashboardUI(unittest.TestCase):
         """Validates that in static HTML, only the default landing tab (tab-portal) is unhidden."""
         # Match all <div id="tab-..." class="tab-content..."> definitions
         tab_matches = re.findall(r'<div\s+id=["\'](tab-[a-zA-Z0-9_-]+)["\']\s+class=["\']([^"\']+)["\']', self.html_content)
-        self.assertEqual(len(tab_matches), 6, f"Expected 6 tab containers, found {len(tab_matches)}")
+        self.assertEqual(len(tab_matches), len(EXPECTED_TABS), f"Expected {len(EXPECTED_TABS)} tab containers, found {len(tab_matches)}")
         
         unhidden_tabs = []
         for tab_id, class_str in tab_matches:
@@ -167,7 +168,7 @@ class TestDashboardUI(unittest.TestCase):
         self.assertIn("60 horas", self.html_content)
         self.assertIn("-26.027 €", self.html_content)
         self.assertIn("Mapa de Navegación del Portal", self.html_content)
-        for target_tab in ["tab-overview", "tab-industrial", "tab-purchasing-power", "tab-union-force", "tab-evidence"]:
+        for target_tab in ["tab-overview", "tab-industrial", "tab-purchasing-power", "tab-union-force", "tab-timeline", "tab-evidence"]:
             self.assertIn(f"switchTab('{target_tab}')", self.html_content)
 
     def test_dynamic_stock_milestones_container(self):

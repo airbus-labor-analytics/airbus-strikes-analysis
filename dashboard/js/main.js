@@ -9,8 +9,8 @@ import * as Overview from './modules/overview.js';
 import * as Industrial from './modules/industrial.js';
 import * as PurchasingPower from './modules/purchasing_power.js';
 import * as UnionForce from './modules/union_force.js';
+import * as Timeline from './modules/timeline.js';
 import * as Evidence from './modules/evidence.js';
-
 // Global Tab State
 export let currentActiveTab = 'tab-portal';
 
@@ -26,6 +26,9 @@ export const tabAliases = {
   'tab-poder-adquisitivo': 'tab-purchasing-power',
   'tab-sindicatos': 'tab-union-force',
   'tab-asamblea': 'tab-union-force',
+  'tab-cronologia': 'tab-timeline',
+  'tab-actas': 'tab-timeline',
+  'tab-cronograma': 'tab-timeline',
   'tab-fuentes': 'tab-evidence',
   'tab-documentos': 'tab-evidence'
 };
@@ -108,6 +111,9 @@ export function initApp() {
   Evidence.initSources();
   Evidence.initTelegramArchive();
   Evidence.initBenchmarks();
+    // 5. Initialize Module 5: Conflict Timeline & Minutes
+    Timeline.initTimeline();
+
 
   // Initial Tab Resolution from URL Hash
   const hash = window.location.hash.replace('#', '').split(':')[0];
@@ -150,6 +156,14 @@ window.setCustomProposalPreset = PurchasingPower.setCustomProposalPreset;
 window.setCustomArrearsQuick = PurchasingPower.setCustomArrearsQuick;
 window.onRsgModeSelectChange = PurchasingPower.onRsgModeSelectChange;
 
+window.setTimelineFilter = Timeline.setTimelineFilter;
+window.setTimelineActorFilter = Timeline.setTimelineActorFilter;
+window.setTimelineSearchQuery = Timeline.setTimelineSearchQuery;
+window.renderTimeline = Timeline.renderTimeline;
+window.renderTimelineFreshnessBanner = Timeline.renderTimelineFreshnessBanner;
+window.evaluateTimelineFreshness = Timeline.evaluateTimelineFreshness;
+window.updateHUDTimelineFreshness = Timeline.updateHUDTimelineFreshness;
+window.getMadridDate = Timeline.getMadridDate;
 // Auto-boot on DOM ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initApp);
