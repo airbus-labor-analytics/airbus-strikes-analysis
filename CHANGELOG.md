@@ -2,6 +2,26 @@
 
 All notable changes to the Airbus Spain 2026 Strike Analytics project will be documented in this file.
 
+## [017-conflict-welcome-pack] - 2026-09-02
+
+### Added
+- **Welcome Pack al Conflicto & Primary Chronology (`#tab-welcome-pack`)**:
+  - Executive introduction module summarizing structural causes, real purchasing power loss (-20.9% to -24.4%, -26,030 € net), and company economic capacity (€73.4B revenue, €4.96B net profit).
+  - 4 authenticated primary quotes from assembly minutes (`Minutas_Asamblea_Getafe_*.txt`) and loss dossiers.
+  - 3-Phase Chronology (Gestation, Escalation & Direct Democracy, Indefinite Strike up to Day 9 - 2026-09-02) with phase-filtering buttons.
+  - 11-point Strike Committee platform summary cards with verified economic costs.
+  - Dynamic freshness badge reflecting strike day (`Día 9 de Huelga General Indefinida`) and live Madrid timezone timestamp.
+- **Automated Markdown Dossier Generator (`src/generate_welcome_pack.py`)**:
+  - Compiles `docs/Welcome_Pack_Conflicto_Airbus_2026.md` directly from verified JSON metrics and primary sources.
+- **Rule 16 Invariant & Unit Tests (`src/validate_invariants.py`, `tests/test_welcome_pack.py`)**:
+  - Rule 16 validating Welcome Pack structure, 3 phases, quotes, and dossier compilation.
+  - 6 new unit tests ensuring 100% mathematical and source integrity (total 92/92 tests passing).
+
+### Changed
+- **Dashboard Navigation & Dock (`dashboard/index.html`, `dashboard/app.js`)**:
+  - Added direct quick access button in portal header («¿Qué nos ha llevado aquí?») and feature card in portal grid.
+  - Added bottom dock button and URL hash routing aliases (`#tab-welcome-pack`, `#welcome`, `#guia`).
+
 ## [016-daily-timeline-assembly-validator-grounding] - 2026-09-02
 
 ### Fixed
