@@ -13,6 +13,12 @@ El **Welcome Pack al Conflicto** es una guía integral de inducción, contextual
 
 El documento estructura la narrativa en tres fases cronológicas diferenciadas con citas literales de las actas de asamblea y documentos de mediación en el SIMA, incorpora un sistema de sellos temporales que marca la última fecha de actualización (2 de septiembre de 2026), y enlaza directamente con el visor modal de minutas íntegras del archivo de Telegram.
 
+## Clarifications
+
+### Session 2026-09-02
+- Q: ¿Cómo debe integrarse visual y funcionalmente el Welcome Pack dentro del cuadro de mando interactivo? → A: Pestaña principal dedicada (`#tab-welcome-pack` / Guía del Conflicto & Welcome Pack) en la barra de navegación superior + botón de acceso rápido («¿Qué nos ha llevado aquí?») en el banner superior.
+- Q: ¿Cómo debe mantenerse y generarse el dossier físico/descargable (`docs/Welcome_Pack_Conflicto_Airbus_2026.md`) para evitar discrepancias futuras con los datos del cuadro de mando? → A: Generación automatizada mediante script Python (`src/generate_welcome_pack.py`) acoplado a `data/conflict_metrics.json` e integrado en la suite de pruebas unitarias.
+
 ---
 
 ## User Scenarios & Testing *(mandatory)*
@@ -81,8 +87,8 @@ Como usuario que consulta la documentación de huelga en tiempo real, quiero ver
 - **FR-004**: Cada hito cronológico DEBE registrar de forma fidedigna los datos de las minutas primarias: fecha, lugar, asistentes reales, votaciones exactas con sus opciones, acuerdos y cita destacada.
 - **FR-005**: Cada hito con minuta asociada DEBE incorporar un enlace o disparador interactivo al modal de lectura íntegra del documento primario.
 - **FR-006**: El sistema DEBE mostrar de forma destacada en la cabecera y en las secciones temporales el sello de última fecha actualizada (`Última actualización: 2 de septiembre de 2026`).
-- **FR-007**: El Welcome Pack DEBE integrarse de forma nativa en la barra de navegación del dashboard interactivo (`#tab-welcome-pack` o selector temático unificado) y estar sincronizado con el archivo de datos canonical (`data/conflict_metrics.json` y `dashboard/data.js`).
-- **FR-008**: DEBE generarse un documento dossier completo en formato Markdown (`docs/Welcome_Pack_Conflicto_Airbus_2026.md`) que sirva de guía física y descargable para delegados y trabajadores.
+- **FR-007**: El Welcome Pack DEBE integrarse de forma nativa como pestaña principal dedicada en la barra de navegación (`#tab-welcome-pack` / "Guía del Conflicto") complementada por un botón de acceso rápido en el banner superior ("¿Qué nos ha llevado aquí?"), sincronizado con los datasets canónicos (`data/conflict_metrics.json` y `dashboard/data.js`).
+- **FR-008**: DEBE generarse y mantenerse actualizado de forma automatizada un dossier estructurado en Markdown (`docs/Welcome_Pack_Conflicto_Airbus_2026.md`) mediante un script generador (`src/generate_welcome_pack.py`) sincronizado con `data/conflict_metrics.json` y validado por la suite de pruebas unitarias.
 
 ---
 
