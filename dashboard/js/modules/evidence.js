@@ -320,22 +320,75 @@ function initSourceFilters() {
 // ==================== 3. MODAL DE FUENTES CON CACHÉ ====================
 
 export async function openSourceModal(sourceId) {
+  if (!sourceId) return;
   const sourcesCatalogData = window.SOURCES_DATA || [];
   const tgDocs = window.telegramDocsData || window.CONFLICT_DATA?.telegram_archive?.documents || [];
+  const timeline = window.CONFLICT_DATA?.timeline || [];
 
+  const cleanTarget = (sourceId || '').trim();
+  const cleanId = cleanTarget.replace(/[^a-zA-Z0-9_-]/g, '_');
+
+  // 1. Search in Sources Catalog
   let src = sourcesCatalogData.find(s => {
-    const cleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-    return cleanId === sourceId || s.id === sourceId || s.title === sourceId;
+    const sCleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+    return s.id === cleanTarget || sCleanId === cleanId || s.title === cleanTarget ||
+           (s.file_path && (s.file_path === cleanTarget || s.file_path.endsWith(cleanTarget)));
   });
 
   let isTg = false;
+  // 2. Search in Telegram Documents
   if (!src) {
     src = tgDocs.find(d => {
-      const cleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-      const cleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-      return cleanId === sourceId || cleanTitle === sourceId || d.id === sourceId || d.title === sourceId;
+      const dCleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const dCleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      return d.id === cleanTarget || dCleanId === cleanId || dCleanTitle === cleanId || d.title === cleanTarget ||
+             (d.file_path && (d.file_path === cleanTarget || d.file_path.endsWith(cleanTarget))) ||
+             (d.filename && (d.filename === cleanTarget || d.filename.endsWith(cleanTarget)));
     });
     if (src) isTg = true;
+  }
+
+  // 3. Search in Timeline Milestones
+  if (!src) {
+    const milestone = timeline.find(m => {
+      return m.id === cleanTarget || m.document_id === cleanTarget || m.source_url === cleanTarget ||
+             (m.source_url && m.source_url.endsWith(cleanTarget));
+    });
+    if (milestone) {
+      if (milestone.document_id) {
+        src = tgDocs.find(d => d.id === milestone.document_id) || sourcesCatalogData.find(s => s.id === milestone.document_id);
+      }
+      if (!src && milestone.source_url) {
+        src = tgDocs.find(d => d.file_path === milestone.source_url) || sourcesCatalogData.find(s => s.file_path === milestone.source_url);
+      }
+      if (!src) {
+        src = {
+          id: milestone.document_id || milestone.id,
+          title: milestone.title,
+          category: 'Actas de Asamblea',
+          type: 'documento',
+          file_path: milestone.source_url || cleanTarget,
+          summary: milestone.summary || '',
+          full_text: milestone.verbatim_minutes || ''
+        };
+        isTg = true;
+      }
+    }
+  }
+
+  // 4. Synthesize from file path if still not found
+  if (!src && (cleanTarget.includes('/') || cleanTarget.includes('.txt') || cleanTarget.includes('.pdf') || cleanTarget.includes('.md'))) {
+    const rawFileName = cleanTarget.split('/').pop().replace(/\.pdf\.txt$|\.txt$/i, '').replace(/_/g, ' ');
+    src = {
+      id: cleanTarget,
+      title: rawFileName,
+      category: 'Actas de Asamblea',
+      type: 'documento',
+      file_path: cleanTarget,
+      summary: 'Documento primario de archivo',
+      full_text: ''
+    };
+    isTg = true;
   }
 
   const modalEl = document.getElementById('source-modal');
@@ -347,11 +400,11 @@ export async function openSourceModal(sourceId) {
   const linkEl = document.getElementById('modal-source-link');
   const metaEl = document.getElementById('modal-source-footer-meta');
 
-  if (titleEl) titleEl.textContent = src ? src.title : `Documento #${sourceId}`;
+  if (titleEl) titleEl.textContent = src ? src.title : `Documento #${cleanTarget}`;
   if (catEl) catEl.textContent = src ? normalizeCategory(src.category) : 'Documentación Primaria';
-  if (typeEl) typeEl.textContent = isTg ? 'TELEGRAM OFICIAL' : (src?.type ? src.type.toUpperCase() : 'DOCUMENTO');
+  if (typeEl) typeEl.textContent = isTg ? 'ACTA / MINUTA OFICIAL' : (src?.type ? src.type.toUpperCase() : 'DOCUMENTO');
   if (sizeEl) sizeEl.textContent = src?.char_count ? `${src.char_count.toLocaleString()} caracteres` : (src?.size_chars ? `${(src.size_chars/1000).toFixed(1)}k caracteres` : '');
-  if (metaEl) metaEl.textContent = isTg ? `Canal: EnfadadosconAirbus (${src?.file_path || 'Telegram'})` : `ID Fuente: ${src?.id || sourceId}`;
+  if (metaEl) metaEl.textContent = isTg ? `Fuente: ${src?.file_path || 'Archivo Telegram EnfadadosconAirbus'}` : `ID Fuente: ${src?.id || cleanTarget}`;
 
   if (linkEl) {
     const destUrl = src?.url || src?.group_url || (isTg ? 'https://t.me/+MnuqJDCAAgYyMGQ0' : '#');
@@ -360,8 +413,10 @@ export async function openSourceModal(sourceId) {
   }
 
   if (contentEl) {
-    // Immediate display of embedded full text / preview
-    if (src?.fulltext_preview && src.fulltext_preview.length > 50) {
+    // Immediate display of full text or preview
+    if (src?.full_text && src.full_text.trim().length > 0) {
+      contentEl.textContent = src.full_text;
+    } else if (src?.fulltext_preview && src.fulltext_preview.length > 50) {
       contentEl.textContent = src.fulltext_preview;
     } else if (src?.summary) {
       contentEl.textContent = src.summary;
@@ -369,20 +424,30 @@ export async function openSourceModal(sourceId) {
       contentEl.textContent = "Cargando transcripción íntegra...";
     }
 
-    // Background live fetch if served via HTTP
-    if (window.location.protocol !== 'file:' && src?.file_path) {
-      try {
-        const fetchPath = src.file_path.startsWith('http') ? src.file_path : (src.file_path.startsWith('data/') || src.file_path.startsWith('sources/') ? src.file_path : `data/${src.file_path}`);
-        const res = await fetch(fetchPath);
-        if (res.ok) {
-          const fullText = await res.text();
-          if (fullText && fullText.trim().length > 0) {
-            contentEl.textContent = fullText;
-          }
+    // Background live fetch if served via HTTP or relative path
+    const fetchPath = src?.file_path || (cleanTarget.includes('/') ? cleanTarget : null);
+    if (fetchPath && window.location.protocol !== 'file:') {
+      const candidates = [
+        fetchPath,
+        fetchPath.startsWith('data/') || fetchPath.startsWith('docs/') || fetchPath.startsWith('sources/') ? fetchPath : `data/${fetchPath}`,
+        `./${fetchPath}`,
+        `../${fetchPath}`
+      ];
+      
+      (async () => {
+        for (const p of candidates) {
+          try {
+            const res = await fetch(p);
+            if (res.ok) {
+              const fullText = await res.text();
+              if (fullText && fullText.trim().length > 0) {
+                contentEl.textContent = fullText;
+                break;
+              }
+            }
+          } catch (e) {}
         }
-      } catch (e) {
-        // Keep embedded text
-      }
+      })();
     }
   }
 

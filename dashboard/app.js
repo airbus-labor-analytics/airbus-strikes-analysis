@@ -4086,22 +4086,77 @@ function renderSourcesList(sources) {
 
 // Modal Reader Functions
 async function openSourceModal(sourceId) {
+  if (!sourceId) return;
   const tgDocs = telegramDocsData.length > 0 ? telegramDocsData : (conflictData?.telegram_archive?.documents || []);
+  const timeline = conflictData?.timeline || [];
 
+  const cleanTarget = (sourceId || '').trim();
+  const cleanId = cleanTarget.replace(/[^a-zA-Z0-9_-]/g, '_');
+
+  // 1. Search in Sources Catalog
   let source = sourcesCatalogData.find(s => {
-    const cleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-    return cleanId === sourceId || s.id === sourceId || s.title === sourceId;
+    const sCleanId = (s.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+    return s.id === cleanTarget || sCleanId === cleanId || s.title === cleanTarget ||
+           (s.file_path && (s.file_path === cleanTarget || s.file_path.endsWith(cleanTarget)));
   });
 
   let isTg = false;
+  // 2. Search in Telegram Documents
   if (!source) {
     source = tgDocs.find(d => {
-      const cleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-      const cleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
-      return cleanId === sourceId || cleanTitle === sourceId || d.id === sourceId || d.title === sourceId;
+      const dCleanId = (d.id || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const dCleanTitle = (d.title || '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      return d.id === cleanTarget || dCleanId === cleanId || dCleanTitle === cleanId || d.title === cleanTarget ||
+             (d.file_path && (d.file_path === cleanTarget || d.file_path.endsWith(cleanTarget))) ||
+             (d.filename && (d.filename === cleanTarget || d.filename.endsWith(cleanTarget)));
     });
     if (source) isTg = true;
   }
+
+  // 3. Search in Timeline Milestones
+  if (!source) {
+    const milestone = timeline.find(m => {
+      return m.id === cleanTarget || m.document_id === cleanTarget || m.source_url === cleanTarget ||
+             (m.source_url && m.source_url.endsWith(cleanTarget));
+    });
+    if (milestone) {
+      if (milestone.document_id) {
+        source = tgDocs.find(d => d.id === milestone.document_id) || sourcesCatalogData.find(s => s.id === milestone.document_id);
+      }
+      if (!source && milestone.source_url) {
+        source = tgDocs.find(d => d.file_path === milestone.source_url) || sourcesCatalogData.find(s => s.file_path === milestone.source_url);
+      }
+      if (!source) {
+        source = {
+          id: milestone.document_id || milestone.id,
+          title: milestone.title,
+          category: 'Actas de Asamblea',
+          type: 'documento',
+          file_path: milestone.source_url || cleanTarget,
+          summary: milestone.summary || '',
+          full_text: milestone.verbatim_minutes || ''
+        };
+        isTg = true;
+      }
+    }
+  }
+
+  // 4. Synthesize from file path
+  if (!source && (cleanTarget.includes('/') || cleanTarget.includes('.txt') || cleanTarget.includes('.pdf') || cleanTarget.includes('.md'))) {
+    const rawFileName = cleanTarget.split('/').pop().replace(/\.pdf\.txt$|\.txt$/i, '').replace(/_/g, ' ');
+    source = {
+      id: cleanTarget,
+      title: rawFileName,
+      category: 'Actas de Asamblea',
+      type: 'documento',
+      file_path: cleanTarget,
+      summary: 'Documento primario de archivo',
+      full_text: ''
+    };
+    isTg = true;
+  }
+
+  currentModalSource = source;
 
   const modalEl = document.getElementById('source-modal');
   const titleEl = document.getElementById('modal-source-title');
@@ -4112,53 +4167,68 @@ async function openSourceModal(sourceId) {
   const linkEl = document.getElementById('modal-source-link');
   const metaEl = document.getElementById('modal-source-footer-meta');
 
-  if (!source) return;
-  currentModalSource = source;
-
-  if (titleEl) titleEl.textContent = source.title;
-  if (catEl) catEl.textContent = normalizeCategory(source.category);
-  if (typeEl) typeEl.textContent = isTg ? 'TELEGRAM OFICIAL' : (source.type ? source.type.toUpperCase() : 'DOCUMENTO');
-  if (sizeEl) sizeEl.textContent = source.char_count ? `${source.char_count.toLocaleString()} caracteres` : (source.size_chars ? `${(source.size_chars/1000).toFixed(1)}k caracteres` : '');
-  if (metaEl) metaEl.textContent = isTg ? `Canal: EnfadadosconAirbus (${source.file_path || 'Telegram'})` : `ID Fuente: ${source.id || sourceId}`;
+  if (titleEl) titleEl.textContent = source ? source.title : `Documento #${cleanTarget}`;
+  if (catEl) catEl.textContent = source ? normalizeCategory(source.category) : 'Documentación Primaria';
+  if (typeEl) typeEl.textContent = isTg ? 'ACTA / MINUTA OFICIAL' : (source?.type ? source.type.toUpperCase() : 'DOCUMENTO');
+  if (sizeEl) sizeEl.textContent = source?.char_count ? `${source.char_count.toLocaleString()} caracteres` : (source?.size_chars ? `${(source.size_chars/1000).toFixed(1)}k caracteres` : '');
+  if (metaEl) metaEl.textContent = isTg ? `Fuente: ${source?.file_path || 'Archivo Telegram EnfadadosconAirbus'}` : `ID Fuente: ${source?.id || cleanTarget}`;
 
   if (linkEl) {
-    const destUrl = source.url || source.group_url || (isTg ? 'https://t.me/+MnuqJDCAAgYyMGQ0' : '#');
+    const destUrl = source?.url || source?.group_url || (isTg ? 'https://t.me/+MnuqJDCAAgYyMGQ0' : '#');
     linkEl.href = sanitizeURL(destUrl);
     linkEl.classList.remove('hidden');
   }
 
   if (contentEl) {
-    // 1. Immediate display of embedded full text or preview
-    if (source.fulltext_preview && source.fulltext_preview.length > 50) {
+    // Immediate display of full text or preview
+    if (source?.full_text && source.full_text.trim().length > 0) {
+      contentEl.textContent = source.full_text;
+    } else if (source?.fulltext_preview && source.fulltext_preview.length > 50) {
       contentEl.textContent = source.fulltext_preview;
-    } else if (source.summary) {
+    } else if (source?.summary) {
       contentEl.textContent = source.summary;
     } else {
-      contentEl.textContent = "Cargando texto completo...";
+      contentEl.textContent = "Cargando transcripción íntegra...";
     }
 
-    // 2. Fetch external text file if served over HTTP
-    if (window.location.protocol !== 'file:' && source.file_path) {
-      try {
-        const relPath = source.file_path.startsWith('http') ? source.file_path : (source.file_path.startsWith('data/') || source.file_path.startsWith('sources/') ? source.file_path : `data/${source.file_path}`);
-        const res = await fetch(relPath);
-        if (res.ok) {
-          const text = await res.text();
-          if (text && text.trim().length > 0) {
-            contentEl.textContent = text;
-          }
+    // Background live fetch
+    const fetchPath = source?.file_path || (cleanTarget.includes('/') ? cleanTarget : null);
+    if (fetchPath && window.location.protocol !== 'file:') {
+      const candidates = [
+        fetchPath,
+        fetchPath.startsWith('data/') || fetchPath.startsWith('docs/') || fetchPath.startsWith('sources/') ? fetchPath : `data/${fetchPath}`,
+        `./${fetchPath}`,
+        `../${fetchPath}`
+      ];
+      
+      (async () => {
+        for (const p of candidates) {
+          try {
+            const res = await fetch(p);
+            if (res.ok) {
+              const fullText = await res.text();
+              if (fullText && fullText.trim().length > 0) {
+                contentEl.textContent = fullText;
+                break;
+              }
+            }
+          } catch (e) {}
         }
-      } catch (e) {}
+      })();
     }
   }
 
-  if (modalEl) modalEl.classList.remove('hidden');
+  if (modalEl) {
+    modalEl.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
   if (window.lucide) lucide.createIcons();
 }
 
 function closeSourceModal() {
   const modalEl = document.getElementById('source-modal');
   if (modalEl) modalEl.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
 }
 
 function copyModalText() {
