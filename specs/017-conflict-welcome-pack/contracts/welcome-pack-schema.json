@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WelcomePackSchema",
+  "type": "object",
+  "required": [
+    "last_updated",
+    "last_updated_display",
+    "strike_day",
+    "executive_summary",
+    "chronology_phases"
+  ],
+  "properties": {
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_updated_display": {
+      "type": "string"
+    },
+    "strike_day": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "executive_summary": {
+      "type": "object",
+      "required": [
+        "title",
+        "hook",
+        "economic_breakdown",
+        "core_quotes"
+      ],
+      "properties": {
+        "title": { "type": "string" },
+        "hook": { "type": "string" },
+        "economic_breakdown": {
+          "type": "object",
+          "required": [
+            "loss_range_pct",
+            "net_loss_eur",
+            "inflation_general_pct",
+            "inflation_food_pct",
+            "airbus_profit_2025_meur"
+          ]
+        },
+        "core_quotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["quote", "source", "file_ref"]
+          }
+        }
+      }
+    },
+    "chronology_phases": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "phase_id",
+          "phase_title",
+          "date_range",
+          "description",
+          "milestone_ids"
+        ],
+        "properties": {
+          "phase_id": { "type": "string" },
+          "phase_title": { "type": "string" },
+          "date_range": { "type": "string" },
+          "description": { "type": "string" },
+          "milestone_ids": {
+            "type": "array",
+            "items": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}
