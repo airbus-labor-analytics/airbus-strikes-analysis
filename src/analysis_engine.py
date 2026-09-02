@@ -2077,7 +2077,7 @@ class StrikeAnalysisEngine:
                     "duration_years": 2,
                     "workweek_hours": 35.0,
                     "source_name": "Simulador Salarial Airbus 2026",
-                    "source_url": "https://github.com/sergiomh499/airbus-strikes-analysis"
+                    "source_url": "https://github.com/airbus-labor-analytics/airbus-strikes-analysis"
                 }
             ],
             "comparison_matrix": [

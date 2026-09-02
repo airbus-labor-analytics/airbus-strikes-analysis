@@ -312,7 +312,7 @@ async function syncDataInBackground(manual = false) {
       'data/conflict_metrics.json',
       './data/conflict_metrics.json',
       '../data/conflict_metrics.json',
-      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/conflict_metrics.json'
+      'https://raw.githubusercontent.com/airbus-labor-analytics/airbus-strikes-analysis/main/data/conflict_metrics.json'
     ]);
     if (metricsData && metricsData.parameters) {
       conflictData = metricsData;
@@ -326,7 +326,7 @@ async function syncDataInBackground(manual = false) {
       'data/telegram_archive/telegram_index.json',
       './data/telegram_archive/telegram_index.json',
       '../data/telegram_archive/telegram_index.json',
-      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/telegram_archive/telegram_index.json'
+      'https://raw.githubusercontent.com/airbus-labor-analytics/airbus-strikes-analysis/main/data/telegram_archive/telegram_index.json'
     ]);
 
     if (tgData && tgData.documents) {
@@ -339,7 +339,7 @@ async function syncDataInBackground(manual = false) {
       'data/thermometer_data.json',
       './data/thermometer_data.json',
       '../data/thermometer_data.json',
-      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/thermometer_data.json'
+      'https://raw.githubusercontent.com/airbus-labor-analytics/airbus-strikes-analysis/main/data/thermometer_data.json'
     ]);
 
     if (thermoData && thermoData.temperature_celsius) {
@@ -351,7 +351,7 @@ async function syncDataInBackground(manual = false) {
       'data/beluga_status.json',
       './data/beluga_status.json',
       '../data/beluga_status.json',
-      'https://raw.githubusercontent.com/sergiomh499/airbus-strikes-analysis/main/data/beluga_status.json'
+      'https://raw.githubusercontent.com/airbus-labor-analytics/airbus-strikes-analysis/main/data/beluga_status.json'
     ]);
 
     if (belugaData && belugaData.fleet_count) {

@@ -408,8 +408,8 @@ Para garantizar la máxima transparencia informativa, toda la documentación ofi
 
 ### B. Repositorio Documental y Enlaces Externos de Fuentes Primarias
 * **Canal Oficial de Asambleas:** [Telegram @EnfadadosconAirbus (5.794 miembros)](https://t.me/+MnuqJDCAAgYyMGQ0)
-* **Panel Web Interactivo en Vivo:** [Airbus Spain 2026 Analytics Dashboard](https://sergiomh499.github.io/airbus-strikes-analysis/)
-* **Código Fuente y Automatización:** [Repositorio GitHub sergiomh499/airbus-strikes-analysis](https://github.com/sergiomh499/airbus-strikes-analysis)
+* **Panel Web Interactivo en Vivo:** [Airbus Spain 2026 Analytics Dashboard](https://airbus-labor-analytics.github.io/airbus-strikes-analysis/)
+* **Código Fuente y Automatización:** [Repositorio GitHub airbus-labor-analytics/airbus-strikes-analysis](https://github.com/airbus-labor-analytics/airbus-strikes-analysis)
 * **SIMA (Servicio Interconfederal de Mediación y Arbitraje):** [Sede Electrónica SIMA](https://www.sima-fasp.net/)
 * **Boletín Oficial del Estado:** [BOE núm. 297/2021 (VI Convenio)](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2021-19616) | [BOE núm. 165/2015 (V Convenio)](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2015-7768)
 * **Instituto Nacional de Estadística:** [INE - Series Oficiales de Inflación e IPC](https://www.ine.es/)

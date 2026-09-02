@@ -92,7 +92,7 @@ airbus-strikes-analysis/
 
 ```bash
 # Clone the repository
-git clone https://github.com/sergiomh499/airbus-strikes-analysis.git
+git clone https://github.com/airbus-labor-analytics/airbus-strikes-analysis.git
 cd airbus-strikes-analysis
 
 # Install Node dependencies

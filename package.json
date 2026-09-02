@@ -2,7 +2,7 @@
   "name": "airbus-strikes-analysis",
   "version": "1.0.0",
   "description": "Strategic intelligence, econometric modeling, publication PDF generator, NotebookLM sync, and interactive analytics dashboard for the Airbus Spain 2026 collective labor conflict.",
-  "author": "sergio (sergiomh499)",
+  "author": "Airbus Labor Analytics Collective",
   "license": "MIT",
   "main": "src/render_document.js",
   "scripts": {
