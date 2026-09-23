@@ -63,6 +63,7 @@ jobs:
           test -f dashboard/index.html
           test -f data/conflict_metrics.json
           test -f docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md
+          test -f docs/Welcome_Pack_Conflicto_Airbus_2026.md
   pdf-build-check:
     name: PDF Compilation Smoke Test
     runs-on: ubuntu-latest

@@ -61,11 +61,12 @@ jobs:
 
       - name: 6. Compile Publication PDF
         run: |
+          python3 src/generate_welcome_pack.py || true
           python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf
           mkdir -p dashboard/docs
           cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf dashboard/docs/
           cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md dashboard/docs/
-
+          cp docs/Welcome_Pack_Conflicto_Airbus_2026.md dashboard/docs/ || true
       - name: 7. Upload PDF Guide Artifact
         uses: actions/upload-artifact@v4
         with:

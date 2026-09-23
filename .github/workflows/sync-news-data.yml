@@ -17,12 +17,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: 1. Telegram Channel Document Extraction & Indexing
         run: |
           python3 src/telegram_channel_sync.py
@@ -47,16 +54,25 @@ jobs:
 
       - name: 6. Recompile Strategic PDF Guide, Check Timeline & Validate Invariants
         run: |
+          python3 src/generate_welcome_pack.py || true
           python3 src/generate_pdf.py -i docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md -o docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf || true
+          mkdir -p dashboard/docs
+          cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.pdf dashboard/docs/ || true
+          cp docs/Guia_Estrategica_Negociacion_Huelga_Airbus_2026.md dashboard/docs/ || true
+          cp docs/Welcome_Pack_Conflicto_Airbus_2026.md dashboard/docs/ || true
           python3 src/validate_timeline_freshness.py
           python3 src/validate_invariants.py
           python3 src/validate_sources.py
+
       - name: 7. Commit & Push Updated Data to Main
         run: |
-          git add data/ dashboard/data.js docs/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ dashboard/data.js dashboard/docs/ docs/
           if git diff --staged --quiet; then
             echo "No data changes detected. Everything up to date."
           else
             git commit -m "chore(auto-sync): update live datasets, news feeds and telegram archive [skip ci]"
-            git push origin main
+            git pull --rebase origin main || true
+            git push origin HEAD:main
           fi
