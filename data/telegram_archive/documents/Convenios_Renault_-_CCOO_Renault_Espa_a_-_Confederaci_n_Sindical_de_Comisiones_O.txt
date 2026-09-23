@@ -1,0 +1,399 @@
+# Convenios Renault - CCOO Renault España - Confederación Sindical de Comisiones Obreras
+Categoría: General
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+CCOO Renault España
+ 
+Política de cookies
+Este sitio usa cookies propias y de terceros para facilitar la navegación y obtener información de estadísticas de uso de nuestros visitantes. Puedes aceptar todas las cookies pulsando el botón 'Aceptar' o configurarlas o rechazar su uso pulsando el botón 'Configurar cookies'
+Para más información consulta nuestra Política de cookies
+Política de cookies Configurar cookies
+Aceptar
+ 
+Política de cookies
+F.E. INDUSTRIA informa que este sitio web usa cookies para:
+Asegurar que las páginas web puedan funcionar correctamente
+Recopilar información estadística anónima, como qué páginas ha visitado la persona usuaria o cuánto tiempo ha permanecido en el sitio web.
+Mostrar contenido de redes sociales, siempre relacionado con información de la organización de CCOO.
+Informamos que contiene enlaces a sitios web de terceros con políticas de privacidad ajenas a la de CCOO que podrá decidir si acepta o no cuando acceda a ellos.
+A continuación encontrará información detallada sobre qué son las cookies, qué tipo de cookies utiliza este sitio web, cómo puede desactivarlas en su navegador y cómo bloquear específicamente la instalación de cookies de terceros.
+¿Qué son las cookies?
+ Las cookies son archivos que los sitios web o las aplicaciones instalan en el navegador o en el dispositivo (smartphone, tablet o televisión conectada) de la persona usuaria durante su recorrido por las páginas del sitio o por la aplicación, y sirven para almacenar información sobre su visita. El uso de cookies permite optimizar la navegación, adaptando la información y los servicios ofrecidos a los intereses de la persona usuaria, para proporcionarle una mejor experiencia siempre que visita el sitio web.
+Tipología, finalidad y funcionamiento
+ Las cookies, en función de su permanencia, pueden dividirse en cookies de sesión o permanentes. Las primeras expiran cuando la persona usuaria cierra el navegador. Las segundas expiran cuando se cumple el objetivo para el que sirven (por ejemplo, para que la persona usuaria se mantenga identificada en el sitio web) o bien cuando se borran manualmente. Adicionalmente, en función de su objetivo, las cookies utilizadas pueden clasificarse de la siguiente forma:
+Estrictamente necesarias (técnicas):
+ Son aquellas imprescindibles para el correcto funcionamiento de la página. Normalmente se generan cuando la persona usuaria accede al sitio web o inicia sesión en el mismo y se utilizan para identificarle en el sitio web con los siguientes objetivos:
+Mantener la persona usuaria identificada de forma que, si abandona el sitio web, el navegador o el dispositivo y en otro momento vuelve a acceder a dicho sitio web, seguirá identificado, facilitando así su navegación sin tener que volver a identificarse
+Comprobar si la persona usuaria está autorizada para acceder a ciertos servicios o zonas del sitio web
+De rendimiento:
+ Se utilizan para mejorar la experiencia de navegación y optimizar el funcionamiento del sitio web
+Analíticas:
+ Recopilan información sobre la experiencia de navegación de la persona usuaria en el sitio web, normalmente de forma anónima, aunque en ocasiones también permiten identificar de manera única e inequívoca a la persona usuaria con el fin de obtener informes sobre los intereses de la persona usuaria en los servicios que ofrece el sitio web. Para más información puedes consultar la guía sobre el uso de las cookies elaborada por la Agencia Española de Protección de Datos en 
+https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf
+https://www.aepd.es/sites/default/files/2020-07/guia-cookies.pdf
+Cookies utilizadas en este sitio web
+ A continuación, se muestra una tabla con las cookies utilizadas en este sitio web, incorporando un criterio de "nivel de intrusividad" apoyado en una escala del 1 al 3, en la que: 
+Nivel 1:
+ se corresponde con cookies estrictamente necesarias para la prestación del propio servicio solicitado por la persona usuaria. 
+Nivel 2:
+ se corresponde con cookies de rendimiento (anónimas) necesarias para el mantenimiento de contenidos y navegación, de las que solo es necesario informar sobre su existencia. 
+Nivel 3:
+ se corresponde con cookies gestionadas por terceros que permiten el seguimiento de la persona usuaria a través de webs de las que F.E. INDUSTRIA no es titular. Puede corresponderse con cookies donde se identifica a la persona usuaria de manera única y evidente. 
+Listado de Cookies Utilizadas
+Cookie:
+ PHPSESSID, SERVERID, Incap_ses_
+_
+ y visid_incap_* 
+Duración:
+ Sesión 
+Tipo:
+ Imprescindibles 
+Propósito:
+ Mantener la coherencia de la navegación y optimizar el rendimiento del sitio web 
+Intrusividad:
+ 1
+Cookie:
+ config 
+Duración:
+ 1 año 
+Tipo:
+ Imprescindibles 
+Propósito:
+ Guardar la configuración de cookies seleccionada por el usuario 
+Intrusividad:
+ 2
+Cookie:
+ Google Analytics (_gat, _gid y _ga) 
+Duración:
+ 24 horas 
+Tipo:
+ Analítica, de terceros (Google) 
+Propósito:
+ Permitir la medición y análisis de la navegación en las páginas web 
+Intrusividad:
+ 3
+Cookie:
+ Facebook (_fbp) 
+Duración:
+ 3 meses 
+Tipo:
+ Terceros (Facebook) 
+Propósito:
+ Mostrar información incrustada de la red social Facebook 
+Intrusividad:
+ 3
+Cookie:
+ Twitter (eu_cn, ct0, guest_id, personalization_id) 
+Duración:
+ Sesión 
+Tipo:
+ Terceros (Twitter) 
+Propósito:
+ Mostrar información incrustada de la red social Twitter 
+Intrusividad:
+ 3 Desde los siguientes enlaces puedes consultar la política de cookies de terceros: 
+Política de cookies de Google
+https://policies.google.com/technologies/cookies?hl=es
+, 
+Política de cookies de Facebook
+https://es-es.facebook.com/policies/cookies
+, 
+Política de cookies de Twiter
+https://help.twitter.com/es/rules-and-policies/twitter-cookies
+Deshabilitar el uso de cookies
+ La persona usuaria en el momento de iniciar la navegación de la web, configura la preferencia de cookies. Si en un momento posterior desea cambiarla, puede hacerlo a través de la configuración del navegador. Si la persona usuaria así lo desea, es posible dejar de aceptar las cookies del navegador, o dejar de aceptar las cookies de un servicio en particular. Todos los navegadores modernos permiten cambiar la configuración de cookies. Estos ajustes normalmente se encuentran en las 
+Opciones
+ o 
+Preferencias
+ del menú del navegador. La persona usuaria podrá, en cualquier momento, deshabilitar el uso de cookies en este sitio web utilizando su navegador. Hay que tener en cuenta que la configuración de cada navegador es diferente. Puede consultar el botón de ayuda o bien visitar los siguientes enlaces de cada navegador donde le indicará como hacerlo: 
+Internet Explorer
+http://windows.microsoft.com/es-xl/internet-explorer/delete-manage-cookies#ie=ie-10
+, 
+FireFox
+https://support.mozilla.org/es/kb/Borrar%20cookies
+, 
+Chrome
+https://support.google.com/chrome/answer/95647?hl=es
+, 
+Safari
+http://www.apple.com/legal/privacy/es/cookies/
+ También existen otras herramientas de terceros, disponibles on-line, que permiten a la persona usuaria gestionar las cookies.
+¿Qué ocurre al deshabilitar las cookies?
+ Algunas funcionalidades y servicios pueden quedar deshabilitados, tener un comportamiento diferente al esperado o incluso que se degrade notablemente la experiencia de navegación de la persona usuaria.
+Actualización de la Política de cookies
+ F.E. INDUSTRIA puede modificar esta política de cookies en función de exigencias legislativas, reglamentarias, o con la finalidad de adaptar dicha política a las instrucciones dictadas por la Agencia Española de Protección de Datos, por ello se aconseja a la persona usuaria que la visite periódicamente. Cuando se produzcan cambios significativos en esta política de cookies, se comunicará a través de la web.
+Política de privacidad
+ Esta Política de Cookies se complementa con la Política de Privacidad, a la que podrá acceder para conocer la información necesaria adicional sobre protección de datos personales.
+Configurar cookies
+Aceptar todo
+ 
+Configuración de cookies
+Desde aquí puede activar o desactivar las cookies que utilizamos en este sitio web, a excepción de las de técnicas, que son imprescindibles. 
+Si no selecciona ninguna opción, equivale a rechazar todas las demás cookies
+.
+Cookies técnicas y de sesión, estrictamente necesarias
+Sesión: PHPSESSID, SERVERID, Incap_ses_
+_
+ y visid_incap_*
+Permiten mantener la coherencia de la navegación y optimizar el rendimiento del sitio web, son imprescindibles
+Técnica: config
+Guarda la configuración de cookies seleccionada por el usuario
+Cookies de terceros
+Google Analytics: _gat, _gid y _ga
+Utilizamos estas cookies para obtener información de estadísticas de uso de nuestros visitantes. Están gestionadas por Google, puedes consultar su política de cookies haciendo clic 
+aquí
+https://policies.google.com/technologies/cookies?hl=es
+ 
+[-]
+Facebook: _fbp
+Cuando mostramos información incrustada de la red social Facebook, se genera automáticamente esta cookie. Está gestionada por Facebook, puedes consultar su política de cookies haciendo clic 
+aquí
+https://es-es.facebook.com/policies/cookies
+ 
+[-]
+Twitter: eu_cn, ct0, guest_id y personalization_id
+Cuando mostramos información incrustada de la red social Twitter, se generan automáticamente estas cookies. Están gestionadas por Twitter, puedes consultar su política de cookies haciendo clic 
+aquí
+https://help.twitter.com/es/rules-and-policies/twitter-cookies
+ 
+[-]
+Política de cookies
+Guardar preferencias Aceptar todo
+https://www.facebook.com/CCOORENAULTESP/
+ 
+Zona afiliación
+http://www.ccoo.es/zonaafiliacion
+Afiliate
+http://www.ccoo.es/Afiliate
+Madrid
+https://renault.ccoo.es/Madrid&opc_id=911440b8dd003942272d41915da82f2d
+Palencia
+https://renault.ccoo.es/Palencia&opc_id=b57f22a36fe99ee72f6a6bde5cfb5e35
+Sevilla
+https://renault.ccoo.es/Sevilla&opc_id=c33fb24014f30178261d000d85043f3b
+Valladolid
+https://renault.ccoo.es/Valladolid&opc_id=d120053c9feb722ac8bd11f08486525c
+CCOO Renault España | 28 de agosto de 2026
+ 
+ 
+Tus delegados
+https://renault.ccoo.es/Tus_delegados
+Contactos
+https://renault.ccoo.es/Contactos
+Multimedia
+https://renault.ccoo.es/Multimedia
+Buscador
+https://renault.ccoo.es/Buscador
+Te interesa
+https://renault.ccoo.es/Te_interesa
+Agenda
+https://renault.ccoo.es/Agenda
+Servicios
+http://servicios.ccoo.es/servicios/
+Inicio
+https://renault.ccoo.es/Inicio
+Comunicados
+https://renault.ccoo.es/Comunicados
+Salarios
+https://renault.ccoo.es/Salarios
+Prima de Objetivos
+https://renault.ccoo.es/Prima_de_Objetivos
+Calendario
+https://renault.ccoo.es/Calendario
+Convenios Renault
+https://renault.ccoo.es/Convenios_Renault
+Licencias
+https://renault.ccoo.es/Licencias
+Jubilación
+https://renault.ccoo.es/Jubilacion
+Empleo
+https://renault.ccoo.es/Empleo
+Periodiccoo
+https://renault.ccoo.es/Periodiccoo
+TecniCCOO
+https://renault.ccoo.es/TecniCCOO
+ 
+CCOO Renault España
+Inicio
+https://renault.ccoo.es/Inicio
+Comunicados
+https://renault.ccoo.es/Comunicados
+Salarios
+https://renault.ccoo.es/Salarios
+Retribuciones 2019
+https://renault.ccoo.es/Salarios/Retribuciones_2019
+Retribuciones 2018
+https://renault.ccoo.es/Salarios/Retribuciones_2018
+Retribuciones 2017
+https://renault.ccoo.es/Salarios/Retribuciones_2017
+Prima de Objetivos
+https://renault.ccoo.es/Prima_de_Objetivos
+[Prima 2018](javascript:return false)
+ABRIL
+https://renault.ccoo.es/Prima_de_Objetivos/Prima_2018/ABRIL
+OCTUBRE
+https://renault.ccoo.es/Prima_de_Objetivos/Prima_2018/OCTUBRE
+[Prima 2017](javascript:return false)
+ABRIL
+https://renault.ccoo.es/Prima_de_Objetivos/Prima_2017/ABRIL
+OCTUBRE
+https://renault.ccoo.es/Prima_de_Objetivos/Prima_2017/OCTUBRE
+Prima 2016
+https://renault.ccoo.es/Prima_de_Objetivos/Prima_2016
+Calendario
+https://renault.ccoo.es/Calendario
+[Calendario 2019](javascript:return false)
+MADRID 2019
+https://renault.ccoo.es/Calendario/Calendario_2019/MADRID_2019
+PALENCIA 2019
+https://renault.ccoo.es/Calendario/Calendario_2019/PALENCIA_2019
+SEVILLA 2019
+https://renault.ccoo.es/Calendario/Calendario_2019/SEVILLA_2019
+VALLADOLID 2019
+https://renault.ccoo.es/Calendario/Calendario_2019/VALLADOLID_2019
+[Calendarios 2018](javascript:return false)
+MADRID 2018
+https://renault.ccoo.es/Calendario/Calendarios_2018/MADRID_2018
+PALENCIA 2018
+https://renault.ccoo.es/Calendario/Calendarios_2018/PALENCIA_2018
+SEVILLA 2018
+https://renault.ccoo.es/Calendario/Calendarios_2018/SEVILLA_2018
+VALLADOLID 2018
+https://renault.ccoo.es/Calendario/Calendarios_2018/VALLADOLID_2018
+[Calendarios 2017](javascript:return false)
+MADRID 2017
+https://renault.ccoo.es/Calendario/Calendarios_2017/MADRID_2017
+PALENCIA 2017
+https://renault.ccoo.es/Calendario/Calendarios_2017/PALENCIA_2017
+SEVILLA 2017
+https://renault.ccoo.es/Calendario/Calendarios_2017/SEVILLA_2017
+VALLADOLID 2017
+https://renault.ccoo.es/Calendario/Calendarios_2017/VALLADOLID_2017
+Calendarios 2016
+https://renault.ccoo.es/Calendario/Calendarios_2016
+Convenios Renault
+https://renault.ccoo.es/Convenios_Renault
+Licencias
+https://renault.ccoo.es/Licencias
+Jubilación
+https://renault.ccoo.es/Jubilacion
+Empleo
+https://renault.ccoo.es/Empleo
+Periodiccoo
+https://renault.ccoo.es/Periodiccoo
+TecniCCOO
+https://renault.ccoo.es/TecniCCOO
+Te interesa
+Tus delegados
+https://renault.ccoo.es/Tus_delegados
+Contactos
+https://renault.ccoo.es/Contactos
+Multimedia
+https://renault.ccoo.es/Multimedia
+Buscador
+https://renault.ccoo.es/Buscador
+Te interesa
+https://renault.ccoo.es/Te_interesa
+Bolsa de Horas
+https://renault.ccoo.es/Te_interesa/Bolsa_de_Horas
+Comedor
+https://renault.ccoo.es/Te_interesa/Comedor
+Sabias qué*
+https://renault.ccoo.es/Te_interesa/Sabias_que*
+Agenda
+https://renault.ccoo.es/Agenda
+Servicios
+http://servicios.ccoo.es/servicios/
+Convenios Renault
+https://renault.ccoo.es/Convenios_Renault
+15.02.2022
+CONVENIO COLECTIVO INTERPROVINCIAL RENAULT ESPAÑA 2021 – 2024
+ 
+El presente Convenio regula las relaciones entre la Empresa Renault España, S.A. y los trabajadores/as.
+Ver documento
+https://renault.ccoo.es/Convenios_Renault
+14.01.2017
+CONVENIO COLECTIVO INTERPROVINCIAL RENAULT ESPAÑA 2017- 2020
+ 
+El presente Convenio regula las relaciones entre la Empresa Renault España, S.A. y los trabajadores/as.
+Ver documento
+https://renault.ccoo.es/Convenios_Renault
+01.01.2010
+CONVENIO COLECTIVO INTERPROVINCIAL DE RENAULT ESPAÑA 2014- 2016
+ 
+El presente Convenio regula las relaciones entre la Empresa Renault España, S.A. y los trabajadores/as.
+Ver documento
+https://renault.ccoo.es/Convenios_Renault
+01.01.2010
+CONVENIO COLECTIVO INTERPROVINCIAL DE RENAULT ESPAÑA 2010- 2013
+ 
+El presente Convenio regula las relaciones entre la Empresa Renault España, S.A. y los trabajadores/as.
+Ver documento
+https://renault.ccoo.es/Convenios_Renault
+Confederación Sindical de Comisiones Obreras
+https://www.ccoo.es/
+Territorios
+Comisiones Obreras de Andalucía
+https://andalucia.ccoo.es/
+Comisiones Obreras de Aragón
+https://aragon.ccoo.es/
+Comisiones Obreres d'Asturies
+https://asturias.ccoo.es/
+Comissions Obreres de les Illes Balears
+https://ib.ccoo.es/
+Comisiones Obreras de Canarias
+https://canarias.ccoo.es/
+Comisiones Obreras de Cantabria
+https://cantabria.ccoo.es/
+Comisiones Obreras de Castilla y León
+https://castillayleon.ccoo.es/
+Comisiones Obreras de Castilla-La Mancha
+https://castillalamancha.ccoo.es/
+Comissió Obrera Nacional de Catalunya
+https://ccoo.cat/
+Comisiones Obreras de Ceuta
+https://ceuta.ccoo.es/
+Comisiones Obreras de Euskadi
+http://ccoo.eus/
+Comisiones Obreras de Extremadura
+https://extremadura.ccoo.es/
+Sindicato Nacional de Comisions Obreiras de Galicia
+https://ccoo.gal/
+Comisiones Obreras de La Rioja
+https://rioja.ccoo.es/
+Comisiones Obreras de Madrid
+https://madrid.ccoo.es/
+Comisiones Obreras de Melilla
+https://melilla.ccoo.es/
+Comisiones Obreras de la Región de Murcia
+https://murcia.ccoo.es/
+Comisiones Obreras de Navarra
+https://navarra.ccoo.es/
+Comissions Obreres del Paìs Valenciá
+https://pv.ccoo.es/
+Federaciones
+Comisiones Obreras del Hábitat
+https://habitat.ccoo.es/
+Federación de Enseñanza
+https://fe.ccoo.es/
+Federación de Industria
+https://industria.ccoo.es/
+Federación de Pensionistas
+https://pensionistas.ccoo.es/
+Federación de Sanidad y Sectores Sociosanitarios
+https://sanidad.ccoo.es/
+Federación de Servicios a la Ciudadanía
+https://fsc.ccoo.es/
+Federación de Servicios
+https://ccoo-servicios.es/
+Mapa de la web
+https://renault.ccoo.es/Mapa_de_la_web
+Contacta
+https://renault.ccoo.es/Contacta
+Aviso legal
+https://renault.ccoo.es/Aviso_legal
+Política de privacidad
+https://renault.ccoo.es/Politica_de_privacidad
+Política de cookies
+https://renault.ccoo.es/Politica_de_cookies

@@ -1,0 +1,594 @@
+# The Economic Impact of Strikes: An Historical Boeing Case Study - AAF
+Categoría: General
+Fecha: Julio - Agosto 2026
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+The Economic Impact of Strikes: An Historical Boeing Case Study - AAF 
+ 
+ 
+ 
+ 
+Donate
+https://www.americanactionforum.org/donate
+ 
+Subscribe
+https://www.americanactionforum.org/subscribe
+ 
+ 
+Thank You!
+[-] mime
+ 
+[x] html
+ 
+[-] plain
+ 
+[x] 1
+ 
+[x] 2
+ 
+[x] 4
+ 
+[x] 8796093022208
+ 
+[x] 8
+ 
+[-] 268435456
+ 
+[-] 536870912
+ 
+[-] 1073741824
+ 
+[-] 2147483648
+ 
+[-] 4294967296
+ 
+[-] 8589934592
+ 
+[-] 34359738368
+ 
+[-] 68719476736
+ 
+[-] 274877906944
+ 
+[-] 549755813888
+ 
+[-] 1099511627776
+ 
+[-] 2199023255552
+ 
+[x] yes
+ 
+[-] no
+The Daily Dish
+Serving economic news and views every morning.
+ 
+[x] yes
+ 
+[-] no
+The Week in Regulation
+Weekly analysis of newly proposed and final rules, including their cost.
+ 
+[x] yes
+ 
+[-] no
+U6 Fix
+Analysis on the underemployment number in the monthly jobs report.
+ 
+[x] yes
+ 
+[-] no
+Weekly Checkup
+Weekly analysis of what's happening in health care.
+ 
+[x] yes
+ 
+[-] no
+The Shipment
+Explains and analyzes the biggest news in international trade.
+Subscribe By Topic
+[-] yes
+ 
+[x] no
+Budget
+[-] yes
+ 
+[x] no
+Housing
+[-] yes
+ 
+[x] no
+Economy
+[-] yes
+ 
+[x] no
+Immigration
+[-] yes
+ 
+[x] no
+Education
+[-] yes
+ 
+[x] no
+Labor
+[-] yes
+ 
+[x] no
+Energy & Environment
+[-] yes
+ 
+[x] no
+Regulation
+[-] yes
+ 
+[x] no
+Health Care
+[-] yes
+ 
+[x] no
+Technology & Innovation
+[-] yes
+ 
+[x] no
+Financial Services
+[-] yes
+ 
+[x] no
+Trade
+Subscribe
+ 
+ 
+Search
+At least one search term must be present.
+The Daily Dish
+https://www.americanactionforum.org/daily-dish
+Research
+https://www.americanactionforum.org/topics/
+Press
+https://www.americanactionforum.org/press-contact/
+About AAF
+https://www.americanactionforum.org/about/
+Events
+https://www.americanactionforum.org/event
+Experts
+https://www.americanactionforum.org/experts
+The Daily Dish
+https://www.americanactionforum.org/daily-dish
+Research
+https://www.americanactionforum.org/topics/
+Press
+https://www.americanactionforum.org/press-contact/
+About AAF
+https://www.americanactionforum.org/about/
+Events
+https://www.americanactionforum.org/event
+Experts
+https://www.americanactionforum.org/experts
+ 
+Search
+At least one search term must be present. 
+ 
+ 
+ 
+ 
+ 
+Insight
+September 11, 2024
+The Economic Impact of Strikes: An Historical Boeing Case Study
+Douglas Holtz-Eakin, Sarah Murad
+Executive Summary
+Although the Biden Administration has positioned itself as one of the most pro-union in U.S. history, it has done little to reverse a paradox of labor trends: Union membership is still on a long decline, while strike activity and idleness have seen a marked increase, showing that organized labor has struggled to come to agreements with management.
+This trend is perhaps best exemplified by the threatened strike of the International Association of Machinists (IAM) – one of Boeing's largest unions – against the aircraft maker, although the tentative agreement may indeed be ratified before this week's strike deadline.
+While past IAM strikes have not had a substantial effect on Boeing's revenue, the ripple effects of this or a future IAM strike against Boeing could indeed create significant disruption for the local economy and reverberate throughout the national supply chain.
+Introduction
+The Biden Administration has touted itself as one of the most 
+pro-union
+https://www.newyorker.com/news/daily-comment/biden-is-the-most-pro-labor-president-since-fdr-will-it-matter-in-november
+ administrations in U.S. history, with President Biden becoming the 
+first
+https://www.cnn.com/2023/09/26/politics/president-picket-line-what-matters/index.html#:~:text=It%20was%20a%20historic%20moment,the%20Big%20Three%20US%20automakers.
+ sitting president to join a picket line at the United Auto Workers strike in September 2023. Yet Biden's policies do not seem to have significantly affected union membership rates, which have been in steady decline since the mid-twentieth century. Union membership is 
+down
+https://www.bls.gov/news.release/pdf/union2.pdf
+ to 10 percent in 2023 compared with 11.3 percent in 2013, 12.9 percent in 2003, 15.7 percent in 1993, and 20.1 percent in 1983, 
+halving
+https://www.bls.gov/opub/ted/2023/union-membership-rate-fell-by-0-2-percentage-point-to-10-1-percent-in-2022.htm
+ over 40 years.
+Moreover, strike activity has been increasing in recent years, demonstrating organized labor has struggled to come to agreements with management. In 2018, 2019, and 2023, over 400,000 workers were involved in major work stoppages. (The years 2020 through 2022 had diminished strike activity, likely due to the COVID-19 pandemic.) In the 15 years from 2003 to 2017, the 
+average
+https://www.epi.org/publication/major-strike-activity-in-2023/
+ number of workers involved in major work stoppages was only about 87,000, with the highest number still under 200,000. More than 450,000 workers participated in strikes in 2023, possibly indicating a larger trend of greater union activity.
+Figure 1
+ 
+Figure 2
+ 
+With union strike activity on the rise again, a new challenge looms for one company of sectoral and overall economic significance: On July 17, 2024, Boeing's largest employee union voted almost unanimously to authorize a strike. Boeing is among the world's largest aerospace manufacturers and defense contractors, and one of the largest exporters in the United States.
+The union, the International Association of Machinists and Aerospace Workers District 751 (IAM), is made up of around 32,000 members, and is looking to secure higher wages, the revival of a pension program eliminated in 2014, and the assurance that future planes will be built in Washington state. While a preliminary agreement has been reached, it has not been ratified, and the potential for a strike remains. IAM members are scheduled to vote on September 12 and could still strike on September 13 if they reject the proposal.
+Since the first agreement between the IAM and Boeing in 1936, machinists have staged 
+seven
+https://www.heraldnet.com/business/key-events-in-the-boeing-co-s-union-history/
+ strikes: in 1948, 1965, 1977, 1989, 1995, 2005, and 2008, approximately once every 12 years. The last strike was 16 years ago and lasted 57 days. While past IAM strikes have had relatively little effect on Boeing's revenue, the ripple effects of a future IAM strike against Boeing could indeed create significant disruption for the local economy and reverberate throughout the national supply chain.
+Comparison With Impact of 737 Max Groundings
+Given Boeing's prominence, interruptions to its production can significantly impact the U.S. economy. In a recent example in March 2019, the Federal Aviation Administration (FAA) 
+ordered
+https://www.faa.gov/newsroom/faa-updates-boeing-737-max-0
+ the Boeing 737 Max to be grounded following two crashes involving the aircraft. The Trump Administration 
+claimed
+https://trumpwhitehouse.archives.gov/articles/strong-consumer-spending-supports-steady-growth-second-quarter-2019/
+ that the grounding “subtracted 0.4 percentage point from second quarter annualized real growth.” The incident also 
+cost
+https://www.cnn.com/2020/11/17/business/boeing-737-max-grounding-cost/index.html
+ Boeing at least $20 billion in direct costs. The FAA 
+lifted
+https://www.faa.gov/newsroom/faa-updates-boeing-737-max-0
+ the grounding order in November 2020.
+But the grounding of the 737 Max is not entirely analogous to a strike. The grounding order lasted for 20 months, whereas IAM strikes have lasted an average of 58 days. Moreover, Boeing continued producing aircraft during the grounding order, albeit at a 
+reduced
+https://www.nytimes.com/2019/04/05/business/boeing-737-production.html
+ rate, and did so 
+until
+https://boeing.mediaroom.com/2019-12-16-Boeing-Statement-Regarding-737-MAX-Production
+ January 2020, when it fully suspended production. While a strike fully halts production, the relatively shorter duration means that costs generally arise from delays in fulfilling orders rather than cancellations. On the other hand, at least 448 orders for 737 Max planes were 
+canceled
+https://www.cnn.com/2020/11/17/business/boeing-737-max-grounding-cost/index.html
+ due to the grounding.
+The grounding order demonstrates that disruptions in Boeing's production can cause significant waves in the economy. An unusually long strike this fall, or in the future, could theoretically approach this kind of impact, but accounts of previous strikes point to a different, less costly outcome.
+A Brief History of IAM and Boeing Strikes
+1948
+The first IAM strike started on April 22, 1948, over concerns regarding pay and seniority rules. Contract negotiations began in early 1947, with Boeing 
+aiming
+https://www.historylink.org/File/2283
+ to remove seniority provisions and the IAM seeking to protect seniority provisions and to secure a 10-cent per hour wage increase.
+The IAM accused Boeing of not negotiating in good faith and authorized a strike on May 24, 1947, but did not follow through. Boeing attempted to renegotiate, but the two parties could not reach an agreement for several months. The IAM struck Boeing on April 22, 1948, but the union was ultimately unsuccessful in securing their demands due to intervention by the rival International Brotherhood of Teamsters, which helped Boeing recruit strikebreakers. The National Labor Relations Board (NLRB) demanded that the company cease bargaining with the Teamsters, but Boeing stayed the course.
+The strike ended unsuccessfully on September 13, 1948, largely due to the interventions by Teamsters. The 
+cost
+https://www.historylink.org/File/2283
+ of the 140-day strike was over $2 million, approximately $25.6 million in today's dollars. Boeing accepted the workers back as it was also paying $172,000 daily in fines from the NLRB. This first strike was the longest ever, and the only one to not end in an agreement between Boeing and the IAM.
+1965 and 1977
+The next two strikes followed a similar pattern. The first in 1965 came after a period of turbulence in relations between Boeing and the IAM. Initial contract negotiations opened in July 1962 and lasted for 10 months. Workers were after pay increases, improved benefits, and union security, among other demands.
+On September 1, 1962, the IAM authorized a strike to occur on September 15, when the previous contract was set to end. It did not occur, as President Kennedy requested that both parties extend negotiations. A new strike deadline was set for January 25, 1963, but the president once again delayed the strike until April 15. Just a few hours before the deadline, Boeing and the IAM came to a new temporary agreement, scheduled to expire in September 1965.
+In the summer of 1965, negotiations opened again and the IAM hoped to secure the provisions it had not received in 1963. This time, the union 
+could not
+https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1565_1967.pdf
+ reach an agreement with Boeing and began striking on September 15, 1965. With intervention from federal mediators, the parties resumed negotiations on September 20 and reached an agreement on October 4, just 19 days after the strike began.
+The 1977 strike played out similarly. Negotiations began on August 1, 1974, and by the end of September, resulted in a three-year contract set to end on October 3, 1977. The IAM 
+sought
+https://fraser.stlouisfed.org/title/wage-chronology-boeing-co-washington-plants-4907/wage-chronology-boeing-co-washington-plants-international-association-machinists-june-1936-october-1977-499191?page=17
+ sustained wage increases and improvements to the pension program.
+Once again, negotiations fell through in 1977. The IAM strike began on October 4, 1977, one day after the previous contract had terminated. The IAM and Boeing were able to reach an 
+agreement
+https://www.nytimes.com/1977/11/15/archives/a-tentative-accord-is-reached-at-boeing-in-6week-walkout.html
+ 44 days later on November 15, 1977.
+1989
+The 48-day strike occurred during a period of increased production for Boeing. The company had orders to produce 1,603 planes over the next few years, leading it to manufacture planes at about 
+four times
+https://www.nytimes.com/1989/10/05/us/boeing-strike-halts-work-on-80-billion-in-planes.html
+ the pace of just two years prior. Consequently, many employees were working seven-day weeks and mandatory overtime of up to 200 hours every three months.
+The IAM began striking on October 5, 1989, hoping to gain increased pay and a reduction of mandatory overtime. Over the next 48 days, the IAM and Boeing negotiated a contract that was eventually accepted on November 22, ending the strike. Leaders of the IAM 
+claimed
+https://www.nytimes.com/1989/11/22/us/lured-by-bonuses-workers-vote-to-end-strike-at-boeing.html
+ that the contract was “the best reached for machinists in decades,” as it achieved the wage increases and overtime reduction it wanted.
+The strike 
+cost
+https://www.nytimes.com/1989/11/22/us/lured-by-bonuses-workers-vote-to-end-strike-at-boeing.html
+ Boeing approximately $2.5 billion in lost revenue, approximately $6.2 billion in today's dollars. In 1988, Boeing 
+made
+https://www.nytimes.com/1989/10/05/us/boeing-strike-halts-work-on-80-billion-in-planes.html
+ $614 million in profits from $17 billion in sales.
+1995
+The 1995 strike occurred largely due to IAM concerns over health care benefits and overseas workers. The IAM rejected a new contract offer and struck on October 6, 1995. After a 69-day strike, it came to an 
+agreement
+https://www.nytimes.com/1995/12/15/us/machinists-end-boeing-strike-declaring-a-victory-for-labor.html
+ with Boeing on December 14 that included some concessions on health care and job security for workers affected by overseas subcontracting.
+Boeing could 
+withstand
+https://www.nytimes.com/1995/10/07/us/union-rejects-boeing-offer-goes-on-strike-in-three-states.html
+ a strike due to a recovered but not overly high demand for aircraft and an already slower delivery schedule. Upon the end of the strike, Boeing stock 
+reached
+https://www.nytimes.com/1995/12/15/us/machinists-end-boeing-strike-declaring-a-victory-for-labor.html
+ its then-highest price.
+2005
+In its 2005 strike, the IAM targeted familiar issues of health care, pensions, and overseas subcontractors. Contract negotiations 
+failed
+https://www.nytimes.com/2005/09/03/business/boeing-output-halts-as-machinists-strike.html
+ after three months, leading the IAM to strike on September 2, 2005. Amid 
+concerns
+https://www.chicagotribune.com/2005/09/27/machinists-triumph-in-showdown-at-boeing/
+ over the impact on production timelines and competition from Airbus if the strike were to go on for too long, the IAM came to an agreement with Boeing 28 days later on September 30.
+The strike was 
+estimated
+https://www.nbcnews.com/id/wbna26532652
+ to have cost Boeing about $1 billion. Instead of ramping up production to account for the delay from the strike, Boeing shifted its delivery schedule, causing long-lasting financial impacts.
+2008
+The 2008 strike came during a surging demand for planes and a record 
+backlog
+https://www.seattletimes.com/business/boeing-aerospace/simmering-boeing-strike-scorching-both-sides/
+ of almost 3,700 planes for Boeing, making it another costly strike. The strike mainly centered on issues of overseas subcontracting and job security. The IAM struck on September 6, 2008, and came to an agreement with Boeing 57 days later on November 1, addressing the concerns surrounding job security, health care benefits, and wage increases. The strike 
+cost
+https://www.theguardian.com/business/2008/oct/29/boeing-aircraft-strike-talks
+ Boeing approximately $1.3 billion.
+Impact of Strikes on Boeing Revenue
+The table below shows the percent changes in Boeing's revenue over the five years surrounding each strike. The first column shows the percent change from two years before the strike to the year before the strike; the second column shows the percent change from the previous year to the strike year; the third column shows the percent change from the strike year to the next year; and the final column shows the percent change from the next year to two years after the strike. There is no data available for 1979.
+
+
+Percent Change Between Previous 2 Years
+
+Percent Change from Year Before Strike
+
+Percent Change to Year After Strike
+
+Percent Change Between Next 2 Years
+
+1948
+
+55%
+
+485%
+
+126%
+
+7.1%
+
+1965
+
+0.2%
+
+2.7%
+
+16.5%
+
+22.2%
+
+1977
+
+5.4%
+
+2.6%
+
+35.9%
+
+–
+
+1989
+
+10.4%
+
+19.6%
+
+36.1%
+
+6.2%
+
+1995
+
+-13.8%
+
+50.4%
+
+7.6%
+
+29.2%
+
+2005
+
+4.2%
+
+4.3%
+
+14.7%
+
+7.9%
+
+2008
+
+7.9%
+
+-8.3%
+
+12.1%
+
+-5.8%
+
+Data comes from Boeing's Annual Reports to Stockholders.
+All strike years except for 1948 and 1995 displayed slower growth from the previous year compared with the following year, but there is no clear trend over the five-year period. The numbers for 1948 may be a result of a post-war decrease in manufacturing followed by a recovery that outweighed the effects of the strike. Boeing also 
+reported
+https://archive.org/details/boeingairplanecompanyannualreports/boeing1947/page/n15/mode/2up?view=theater
+ significant delivery delays in 1947. The negative change from 2007 to 2008 is likely in part due to the financial crisis.
+While strikes, especially recent ones, have been costly, there is no clear trend in how they have affected year-to-year revenue. This may be because Boeing generally delays orders rather than losing them, so their revenue is time-shifted rather than diminished.
+Why Now?
+The 2008 strike resulted in a four-year contract set to terminate in 2012, but that was ultimately extended twice. During new contract negotiations in 2011, Boeing threatened to start manufacturing its 737 Max outside Washington state. Boeing had already built a new plant in South Carolina, where it 
+began
+https://www.washingtonexaminer.com/news/1152282/nlrbs-boeing-attack-is-a-strike-against-economic-reality/
+ manufacturing its 787 Dreamliner planes outside Washington for the first time in 2009. In 2011, the NLRB asserted that this decision to move out of Washington constituted illegal retaliation against the IAM for its decision to strike. The case was 
+withdrawn
+https://www.nytimes.com/2011/12/10/business/labor-board-drops-case-against-boeing.html
+ upon the IAM's request following approval of the contract extension between the IAM and Boeing in 2011.
+Much of this issue centers around the difference in legal environment on labor issues between South Carolina and Washington. South Carolina is a “right-to-work” state, which means it offers protections for workers who choose not to join unions. Washington is not a right-to-work state. In 2009, South Carolina had the 
+third-lowest
+https://www.bls.gov/news.release/archives/union2_01222010.pdf
+ union membership rate in the country at 4.5 percent ( 
+2.3 percent
+https://www.bls.gov/news.release/pdf/union2.pdf
+ in 2023, now the lowest in the country), while Washington had the 
+fourth-highest
+https://www.bls.gov/news.release/archives/union2_01222010.pdf
+ rate at 20.2 percent ( 
+16.5 percent
+https://www.bls.gov/news.release/pdf/union2.pdf
+ in 2023). In addressing the move, Boeing 
+emphasized
+https://www.npr.org/2011/06/09/137081954/union-workers-cry-foul-over-new-s-c-boeing-plant
+ its desire for new avenues of investment and production, but also acknowledged struggles with union negotiations as a motivator.
+Boeing used the same strategy during contract negotiations in 2013. The company warned the IAM that it planned to relocate production of its 777X unless the IAM agreed to another extension. The IAM initially rejected the agreement, but 
+accepted
+https://nwlaborpress.org/2024/03/boeing-back-in-bargaining-first-time-in-16-years/
+ it in a re-vote on January 3, 2014. The contract is set to expire on September 12, 2024, after which workers can strike if an agreement is not ratified.
+On July 17, 2024, the IAM 
+passed
+https://www.goiam.org/news/imail/we-are-fighting-for-everyone-iam-sends-loud-message-to-boeing-in-99-9-strike-sanction-approval/
+ a strike sanction vote with 99.9 percent in favor. This measure allows workers to start receiving benefits without delay in the event of a strike. The IAM's current 
+demands
+https://www.goiam.org/news/imail/we-are-fighting-for-everyone-iam-sends-loud-message-to-boeing-in-99-9-strike-sanction-approval/
+ include wage increases, restoration of the pension plan removed in 2014, improved health care benefits, an end to mandatory overtime, and for the next airplane program to remain in Washington. The last point is likely in reaction to Boeing's warning in the 2011 and 2013 negotiations.
+The IAM has stated that it also hopes to secure improved quality and safety measures, among them more quality inspectors, in manufacturing. This comes amid concerns regarding the safety of Boeing aircraft, highlighted by 
+two
+https://apnews.com/article/boeing-plea-737-max-crashes-b34daa014406657e720bec4a990dccf6
+ 737 Max crashes in 2018 and 2019.
+While a strike may be narrowly avoided with a preliminary deal, the agreement still requires ratification by the union's workers. Considering the cost of the previous two strikes, combined with 
+legal troubles
+https://apnews.com/article/boeing-guilty-plea-crashes-245a38dc6d3082f4ddff1f6f74f274f2
+ related to manufacturing issues, a strike at this juncture could be particularly damaging. On July 7, 2024, for instance, Boeing agreed to plead guilty to a criminal fraud charge related to the two 737 Max crashes in a plea deal that has not yet been approved by a federal judge. As part of the plea deal, Boeing would have to pay a $243.6 million fine and invest an additional $455 million into its compliance and safety programs. It remains to be seen if the IAM will be willing to come to the table to avoid a strike, given that several years have passed since the last contract negotiation extension.
+Larger Implications
+An IAM strike against Boeing would likely have a notable economic impact. Not only would an IAM strike have a substantial effect on Boeing's operations but it would also affect the local economy and supply chain. For example, Boeing 
+paid
+https://www.boeing.com/company/about-bca/washington/boeing-tax-incentives-and-taxes-paid-reflect-recovery#:~:text=While%20Boeing%20received%20%2486%20million,through%20state%20and%20local%20taxes.
+ over $200 million in state and local taxes in Washington in 2022. Meanwhile, the company claims that it spent more than $2.25 billion with suppliers across the state. Undoubtedly, a strike, especially a long one, would have ripple effects on Washington and the rest of the country.
+An IAM strike could also be viewed as part of a larger trend of increased strike activity. More workers are participating in stoppages, and resulting idleness has also gone up. In 2023, work stoppages 
+resulted
+https://data.bls.gov/timeseries/WSU001
+ in over 16 million days of idleness, the most since 2000. No year between 2000 and 2023 had more than 4 million days of idleness from work stoppages.
+Such high levels of idleness are costly. The United Auto Workers strike, which began in September 2023 and lasted six weeks, heavily contributed to increased strike activity and idleness that year. With about 50,000 participating workers, it is 
+estimated
+https://www.mdm.com/news/operations/manufacturing/uaw-strike-cost-big-3-automakers-3-6b-in-combined-lost-profit/#:~:text=The%20negative%20impact%20on%20shipments,was%20close%20to%20%243.3%20billion.
+ to have cost Ford, GM, and Stellantis a total of $3.6 billion in lost revenue.
+Conclusion
+The current Boeing and IAM negotiation is merely the latest in a multi-generation push and pull between a key U.S. manufacturer and one of its primary labor unions. It is also just the latest example of a looming, large-scale strike that could have notable economic impact, contributing to decreased productivity, drops in revenue, and economic uncertainty for the company, workers, and the broader economy.
+Disclaimer
+https://www.americanactionforum.org/disclaimer
+[
+Douglas Holtz-Eakin
+President
+Douglas Holtz-Eakin is the President of the American Action Forum.](https://www.americanactionforum.org/experts/douglas-holtz-eakin)
+Recent Posts
+[August 20, 2026 Insight
+Key Principles for Domestic Pharmaceutical Manufacturing Success
+Jack Leimann Executive Summary The Food and Drug Administration (FDA) is attempting to encourage domestic pharmaceutical manufacturing with policy initiatives…](https://www.americanactionforum.org/insight/key-principles-for-domestic-pharmaceutical-manufacturing-success/)
+[August 19, 2026 Insight
+Oil in the Shadows: Dark Shipping Evades Sanctions
+Jacob Jensen, Natalie George Executive Summary As the United States increasingly relies on economic sanctions as a strategic tool, sanctioned countries are expanding their use…](https://www.americanactionforum.org/insight/oil-in-the-shadows-dark-shipping-evades-sanctions/)
+[August 18, 2026 Insight
+The Accredited Investor Definition: a Primer
+Oren Swagel Executive Summary Private investments are investment opportunities offered to investors with limited public disclosure of financial and business details;…](https://www.americanactionforum.org/insight/the-accredited-investor-definition-a-primer/)
+[August 12, 2026 Insight
+Debt and Deficit (Lack of) Progress Report: July 2026
+Jordan Haring Executive Summary The U.S. Department of the Treasury's July 2026 Monthly Treasury Statement shows the federal budget deficit totaled $1.8 trillion…](https://www.americanactionforum.org/insight/debt-and-deficit-lack-of-progress-report-july-2026/)
+[
+Douglas Holtz-Eakin
+President
+Douglas Holtz-Eakin is the President of the American Action Forum.](https://www.americanactionforum.org/experts/douglas-holtz-eakin) 
+ 
+ 
+ 
+Donate
+https://www.americanactionforum.org/donate
+ 
+The Daily Dish
+https://www.americanactionforum.org/daily-dish
+ 
+Careers
+https://www.americanactionforum.org/careers
+ 
+Internships
+https://www.americanactionforum.org/internships
+ 
+Contact Us
+https://www.americanactionforum.org/contact-us
+Get the Daily Dish*
+ 
+Get the Daily Dish
+Δ
+Privacy Policy
+https://www.americanactionforum.org/privacy-policy
+ 
+The American Action Forum is a 21st century center-right policy institute providing actionable research and analysis to solve America's most pressing policy challenges.
+Economic Indicators: Topline Numbers
+×
+Consumer Price Index
+July 2025
+M/M Change:
++0.2%
+Y/Y Change:
++2.7%
+Measures the change in prices of all goods and services purchased for consumption by urban households.
+Bureau of Labor Statistics
+Core Consumer Price Index
+July 2025
+M/M Change:
++0.3%
+Y/Y Change:
++3.1%
+Consumer Price Index excluding food and energy.
+Bureau of Labor Statistics
+Core Personal Consumption Expenditures Price Index
+July 2025
+M/M Change:
++0.3%
+Y/Y Change:
++2.9%
+A measure of prices paid for goods and services excluding food and energy; the Federal Reserve's preferred measure of inflation.
+Bureau of Economic Analysis
+Producer Price Index
+July 2025
+M/M Change:
++0.9%
+Y/Y Change:
++3.3%
+Measures the change in selling prices received by domestic producers of goods and services.
+Bureau of Labor Statistics
+Initial Jobless Claims
+Week ending August 30, 2025
+237,000
+Change:
++8,000
+4-week Moving Average:
+231,000
+Weekly unemployment insurance claims reported by each state's unemployment insurance program offices.
+U.S. Department of Labor
+ISM Services Index
+August 2025
+Index:
+52.0
+Change:
++1.9
+A level above 50 indicates expansion
+Institute for Supply Management
+ISM Manufacturing Index
+August 2025
+Index:
+48.7
+Change:
++0.7
+A level above 50 indicates expansion
+Institute for Supply Management
+Consumer Sentiment
+August 2025
+Index:
+58.2
+Change:
+-3.5
+The core questions cover three broad areas of consumer sentiment: personal finances, business conditions, and buying conditions.
+University of Michigan
+ADP Employment:
+August 2025
+Change in U.S. Private Employment:
++54,000
+Measures change in private-sector employment using ADP payroll data covering more than half a million companies with more than 25 million employees.
+ADP
+Nondefense Capital Goods Orders Excluding Aircraft
+July 2025
+$76.4 B
+M/M Change:
++1.1%
+Y/Y Change:
++4.5%
+A new order is a communication of an intention to buy for immediate or future delivery.
+U.S. Census Bureau
+New Residential Housing Starts
+July 2025
+1,428,000
+M/M Change:
++5.2%
+Y/Y Change:
++12.9%
+Privately owned housing starts; seasonally adjusted at an annual rate.
+U.S. Census Bureau
+Notifications

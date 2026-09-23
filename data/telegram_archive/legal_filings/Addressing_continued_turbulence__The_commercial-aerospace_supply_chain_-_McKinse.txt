@@ -1,0 +1,286 @@
+# Addressing continued turbulence: The commercial-aerospace supply chain - McKinsey
+Categoría: Jurídico & Sentencias
+Origen: Grupo Telegram EnfadadosconAirbus (https://t.me/+MnuqJDCAAgYyMGQ0)
+
+Commercial aerospace supply chain challenges | McKinsey
+Skip to main content
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#skipToMain
+ 
+https://www.mckinsey.com/
+ 
+https://www.mckinsey.com/
+Aerospace and Defense
+https://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients
+Aerospace and Defense
+https://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients
+How We Help Clients
+https://www.mckinsey.com/industries/aerospace-and-defense/how-we-help-clients
+Our Insights
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights
+Our People
+https://www.mckinsey.com/industries/aerospace-and-defense/our-people
+Contact Us
+https://www.mckinsey.com/industries/aerospace-and-defense/contact-us
+More menu options More
+https://www.mckinsey.com/
+Please use UP and DOWN arrow keys to review autocomplete results. Press enter to select and open the results on a new page.
+Search
+Sign In
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/auth-signin
+Subscribe
+https://www.mckinsey.com/user-registration/newsletter
+ 
+ 
+ 
+Addressing continued turbulence: The commercial-aerospace supply chain
+Share
+Print
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/print
+Download
+Save
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/save
+Summarize NEW
+Addressing continued turbulence: The commercial-aerospace supply chain
+April 3, 2024 | Article
+By 
+Emma Loxton
+https://www.mckinsey.com/our-people/emma-loxton
+, Henry Marcil, 
+Mike Parkins
+https://www.mckinsey.com/our-people/mike-parkins
+, and Andrew Tingley
+Share
+Print
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/print
+Download
+Save
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/save
+Summarize NEW
+A new, comprehensive supply-chain-management approach can help aerospace companies eliminate many of the disruptions that are contributing to a record-high aircraft order backlog.
+DOWNLOADS
+Article (9 pages)
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain#/download/%2F~%2Fmedia%2Fmckinsey%2Findustries%2Faerospace%20and%20defense%2Four%20insights%2Faddressing%20continued%20turbulence%20the%20commercial%20aerospace%20supply%20chain%2Faddressing-continued-turbulence-the-commercial-aerospace-supply-chain.pdf%3FshouldIndex%3Dfalse
+The commercial-aerospace sector
+ has experienced modest but steady growth since mid-2020, when demand for air travel began to recover from the precipitous drop caused by the COVID-19 pandemic. By December 2023, demand was back to 97 percent of prepandemic levels, and it's expected to grow between 5 and 10 percent annually through 2026. 
+1
+ Measured in revenue-passenger-kilometers. “Air passenger market analysis December 2023,” International Air Transport Association (IATA), January 31, 2024. New aircraft orders now total about 15,700. 
+2
+ Narrow- and wide-body commercial aircraft. The open-order backlog would take 13 years to address, assuming 2023 delivery rates (Exhibit 1).
+Exhibit 1
+ 
+We strive to provide individuals with disabilities equal access to our website. If you would like information about this content we will be happy to work with you. Please email us at: 
+McKinsey_Website_Accessibility@mckinsey.com
+mailto:McKinsey_Website_Accessibility@mckinsey.com
+While strong demand is encouraging, commercial-aerospace OEMs and suppliers are dealing with multiple challenges in parallel. These include quality control issues, new regulations, talent shortages, and an increasingly splintered geopolitical environment. One of the more pressing issues—and one frequently cited by commercial OEMs and suppliers—relates to persistent supply chain constraints. Our analysis shows that aerospace executives were about 18 times more likely to mention supply-chain-related terms, such as “shortages,” during earnings calls in 2022 than they were in 2014. Their views on supply chain performance also showed a dramatic negative shift starting in 2020 (see sidebar, “Growing supply chain concerns among commercial-aerospace executives”).
+Our analysis shows that aerospace executives were about 18 times more likely to mention supply-chain-related terms, such as “shortages,” during earnings calls in 2022 than they were in 2014.
+Share
+Sidebar
+Growing supply chain concerns among commercial-aerospace executives
+To identify the major business concerns
+ of commercial-aerospace executives, we analyzed the transcripts of over 1,000 earnings, investor, and analyst calls held by more than 50 OEMs and suppliers between 2014 and 2023. We looked at the number of times that specific keywords were mentioned. In 2022, there was about an 18-fold increase in the mention of shortages and other supply-chain-related terms over the number mentioned in 2014. Several supply categories, such as raw materials, castings, forgings, electronics, and semiconductors, were also top of mind among executives (Exhibit A).
+Exhibit A
+ 
+We strive to provide individuals with disabilities equal access to our website. If you would like information about this content we will be happy to work with you. Please email us at: 
+McKinsey_Website_Accessibility@mckinsey.com
+mailto:McKinsey_Website_Accessibility@mckinsey.com
+We also leveraged generative AI to analyze executive sentiment about supply chain issues—specifically, to determine if executives were speaking about them in a positive or negative tone. While most leaders had a positive view of the issues before 2020, their sentiment turned predominantly negative in 2020, when the COVID-19 pandemic disrupted or delayed many shipments (Exhibit B). While negativity has decreased since that time, it's still significantly higher than the prepandemic levels.
+Exhibit B
+ 
+We strive to provide individuals with disabilities equal access to our website. If you would like information about this content we will be happy to work with you. Please email us at: 
+McKinsey_Website_Accessibility@mckinsey.com
+mailto:McKinsey_Website_Accessibility@mckinsey.com
+The concerns of aerospace leaders are well justified. Since 2020, OEMs have struggled to obtain adequate quantities of many components essential to aircraft manufacturing, including raw materials, finished castings and forgings, semiconductors, and electronics components. In consequence, production lines have slowed or stopped, the fleet age is climbing, and repair and overhaul times are sometimes significantly off target. Adding to the challenge, many suppliers provide components and materials for both original equipment and the aftermarket. If they have only a limited supply of parts and components, they may have to make production trade-offs between supplying OEMs and servicing the aftermarket.
+Too often, commercial-aerospace OEMs and suppliers fall short in efforts to drive supply chain resiliency because they focus on single solutions, such as digital risk management, in isolation. While well intentioned, individual solutions don't fully address the challenges and root causes. To assist, we have developed a practical, multipronged approach that increases focus on three areas:
+using data and analytics to get a more complete, accurate, and predictive view of supply chain issues
+increasing collaboration and capability building so that all staff are well prepared to engage in cross-functional problem-solving that gets to the root cause
+assessing risks proactively to ensure that companies are prepared for unforeseen challenges that may arise
+As we've seen from our work within the sector, this combination of moves can rapidly decrease shortages by more than 25 percent. It can also build long-lasting organizational capabilities across hundreds of employees and create an advantage in supply-constrained markets.
+An enhanced view of supply chain health through data and analytics
+How relevant and useful is this article for you?
+Most Popular Insights
+What to read next: McKinsey's 2026 annual book recommendations
+https://www.mckinsey.com/featured-insights/annual-book-recommendations
+Is that AI agent worth it? Agentic economics and the modern operating model
+https://www.mckinsey.com/capabilities/quantumblack/our-insights/is-that-ai-agent-worth-it-agentic-economics-and-the-modern-operating-model
+Building expertise in the age of AI: Who trains the next generation?
+https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/building-expertise-in-the-age-of-ai-who-trains-the-next-generation
+How AI is reshaping the future of the AEC industry
+https://www.mckinsey.com/industries/engineering-construction-and-building-materials/our-insights/how-ai-is-reshaping-the-future-of-the-aec-industry
+The state of AI in 2025: Agents, innovation, and transformation
+https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2025
+Although commercial-aerospace companies have long examined supply chain data, they can enhance their efforts by undertaking three activities: increasing subtier transparency, creating a warning system, and regularly ensuring the accuracy of their data.
+Increasing subtier transparency about the most critical supply chain issues
+Leading companies are now identifying suppliers well below the first tier of their vendor networks and more closely examining their operations to obtain a clearer view of supply chain performance. We see the best results for companies that focus on the suppliers producing the parts and components that are most critical or that must be ordered well in advance of production because they have long lead times. This targeted approach can facilitate discussions with direct vendors and sometimes enable opportunities to work directly with the subtier. When one aerospace-electronics-manufacturing supplier took a comprehensive look at its supply chain, it identified several semiconductor companies providing chips to critical subassemblies. The supplier then directly engaged the subtier vendor, ultimately increasing production throughput by 45 percent.
+Leading companies are now identifying suppliers well below the first tier of their vendor networks and more closely examining their operations to obtain a clearer view of supply chain performance.
+Creating an early-warning system
+Many companies create control towers—data rooms and teams that monitor supply chain performance—that react to problems as they occur. But these control towers often fail to provide sufficient foresight to drive proactive action. For better results, companies can leverage AI to analyze readily available procurement information, such as in-house purchase orders and change request metadata, to identify potential delivery or quality issues in advance.
+These early-warning systems can detect deviations from historical trends and trigger alarms and action if the irregularities persist (Exhibit 2). In one case, we worked with a commercial-aerospace OEM to identify common markers of future supply chain disruption, such as frequency in purchase order changes. By monitoring several relevant metrics, the company was able to reduce component shortages by 25 percent.
+Exhibit 2
+ 
+We strive to provide individuals with disabilities equal access to our website. If you would like information about this content we will be happy to work with you. Please email us at: 
+McKinsey_Website_Accessibility@mckinsey.com
+mailto:McKinsey_Website_Accessibility@mckinsey.com
+Frequently updating supply chain data
+Many companies struggle to manage supply chain databases because the information often changes. For instance, lead times may shift when contracts are renegotiated. Without a firm process for tracking such updates, databases often contain inaccurate or incomplete information. This can lead to administrative headaches and costly problems, such as suboptimal inventory levels and damaged part counts.
+Mitigating such issues requires more frequent and comprehensive data updates, and companies must ensure that supply managers can dedicate sufficient time and resources to these efforts. One aerospace OEM undertook a comprehensive data review and corrected many discrepancies, such as inconsistent part names and serial numbers. With better information, the company improved logistics efficiencies, including the ability to locate inventory and reroute shipments during the COVID-19 pandemic.
+Improved cross-functional collaboration and capability building for critical supply chain activities
+Supply chain disruptions have become a fact of life, even though many of the pandemic-related disruptions have somewhat abated. The best companies proactively help their employees gain the skills needed to handle such challenges so that they will be prepared when problems arise.
+Train personnel on root cause analysis and corrective action
+Although delivery and quality issues are inevitable in a complex industry such as aerospace, companies may opt for Band-Aid fixes to mitigate problems, resulting in suboptimal outcomes and recurrences of issues. To break this pattern, companies can encourage supply chain teams to focus on root cause analysis (RCA) 
+3
+ Sometimes called “root cause corrective action,” “failure modes and effects analysis,” and many other terms.—a process to identify and resolve the underlying issues that repeatedly result in shortages or quality issues. Once supply managers are skilled in RCA and can understand the root of dysfunction, they can address issues at the source and avoid similar situations in the future. One commercial-aerospace player that emphasized RCA capabilities improved its ability to manage unexpected demand shifts and gained greater insight into its supply chain. These advancements helped reduce part shortages by about 30 percent.
+Facilitate clear and connected cross-functional operations
+To address supply chain constraints effectively, all relevant operations functions need to share information freely and quickly. For instance, the manufacturing group must know about delivery and quality issues to manage the critical path. Supply managers must understand schedule changes to update delivery schedules.
+To align all functions involved, companies can benefit from creating physical spaces dedicated to enhancing supply chain visibility and driving performance—sometimes called 
+obeya
+, or “big room” in Japanese. While some aerospace companies already have such rooms, they often fail to incorporate all functions properly, create visibility across simple metrics, 
+4
+ For example, defects, shortage rates, quality inspection throughput, and initiative completion rates. or provide the continuous data feeds necessary for full efficacy. One defense company increased steel assembly throughput by 50 percent, despite persistent raw material shortages, by establishing a cross-functional 
+obeya
+ that included team members across manufacturing, procurement, planning, and material management.
+To address supply chain constraints effectively, all relevant operations functions need to share information freely and quickly.
+Organize and upskill talent
+As with any improvement effort, better supply chain management requires a capable staff. However, skilled labor is already in short supply, and the problem is becoming more severe because many 
+employees within the aerospace sector
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/navigating-the-gray-to-green-transition-in-aerospace-and-defense
+ have recently retired, and the employees replacing them have less institutional knowledge. The talent problem can be particularly severe during materials shortages, when supply chain managers may be thrust into other temporary roles, such as project management.
+To address the talent challenge, companies must use every solution in the tool kit to increase acquisition and decrease attrition. For instance, they can have a clear and appealing value proposition for job seekers and aggressive upskilling efforts for current employees. Shifting to a more data-driven and analytical supply management model will also require recruitment for nontraditional digital-native roles, such as data scientists and engineers.
+New paradigms to assess supply chain risk
+Leading aerospace companies already have risk management and business continuity procedures. But several enhancements, including improved quality control and use of “tabletop” exercises, are essential in the current operating environment.
+Treating quality as delivery
+In tandem with performing RCA, companies may benefit from giving more urgent attention to quality issues. For example, many companies delay the testing of material batches until installation. This can result in major production delays if quality issues surface. Others allow the dispositions of material review boards to drag on while parts remain in netting stockrooms.
+Bringing lean principles and a sense of urgency to quality control can vastly reduce these shortages in hiding and allow supply chain teams to react quickly to any disruptions. One US-based aerospace manufacturer determined that part nonconformance was the root cause for over 30 percent of all part shortages across its programs. By establishing better quality measures, the company reduced these shortages and enhanced its manufacturing flow.
+Engaging in tabletop exercises
+Any holistic plan to improve supply chain resiliency will benefit from long-term, strategic thinking. This is true even when contemplating risks where great uncertainty exists. For instance, it's difficult to predict how or when geopolitical tensions might increase, but companies must prepare for potentially catastrophic consequences, such as constrained or complete loss of access to materials, if this occurs. To do so, leaders can engage in strategic tabletop exercises to simulate how all stakeholders—their own company, as well as customers, suppliers, competitors, and governments—would respond under stress. If leaders regularly conduct these simulations, they will build the organizational muscle required to respond effectively and efficiently to shocks. One aerospace electronics company conducted a tabletop exercise to reevaluate its supply chain strategy and mitigate long-term risks. In addition to defining a set of no-regret moves to bolster supply, the company established contingency and business continuity plans to manage certain potential geopolitical developments.
+The commercial-aerospace supply chain is likely to face continued turbulence in the near future, but companies can make major changes now that result in real improvement. Our new approach to supply chain management involves multiple distinct activities. But they all work toward one goal: delivering greater insights to address disruption proactively and keep production on track. With better preparation and solid planning to avoid and address shortages, commercial-aerospace companies may finally find clearer skies.
+How relevant and useful is this article for you?
+About the author(s)
+Emma Loxton
+ is a partner in McKinsey's London office, 
+Henry Marcil
+ is a partner in the Bay Area office, 
+Mike Parkins
+ is a senior partner in the Denver office, and 
+Andrew Tingley
+ is an associate partner in the Pittsburgh office.
+The authors wish to thank Tore Johnston for his contributions to this article.
+This article was edited by Eileen Hannigan, a senior editor in the Boston office.
+Talk to us
+Explore a career with us
+Search openings
+https://www.mckinsey.com/careers/search-jobs
+Related Articles
+Article
+Strengthening national security through a more resilient supply chain
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/strengthening-national-security-through-a-more-resilient-supply-chain
+Report - 
+MGI Research
+Geopolitics and the geometry of global trade
+https://www.mckinsey.com/mgi/our-research/geopolitics-and-the-geometry-of-global-trade
+Article
+Navigating the gray-to-green transition in aerospace and defense
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/navigating-the-gray-to-green-transition-in-aerospace-and-defense
+Sign up for emails on new Advanced Industries articles
+Never miss an insight. We'll email you when new articles are published on this topic.
+Careers
+https://www.mckinsey.com/careers/home
+About us
+https://www.mckinsey.com/about-us/overview
+Alumni
+https://www.mckinsey.com/Alumni
+Contact us
+https://www.mckinsey.com/contact-us
+Global locations
+https://www.mckinsey.com/locations
+Subscribe
+Select topics and stay current with our latest insights
+Submit 
+https://www.linkedin.com/company/mckinsey
+ 
+https://twitter.com/McKinsey
+ 
+https://www.facebook.com/mckinsey
+ 
+https://www.youtube.com/mckinsey
+ 
+https://www.mckinsey.com/insights/rss.aspx
+Scam warning
+https://www.mckinsey.com/scam-warning
+ 
+FAQ
+https://www.mckinsey.com/frequently-asked-questions/our-insights
+ 
+Privacy policy
+https://www.mckinsey.com/privacy-notice
+ 
+Your privacy choices
+https://privacyportal.onetrust.com/hosted-webform/consent/353d36fb-3a1c-4021-b831-ee6d50361d6a/a4c0cce5-8c09-4ec1-892b-44298e75dbad
+ 
+Cookie preferences
+https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/addressing-continued-turbulence-the-commercial-aerospace-supply-chain
+ 
+Terms of use
+https://www.mckinsey.com/terms-of-use
+ 
+Local language information
+https://www.mckinsey.com/local-language-information
+ 
+Accessibility statement
+https://www.mckinsey.com/accessibility-statement
+McKinsey Insights - Get our latest thinking on your iPhone, iPad, or Android device.
+ 
+© 1996-2026 McKinsey & Company
+Sign up for emails on new Advanced Industries articles
+McKinsey & Company, Inc. uses cookies to better understand how visitors use our site, to collect and analyze information on site performance and usage, and for targeted advertising purposes. 
+Cookie Notice
+https://www.mckinsey.com/cookie-policy
+We do not sell personal information, but we may share your personal data with third parties for cross-context behavioral advertising.
+Please see our 
+Privacy Notice
+https://www.mckinsey.com/privacy-policy
+ for more information.
+Accept All Cookies Decline optional cookies
+Manage my preferences
+ 
+Privacy Preference Center
+McKinsey and our trusted partners use cookies and similar technologies to access and use your data for the purposes listed below. Please provide your consent for cookie usage on this website. Enable one or more of the cookie types listed below, and then save your preferences.
+Cookie Notice
+https://www.mckinsey.com/cookie-policy
+Accept all cookies
+Manage Consent Preferences
+Performance Cookies
+[-]
+Performance Cookies
+These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site and app. They help us to know which pages are the most and least popular and see how visitors move around the site and app. All information these cookies collect is aggregated and therefore anonymous. If you do not allow these cookies we will not know when you have visited our site or app, and will not be able to monitor its performance.
+Cookie details
+Functional Cookies
+[-]
+Functional Cookies
+These cookies enable the website and app to provide enhanced functionality and personalization. They may be set by us or by third party providers whose services we have added to our pages. If you do not allow these cookies then some or all of these services may not function properly.
+Cookie details
+Targeting Cookies
+[-]
+Targeting Cookies
+These cookies may be set through our site or app by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites. They do not store directly personal information, but are based on uniquely identifying your browser and internet device. If you do not allow these cookies, you will experience less targeted advertising.
+Cookie details
+Strictly Necessary Cookies
+Always Active
+These cookies are necessary for the website and app to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services, such as setting your privacy preferences, logging in or filling in forms. You can set your browser to block or alert you about these cookies, but some parts of the site and app will not then work. These cookies do not store any personally identifiable information.
+Cookie details
+Back
+Clear
+[-]
+ 
+checkbox label label
+Apply Cancel
+Consent Leg.Interest
+ 
+[-]
+checkbox label label
+ 
+[-]
+checkbox label label
+ 
+[-]
+checkbox label label
+Save my preferences
