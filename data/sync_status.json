@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "last_sync": "2026-10-26T22:17:59.611031+00:00",
-  "last_successful_sync": "2026-10-26T22:17:59.611031+00:00",
+  "last_sync": "2026-10-27T02:44:25.576677+00:00",
+  "last_successful_sync": "2026-10-27T02:44:25.576677+00:00",
   "status": "OK",
   "system_status": "healthy",
   "news_count": 0,
@@ -9,24 +9,24 @@
   "notebooklm_sync": {
     "status": "SUCCESS",
     "uploaded_count": 5,
-    "last_attempt": "2026-10-26T22:17:59.611031+00:00"
+    "last_attempt": "2026-10-27T02:44:25.576677+00:00"
   },
   "polling_interval_seconds": 30,
   "sources": {
     "telegram_archive": {
       "status": "active",
       "total_docs": 275,
-      "last_message_ts": "2026-10-26T22:17:59.769542+00:00"
+      "last_message_ts": "2026-10-27T02:44:25.662388+00:00"
     },
     "sima_news_feed": {
       "status": "idle",
       "total_articles": 0,
-      "last_article_ts": "2026-10-26T22:18:00.571889+00:00"
+      "last_article_ts": "2026-10-27T02:44:26.480570+00:00"
     },
     "airbus_press_releases": {
       "status": "idle",
       "total_articles": 0,
-      "last_article_ts": "2026-10-26T22:18:00.801938+00:00"
+      "last_article_ts": "2026-10-27T02:44:26.778596+00:00"
     },
     "beluga_transport_status": {
       "status": "active",
@@ -39,8 +39,8 @@
     }
   },
   "latest_event": {
-    "event_id": "evt_20261026_221759",
-    "duration_ms": 1453,
+    "event_id": "evt_20261027_024425",
+    "duration_ms": 1266,
     "status": "healthy",
     "error_message": null
   }
