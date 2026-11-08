@@ -3,7 +3,7 @@
 
 > **Última actualización de los textos:** 2 de septiembre de 2026 (Día 9 de Huelga Indefinida)  
 > **Estado del Conflicto:** Día 9 de Huelga General Indefinida en las 7 factorías de Airbus en España.  
-> **Compilación del Dossier:** 2026-11-08 19:35:38 (CET) | Sincronizado al 100% con `data/conflict_metrics.json`  
+> **Compilación del Dossier:** 2026-11-09 00:18:50 (CET) | Sincronizado al 100% con `data/conflict_metrics.json`  
 
 ---
 
