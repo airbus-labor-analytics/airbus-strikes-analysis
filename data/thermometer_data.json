@@ -1,16 +1,16 @@
 {
   "source": "Airbus Strike Dynamic Multi-Platform Sentiment Engine (Google News RSS + Twitter/X + Reddit + Threads + Telegram)",
-  "timestamp": "2026-11-16T23:55:11.157535+00:00",
-  "temperature_celsius": 71.4,
+  "timestamp": "2026-11-17T05:33:35.922387+00:00",
+  "temperature_celsius": 70.3,
   "status_label": "ALTA PRESIÓN (Coste Financiero Acelerado)",
   "status_color": "orange",
   "status_description": "La huelga penaliza severamente el flujo de caja diario (-22,7 M€/día) y el stock de las FALs europeas. La dirección pierde el control de la narrativa.",
-  "bad_for_airbus_count": 251,
+  "bad_for_airbus_count": 264,
   "good_for_airbus_count": 26,
-  "neutral_count": 189,
-  "total_items_monitored": 466,
-  "bad_for_airbus_percentage": 53.9,
-  "good_for_airbus_percentage": 5.6,
+  "neutral_count": 221,
+  "total_items_monitored": 511,
+  "bad_for_airbus_percentage": 51.7,
+  "good_for_airbus_percentage": 5.1,
   "channels_distribution": {
     "Twitter / X": 5,
     "Reddit": 3,
@@ -25,24 +25,25 @@
     "Telegram: Comunicados & Huelga": 161,
     "Telegram: Planes de Mantenimiento": 1,
     "Prensa Nacional & Economía": 42,
-    "Aviation & Industry Press": 2,
     "Labor & Negociación": 9,
+    "Prensa Regional & Factorías": 10,
     "Secciones Sindicales": 16,
     "Mercados & Bolsa Euronext": 8,
-    "Dirección & Portavocía Airbus": 10,
-    "Programas Comerciales": 35,
+    "Programas Comerciales": 36,
     "Gobierno & Mediación Estatal": 25,
-    "Clientes & Aerolíneas": 9,
+    "Clientes & Aerolíneas": 10,
     "Defensa & Espacio": 9,
+    "FlightGlobal Aerospace": 9,
+    "Aviation Week Network": 35,
     "Actualidad Aeroespacial": 9,
-    "Prensa Francesa (Aerospace)": 28
+    "Prensa Francesa (Aerospace)": 29
   },
   "platforms_distribution": {
     "TWITTER": 5,
     "REDDIT": 3,
     "THREADS": 2,
     "TELEGRAM": 249,
-    "PRENSA": 207
+    "PRENSA": 252
   },
   "feed": [
     {
@@ -3844,19 +3845,6 @@
     },
     {
       "id": "rss-010",
-      "source": "El Conciso",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Varapalo para Airbus España: los trabajadores deciden seguir con la huelga indefinida",
-      "date": "2026-08-24",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc0pBbmQ1S09uaVdoZWd2RDdmUzVyN2FzTXBUZ1lleEtYR2JQSGVkRDZjbm1ZblA5Vll6X1BpenphQmhFNmhVMURqeGhOTnlqZnZTelpBcFl3SktIZE5fdC1CdVBhdmRKeEVWUDl1X3dWYy1FbS1QeXZfV2NvWGRtQ0IzSjFkMmh3Y3FOWmp6MVc5YWdSb0dXa9IBngFBVV95cUxNR29ZNjl4d0ZNa1NpeW9KSUFHYnZ4NDZsY3Z3ZjhLZmJwckthRDVJcFlhdXl6ejhMWDR0ZFViSnNsY0xFaWpobDRqWVFlb0FFMXBnc04wSEgyNHRwcm1qVk93Rl9YajBUdTJFbjRNT3k3cUVzbFJ4TDh5a0lmTUYtdHZnZUt3UVo5QlNfZU5BTWpQS1lHVVpMNWpvTUc5UQ?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-011",
       "source": "EFE - Agencia de noticias",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -3867,6 +3855,19 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en EFE - Agencia de noticias. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-011",
+      "source": "El Conciso",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
+      "title": "Varapalo para Airbus España: los trabajadores deciden seguir con la huelga indefinida",
+      "date": "2026-08-24",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOc0pBbmQ1S09uaVdoZWd2RDdmUzVyN2FzTXBUZ1lleEtYR2JQSGVkRDZjbm1ZblA5Vll6X1BpenphQmhFNmhVMURqeGhOTnlqZnZTelpBcFl3SktIZE5fdC1CdVBhdmRKeEVWUDl1X3dWYy1FbS1QeXZfV2NvWGRtQ0IzSjFkMmh3Y3FOWmp6MVc5YWdSb0dXa9IBngFBVV95cUxNR29ZNjl4d0ZNa1NpeW9KSUFHYnZ4NDZsY3Z3ZjhLZmJwckthRDVJcFlhdXl6ejhMWDR0ZFViSnNsY0xFaWpobDRqWVFlb0FFMXBnc04wSEgyNHRwcm1qVk93Rl9YajBUdTJFbjRNT3k3cUVzbFJ4TDh5a0lmTUYtdHZnZUt3UVo5QlNfZU5BTWpQS1lHVVpMNWpvTUc5UQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-012",
@@ -3987,19 +3988,6 @@
     },
     {
       "id": "rss-021",
-      "source": "El Confidencial",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Airbus rompe la negociación mientras la huelga afecta a todas sus líneas comerciales en España",
-      "date": "2026-09-03",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPQzJnZFJIc204VWtLaHBMUmItQkJkcnJtbklRZDFTUlZmUEhCaDdOVHcwbzk0YmRnQTFqNTJ5Y1hzZlZiS1U2T3VpRHFsUkV2YmVla3JGbXRpemlnVENTRDdWYUlLYTNiM3phU2NkaEEwOGtlWGMwTEs5SF82dklqMFp3SVVNWUtHV2RHVm5kR2FVR1NWMHJOVTFtZmxEbkE1T25iRUNlYXVFdDh1VmwxQnlCTmxOaE1ac1hoczI1VmJGSnV4QXc?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-022",
       "source": "Aviación Digital",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -4010,6 +3998,19 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+21°C",
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviación Digital. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-022",
+      "source": "El Confidencial",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
+      "title": "Airbus rompe la negociación mientras la huelga afecta a todas sus líneas comerciales en España",
+      "date": "2026-09-03",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPQzJnZFJIc204VWtLaHBMUmItQkJkcnJtbklRZDFTUlZmUEhCaDdOVHcwbzk0YmRnQTFqNTJ5Y1hzZlZiS1U2T3VpRHFsUkV2YmVla3JGbXRpemlnVENTRDdWYUlLYTNiM3phU2NkaEEwOGtlWGMwTEs5SF82dklqMFp3SVVNWUtHV2RHVm5kR2FVR1NWMHJOVTFtZmxEbkE1T25iRUNlYXVFdDh1VmwxQnlCTmxOaE1ac1hoczI1VmJGSnV4QXc?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-023",
@@ -4055,6 +4056,19 @@
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
+      "title": "El conflicto de Airbus se acerca a un callejón sin salida tras fracasar la negociación con el comité de huelga",
+      "date": "2026-09-01",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNYkxKaTc2Wk1lNnYxdnJBUEMtOTBmTHB0dzFKeUVJd1JZU3BnYXRyVE5xWENPaEpaTFF3Ni1seHFQSjFtclZSVlVFRUJaSXgwbjdwWE5JeFFDVXhySnJHdkp2X0ZvWTZ5bDZWcmVVd2pHUG9DMkoyR0N2SVRoOVNzWFBiN09Mdk5waU9iRy1BQWJpdGxwX0xQOTlYNXZIMlQtMVBrN0wzdGFSbk1VbGdtdDR0R3BUTTBtb0lyZm93R2JrMkFJaWNPXzZldjRjNk5TNENMN2E1VDFBQjjSAeABQVVfeXFMUGl4TWRGR3BoNDdycVZVNXROaGhMRmwzbVNDbmswUGVnRUFReFNSWjUwZHNtR1oySWVzRy1ibkVKRXg2QjNHNHMzczJSZDBJOXJKdUlBQ3MzTlJsWFB3N0hEcHB1bU1OUGJQY3haamxocE1Fc0NPVzlnRzFMaHpnY2lBTzROY1YwblpnRnkyd1BxT0NCWFp2MkxkMHRkMUFSczFCWFZScVViY2prV3FNODlwczN1Qnk0X0huNEg0N3ZsVFBUOG5jNFpLM29neUt4eU1qNjZQdUJNMkhWeWJfUkk?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-027",
+      "source": "El Español",
+      "platform": "PRENSA",
+      "channel": "Prensa Nacional & Economía",
       "title": "El Gobierno mediará si se mantiene la huelga en Airbus: \"No podemos jugar con el pan de los próximos 30 años\"",
       "date": "2026-09-01",
       "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNWkxrSUVSOGRSWEhqMXFlOEoxcllmeEhHZkRJdVp3MGVxTTFFbURNSWhhVkNCVU1tU0JlYXhvU0xSNGJXWTZCMDBib3Q1VGl2S0YyVi05SzJuVkdTOThVZ1B5enJqZFpSMGVuekw2WVM2N3VISzBBNzBQMXJNNHF5RFZzeWFhLXRHVWx2X1Iyb1Z1bUJlOFpLbDF4NFNmTUV5VUFiSEduTXFVaUx1bjE4eUhhbWtmQlhIc21tM0FZdlJVQlRQZnBGLThtV0VCTTIyeTM0YXZn0gHbAUFVX3lxTE1NTWRTYXIwR2JmSnd4a19TZEw5RWtFTDA5QThGRUIxSzNHM0lkY0J6bWJlS01GSk5lQTBzaE9GZjFUY3VVNGhfNkg2cGF0bHloYVJlQVl2UEZYb1NSQmlQcEJQNUFMcTQ2c1VDX0RXcWFHbTh5WmQ2OGdGcW5yRTZNTjd1NkN0MVAtRWp5akJ4WmNSM3dFYlV4YWk0aVROUENKZWoxUTNnaDdhdmVUN0dNZ012MVl4T3VTSEVmY0xpeGRJN3VEUVlvRlBpcWhhYW9kZXIzWVphcmlSbw?oc=5",
@@ -4064,7 +4078,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-027",
+      "id": "rss-028",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -4077,7 +4091,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-028",
+      "id": "rss-029",
       "source": "ABC",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -4090,7 +4104,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-029",
+      "id": "rss-030",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -4103,7 +4117,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-030",
+      "id": "rss-031",
       "source": "El Confidencial",
       "platform": "PRENSA",
       "channel": "Prensa Nacional & Economía",
@@ -4114,19 +4128,6 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Confidencial. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-031",
-      "source": "El Español",
-      "platform": "PRENSA",
-      "channel": "Prensa Nacional & Economía",
-      "title": "Los trabajadores de Airbus vuelven al trabajo mientras los sindicatos deciden si continúan con la huelga",
-      "date": "2026-07-27",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPT216MUFMOGFTLVRjdDRjVDlKcHpKMXYyYnYxQ3NoTFZ2T0ZYYUMwdlJfLTQweXhyeHQtZFBHQnpvdmJrSDhvZ1NzREwyZXhlNFk5NXZxSG4teEQtUXZGSGhkdUZYZ0xwb0psRmxPaC1SRjBIQ3B0WHVoTWxCZkJzWU96ekJKY2F0UzN0MkNDMkFZNkZyU004Yk1XbE1kT3VicktsZHE2T0lYZk5JYmNEb0haWTdvTFIzUDNGMGlRbUNKdUNrblprSG02Y0txSlNtcXfSAdcBQVVfeXFMUFRmTW1nb0JyNDlMczJjekN6Z09XWjdUOVBpck1YaWFwY01oeTFxVzRBdzVrZmpMU3lScVpUeHlSbl84eENBSGsxUFE5MTJIRHVmUFNVYzByd2MxeXZ0OVR3NEFFS3VVOXNXSmZGWFJqVDR1Y01XLUNpZmF1bGQ3Z1drNEFrb3Q3YnhEamU3bUtHa1BMR3hwMHVQVjNWZUxtMUVrMkFObFdlX2czc0Q1SG1pRjYxR2xnbl8xaHhRMnJpMFk1WmFEZ3Jid2NEeW5XZnZveGhSZHc?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Español. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-032",
@@ -4273,32 +4274,6 @@
     },
     {
       "id": "rss-043",
-      "source": "Forecast International",
-      "platform": "PRENSA",
-      "channel": "Aviation & Industry Press",
-      "title": "Airbus Delivers First New A321neo From Former A380 Production Site",
-      "date": "2024-01-02",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPdnF3emNlSFZvY1paNk94cVJOR2tIV1c3OGVGM3hPbENmOVNpVXE3bFRZWEpXNXQ5aU8xdVI0eTFOdVdVZVJkNjJqd2tiYmFUZXVzS1ktZjRmc2doR2diUTRnc0dSUmgyZGtESllLZ2RFZ2p3NW5tT3k1THZrejFzQWhnSjZEbTl3RGQ5aXpUQ2FxQTBjdVBoanBRdXBJMU1VNjgyREFncmJiaHZvcGpKeXdhZEFIWmYtNmxJNGRiMmk?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
-    },
-    {
-      "id": "rss-044",
-      "source": "Key Aero",
-      "platform": "PRENSA",
-      "channel": "Aviation & Industry Press",
-      "title": "THAI A350 DELIVERY",
-      "date": "2017-12-14",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5IQUYtNHl6aDVSTVJ3eVU3TmlnN3F2YVZmSzFLX1hYX1RCTENfU3FxeF9JRVJab2xlWEktQ0p6WDN1UlFmenZVTHRBZ2tuc2FaNmlCS0o1NUhzanM?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Key Aero."
-    },
-    {
-      "id": "rss-045",
       "source": "UGT",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4311,7 +4286,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en UGT. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-046",
+      "id": "rss-044",
       "source": "El Economista",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4324,7 +4299,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-047",
+      "id": "rss-045",
       "source": "ABC",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4337,7 +4312,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-048",
+      "id": "rss-046",
       "source": "Economía Digital",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4350,7 +4325,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Economía Digital. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-049",
+      "id": "rss-047",
       "source": "Cinco Días",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4363,7 +4338,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-050",
+      "id": "rss-048",
       "source": "Demócrata",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4376,7 +4351,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-051",
+      "id": "rss-049",
       "source": "Kaos en la red",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4389,7 +4364,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Kaos en la red. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-052",
+      "id": "rss-050",
       "source": "Infobae",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4402,7 +4377,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-053",
+      "id": "rss-051",
       "source": "CLM24",
       "platform": "PRENSA",
       "channel": "Labor & Negociación",
@@ -4415,7 +4390,137 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
     },
     {
+      "id": "rss-052",
+      "source": "Cinco Días",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "La plantilla de Airbus en Getafe vota a favor de seguir en huelga, mientras que Cádiz, Tablada e Illescas quieren suspenderla",
+      "date": "2026-09-07",
+      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQbXpsbDVUR2JJZmNBaTJaNU9pODZralhoMlYwdGhmUklnV0k0RW1vT2h0ekg4QVRsd0hNRzZvWjQydGRjX0NfR3hpTk5VRmU2bEdSRUZQR000MjNKM0RHZGltTXRzeTR3TDR0R0VFV0JsNUhfSzRhSUt3amFON1pTdW90SlR3MGNuTzhzSTg2dEpMVnpOTE9BRnNoaXhYMHM2MVpndG5ET3ozcU5yd2tZV0ZnWVlSMjZiaVRYZnRQTF8wdjlGdEFDcTQzYTJiVHZyNlEtZ0M1cVJFX0I3czVCWnhmcmJhWldpM3ZSYy1LMjUycVFHbTktQW5lOWhTVnc2R1pNWUoxaWdyd9IBngJBVV95cUxOVm5YcnlNT2pId3lybnRJc2VVVm1US2NwVjJvcGowdVpEVllncTZkRC1uZHd4SmtjLThVQm9DUkp0N0EwY3B3Yk1fZk5jS1p4VF9LSzZUTktRVTVhYU5iOGZwbmVWOVdGMnJrc2w0QVB3eUVZdHl4MUdVaG1odkVEek5JQVJBRFpEQjk3VFFZYU52bTdPMjhaa0JDTUdfV3g1R0V6bWd5WXZvczdCS2dqX2JZMXpNMzVXUVJibmUzalRPVVdXR2xadXJIeWZtankzR0NRb1BTTmJXTmpUVEJUclZJbGdOaFgyTmxfWkFmUzlVaFczd3VDYTJZcG9jRGpUbUtEcHVzMlhteHJyUGZDTDRYVjhvWDZVYzNNRXRB?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-053",
+      "source": "cmmedia.es",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "Cádiz, Illescas y Tablada, a favor de parar la huelga en Airbus pese al 'no' de Getafe",
+      "date": "2026-09-07",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTkpBY24wX1MxbG56Ny1xaDNaVjFGMEdFVWJvTjNzamtvV20wNW9GYXh5WVVoT0hOdm9OenU3TUJjRzhOVDJLVkdWTUd1Z3dpel9GeXVzeXhhNTBlNUhIYmEyQUswRGhyZjRDZmJDaHF0N19XYzB4T2p2bkZnNTFNZzltdEFaeE5VaVY3YllmVUtEOGdBNnd5OFFLcU1zQ3g0dWp2cUNScw?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en cmmedia.es. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
       "id": "rss-054",
+      "source": "Andalucía Información",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "Tablada, Cádiz e Illescas aprueban suspender la huelga indefinida en Airbus",
+      "date": "2026-09-07",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNUWp2TjVIU2dlQ01MSHVFWWVUTGRRNkNSd0ZxcW84OXRLVVQ1SFUyMklDWThZVmk1S21JbEQyUFJSSU5PdjlhelRUTmxFcEhBdWNha0oxYmx5T2JMR3BiVGhKbHRXemE3Nms4a0dKczhnbTl6bFY3SGdvbHh6dkpHRGFYSXFYQnEyUWt3SlRzTHFLcFZtQzBxTHRRdzNad2FoRkpKZjNSdW9uRV96QVQzalBEYXF4VWREeDFuMTZDTVZsaDhFZnBoTzJZQl9rTG1rT2Y1UF9pYXBDbC02WmFv0gHkAUFVX3lxTFBMUjVXVlBROENQUWw4Z2tpNXNWRFFxTjBocl9KU1BIWlBFT1lCcHJaRjU3YUY1YnVsNW16Q1hEa0wtYWZ2b3RtdEFyX1RCSTlrOURQQmVqRm1GNUEtZDZ3aGg3RDdsbnB6dF9ZVGluWVM5eHJHVl9FSTdJb2RTcTJNWVVCa0pWR2JNRWpyYjhoZHRZOG41S3VoLXVOVUFQeF8yZkI5ZExLbzdnLWNxVnJrODgxR1M5Y0tIb081a0lYSGlsVGV4YVJ0RWYzSno0bWRkWThJWWlYR2ZKUnl1dzJVc2VXdg?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Andalucía Información. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-055",
+      "source": "El Conciso",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "Cádiz, Tablada e Illescas votan suspender la huelga de Airbus, mientras Getafe decide continuar",
+      "date": "2026-09-07",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRXZZRjJtcHF3eWlMbzVzdUhNQk5xWUFoRXhBWUlldVRKQUlzM1VuODk2dFNybVVnc2V4bVFZNVhacklPUThpSHhocmpkancxUTNwVklIem0zTHpsb2l1SFExY2VtLUhBXzEyeTF6eGh6Y3kxeWYxcnRveHlMT2pvSjBqWjh2R0NkejFwR3Zvc0dJSjVyaDFnNTcwMmlYUGx3Tk5uUjdNWVB5SEcwSXhKY0NpbnNuZ9IBuwFBVV95cUxNZFlOcmpMRWxnZ1FLTnlhcE9rTHRYUW1Bd3dSZkk4QXNJWHN2N3RqMExhMDZMOWpDS21BMGdwcm92ejUyV1RpWjFGRl9yQ3RfM0VZeHpQRWNvQ2t4Tjh4QVNEZ29Ncmp1VVRaNDJ0TUY3TVduWE9Sa2c2UVl3cS16RnF5czhiWDY3bDJGMmd3TEZnTmdic2FGai00X2pnOFNFQzZIaVlyVldSNmxMVVRQcW5KVmVHQ2hCWUdj?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-056",
+      "source": "Diario de Sevilla",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "Airbus afina sus propuestas y seguirá negociando esta semana con la huelga activa",
+      "date": "2026-08-25",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNY0VjQWVQT3JVek0zQ19IblFUeldEYmh1NmNibnUyUUN2dV9RUS1PREViTnZGQ0swcjBKME95RzZyQmJaSmVNSml4aDNFbXZqcGtMQUJvcFJVYXlkM2lpTmlwY2YtXzdyVXNPSVJDTW5jRWxRMFVONU5RYTV6RTd2cUdhUW9KWjhxa0Q2YUVxRlVwRnN1MTQ1R1VUNzF5azdBVUHSAacBQVVfeXFMTm16b3VzU01nOVR1a2lJWGRMdVJRM1dGMkM5MTJySTlJRV96cFRlRG5JU3Nta1dKSFM4cWdXdTB2VURsUHU0cXJFanBJYXZkMXMtMFk1SkRUME84YkJvX3RXbDliTUdfYmlzRFl1YnVwUTZHbmpleXBkSnhRekZjbXFEbFBTRVo1cmh4dm9OUHQ3ZGFmcFpDRW1sdVctZjNmR2liTWZSaW8?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario de Sevilla. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-057",
+      "source": "La Razón",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "La plantilla de Airbus mantiene la presión: seguirá en huelga por apenas 67 votos hasta que se vote el nuevo preacuerdo",
+      "date": "2026-09-08",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNdXEwUDY0VFBhaTl0WUVrR1ZqT2tWSmpTdEE1bW8yVHRnbklkcFdBbXdRZTdlMWdXb2wyT2xYMVhIVm5YLW5RWGFUWmxIWjNmdVM0VWtvQXZtejdBOGprSG04enozMTl1MDlLb1RQb2VzaUl4Q2NQX3VKTXlCWmNmM21ha3dnRC16QTlRWlI4ck9RalZPcGxGb2p0dlNVRXBIdUdHZnZXRHpoN2gxZUl5ZTBaSVEydmdxSjA4dXI5SWJndHdYZXljZTRVZHpyWm5mZE41SDBTUnMtbWdyTFVSNHdvQjhoc0tPbWlmT2tkU0FJd9IBhgJBVV95cUxNQ1ZqMEZ0dkUtLVB2UGRZakd1cEdEZVZGLVROUHRad2tZOHpLcU9UN000NWViWGQ5SkJOLWJTZk9qRW55SGJlYkZaRzBPcXZkdEl4QzNicmdNN0k1dVlxeTgtalBSY3RUd1F6REdPQWlBWFZoYkFRN1JvdjAxTEtXUGRpc0tQZzZocjNEWUVpU1lWSWZZcVVXYTBsZ1ZaYS1MUks3N09STmpmX3FzbWQwd0ptNVZyQ3JTeEJVZWpvNlU5a1c0VzhDUDVndVNjQzhTLVMyYXNEcmtiVmdVU2dwX2M1U21jTHVaLUYyYjVoLVJVRDJqTjV6SHEtQVJLLXdZSlRqWUhB?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+21°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en La Razón. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-058",
+      "source": "Bolsamania",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "Economía.-AMP.- Illescas y Albacete suspenderán la huelga de Airbus unos días y el resto de centros votará el lunes",
+      "date": "2026-08-29",
+      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOby04NDVLc1ZFZ2R4UkpKQmpocXE4QjB6ckkwa3k1aEJiN0xjcFNIZ3pucFlrQlVrSEREZjRwVTJwWEc4dkloREdQVTZNVnhBS2hyZTFDc0Vtb1kyM214RUUzbzlXQ2hiZlJTTEtNTEdtLXRtUzdzOElVY0VPRG02X3dqNXhiNmxjZFA2YmRxM0ZEcHdVbHNtOXktbzJ0NUEyN1BpNGRzb0thVUxUMFpEVmFoMExIZkhndFBWNmF5ekxxZ0IzU0pzU3Q5N2hmdXlJWHlJRGxEWDdhcHRSX2xiWlUyOEl6NngyekFkWTREZVhGX2wzQy0xbmJtYWFlM3I3Uzgw0gGIAkFVX3lxTE52eC1adWFBTkFYRkRzTnlkZEd5T05YTTV5VlQ1a1BZVElNNjBIRl9wUGhSdFNvcFloS0otX3pKSGhBQjFzRXRxNEh4dWNFaUZONDZKNklJWVhEVGVKT3dUQnQ4Uk8yVHp0UUt5amRsR1hTdi04QmdVVUdDR29nM0tJM2pmNTlldDFocG9hbWhBZjdZUkZqNXpTTmo3WkNKMVdKWDNIVjNkckd1VzVIdEdqMFBqM2ZCUEozWFAwWDJ0UllESnFkQUJVWjNxdmtwNXNPSTlNS1ExVmJLNjk4dVpPbHNIZ3ZxSUVyZ3NoOHJiV2QySXVqaEZESlBrNGJmWnZQaE1tUTJPVg?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Bolsamania. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-059",
+      "source": "Notimérica",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "La plantilla de Airbus en Cádiz, Tablada (Sevilla) e Illescas (Toledo) decide suspender la huelga",
+      "date": "2026-09-07",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPLXlSVXdrWTRfRWIwNEJQQk9TUmRlS3kycHJhU2tGc2t2WGJJV0VZdFBCVDd0SllGRzBHajlybkJCVXN6czJQbmVHOHJTcnpidVk0bVFPNlJZZWgwbk05MHpXMVFySlNfb1piR2FfTnF3bVlLZW1DMGxPS1FtMjJqUHh1TU9pYkVWUHlQTTRzbmJpOFU5OWR3VUxubDFTQkJkZVVKS0k0TUt5eGJwMGNhbS04aFBCd0ZHSm9HaS1vaVFQQUw1OS1sUjVCWFI0cFNuM0FGMzFaa2lvUQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Notimérica. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-060",
+      "source": "Cinco Días",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "UGT propone suspender algunos días la huelga en Airbus para intentar llegar a un acuerdo",
+      "date": "2026-08-30",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQN1ktb3dmZnBFQWFOYTN0aUVuYkVtRktTNERqdjU4WnV2MEtUWjN4bkdfSDRIaDZaNk4yV1FVM1dUYVQzODU4MzVjYkZaM0pkOUVILXFYVmZFYWNPdFI0Z0lSVmZZY1hBYU85LTNIT0RYZ3U3V1pfR09fR25rS3hwcEhDcS1waUdfcXhJQktNeGpIS2dsSDVQaFpaM0l3cUtlZk1nWWVhNGNmQ1JmUS1ZYXcwTzdfV3VEM09PLWJ3ZHdpejFaV2RBQUMwaFRNYl93bGpkX2c5U2hHSFXSAe8BQVVfeXFMTnp3RmdhRFpGbUszQ082SXZEbkVBY2tPeUZieGhIdUVYSnRPVkFfUVROX2lTWnhOYUZIODlzQklhcXNEbFg3WjU5akdTRUlDU0Y0MjJSQno0ZW5OTFZTNEcwVUxobTZCaXFFS1pQcDJuVWY4cXlrUmhfQ1VQRTExZ09ieFluMDdUWnNMRHBpeVZHcnZWNGdrd2tYVkxDU0QtVmYzVlo5NHh1YnB1SlF3ZTVkbDN2ODRPVEotZmdhSldta0hqbGgxY1lnYU84UXU3VGQ3ZGVRcUk3ODg5X1RNc2ZoU2llWlM0U3J6RHlIS1E?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-061",
+      "source": "CLM24",
+      "platform": "PRENSA",
+      "channel": "Prensa Regional & Factorías",
+      "title": "La plantilla de Airbus vota seguir en huelga en Illescas y Albacete",
+      "date": "2026-08-24",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSUFHUy1wYVVRNmtBZTVwSWEyeWdhMzRtdW1jZ2xTZk5VZlg3eVB4aTBMWGpwVktBQ2xoNnF2Y25rd2RBc2NEVUZLVlYtb1RNV1pMenRfb0JZUnI1bFNKZkJkcEZPcTd6dWxFc280M2pGbUdheWRUNDB6am1DM29ZNWNFUUhFUGp2TDJoeHhpX0NOcmVvQ29RM0RLTnNxVldKaVRjRDFoYnItZnlYejNmcUVOZlNUbU5RZHhlNTdn0gHDAUFVX3lxTE5aclkwY19nVnNwUFYtV2l3aVZTeEdiZ1ZlTWVPaUw1UGg1SkJUV3duZWdjejB0TUU5V1FJbmt2U2RsTTBXaFc3LWpNUWhOOGhsckxWZUhMY1VzQUlVanZ4aGtjdjVlX25pbV94QnlFUWU1SmoxNFMtTU90aTFSUkJtakx6N0FnbFc1cEZqMXhvV2RSQW9aV21Ia0pUa0RrLWhwVE8tcnZJTk04U0FYZTRLVFAxN216ZE9RQm90WVdIbGtuNA?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en CLM24. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-062",
       "source": "Industry Talks",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4428,7 +4533,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-055",
+      "id": "rss-063",
       "source": "El Economista",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4441,7 +4546,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Economista. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-056",
+      "id": "rss-064",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4454,7 +4559,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-057",
+      "id": "rss-065",
       "source": "El Mundo",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4467,20 +4572,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-058",
-      "source": "Infobae",
-      "platform": "PRENSA",
-      "channel": "Secciones Sindicales",
-      "title": "Los principales hitos de la huelga en Airbus",
-      "date": "2026-09-04",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTUhvT2ZqbUFEb0hoZ0N6cVB3V0p2MURPeG1IaURYcHh2Snhia3huSlpXdEZMTTBURFFmamhOWUxZQUxhY3hlSk5EU09aSmNkMldXWkdpZjBuYk9wSjVqWUR2Q0FDQ18zUWYtVS1Wa1RuQ0pqbzRhRmlXNXM4VlV2SVFKMnI1aXhGNm1pNEhIcjR0SU5Xd2tzVmM4dTnSAbcBQVVfeXFMTWJsdWVtNjNfOTUzaXlUUWM4eXAwd0YwT1FFb1hQRVFyOXFxSlI3MWozSmFWSlRMc1Z2Y281Z2lWc0V6MS1wZGVSYmNJZ3hmTmo2cFdBVDFTWFF0VG1JZXZheFhPSTJ5YU9DcFk2dC1GNWwxcHJVRXhfRlpBcVBSYjhzNTZwWnZvWDlrVVVtbjNwUkVZNkRYbTMyR1hFUjR0b1lWUUg2T1N6ZlVoWEhCZ2tKbnRqTkM4?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-059",
+      "id": "rss-066",
       "source": "Radio Intereconomía",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4493,7 +4585,20 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Radio Intereconomía. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-060",
+      "id": "rss-067",
+      "source": "Infobae",
+      "platform": "PRENSA",
+      "channel": "Secciones Sindicales",
+      "title": "Los principales hitos de la huelga en Airbus",
+      "date": "2026-09-04",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTUhvT2ZqbUFEb0hoZ0N6cVB3V0p2MURPeG1IaURYcHh2Snhia3huSlpXdEZMTTBURFFmamhOWUxZQUxhY3hlSk5EU09aSmNkMldXWkdpZjBuYk9wSjVqWUR2Q0FDQ18zUWYtVS1Wa1RuQ0pqbzRhRmlXNXM4VlV2SVFKMnI1aXhGNm1pNEhIcjR0SU5Xd2tzVmM4dTnSAbcBQVVfeXFMTWJsdWVtNjNfOTUzaXlUUWM4eXAwd0YwT1FFb1hQRVFyOXFxSlI3MWozSmFWSlRMc1Z2Y281Z2lWc0V6MS1wZGVSYmNJZ3hmTmo2cFdBVDFTWFF0VG1JZXZheFhPSTJ5YU9DcFk2dC1GNWwxcHJVRXhfRlpBcVBSYjhzNTZwWnZvWDlrVVVtbjNwUkVZNkRYbTMyR1hFUjR0b1lWUUg2T1N6ZlVoWEhCZ2tKbnRqTkM4?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Infobae. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-068",
       "source": "Europa Press",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4506,7 +4611,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Europa Press. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-061",
+      "id": "rss-069",
       "source": "El Conciso",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4519,7 +4624,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-062",
+      "id": "rss-070",
       "source": "Diario Público",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4532,7 +4637,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-063",
+      "id": "rss-071",
       "source": "La Razón",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4545,7 +4650,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en La Razón. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-064",
+      "id": "rss-072",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4558,7 +4663,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en - Actualidad Aeroespacial. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-065",
+      "id": "rss-073",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4571,7 +4676,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-066",
+      "id": "rss-074",
       "source": "Radio Intereconomía",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4584,7 +4689,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Radio Intereconomía. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-067",
+      "id": "rss-075",
       "source": "El Conciso",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4597,7 +4702,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-068",
+      "id": "rss-076",
       "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4610,7 +4715,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cadena SER. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-069",
+      "id": "rss-077",
       "source": "El Conciso",
       "platform": "PRENSA",
       "channel": "Secciones Sindicales",
@@ -4623,7 +4728,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en El Conciso."
     },
     {
-      "id": "rss-070",
+      "id": "rss-078",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4636,7 +4741,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
-      "id": "rss-071",
+      "id": "rss-079",
       "source": "Simply Wall St",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4649,7 +4754,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simply Wall St."
     },
     {
-      "id": "rss-072",
+      "id": "rss-080",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4662,7 +4767,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Reuters. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-073",
+      "id": "rss-081",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4675,7 +4780,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Reuters. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-074",
+      "id": "rss-082",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4688,7 +4793,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
-      "id": "rss-075",
+      "id": "rss-083",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4701,7 +4806,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
-      "id": "rss-076",
+      "id": "rss-084",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4714,7 +4819,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
-      "id": "rss-077",
+      "id": "rss-085",
       "source": "Reuters",
       "platform": "PRENSA",
       "channel": "Mercados & Bolsa Euronext",
@@ -4727,137 +4832,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
-      "id": "rss-078",
-      "source": "Inspenet",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus faces union strikes over increased in-person work in offices",
-      "date": "2026-06-25",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5xQ3hfVmtSZW9qTHMzaHVYdy04d2dld3gyNzRSOXF5YjdXenR6VmYxOENPMUJ6dnpmeDFpZGtMWXRHVmFxRWJIR2x3czhnekRSekNlZVJOblhZRWZ2T2lWYnBEVmhaLXdQRDJnUWFZeHNFUndjeWFqQS1CVQ?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Inspenet. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-079",
-      "source": "Air Data News",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus backs down on four-day office plan after employee protests",
-      "date": "2026-08-21",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNV2R5SlZiSFNMYjAyUWQ1VzJBRS1CUHBuV195TlpSUWRrcy1NLUdIRlN5ZXVVWTdLenc2RXBLUlV1dlgzSkJOaVhJR2Nobm9UU3A5WVlTUEpwTVlKdXJSYnpwclBpalllbWJSUHgtdVFENG9mR09kTFVIaE1pM29Ta3NtOGpvTkl2SXB2eDlzYjhISVkzRjE0YXBn?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
-    },
-    {
-      "id": "rss-080",
-      "source": "Reuters",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus says preliminary deal reached with Spanish unions after weeks of strikes",
-      "date": "2026-09-04",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOMUMyNmFDV3Z6N3lleVI1eFo2U1ZOdjJ2enFoRHhBRFdRZzRUNzROdDFQbWdQTGppcHdhM3RSV0xqSFBtcmpGNWxYRjEtQlF1WldncGZ1QzJlT18zdEZoeENtT09xQmpvRUtwTW9TN0ZtTlVCWnV6OGtEbTItVDBueVdEc2llYWpEXzFvdmM3YnQ1RGl6bXNvb3hkcmdGNDU2MnBsM0hTVldQNWdxUk1BakhtekVKeUp3UU5aaHRiZDgzTHRJeUdhbFlpRUZ6cjRM?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Reuters. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-081",
-      "source": "Breaking Defense",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus talks A400M airlifter risks, sees military order slump from Q1 results",
-      "date": "2023-05-04",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMUUtVFoyQWp0M2RZN1E4c3dwODVJQ3JCaHZycDVhaUxqZlFLVTJYd0tjWm5mRzBMTmlidk93WmNiRkJsTmF6RHh1VGZlbnpBNEZ1N1Z5SU9tQllqY1BqV0JBWXVFa0pVQUZHZEVsZWh6WTdIemZrMXRST1BDNkMyN3dwXzltbWR5MmdpYWRjaFhQRTdvYXVvWnBZeWpESUdtWExhc29BUXZHRVRqOW5EdDJ6SQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Breaking Defense."
-    },
-    {
-      "id": "rss-082",
-      "source": "The Defense Post",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Saab, Airbus in Talks to Collaborate on Uncrewed Combat Aircraft",
-      "date": "2025-12-08",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPSFNPSGthV296ei05RlVHbE1QdUpiczY2SUlNbVkwZFBka19qbGFoSm5icV9SblRRZG9xaFkxQjQ4NGY3U2JFRnVob3Byd1o4NXJYSU4zZ2h5SExqSElaam9icUk4bVpIYmJBcE8zZlY5eDZEQnNCMnlvS3JzU3VoONIBhgFBVV95cUxPa1BfcVc0RUt6R1V3eVVGZXBNcUNfZlZDRmxzS2VKV2xxSF83LUNUc09uSGJaR21JOGQxWFIwNU4wMWhGM0JmZHhhM05YeHMxOGR6UDZFMklUcTZUajFaWUtpcnYtS3ZUazRmRFB1NU5QSkZlUkYwd0ZmVFNjbmZZd3V3Y0xwQQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en The Defense Post."
-    },
-    {
-      "id": "rss-083",
-      "source": "Reuters",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus unions stage rare strikes over office attendance increase",
-      "date": "2026-06-25",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPMFNBTzljd1pEaFRuTGhJSW5XUkpEMWN1YUQ2VzZiR0hWc1BYSldDWWhmTWZSZjJRSm5SRWg3OVRUSXYzRWF1V2F6bGZQVHpiZkZURkx5TzY1SWJYZnppYzVRbDljWkZQZTRaV2duMV9kUTZnZEtGNFVXbTY5RjNOeVA0VlpmOURLU1pWWnp3aUJTVGRVRFZYRkdxVjdSUWF0TDgzU05DRERpYVBaYjlQNllGNHFKcmxIR0lBLWNveWtYNmVD?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Reuters. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-084",
-      "source": "The Seattle Times",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "Airbus workers in Germany strike over parts-unit overhaul",
-      "date": "2021-12-02",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQRi1rZlZPOGZOeksxd19oZ3JIcUNfZnVkTGpCS0oxV0l2NFI4aHVsOGgzSko2NTJkRkVaMXQtRGhEOVJBNTdDRUlnX0pmdW9pRVR2VzVWSGduemFxYkN3LVdOQm1OdHdiSnJEclZpTWV0bUlOOGV6cnRqNm1YSjRlWnV0ZnNrcnlpcFJDcHhEay03ZWVaS3JIcTVNZm0?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en The Seattle Times. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-085",
-      "source": "Demócrata",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "The Airbus crew votes from this Wednesday whether to continue the strike or accept the company's latest offer.",
-      "date": "2026-09-30",
-      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQdklCVW9VeVk2TGdWVjNXUGNmYzJVUXJLNFl6a3dzRzhCSGZUNlBodWxyNEJCblAwUDYwT3JOd2lvTWJ1a2UxMXVUdV9hNXhLN1N1WkV3cjdGbnFKVkJweUdHUUpSSlVCNERoQ0tKRS1WN3dUaXZEb2tmd0tZRHlfSkVWT1pOaUk4WlZjSmdFbnZDRmlxME81NVVpcmRJYkpWbXE4a051SXhOVFVuT3pOQWJaa1FJMkpJUklKeTlHQ2dudzRpdGV5TEo5d0E0WnlRYVMxdWh5LWxqV2Y0R3Vj0gHkAUFVX3lxTE9FMmFKV29kdk1sUEJrR29uazdfZVlvRHk3bkhQN0x0djI1Wnp2TUpNNjYtNndNWGRWZzNwaEtqRDlQOG5IWkRuWlQtdW1oRGpqQXZSbllWWTNPSlpVNjdNbFhJNzAxWXljNUd0N0pNZi1kdTg2bzFzSWxxQVhoRmpIc1Bwbi1pV2NHUGlnT0hpb1NxMUZ4bWpNdTBvdy1vODI0ZUNkeDRKVFd1dHdVbEpYWWVyanF0Vi0tTm03RmRjRXF3MTNiYUhHU1RLb0NPNExiQXhRSkdjbW5TaHk0VV9uOTZtYg?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Demócrata. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
       "id": "rss-086",
-      "source": "Reuters",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "EXCLUSIVE: Airbus seeks Pratt & Whitney damages over engine delays, sources say",
-      "date": "2026-03-20",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQR1NFZzFpU21ZQmdGUDM1OGVWY2JFWTVqODdoZzFOUS15eG1zTkF3NkhlM1dodXJJOE1sMnE0UkRfaDBHMFlxVVhrcFpsUmlBVVNxT0pJV0JmY2ZJc3gzMHlvckpGUmlHTEFQVkVhNU5BNDdKcWt1M1hwNHdkTWhSWUFid2xoU0lVME4yRExkcmR0ckVLeGVNSm85UWN3T1E1SGo3em5KVzVmdE9IcUllWTZoN2FnczhGbTFGYkxCcWd2SG8ydVYw?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Reuters. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-087",
-      "source": "The Seattle Times",
-      "platform": "PRENSA",
-      "channel": "Dirección & Portavocía Airbus",
-      "title": "New Airbus leadership steps out in Paris Air Show, talks climate change and trashes Boeing",
-      "date": "2019-06-16",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNUmlSa2NXbkRCbWhpSWM2RkV3OTRFZmhWMlFTWWdCQUJjbkxqV0tfUmJYcWJRclFaenhwU2VZdi1nd1VkNEVNOTZCRnE2a1hMZ21tbkQ4QW9TSGlzNFhpZkZlR1Y0Q3NnWkJIa0kxWHdGaTJHdHpNdHcwSUpvMXE1TVExenFBZEJxOG9MWklkTVlpUzBuUGUxcFREN1BpZjN4Xzgxa3F1a1VTQjV6V3VfRUpwX1JrUC1JRS0xdjBGSjhVU2luNFJjMDRmcFZPNEpOWjJ0a0poN2p6Ujlu?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en The Seattle Times."
-    },
-    {
-      "id": "rss-088",
       "source": "Aerospace Global News",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4870,7 +4845,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aerospace Global News."
     },
     {
-      "id": "rss-089",
+      "id": "rss-087",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4883,7 +4858,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-090",
+      "id": "rss-088",
       "source": "Business Traveller",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4896,7 +4871,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Business Traveller."
     },
     {
-      "id": "rss-091",
+      "id": "rss-089",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4909,7 +4884,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-092",
+      "id": "rss-090",
       "source": "Aerospace Global News",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4922,7 +4897,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aerospace Global News."
     },
     {
-      "id": "rss-093",
+      "id": "rss-091",
       "source": "Forecast International",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4933,6 +4908,32 @@
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Forecast International."
+    },
+    {
+      "id": "rss-092",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Why Airbus Is Beating Boeing On Deliveries In 2026 & What It Means",
+      "date": "2026-08-13",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1xRm5kc05kMlN6azQ0bGpsY0tlRnFUckd2ejdzSnN1NGczbno5aFdSaThjdUJGd0tUaUlsc3BEOUE1dVU3THg1Zi1aVFZLVFE2ekNVem5HTDE1ZUxfbmQ2MlJxNzd6U1dLWTVqalRrTnhXcnE0Ty1pU2tIU3RYUQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+    },
+    {
+      "id": "rss-093",
+      "source": "Air Data News",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Qantas A321XLR delayed, delivery not expected until June",
+      "date": "2025-02-28",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOM0kxUUJ5Zk5FbmZOU1ZacmdTTlRnZXhNa2VIcFdveTNmWnU3S3MtbkxqUlZmQlMtX21KMlBkUjdjY09GdWxpVDNvSC1XLXlrYTNVRlJacFBZeGVJMldvMEwzcV82NmZ2cWtDa1ZxWnpmNnhJdzlfczByZWVNdTNPcjY0ZjdrTVY1UjhRcWFyWjZaUQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Air Data News. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-094",
@@ -4949,32 +4950,6 @@
     },
     {
       "id": "rss-095",
-      "source": "Air Data News",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "Qantas A321XLR delayed, delivery not expected until June",
-      "date": "2025-02-28",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOM0kxUUJ5Zk5FbmZOU1ZacmdTTlRnZXhNa2VIcFdveTNmWnU3S3MtbkxqUlZmQlMtX21KMlBkUjdjY09GdWxpVDNvSC1XLXlrYTNVRlJacFBZeGVJMldvMEwzcV82NmZ2cWtDa1ZxWnpmNnhJdzlfczByZWVNdTNPcjY0ZjdrTVY1UjhRcWFyWjZaUQ?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Air Data News. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-096",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "Why Airbus Is Beating Boeing On Deliveries In 2026 & What It Means",
-      "date": "2026-08-13",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1xRm5kc05kMlN6azQ0bGpsY0tlRnFUckd2ejdzSnN1NGczbno5aFdSaThjdUJGd0tUaUlsc3BEOUE1dVU3THg1Zi1aVFZLVFE2ekNVem5HTDE1ZUxfbmQ2MlJxNzd6U1dLWTVqalRrTnhXcnE0Ty1pU2tIU3RYUQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-097",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -4987,7 +4962,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-098",
+      "id": "rss-096",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5000,7 +4975,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-099",
+      "id": "rss-097",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5013,7 +4988,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-100",
+      "id": "rss-098",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5026,20 +5001,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-101",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "Bad Backlog: Here's Why Airlines Are Ordering Record Numbers Of Planes But Still Can't Get Them",
-      "date": "2026-05-16",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdnltaTlZdlZNRkxsMVZRUnRSbHZua285SzJjZTZKazNwanFta1VUSUhXSlVGME92QlpoSVNIVXhzMWJRRG41VVE0VGk1Mmp2cjdsMWJQb3UyOGd6VWxRQXpOV3llM1lpYmtYTVRPZzkyRkhrWFcyLTBtUjBPeFB3aW90Q2R3QmdKOXdSOW90SVJTQQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-102",
+      "id": "rss-099",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5052,7 +5014,20 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-103",
+      "id": "rss-100",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Bad Backlog: Here's Why Airlines Are Ordering Record Numbers Of Planes But Still Can't Get Them",
+      "date": "2026-05-16",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdnltaTlZdlZNRkxsMVZRUnRSbHZua285SzJjZTZKazNwanFta1VUSUhXSlVGME92QlpoSVNIVXhzMWJRRG41VVE0VGk1Mmp2cjdsMWJQb3UyOGd6VWxRQXpOV3llM1lpYmtYTVRPZzkyRkhrWFcyLTBtUjBPeFB3aW90Q2R3QmdKOXdSOW90SVJTQQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+    },
+    {
+      "id": "rss-101",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5065,20 +5040,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-104",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "The Airbus A321XLR Has Quietly Become The Most Game-Changing Aircraft In The World",
-      "date": "2026-05-26",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBfYmllUVFLenIzcnIwNU5WMkowVlFpejg5MTlZZVJaRXpDenp1LVdCUG1JUlZuaXdaT19ndmI4YS1UZ0ZtVVVNQ0l2MnlaaXo3VE9ZWWFvR3BQcUdsbkdrNzdwcG50MlBPQW9pYUFUdUtjbE1xckNF?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-105",
+      "id": "rss-102",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5091,20 +5053,20 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-106",
+      "id": "rss-103",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
-      "title": "Reports Suggest Airbus Is Forecasting Delivery Delays In Late 2024",
-      "date": "2024-02-09",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBOamViQy1VcWNLREpCNnc2UkVLX1dPVEUwYmNGdEVmSU4zYVNPSGk5S3pHNnJLcnkxcGJxRmpQT1BLRW9sTUdXZUFqcG5CU1JTWHFDN213RlBGeGltRlNBb1JZNFlZMEh3QWpYUmh3NWQ2REVVc1FQT1R3?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+      "title": "The Airbus A321XLR Has Quietly Become The Most Game-Changing Aircraft In The World",
+      "date": "2026-05-26",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBfYmllUVFLenIzcnIwNU5WMkowVlFpejg5MTlZZVJaRXpDenp1LVdCUG1JUlZuaXdaT19ndmI4YS1UZ0ZtVVVNQ0l2MnlaaXo3VE9ZWWFvR3BQcUdsbkdrNzdwcG50MlBPQW9pYUFUdUtjbE1xckNF?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-107",
+      "id": "rss-104",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5117,17 +5079,56 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-108",
+      "id": "rss-105",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
-      "title": "United Airlines' 1st Airbus A321XLR Delivery Is Delayed Again",
-      "date": "2025-07-20",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBid3JBdWt2X1Y4bnAwVzg5bUlnNnhBMnFMUkk5SXV4Z2tUY2VLWl9faWlOMGRrcEt1aF9veGRTMjBMZkhwbWlQcUhSUlZhSEFVOEF0Mi1WdHd0SU90S1ZFbmEwaFgta3ZMUHdUVkdmUjFhMFhjSGc?oc=5",
+      "title": "Reports Suggest Airbus Is Forecasting Delivery Delays In Late 2024",
+      "date": "2024-02-09",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBOamViQy1VcWNLREpCNnc2UkVLX1dPVEUwYmNGdEVmSU4zYVNPSGk5S3pHNnJLcnkxcGJxRmpQT1BLRW9sTUdXZUFqcG5CU1JTWHFDN213RlBGeGltRlNBb1JZNFlZMEh3QWpYUmh3NWQ2REVVc1FQT1R3?oc=5",
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-106",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Why United Airlines Stopped Trusting Boeing's Timeline & Bet 260 Jets On Airbus Instead",
+      "date": "2026-07-18",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMGtYcGRGdnBzb2hrcEVfZ3MxVkZwWUl2cDZBMGYydGxYVUUtTzNXTFhWb0lDQThVYXpOVWNNWXNDQk42ZF9ITEx1LXM1dFpfXzl6QVBycUNfS1NWRnBlQWtfUEdoMTZfa0tubmxfbElrTnFPWU9EbEVPQlJ3aF9GVFdoeG5GSzluc3hicTlQamJDRW5Kd1NCLXhpS3M5bWNGdGxiZTlXWHJsUQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+    },
+    {
+      "id": "rss-107",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Boeing Vs. Airbus: Who Had More Orders & Deliveries In July?",
+      "date": "2025-08-20",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE51SGtubVVxNnMxb0ctQWZqS1A3bmtRdzJHUEh5VzJsVEN2WElKYm9nSUFVempCQmVNNGFYWWdSUWhTMTgtdk11QmM4a2F5OU81UmROYnBIOUpvUkc3b0NabGlMQ0VROWxqdU5sR1hCdGpVTW8wRDlHVHJ3V1VOQQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+    },
+    {
+      "id": "rss-108",
+      "source": "AirInsight",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "Air India Eyes 300-Jet Order from Airbus, Boeing",
+      "date": "2025-10-16",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5IVjBuMjNFdlFyVTh3XzVRNDRVT0xkZjRTaW16V3VKT29NZ0NkY1N6WFJhTUZVeDhMNS1qSzJ1am43aTZwS3RYSjh6NmFyLTUtMEppNktxTDk1SXByUW1OQW9YcjBXTkIxWkhndURYbkZiaEhkZmtCUkNFSQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AirInsight."
     },
     {
       "id": "rss-109",
@@ -5144,32 +5145,6 @@
     },
     {
       "id": "rss-110",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "Why United Airlines Stopped Trusting Boeing's Timeline & Bet 260 Jets On Airbus Instead",
-      "date": "2026-07-18",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMGtYcGRGdnBzb2hrcEVfZ3MxVkZwWUl2cDZBMGYydGxYVUUtTzNXTFhWb0lDQThVYXpOVWNNWXNDQk42ZF9ITEx1LXM1dFpfXzl6QVBycUNfS1NWRnBlQWtfUEdoMTZfa0tubmxfbElrTnFPWU9EbEVPQlJ3aF9GVFdoeG5GSzluc3hicTlQamJDRW5Kd1NCLXhpS3M5bWNGdGxiZTlXWHJsUQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-111",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "Boeing Vs. Airbus: Who Had More Orders & Deliveries In July?",
-      "date": "2025-08-20",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE51SGtubVVxNnMxb0ctQWZqS1A3bmtRdzJHUEh5VzJsVEN2WElKYm9nSUFVempCQmVNNGFYWWdSUWhTMTgtdk11QmM4a2F5OU81UmROYnBIOUpvUkc3b0NabGlMQ0VROWxqdU5sR1hCdGpVTW8wRDlHVHJ3V1VOQQ?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-112",
       "source": "Air Data News",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5182,20 +5157,33 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Data News."
     },
     {
-      "id": "rss-113",
-      "source": "AirInsight",
+      "id": "rss-111",
+      "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
-      "title": "Air India Eyes 300-Jet Order from Airbus, Boeing",
-      "date": "2025-10-16",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5IVjBuMjNFdlFyVTh3XzVRNDRVT0xkZjRTaW16V3VKT29NZ0NkY1N6WFJhTUZVeDhMNS1qSzJ1am43aTZwS3RYSjh6NmFyLTUtMEppNktxTDk1SXByUW1OQW9YcjBXTkIxWkhndURYbkZiaEhkZmtCUkNFSQ?oc=5",
+      "title": "United Airlines' 1st Airbus A321XLR Delivery Is Delayed Again",
+      "date": "2025-07-20",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBid3JBdWt2X1Y4bnAwVzg5bUlnNnhBMnFMUkk5SXV4Z2tUY2VLWl9faWlOMGRrcEt1aF9veGRTMjBMZkhwbWlQcUhSUlZhSEFVOEF0Mi1WdHd0SU90S1ZFbmEwaFgta3ZMUHdUVkdmUjFhMFhjSGc?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-112",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "American Airlines Has Taken Delivery Of Its 1st Airbus A321XLR & It's Already Grounded",
+      "date": "2025-07-26",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9qXy1pTWtHLWJXVXJVN2RkZGRBWWpBam5wbC1SOGkydWRSS185clQ1dUIyUGEySFY5dVJ1MkYzRVc4b1BsYkVWd0lfOEFmVm41RjZrZzdfM3ZDV0NHOVZHM1VYWVRlY0NfOHQwYXZ2TUVfN0FmTFl5U2dkbmk?oc=5",
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en AirInsight."
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-114",
+      "id": "rss-113",
       "source": "The Engine Cowl",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5206,6 +5194,19 @@
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en The Engine Cowl."
+    },
+    {
+      "id": "rss-114",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Programas Comerciales",
+      "title": "A Look At How Many Planes Airbus Builds Yearly",
+      "date": "2025-10-25",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1rS3lrWkptQS1TSnVNUVIzUW5YRHFkbE16MUlOQnVUOXVTSWk4Q2t2Y01fY3pGd2NuSF9zSHpMYTJ3UnB4TzJ0bDliRWFLNGI0bTlnNHluXzhqbm5hZnc4T0lxRW1OaWtVcFlkeHhEUWpyQ0U?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
       "id": "rss-115",
@@ -5222,19 +5223,6 @@
     },
     {
       "id": "rss-116",
-      "source": "Simple Flying",
-      "platform": "PRENSA",
-      "channel": "Programas Comerciales",
-      "title": "A Look At How Many Planes Airbus Builds Yearly",
-      "date": "2025-10-25",
-      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1rS3lrWkptQS1TSnVNUVIzUW5YRHFkbE16MUlOQnVUOXVTSWk4Q2t2Y01fY3pGd2NuSF9zSHpMYTJ3UnB4TzJ0bDliRWFLNGI0bTlnNHluXzhqbm5hZnc4T0lxRW1OaWtVcFlkeHhEUWpyQ0U?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
-    },
-    {
-      "id": "rss-117",
       "source": "Aerospace Global News",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5247,7 +5235,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aerospace Global News."
     },
     {
-      "id": "rss-118",
+      "id": "rss-117",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5260,7 +5248,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-119",
+      "id": "rss-118",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5273,7 +5261,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
     },
     {
-      "id": "rss-120",
+      "id": "rss-119",
       "source": "Simple Flying",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5286,7 +5274,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Simple Flying. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-121",
+      "id": "rss-120",
       "source": "Dj's Aviation",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5299,7 +5287,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Dj's Aviation. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-122",
+      "id": "rss-121",
       "source": "Aviation A2Z",
       "platform": "PRENSA",
       "channel": "Programas Comerciales",
@@ -5312,7 +5300,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation A2Z. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-123",
+      "id": "rss-122",
       "source": "Industry Talks",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5325,7 +5313,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Industry Talks. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-124",
+      "id": "rss-123",
       "source": "El Confidencial",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5336,6 +5324,19 @@
       "impact": "GOOD_FOR_AIRBUS",
       "pressure_impact": "-16°C",
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Confidencial."
+    },
+    {
+      "id": "rss-124",
+      "source": "El Mundo",
+      "platform": "PRENSA",
+      "channel": "Gobierno & Mediación Estatal",
+      "title": "Industria busca frenar en seco la huelga en Airbus: \"La oferta de la empresa es justa y hay que valorar la inversión del Gobierno en Airbus España\"",
+      "date": "2026-09-05",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZFl6cXo5M2N1elB4WEtaVFBEYkdLMEpJeGJ6SU9Mcy1BMFlkZ2RaLTRYRGJTQU5CdFdMV1RJUzl1OUhoUnpudmRmMHFJVXFlTUlnR19jZzJadnBQMDc2a1VCWS1hWVZZSTFObXFCUVZiQVBNenRjSFBQSEpXMjhlU0tyVGs3eHpu0gGIAUFVX3lxTE55X1JvRWZZVGVmQTA2T2NwSngwZF9jUmpQaHNraGJIaVlrNWhJQVBjUFc5dHZGaVFPOE9odnBZOHhxS0l3YmYtRmR1bXhTc3dKeTB5TXFFRlVZd2pDZmEtMkptclJCLU0tSzBwaEVaSWlSYmpMM0YwUkJGSTlWSnV0bmM1bHVHVmE?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
     },
     {
       "id": "rss-125",
@@ -5352,19 +5353,6 @@
     },
     {
       "id": "rss-126",
-      "source": "El Mundo",
-      "platform": "PRENSA",
-      "channel": "Gobierno & Mediación Estatal",
-      "title": "Industria busca frenar en seco la huelga en Airbus: \"La oferta de la empresa es justa y hay que valorar la inversión del Gobierno en Airbus España\"",
-      "date": "2026-09-05",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZFl6cXo5M2N1elB4WEtaVFBEYkdLMEpJeGJ6SU9Mcy1BMFlkZ2RaLTRYRGJTQU5CdFdMV1RJUzl1OUhoUnpudmRmMHFJVXFlTUlnR19jZzJadnBQMDc2a1VCWS1hWVZZSTFObXFCUVZiQVBNenRjSFBQSEpXMjhlU0tyVGs3eHpu0gGIAUFVX3lxTE55X1JvRWZZVGVmQTA2T2NwSngwZF9jUmpQaHNraGJIaVlrNWhJQVBjUFc5dHZGaVFPOE9odnBZOHhxS0l3YmYtRmR1bXhTc3dKeTB5TXFFRlVZd2pDZmEtMkptclJCLU0tSzBwaEVaSWlSYmpMM0YwUkJGSTlWSnV0bmM1bHVHVmE?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-127",
       "source": "ABC",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5377,33 +5365,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en ABC. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-128",
-      "source": "El Conciso",
-      "platform": "PRENSA",
-      "channel": "Gobierno & Mediación Estatal",
-      "title": "El Gobierno amenaza con intervenir en el conflicto laboral de Airbus, como hizo con Renault en mayo",
-      "date": "2026-08-27",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMkpiSXptTzNrY1p2Qzh2TE9tSDMyaWl3Ql93UTRKME9oOVR3dzVPY1FtVnpjWlBsb0hKNUlwaVVheHphR2U2aTBPTnlHT2J6UE1rQ3YwSkpjbDFfRnhDTzlGaEtGOVhmeE9rcnhCRVBhdS16cU5BVGw0N01iMldTX3d2U3JpdDg0T2dOU09WWWM3MW9PZEFUazJaYmdTMExETmMtNHNUTdIBrAFBVV95cUxNZlFjd2ZZR2dnOXdDVE1HZGtIaTQzX0lNa0JpVnJtaFBRRFh5WTIydWFjS0ZqTzlLcFRiRnZBWS1HYVJLTlNIYTY2dldNQVVqTEI5QzA5V08teWp2TmVBbm5mR3lyZ3FnbV9fcjdJTkpXMEgwZ2wtdlI4RXdtRXJNaDY2WV9WWDBfNGpIQXRESi12SWhDdWIzOE5JRXd6bllJUmlfbVgzSlBINHI0?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-129",
-      "source": "Hispanidad",
-      "platform": "PRENSA",
-      "channel": "Gobierno & Mediación Estatal",
-      "title": "Airbus. El Gobierno interviene (Hereu no quería)… y logra un preacuerdo para poner fin a la huelga indefinida",
-      "date": "2026-09-05",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPMWxkZkl0WTlTQTZwVEZPVXpEeGZsRW9wUGJzSzdCdjRQVUUyTTBsbGY4aUNSTU5ib2xWMUNYMm9LOTBSWFZfakZDcW9RWGlqTS1pUTZtWUpENFJLU3FkT3VwZ0QweGtBMGhocHB4ZGJUd3NhWUJNTklTdmRYVXJVMWMzZFFCMEtiM1VNZExxUmlkQndDd2k0cGhHVFFIREYwZjA0QmdoYkR5VGpFSFNaSFdFamxhMHVMX3I3MHpKM2JrOTJMUm9ZRVFmWHpsMHE2alBuVkN2VGg?oc=5",
-      "category": "BAD_FOR_AIRBUS",
-      "impact": "BAD_FOR_AIRBUS",
-      "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hispanidad. Incrementa la presión sobre Guillaume Faury."
-    },
-    {
-      "id": "rss-130",
+      "id": "rss-127",
       "source": "Diario de Sevilla",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5416,7 +5378,20 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Diario de Sevilla."
     },
     {
-      "id": "rss-131",
+      "id": "rss-128",
+      "source": "Hispanidad",
+      "platform": "PRENSA",
+      "channel": "Gobierno & Mediación Estatal",
+      "title": "Airbus. El Gobierno interviene (Hereu no quería)… y logra un preacuerdo para poner fin a la huelga indefinida",
+      "date": "2026-09-05",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPMWxkZkl0WTlTQTZwVEZPVXpEeGZsRW9wUGJzSzdCdjRQVUUyTTBsbGY4aUNSTU5ib2xWMUNYMm9LOTBSWFZfakZDcW9RWGlqTS1pUTZtWUpENFJLU3FkT3VwZ0QweGtBMGhocHB4ZGJUd3NhWUJNTklTdmRYVXJVMWMzZFFCMEtiM1VNZExxUmlkQndDd2k0cGhHVFFIREYwZjA0QmdoYkR5VGpFSFNaSFdFamxhMHVMX3I3MHpKM2JrOTJMUm9ZRVFmWHpsMHE2alBuVkN2VGg?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Hispanidad. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-129",
       "source": "El Periódico",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5429,7 +5404,20 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Periódico."
     },
     {
-      "id": "rss-132",
+      "id": "rss-130",
+      "source": "El Conciso",
+      "platform": "PRENSA",
+      "channel": "Gobierno & Mediación Estatal",
+      "title": "El Gobierno amenaza con intervenir en el conflicto laboral de Airbus, como hizo con Renault en mayo",
+      "date": "2026-08-27",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQMkpiSXptTzNrY1p2Qzh2TE9tSDMyaWl3Ql93UTRKME9oOVR3dzVPY1FtVnpjWlBsb0hKNUlwaVVheHphR2U2aTBPTnlHT2J6UE1rQ3YwSkpjbDFfRnhDTzlGaEtGOVhmeE9rcnhCRVBhdS16cU5BVGw0N01iMldTX3d2U3JpdDg0T2dOU09WWWM3MW9PZEFUazJaYmdTMExETmMtNHNUTdIBrAFBVV95cUxNZlFjd2ZZR2dnOXdDVE1HZGtIaTQzX0lNa0JpVnJtaFBRRFh5WTIydWFjS0ZqTzlLcFRiRnZBWS1HYVJLTlNIYTY2dldNQVVqTEI5QzA5V08teWp2TmVBbm5mR3lyZ3FnbV9fcjdJTkpXMEgwZ2wtdlI4RXdtRXJNaDY2WV9WWDBfNGpIQXRESi12SWhDdWIzOE5JRXd6bllJUmlfbVgzSlBINHI0?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-131",
       "source": "Cinco Días",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5442,7 +5430,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-133",
+      "id": "rss-132",
       "source": "Diario Público",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5455,7 +5443,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario Público. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-134",
+      "id": "rss-133",
       "source": "Izquierda diario.es",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5468,7 +5456,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Izquierda diario.es."
     },
     {
-      "id": "rss-135",
+      "id": "rss-134",
       "source": "Economía Digital",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5479,6 +5467,19 @@
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Economía Digital."
+    },
+    {
+      "id": "rss-135",
+      "source": "El Español",
+      "platform": "PRENSA",
+      "channel": "Gobierno & Mediación Estatal",
+      "title": "Fin al conflicto laboral que castiga a Airbus desde julio: los trabajadores votan a favor del acuerdo",
+      "date": "2026-10-01",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNZ3ZqMUZIQzZVVTFBQ3lxWXF4N1dYYXdsQ0hXUlpUWDBVaDR6REcxeEtJYVVybzYyaFdISDFXS0IzSUE1Rkd6YWM3dVd2TXVpc3BBN3d4b0pEUnBnWWxyVFBiOGVaYkVHdE5sUnV6TkNFZ0NwLUVEeHBaZUJmUmd4SVFrSENRMVFCV0ljX2ZxbEszWDZNTXdHNTBadHY5WnBhVzhHQ2ZYUmdYUG4wZ2ZnbUFvTGw3WnQ3a1NRV2JyZF9DSUpTa3pjWmdjUzRDV0FPSkdzVmhXUkpmeXJZY002WkM2WdIB6AFBVV95cUxOaFoyZ1VjZDVvME1zdUtPVjdjZ1hrdl8ybGZ4Q2NyaFd0b3otajR3QWk0eEV2X08xeHUtdTFsNnNaTGFBWmdJdmtRakNzdGgwSXF2TnhrTnh2S3hrZ1MyZ1FiTDltM1FucXpGcjZUQVN6bnUtMEd2QlJ4TmlDQkkyOG9JX1M3Rzh0dGxfeEFId25rRXZJekJMSzl2OTNkMWJDcHV3M2xvMm10QUlGazYyZzBNQWRxaU1SZE14SnlXaENpT0RxN3JXcWowNFdGY1lEc3EwRzFnUnZocUt5UGt2dFN1RTR6OFRW?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en El Español."
     },
     {
       "id": "rss-136",
@@ -5495,19 +5496,6 @@
     },
     {
       "id": "rss-137",
-      "source": "Cadena SER",
-      "platform": "PRENSA",
-      "channel": "Gobierno & Mediación Estatal",
-      "title": "Airbus y los sindicatos alcanzan un principio de acuerdo tras semanas de conflicto",
-      "date": "2026-09-04",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQa24tLVpJZERZZmNoaUhIS2U5MlFtcTBURzJCQXZqb3dkaFAxMndSSEltRl9YRDdhNkJIOHVDVV9MRW1Fc3NGN0hINU11bEItWG9OQnBMa2psOGdzSjZsOFc4emQ0RVlWMll0SGpWY0JBcjlTTTZBUW80aGZyRDZTTDctSTBUZTBjVEpmWXdLN2lwS09kQ1ZnX3pXUElhV2YwV3N3NDJNZndXbjhvaU55WU9BODg2aXFsbFVsMVFOelZtdmFyRHhWdm1qNm5XWFItZnfSAeYBQVVfeXFMTldJZEdYaW5qQ3U4bTYxVXUyMzE2TVM0aU5WQklUNklJaWRDa2ZmUDdpLUF3b3ZlbERSdDZfN1FoUlIzRjhiWDdRZWhnVXVheGZBU1JmQmp4X2RFY2xqRlZaQkRMWUJoZVVHaFUtdHRYOXJTSTFZdVFEYWlOLVc3V0QwRU45UkdSMFhJUW12eUVFeWdyYl9EYU5VSGJrRWlKUm5mY0FXNDdVNFZXU3cwcnVzOWkzdWJNZXc3dHpWSU5fS25mMmRsSW9iR1pMTVV0MV9xdGFveW11dUJPUmQyVnh4TXQwMGc?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cadena SER."
-    },
-    {
-      "id": "rss-138",
       "source": "El Mundo",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5520,7 +5508,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Mundo. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-139",
+      "id": "rss-138",
       "source": "elDiario.es",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5533,7 +5521,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en elDiario.es. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-140",
+      "id": "rss-139",
       "source": "El Conciso",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5546,7 +5534,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en El Conciso. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-141",
+      "id": "rss-140",
       "source": "Cinco Días",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5559,20 +5547,20 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Cinco Días. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-142",
-      "source": "El Español",
+      "id": "rss-141",
+      "source": "Cadena SER",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
-      "title": "Fin al conflicto laboral que castiga a Airbus desde julio: los trabajadores votan a favor del acuerdo",
-      "date": "2026-10-01",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNZ3ZqMUZIQzZVVTFBQ3lxWXF4N1dYYXdsQ0hXUlpUWDBVaDR6REcxeEtJYVVybzYyaFdISDFXS0IzSUE1Rkd6YWM3dVd2TXVpc3BBN3d4b0pEUnBnWWxyVFBiOGVaYkVHdE5sUnV6TkNFZ0NwLUVEeHBaZUJmUmd4SVFrSENRMVFCV0ljX2ZxbEszWDZNTXdHNTBadHY5WnBhVzhHQ2ZYUmdYUG4wZ2ZnbUFvTGw3WnQ3a1NRV2JyZF9DSUpTa3pjWmdjUzRDV0FPSkdzVmhXUkpmeXJZY002WkM2WdIB6AFBVV95cUxOaFoyZ1VjZDVvME1zdUtPVjdjZ1hrdl8ybGZ4Q2NyaFd0b3otajR3QWk0eEV2X08xeHUtdTFsNnNaTGFBWmdJdmtRakNzdGgwSXF2TnhrTnh2S3hrZ1MyZ1FiTDltM1FucXpGcjZUQVN6bnUtMEd2QlJ4TmlDQkkyOG9JX1M3Rzh0dGxfeEFId25rRXZJekJMSzl2OTNkMWJDcHV3M2xvMm10QUlGazYyZzBNQWRxaU1SZE14SnlXaENpT0RxN3JXcWowNFdGY1lEc3EwRzFnUnZocUt5UGt2dFN1RTR6OFRW?oc=5",
+      "title": "Airbus y los sindicatos alcanzan un principio de acuerdo tras semanas de conflicto",
+      "date": "2026-09-04",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQa24tLVpJZERZZmNoaUhIS2U5MlFtcTBURzJCQXZqb3dkaFAxMndSSEltRl9YRDdhNkJIOHVDVV9MRW1Fc3NGN0hINU11bEItWG9OQnBMa2psOGdzSjZsOFc4emQ0RVlWMll0SGpWY0JBcjlTTTZBUW80aGZyRDZTTDctSTBUZTBjVEpmWXdLN2lwS09kQ1ZnX3pXUElhV2YwV3N3NDJNZndXbjhvaU55WU9BODg2aXFsbFVsMVFOelZtdmFyRHhWdm1qNm5XWFItZnfSAeYBQVVfeXFMTldJZEdYaW5qQ3U4bTYxVXUyMzE2TVM0aU5WQklUNklJaWRDa2ZmUDdpLUF3b3ZlbERSdDZfN1FoUlIzRjhiWDdRZWhnVXVheGZBU1JmQmp4X2RFY2xqRlZaQkRMWUJoZVVHaFUtdHRYOXJTSTFZdVFEYWlOLVc3V0QwRU45UkdSMFhJUW12eUVFeWdyYl9EYU5VSGJrRWlKUm5mY0FXNDdVNFZXU3cwcnVzOWkzdWJNZXc3dHpWSU5fS25mMmRsSW9iR1pMTVV0MV9xdGFveW11dUJPUmQyVnh4TXQwMGc?oc=5",
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en El Español."
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Cadena SER."
     },
     {
-      "id": "rss-143",
+      "id": "rss-142",
       "source": "El Diario de Madrid",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5585,7 +5573,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Diario de Madrid."
     },
     {
-      "id": "rss-144",
+      "id": "rss-143",
       "source": "20Minutos",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5598,7 +5586,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en 20Minutos. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-145",
+      "id": "rss-144",
       "source": "El Conciso",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5611,7 +5599,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en El Conciso."
     },
     {
-      "id": "rss-146",
+      "id": "rss-145",
       "source": "Diario en Positivo",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5624,7 +5612,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Diario en Positivo. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-147",
+      "id": "rss-146",
       "source": "Elplural.com",
       "platform": "PRENSA",
       "channel": "Gobierno & Mediación Estatal",
@@ -5635,6 +5623,19 @@
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Elplural.com. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-147",
+      "source": "Reuters",
+      "platform": "PRENSA",
+      "channel": "Clientes & Aerolíneas",
+      "title": "BA-owner IAG tipped as frontrunner in TAP sale as Europe airline consolidation warms up",
+      "date": "2025-01-22",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQYmdZdDhpbU5lc1VuaE5mdGpmZ3JORkYyNllQM2FJdmk1M3A0UW1vU0h1b1RmdzU5UEJ3MW00S09oTUtkelpIZDlrX0hJVkRGamxxaU5BaGJFS3RYT0w0bzJUeFAtNld3T2NocVlJV3lTdWhVclJqSUtlNVEzUnl2a2N4cjNpQ21Cd2M5bzhaTHRlVDdoa3Eyd0hISVdfbFJZTEZrdVR0OVJIOEUwMkFKMjZmTWh2WGd6d0dwbWk3c01wSWh4YWFnZ2RlamkwbXJrZGVSM0w5UlU?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
     },
     {
       "id": "rss-148",
@@ -5651,32 +5652,6 @@
     },
     {
       "id": "rss-149",
-      "source": "Reuters",
-      "platform": "PRENSA",
-      "channel": "Clientes & Aerolíneas",
-      "title": "BA-owner IAG tipped as frontrunner in TAP sale as Europe airline consolidation warms up",
-      "date": "2025-01-22",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQYmdZdDhpbU5lc1VuaE5mdGpmZ3JORkYyNllQM2FJdmk1M3A0UW1vU0h1b1RmdzU5UEJ3MW00S09oTUtkelpIZDlrX0hJVkRGamxxaU5BaGJFS3RYT0w0bzJUeFAtNld3T2NocVlJV3lTdWhVclJqSUtlNVEzUnl2a2N4cjNpQ21Cd2M5bzhaTHRlVDdoa3Eyd0hISVdfbFJZTEZrdVR0OVJIOEUwMkFKMjZmTWh2WGd6d0dwbWk3c01wSWh4YWFnZ2RlamkwbXJrZGVSM0w5UlU?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Reuters."
-    },
-    {
-      "id": "rss-150",
-      "source": "Travel Tourister",
-      "platform": "PRENSA",
-      "channel": "Clientes & Aerolíneas",
-      "title": "✈️ EgyptAir’s New Era: First Airbus A350-900 Delivered!",
-      "date": "2026-02-16",
-      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNY2ZKcWtER3pqZFNpYmFTUUVfQmg5Yk9WTldQMU5WMVJwbW9YZGlHQi1zU01BNEtxcGlNNHduQXNOUFZWQWhmWmRsN3pkUElfcG54R2VwRGxtMDFrajZmaE52bURrMlhsOEk2ZkdETkN2d19rdEpoZUZJTzdiMkhwaFZyc3RfeWpTMGM5VWxTcm16NnAyZ19IRnVQMjJIUTdqQ25PYzFTc2lIVmNXdVJEajBUQnVhZnpRMk5ESWJRVV9yQS1EN2EzTGlYb0dfQ1dGTUdCaUtaVTVkVzVIaEJJTk1seEZHWXlZQlFMdV92YTI1V0Fxbm1ROEx5MGROWmVlQnZTZVh3S2VSQ0ha?oc=5",
-      "category": "NEUTRAL",
-      "impact": "NEUTRAL",
-      "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Travel Tourister."
-    },
-    {
-      "id": "rss-151",
       "source": "The Loadstar",
       "platform": "PRENSA",
       "channel": "Clientes & Aerolíneas",
@@ -5689,7 +5664,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en The Loadstar."
     },
     {
-      "id": "rss-152",
+      "id": "rss-150",
       "source": "Airline Weekly",
       "platform": "PRENSA",
       "channel": "Clientes & Aerolíneas",
@@ -5702,7 +5677,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Airline Weekly."
     },
     {
-      "id": "rss-153",
+      "id": "rss-151",
       "source": "Business Insider",
       "platform": "PRENSA",
       "channel": "Clientes & Aerolíneas",
@@ -5713,6 +5688,32 @@
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Business Insider."
+    },
+    {
+      "id": "rss-152",
+      "source": "Simple Flying",
+      "platform": "PRENSA",
+      "channel": "Clientes & Aerolíneas",
+      "title": "Could Airbus Build An Airbus A340neo?",
+      "date": "2023-07-03",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE4xYW9aOFhZbzd3M1RVRXBRRzNndkRvZGFRRHlXS2I0S0ladmEyN21XWXctVDAwQXV4dHFCekt3c2xrOXNmZ3k3VjV0NkVkZUF2NlE?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Simple Flying."
+    },
+    {
+      "id": "rss-153",
+      "source": "Travel Tourister",
+      "platform": "PRENSA",
+      "channel": "Clientes & Aerolíneas",
+      "title": "✈️ EgyptAir’s New Era: First Airbus A350-900 Delivered!",
+      "date": "2026-02-16",
+      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNY2ZKcWtER3pqZFNpYmFTUUVfQmg5Yk9WTldQMU5WMVJwbW9YZGlHQi1zU01BNEtxcGlNNHduQXNOUFZWQWhmWmRsN3pkUElfcG54R2VwRGxtMDFrajZmaE52bURrMlhsOEk2ZkdETkN2d19rdEpoZUZJTzdiMkhwaFZyc3RfeWpTMGM5VWxTcm16NnAyZ19IRnVQMjJIUTdqQ25PYzFTc2lIVmNXdVJEajBUQnVhZnpRMk5ESWJRVV9yQS1EN2EzTGlYb0dfQ1dGTUdCaUtaVTVkVzVIaEJJTk1seEZHWXlZQlFMdV92YTI1V0Fxbm1ROEx5MGROWmVlQnZTZVh3S2VSQ0ha?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Travel Tourister."
     },
     {
       "id": "rss-154",
@@ -5768,16 +5769,16 @@
     },
     {
       "id": "rss-158",
-      "source": "Expansión",
+      "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
-      "title": "Airbus prepara un ajuste \"enérgico\" en Defensa por la escasez de pedidos",
-      "date": "2019-12-17",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMVVmZ0lhSWRuYW1PR21IUlVrdmVuZ1FNZkhQU3AzcDdERDcxRENhdmM4Y1FQX1hZZ3I5MEVGYU9tX2lDa01OeERLN09HQV9Jc0VaczZ6N2J2cDc4REFNYV9ic045OFVBZEhXRjgtTkk3bnRKT2xrR1QxVWhMclRicHRHQjc2MzNMUFJ4YV930gGOAUFVX3lxTE9XS1ZJb011aW9kVGJoQjU0RmVLbHd6dDZBMlc0c0ducXVfT3BYUFpVTVg0VWFObXdzMzFLSjUyUHBRUHVBVUt1R2FJUVp4ZG5ZMzZYMC10Z2FMQ1ZKRzVSQW90aG9PaE1QYm1hQVY2Y2R2aUJzR2p5VU5zazRrTl9icnlDR3g1NWdKODJKTUE?oc=5",
+      "title": "Nigeria negocia la compra de aviones Airbus C295",
+      "date": "2026-04-01",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE8wZzRQOWtaelFuS3JseTk3ZW9oR0dCWUxqeU5zSjZOazJ5Sm84aUh5NU5SVFBFYWUzX1lwQVVYc3dWUXZyOUZ4czM5YzJKRzN3dlZnN1RkZDQ2V1Q2ZWlQdWFCVEI2UGowRDVucmM5dTJQekhRYjF4dm9GMXVyUQ?oc=5",
       "category": "NEUTRAL",
       "impact": "NEUTRAL",
       "pressure_impact": "0°C",
-      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Expansión."
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Fly News."
     },
     {
       "id": "rss-159",
@@ -5794,6 +5795,19 @@
     },
     {
       "id": "rss-160",
+      "source": "Expansión",
+      "platform": "PRENSA",
+      "channel": "Defensa & Espacio",
+      "title": "Airbus prepara un ajuste \"enérgico\" en Defensa por la escasez de pedidos",
+      "date": "2019-12-17",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOMVVmZ0lhSWRuYW1PR21IUlVrdmVuZ1FNZkhQU3AzcDdERDcxRENhdmM4Y1FQX1hZZ3I5MEVGYU9tX2lDa01OeERLN09HQV9Jc0VaczZ6N2J2cDc4REFNYV9ic045OFVBZEhXRjgtTkk3bnRKT2xrR1QxVWhMclRicHRHQjc2MzNMUFJ4YV930gGOAUFVX3lxTE9XS1ZJb011aW9kVGJoQjU0RmVLbHd6dDZBMlc0c0ducXVfT3BYUFpVTVg0VWFObXdzMzFLSjUyUHBRUHVBVUt1R2FJUVp4ZG5ZMzZYMC10Z2FMQ1ZKRzVSQW90aG9PaE1QYm1hQVY2Y2R2aUJzR2p5VU5zazRrTl9icnlDR3g1NWdKODJKTUE?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Expansión."
+    },
+    {
+      "id": "rss-161",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
@@ -5806,7 +5820,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en El Español."
     },
     {
-      "id": "rss-161",
+      "id": "rss-162",
       "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
@@ -5819,7 +5833,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Fly News."
     },
     {
-      "id": "rss-162",
+      "id": "rss-163",
       "source": "El Español",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
@@ -5832,7 +5846,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en El Español."
     },
     {
-      "id": "rss-163",
+      "id": "rss-164",
       "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
@@ -5845,7 +5859,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Fly News."
     },
     {
-      "id": "rss-164",
+      "id": "rss-165",
       "source": "Fly News",
       "platform": "PRENSA",
       "channel": "Defensa & Espacio",
@@ -5858,20 +5872,579 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Fly News."
     },
     {
-      "id": "rss-165",
-      "source": "Sevilla Actualidad",
+      "id": "rss-166",
+      "source": "FlightGlobal",
       "platform": "PRENSA",
-      "channel": "Defensa & Espacio",
-      "title": "Los trabajadores de Airbus en Sevilla inician una huelga indefinida por sus condiciones laborales",
-      "date": "2026-08-25",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNUlQ1NC1fZ19mdERlZmUwSVN0NEJoaXBoX0VKbUE1eERwMmdNeFE4NDU5MldyYkI5eE00Uk8zWVNuXzlLb1ZpcXlETWl0MGhBc3RfTFI5d3RGdjZBN25RbUxwcktqZG5Ca09kZlR4YUcwX2ViTnhVNjNMcF9KVWh1QWhPWDRKSTlPbDQzSGhPeWphU0RXaU0yUUdRTzdBY0ZCbTBBeHZsMDFMRGdpSDNBWVJULWpueUxpMFd3QVVXMnZNU2RHUUlnZnVZaWJvNGNESnVnYW1hRjFfUlpwQ3diUA?oc=5",
+      "channel": "FlightGlobal Aerospace",
+      "title": "France remains committed to Eurodrone but could delay acquisition, Airbus official says",
+      "date": "2026-06-17",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOano4eDZqNEJ3WTJoV3B1bHYyNFdMRU16S1NrOUtpUlAwVkNqOTdVMUVibVhxNkdCZnZvbEVyN2RUbDFISkhIQThJMVBrdFpISWJXemVtNEpQRW9BeWZRdVNwTGVFNl8tbVJ5VHVyWWFSblpEREVyWjNJUi1sbzNCbXVkYWllUEhwNUF6QUJHMFVFQ2Y5N0tHWFFVVmJSd3A2YzlLam5jYTItTUNlM18ya2F1SWFRVVdRaU1qUE16MG9rRDFmdEFLZ0paV2c?oc=5",
       "category": "BAD_FOR_AIRBUS",
       "impact": "BAD_FOR_AIRBUS",
       "pressure_impact": "+18°C",
-      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Sevilla Actualidad. Incrementa la presión sobre Guillaume Faury."
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en FlightGlobal. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-166",
+      "id": "rss-167",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "Kazakhstan air force welcomes its second A400M airlifter",
+      "date": "2026-11-06",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZWJwb3QzSVVYSmpqVXI1TFJiREdLZ2QtRU9OYjRtSXl1U09aTUJ4RVcwZHY5Mjl4Y2lqb1NTSk5namR5OWhxUmJFZDZyckwwZkhqNzN4ZHJCcktoV0Y1MV9tNGpUd3VUT2d6eXBkUk1wYk5xNWlCSGNMd0RxNzdha0V6bnJ1RnAzWDlWQzhXTHJlTEIzY0lwSkNZcl82cHl5MW10cw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-168",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "MBDA chief upbeat on remote carrier progress, despite FCAS programme turbulence",
+      "date": "2026-03-26",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNSjBJN1FQbUFJUDRjeFY2dHJtZnBsSER6SWV2aF9CVDZiZTZuSDBLWExBWS1TT3dRLVk2WWY5UW9xVkNKSWxfUjB0bWhYOThnaUtNTWJEQmc5dHQyZlI3RE9ldWVtUS1vNWhZak82YVBpQTF5UWNCSjdLcHdxOHdHVlpCSGxXZ3hjenNoNU1hdjlXNHcwTXNPZjYxem0wbXhncUtmbUt2eTlPbFJOLUxOb3pmWVZtcWhja0JMOWM0TGowUQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-169",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "Spanish air force F-5-replacement Hurjets to operate under service name SAETA II",
+      "date": "2026-04-28",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbzJOS0hxVjBycUpwandzX25LU0xZUndMUTJoTHItZk5UeGlhMHpxN1I2TkE1UmY2TXRUZERSd1gxTDI2cE8zQmFFd3R5dVNNMDQwMzFNUEYtYnhtNWhEcFFYam8wV0UyZUNTcXVqOEp1NkxsT19NcmV6a2JRZWlGQm5DZnI1ckxoMkVDV21ucF9UY3Nwby15UXZLbTRWc0pBZEZOeHRkdTNBcHRZR2Vxd2hUbDFMQzZQdEYyUmpJTWxTNnJj?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-170",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "Airbus Helicopters still awaiting German decision on future of Tiger fleet",
+      "date": "2022-12-07",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUk1ROXMxdFp0SktuN2RhNXYwWTdqbWxVQ1Q2WFJ6d2JSX25NRVViVV94WEMxcTJuZmRlY0NZd092VkJ0SEd2ZFN6Z1VWNHBiX2M3VEQxNlA1VzJkZ1JMVW9rTVhoQjluemJUSk5PZEExVXhfaW8tR2RKQXFINkFCdWFqYlRxSGNFSUI5cUpmR2ZKUnlpX3UwY0pKX1FkYVgxenFEcUFNZ25LUnJaUXRiMFduRE1qbWxNLUpTN0JwWDVIdw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-171",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "Thales touts Tiger as target for Toutatis ALE integration",
+      "date": "2026-06-17",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPaU1qT0w3OUlpWFNMMFJ2WlAzdzMxX3FaMDdLaUV5VzhJU2tDUDc4NC1pNHppSkZ0c3dLTnpxNDhuOWpmYjVnZU9WLVJKX1N2WjZWSF9MVnRQWDZIMVJ4WmpsSmgyM2V0bHVtME9FdWpWTl9QdW1zLVJCQ1h2bXNuLV9xRzZtY083bnd5N2c0emo5Zzl5SlQ4ZzNwWGxRUnpOWmpLR3Jn?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-172",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "The future of Airbus Defence & Space",
+      "date": "2019-05-28",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOeTdQc1VLUlZjTFRueFMxa0dHV2lNLWpwZU1GM1R5Nkk1TDdEOERlanFaTFFlWDhqNDZYaGNRU1hJeDhwOGtTS21DaGZMRkkyU0xvT25rRG13S2p1cVdEclhnRDFMTnlPNVF4VEZYd1ZfQTA1UnN6V1psVWZaNlp6TzE1WXNmNXJGaXRB?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-173",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "Severe bird-strike punctured cockpit of descending A320",
+      "date": "2023-10-24",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNWDN0MVRwQXJNejF3T0tRLTVjTjR3c1lRWHVGZXJSTEw0SXd5UW1MX0pRZFRnUE1BMTRxRmtpeVUtT2hRcC1kUi1na2luMjZMX3B0NGlZVkJKMXUxY2dxaDRIRzFqRGtoS2ZDN2plNDVocTVMR3d0N0RiQkNhdnVvSU9jMlBwV0Qyc21ORFhCbjk2QWZLdWtjb2tTdFd6aVJQNlRMVFB5VQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en FlightGlobal. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-174",
+      "source": "FlightGlobal",
+      "platform": "PRENSA",
+      "channel": "FlightGlobal Aerospace",
+      "title": "EPI boss details progress on A400M engine programme",
+      "date": "2011-05-31",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPNV9WZUp1UGhGNldISUFmalV2Q1lqQTd1RGc4empYVmQyTF9rd2FSbDFXYnZhSEJVODd1Zm9lVVQ4R1Q1YjJXd21McElPcWEwb2d6bHVSN0dPNVlQOHBqVERaNVRDdWp4WU1UUEZ5RWFOcGdGcFZNTFM0R2h4NF85T0h5X3h5czV4Vl9kblRmb2VJb0hiOGh0M1dXTGZ6cFkwa3c?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en FlightGlobal."
+    },
+    {
+      "id": "rss-175",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus And Safran Gear Up To Develop Future Wing Actuation System",
+      "date": "2026-11-08",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMnY2SmFXTHdoTUhLdUJqLVI1RUoxODY3YWtkS1FneTN0Y0xwT093dW03eGNiWXVsYXFCRkJ4SGN6aWxnN2t4NWR4ZVBDVzNWZ1JoNkU3MTdBNUNvTm1qTl91VnluMXd2aThNU1NSM3o0TThEdElvNDBpQWp1Y3BrUFd2RFNhek5KUFpQZWZpTFl1TmRJc2FqdHRld0paWjg3TjNuaTZlVkFfbjAxSHkwY2pSOEpJVDMz?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-176",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Reveals Further A350, A320neo Delivery Delays",
+      "date": "2026-05-21",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZ0hCOEdtTHJtdVB4cUxOUzdQeG4zZDUxbHI2Q2t0MHkwMmQ5akVjekxXN01xOVpYamJGWlc2WEs3YlZTX093WExhQ3pYbm1idDdNbHI1VDM0TWJiQnlkTUVXclNFWHZ5RXVTY1hKOWw1VThaTW9TdFFDWmZhS1pIcmpBUnMwcTVsZkxSUS1kdFBLTkx0bTVjb3ZXWGl1c3BleVd5SS02Um9nSnJUWE43emRBQQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-177",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Composite Structures Suppliers Pitch Techniques For Future Narrowbody",
+      "date": "2026-06-17",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNXM1enQ0N0RwVERzVTZZaktsd2xBWlhHNjdNTm9MaGFhLVdaTmdnZ2lfZ1VjN0h3ZmlkNUlRQjNQQXZhdU5FbndoTUh4MGJUQW5rQXNMQ1R1UTJZMEJoWWxYQTZNOGFaRWVxZzdoNm1ONUVjN1pXTmgtZHlkVmowZDJJOE1zMHhObHpsNWliLVZoRjRCb2JHSjdELWxrSHhZbXB1aHpoS0ZOb0NQcWhjNDYtWUkxbjg?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-178",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Interview: Why Boeing’s CEO Sees The Next Narrowbody 'Moving To The Right'",
+      "date": "2026-06-25",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOY3ZQQ2NJbU8yNE5SZUVndEZrRWFKVEZRdWd1MVJpdFd0SXo2OG1hZDY3WHFlTUxXWHUwOEVvWXBYQWtIOUtuemtGUUU0UnlIbkFEUDRvcFdWS09PUmVkYjI4TXJ4NjlBQWpMd0JtVlJTeTRUT1NpNmtnNmMyNE9jOHk0WnAyS081Q29iY1hEME9maVdlOWxqU2d4UHZvTzJxTjBLaXBwSUViREhFZWRJYmRSbjdFV3JVeVhfc0lB?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-179",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Single-Aisle Production Rate Increases Keep Pressure On Engine-Makers",
+      "date": "2026-02-02",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPWmZCNHBxRG5lZEl4TFBBV0lZbTFxSEtrTnRDSmV3Q0FRNDlVZDRmYnRDU2ZmdlBDUjk5Y3BTUDFIcHRCU1hXTUFNemt1Rm1HZXhFT21xLVB6ekFVTUxvTmstQ3ozeG9taklkUUF3M3g2NUYyWnhwaWh0Tkt1WlU2QlFoWkJvcEpoYVpIQ2VTeWFUZzdzTXpvMzg1OHg3SFNQMWNFM0pJWnNBQ0Y3b3Vra1dzbkQzNGVyU0NtdjVR?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-180",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airlines Face Supply Chain And Certification Delays On Seats",
+      "date": "2026-11-04",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPXzVlSEdWVHExX3ZYeVZ4eng3WUdGYWZ4Sl9NNzAtR2lFbF9vaF8zVkVqcHpfZUtkc2RjaHU3M0dId1RNbFNocGRwVXJ1Rkc3b1E2eXRteHJHajNjYWdKSlNOanhWMkNKODkzQmNIZVBIb2VHenhUVHN1dDBLYkFyQmNDOVVFU1dHUkQ2YXRsUm5lY2RqX2pYX3dDaU5uS1pncXlKaEJRcTVoYjRlUlRqVzdzZElzdw?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-181",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus And Boeing Advance Production Ramp-Up Efforts",
+      "date": "2025-05-02",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPWXBuc1ZLdkhuOUhXbGRJSllvVWJ2RHJ5NzZtVkRlZmxoYlZtVThWVWpMdlJCa3h1d0drTHhVUF93dk5TOTBVeTFRZEJwUU9XWElSWk1LdG1tQmJlaEVMVkZnNU96UlctajlLeldFbHJsbXlMM1pwdExtWERTaVE2U2F4UkhRODdKRGRsa0ZObk9LaDI5M1hfaEtDWXlaYTIwbzU4dWRvMjFFZzQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-182",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Germany’s Commercial Aerospace Sector Remains Upbeat On Growth Plans",
+      "date": "2026-05-28",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPQms1LWxvZ3hpSnVMbDdDN196VXVHNHJtelYtYjMtSi1DandGUkVHSFNqYTBYSFRwMDQ2cGNzYnpCdDM5Y0RMZ0F3bjBQNnF3djlrYUt2RTNoOEozdkhoLWx5ZHRHb3RucVY4UXBnWnBUNkY4d2JSa2hSd3VkeFUwS0dNSmE1RkRTNzVpMXpjODE1TDBwVVI1cC16MkxBMEdqYXJjajJyZTU0bmVjeF9ZQkVRLW9JaGpGRGdJZg?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-183",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Opinion: Commercial Aerospace Has A Profit Problem",
+      "date": "2025-09-18",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPS21HRnBGNWpBZlJjZTFIejNOSWZ1bHNMQzVsNnc2RHpkclVkYm9Bbm9yb2JTd2p4elQ4eVhfSkRhNFNEajE3dmJXNlNka285Rnh3QnJicEdMSE81bVdCc3hLVU5STTdWdTE1T3NnNEItbXhCMXEyeXk3ekJyZ0ZWR0lnRnVfZ3JLX01keUdoVWF1T3hENU12NmVmNGk1R0p3ZU5vVy1lVWNNVTNXZlE?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-184",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Boeing Is The Biggest Problem For The Supply Chain, Survey Finds",
+      "date": "2024-07-22",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQcjZoMk9YenJzVXYxTVhRN2hYZ3ljWVdzNGFhMXFqRzRYMWJzVWdEN0tSWkpaanJlNVFXcE5pdmRQNEl3V25fWXV3VmJqMElUbXZGM09pdFFMVzU1eXQyQk5oYWJ5Xy1pbTRCZGVQeTIwZUpPR1puZFFUaU5PcmFrdTg1cXNaUENhYzdSNnVzWHZCczBJNHYzbmgzNmltRHI5eGVMdg?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-185",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Claims Supply Chain Reset Is Paying Off",
+      "date": "2025-06-18",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRmY1RFBJQnVfM0lwRVpGSnh1cXhHdkJha04xaExqNjVBM0NROTQxOHRQM3ZkWHBYUWxfMUpNSVBBbnNpdF84Sy1rS0pJQzFoZEdPWjNwWFBSblZqemVkUzFMXzdVakg0UXUxbU1pcHZKUjR6Rk1jZUlTbjNObWZQWXItN0lrZTc5T3d2Zm5HUGsxTF9wX2NMdVo4dGdjZnNZY240?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-186",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Opinion: Why Embraer Might Be Ready To Take On Airbus And Boeing",
+      "date": "2024-12-12",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPcGlueTE1NFpQOW5zUXo3NDJ2a2ZUZ3RHQ3hYWGRoRDVUNXhYaURTbE8wTnYtdFNNQTM0bFJvTG1CUi1pOWxmLTd5ZHFfbU5BOHJKOGpKV1BZZFlDalRBOTNLZUxXcEFaSmNwNFBSM1IyNXQ2NXdKVnBTTVduNDFTWGQ2b2xXOHBCc2Y2dFhQMjMxWTdxMExwalpYMXItOC1sRXppQzVoVVNrQ210WWl0MldlTGVCUQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-187",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Interview: Boeing CEO Kelly Ortberg Opens Up",
+      "date": "2025-05-29",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOSEpOeGRQcVNydVR4ZkRtR2E0VXFxQUxiaGNrS0FiZlliN0ZqR252QzVTWTRvZ2RscmNfbG5oaUtCSnd3NXlJZVg1M0JsZUYyLXJQNXFKM00xVHJmQzU4WmViQnlOSFAzUno4RjZsdFJzcTJFNkt3RGtMeEo0bEhOVmRIS2F4elZJUHk5QWxsZTBoRHRZQTZ0RmhtWnJNbEEzQmpQQw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-188",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Prioritizes Production Ramp-Up Over Fast Change",
+      "date": "2022-11-10",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQZG9ZLURaVGVBMXFBVWNvWG9FQWFlaHF3NWI1eWNKRC1ueDFsQm5jUXFLWGwweEFFU2Flc2M3d2dIeWliTkUyWTRjX0NBMUF2LUgxbWNSSlRPcjJrNnBVa1AxNXdySjZLSlFnckFWYzMwSTFrMFF4VFhzNndlUy1qODJ0OVpodGpTOTBiei0tamhSUVVaQkZESTMyc0pQX04zVUN0akgyN2o0c1g0MjhybXducw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-189",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Expects Services Business To Grow Faster Than Market",
+      "date": "2026-10-14",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTlZLSHVpOXVqLTVQOFoxTm1VT0VGcGQyaUNOSGR3X1czZG1ZQ2sya2FCcm5admZwc1VhOXRkMFdxc3lFeUpLQVh2b1BwdXFERy1tZzZQcFA2NU54bFZNMlVvZDAxOFE4NW9Ed1RyS1lXNWY2T0FuV2J1ZmRTWmp5QzJSekdWdnhJUmU5ZFg5eGtXYjVEMG9XaktJZk9NU29NdFE?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-190",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus, Boeing Face New, Old Production Challenges And Shifted Powers",
+      "date": "2022-06-22",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNX2RuOExLX3dkbm9zQ0ljbXo5N3Jtei1aRUFUQ0JNY0JySmJIMFNmNnY5TXp0QXFSSVZEWWdFdlF5RXRjdXdUaTVwcmxmWVg0TWZ2NnpSem9LbmNwcmhkY0ljbktBQzhYWThoejFMM3RwemF4NWhUaXhaV3ZzM3JEN0ZPM0VvUGg2UXhUZWFRLVd1Z0VRcFpsY0FSSXlaN251ZzBjdk4wSXB4RWR4ZDhaeG5YMkpOaF9SYXc?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-191",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus’ Nagging Issues: Spirit AeroSystems, Satellites And A400M Sales",
+      "date": "2025-02-21",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNUUkyZDBnekpTeFQ1NzVoczNxdk15UWozUHM1SHY0U2JKRTJjQXdSVXU3cnBkMWdmc0pBNXlQMnllQ1duS18xVnZud1d6cTlrLVloNEM5RXR2SkNEekJYT2Fhb2ItQUNaZGFmSHVpLTNUbXRseE56ZEJUNDVINUtsZlN3TVJ1VXZUd1ZFekVReWZoRDJERTZLYUZUOVo4ZmxXczBSUlo0UG9FbGNnQlkzUXJQZjhKNGtCeHAw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-192",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Qantas Faces Longer Wait For First A350-1000ULR",
+      "date": "2026-05-26",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOQ3ZEc2g5S0Znd2NpbUFWTUN5eDctNDRJVjIzWjRzTndHV0NXTXI5NHhKVndCUXBpTXhFd3dDY3h5MHNaZ0RydjJfMVlOSlphT0U0RjVmT2ZvMENBWTRBNTVJTzFwUFV2djlwWlVrVWdvSlJ5ZHhBNko5ZHpnTzZXczVORk5JS040RnBOOHVLODVIb09xXzFQeXNoVHdXUkRxaDUzQg?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-193",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus CEO Guillaume Faury Reveals Plans for New-Generation Narrowbody",
+      "date": "2023-06-14",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPUWJtWVdtUnRLWF9mdmFwLV8yWlRkUkNLbjg3S3VkcXdheUg2clJwNFZpMFV5cms5M0c0alhlSzlHUjdCVkFON05XakkyajFXSHY4TmNJWkxxVUNtVmZ6MEJOSWVhSlBRY1ExVVR6eFZPZUhiNHFZcDFnTGVQYndJOFRTMEppSGhoQk5Ic2Z2SnV6aHlremxzYl9abUNRM1hsSi10TFdUa05rZzNQMzM4NFFGS3VRdw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-194",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Delays A350F By ‘A Few Months’ Into 2026",
+      "date": "2023-05-03",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNLTUyQXdvdFhXR0lBYVVoemNDVzZ6d1hGSTljNERTdWpyYzl4b3JnZnVuRlNaTGVQRVNRQmhCUnVRTlRBUV9YSG1oXzNQNG1TeWNfYXVxVzVNZWNMRzdsRHNhT29Xc1UxeXd1ZlJHT1hfUUluZTJvTmNDMFl3ZlJSblY2cFlFU3Z2MjVqS2ZMZ2c1eUd0QXlHUnJ3?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-195",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Pursues Rate Increases As Supplier Concerns Persist",
+      "date": "2022-05-12",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPazRnWWRJeVpuV0pDQzV6ak9GNzVVTS1tWHJPaFZadVp5cjQ1RTRRXzA4SDZ5TGh6LURvWEJDVmVfZllLUDhKN1pYb09lQmVuUFJyWnFKN3BCVTlhQWh3Wkc3a0hZSE9sQ2w2WGxjUlBsNjN2bXRmZnRkanhWbnFiVHdWS3JxQnFfTVBhVkdmaEJpYUFmV0R2UDV0Q2RwcExwTWc1Ti0xQnpIS1lQY0lESlNMbHpvaWR6?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-196",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Wants More Airline Partners For SAF Investment After ZEROe Delay",
+      "date": "2025-10-27",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNM1I2MlR1MnctWndaQ0plUmdLT1V6c0R4XzZaQXlpN2RjWEJWcGQ1cGZWNEUzZk0wYWF4TzY1a2xDQTFyY1J6eTlHVGdia1MwVFcwaTlJU182X05sZUJ3d0luQ0NFaXkxZks5UmpqY29LSEJial9xcWNkVERoZ2stWjF0MDdJQmdsYW0yNGY3T0tvWUpoOWk4ZEFWSUNYaVhiMU9Cd1VienNsbzE3N092TVJOd2wxLXBKMUVndg?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-197",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Sees Multiple Stations As Key To Keeping A350 Production Moving",
+      "date": "2025-11-19",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNUFo2Q0pwRWNiVWFSWnpWaHJKSlNFcEpudFg3dEU1YTFqQzVwN1NWYWE0Y0dTeDRxekEyaUEyMDBtNGNOa2QxYVJPZjk0UC12VlZTdzlzMVpabGJVV1JKQkRrR0x6emlUdXlxRHhmak02Z0hycExBckFDZ01QMEp3Tm5PbG1ZYzFEcjlUTDBzTVNsc1JGNVNKdnNlRkNsTl82NXBFY2tXY3Q1UFJtN3F6U2dFdVZud2FPVExR?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-198",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Safran Concerned About Major Increase In Energy Prices",
+      "date": "2022-11-03",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYk1fWHJTbV9jX2sxWXFKN3FHRVl2MW0yTUE2ZE1leUtCeVA0VDlQZDEzMGpzSHMzR0R2eTg1a0wtRng2ZkpEX1hOd2QyeXpxVVM3TWJBaWl3eXB5cEJ1SVMxMWlNYWtiT09uVEg4ZzFLYmRhMzhKNlV2OWZVcXI2YlRhd0NPVERUNHZDUUJ4Q3duOHV1eGZpMU01MThYaGFlbFl1eURkOUpwQ3VCOFFNS2VxOA?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-199",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Does a Next-Generation Airliner Make Business Sense?",
+      "date": "2025-06-16",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWDgxcG5Hd1B2ZU1ZNzR5WWVDVHVUVFNRZmttTnU4WVJIV1V2c1dCTTJUSWJ0Zi1qbHdMMEktYXFuSzFxZlNYNFl1SXlDRUxmZkNWc0FLbzZGaFRQRDJ1QzFMcC1ZS21DcWxrWWlEZXpLLUFVU3pMY0VTdlNyampKSFdfUlk0enpwTkRzRQ?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-200",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus-Boeing Medium Widebody Freighter Future In Flux",
+      "date": "2023-08-29",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPVXNQRVRFRnhhQ3dseU1LSTE3Rm5kU2wwZ0NyQjBiSzJsVlNURWFiX2lrb3pqUk40RlVHaTV1azlrUUd2REo3YmJXSnpPcjYtQW0yMGZ3NlFsXzdNckdhSEE4MXpMZHRNXzVxLXU5WnF5VDM5TEtBUVhYd2dWcTh2Y0J3aF9pb2I0QnlKMEdKc2JZdkcxWmp3dTJGeGszdXVtNU52RkNLbTltVUd1aXJDejBCZw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-201",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Garuda Looking To Lease Aircraft Amid Airbus, Boeing Delivery Delays",
+      "date": "2024-06-03",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZEVwc2Y2dkg5amdnbFNLVzRQbFdER1pFbnN0dmw5ZkRxU3FGRU9mNksyOXVWcmtqVnMzemxLX0g1MjIxMHpjRXpmTG45WTNKeFBQSGVRYzFHSVRLUDhNV2FPQThnSEtzZGl5YXl3VTIzdVRiaXpDc3E2VklMRzBHMHZPMUQ3RjVJbm1jRUhFZDhCUm9SMDQ4RW9zeVRvQy1TQncwNGxpYlFhVUw5TzJJUFlRYUY4YTdTcnE4Wg?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-202",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Demand Sways Corax Into Airbus A330 Material Supply",
+      "date": "2024-08-22",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQZ0RrU1NabE5FbHE0cDdFSGF5VU5sZWI0dXJOU3FKcUpMdTNLdHdiNG9hSDY2d1lWcEhOMTBlVWhZdjYzMk1fV2tiN0hkLUMzcVpteXh4OUNiYWVTWmNNZk1lSWRRdXVHd0NzOXlGM2Uyd2hJcVlJUHFoX2lGUGdLbkRRbDU2dXZPb2hGREZqVFJwZw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-203",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Why The Aerospace Industry's Workforce Issues Will Endure",
+      "date": "2023-03-29",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxONk9lRFpTdGJNczVEdV9TNV9vdUd0NHd5ZlJaSS1TcjNJTXN1QnpLSnJpRzNZWGp1WGJNVll3N2NvOER3YzdqaWcwQVl5WkQ3VS05U1dsVWlRcExBRW4wb3NGZTloTXZWS2R0dTVhLVE3RjN5U3JKNXlMcnloSThPbUdQX3BPMlNrQ3UwTjh5bmJqM3NQUXRYZzJpRDl3WUNXZ3hTU3hoX1pmX1VqZ2Q5V1pHSkc?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-204",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Daily Memo: As Airbus Ramps Up Production, A320 Suppliers Struggle To Keep Up",
+      "date": "2022-11-22",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOYnRDRGZ2MHZUY0xMV3JNSHhkNGpHMGVtN1kwX2V6cFh6OEdSS25GSWJBV1FXdEVyQk1PNHpXXzk0d25lMG02OENNLWtzamxfYXZuMURoMWZNZVFxMXd0bzJwNHI0dUtvSDV0Y0Y4emRGbkNfLUo1djJtNHZSYzRxN1FNOXRFeEgxTm9hM0NNd2J3NmpmTW52YUE4OGVjVWZmWGJobmN0dmFkR3ZpdkJMa01jeTlCZUhLc3Y5Qw?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-205",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Targets Both Conventional And Hydrogen Platforms For Mid-2030s",
+      "date": "2023-06-14",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdEg0dmU0X0pnUTlIQXBUX3ViSDlycjNFVWVJTDF0dTRoaWV6SlBGNjNic2JweDRYUVFjclhfem53TllCa2lnU3JybklzMFhrSVRNdXA0VU5SY2J1TXZtNjhlMkRUQ0tyMkVmLThVeFRzQVlCdHhvZzBBODZXWXpwNXlsaUFRUFdZZ3RZMEVIQlJ6d2FEUGxpUGFzNEtDOGNXbTNHcEVYdDV4cFpnNlU0?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-206",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Airbus Targets Superbird-9 Launch In 2027 After Delays",
+      "date": "2026-02-02",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNemVpcjB5ek5RZlk5VEMxTmc2QW9hZjhpNEl4VVlzYkk1WWJ1bHRqblZhSDFONDh5d0lYMnJDcVJwR0h3Ml9hMlpVV283cS1zd3l4ZkFiWlVFczRHb0RETHRGZ0Nhb0N1ak56T243bFVHb0xVTTVvUjNyNVZsS2dCRnhHYzM4MktVMXhQc3FlazhlVzV4QkpXTw?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-207",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "After Delay, Wizz Air Receives Its First Airbus A321XLR",
+      "date": "2025-05-20",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPTXZibk82c0xWcVB1ZUhfMEtNZGZKSEdGb3lTOXQ0NFVrQVktNXBJMXF5bUgwMUQ5R1dWTklkM3RhdG9zU3R1Qk5YUkRXY0tUbnJ1UERYcG1XanE5SWRqZnowTDI4VUJ6Ri1CemVvMHlFMWhSNk4ydTFqYUNRX05tSzhVWVcyZTVhRFJ3Y0daTFV5Wk9pVUJ3TEFZcUtycHlCXzJCTlNwUEp3ZElEWjN3?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-208",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "Singapore Airlines Works 'Closely' With Airbus On A350F After Delay",
+      "date": "2025-02-21",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNb2hvRklBbHYwaGZVNFpwVXJOR0MzV0xCeTBxb19UOERWQVZROHhTbUtVTkg5VE93ajZSeEJNTW05ejcxRzRHN2JtRDJZMXQ0SloyR2MyR29sdVh4VU9mbW13ZVVrRXg5dEMwOS0ybFVVb0o2cEpPbnY1MkNqSkZoSnF0b0JXV1NuZnprbjNTVWFROGZ5eG1XY2ZVT3V4SmpjNld4aHNSS3FLUGtqR19hN3ktSQ?oc=5",
+      "category": "BAD_FOR_AIRBUS",
+      "impact": "BAD_FOR_AIRBUS",
+      "pressure_impact": "+18°C",
+      "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en Aviation Week. Incrementa la presión sobre Guillaume Faury."
+    },
+    {
+      "id": "rss-209",
+      "source": "Aviation Week",
+      "platform": "PRENSA",
+      "channel": "Aviation Week Network",
+      "title": "What Went Wrong With The Airbus A380?",
+      "date": "2021-11-13",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQVHhpS2c0dW1IeVZlM1ZVblFNdkl3VEhLWVlDVWFmb2xfZ2FhS3lfOVhhaUs4OWVESGs4TzBReUNmbWlBa2RqSFNnQ2ZCY1I5MG9GSmgyaVR5OXZnd21rRl9oTTdvZElnSFRwalowTHlsTjk0bC1VU25wZnJpai1IRA?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Aviation Week."
+    },
+    {
+      "id": "rss-210",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5884,7 +6457,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en - Actualidad Aeroespacial."
     },
     {
-      "id": "rss-167",
+      "id": "rss-211",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5897,7 +6470,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en - Actualidad Aeroespacial."
     },
     {
-      "id": "rss-168",
+      "id": "rss-212",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5910,7 +6483,7 @@
       "summary": "Noticia / comunicado de alto impacto sobre la cadena de valor o la cohesión de la huelga en - Actualidad Aeroespacial. Incrementa la presión sobre Guillaume Faury."
     },
     {
-      "id": "rss-169",
+      "id": "rss-213",
       "source": "Industry Talks",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5923,7 +6496,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Industry Talks."
     },
     {
-      "id": "rss-170",
+      "id": "rss-214",
       "source": "Gobierno de Castilla-La Mancha",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5936,7 +6509,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Gobierno de Castilla-La Mancha."
     },
     {
-      "id": "rss-171",
+      "id": "rss-215",
       "source": "Cinco Días",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5949,7 +6522,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Cinco Días."
     },
     {
-      "id": "rss-172",
+      "id": "rss-216",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5962,7 +6535,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en - Actualidad Aeroespacial."
     },
     {
-      "id": "rss-173",
+      "id": "rss-217",
       "source": "- Actualidad Aeroespacial",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5975,7 +6548,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en - Actualidad Aeroespacial."
     },
     {
-      "id": "rss-174",
+      "id": "rss-218",
       "source": "Ayuntamiento de Getafe",
       "platform": "PRENSA",
       "channel": "Actualidad Aeroespacial",
@@ -5988,7 +6561,7 @@
       "summary": "Narrativa de contención corporativa o intentos de desmovilización reportados en Ayuntamiento de Getafe."
     },
     {
-      "id": "rss-175",
+      "id": "rss-219",
       "source": "Air Journal",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6001,7 +6574,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Journal."
     },
     {
-      "id": "rss-176",
+      "id": "rss-220",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6014,7 +6587,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-177",
+      "id": "rss-221",
       "source": "Les Echos",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6027,7 +6600,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Les Echos."
     },
     {
-      "id": "rss-178",
+      "id": "rss-222",
       "source": "ladepeche.fr",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6040,7 +6613,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en ladepeche.fr."
     },
     {
-      "id": "rss-179",
+      "id": "rss-223",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6053,7 +6626,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-180",
+      "id": "rss-224",
       "source": "Air Journal",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6066,7 +6639,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Journal."
     },
     {
-      "id": "rss-181",
+      "id": "rss-225",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6079,7 +6652,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-182",
+      "id": "rss-226",
       "source": "NVO",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6092,7 +6665,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en NVO."
     },
     {
-      "id": "rss-183",
+      "id": "rss-227",
       "source": "BFM",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6105,7 +6678,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en BFM."
     },
     {
-      "id": "rss-184",
+      "id": "rss-228",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6118,7 +6691,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-185",
+      "id": "rss-229",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6131,7 +6704,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-186",
+      "id": "rss-230",
       "source": "Air Journal",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6144,7 +6717,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Air Journal."
     },
     {
-      "id": "rss-187",
+      "id": "rss-231",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6157,7 +6730,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-188",
+      "id": "rss-232",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6170,7 +6743,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-189",
+      "id": "rss-233",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6183,7 +6756,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-190",
+      "id": "rss-234",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6196,7 +6769,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-191",
+      "id": "rss-235",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6209,7 +6782,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-192",
+      "id": "rss-236",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6222,7 +6795,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-193",
+      "id": "rss-237",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6235,7 +6808,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-194",
+      "id": "rss-238",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6248,7 +6821,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-195",
+      "id": "rss-239",
       "source": "Actu.fr",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6261,7 +6834,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en Actu.fr."
     },
     {
-      "id": "rss-196",
+      "id": "rss-240",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6274,7 +6847,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-197",
+      "id": "rss-241",
       "source": "ladepeche.fr",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6287,7 +6860,20 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en ladepeche.fr."
     },
     {
-      "id": "rss-198",
+      "id": "rss-242",
+      "source": "France 3 Régions",
+      "platform": "PRENSA",
+      "channel": "Prensa Francesa (Aerospace)",
+      "title": "Airbus : la direction penche côté allemand, les syndicats relativisent : \"Ça ne change pas grand-chose pour nous\"",
+      "date": "2026-10-08",
+      "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxQcEFqYVNTazRxMDNzYjF2NFMxM3NlRVJ0VXQxTjhZbmNqQTNTT2E4RFR2S0dhdWNSTmJRTlhQTjNqOXFJeFNWa3dGcTlmMlZGSUlGX094VHZocGU4ZWlWLXRTcFhHcE5lMS1TZlBHR0hMbDNfNl96TC11d1E4U3k0Q2U2ZkpLUUtfOTRWNFJVbnJMRWFCOXRnRGgxYU0tZ2RmRHpsR0RfVmdPVnFUSzUtSjJObFk5cWFWZGh4ZnMySWFydm0xWUp2RHhkOVJSZlVSRzZ6cHRFdDA5RUVzcXNRblBpN2F1YXplRlNwRFRSczJXa01aOWp3TVNWOTRHVWhrOElkWUpOQl92Z013YzhrNFhocGtGMlQ1b3c?oc=5",
+      "category": "NEUTRAL",
+      "impact": "NEUTRAL",
+      "pressure_impact": "0°C",
+      "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
+    },
+    {
+      "id": "rss-243",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6300,7 +6886,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-199",
+      "id": "rss-244",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6313,7 +6899,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-200",
+      "id": "rss-245",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6326,7 +6912,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en France 3 Régions."
     },
     {
-      "id": "rss-201",
+      "id": "rss-246",
       "source": "TF1 Info",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
@@ -6339,7 +6925,7 @@
       "summary": "Seguimiento ordinario del proceso de negociación y calendario laboral en TF1 Info."
     },
     {
-      "id": "rss-202",
+      "id": "rss-247",
       "source": "France 3 Régions",
       "platform": "PRENSA",
       "channel": "Prensa Francesa (Aerospace)",
